@@ -26,7 +26,7 @@ export const HeroSection = () => (
           <Badge>{t`Version 4`}</Badge>
 
           <a
-            href="https://docs.rxresu.me/overview/features"
+            href="https://github.com/amruthpillai/reactive-resume/releases/tag/v4.0.0"
             className={cn(buttonVariants({ variant: "link" }), "space-x-2 text-left")}
           >
             <p>{t`What's new in the latest version`}</p>
