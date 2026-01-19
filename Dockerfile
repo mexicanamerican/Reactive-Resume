@@ -1,47 +1,48 @@
-ARG NX_CLOUD_ACCESS_TOKEN
+# syntax=docker/dockerfile:1
 
-# --- Base Image ---
-FROM node:lts-bullseye-slim AS base
-ARG NX_CLOUD_ACCESS_TOKEN
+# ---------- Dependencies Layer ----------
+FROM node:24-slim AS dependencies
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
+RUN mkdir -p /tmp/dev /tmp/prod
+
+COPY package.json pnpm-lock.yaml /tmp/dev/
+COPY package.json pnpm-lock.yaml /tmp/prod/
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    cd /tmp/dev && pnpm install --frozen-lockfile
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    cd /tmp/prod && pnpm install --frozen-lockfile --prod
+
+# ---------- Builder Layer ----------
+FROM node:24-slim AS builder
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 WORKDIR /app
 
-# --- Build Image ---
-FROM base AS build
-ARG NX_CLOUD_ACCESS_TOKEN
-
-COPY .npmrc package.json pnpm-lock.yaml ./
-COPY ./tools/prisma /app/tools/prisma
-RUN pnpm install --frozen-lockfile
-
+COPY --from=dependencies /tmp/dev/node_modules ./node_modules
 COPY . .
-
-ENV NX_CLOUD_ACCESS_TOKEN=$NX_CLOUD_ACCESS_TOKEN
 
 RUN pnpm run build
 
-# --- Release Image ---
-FROM base AS release
-ARG NX_CLOUD_ACCESS_TOKEN
+# ---------- Runtime Layer ----------
+FROM node:24-slim AS runtime
 
-RUN apt update && apt install -y dumb-init --no-install-recommends && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
 
-COPY --chown=node:node --from=build /app/.npmrc /app/package.json /app/pnpm-lock.yaml ./
-RUN pnpm install --prod --frozen-lockfile
-
-COPY --chown=node:node --from=build /app/dist ./dist
-COPY --chown=node:node --from=build /app/tools/prisma ./tools/prisma
-RUN pnpm run prisma:generate
-
-ENV TZ=UTC
-ENV PORT=3000
 ENV NODE_ENV=production
 
-EXPOSE 3000
+COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/migrations ./migrations
+COPY --from=dependencies /tmp/prod/node_modules ./node_modules
 
-CMD [ "dumb-init", "pnpm", "run", "start" ]
+EXPOSE 3000/tcp
+
+ENTRYPOINT ["node", "-r", "reflect-metadata", ".output/server/index.mjs"]

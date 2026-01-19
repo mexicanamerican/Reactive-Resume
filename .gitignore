@@ -1,53 +1,15 @@
-# Compiled Output
 dist
-tmp
-/out-tsc
-
-# Project Dependencies
-node_modules
-
-# IDEs and Editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vs/*
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# Miscellaneous
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+.env*
+/data
+.nitro
+.output
+.vercel
+.cursor
+coverage
+.netlify
 .DS_Store
-Thumbs.db
-
-# Generated Files
-.nx
-.swc
-.turbo
-fly.toml
-stats.html
-
-# Environment Variables
-*.env*
+.tanstack
+node_modules
 !.env.example
-
-# Lingui Compiled Messages
-apps/client/src/locales/_build/
-apps/client/src/locales/*/messages.*js
+public/sw.js
+public/workbox-*.js
