@@ -1,4 +1,3 @@
-<!--
 <div align="center" markdown="1">
   <a href="https://go.warp.dev/Reactive-Resume">
     <img alt="Warp Sponsorship" width="400" src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-03.png?raw=true" />
@@ -10,7 +9,6 @@
 </div>
 
 ---
--->
 
 <div align="center">
   <a href="https://rxresu.me">
