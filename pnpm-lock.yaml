@@ -93,8 +93,8 @@ importers:
         specifier: ^1.153.2
         version: 1.153.2(@tanstack/query-core@5.90.19)(@tanstack/react-query@5.90.19(react@19.2.3))(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@tanstack/router-core@1.153.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@tanstack/react-start':
-        specifier: ^1.153.2
-        version: 1.153.2(crossws@0.4.1(srvx@0.10.0))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))
+        specifier: ^1.154.0
+        version: 1.154.0(crossws@0.4.1(srvx@0.10.0))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))
       '@tanstack/zod-adapter':
         specifier: ^1.153.2
         version: 1.153.2(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(zod@4.3.5)
@@ -117,11 +117,11 @@ importers:
         specifier: ^3.15.3
         version: 3.15.3
       ai:
-        specifier: ^6.0.41
-        version: 6.0.41(zod@4.3.5)
+        specifier: ^6.0.42
+        version: 6.0.42(zod@4.3.5)
       ai-sdk-ollama:
         specifier: ^3.1.1
-        version: 3.1.1(ai@6.0.41(zod@4.3.5))(zod@4.3.5)
+        version: 3.1.1(ai@6.0.42(zod@4.3.5))(zod@4.3.5)
       bcrypt:
         specifier: ^6.0.0
         version: 6.0.0
@@ -321,8 +321,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/gateway@3.0.16':
-    resolution: {integrity: sha512-OOY5CfRJiHvh/8np2vs1RQaCZ5hWv2qOeEmmeiABXK3gLQHUVnCO+1hhoLsZdHM5iElu6M407dAOfyvTsKJqcQ==}
+  '@ai-sdk/gateway@3.0.17':
+    resolution: {integrity: sha512-mCz50GlBPyBV96Wcll1Mpaz56MVFuHL+bwRWGkIsCJwKAKIfdgUZecFzS3gckpHGaqP5+BYnmyJocIMzUhTQ2A==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -3781,8 +3781,8 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/react-start@1.153.2':
-    resolution: {integrity: sha512-akQPVjSJoki5A8X/pDUpfxdcRvkTAO2d/rwStWRT6aVglmODbaNaGg8Asd9JSs6qhT2E+lKeTIZp8OSUxC1UOA==}
+  '@tanstack/react-start@1.154.0':
+    resolution: {integrity: sha512-umfxigl+oqW2oWlIYEk+FI85a9GUKvUIMLN2AH6MrGvuVqPbL5uFOl4qHY78VKTyzdDjzxndtMwoHSodm038aw==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -3843,8 +3843,8 @@ packages:
     resolution: {integrity: sha512-/zWBnfsOwact936Bn0CxigudU1QRZdiNTsK7ME/LMXXA66XsDxkryX5+5FeGwU5ETNPfLAx6pRUet1mtUKnLCg==}
     engines: {node: '>=22.12.0'}
 
-  '@tanstack/start-plugin-core@1.153.2':
-    resolution: {integrity: sha512-4r/muO6im3YZfUgoT/Ibkmb8xgNOqs7rzxTrH9pO+iCwrl9Z/3wU9N8/v97DFmYqcA3+r9/WDHC7IXazEdBCDw==}
+  '@tanstack/start-plugin-core@1.154.0':
+    resolution: {integrity: sha512-qlywkB43bltkS9poMtAEjxPG9Y4YTP4GSaCOyINYdkrfCEU42xCpUghvANFMpeKEQn+I2YvBtUlGcRpJxKyjDw==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       vite: '>=7.0.0'
@@ -4175,8 +4175,8 @@ packages:
     peerDependencies:
       ai: ^6.0.27
 
-  ai@6.0.41:
-    resolution: {integrity: sha512-FaFKBiqOX3RKEz7PJ/K6d9+1JnHilzR4ID2elRzZ/yVGC5vM4RvVRyYHlhFso/gyQRXrQZtOSbqbBchAwcTDXg==}
+  ai@6.0.42:
+    resolution: {integrity: sha512-o+MVN7HBE4HEnhtN7nBt9WO1iISI6svyWNoOuY6WiXCdHuZfSGN4MUQ3QwjWz1Ue5gtBEcvwX5XFhgAwlPAxxw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -7573,7 +7573,7 @@ snapshots:
       '@ai-sdk/provider-utils': 4.0.8(zod@4.3.5)
       zod: 4.3.5
 
-  '@ai-sdk/gateway@3.0.16(zod@4.3.5)':
+  '@ai-sdk/gateway@3.0.17(zod@4.3.5)':
     dependencies:
       '@ai-sdk/provider': 3.0.4
       '@ai-sdk/provider-utils': 4.0.8(zod@4.3.5)
@@ -11571,14 +11571,14 @@ snapshots:
     transitivePeerDependencies:
       - crossws
 
-  '@tanstack/react-start@1.153.2(crossws@0.4.1(srvx@0.10.0))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))':
+  '@tanstack/react-start@1.154.0(crossws@0.4.1(srvx@0.10.0))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))':
     dependencies:
       '@tanstack/react-router': 1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@tanstack/react-start-client': 1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@tanstack/react-start-server': 1.153.2(crossws@0.4.1(srvx@0.10.0))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@tanstack/router-utils': 1.143.11
       '@tanstack/start-client-core': 1.153.2
-      '@tanstack/start-plugin-core': 1.153.2(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(crossws@0.4.1(srvx@0.10.0))(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))
+      '@tanstack/start-plugin-core': 1.154.0(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(crossws@0.4.1(srvx@0.10.0))(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))
       '@tanstack/start-server-core': 1.153.2(crossws@0.4.1(srvx@0.10.0))
       pathe: 2.0.3
       react: 19.2.3
@@ -11671,7 +11671,7 @@ snapshots:
 
   '@tanstack/start-fn-stubs@1.151.3': {}
 
-  '@tanstack/start-plugin-core@1.153.2(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(crossws@0.4.1(srvx@0.10.0))(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))':
+  '@tanstack/start-plugin-core@1.154.0(@tanstack/react-router@1.153.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(crossws@0.4.1(srvx@0.10.0))(rolldown-vite@7.3.1(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(terser@5.46.0)(tsx@4.21.0))':
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/core': 7.28.6
@@ -12072,18 +12072,18 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai-sdk-ollama@3.1.1(ai@6.0.41(zod@4.3.5))(zod@4.3.5):
+  ai-sdk-ollama@3.1.1(ai@6.0.42(zod@4.3.5))(zod@4.3.5):
     dependencies:
       '@ai-sdk/provider': 3.0.4
       '@ai-sdk/provider-utils': 4.0.8(zod@4.3.5)
-      ai: 6.0.41(zod@4.3.5)
+      ai: 6.0.42(zod@4.3.5)
       ollama: 0.6.3
     transitivePeerDependencies:
       - zod
 
-  ai@6.0.41(zod@4.3.5):
+  ai@6.0.42(zod@4.3.5):
     dependencies:
-      '@ai-sdk/gateway': 3.0.16(zod@4.3.5)
+      '@ai-sdk/gateway': 3.0.17(zod@4.3.5)
       '@ai-sdk/provider': 3.0.4
       '@ai-sdk/provider-utils': 4.0.8(zod@4.3.5)
       '@opentelemetry/api': 1.9.0

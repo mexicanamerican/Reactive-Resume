@@ -66,8 +66,8 @@
 						"pages": ["guides/using-the-api", "guides/using-ai", "guides/json-resume-schema"]
 					},
 					{
-						"group": "Self-hosting",
-						"pages": ["guides/self-hosting-with-docker"]
+						"group": "Self-Hosting",
+						"pages": ["self-hosting/docker", "self-hosting/examples", "self-hosting/migration"]
 					},
 					{
 						"group": "Contributing",
