@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-20 11:51\n"
+"PO-Revision-Date: 2026-01-20 15:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -31,7 +31,7 @@ msgstr "Chinese"
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:53
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: src/routes/_home/-sections/hero.tsx:109
 msgid "(opens in new tab)"
@@ -1482,7 +1482,7 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:50
 #: src/routes/dashboard/settings/profile.tsx:134
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: src/utils/locale.ts:100
 msgid "Nepali"
@@ -2026,7 +2026,7 @@ msgstr ""
 
 #: src/utils/resume/section.tsx:97
 msgid "Skills"
-msgstr ""
+msgstr "Skills"
 
 #: src/routes/_home/route.tsx:16
 msgid "Skip to main content"
