@@ -16,7 +16,7 @@ export function GithubStarsButton() {
 	return (
 		<Button asChild variant="outline">
 			<a
-				href="https://github.com/AmruthPillai/Reactive-Resume"
+				href="https://github.com/amruthpillai/reactive-resume"
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label={ariaLabel}

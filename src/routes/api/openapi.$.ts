@@ -36,7 +36,7 @@ async function handler({ request }: { request: Request }) {
 				title: "Reactive Resume",
 				version: "5.0.0",
 				description: "Reactive Resume API",
-				license: { name: "MIT", url: "https://github.com/AmruthPillai/Reactive-Resume/blob/main/LICENSE" },
+				license: { name: "MIT", url: "https://github.com/amruthpillai/reactive-resume/blob/main/LICENSE" },
 				contact: { name: "Amruth Pillai", email: "hello@amruthpillai.com", url: "https://amruthpillai.com" },
 			},
 			servers: [{ url: `${env.APP_URL}/api/openapi` }],

@@ -28,8 +28,8 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/github/stars/AmruthPillai/Reactive-Resume?style=flat-square" alt="Stars" />
-    <img src="https://img.shields.io/github/license/AmruthPillai/Reactive-Resume?style=flat-square" alt="License" />
+    <img src="https://img.shields.io/github/stars/amruthpillai/Reactive-Resume?style=flat-square" alt="Stars" />
+    <img src="https://img.shields.io/github/license/amruthpillai/Reactive-Resume?style=flat-square" alt="License" />
     <img src="https://img.shields.io/docker/pulls/amruthpillai/reactive-resume?style=flat-square" alt="Docker Pulls" />
     <a href="https://discord.gg/hzwkZbyvUW"><img src="https://img.shields.io/discord/1173518977851473940?label=Discord&style=flat-square&logo=discord" alt="Discord" /></a>
     <a href="https://crowdin.com/project/reactive-resume"><img src="https://badges.crowdin.net/reactive-resume/localized.svg?style=flat-square" alt="Crowdin" /></a>
@@ -149,8 +149,8 @@ The quickest way to run Reactive Resume locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AmruthPillai/Reactive-Resume.git
-cd Reactive-Resume
+git clone https://github.com/amruthpillai/reactive-resume.git
+cd reactive-resume
 
 # Start all services
 docker compose up -d

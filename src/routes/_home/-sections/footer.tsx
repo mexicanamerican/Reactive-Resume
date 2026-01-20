@@ -26,20 +26,20 @@ type SocialLink = {
 
 const getResourceLinks = (): FooterLinkItem[] => [
 	{ url: "https://docs.rxresu.me", label: t`Documentation` },
-	{ url: "https://github.com/AmruthPillai/Reactive-Resume", label: t`Source Code` },
+	{ url: "https://github.com/amruthpillai/reactive-resume", label: t`Source Code` },
 	{ url: "https://crowdin.com/project/reactive-resume", label: t`Translations` },
 	{ url: "https://opencollective.com/reactive-resume", label: t`Donate` },
 ];
 
 const getCommunityLinks = (): FooterLinkItem[] => [
-	{ url: "https://github.com/AmruthPillai/Reactive-Resume/discussions", label: t`Discussions` },
-	{ url: "https://github.com/AmruthPillai/Reactive-Resume/issues", label: t`Report an Issue` },
+	{ url: "https://github.com/amruthpillai/reactive-resume/discussions", label: t`Discussions` },
+	{ url: "https://github.com/amruthpillai/reactive-resume/issues", label: t`Report an Issue` },
 	{ url: "https://crowdin.com/project/reactive-resume", label: t`Translations` },
-	{ url: "https://github.com/AmruthPillai/Reactive-Resume/blob/main/CONTRIBUTING.md", label: t`Contributing` },
+	{ url: "https://github.com/amruthpillai/reactive-resume/blob/main/CONTRIBUTING.md", label: t`Contributing` },
 ];
 
 const socialLinks: SocialLink[] = [
-	{ url: "https://github.com/AmruthPillai/Reactive-Resume", label: "GitHub", icon: GithubLogoIcon },
+	{ url: "https://github.com/amruthpillai/reactive-resume", label: "GitHub", icon: GithubLogoIcon },
 	{ url: "https://linkedin.com/in/amruthpillai", label: "LinkedIn", icon: LinkedinLogoIcon },
 	{ url: "https://x.com/KingOKings", label: "X (Twitter)", icon: XLogoIcon },
 ];

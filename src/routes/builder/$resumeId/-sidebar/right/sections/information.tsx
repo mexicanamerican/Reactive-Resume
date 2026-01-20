@@ -42,13 +42,13 @@ export function InformationSectionBuilder() {
 				</Button>
 
 				<Button asChild size="sm" variant="link" className="text-xs">
-					<a href="https://github.com/AmruthPillai/Reactive-Resume" target="_blank" rel="noopener noreferrer">
+					<a href="https://github.com/amruthpillai/reactive-resume" target="_blank" rel="noopener noreferrer">
 						<Trans>Source Code</Trans>
 					</a>
 				</Button>
 
 				<Button asChild size="sm" variant="link" className="text-xs">
-					<a href="https://github.com/AmruthPillai/Reactive-Resume/issues" target="_blank" rel="noopener noreferrer">
+					<a href="https://github.com/amruthpillai/reactive-resume/issues" target="_blank" rel="noopener noreferrer">
 						<Trans>Report a Bug</Trans>
 					</a>
 				</Button>

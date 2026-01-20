@@ -94,7 +94,7 @@
 				{
 					"icon": "github",
 					"anchor": "Source Code",
-					"href": "https://github.com/AmruthPillai/Reactive-Resume"
+					"href": "https://github.com/amruthpillai/reactive-resume"
 				}
 			]
 		}
@@ -107,7 +107,7 @@
 		"links": [
 			{
 				"label": "Support",
-				"href": "https://github.com/AmruthPillai/Reactive-Resume/issues"
+				"href": "https://github.com/amruthpillai/reactive-resume/issues"
 			}
 		],
 		"primary": {
@@ -122,7 +122,7 @@
 	"footer": {
 		"socials": {
 			"website": "https://rxresu.me",
-			"github": "https://github.com/AmruthPillai/Reactive-Resume"
+			"github": "https://github.com/amruthpillai/reactive-resume"
 		}
 	}
 }
