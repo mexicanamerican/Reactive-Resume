@@ -422,6 +422,7 @@ export class ReactiveResumeV4JSONImporter {
 						id: field.id ?? generateId(),
 						icon: field.icon ?? "",
 						text: field.text ?? "",
+						link: "",
 					})),
 				},
 				summary: {

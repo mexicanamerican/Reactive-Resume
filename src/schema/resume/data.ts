@@ -7,65 +7,6 @@ export const iconSchema = z
 		"The icon to display for the custom field. Must be a valid icon name from @phosphor-icons/web icon set, or an empty string to hide. Default to '' (empty string) when unsure which icons are available.",
 	);
 
-export const localeSchema = z
-	.union([
-		z.literal("af-ZA"),
-		z.literal("am-ET"),
-		z.literal("ar-SA"),
-		z.literal("az-AZ"),
-		z.literal("bg-BG"),
-		z.literal("bn-BD"),
-		z.literal("ca-ES"),
-		z.literal("cs-CZ"),
-		z.literal("da-DK"),
-		z.literal("de-DE"),
-		z.literal("el-GR"),
-		z.literal("en-US"),
-		z.literal("es-ES"),
-		z.literal("fa-IR"),
-		z.literal("fi-FI"),
-		z.literal("fr-FR"),
-		z.literal("he-IL"),
-		z.literal("hi-IN"),
-		z.literal("hu-HU"),
-		z.literal("id-ID"),
-		z.literal("it-IT"),
-		z.literal("ja-JP"),
-		z.literal("km-KH"),
-		z.literal("kn-IN"),
-		z.literal("ko-KR"),
-		z.literal("lt-LT"),
-		z.literal("lv-LV"),
-		z.literal("ml-IN"),
-		z.literal("mr-IN"),
-		z.literal("ms-MY"),
-		z.literal("ne-NP"),
-		z.literal("nl-NL"),
-		z.literal("no-NO"),
-		z.literal("or-IN"),
-		z.literal("pl-PL"),
-		z.literal("pt-BR"),
-		z.literal("pt-PT"),
-		z.literal("ro-RO"),
-		z.literal("ru-RU"),
-		z.literal("sk-SK"),
-		z.literal("sq-AL"),
-		z.literal("sr-SP"),
-		z.literal("sv-SE"),
-		z.literal("ta-IN"),
-		z.literal("te-IN"),
-		z.literal("th-TH"),
-		z.literal("tr-TR"),
-		z.literal("uk-UA"),
-		z.literal("uz-UZ"),
-		z.literal("vi-VN"),
-		z.literal("zh-CN"),
-		z.literal("zh-TW"),
-		z.literal("zu-ZA"),
-	])
-	.describe("The language used in the resume, used for displaying pre-translated section headings, if not overridden.")
-	.catch("en-US");
-
 export const urlSchema = z.object({
 	url: z
 		.string()
@@ -124,6 +65,11 @@ export const customFieldSchema = z.object({
 	id: z.string().describe("The unique identifier for the custom field. Usually generated as a UUID."),
 	icon: iconSchema,
 	text: z.string().describe("The text to display for the custom field."),
+	link: z
+		.url()
+		.or(z.literal(""))
+		.describe("If the custom field should be a link, the URL to link to. Leave blank to hide.")
+		.catch(""),
 });
 
 export const basicsSchema = z.object({
@@ -431,7 +377,10 @@ export const pageSchema = z.object({
 	marginX: z.number().min(0).describe("The horizontal margin of the page, defined in points (pt)."),
 	marginY: z.number().min(0).describe("The vertical margin of the page, defined in points (pt)."),
 	format: z.enum(["a4", "letter"]).describe("The format of the page. Can be 'a4' or 'letter'."),
-	locale: localeSchema,
+	locale: z
+		.string()
+		.describe("The locale of the page. Used for displaying pre-translated section headings, if not overridden.")
+		.catch("en-US"),
 	hideIcons: z.boolean().describe("Whether to hide the icons of the sections.").catch(false),
 });
 
@@ -683,11 +632,13 @@ export const sampleResumeData: ResumeData = {
 				id: "cf1",
 				icon: "github-logo",
 				text: "github.com/dkowalski-dev",
+				link: "https://github.com/dkowalski-dev",
 			},
 			{
 				id: "cf2",
 				icon: "game-controller",
 				text: "itch.io/dkowalski",
+				link: "https://itch.io/dkowalski",
 			},
 		],
 	},
