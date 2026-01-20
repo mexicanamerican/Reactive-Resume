@@ -27,6 +27,7 @@ export function Hero() {
 						muted
 						autoPlay
 						playsInline
+						fetchpriority="high"
 						src="/videos/timelapse.webm"
 						aria-label={t`Timelapse demonstration of building a resume with Reactive Resume`}
 						className="pointer-events-none aspect-video size-full rounded-lg border object-cover shadow-2xl"

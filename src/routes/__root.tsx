@@ -1,3 +1,6 @@
+import "@fontsource-variable/ibm-plex-sans";
+import "@phosphor-icons/web/regular/style.css";
+
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { IconContext } from "@phosphor-icons/react";
@@ -50,7 +53,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			meta: [
 				{ title },
 				{ charSet: "UTF-8" },
-				{ meta: "description", content: description },
+				{ name: "description", content: description },
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
 				// Twitter Tags
 				{ property: "twitter:image", content: `${appUrl}/opengraph/banner.jpg` },

@@ -1,10 +1,18 @@
 /// <reference types="vite-plugin-pwa/client" />
 
+import type { AriaAttributes, DOMAttributes } from "react";
+
 declare const __APP_VERSION__: string;
 
 declare module "*.css";
 declare module "@fontsource/*" {}
 declare module "@fontsource-variable/*" {}
+
+declare module "react" {
+	interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+		fetchpriority?: "high" | "low" | "auto";
+	}
+}
 
 declare namespace NodeJS {
 	interface ProcessEnv {

@@ -4,12 +4,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Fonts */
-@import "@fontsource-variable/ibm-plex-sans";
-
-/* Phosphor Icons */
-@import "@phosphor-icons/web/regular/style.css";
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
