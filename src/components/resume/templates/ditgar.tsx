@@ -10,9 +10,6 @@ const sectionClassName = cn(
 	// Section Heading
 	"[&>h6]:border-(--page-primary-color) [&>h6]:border-b",
 
-	// Icon Colors in Sidebar Layout
-	"group-data-[layout=sidebar]:[&_.section-item_i]:text-(--page-background-color)!",
-
 	// Section Item Header in Sidebar Layout
 	"group-data-[layout=sidebar]:[&_.section-item-header>div]:flex-col",
 	"group-data-[layout=sidebar]:[&_.section-item-header>div]:items-start",
@@ -25,9 +22,16 @@ export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
 
+	const SummaryComponent = getSectionComponent("summary", {
+		sectionClassName: cn(sectionClassName, "px-(--page-margin-x) pt-(--page-margin-y)"),
+	});
+
 	return (
 		<div className="template-ditgar page-content grid min-h-[inherit] grid-cols-3">
-			<div className={cn("sidebar group flex flex-col", !(isFirstPage || !fullWidth) && "hidden")}>
+			<div
+				data-layout="sidebar"
+				className={cn("sidebar group flex flex-col", !(isFirstPage || !fullWidth) && "hidden")}
+			>
 				{isFirstPage && <Header />}
 
 				<div className="flex-1 space-y-4 bg-(--page-primary-color)/20 px-(--page-margin-x) py-(--page-margin-y)">
@@ -38,18 +42,16 @@ export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				</div>
 			</div>
 
-			<div className={cn("main group", !fullWidth ? "col-span-2" : "col-span-3")}>
-				{isFirstPage &&
-					(() => {
-						const SummaryComponent = getSectionComponent("summary", { sectionClassName });
-						return <SummaryComponent id="summary" />;
-					})()}
+			<div data-layout="main" className={cn("main group", !fullWidth ? "col-span-2" : "col-span-3")}>
+				{isFirstPage && <SummaryComponent id="summary" />}
 
 				<div className="space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
-					{main.map((section) => {
-						const Component = getSectionComponent(section, { sectionClassName });
-						return <Component key={section} id={section} />;
-					})}
+					{main
+						.filter((section) => section !== "summary")
+						.map((section) => {
+							const Component = getSectionComponent(section, { sectionClassName });
+							return <Component key={section} id={section} />;
+						})}
 				</div>
 			</div>
 		</div>
@@ -68,7 +70,7 @@ function Header() {
 				<p>{basics.headline}</p>
 			</div>
 
-			<div className="flex flex-col items-start gap-y-2 text-sm">
+			<div className="flex flex-col items-start gap-y-2 text-sm [&>div>i]:text-(--page-background-color)!">
 				{basics.location && (
 					<div className="flex items-center gap-x-1.5">
 						<PageIcon icon="map-pin" className="ph-bold" />
