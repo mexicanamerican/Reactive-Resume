@@ -8,7 +8,7 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-19 15:39\n"
+"PO-Revision-Date: 2026-01-20 18:24\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -21,21 +21,21 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:51
 msgid "Last Updated"
-msgstr ""
+msgstr "Última actualización"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:52
 msgid "Created"
-msgstr ""
+msgstr "Creado"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:53
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: src/routes/_home/-sections/hero.tsx:109
 msgid "(opens in new tab)"
-msgstr ""
+msgstr "(abrir en una nueva pestaña)"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:160
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:149
@@ -288,7 +288,7 @@ msgstr ""
 
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:75
 msgid "Are you sure you want to delete this passkey?"
-msgstr ""
+msgstr "¿Está seguro de que quieres eliminar esta clave de acceso?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:79
@@ -1482,7 +1482,7 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:50
 #: src/routes/dashboard/settings/profile.tsx:134
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: src/utils/locale.ts:100
 msgid "Nepali"
@@ -1708,7 +1708,7 @@ msgstr ""
 
 #: src/utils/resume/section.tsx:96
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:55
 msgid "Protect your resume from unauthorized access with a password"
