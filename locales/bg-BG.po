@@ -8,7 +8,7 @@ msgstr ""
 "Language: bg\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-19 15:39\n"
+"PO-Revision-Date: 2026-01-20 19:49\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -33,16 +33,16 @@ msgstr "Създадено"
 msgid "Name"
 msgstr "Име"
 
-#: src/routes/_home/-sections/hero.tsx:109
+#: src/routes/_home/-sections/hero.tsx:111
 msgid "(opens in new tab)"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:160
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:163
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:149
 msgid "{column, plural, one {# Column} other {# Columns}}"
 msgstr "{column, plural, one {# Колона} other {# Колони}}"
 
-#: src/routes/_home/-sections/hero.tsx:64
+#: src/routes/_home/-sections/hero.tsx:66
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
 msgstr "<0>Накрая,</0><1>Безплатен конструктор за автобиографии с отворен код</1>"
 
@@ -108,7 +108,7 @@ msgstr "Абсолютно! Можете да експортирате авто�
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Получете програмен достъп до автобиографиите и данните си чрез API."
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx:98
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx:131
 msgid "Add a custom field"
 msgstr "Добавяне на потребителско поле"
 
@@ -517,7 +517,7 @@ msgstr ""
 msgid "Code Block"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:153
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:156
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:142
 msgid "Columns"
 msgstr ""
@@ -746,7 +746,7 @@ msgid "Degree"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx:152
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:173
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:176
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:141
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:152
 #: src/routes/dashboard/settings/api-keys.tsx:39
@@ -882,7 +882,7 @@ msgstr ""
 
 #: src/dialogs/resume/index.tsx:269
 #: src/routes/builder/$resumeId/-components/header.tsx:140
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:147
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:150
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:132
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:140
 msgid "Duplicate"
@@ -958,6 +958,10 @@ msgstr ""
 
 #: src/routes/auth/verify-2fa-backup.tsx:62
 msgid "Enter one of your saved backup codes to access your account"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx:101
+msgid "Enter the URL to link to"
 msgstr ""
 
 #: src/routes/auth/verify-2fa.tsx:63
@@ -1100,7 +1104,7 @@ msgstr ""
 msgid "German"
 msgstr ""
 
-#: src/routes/_home/-sections/hero.tsx:95
+#: src/routes/_home/-sections/hero.tsx:97
 msgid "Get Started"
 msgstr ""
 
@@ -1188,7 +1192,7 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:137
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:118
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:131
 msgid "Hide"
@@ -1356,7 +1360,7 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
-#: src/routes/_home/-sections/hero.tsx:107
+#: src/routes/_home/-sections/hero.tsx:109
 msgid "Learn More"
 msgstr ""
 
@@ -1742,11 +1746,11 @@ msgstr ""
 msgid "Reactive Resume is a free and open-source project, built with love and maintained by me and a community of contributors. Your donations help keep the lights on and the code flowing."
 msgstr ""
 
-#: src/routes/_home/-sections/hero.tsx:79
+#: src/routes/_home/-sections/hero.tsx:81
 msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr ""
 
-#: src/routes/_home/-sections/product-hunt-banner.tsx:38
+#: src/routes/_home/-sections/product-hunt-banner.tsx:35
 msgid "Reactive Resume is launching on Product Hunt today, head over to show some love!"
 msgstr ""
 
@@ -1959,7 +1963,7 @@ msgstr ""
 msgid "Sharing"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:137
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:118
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:131
 msgid "Show"
@@ -2245,7 +2249,7 @@ msgstr ""
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr ""
 
-#: src/routes/_home/-sections/hero.tsx:31
+#: src/routes/_home/-sections/hero.tsx:33
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr ""
 
@@ -2379,7 +2383,7 @@ msgid "Unverified"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx:135
-#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:142
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:145
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:127
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:135
 msgid "Update"
@@ -2550,7 +2554,7 @@ msgstr ""
 msgid "What makes Reactive Resume different from other resume builders?"
 msgstr ""
 
-#: src/routes/_home/-sections/hero.tsx:54
+#: src/routes/_home/-sections/hero.tsx:56
 msgid "What's new in the latest version?"
 msgstr ""
 
