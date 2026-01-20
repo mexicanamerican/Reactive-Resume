@@ -91,8 +91,11 @@ function CustomSectionItem({ section }: { section: CustomSection }) {
 		updateResumeData((draft) => {
 			draft.customSections = draft.customSections.filter((_section) => _section.id !== section.id);
 			// remove from layout
-			draft.metadata.layout.pages = draft.metadata.layout.pages.filter((page) => page.main.includes(section.id));
-			draft.metadata.layout.pages = draft.metadata.layout.pages.filter((page) => page.sidebar.includes(section.id));
+			draft.metadata.layout.pages = draft.metadata.layout.pages.map((page) => ({
+				...page,
+				main: page.main.filter((id) => id !== section.id),
+				sidebar: page.sidebar.filter((id) => id !== section.id),
+			}));
 		});
 	};
 
