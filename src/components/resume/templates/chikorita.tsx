@@ -63,7 +63,7 @@ function Header() {
 
 	return (
 		<div className="page-header relative flex">
-			<div className="flex items-center pt-(--page-margin-y) pl-(--page-margin-x)">
+			<div className="flex flex-1 items-center pt-(--page-margin-y) pl-(--page-margin-x)">
 				<PagePicture />
 
 				<div className="page-basics space-y-2 px-(--page-margin-x)">
