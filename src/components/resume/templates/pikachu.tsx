@@ -42,7 +42,7 @@ export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 					)}
 				</aside>
 
-				<main data-layout="main" className="group page-main space-y-3">
+				<main data-layout="main" className="group page-main flex-1 space-y-3">
 					{isFirstPage && <Header />}
 
 					<div className="space-y-4 pb-(--page-margin-y)">
