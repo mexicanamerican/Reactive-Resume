@@ -74,6 +74,7 @@ jobs:
             org.opencontainers.image.vendor=Amruth Pillai
             org.opencontainers.image.url=https://rxresu.me
             org.opencontainers.image.documentation=https://docs.rxresu.me
+            org.opencontainers.image.source=https://github.com/amruthpillai/reactive-resume
             org.opencontainers.image.version=${{ steps.version.outputs.version }}
 
       - name: Build and Push by Digest
@@ -180,6 +181,7 @@ jobs:
             org.opencontainers.image.vendor=Amruth Pillai
             org.opencontainers.image.url=https://rxresu.me
             org.opencontainers.image.documentation=https://docs.rxresu.me
+            org.opencontainers.image.source=https://github.com/amruthpillai/reactive-resume
             org.opencontainers.image.version=${{ steps.version.outputs.version }}
 
       - name: Create manifest list and push
