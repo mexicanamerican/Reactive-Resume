@@ -25,9 +25,9 @@ function RouteComponent() {
 		queryKey: ["auth", "api-keys"],
 		queryFn: () => authClient.apiKey.list(),
 		select: ({ data }) => {
-			if (!data) return [];
+			if (!data?.apiKeys) return [];
 
-			return data
+			return data.apiKeys
 				.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
 				.filter((key) => !!key.expiresAt && key.expiresAt.getTime() > Date.now());
 		},
