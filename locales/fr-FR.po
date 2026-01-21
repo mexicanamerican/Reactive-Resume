@@ -90,7 +90,7 @@ msgstr "Un lien vers votre CV a été copié dans le presse-papiers."
 
 #: src/routes/_home/-sections/testimonials.tsx:99
 msgid "A lot of people have written to me over the years to share their experiences with Reactive Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
-msgstr "De nombreuses personnes m'ont écrit au fil des ans pour me faire part de leur expérience avec Reactive Resume et de l'aide qu'il leur a apportée, et je ne me lasse pas de les lire. Si vous avez une histoire à partager, faites-le moi savoir en m'envoyant un courriel à <0>{email}</0>."
+msgstr "De nombreuses personnes m'ont écrit au fil des ans pour me faire part de leur expérience avec Reactive Resume et de l'aide qu'il leur a apportée, et je ne me lasse pas de les lire. Si vous avez une histoire à partager, faites-le moi savoir en m'envoyant un email à <0>{email}</0>."
 
 #: src/routes/dashboard/settings/profile.tsx:108
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
