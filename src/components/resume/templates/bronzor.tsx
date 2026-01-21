@@ -23,7 +23,7 @@ export function BronzorTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-bronzor page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y)">
+		<div className="template-bronzor page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<div className="space-y-(--page-gap-y)">

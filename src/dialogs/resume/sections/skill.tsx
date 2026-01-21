@@ -37,18 +37,23 @@ export function CreateSkillDialog({ data }: DialogProps<"resume.sections.skills.
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			id: generateId(),
-			hidden: data?.hidden ?? false,
-			icon: data?.icon ?? "acorn",
-			name: data?.name ?? "",
-			proficiency: data?.proficiency ?? "",
-			level: data?.level ?? 0,
-			keywords: data?.keywords ?? [],
+			hidden: data?.item?.hidden ?? false,
+			icon: data?.item?.icon ?? "acorn",
+			name: data?.item?.name ?? "",
+			proficiency: data?.item?.proficiency ?? "",
+			level: data?.item?.level ?? 0,
+			keywords: data?.item?.keywords ?? [],
 		},
 	});
 
-	const onSubmit = (data: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			draft.sections.skills.items.push(data);
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (section) section.items.push(formData);
+			} else {
+				draft.sections.skills.items.push(formData);
+			}
 		});
 		closeDialog();
 	};
@@ -89,21 +94,27 @@ export function UpdateSkillDialog({ data }: DialogProps<"resume.sections.skills.
 	const form = useForm<FormValues>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			id: data.id,
-			hidden: data.hidden,
-			icon: data.icon,
-			name: data.name,
-			proficiency: data.proficiency,
-			level: data.level,
-			keywords: data.keywords,
+			id: data.item.id,
+			hidden: data.item.hidden,
+			icon: data.item.icon,
+			name: data.item.name,
+			proficiency: data.item.proficiency,
+			level: data.item.level,
+			keywords: data.item.keywords,
 		},
 	});
 
-	const onSubmit = (data: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			const index = draft.sections.skills.items.findIndex((item) => item.id === data.id);
-			if (index === -1) return;
-			draft.sections.skills.items[index] = data;
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (!section) return;
+				const index = section.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) section.items[index] = formData;
+			} else {
+				const index = draft.sections.skills.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) draft.sections.skills.items[index] = formData;
+			}
 		});
 		closeDialog();
 	};

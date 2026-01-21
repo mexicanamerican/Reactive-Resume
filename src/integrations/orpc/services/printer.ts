@@ -1,7 +1,9 @@
-import { ORPCError } from "@orpc/server";
+import type { InferSelectModel } from "drizzle-orm";
+import puppeteer, { type Browser, type ConnectOptions, type Page } from "puppeteer-core";
+import type { schema } from "@/integrations/drizzle";
+import { printMarginTemplates } from "@/schema/templates";
 import { env } from "@/utils/env";
 import { generatePrinterToken } from "@/utils/printer-token";
-import { resumeService } from "./resume";
 import { getStorageService, uploadFile } from "./storage";
 
 const pageDimensions = {
@@ -17,65 +19,128 @@ const pageDimensions = {
 
 const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
 
+let pdfBrowser: Browser | null = null;
+let screenshotBrowser: Browser | null = null;
+
+async function getBrowser(type: "pdf" | "screenshot"): Promise<Browser> {
+	const endpoint = new URL(env.PRINTER_ENDPOINT);
+	const isWebSocket = endpoint.protocol.startsWith("ws");
+
+	const connectOptions: ConnectOptions = { acceptInsecureCerts: true };
+
+	if (isWebSocket) connectOptions.browserWSEndpoint = env.PRINTER_ENDPOINT;
+	else connectOptions.browserURL = env.PRINTER_ENDPOINT;
+
+	if (type === "screenshot") {
+		if (screenshotBrowser?.connected) return screenshotBrowser;
+		screenshotBrowser = await puppeteer.connect({ ...connectOptions, defaultViewport: { width: 794, height: 1123 } });
+		return screenshotBrowser;
+	}
+
+	if (pdfBrowser?.connected) return pdfBrowser;
+	pdfBrowser = await puppeteer.connect(connectOptions);
+	return pdfBrowser;
+}
+
+async function interceptLocalhostRequests(page: Page) {
+	await page.setRequestInterception(true);
+
+	page.on("request", (request) => {
+		const url = request.url();
+
+		if (url.includes(env.APP_URL) && env.PRINTER_APP_URL) {
+			const newUrl = url.replace(env.APP_URL, env.PRINTER_APP_URL);
+			request.continue({ url: newUrl });
+			return;
+		}
+
+		request.continue();
+	});
+}
+
 export const printerService = {
-	printResumeAsPDF: async (input: { id: string; userId: string }): Promise<string> => {
+	healthcheck: async (): Promise<object> => {
+		const headers = new Headers({ Accept: "application/json" });
+		const endpoint = new URL(env.PRINTER_ENDPOINT);
+
+		endpoint.protocol = endpoint.protocol.replace("ws", "http");
+		endpoint.pathname = "/json/version";
+
+		const response = await fetch(endpoint, { headers });
+		const data = await response.json();
+
+		return data;
+	},
+
+	chromeDebug: async (): Promise<void> => {
+		const browser = await getBrowser("pdf");
+
+		const page = await browser.newPage();
+
+		await page.goto("https://www.google.com");
+
+		await page.pdf({ path: `screenshot-${Date.now()}.pdf` });
+
+		await browser.disconnect();
+	},
+
+	printResumeAsPDF: async (
+		input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data">,
+	): Promise<string> => {
+		const { id, userId, data } = input;
+
 		const storageService = getStorageService();
+		const pdfPrefix = `uploads/${userId}/pdfs/${id}`;
 
-		// Delete any existing PDFs for this resume
-		const pdfPrefix = `uploads/${input.userId}/pdfs/${input.id}`;
 		await storageService.delete(pdfPrefix);
-
-		const resume = await resumeService.getByIdForPrinter({ id: input.id });
-		const format = resume.data.metadata.page.format;
-		const locale = resume.data.metadata.page.locale;
 
 		const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
 		const domain = new URL(baseUrl).hostname;
 
-		const token = generatePrinterToken(input.id);
-		const url = `${baseUrl}/printer/${input.id}?token=${token}`;
+		const format = data.metadata.page.format;
+		const locale = data.metadata.page.locale;
+		const template = data.metadata.template;
 
-		const formData = new FormData();
-		const cookies = [{ name: "locale", value: locale, domain }];
+		const token = generatePrinterToken(id);
+		const url = `${baseUrl}/printer/${id}?token=${token}`;
 
-		formData.append("url", url);
-		formData.append("marginTop", "0");
-		formData.append("marginLeft", "0");
-		formData.append("marginRight", "0");
-		formData.append("marginBottom", "0");
-		formData.append("printBackground", "true");
-		formData.append("skipNetworkIdleEvent", "false");
-		formData.append("cookies", JSON.stringify(cookies));
-		formData.append("paperWidth", pageDimensions[format].width);
-		formData.append("paperHeight", pageDimensions[format].height);
+		let marginX = 0;
+		let marginY = 0;
 
-		const headers = new Headers();
-
-		if (env.GOTENBERG_USERNAME && env.GOTENBERG_PASSWORD) {
-			const credentials = `${env.GOTENBERG_USERNAME}:${env.GOTENBERG_PASSWORD}`;
-			const encodedCredentials = btoa(credentials);
-			headers.set("Authorization", `Basic ${encodedCredentials}`);
+		if (printMarginTemplates.includes(template)) {
+			marginX = Math.round(data.metadata.page.marginX / 0.75);
+			marginY = Math.round(data.metadata.page.marginY / 0.75);
 		}
 
-		const response = await fetch(`${env.GOTENBERG_ENDPOINT}/forms/chromium/convert/url`, {
-			headers,
-			method: "POST",
-			body: formData,
+		const browser = await getBrowser("pdf");
+
+		await browser.setCookie({ name: "locale", value: locale, domain });
+
+		const page = await browser.newPage();
+
+		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
+
+		await page.goto(url, { waitUntil: "networkidle0" });
+
+		const pdfBuffer = await page.pdf({
+			width: pageDimensions[format].width,
+			height: pageDimensions[format].height,
+			tagged: true,
+			waitForFonts: true,
+			printBackground: true,
+			margin: {
+				top: marginY,
+				right: marginX,
+				bottom: marginY,
+				left: marginX,
+			},
 		});
 
-		if (!response.ok) {
-			throw new ORPCError("UNAUTHORIZED", {
-				status: response.status,
-				message: response.statusText,
-			});
-		}
+		await page.close();
 
-		const pdfBuffer = await response.arrayBuffer();
-
-		// Store PDF and return URL
 		const result = await uploadFile({
-			userId: input.userId,
-			resumeId: input.id,
+			userId,
+			resumeId: id,
 			data: new Uint8Array(pdfBuffer),
 			contentType: "application/pdf",
 			type: "pdf",
@@ -84,9 +149,13 @@ export const printerService = {
 		return result.url;
 	},
 
-	getResumeScreenshot: async (input: { id: string; userId: string }): Promise<string> => {
+	getResumeScreenshot: async (
+		input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data">,
+	): Promise<string> => {
+		const { id, userId, data } = input;
+
 		const storageService = getStorageService();
-		const screenshotPrefix = `uploads/${input.userId}/screenshots/${input.id}`;
+		const screenshotPrefix = `uploads/${userId}/screenshots/${id}`;
 
 		const existingScreenshots = await storageService.list(screenshotPrefix);
 		const now = Date.now();
@@ -105,59 +174,38 @@ export const printerService = {
 				const latest = sortedFiles[0];
 				const age = now - latest.timestamp;
 
-				if (age < SCREENSHOT_TTL) {
-					// Return URL of cached screenshot
-					return new URL(latest.path, env.APP_URL).toString();
-				}
+				if (age < SCREENSHOT_TTL) return new URL(latest.path, env.APP_URL).toString();
 
-				// Delete old screenshots
 				await Promise.all(sortedFiles.map((file) => storageService.delete(file.path)));
 			}
 		}
 
 		const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
+		const domain = new URL(baseUrl).hostname;
 
-		const token = generatePrinterToken(input.id);
-		const url = `${baseUrl}/printer/${input.id}?token=${token}`;
+		const locale = data.metadata.page.locale;
 
-		const formData = new FormData();
+		const token = generatePrinterToken(id);
+		const url = `${baseUrl}/printer/${id}?token=${token}`;
 
-		formData.append("url", url);
-		formData.append("clip", "true");
-		formData.append("width", "794");
-		formData.append("height", "1123");
-		formData.append("format", "webp");
-		formData.append("optimizeForSpeed", "true");
-		formData.append("skipNetworkIdleEvent", "false");
+		const browser = await getBrowser("screenshot");
 
-		const headers = new Headers();
+		await browser.setCookie({ name: "locale", value: locale, domain });
 
-		if (env.GOTENBERG_USERNAME && env.GOTENBERG_PASSWORD) {
-			const credentials = `${env.GOTENBERG_USERNAME}:${env.GOTENBERG_PASSWORD}`;
-			const encodedCredentials = btoa(credentials);
-			headers.set("Authorization", `Basic ${encodedCredentials}`);
-		}
+		const page = await browser.newPage();
 
-		const response = await fetch(`${env.GOTENBERG_ENDPOINT}/forms/chromium/screenshot/url`, {
-			headers,
-			method: "POST",
-			body: formData,
-		});
+		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
 
-		if (!response.ok) {
-			throw new ORPCError("UNAUTHORIZED", {
-				status: response.status,
-				message: response.statusText,
-			});
-		}
+		await page.goto(url, { waitUntil: "networkidle0" });
 
-		const imageBuffer = await response.arrayBuffer();
+		const screenshotBuffer = await page.screenshot({ type: "webp", quality: 80 });
 
-		// Store screenshot and return URL
+		await page.close();
+
 		const result = await uploadFile({
-			userId: input.userId,
-			resumeId: input.id,
-			data: new Uint8Array(imageBuffer),
+			userId,
+			resumeId: id,
+			data: new Uint8Array(screenshotBuffer),
 			contentType: "image/webp",
 			type: "screenshot",
 		});

@@ -289,7 +289,7 @@ function LayoutColumn({ pageIndex, columnId, items, disabled = false }: LayoutCo
 
 	return (
 		<SortableContext id={droppableId} items={items} strategy={verticalListSortingStrategy}>
-			<div className={cn(disabled && "opacity-50")}>
+			<div className={cn("space-y-1.5", disabled && "opacity-50")}>
 				<div className="@md:row-start-1 pl-4 font-medium text-xs">{getColumnLabel(columnId)}</div>
 
 				<div
@@ -355,7 +355,7 @@ const LayoutItemContent = forwardRef<HTMLDivElement, LayoutItemContentProps>(
 				data-dragging={isDragging ? "true" : undefined}
 				className={cn(
 					"group/item flex cursor-grab touch-none select-none items-center gap-x-2 rounded-md border border-border bg-background px-2 py-1.5 font-medium text-sm transition-all duration-200 ease-out",
-					"hover:bg-secondary/20 active:cursor-grabbing active:border-primary/60 active:bg-secondary/20",
+					"hover:bg-secondary/40 active:cursor-grabbing active:border-primary/60 active:bg-secondary/40",
 					"data-[overlay=true]:cursor-grabbing data-[overlay=true]:border-primary/60 data-[overlay=true]:bg-background",
 					"data-[dragging=true]:cursor-grabbing data-[dragging=true]:border-primary/60 data-[dragging=true]:bg-background",
 					className,

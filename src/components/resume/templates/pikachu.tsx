@@ -24,7 +24,7 @@ export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-pikachu page-content px-(--page-margin-x) py-(--page-margin-y)">
+		<div className="template-pikachu page-content px-(--page-margin-x) py-(--page-margin-y) print:p-0">
 			<div className="flex gap-x-(--page-margin-x)">
 				<aside
 					data-layout="sidebar"

@@ -15,9 +15,7 @@ export const env = createEnv({
 		PRINTER_APP_URL: z.url({ protocol: /https?/ }).optional(),
 
 		// Printer
-		GOTENBERG_ENDPOINT: z.url({ protocol: /https?/ }),
-		GOTENBERG_USERNAME: z.string().min(1).optional(),
-		GOTENBERG_PASSWORD: z.string().min(1).optional(),
+		PRINTER_ENDPOINT: z.url({ protocol: /^(wss?|https?)$/ }),
 
 		// Database
 		DATABASE_URL: z.url({ protocol: /postgres(ql)?/ }),

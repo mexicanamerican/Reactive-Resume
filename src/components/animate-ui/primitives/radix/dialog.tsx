@@ -77,7 +77,7 @@ function DialogContent({
 	onEscapeKeyDown,
 	onPointerDownOutside,
 	onInteractOutside,
-	transition = { type: "spring", stiffness: 150, damping: 25 },
+	transition = { type: "spring", stiffness: 250, damping: 25 },
 	...props
 }: DialogContentProps) {
 	const initialRotation = from === "bottom" || from === "left" ? "20deg" : "-20deg";
@@ -97,6 +97,7 @@ function DialogContent({
 			<motion.div
 				key="dialog-content"
 				data-slot="dialog-content"
+				transition={transition}
 				initial={{
 					opacity: 0,
 					filter: "blur(4px)",
@@ -112,7 +113,6 @@ function DialogContent({
 					filter: "blur(4px)",
 					transform: `perspective(500px) ${rotateAxis}(${initialRotation}) scale(0.8)`,
 				}}
-				transition={transition}
 				{...props}
 			/>
 		</DialogPrimitive.Content>

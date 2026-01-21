@@ -81,7 +81,7 @@ function AlertDialogContent({
 	onOpenAutoFocus,
 	onCloseAutoFocus,
 	onEscapeKeyDown,
-	transition = { type: "spring", stiffness: 150, damping: 25 },
+	transition = { type: "spring", stiffness: 250, damping: 25 },
 	...props
 }: AlertDialogContentProps) {
 	const initialRotation = from === "bottom" || from === "left" ? "20deg" : "-20deg";
@@ -99,6 +99,7 @@ function AlertDialogContent({
 			<motion.div
 				key="alert-dialog-content"
 				data-slot="alert-dialog-content"
+				transition={transition}
 				initial={{
 					opacity: 0,
 					filter: "blur(4px)",
@@ -114,7 +115,6 @@ function AlertDialogContent({
 					filter: "blur(4px)",
 					transform: `perspective(500px) ${rotateAxis}(${initialRotation}) scale(0.8)`,
 				}}
-				transition={transition}
 				{...props}
 			/>
 		</AlertDialogPrimitive.Content>

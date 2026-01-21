@@ -308,11 +308,46 @@ export type SectionType = keyof z.infer<typeof sectionsSchema>;
 export type SectionData<T extends SectionType = SectionType> = z.infer<typeof sectionsSchema>[T];
 export type SectionItem<T extends SectionType = SectionType> = SectionData<T>["items"][number];
 
+export const sectionTypeSchema = z.enum([
+	"profiles",
+	"experience",
+	"education",
+	"projects",
+	"skills",
+	"languages",
+	"interests",
+	"awards",
+	"certifications",
+	"publications",
+	"volunteer",
+	"references",
+]);
+
+export const customSectionItemSchema = z.union([
+	profileItemSchema,
+	experienceItemSchema,
+	educationItemSchema,
+	projectItemSchema,
+	skillItemSchema,
+	languageItemSchema,
+	interestItemSchema,
+	awardItemSchema,
+	certificationItemSchema,
+	publicationItemSchema,
+	volunteerItemSchema,
+	referenceItemSchema,
+]);
+
+export type CustomSectionItem = z.infer<typeof customSectionItemSchema>;
+
 export const customSectionSchema = baseSectionSchema.extend({
 	id: z.string().describe("The unique identifier for the custom section. Usually generated as a UUID."),
-	content: z
-		.string()
-		.describe("The content of the custom section. This should be a HTML-formatted string. Leave blank to hide."),
+	type: sectionTypeSchema.describe(
+		"The type of items this custom section contains. Determines which item schema and form fields to use.",
+	),
+	items: z
+		.array(customSectionItemSchema)
+		.describe("The items to display in the custom section. Items follow the schema of the section type."),
 });
 
 export type CustomSection = z.infer<typeof customSectionSchema>;

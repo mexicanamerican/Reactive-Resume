@@ -42,6 +42,11 @@ msgstr "(s'ouvre dans un nouvel onglet)"
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr ""
 
+#. placeholder {0}: section.items.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:122
+msgid "{0, plural, one {# item} other {# items}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:244
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:149
 msgid "{column, plural, one {# Column} other {# Columns}}"
@@ -1482,6 +1487,10 @@ msgstr "Modèle"
 msgid "Move to"
 msgstr ""
 
+#: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:108
+msgid "Move to"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx:70
 msgid "Multilingual"
 msgstr "Multilingue"
@@ -1518,10 +1527,18 @@ msgstr "Nouvelle ligne"
 msgid "New Page"
 msgstr ""
 
+#: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:145
+msgid "New Page"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx:116
 #: src/routes/auth/reset-password.tsx:82
 msgid "New Password"
 msgstr "Nouveau mot de passe"
+
+#: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:134
+msgid "New Section"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:134
 msgid "New Section"
@@ -1923,6 +1940,10 @@ msgstr "Recherche..."
 #: src/dialogs/auth/enable-two-factor.tsx:121
 msgid "Secret copied to clipboard."
 msgstr "Secret copié dans le presse-papiers."
+
+#: src/dialogs/resume/sections/custom.tsx:178
+msgid "Section Type"
+msgstr ""
 
 #: src/dialogs/resume/sections/custom.tsx:178
 msgid "Section Type"

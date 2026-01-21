@@ -644,51 +644,28 @@ export class ReactiveResumeV4JSONImporter {
 							})),
 					},
 				},
-				customSections: Object.entries(v4Data.sections.custom ?? {}).map(([sectionId, section]) => {
-					const itemsHtml = section.items
+				customSections: Object.entries(v4Data.sections.custom ?? {}).map(([sectionId, section]) => ({
+					id: section.id || sectionId,
+					title: section.name ?? "",
+					type: "experience" as const, // Default to experience type as it has the most compatible fields
+					columns: section.columns ?? 1,
+					hidden: !(section.visible ?? true),
+					items: section.items
 						.filter((item) => item.visible !== false)
-						.map((item) => {
-							const parts: string[] = [];
-
-							if (item.name) {
-								parts.push(`<h3>${item.name}</h3>`);
-							}
-
-							if (item.description) {
-								parts.push(`<p>${item.description}</p>`);
-							}
-
-							if (item.date || item.location) {
-								const details = [item.date, item.location].filter(Boolean).join(" • ");
-								if (details) parts.push(`<p><em>${details}</em></p>`);
-							}
-
-							if (item.summary) {
-								parts.push(`<div>${item.summary}</div>`);
-							}
-
-							if (item.keywords && item.keywords.length > 0) {
-								parts.push(`<p><strong>Keywords:</strong> ${item.keywords.join(", ")}</p>`);
-							}
-
-							if (item.url?.href) {
-								const label = item.url.label || item.url.href;
-								parts.push(`<p><a href="${item.url.href}">${label}</a></p>`);
-							}
-
-							return parts.length > 0 ? `<div style="margin-bottom: 1em;">${parts.join("")}</div>` : "";
-						})
-						.filter(Boolean)
-						.join("");
-
-					return {
-						id: section.id || sectionId,
-						title: section.name ?? "",
-						columns: section.columns ?? 1,
-						hidden: !(section.visible ?? true),
-						content: itemsHtml || "",
-					};
-				}),
+						.map((item) => ({
+							id: item.id || generateId(),
+							hidden: !item.visible,
+							company: item.name?.trim() || "",
+							position: item.description ?? "",
+							location: item.location ?? "",
+							period: item.date ?? "",
+							website: {
+								url: item.url?.href ?? "",
+								label: item.url?.label ?? "",
+							},
+							description: item.summary ?? "",
+						})),
+				})),
 				metadata: {
 					template: (templateSchema.safeParse(v4Data.metadata.template).success
 						? v4Data.metadata.template

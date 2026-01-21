@@ -3,6 +3,7 @@ import {
 	ArrowsClockwiseIcon,
 	CircleNotchIcon,
 	CubeFocusIcon,
+	FileJsIcon,
 	FilePdfIcon,
 	type Icon,
 	LinkSimpleIcon,
@@ -20,7 +21,7 @@ import { Button } from "@/components/animate-ui/components/buttons/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { authClient } from "@/integrations/auth/client";
 import { orpc } from "@/integrations/orpc/client";
-import { downloadFromUrl, generateFilename } from "@/utils/file";
+import { downloadFromUrl, downloadWithAnchor, generateFilename } from "@/utils/file";
 import { cn } from "@/utils/style";
 
 export function BuilderDock() {
@@ -49,6 +50,15 @@ export function BuilderDock() {
 		toast.success(t`A link to your resume has been copied to clipboard.`);
 	}, [publicUrl, copyToClipboard]);
 
+	const onDownloadJSON = useCallback(async () => {
+		if (!resume) return;
+		const jsonString = JSON.stringify(resume, null, 2);
+		const blob = new Blob([jsonString], { type: "application/json" });
+		const filename = generateFilename(resume.data.basics.name, "json");
+
+		downloadWithAnchor(blob, filename);
+	}, [resume]);
+
 	const onDownloadPDF = useCallback(async () => {
 		if (!resume) return;
 
@@ -73,6 +83,7 @@ export function BuilderDock() {
 				<DockIcon icon={CubeFocusIcon} title={t`Center view`} onClick={() => centerView()} />
 				<div className="mx-1 h-8 w-px bg-border" />
 				<DockIcon icon={LinkSimpleIcon} title={t`Copy URL`} onClick={() => onCopyUrl()} />
+				<DockIcon icon={FileJsIcon} title={t`Download JSON`} onClick={() => onDownloadJSON()} />
 				<DockIcon
 					title={t`Download PDF`}
 					disabled={isPrinting}
