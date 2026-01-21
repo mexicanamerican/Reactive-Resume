@@ -356,7 +356,7 @@ services:
       - CONCURRENT=10
       - HEALTH=true
       # Optional: Set a token for authentication
-      # - TOKEN=$PRINTER_TOKEN
+      # - TOKEN=your-secret-token
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/"]
       interval: 30s
@@ -437,9 +437,9 @@ services:
       - reactive_resume_app_data:/app/data
     environment:
       - APP_URL=$APP_URL
+      # If using browserless with token auth, include the token in the URL:
+      # PRINTER_ENDPOINT=ws://printer:3000?token=your-secret-token
       - PRINTER_ENDPOINT=$PRINTER_ENDPOINT
-      # Optional: Set PRINTER_TOKEN if using browserless with token authentication
-      # - PRINTER_TOKEN=$PRINTER_TOKEN
       - DATABASE_URL=$DATABASE_URL
       - AUTH_SECRET=$AUTH_SECRET
       - GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID

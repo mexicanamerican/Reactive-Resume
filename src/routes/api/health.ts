@@ -68,8 +68,7 @@ async function checkPrinter() {
 async function checkStorage() {
 	try {
 		const storageService = getStorageService();
-		const result = await storageService.healthcheck();
-		return result;
+		return await storageService.healthcheck();
 	} catch (error) {
 		return {
 			status: "unhealthy",

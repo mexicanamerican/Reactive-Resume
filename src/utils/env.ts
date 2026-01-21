@@ -15,7 +15,7 @@ export const env = createEnv({
 		PRINTER_APP_URL: z.url({ protocol: /https?/ }).optional(),
 
 		// Printer
-		PRINTER_ENDPOINT: z.url({ protocol: /wss?/ }),
+		PRINTER_ENDPOINT: z.url({ protocol: /^(wss?|https?)$/ }),
 
 		// Database
 		DATABASE_URL: z.url({ protocol: /postgres(ql)?/ }),

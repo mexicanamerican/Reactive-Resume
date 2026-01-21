@@ -64,11 +64,9 @@ APP_URL="http://localhost:3000"
 PRINTER_APP_URL="http://host.docker.internal:3000"
 
 # --- Printer ---
-PRINTER_ENDPOINT="http://printer:3000"
-
-# Printer Authentication (Optional)
-# If using browserless with a token, set PRINTER_TOKEN
-# PRINTER_TOKEN=""
+# If using browserless with token authentication, include the token as a query parameter:
+# PRINTER_ENDPOINT="ws://printer:3000?token=your-secret-token"
+PRINTER_ENDPOINT="ws://printer:3000"
 
 # --- Database (PostgreSQL) ---
 DATABASE_URL="postgresql://postgres:postgres@postgres:5432/postgres"
@@ -179,9 +177,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
-      - TIMEOUT=120000
-      - CONCURRENT=10
       - HEALTH=true
+      - CONCURRENT=20
+      - QUEUED=10
       # Optional: Set a token for authentication
       # - TOKEN=your-secret-token
     healthcheck:
@@ -219,7 +217,17 @@ volumes:
     </CodeGroup>
 
     <Note>
-      **Alternative Printer Options**: If you don't want to use browserless, you can also use any headless Chrome/Chromium instance with its remote debugging port open. For example, you could run `chromium --remote-debugging-port=9222` and point `PRINTER_ENDPOINT` to that instance.
+      **Alternative Printer Options**: If you don't want to use browserless, you can also use a lightweight headless Chrome Docker image like `chromedp/headless-shell`:
+
+      ```yaml
+      chrome:
+        image: chromedp/headless-shell:latest
+        restart: unless-stopped
+        ports:
+          - "9222:9222"
+      ```
+
+      Then set `PRINTER_ENDPOINT` to `http://chrome:9222` (or `http://localhost:9222` if running outside Docker Compose). This provides the same PDF/screenshot generation functionality with a smaller image footprint.
     </Note>
 
     <Tip>
@@ -283,11 +291,20 @@ docker compose logs -f reactive-resume
   </Accordion>
 
   <Accordion title="Printer">
-    - **`PRINTER_ENDPOINT`**: Base URL where Reactive Resume reaches the printer service. In Compose: `http://printer:3000`.
-    - **`PRINTER_TOKEN`** (optional): Authentication token for the printer service. Required if your browserless instance is configured with token authentication.
+    - **`PRINTER_ENDPOINT`**: Base URL where Reactive Resume reaches the printer service. In Compose: `http://printer:3000`. If using browserless with token authentication, include the token as a query parameter: `ws://printer:3000?token=your-secret-token`.
     
     <Note>
-      **Alternative to browserless**: You can use any headless Chrome/Chromium instance with its remote debugging port open. For example, run `chromium --remote-debugging-port=9222` and set `PRINTER_ENDPOINT` to point to that instance.
+      **Alternative to browserless**: You can use a lightweight headless Chrome Docker image like `chromedp/headless-shell`:
+
+      ```yaml
+      chrome:
+        image: chromedp/headless-shell:latest
+        restart: unless-stopped
+        ports:
+          - "9222:9222"
+      ```
+
+      Set `PRINTER_ENDPOINT` to `http://chrome:9222` (in Docker Compose) or `http://localhost:9222` (if running externally). This provides the same PDF/screenshot generation with a smaller image footprint.
     </Note>
   </Accordion>
 

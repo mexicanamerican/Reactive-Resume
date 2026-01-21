@@ -1,24 +1,10 @@
 import type { InferSelectModel } from "drizzle-orm";
-import puppeteer, { type Browser, type Page } from "puppeteer-core";
+import puppeteer, { type Browser, type ConnectOptions, type Page } from "puppeteer-core";
 import type { schema } from "@/integrations/drizzle";
 import { printMarginTemplates } from "@/schema/templates";
 import { env } from "@/utils/env";
 import { generatePrinterToken } from "@/utils/printer-token";
 import { getStorageService, uploadFile } from "./storage";
-
-type PressureResponse = {
-	cpu: number;
-	date: number;
-	isAvailable: boolean;
-	maxConcurrent: number;
-	maxQueued: number;
-	memory: number;
-	message: string;
-	queued: number;
-	reason: string;
-	recentlyRejected: number;
-	running: number;
-};
 
 const pageDimensions = {
 	a4: {
@@ -35,6 +21,26 @@ const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
 
 let pdfBrowser: Browser | null = null;
 let screenshotBrowser: Browser | null = null;
+
+async function getBrowser(type: "pdf" | "screenshot"): Promise<Browser> {
+	const endpoint = new URL(env.PRINTER_ENDPOINT);
+	const isWebSocket = endpoint.protocol.startsWith("ws");
+
+	const connectOptions: ConnectOptions = { acceptInsecureCerts: true };
+
+	if (isWebSocket) connectOptions.browserWSEndpoint = env.PRINTER_ENDPOINT;
+	else connectOptions.browserURL = env.PRINTER_ENDPOINT;
+
+	if (type === "screenshot") {
+		if (screenshotBrowser?.connected) return screenshotBrowser;
+		screenshotBrowser = await puppeteer.connect({ ...connectOptions, defaultViewport: { width: 794, height: 1123 } });
+		return screenshotBrowser;
+	}
+
+	if (pdfBrowser?.connected) return pdfBrowser;
+	pdfBrowser = await puppeteer.connect(connectOptions);
+	return pdfBrowser;
+}
 
 async function interceptLocalhostRequests(page: Page) {
 	await page.setRequestInterception(true);
@@ -53,18 +59,29 @@ async function interceptLocalhostRequests(page: Page) {
 }
 
 export const printerService = {
-	healthcheck: async (): Promise<PressureResponse> => {
-		const printerEndpoint = env.PRINTER_ENDPOINT;
-
+	healthcheck: async (): Promise<object> => {
 		const headers = new Headers({ Accept: "application/json" });
-		const endpoint = new URL(printerEndpoint);
-		endpoint.protocol = endpoint.protocol === "wss:" ? "https:" : "http:";
-		endpoint.pathname = "/pressure";
+		const endpoint = new URL(env.PRINTER_ENDPOINT);
+
+		endpoint.protocol = endpoint.protocol.replace("ws", "http");
+		endpoint.pathname = "/json/version";
 
 		const response = await fetch(endpoint, { headers });
-		const data = (await response.json()) as { pressure: PressureResponse };
+		const data = await response.json();
 
-		return data.pressure;
+		return data;
+	},
+
+	chromeDebug: async (): Promise<void> => {
+		const browser = await getBrowser("pdf");
+
+		const page = await browser.newPage();
+
+		await page.goto("https://www.google.com");
+
+		await page.pdf({ path: `screenshot-${Date.now()}.pdf` });
+
+		await browser.disconnect();
 	},
 
 	printResumeAsPDF: async (
@@ -95,16 +112,11 @@ export const printerService = {
 			marginY = Math.round(data.metadata.page.marginY / 0.75);
 		}
 
-		if (!pdfBrowser || !pdfBrowser.connected) {
-			pdfBrowser = await puppeteer.connect({
-				acceptInsecureCerts: true,
-				browserWSEndpoint: env.PRINTER_ENDPOINT,
-			});
-		}
+		const browser = await getBrowser("pdf");
 
-		await pdfBrowser.setCookie({ name: "locale", value: locale, domain });
+		await browser.setCookie({ name: "locale", value: locale, domain });
 
-		const page = await pdfBrowser.newPage();
+		const page = await browser.newPage();
 
 		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
 
@@ -176,17 +188,11 @@ export const printerService = {
 		const token = generatePrinterToken(id);
 		const url = `${baseUrl}/printer/${id}?token=${token}`;
 
-		if (!screenshotBrowser || !screenshotBrowser.connected) {
-			screenshotBrowser = await puppeteer.connect({
-				acceptInsecureCerts: true,
-				defaultViewport: { width: 794, height: 1123 },
-				browserWSEndpoint: env.PRINTER_ENDPOINT,
-			});
-		}
+		const browser = await getBrowser("screenshot");
 
-		await screenshotBrowser.setCookie({ name: "locale", value: locale, domain });
+		await browser.setCookie({ name: "locale", value: locale, domain });
 
-		const page = await screenshotBrowser.newPage();
+		const page = await browser.newPage();
 
 		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
 
