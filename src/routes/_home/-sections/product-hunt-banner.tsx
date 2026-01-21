@@ -2,8 +2,8 @@ import { Trans } from "@lingui/react/macro";
 import { HeartIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 
-const PH_LAUNCH_START = Date.UTC(2026, 0, 21, 8, 1, 0);
-const PH_LAUNCH_END = Date.UTC(2026, 0, 22, 8, 1, 0);
+const PH_LAUNCH_START = Date.UTC(2026, 1, 1, 8, 1, 0);
+const PH_LAUNCH_END = Date.UTC(2026, 1, 2, 8, 1, 0);
 
 function isWithinProductHuntLaunchWindow() {
 	const nowUtc = Date.now();
