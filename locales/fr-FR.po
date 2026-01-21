@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-20 19:49\n"
+"PO-Revision-Date: 2026-01-21 16:17\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -21,96 +21,96 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:51
 msgid "Last Updated"
-msgstr ""
+msgstr "Dernière mise à jour"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:52
 msgid "Created"
-msgstr ""
+msgstr "Créé"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:53
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/routes/_home/-sections/hero.tsx:111
 msgid "(opens in new tab)"
-msgstr ""
+msgstr "(s'ouvre dans un nouvel onglet)"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:163
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:149
 msgid "{column, plural, one {# Column} other {# Columns}}"
-msgstr ""
+msgstr "{column, plural, one {# Colonne} other {# Colonnes}}"
 
 #: src/routes/_home/-sections/hero.tsx:66
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
-msgstr ""
+msgstr "<0>Enfin,</0><1>Un outil de création de CV gratuit et open-source</1>"
 
 #: src/routes/_home/-sections/faq.tsx:86
 msgctxt "Every word needs to be wrapped in a tag"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr ""
+msgstr "<0>Foire</0><1>Aux</1><2>Questions</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx:15
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
-msgstr ""
+msgstr "<0>Merci d'utiliser Reactive Resume ! Cette application est le fruit d'un travail d'amour, créé principalement pendant mon temps libre, avec le soutien merveilleux de contributeurs open-source du monde entier.</0><1>Si Reactive Resume vous a été utile et que vous aimeriez qu'elle reste gratuite et ouverte à tous, envisagez de faire un don. Chaque petit geste est apprécié !</1>"
 
 #: src/dialogs/api-key/create.tsx:126
 msgid "1 month"
-msgstr ""
+msgstr "1 mois"
 
 #: src/dialogs/api-key/create.tsx:141
 msgid "1 year"
-msgstr ""
+msgstr "1 an"
 
 #: src/routes/_home/-sections/features.tsx:106
 msgid "12+ Templates"
-msgstr ""
+msgstr "12+ Modèles"
 
 #: src/dialogs/api-key/create.tsx:131
 msgid "3 months"
-msgstr ""
+msgstr "3 mois"
 
 #: src/dialogs/api-key/create.tsx:136
 msgid "6 months"
-msgstr ""
+msgstr "6 mois"
 
 #: src/routes/dashboard/settings/profile.tsx:87
 msgid "A confirmation link has been sent to your current email address. Please check your inbox to confirm the change."
-msgstr ""
+msgstr "Un lien de confirmation a été envoyé à votre adresse email actuelle. Veuillez vérifier votre boîte de réception pour confirmer le changement."
 
 #: src/routes/_home/-sections/footer.tsx:65
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
-msgstr ""
+msgstr "Un générateur de CV gratuit et open-source qui simplifie le processus de création, de mise à jour et de partage de votre CV."
 
 #: src/routes/builder/$resumeId/-components/dock.tsx:49
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:39
 msgid "A link to your resume has been copied to clipboard."
-msgstr ""
+msgstr "Un lien vers votre CV a été copié dans le presse-papiers."
 
 #: src/routes/_home/-sections/testimonials.tsx:99
 msgid "A lot of people have written to me over the years to share their experiences with Reactive Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
-msgstr ""
+msgstr "De nombreuses personnes m'ont écrit au fil des ans pour me faire part de leur expérience avec Reactive Resume et de l'aide qu'il leur a apportée, et je ne me lasse pas de les lire. Si vous avez une histoire à partager, faites-le moi savoir en m'envoyant un courriel à <0>{email}</0>."
 
 #: src/routes/dashboard/settings/profile.tsx:108
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
-msgstr ""
+msgstr "Un nouveau lien de vérification a été envoyé à votre adresse email. Veuillez consulter votre boîte de réception pour vérifier votre compte."
 
 #: src/components/ui/copyright.tsx:24
 msgid "A passion project by <0>Amruth Pillai</0>."
-msgstr ""
+msgstr "Un projet-passion de <0>Amruth Pillai</0>."
 
 #: src/routes/_home/-sections/faq.tsx:32
 msgid "Absolutely! You can export your resume to PDF with a single click. The exported PDF maintains all your formatting and styling perfectly."
-msgstr ""
+msgstr "Absolument ! Vous pouvez exporter votre CV au format PDF en un seul clic. Le PDF exporté conserve parfaitement toutes vos mises en forme et votre style."
 
 #: src/routes/_home/-sections/features.tsx:125
 msgid "Access your resumes and data programmatically using the API."
-msgstr ""
+msgstr "Accédez à vos CVs et données par programme en utilisant l'API."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx:131
 msgid "Add a custom field"
-msgstr ""
+msgstr "Ajouter un champ personnalisé"
 
 #: src/components/input/url-input.tsx:65
 msgid "Add a label to the URL"
@@ -208,23 +208,23 @@ msgstr ""
 #: src/dialogs/resume/import.tsx:233
 #: src/dialogs/resume/import.tsx:241
 msgid "AI"
-msgstr ""
+msgstr "IA"
 
 #: src/utils/locale.ts:110
 msgid "Albanian"
-msgstr ""
+msgstr "Albanais"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:114
 msgid "Allow Public Access"
-msgstr ""
+msgstr "Autoriser l'accès public"
 
 #: src/routes/auth/register.tsx:88
 msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr ""
+msgstr "Vous avez déjà un compte ? <0><1>Connectez-vous maintenant <2/></1></0>"
 
 #: src/utils/locale.ts:71
 msgid "Amharic"
-msgstr ""
+msgstr "Amharique"
 
 #: src/components/layout/error-screen.tsx:16
 #: src/components/layout/not-found-screen.tsx:16
@@ -349,19 +349,19 @@ msgstr ""
 
 #: src/routes/auth/verify-2fa.tsx:105
 msgid "Back to Login"
-msgstr ""
+msgstr "Retour à la page de connexion"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx:123
 msgid "Background Color"
-msgstr ""
+msgstr "Couleur de fond"
 
 #: src/dialogs/auth/enable-two-factor.tsx:127
 msgid "Backup codes copied to clipboard."
-msgstr ""
+msgstr "Codes de secours copiés dans le presse-papiers."
 
 #: src/routes/dashboard/settings/ai.tsx:119
 msgid "Base URL (Optional)"
-msgstr ""
+msgstr "URL de base (facultatif)"
 
 #: src/utils/resume/section.tsx:91
 msgid "Basics"
@@ -378,11 +378,11 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx:51
 msgctxt "Body Text (paragraphs, lists, etc.)"
 msgid "Body"
-msgstr ""
+msgstr "Corps"
 
 #: src/components/input/rich-input.tsx:323
 msgid "Bold"
-msgstr ""
+msgstr "Gras"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:280
 msgid "Border Radius"
@@ -398,11 +398,11 @@ msgstr ""
 
 #: src/utils/locale.ts:74
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgare"
 
 #: src/components/input/rich-input.tsx:502
 msgid "Bullet List"
-msgstr ""
+msgstr "Liste à puces"
 
 #: src/components/ui/copyright.tsx:20
 #: src/routes/_home/-sections/features.tsx:47
@@ -451,11 +451,11 @@ msgstr ""
 #: src/routes/dashboard/settings/danger-zone.tsx:35
 #: src/routes/dashboard/settings/profile.tsx:220
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/utils/locale.ts:76
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: src/components/input/rich-input.tsx:477
 msgid "Center Align"
@@ -471,11 +471,11 @@ msgstr ""
 
 #: src/routes/_home/-sections/header.tsx:66
 msgid "Change language"
-msgstr ""
+msgstr "Changer la langue"
 
 #: src/components/command-palette/pages/preferences/index.tsx:22
 msgid "Change language to..."
-msgstr ""
+msgstr "Changer la langue en..."
 
 #: src/components/command-palette/pages/preferences/index.tsx:17
 msgid "Change theme to..."
@@ -495,66 +495,66 @@ msgstr ""
 
 #: src/utils/locale.ts:120
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chinois (simplifié)"
 
 #: src/utils/locale.ts:121
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Chinois (traditionnel)"
 
 #: src/components/level/combobox.tsx:15
 msgid "Circle"
-msgstr ""
+msgstr "Cercle"
 
 #: src/components/ui/multiple-combobox.tsx:52
 msgid "Clear selection"
-msgstr ""
+msgstr "Effacer la sélection"
 
 #: src/dialogs/resume/import.tsx:276
 msgid "Click here to select a file to import"
-msgstr ""
+msgstr "Cliquez ici pour sélectionner un fichier à importer"
 
 #: src/components/input/rich-input.tsx:572
 msgid "Code Block"
-msgstr ""
+msgstr "Bloc de code"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:156
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:142
 msgid "Columns"
-msgstr ""
+msgstr "Colonnes"
 
 #: src/routes/_home/-sections/footer.tsx:93
 msgid "Community"
-msgstr ""
+msgstr "Communauté"
 
 #: src/dialogs/resume/sections/experience.tsx:149
 msgid "Company"
-msgstr ""
+msgstr "Entreprise"
 
 #: src/routes/_home/-sections/features.tsx:41
 msgid "Completely free, forever, no hidden costs."
-msgstr ""
+msgstr "Entièrement gratuit, pour toujours, sans frais cachés."
 
 #: src/dialogs/api-key/create.tsx:210
 #: src/hooks/use-prompt.tsx:53
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:85
 #: src/routes/dashboard/settings/danger-zone.tsx:34
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: src/routes/dashboard/settings/authentication/-components/social-provider.tsx:60
 msgid "Connect"
-msgstr ""
+msgstr "Se connecter"
 
 #: src/dialogs/resume/sections/custom.tsx:162
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 #: src/dialogs/auth/enable-two-factor.tsx:207
 #: src/dialogs/auth/enable-two-factor.tsx:270
 #: src/dialogs/auth/enable-two-factor.tsx:305
 #: src/routes/auth/register.tsx:224
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: src/routes/dashboard/resumes/-components/import-card.tsx:12
 msgid "Continue where you left off"
@@ -1486,7 +1486,7 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:50
 #: src/routes/dashboard/settings/profile.tsx:134
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/utils/locale.ts:100
 msgid "Nepali"
@@ -2682,3 +2682,4 @@ msgstr ""
 #: src/utils/locale.ts:122
 msgid "Zulu"
 msgstr ""
+
