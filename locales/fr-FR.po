@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-21 16:17\n"
+"PO-Revision-Date: 2026-01-21 18:12\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -114,7 +114,7 @@ msgstr "Ajouter un champ personnalisé"
 
 #: src/components/input/url-input.tsx:65
 msgid "Add a label to the URL"
-msgstr ""
+msgstr "Ajouter un libellé à l'URL"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/awards.tsx:31
 msgid "Add a new award"
@@ -174,28 +174,28 @@ msgstr ""
 
 #: src/components/input/rich-input.tsx:599
 msgid "Add Column After"
-msgstr ""
+msgstr "Ajouter une colonne après"
 
 #: src/components/input/rich-input.tsx:595
 msgid "Add Column Before"
-msgstr ""
+msgstr "Ajouter une colonne avant"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:223
 msgid "Add Page"
-msgstr ""
+msgstr "Ajouter une page"
 
 #: src/components/input/rich-input.tsx:608
 msgid "Add Row After"
-msgstr ""
+msgstr "Ajouter une ligne après"
 
 #: src/components/input/rich-input.tsx:604
 msgid "Add Row Before"
-msgstr ""
+msgstr "Ajouter une ligne avant"
 
 #. placeholder {0}: passkey.createdAt.toLocaleDateString()
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:110
 msgid "Added on {0}"
-msgstr ""
+msgstr "Ajouté le {0}"
 
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:24
 msgid "Adding your passkey..."
@@ -203,7 +203,7 @@ msgstr ""
 
 #: src/utils/locale.ts:70
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: src/dialogs/resume/import.tsx:233
 #: src/dialogs/resume/import.tsx:241
@@ -229,27 +229,27 @@ msgstr "Amharique"
 #: src/components/layout/error-screen.tsx:16
 #: src/components/layout/not-found-screen.tsx:16
 msgid "An error occurred while loading the page."
-msgstr ""
+msgstr "Une erreur s'est produite lors du chargement de la page."
 
 #: src/dialogs/resume/import.tsx:190
 msgid "An unknown error occurred while importing your resume."
-msgstr ""
+msgstr "Une erreur inconnue s'est produite lors de l'importation de votre CV."
 
 #: src/routes/_home/-sections/features.tsx:130
 msgid "And many more..."
-msgstr ""
+msgstr "Et bien d'autres..."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:56
 msgid "Anyone visiting the resume's public URL must enter this password to access it."
-msgstr ""
+msgstr "Toute personne visitant l'URL public du CV doit saisir ce mot de passe pour y accéder."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:84
 msgid "Anyone who has the resume's public URL will be able to view and download your resume without entering a password."
-msgstr ""
+msgstr "Toute personne disposant de l'URL publique du CV pourra consulter et télécharger votre CV sans avoir à saisir de mot de passe."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:118
 msgid "Anyone with the link can view and download the resume."
-msgstr ""
+msgstr "Toute personne avec ce lien peut voir et télécharger le CV."
 
 #: src/routes/_home/-sections/features.tsx:124
 msgid "API Access"
@@ -257,14 +257,14 @@ msgstr ""
 
 #: src/routes/dashboard/settings/ai.tsx:105
 msgid "API Key"
-msgstr ""
+msgstr "Clé API"
 
 #: src/components/command-palette/pages/navigation.tsx:87
 #: src/components/command-palette/pages/navigation.tsx:92
 #: src/routes/dashboard/-components/sidebar.tsx:69
 #: src/routes/dashboard/settings/api-keys.tsx:60
 msgid "API Keys"
-msgstr ""
+msgstr "Clés API"
 
 #: src/routes/dashboard/settings/api-keys.tsx:90
 msgid "API Reference"
@@ -280,59 +280,59 @@ msgstr ""
 
 #: src/utils/locale.ts:72
 msgid "Arabic"
-msgstr ""
+msgstr "Arabe"
 
 #: src/routes/dashboard/settings/api-keys.tsx:37
 msgid "Are you sure you want to delete this API key?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cette clé API ?"
 
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:75
 msgid "Are you sure you want to delete this passkey?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cette clé d'accès ?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:79
 msgid "Are you sure you want to delete this resume?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer ce CV ?"
 
 #: src/routes/dashboard/settings/danger-zone.tsx:32
 msgid "Are you sure you want to delete your account?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer votre compte ?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:61
 msgid "Are you sure you want to lock this resume?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir verrouiller ce CV ?"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:83
 msgid "Are you sure you want to remove password protection?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la protection par mot de passe ?"
 
 #: src/dialogs/resume/sections/education.tsx:185
 msgid "Area of Study"
-msgstr ""
+msgstr "Domaine d'étude"
 
 #: src/components/command-palette/pages/navigation.tsx:96
 #: src/components/command-palette/pages/navigation.tsx:101
 #: src/routes/dashboard/-components/sidebar.tsx:74
 #: src/routes/dashboard/settings/ai.tsx:159
 msgid "Artificial Intelligence"
-msgstr ""
+msgstr "Intelligence artificielle"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:216
 msgid "Aspect Ratio"
-msgstr ""
+msgstr "Format d'image"
 
 #: src/components/command-palette/pages/navigation.tsx:78
 #: src/components/command-palette/pages/navigation.tsx:83
 #: src/routes/dashboard/-components/sidebar.tsx:64
 #: src/routes/dashboard/settings/authentication/index.tsx:22
 msgid "Authentication"
-msgstr ""
+msgstr "Authentification"
 
 #: src/routes/_home/-sections/features.tsx:71
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
-msgstr ""
+msgstr "Disponible en plusieurs langues. Si vous souhaitez contribuer, rendez-vous sur Crowdin."
 
 #: src/dialogs/resume/sections/award.tsx:163
 msgctxt "(noun) person, organization, or entity that gives an award"
@@ -345,7 +345,7 @@ msgstr ""
 
 #: src/utils/locale.ts:73
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azerbaïdjanais"
 
 #: src/routes/auth/verify-2fa.tsx:105
 msgid "Back to Login"
@@ -365,11 +365,11 @@ msgstr "URL de base (facultatif)"
 
 #: src/utils/resume/section.tsx:91
 msgid "Basics"
-msgstr ""
+msgstr "Infos de base"
 
 #: src/routes/_home/-sections/features.tsx:107
 msgid "Beautiful templates to choose from, with more on the way."
-msgstr ""
+msgstr "Vous avez le choix parmi de magnifiques modèles, et d'autres sont en cours d'élaboration."
 
 #: src/utils/locale.ts:75
 msgid "Bengali"
@@ -386,11 +386,11 @@ msgstr "Gras"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:280
 msgid "Border Radius"
-msgstr ""
+msgstr "Coins arrondis"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:365
 msgid "Border Width"
-msgstr ""
+msgstr "Largeur de la bordure"
 
 #: src/components/command-palette/index.tsx:88
 msgid "Builder Command Palette"
@@ -408,15 +408,15 @@ msgstr "Liste à puces"
 #: src/routes/_home/-sections/features.tsx:47
 #: src/routes/_home/-sections/prefooter.tsx:25
 msgid "By the community, for the community."
-msgstr ""
+msgstr "Par la communauté, pour la communauté."
 
 #: src/routes/_home/-sections/faq.tsx:59
 msgid "Can I customize the templates?"
-msgstr ""
+msgstr "Puis-je personnaliser les modèles ?"
 
 #: src/routes/_home/-sections/faq.tsx:31
 msgid "Can I export my resume to PDF?"
-msgstr ""
+msgstr "Puis-je exporter mon CV au format PDF ?"
 
 #: src/dialogs/auth/enable-two-factor.tsx:267
 #: src/dialogs/resume/sections/award.tsx:68
@@ -2167,7 +2167,7 @@ msgstr ""
 
 #: src/routes/_home/-sections/testimonials.tsx:95
 msgid "Testimonials"
-msgstr ""
+msgstr "Témoignages"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx:98
 msgid "Text Color"
