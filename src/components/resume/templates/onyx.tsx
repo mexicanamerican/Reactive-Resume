@@ -17,7 +17,7 @@ export function OnyxTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-onyx page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y)">
+		<div className="template-onyx page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<main data-layout="main" className="group page-main space-y-(--page-gap-y)">

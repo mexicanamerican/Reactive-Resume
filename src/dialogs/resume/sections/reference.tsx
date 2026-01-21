@@ -32,15 +32,20 @@ export function CreateReferenceDialog({ data }: DialogProps<"resume.sections.ref
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			id: generateId(),
-			hidden: data?.hidden ?? false,
-			name: data?.name ?? "",
-			description: data?.description ?? "",
+			hidden: data?.item?.hidden ?? false,
+			name: data?.item?.name ?? "",
+			description: data?.item?.description ?? "",
 		},
 	});
 
-	const onSubmit = (values: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			draft.sections.references.items.push(values);
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (section) section.items.push(formData);
+			} else {
+				draft.sections.references.items.push(formData);
+			}
 		});
 		closeDialog();
 	};
@@ -81,18 +86,24 @@ export function UpdateReferenceDialog({ data }: DialogProps<"resume.sections.ref
 	const form = useForm<FormValues>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			id: data.id,
-			hidden: data.hidden,
-			name: data.name,
-			description: data.description,
+			id: data.item.id,
+			hidden: data.item.hidden,
+			name: data.item.name,
+			description: data.item.description,
 		},
 	});
 
-	const onSubmit = (values: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			const index = draft.sections.references.items.findIndex((item) => item.id === values.id);
-			if (index === -1) return;
-			draft.sections.references.items[index] = values;
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (!section) return;
+				const index = section.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) section.items[index] = formData;
+			} else {
+				const index = draft.sections.references.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) draft.sections.references.items[index] = formData;
+			}
 		});
 		closeDialog();
 	};

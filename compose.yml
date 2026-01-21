@@ -100,9 +100,12 @@ services:
       test:
         [
           "CMD",
-          "node",
-          "-e",
-          "fetch('http://localhost:3000/api/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+          "curl",
+          "-f",
+          "http://localhost:3000/api/health",
+          "||",
+          "exit",
+          "1",
         ]
       start_period: 10s
       interval: 30s

@@ -190,7 +190,7 @@ Comprehensive guides are available at [docs.rxresu.me](https://docs.rxresu.me):
 Reactive Resume can be self-hosted using Docker. The stack includes:
 
 - **PostgreSQL** — Database for storing user data and resumes
-- **Gotenberg** — Headless Chrome service for PDF generation
+- **Printer** — Headless Chromium service for PDF and screenshot generation
 - **SeaweedFS** (optional) — S3-compatible storage for file uploads
 
 Pull the latest image from Docker Hub or GitHub Container Registry:

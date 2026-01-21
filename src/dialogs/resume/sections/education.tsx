@@ -33,21 +33,26 @@ export function CreateEducationDialog({ data }: DialogProps<"resume.sections.edu
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			id: generateId(),
-			hidden: data?.hidden ?? false,
-			school: data?.school ?? "",
-			degree: data?.degree ?? "",
-			area: data?.area ?? "",
-			grade: data?.grade ?? "",
-			location: data?.location ?? "",
-			period: data?.period ?? "",
-			website: data?.website ?? { url: "", label: "" },
-			description: data?.description ?? "",
+			hidden: data?.item?.hidden ?? false,
+			school: data?.item?.school ?? "",
+			degree: data?.item?.degree ?? "",
+			area: data?.item?.area ?? "",
+			grade: data?.item?.grade ?? "",
+			location: data?.item?.location ?? "",
+			period: data?.item?.period ?? "",
+			website: data?.item?.website ?? { url: "", label: "" },
+			description: data?.item?.description ?? "",
 		},
 	});
 
-	const onSubmit = (data: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			draft.sections.education.items.push(data);
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (section) section.items.push(formData);
+			} else {
+				draft.sections.education.items.push(formData);
+			}
 		});
 		closeDialog();
 	};
@@ -88,24 +93,30 @@ export function UpdateEducationDialog({ data }: DialogProps<"resume.sections.edu
 	const form = useForm<FormValues>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			id: data.id,
-			hidden: data.hidden,
-			school: data.school,
-			degree: data.degree,
-			area: data.area,
-			grade: data.grade,
-			location: data.location,
-			period: data.period,
-			website: data.website,
-			description: data.description,
+			id: data.item.id,
+			hidden: data.item.hidden,
+			school: data.item.school,
+			degree: data.item.degree,
+			area: data.item.area,
+			grade: data.item.grade,
+			location: data.item.location,
+			period: data.item.period,
+			website: data.item.website,
+			description: data.item.description,
 		},
 	});
 
-	const onSubmit = (data: FormValues) => {
+	const onSubmit = (formData: FormValues) => {
 		updateResumeData((draft) => {
-			const index = draft.sections.education.items.findIndex((item) => item.id === data.id);
-			if (index === -1) return;
-			draft.sections.education.items[index] = data;
+			if (data?.customSectionId) {
+				const section = draft.customSections.find((s) => s.id === data.customSectionId);
+				if (!section) return;
+				const index = section.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) section.items[index] = formData;
+			} else {
+				const index = draft.sections.education.items.findIndex((item) => item.id === formData.id);
+				if (index !== -1) draft.sections.education.items[index] = formData;
+			}
 		});
 		closeDialog();
 	};
