@@ -1,8 +1,8 @@
 import { useLingui } from "@lingui/react";
 import { SwapIcon } from "@phosphor-icons/react";
-import { Button } from "@/components/animate-ui/components/buttons/button";
 import { useResumeStore } from "@/components/resume/store/resume";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { templates } from "@/dialogs/resume/template/data";
 import { useDialogStore } from "@/dialogs/store";
 import { SectionBase } from "../shared/section-base";

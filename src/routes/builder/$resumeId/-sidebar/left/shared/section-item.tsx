@@ -15,7 +15,8 @@ import {
 } from "@phosphor-icons/react";
 import { Reorder, useDragControls } from "motion/react";
 import { useMemo } from "react";
-import { Button, type ButtonProps } from "@/components/animate-ui/components/buttons/button";
+import { useResumeStore } from "@/components/resume/store/resume";
+import { Button, type ButtonProps } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -26,8 +27,7 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
-} from "@/components/animate-ui/components/radix/dropdown-menu";
-import { useResumeStore } from "@/components/resume/store/resume";
+} from "@/components/ui/dropdown-menu";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 import type { SectionItem as SectionItemType, SectionType } from "@/schema/resume/data";

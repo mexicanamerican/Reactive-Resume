@@ -26,7 +26,7 @@ export function PageSection<T extends SectionType>({ type, className, children }
 				style={{ gridTemplateColumns: `repeat(${section.columns}, 1fr)` }}
 			>
 				{items.map((item) => (
-					<div key={item.id} className={cn(`section-item section-item-${type} wrap-break-word *:space-y-1`)}>
+					<div key={item.id} className={cn(`section-item section-item-${type} *:space-y-1`)}>
 						{children(item)}
 					</div>
 				))}

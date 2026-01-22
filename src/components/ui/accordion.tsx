@@ -8,7 +8,7 @@ import {
 	type AccordionProps as AccordionPrimitiveProps,
 	AccordionTrigger as AccordionTriggerPrimitive,
 	type AccordionTriggerProps as AccordionTriggerPrimitiveProps,
-} from "@/components/animate-ui/primitives/radix/accordion";
+} from "@/components/primitives/accordion";
 import { cn } from "@/utils/style";
 
 type AccordionProps = AccordionPrimitiveProps;
@@ -20,7 +20,7 @@ function Accordion(props: AccordionProps) {
 type AccordionItemProps = AccordionItemPrimitiveProps;
 
 function AccordionItem({ className, ...props }: AccordionItemProps) {
-	return <AccordionItemPrimitive className={cn("border-b last:border-b-0", className)} {...props} />;
+	return <AccordionItemPrimitive className={cn(className)} {...props} />;
 }
 
 type AccordionTriggerProps = AccordionTriggerPrimitiveProps;

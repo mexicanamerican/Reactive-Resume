@@ -10,7 +10,7 @@ import {
 	WrenchIcon,
 } from "@phosphor-icons/react";
 import { motion } from "motion/react";
-import { Button } from "@/components/animate-ui/components/buttons/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/utils/style";
 
 type FloatingIconProps = {

@@ -10,6 +10,8 @@ import {
 } from "@phosphor-icons/react";
 import { AnimatePresence, Reorder } from "motion/react";
 import { match } from "ts-pattern";
+import { useResumeStore } from "@/components/resume/store/resume";
+import { Badge } from "@/components/ui/badge";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -22,9 +24,7 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
-} from "@/components/animate-ui/components/radix/dropdown-menu";
-import { useResumeStore } from "@/components/resume/store/resume";
-import { Badge } from "@/components/ui/badge";
+} from "@/components/ui/dropdown-menu";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 import type { CustomSection, CustomSectionItem as CustomSectionItemType, SectionType } from "@/schema/resume/data";
@@ -117,7 +117,7 @@ function CustomSectionContainer({ section }: { section: CustomSection }) {
 					<Badge variant="secondary" className="mb-1.5 rounded-sm">
 						{getSectionTitle(section.type)}
 					</Badge>
-					<span className="line-clamp-1 break-all font-medium text-base">{section.title}</span>
+					<span className="line-clamp-1 text-wrap font-medium text-base">{section.title}</span>
 					<span className="text-muted-foreground text-xs">
 						<Plural value={section.items.length} one="# item" other="# items" />
 					</span>

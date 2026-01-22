@@ -2,7 +2,7 @@ name: reactive_resume
 
 services:
   postgres:
-    image: postgres:18
+    image: postgres:latest
     restart: unless-stopped
     environment:
       POSTGRES_DB: postgres
@@ -24,10 +24,8 @@ services:
     restart: unless-stopped
     ports:
       - "4000:3000"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     environment:
-      - QUEUED=10
+      - QUEUED=30
       - HEALTH=true
       - CONCURRENT=20
       - TOKEN=1234567890
@@ -95,6 +93,6 @@ services:
       retries: 3
 
 volumes:
+  mailpit_data:
   postgres_data:
   seaweedfs_data:
-  mailpit_data:

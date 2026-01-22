@@ -3,8 +3,8 @@ import { DotsSixVerticalIcon, LinkIcon, ListPlusIcon, XIcon } from "@phosphor-ic
 import { Reorder, useDragControls } from "motion/react";
 import { Controller, useFieldArray, useFormContext, useWatch } from "react-hook-form";
 import type z from "zod";
-import { Button } from "@/components/animate-ui/components/buttons/button";
 import { IconPicker } from "@/components/input/icon-picker";
+import { Button } from "@/components/ui/button";
 import { FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";

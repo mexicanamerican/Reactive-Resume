@@ -1,5 +1,5 @@
 import type { InferSelectModel } from "drizzle-orm";
-import puppeteer, { type Browser, type ConnectOptions, type Page } from "puppeteer-core";
+import puppeteer, { type Browser, type ConnectOptions } from "puppeteer-core";
 import type { schema } from "@/integrations/drizzle";
 import { printMarginTemplates } from "@/schema/templates";
 import { env } from "@/utils/env";
@@ -19,43 +19,23 @@ const pageDimensions = {
 
 const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
 
-let pdfBrowser: Browser | null = null;
-let screenshotBrowser: Browser | null = null;
+let browser: Browser | null = null;
 
-async function getBrowser(type: "pdf" | "screenshot"): Promise<Browser> {
+async function getBrowser(): Promise<Browser> {
 	const endpoint = new URL(env.PRINTER_ENDPOINT);
 	const isWebSocket = endpoint.protocol.startsWith("ws");
 
-	const connectOptions: ConnectOptions = { acceptInsecureCerts: true };
+	const connectOptions: ConnectOptions = {
+		acceptInsecureCerts: true,
+		defaultViewport: { width: 794, height: 1123 },
+	};
 
 	if (isWebSocket) connectOptions.browserWSEndpoint = env.PRINTER_ENDPOINT;
 	else connectOptions.browserURL = env.PRINTER_ENDPOINT;
 
-	if (type === "screenshot") {
-		if (screenshotBrowser?.connected) return screenshotBrowser;
-		screenshotBrowser = await puppeteer.connect({ ...connectOptions, defaultViewport: { width: 794, height: 1123 } });
-		return screenshotBrowser;
-	}
-
-	if (pdfBrowser?.connected) return pdfBrowser;
-	pdfBrowser = await puppeteer.connect(connectOptions);
-	return pdfBrowser;
-}
-
-async function interceptLocalhostRequests(page: Page) {
-	await page.setRequestInterception(true);
-
-	page.on("request", (request) => {
-		const url = request.url();
-
-		if (url.includes(env.APP_URL) && env.PRINTER_APP_URL) {
-			const newUrl = url.replace(env.APP_URL, env.PRINTER_APP_URL);
-			request.continue({ url: newUrl });
-			return;
-		}
-
-		request.continue();
-	});
+	if (browser?.connected) return browser;
+	browser = await puppeteer.connect(connectOptions);
+	return browser;
 }
 
 export const printerService = {
@@ -73,7 +53,7 @@ export const printerService = {
 	},
 
 	chromeDebug: async (): Promise<void> => {
-		const browser = await getBrowser("pdf");
+		const browser = await getBrowser();
 
 		const page = await browser.newPage();
 
@@ -112,13 +92,11 @@ export const printerService = {
 			marginY = Math.round(data.metadata.page.marginY / 0.75);
 		}
 
-		const browser = await getBrowser("pdf");
+		const browser = await getBrowser();
 
 		await browser.setCookie({ name: "locale", value: locale, domain });
 
 		const page = await browser.newPage();
-
-		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
 
 		await page.goto(url, { waitUntil: "networkidle0" });
 
@@ -188,13 +166,11 @@ export const printerService = {
 		const token = generatePrinterToken(id);
 		const url = `${baseUrl}/printer/${id}?token=${token}`;
 
-		const browser = await getBrowser("screenshot");
+		const browser = await getBrowser();
 
 		await browser.setCookie({ name: "locale", value: locale, domain });
 
 		const page = await browser.newPage();
-
-		if (env.APP_URL.includes("localhost")) await interceptLocalhostRequests(page);
 
 		await page.goto(url, { waitUntil: "networkidle0" });
 

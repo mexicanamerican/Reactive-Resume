@@ -2,7 +2,7 @@ name: reactive_resume
 
 services:
   postgres:
-    image: postgres:18
+    image: postgres:latest
     restart: unless-stopped
     environment:
       POSTGRES_DB: postgres
@@ -20,15 +20,12 @@ services:
   browserless:
     image: ghcr.io/browserless/chromium:latest
     restart: unless-stopped
-    ports:
-      - "4000:3000"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     environment:
-      - QUEUED=10
+      - QUEUED=30
       - HEALTH=true
       - CONCURRENT=20
       - TOKEN=1234567890
+      - EXTERNAL=http://localhost:4000
     healthcheck:
       test:
         ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=1234567890"]

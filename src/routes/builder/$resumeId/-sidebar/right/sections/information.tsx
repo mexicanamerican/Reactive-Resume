@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/react/macro";
 import { HandHeartIcon } from "@phosphor-icons/react";
-import { Button } from "@/components/animate-ui/components/buttons/button";
+import { Button } from "@/components/ui/button";
 import { SectionBase } from "../shared/section-base";
 
 export function InformationSectionBuilder() {

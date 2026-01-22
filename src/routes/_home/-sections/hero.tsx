@@ -3,10 +3,10 @@ import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon, BookIcon, SparkleIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Button } from "@/components/animate-ui/components/buttons/button";
 import { CometCard } from "@/components/animation/comet-card";
 import { Spotlight } from "@/components/animation/spotlight";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
 	return (

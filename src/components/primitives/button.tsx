@@ -1,5 +1,5 @@
 import { type HTMLMotionProps, motion } from "motion/react";
-import { Slot, type WithAsChild } from "@/components/animate-ui/primitives/animate/slot";
+import { Slot, type WithAsChild } from "@/components/primitives/slot";
 
 type ButtonProps = WithAsChild<
 	Omit<HTMLMotionProps<"button">, "children"> & {

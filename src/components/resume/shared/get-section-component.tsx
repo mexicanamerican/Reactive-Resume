@@ -178,9 +178,7 @@ export function getSectionComponent(
 				if (visibleItems.length === 0) return null;
 
 				return (
-					<section
-						className={cn(`page-section page-section-custom page-section-${id} wrap-break-word`, sectionClassName)}
-					>
+					<section className={cn(`page-section page-section-custom page-section-${id}`, sectionClassName)}>
 						<h6 className="mb-1 text-(--page-primary-color)">{customSection.title}</h6>
 
 						<div
@@ -188,10 +186,7 @@ export function getSectionComponent(
 							style={{ gridTemplateColumns: `repeat(${customSection.columns}, 1fr)` }}
 						>
 							{visibleItems.map((item) => (
-								<div
-									key={item.id}
-									className={cn(`section-item section-item-${customSection.type} wrap-break-word *:space-y-1`)}
-								>
+								<div key={item.id} className={cn(`section-item section-item-${customSection.type} *:space-y-1`)}>
 									{renderItemByType(customSection.type, item, itemClassName)}
 								</div>
 							))}

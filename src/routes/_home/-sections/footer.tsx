@@ -4,8 +4,8 @@ import type { Icon } from "@phosphor-icons/react";
 import { GithubLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Button } from "@/components/animate-ui/components/buttons/button";
 import { BrandIcon } from "@/components/ui/brand-icon";
+import { Button } from "@/components/ui/button";
 import { Copyright } from "@/components/ui/copyright";
 
 type FooterLinkItem = {

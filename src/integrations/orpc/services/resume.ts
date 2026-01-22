@@ -5,6 +5,7 @@ import { schema } from "@/integrations/drizzle";
 import { db } from "@/integrations/drizzle/client";
 import type { ResumeData } from "@/schema/resume/data";
 import { defaultResumeData } from "@/schema/resume/data";
+import { env } from "@/utils/env";
 import type { Locale } from "@/utils/locale";
 import { hashPassword } from "@/utils/password";
 import { generateId } from "@/utils/string";
@@ -145,6 +146,14 @@ export const resumeService = {
 			.where(eq(schema.resume.id, input.id));
 
 		if (!resume) throw new ORPCError("NOT_FOUND");
+
+		// Convert picture URL to base64 data, so there's no fetching required on the client.
+		const url = resume.data.picture.url.replace(env.APP_URL, "http://localhost:3000");
+		const base64 = await fetch(url)
+			.then((res) => res.arrayBuffer())
+			.then((buffer) => Buffer.from(buffer).toString("base64"));
+
+		resume.data.picture.url = `data:image/jpeg;base64,${base64}`;
 
 		return resume;
 	},

@@ -52,7 +52,7 @@ import { useMemo } from "react";
 import { toast } from "sonner";
 import { match } from "ts-pattern";
 import z from "zod";
-import { Button } from "@/components/animate-ui/components/buttons/button";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuCheckboxItem,
@@ -60,7 +60,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@/components/animate-ui/components/radix/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { usePrompt } from "@/hooks/use-prompt";
 import { isRTL } from "@/utils/locale";
 import { sanitizeHtml } from "@/utils/sanitize";

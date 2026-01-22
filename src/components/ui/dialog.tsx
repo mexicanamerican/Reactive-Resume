@@ -18,7 +18,7 @@ import {
 	type DialogTitleProps as DialogTitlePrimitiveProps,
 	DialogTrigger as DialogTriggerPrimitive,
 	type DialogTriggerProps as DialogTriggerPrimitiveProps,
-} from "@/components/animate-ui/primitives/radix/dialog";
+} from "@/components/primitives/dialog";
 import { cn } from "@/utils/style";
 
 type DialogProps = DialogPrimitiveProps;

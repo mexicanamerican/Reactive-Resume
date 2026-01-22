@@ -1,4 +1,3 @@
-import { buttonVariants } from "@/components/animate-ui/components/buttons/button";
 import {
 	AlertDialogAction as AlertDialogActionPrimitive,
 	type AlertDialogActionProps as AlertDialogActionPrimitiveProps,
@@ -21,7 +20,8 @@ import {
 	type AlertDialogTitleProps as AlertDialogTitlePrimitiveProps,
 	AlertDialogTrigger as AlertDialogTriggerPrimitive,
 	type AlertDialogTriggerProps as AlertDialogTriggerPrimitiveProps,
-} from "@/components/animate-ui/primitives/radix/alert-dialog";
+} from "@/components/primitives/alert-dialog";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/utils/style";
 
 type AlertDialogProps = AlertDialogPrimitiveProps;

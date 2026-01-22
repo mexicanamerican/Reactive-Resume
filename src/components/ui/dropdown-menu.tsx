@@ -29,7 +29,7 @@ import {
 	type DropdownMenuSubTriggerProps as DropdownMenuSubTriggerPrimitiveProps,
 	DropdownMenuTrigger as DropdownMenuTriggerPrimitive,
 	type DropdownMenuTriggerProps as DropdownMenuTriggerPrimitiveProps,
-} from "@/components/animate-ui/primitives/radix/dropdown-menu";
+} from "@/components/primitives/dropdown-menu";
 import { cn } from "@/utils/style";
 
 type DropdownMenuProps = DropdownMenuPrimitiveProps;
