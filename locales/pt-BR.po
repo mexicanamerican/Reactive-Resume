@@ -88,7 +88,7 @@ msgstr ""
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:50
+#: src/routes/builder/$resumeId/-components/dock.tsx:44
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:39
 msgid "A link to your resume has been copied to clipboard."
 msgstr ""
@@ -178,11 +178,11 @@ msgstr "Adicionar competência"
 msgid "Add a new volunteer experience"
 msgstr "Adicionar experiência de voluntariado"
 
-#: src/components/input/rich-input.tsx:599
+#: src/components/input/rich-input.tsx:595
 msgid "Add Column After"
 msgstr "Adicionar coluna depois"
 
-#: src/components/input/rich-input.tsx:595
+#: src/components/input/rich-input.tsx:591
 msgid "Add Column Before"
 msgstr "Adicionar coluna antes"
 
@@ -190,11 +190,11 @@ msgstr "Adicionar coluna antes"
 msgid "Add Page"
 msgstr "Adicionar página"
 
-#: src/components/input/rich-input.tsx:608
+#: src/components/input/rich-input.tsx:604
 msgid "Add Row After"
 msgstr "Adicionar linha depois"
 
-#: src/components/input/rich-input.tsx:604
+#: src/components/input/rich-input.tsx:600
 msgid "Add Row Before"
 msgstr "Adicionar linha antes"
 
@@ -386,7 +386,7 @@ msgctxt "Body Text (paragraphs, lists, etc.)"
 msgid "Body"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:323
+#: src/components/input/rich-input.tsx:319
 msgid "Bold"
 msgstr ""
 
@@ -406,7 +406,7 @@ msgstr ""
 msgid "Bulgarian"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:502
+#: src/components/input/rich-input.tsx:498
 msgid "Bullet List"
 msgstr ""
 
@@ -445,8 +445,8 @@ msgstr ""
 #: src/dialogs/resume/sections/project.tsx:126
 #: src/dialogs/resume/sections/publication.tsx:67
 #: src/dialogs/resume/sections/publication.tsx:128
-#: src/dialogs/resume/sections/reference.tsx:63
-#: src/dialogs/resume/sections/reference.tsx:121
+#: src/dialogs/resume/sections/reference.tsx:67
+#: src/dialogs/resume/sections/reference.tsx:128
 #: src/dialogs/resume/sections/skill.tsx:71
 #: src/dialogs/resume/sections/skill.tsx:132
 #: src/dialogs/resume/sections/volunteer.tsx:67
@@ -463,11 +463,11 @@ msgstr ""
 msgid "Catalan"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:477
+#: src/components/input/rich-input.tsx:473
 msgid "Center Align"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:83
+#: src/routes/builder/$resumeId/-components/dock.tsx:76
 msgid "Center view"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Click here to select a file to import"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:572
+#: src/components/input/rich-input.tsx:568
 msgid "Code Block"
 msgstr ""
 
@@ -590,7 +590,7 @@ msgstr ""
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:85
+#: src/routes/builder/$resumeId/-components/dock.tsx:78
 msgid "Copy URL"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr ""
 #: src/dialogs/resume/sections/profile.tsx:72
 #: src/dialogs/resume/sections/project.tsx:70
 #: src/dialogs/resume/sections/publication.tsx:71
-#: src/dialogs/resume/sections/reference.tsx:67
+#: src/dialogs/resume/sections/reference.tsx:71
 #: src/dialogs/resume/sections/skill.tsx:75
 #: src/dialogs/resume/sections/volunteer.tsx:71
 msgid "Create"
@@ -661,7 +661,7 @@ msgstr ""
 msgid "Create a new publication"
 msgstr ""
 
-#: src/dialogs/resume/sections/reference.tsx:52
+#: src/dialogs/resume/sections/reference.tsx:56
 msgid "Create a new reference"
 msgstr ""
 
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Delete Account"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:613
+#: src/components/input/rich-input.tsx:609
 msgid "Delete Column"
 msgstr ""
 
@@ -767,11 +767,11 @@ msgstr ""
 msgid "Delete Page"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:617
+#: src/components/input/rich-input.tsx:613
 msgid "Delete Row"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:622
+#: src/components/input/rich-input.tsx:618
 msgid "Delete Table"
 msgstr ""
 
@@ -802,7 +802,7 @@ msgstr ""
 #: src/dialogs/resume/sections/experience.tsx:234
 #: src/dialogs/resume/sections/project.tsx:198
 #: src/dialogs/resume/sections/publication.tsx:216
-#: src/dialogs/resume/sections/reference.tsx:161
+#: src/dialogs/resume/sections/reference.tsx:216
 #: src/dialogs/resume/sections/volunteer.tsx:216
 msgid "Description"
 msgstr ""
@@ -866,11 +866,11 @@ msgstr ""
 msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:86
+#: src/routes/builder/$resumeId/-components/dock.tsx:79
 msgid "Download JSON"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:88
+#: src/routes/builder/$resumeId/-components/dock.tsx:81
 msgid "Download PDF"
 msgstr ""
 
@@ -1144,27 +1144,27 @@ msgctxt "Headings or Titles (H1, H2, H3, H4, H5, H6)"
 msgid "Heading"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:411
+#: src/components/input/rich-input.tsx:407
 msgid "Heading 1"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:418
+#: src/components/input/rich-input.tsx:414
 msgid "Heading 2"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:425
+#: src/components/input/rich-input.tsx:421
 msgid "Heading 3"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:432
+#: src/components/input/rich-input.tsx:428
 msgid "Heading 4"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:439
+#: src/components/input/rich-input.tsx:435
 msgid "Heading 5"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:446
+#: src/components/input/rich-input.tsx:442
 msgid "Heading 6"
 msgstr ""
 
@@ -1208,7 +1208,7 @@ msgstr ""
 msgid "Hide all icons on the resume"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:371
+#: src/components/input/rich-input.tsx:367
 msgid "Highlight"
 msgstr ""
 
@@ -1267,11 +1267,11 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:560
+#: src/components/input/rich-input.tsx:556
 msgid "Inline Code"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:590
+#: src/components/input/rich-input.tsx:586
 msgid "Insert Table"
 msgstr ""
 
@@ -1295,7 +1295,7 @@ msgstr ""
 msgid "Italian"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:335
+#: src/components/input/rich-input.tsx:331
 msgid "Italic"
 msgstr ""
 
@@ -1303,7 +1303,7 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:491
+#: src/components/input/rich-input.tsx:487
 msgid "Justify Align"
 msgstr ""
 
@@ -1374,7 +1374,7 @@ msgstr ""
 msgid "Leave empty to reset the title to the original."
 msgstr ""
 
-#: src/components/input/rich-input.tsx:470
+#: src/components/input/rich-input.tsx:466
 msgid "Left Align"
 msgstr ""
 
@@ -1490,7 +1490,7 @@ msgstr ""
 #: src/dialogs/resume/index.tsx:292
 #: src/dialogs/resume/sections/interest.tsx:168
 #: src/dialogs/resume/sections/project.tsx:150
-#: src/dialogs/resume/sections/reference.tsx:145
+#: src/dialogs/resume/sections/reference.tsx:152
 #: src/dialogs/resume/sections/skill.tsx:174
 #: src/routes/auth/register.tsx:107
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:50
@@ -1510,7 +1510,7 @@ msgstr ""
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr ""
 
-#: src/components/input/rich-input.tsx:632
+#: src/components/input/rich-input.tsx:628
 msgid "New Line"
 msgstr ""
 
@@ -1584,7 +1584,7 @@ msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) in
 msgid "or continue with"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:514
+#: src/components/input/rich-input.tsx:510
 msgid "Ordered List"
 msgstr ""
 
@@ -1606,7 +1606,7 @@ msgstr ""
 msgid "Page {pageNumber} of {totalNumberOfPages}"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:403
+#: src/components/input/rich-input.tsx:399
 msgid "Paragraph"
 msgstr ""
 
@@ -1658,6 +1658,7 @@ msgstr ""
 msgid "Personalize your resume with any colors, fonts or designs, and make it your own."
 msgstr ""
 
+#: src/dialogs/resume/sections/reference.tsx:184
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:98
 msgid "Phone"
 msgstr ""
@@ -1695,6 +1696,7 @@ msgid "Portuguese (Portugal)"
 msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx:170
+#: src/dialogs/resume/sections/reference.tsx:168
 msgid "Position"
 msgstr ""
 
@@ -1841,10 +1843,6 @@ msgstr ""
 msgid "Reset your password"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:82
-msgid "Reset zoom"
-msgstr ""
-
 #: src/routes/auth/reset-password.tsx:47
 msgid "Resetting your password..."
 msgstr ""
@@ -1864,7 +1862,7 @@ msgstr ""
 msgid "Resumes"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:484
+#: src/components/input/rich-input.tsx:480
 msgid "Right Align"
 msgstr ""
 
@@ -1891,7 +1889,7 @@ msgstr ""
 #: src/dialogs/resume/sections/profile.tsx:132
 #: src/dialogs/resume/sections/project.tsx:130
 #: src/dialogs/resume/sections/publication.tsx:132
-#: src/dialogs/resume/sections/reference.tsx:125
+#: src/dialogs/resume/sections/reference.tsx:132
 #: src/dialogs/resume/sections/skill.tsx:136
 #: src/dialogs/resume/sections/volunteer.tsx:132
 #: src/routes/dashboard/settings/profile.tsx:224
@@ -1945,7 +1943,7 @@ msgstr ""
 msgid "Sending password reset email..."
 msgstr ""
 
-#: src/components/input/rich-input.tsx:643
+#: src/components/input/rich-input.tsx:639
 msgid "Separator"
 msgstr ""
 
@@ -2124,7 +2122,7 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:359
+#: src/components/input/rich-input.tsx:355
 msgid "Strike"
 msgstr ""
 
@@ -2152,7 +2150,7 @@ msgstr ""
 msgid "Switch to light theme"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:582
+#: src/components/input/rich-input.tsx:578
 msgid "Table"
 msgstr ""
 
@@ -2383,7 +2381,7 @@ msgstr ""
 msgid "Ukrainian"
 msgstr ""
 
-#: src/components/input/rich-input.tsx:347
+#: src/components/input/rich-input.tsx:343
 msgid "Underline"
 msgstr ""
 
@@ -2452,7 +2450,7 @@ msgstr ""
 msgid "Update an existing publication"
 msgstr ""
 
-#: src/dialogs/resume/sections/reference.tsx:110
+#: src/dialogs/resume/sections/reference.tsx:117
 msgid "Update an existing reference"
 msgstr ""
 
@@ -2560,6 +2558,7 @@ msgstr ""
 #: src/dialogs/resume/sections/profile.tsx:211
 #: src/dialogs/resume/sections/project.tsx:182
 #: src/dialogs/resume/sections/publication.tsx:200
+#: src/dialogs/resume/sections/reference.tsx:200
 #: src/dialogs/resume/sections/volunteer.tsx:200
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:130
 msgid "Website"
@@ -2694,15 +2693,14 @@ msgstr ""
 msgid "Your support ensures the project remains free and accessible for everyone, now and in the future."
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:80
+#: src/routes/builder/$resumeId/-components/dock.tsx:74
 msgid "Zoom in"
 msgstr "Aumentar zoom"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:81
+#: src/routes/builder/$resumeId/-components/dock.tsx:75
 msgid "Zoom out"
 msgstr "Diminuir zoom"
 
 #: src/utils/locale.ts:122
 msgid "Zulu"
 msgstr "Zulu"
-

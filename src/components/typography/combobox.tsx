@@ -22,6 +22,7 @@ const localFontList = [
 	{ type: "local", category: "serif", family: "Palatino", weights: ["400", "600", "700"] },
 	{ type: "local", category: "serif", family: "Times New Roman", weights: ["400", "600", "700"] },
 ] as LocalFont[];
+
 const webFontList = webFontListJSON as WebFont[];
 
 function buildWebFontMap() {
