@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-21 22:03\n"
+"PO-Revision-Date: 2026-01-23 01:30\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:51
 msgid "Last Updated"
-msgstr "Dernière modification"
+msgstr "Dernière mise à jour"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx:52
@@ -201,7 +201,7 @@ msgstr "Ajouter une ligne avant"
 #. placeholder {0}: passkey.createdAt.toLocaleDateString()
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:110
 msgid "Added on {0}"
-msgstr "Ajoutée le {0}"
+msgstr "Ajouté le {0}"
 
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx:24
 msgid "Adding your passkey..."
@@ -976,7 +976,7 @@ msgstr "Entrer le code de vérification de votre application d'authentification"
 
 #: src/dialogs/auth/change-password.tsx:70
 msgid "Enter your current password and a new password to update your account."
-msgstr "Saisissez votre mot de passe actuel et un nouveau mot de passe pour modifier votre compte."
+msgstr "Saisissez votre mot de passe actuel et un nouveau mot de passe pour mettre à jour votre compte."
 
 #: src/dialogs/auth/enable-two-factor.tsx:151
 msgid "Enter your password to confirm setting up two-factor authentication. When enabled, you'll need to enter a code from your authenticator app every time you log in."
