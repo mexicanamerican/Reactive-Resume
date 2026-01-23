@@ -621,7 +621,7 @@ export const defaultResumeData: ResumeData = {
 export const sampleResumeData: ResumeData = {
 	picture: {
 		hidden: false,
-		url: "https://i.imgur.com/o4Jpt1p.jpeg",
+		url: `https://rxresu.me/photos/sample-picture.jpg`,
 		size: 100,
 		rotation: 0,
 		aspectRatio: 1,

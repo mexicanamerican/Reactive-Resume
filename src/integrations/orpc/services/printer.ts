@@ -99,6 +99,7 @@ export const printerService = {
 		const page = await browser.newPage();
 
 		await page.goto(url, { waitUntil: "networkidle0" });
+		await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
 
 		const pdfBuffer = await page.pdf({
 			width: pageDimensions[format].width,
@@ -173,6 +174,7 @@ export const printerService = {
 		const page = await browser.newPage();
 
 		await page.goto(url, { waitUntil: "networkidle0" });
+		await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
 
 		const screenshotBuffer = await page.screenshot({ type: "webp", quality: 80 });
 

@@ -172,8 +172,6 @@ services:
     restart: unless-stopped
     ports:
       - "4000:3000"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     environment:
       - HEALTH=true
       - CONCURRENT=20
@@ -181,7 +179,7 @@ services:
       # Optional: Set a token for authentication
       # - TOKEN=your-secret-token
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=your-secret-token"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -203,7 +201,7 @@ services:
       printer:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "||", "exit", "1"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -413,7 +411,7 @@ The Docker Compose configuration includes a health check that periodically calls
 
 ```yaml
 healthcheck:
-  test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "||", "exit", "1"]
+  test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
   interval: 30s
   timeout: 10s
   retries: 3

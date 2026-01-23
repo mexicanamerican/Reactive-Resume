@@ -55,16 +55,18 @@ const CSS_SELECTORS = [
 	".experience-item-header",
 	".experience-item-title",
 	".experience-item-name",
-	".experience-item-description",
+	".experience-item-company",
+	".experience-item-position",
+	".experience-item-location",
+	".experience-item-period",
 	".experience-item-link",
-	".experience-item-metadata",
+	".experience-item-description",
 	".education-item",
 	".education-item-header",
 	".education-item-title",
 	".education-item-name",
 	".education-item-description",
 	".education-item-link",
-	".education-item-metadata",
 	".projects-item",
 	".projects-item-header",
 	".projects-item-title",
@@ -199,9 +201,10 @@ export default function CSSMonacoEditor({ theme, defaultValue, onChange }: Props
 	return (
 		<Editor
 			language="css"
-			theme={theme === "dark" ? "vs-dark" : "light"}
-			defaultValue={defaultValue}
 			onChange={onChange}
+			defaultValue={defaultValue}
+			theme={theme === "dark" ? "vs-dark" : "light"}
+			options={{ tabSize: 2, wordWrap: "on", minimap: { enabled: false } }}
 		/>
 	);
 }

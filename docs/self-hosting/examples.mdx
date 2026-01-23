@@ -82,12 +82,11 @@ services:
       - TIMEOUT=120000
       - CONCURRENT=10
       - HEALTH=true
+      - TOKEN=your-secret-token
     networks:
       - reactive_resume_network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=your-secret-token"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -118,7 +117,7 @@ services:
       - "traefik.http.routers.reactive-resume.tls.certresolver=letsencrypt"
       - "traefik.http.services.reactive-resume.loadbalancer.server.port=3000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "||", "exit", "1"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -190,12 +189,11 @@ services:
       - TIMEOUT=120000
       - CONCURRENT=10
       - HEALTH=true
+      - TOKEN=your-secret-token
     networks:
       - reactive_resume_network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=your-secret-token"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -220,7 +218,7 @@ services:
       printer:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "||", "exit", "1"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -358,7 +356,7 @@ services:
       # Optional: Set a token for authentication
       # - TOKEN=your-secret-token
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=your-secret-token"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -458,7 +456,7 @@ services:
       - S3_ENDPOINT=$S3_ENDPOINT
       - S3_BUCKET=$S3_BUCKET
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "||", "exit", "1"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
