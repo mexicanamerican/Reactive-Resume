@@ -12,17 +12,17 @@ export function ReferencesItem({ className, ...item }: ReferencesItemProps) {
 		<div className={cn("references-item", className)}>
 			<div className="section-item-header references-item-header">
 				<div className="flex items-center justify-between">
-					<p className="section-item-name references-item-name">
+					<p className="section-item-title references-item-name">
 						<strong>{item.name}</strong>
 					</p>
 				</div>
-				<p className="section-item-subtitle references-item-position">{item.position}</p>
+				<p className="section-item-metadata references-item-position">{item.position}</p>
 			</div>
 			<div className="section-item-description references-item-description">
 				<TiptapContent content={item.description} />
 			</div>
 			<div className="section-item-footer references-item-footer flex flex-col">
-				<div className="section-item-metadata references-item-phone">{item.phone}</div>
+				<p className="section-item-metadata references-item-phone">{item.phone}</p>
 				<PageLink {...item.website} label={item.website.label} className="section-item-link references-item-link" />
 			</div>
 		</div>

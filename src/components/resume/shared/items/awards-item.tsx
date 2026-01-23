@@ -15,10 +15,10 @@ export function AwardsItem({ className, ...item }: AwardsItemProps) {
 					<p className="section-item-title awards-item-title">
 						<strong>{item.title}</strong>
 					</p>
-					<p className="section-item-metadata text-right">{item.date}</p>
+					<p className="section-item-metadata awards-item-date text-right">{item.date}</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<p className="section-item-awarder awards-item-awarder">{item.awarder}</p>
+					<p className="section-item-metadata awards-item-awarder">{item.awarder}</p>
 				</div>
 			</div>
 			<div className="section-item-description awards-item-description">

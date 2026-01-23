@@ -15,7 +15,7 @@ export function ProjectsItem({ className, ...item }: ProjectsItemProps) {
 					<p className="section-item-title projects-item-title">
 						<strong>{item.name}</strong>
 					</p>
-					<p className="section-item-metadata text-right">{item.period}</p>
+					<p className="section-item-metadata projects-item-period text-right">{item.period}</p>
 				</div>
 			</div>
 			<div className="section-item-description projects-item-description">

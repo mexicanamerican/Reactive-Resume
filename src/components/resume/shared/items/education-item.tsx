@@ -15,13 +15,13 @@ export function EducationItem({ className, ...item }: EducationItemProps) {
 					<p className="section-item-title education-item-title">
 						<strong>{item.school}</strong>
 					</p>
-					<p className="section-item-metadata education-item-metadata text-right">
+					<p className="section-item-metadata education-item-degree-grade text-right">
 						{[item.degree, item.grade].filter(Boolean).join(" • ")}
 					</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<p>{item.area}</p>
-					<p className="section-item-metadata education-item-metadata text-right">
+					<p className="section-item-metadata education-item-area">{item.area}</p>
+					<p className="section-item-metadata education-item-location-period text-right">
 						{[item.location, item.period].filter(Boolean).join(" • ")}
 					</p>
 				</div>

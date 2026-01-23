@@ -11,7 +11,7 @@ export function InterestsItem({ className, ...item }: InterestsItemProps) {
 		<div className={cn("interests-item", className)}>
 			<div className="section-item-header flex items-center gap-x-1.5">
 				<PageIcon icon={item.icon} className="section-item-icon interests-item-icon shrink-0" />
-				<p className="section-item-name interests-item-name">
+				<p className="section-item-title interests-item-name">
 					<strong>{item.name}</strong>
 				</p>
 			</div>

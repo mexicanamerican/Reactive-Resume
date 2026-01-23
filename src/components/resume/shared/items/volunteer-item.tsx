@@ -15,10 +15,10 @@ export function VolunteerItem({ className, ...item }: VolunteerItemProps) {
 					<p className="section-item-title volunteer-item-title">
 						<strong>{item.organization}</strong>
 					</p>
-					<p className="section-item-metadata text-right">{item.period}</p>
+					<p className="section-item-metadata volunteer-item-period text-right">{item.period}</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<p className="section-item-location volunteer-item-location">{item.location}</p>
+					<p className="section-item-metadata volunteer-item-location">{item.location}</p>
 				</div>
 			</div>
 			<div className="section-item-description volunteer-item-description">

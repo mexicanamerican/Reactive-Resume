@@ -10,10 +10,10 @@ export function LanguagesItem({ className, ...item }: LanguagesItemProps) {
 	return (
 		<div className={cn("languages-item", className)}>
 			<div className="section-item-header">
-				<p className="section-item-name languages-item-name">
+				<p className="section-item-title languages-item-name">
 					<strong>{item.language}</strong>
 				</p>
-				<p className="section-item-fluency languages-item-fluency opacity-80">{item.fluency}</p>
+				<p className="section-item-metadata languages-item-fluency opacity-80">{item.fluency}</p>
 			</div>
 
 			<PageLevel level={item.level} className="section-item-level languages-item-level" />

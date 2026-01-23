@@ -15,10 +15,10 @@ export function CertificationsItem({ className, ...item }: CertificationsItemPro
 					<p className="section-item-title certifications-item-title">
 						<strong>{item.title}</strong>
 					</p>
-					<p className="section-item-metadata text-right">{item.date}</p>
+					<p className="section-item-metadata certifications-item-date text-right">{item.date}</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<p className="section-item-issuer certifications-item-issuer">{item.issuer}</p>
+					<p className="section-item-metadata certifications-item-issuer">{item.issuer}</p>
 				</div>
 			</div>
 			<div className="section-item-description certifications-item-description">

@@ -12,13 +12,13 @@ export function SkillsItem({ className, ...item }: SkillsItemProps) {
 		<div className={cn("skills-item", className)}>
 			<div className="section-item-header flex items-center gap-x-1.5">
 				<PageIcon icon={item.icon} className="section-item-icon skills-item-icon shrink-0" />
-				<p className="section-item-name skills-item-name">
+				<p className="section-item-title skills-item-name">
 					<strong>{item.name}</strong>
 				</p>
 			</div>
 
 			<div>
-				<p className="section-item-proficiency skills-item-proficiency opacity-80">{item.proficiency}</p>
+				<p className="section-item-metadata skills-item-proficiency opacity-80">{item.proficiency}</p>
 				<small className="section-item-keywords skills-item-keywords">{item.keywords.join(", ")}</small>
 			</div>
 

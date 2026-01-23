@@ -15,10 +15,10 @@ export function PublicationsItem({ className, ...item }: PublicationsItemProps) 
 					<p className="section-item-title publications-item-title">
 						<strong>{item.title}</strong>
 					</p>
-					<p className="section-item-metadata text-right">{item.date}</p>
+					<p className="section-item-metadata publications-item-date text-right">{item.date}</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<p className="section-item-publisher publications-item-publisher">{item.publisher}</p>
+					<p className="section-item-metadata publications-item-publisher">{item.publisher}</p>
 				</div>
 			</div>
 			<div className="section-item-description publications-item-description">

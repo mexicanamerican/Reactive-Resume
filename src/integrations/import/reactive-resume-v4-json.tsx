@@ -236,8 +236,8 @@ type V4ResumeData = {
 			items: Array<{
 				id: string;
 				visible: boolean;
-				language?: string;
-				fluency?: string;
+				name?: string;
+				description?: string;
 				level?: number;
 			}>;
 		};
@@ -391,6 +391,20 @@ type V4ResumeData = {
 	};
 };
 
+// Transform layout section ID from V4 format to new format
+// V4 uses "custom.{id}" for custom sections, new format just uses "{id}"
+const transformLayoutSectionId = (id: string): string => {
+	if (id.startsWith("custom.")) return id.slice(7);
+	return id;
+};
+
+// Transform layout column by stripping "custom." prefix from section IDs
+const transformLayoutColumn = (column: string[]): string[] => {
+	return column
+		.filter((id) => id !== "summary") // Summary is handled separately
+		.map(transformLayoutSectionId);
+};
+
 export class ReactiveResumeV4JSONImporter {
 	parse(json: string): ResumeData {
 		try {
@@ -532,12 +546,12 @@ export class ReactiveResumeV4JSONImporter {
 						columns: v4Data.sections.languages?.columns ?? 1,
 						hidden: !(v4Data.sections.languages?.visible ?? true),
 						items: (v4Data.sections.languages?.items ?? [])
-							.filter((item) => item.language && item.language.length > 0)
+							.filter((item) => item.name && item.name.length > 0)
 							.map((item) => ({
 								id: item.id ?? generateId(),
 								hidden: !(item.visible ?? true),
-								language: item.language!,
-								fluency: item.fluency ?? "",
+								language: item.name!,
+								fluency: item.description ?? "",
 								level: clampLevel(item.level ?? 0),
 							})),
 					},
@@ -680,12 +694,12 @@ export class ReactiveResumeV4JSONImporter {
 					layout: {
 						sidebarWidth: clampSidebarWidth(35),
 						pages: (v4Data.metadata.layout ?? []).map((page) => {
-							const main = page[0] ?? [];
-							const sidebar = page[1] ?? [];
+							const main = transformLayoutColumn(page[0] ?? []);
+							const sidebar = transformLayoutColumn(page[1] ?? []);
 							return {
 								fullWidth: sidebar.length === 0,
-								main: main.filter((id) => id !== "summary"),
-								sidebar: sidebar,
+								main,
+								sidebar,
 							};
 						}),
 					},

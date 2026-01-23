@@ -147,13 +147,19 @@ export const resumeService = {
 
 		if (!resume) throw new ORPCError("NOT_FOUND");
 
-		// Convert picture URL to base64 data, so there's no fetching required on the client.
-		const url = resume.data.picture.url.replace(env.APP_URL, "http://localhost:3000");
-		const base64 = await fetch(url)
-			.then((res) => res.arrayBuffer())
-			.then((buffer) => Buffer.from(buffer).toString("base64"));
+		try {
+			if (!resume.data.picture.url) throw new Error("Picture is not available");
 
-		resume.data.picture.url = `data:image/jpeg;base64,${base64}`;
+			// Convert picture URL to base64 data, so there's no fetching required on the client.
+			const url = resume.data.picture.url.replace(env.APP_URL, "http://localhost:3000");
+			const base64 = await fetch(url)
+				.then((res) => res.arrayBuffer())
+				.then((buffer) => Buffer.from(buffer).toString("base64"));
+
+			resume.data.picture.url = `data:image/jpeg;base64,${base64}`;
+		} catch {
+			// Ignore errors, as the picture is not always available
+		}
 
 		return resume;
 	},
