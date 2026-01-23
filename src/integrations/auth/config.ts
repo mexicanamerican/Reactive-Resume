@@ -187,16 +187,16 @@ const getAuthConfig = () => {
 				maxUsernameLength: 64,
 				usernameNormalization: (value) => toUsername(value),
 				displayUsernameNormalization: (value) => toUsername(value),
+				usernameValidator: (username) => /^[a-z0-9._-]+$/.test(username),
 				validationOrder: { username: "post-normalization", displayUsername: "post-normalization" },
-				usernameValidator:(username)=> /^[a-z0-9._-]+$/.test(username)
 			}),
 			twoFactor({
 				issuer: "Reactive Resume",
 			}),
 			passkey({
+				origin: env.APP_URL,
 				rpName: "Reactive Resume",
 				rpID: new URL(env.APP_URL).hostname,
-				origin: env.APP_URL,
 			}),
 			genericOAuth({
 				config: authConfigs,
