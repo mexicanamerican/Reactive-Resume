@@ -74,6 +74,10 @@
 						"pages": ["contributing/architecture", "contributing/development", "contributing/translations"]
 					},
 					{
+						"group": "Community",
+						"pages": ["community/spotlight"]
+					},
+					{
 						"group": "Legal",
 						"pages": ["legal/license", "legal/privacy-policy", "legal/terms-of-service"]
 					}
