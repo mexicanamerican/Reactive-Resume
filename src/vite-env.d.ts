@@ -13,11 +13,6 @@ declare namespace NodeJS {
 		APP_URL: string;
 		PRINTER_APP_URL?: string;
 
-		// Printer
-		GOTENBERG_ENDPOINT: string;
-		GOTENBERG_USERNAME?: string;
-		GOTENBERG_PASSWORD?: string;
-
 		// Authentication
 		AUTH_SECRET: string;
 
