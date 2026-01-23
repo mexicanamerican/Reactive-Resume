@@ -88,7 +88,7 @@ msgstr "Un lien de confirmation a été envoyé à votre adresse email actuelle.
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr "Un générateur de CV gratuit et open-source qui simplifie le processus de création, de mise à jour et de partage de votre CV."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:44
+#: src/routes/builder/$resumeId/-components/dock.tsx:45
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx:39
 msgid "A link to your resume has been copied to clipboard."
 msgstr "Un lien vers votre CV a été copié dans le presse-papiers."
@@ -104,6 +104,11 @@ msgstr "Un nouveau lien de vérification a été envoyé à votre adresse email.
 #: src/components/ui/copyright.tsx:24
 msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Un projet-passion de <0>Amruth Pillai</0>."
+
+#: src/dialogs/resume/index.tsx:69
+#: src/dialogs/resume/index.tsx:178
+msgid "A resume with this slug already exists."
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx:27
 msgid "Absolutely! You can export your resume to PDF with a single click. The exported PDF maintains all your formatting and styling perfectly."
@@ -186,7 +191,7 @@ msgstr "Ajouter une colonne après"
 msgid "Add Column Before"
 msgstr "Ajouter une colonne avant"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:223
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:226
 msgid "Add Page"
 msgstr "Ajouter une page"
 
@@ -325,7 +330,7 @@ msgstr "Domaine d'étude"
 msgid "Artificial Intelligence"
 msgstr "Intelligence artificielle"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:216
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:211
 msgid "Aspect Ratio"
 msgstr "Format d'image"
 
@@ -390,11 +395,11 @@ msgstr "Corps"
 msgid "Bold"
 msgstr "Gras"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:280
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:275
 msgid "Border Radius"
 msgstr "Coins arrondis"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:365
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:360
 msgid "Border Width"
 msgstr "Largeur de la bordure"
 
@@ -467,7 +472,7 @@ msgstr "Catalan"
 msgid "Center Align"
 msgstr "Alignement centré"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:76
+#: src/routes/builder/$resumeId/-components/dock.tsx:77
 msgid "Center view"
 msgstr "Centrer la vue"
 
@@ -487,7 +492,7 @@ msgstr "Changer la langue en..."
 msgid "Change theme to..."
 msgstr "Changez de thème pour..."
 
-#: src/dialogs/resume/index.tsx:185
+#: src/dialogs/resume/index.tsx:195
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "Vous avez changé d'avis ? Renommez votre CV en quelque chose de plus descriptif."
 
@@ -590,12 +595,12 @@ msgstr "Copier les codes de secours"
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Copiez cette clé secrète et utilisez-la dans vos applications pour accéder à vos données."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:78
+#: src/routes/builder/$resumeId/-components/dock.tsx:79
 msgid "Copy URL"
 msgstr "Copier l'URL"
 
 #: src/dialogs/api-key/create.tsx:147
-#: src/dialogs/resume/index.tsx:116
+#: src/dialogs/resume/index.tsx:121
 #: src/dialogs/resume/sections/award.tsx:71
 #: src/dialogs/resume/sections/certification.tsx:71
 #: src/dialogs/resume/sections/custom.tsx:82
@@ -666,7 +671,7 @@ msgid "Create a new reference"
 msgstr "Créer une nouvelle référence"
 
 #: src/components/command-palette/pages/resumes.tsx:55
-#: src/dialogs/resume/index.tsx:102
+#: src/dialogs/resume/index.tsx:107
 #: src/routes/dashboard/resumes/-components/create-card.tsx:11
 msgid "Create a new resume"
 msgstr "Créer un nouveau CV"
@@ -679,7 +684,7 @@ msgstr "Créer une nouvelle compétence"
 msgid "Create a new volunteer experience"
 msgstr "Créer une nouvelle expérience de bénévolat"
 
-#: src/dialogs/resume/index.tsx:129
+#: src/dialogs/resume/index.tsx:134
 msgid "Create a Sample Resume"
 msgstr "Créer un exemple de CV"
 
@@ -692,7 +697,7 @@ msgid "Creating your API key..."
 msgstr "Création de votre clé API..."
 
 #: src/dialogs/resume/index.tsx:60
-#: src/dialogs/resume/index.tsx:84
+#: src/dialogs/resume/index.tsx:89
 msgid "Creating your resume..."
 msgstr "Création de votre CV..."
 
@@ -763,7 +768,7 @@ msgstr "Supprimer le compte"
 msgid "Delete Column"
 msgstr "Supprimer la colonne"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:261
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:264
 msgid "Delete Page"
 msgstr "Supprimer la page"
 
@@ -774,10 +779,6 @@ msgstr "Supprimer la ligne"
 #: src/components/input/rich-input.tsx:618
 msgid "Delete Table"
 msgstr "Supprimer la table"
-
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:59
-msgid "Deleting picture..."
-msgstr "Suppression de l'image..."
 
 #: src/routes/dashboard/settings/danger-zone.tsx:40
 msgid "Deleting your account..."
@@ -866,11 +867,11 @@ msgstr "Téléchargez un exemplaire de votre CV au format JSON. Utilisez ce fich
 msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 msgstr "Téléchargez un exemplaire de votre CV au format PDF. Utilisez ce fichier pour l'imprimer ou pour partager facilement votre CV avec les recruteurs."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:79
+#: src/routes/builder/$resumeId/-components/dock.tsx:80
 msgid "Download JSON"
 msgstr ""
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:81
+#: src/routes/builder/$resumeId/-components/dock.tsx:82
 msgid "Download PDF"
 msgstr "Télécharger le PDF"
 
@@ -882,11 +883,11 @@ msgstr "Téléchargement en cours..."
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:308
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:311
 msgid "Drag and drop sections here to move them between columns"
 msgstr "Glissez-déposez les sections ici pour les déplacer d'une colonne à l'autre"
 
-#: src/dialogs/resume/index.tsx:263
+#: src/dialogs/resume/index.tsx:273
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
@@ -894,15 +895,15 @@ msgstr "Glissez-déposez les sections ici pour les déplacer d'une colonne à l'
 msgid "Duplicate"
 msgstr "Dupliquer"
 
-#: src/dialogs/resume/index.tsx:250
+#: src/dialogs/resume/index.tsx:260
 msgid "Duplicate Resume"
 msgstr "Dupliquer le CV"
 
-#: src/dialogs/resume/index.tsx:253
+#: src/dialogs/resume/index.tsx:263
 msgid "Duplicate your resume to create a new one, just like the original."
 msgstr "Dupliquez votre CV pour en créer un nouveau, identique à l'original."
 
-#: src/dialogs/resume/index.tsx:228
+#: src/dialogs/resume/index.tsx:238
 msgid "Duplicating your resume..."
 msgstr "Duplication de votre CV..."
 
@@ -1098,11 +1099,11 @@ msgstr "Gratuit"
 msgid "French"
 msgstr "Français"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:253
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:256
 msgid "Full Width"
 msgstr "Pleine largeur"
 
-#: src/dialogs/resume/index.tsx:299
+#: src/dialogs/resume/index.tsx:309
 msgid "Generate a random name"
 msgstr "Générer un nom aléatoire"
 
@@ -1328,7 +1329,7 @@ msgstr "Coréen"
 msgid "Label"
 msgstr "Libellé"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:249
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:244
 msgid "Landscape"
 msgstr "Paysage"
 
@@ -1487,7 +1488,7 @@ msgid "Multilingual"
 msgstr "Multilingue"
 
 #: src/dialogs/api-key/create.tsx:88
-#: src/dialogs/resume/index.tsx:292
+#: src/dialogs/resume/index.tsx:302
 #: src/dialogs/resume/sections/interest.tsx:168
 #: src/dialogs/resume/sections/project.tsx:150
 #: src/dialogs/resume/sections/reference.tsx:152
@@ -1598,7 +1599,7 @@ msgstr "Page"
 
 #. placeholder {0}: pageIndex + 1
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:117
-#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:246
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx:249
 msgid "Page {0}"
 msgstr "Page {0}"
 
@@ -1683,7 +1684,7 @@ msgstr "Veuillez saisir l'URL vers laquelle vous souhaitez rediriger :"
 msgid "Polish"
 msgstr "Polonais"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:260
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:255
 msgid "Portrait"
 msgstr "Portrait"
 
@@ -1870,7 +1871,7 @@ msgstr "Alignement à droite"
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:185
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:180
 msgid "Rotation"
 msgstr "Rotation"
 
@@ -1878,7 +1879,7 @@ msgstr "Rotation"
 msgid "Russian"
 msgstr "Russe"
 
-#: src/dialogs/resume/index.tsx:195
+#: src/dialogs/resume/index.tsx:205
 #: src/dialogs/resume/sections/award.tsx:132
 #: src/dialogs/resume/sections/certification.tsx:132
 #: src/dialogs/resume/sections/custom.tsx:136
@@ -1968,7 +1969,7 @@ msgstr "Paramètres"
 msgid "Setup Authenticator App"
 msgstr "Configurer l'application d'authentification"
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:415
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:410
 msgid "Shadow Width"
 msgstr "Largeur de l'ombre"
 
@@ -2045,7 +2046,7 @@ msgstr "Une seule colonne avec un encart et une disposition en grille propre ; p
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "Colonne unique ; soigné et sérieux pour les postes de seniors ou de direction."
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:154
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:149
 msgid "Size"
 msgstr "Taille"
 
@@ -2061,7 +2062,7 @@ msgstr "Passer au contenu principal"
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/dialogs/resume/index.tsx:317
+#: src/dialogs/resume/index.tsx:327
 msgid "Slug"
 msgstr "Slug"
 
@@ -2097,7 +2098,7 @@ msgid "Sponsors"
 msgstr "Sponsors"
 
 #: src/components/level/combobox.tsx:16
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:238
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:233
 msgid "Square"
 msgstr "Carré"
 
@@ -2110,7 +2111,7 @@ msgstr "Ajoutez-nous en favori sur GitHub (s'ouvre dans un nouvel onglet)"
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr "Ajoutez-nous en favori sur GitHub, actuellement {0} étoiles (s'ouvre dans un nouvel onglet)"
 
-#: src/dialogs/resume/index.tsx:105
+#: src/dialogs/resume/index.tsx:110
 msgid "Start building your resume by giving it a name."
 msgstr "Commencez à créer votre CV en lui donnant un nom."
 
@@ -2154,11 +2155,11 @@ msgstr "Basculer en mode clair"
 msgid "Table"
 msgstr "Tableau"
 
-#: src/dialogs/resume/index.tsx:341
+#: src/dialogs/resume/index.tsx:351
 msgid "Tags"
 msgstr "Mots-clés"
 
-#: src/dialogs/resume/index.tsx:348
+#: src/dialogs/resume/index.tsx:358
 msgid "Tags can be used to categorize your resume by keywords."
 msgstr "Les mots-clés peuvent être utilisés pour catégoriser vos CVs."
 
@@ -2246,7 +2247,7 @@ msgstr "Cette action ne peut pas être annulée. Toutes vos données seront déf
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Cette fonctionnalité nécessite l'activation de l'intégration de l'IA. Veuillez l'activer dans les paramètres."
 
-#: src/dialogs/resume/index.tsx:329
+#: src/dialogs/resume/index.tsx:339
 msgid "This is a URL-friendly name for your resume."
 msgstr "Il s'agit d'un nom convivial pour l'URL de votre CV."
 
@@ -2278,7 +2279,7 @@ msgstr "Démonstration en accéléré de la construction d'un CV avec Reactive R
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
 msgstr "Conseil : donnez un nom à votre clé API, correspondant à l'objectif de la clé, pour vous aider à l'identifier ultérieurement."
 
-#: src/dialogs/resume/index.tsx:305
+#: src/dialogs/resume/index.tsx:315
 msgid "Tip: You can name the resume referring to the position you are applying for."
 msgstr "Astuce : Vous pouvez nommer le CV en faisant référence au poste pour lequel vous postulez."
 
@@ -2467,7 +2468,7 @@ msgstr "Modifier une expérience de bénévolat existante"
 msgid "Update Password"
 msgstr "Modifier le mot de passe"
 
-#: src/dialogs/resume/index.tsx:182
+#: src/dialogs/resume/index.tsx:192
 msgid "Update Resume"
 msgstr "Modifier le CV"
 
@@ -2479,15 +2480,15 @@ msgstr "Modifier votre mot de passe"
 msgid "Updating your password..."
 msgstr "Mise à jour de votre mot de passe..."
 
-#: src/dialogs/resume/index.tsx:164
+#: src/dialogs/resume/index.tsx:169
 msgid "Updating your resume..."
 msgstr "Mise à jour de votre CV..."
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:81
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:75
 msgid "Uploading picture..."
 msgstr "Téléchargement de la photo..."
 
-#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:124
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:119
 msgid "URL"
 msgstr "URL"
 
@@ -2631,6 +2632,10 @@ msgstr "Votre compte a été supprimé avec succès."
 msgid "Your API key has been copied to the clipboard."
 msgstr "Votre clé API a été copiée dans le presse-papiers."
 
+#: src/routes/builder/$resumeId/index.tsx:18
+msgid "Your changes are saved automatically."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx:59
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "Vos données sont sécurisées et ne sont jamais partagées ou vendues à qui que ce soit."
@@ -2664,7 +2669,7 @@ msgid "Your profile has been updated successfully."
 msgstr "Votre profil a été mis à jour avec succès."
 
 #: src/dialogs/resume/index.tsx:64
-#: src/dialogs/resume/index.tsx:88
+#: src/dialogs/resume/index.tsx:93
 msgid "Your resume has been created successfully."
 msgstr "Votre CV a été créé avec succès."
 
@@ -2673,7 +2678,7 @@ msgstr "Votre CV a été créé avec succès."
 msgid "Your resume has been deleted successfully."
 msgstr "Votre CV a été supprimé avec succès."
 
-#: src/dialogs/resume/index.tsx:232
+#: src/dialogs/resume/index.tsx:242
 msgid "Your resume has been duplicated successfully."
 msgstr "Votre CV a été dupliqué avec succès."
 
@@ -2681,7 +2686,7 @@ msgstr "Votre CV a été dupliqué avec succès."
 msgid "Your resume has been imported successfully."
 msgstr "Votre CV a été importé avec succès."
 
-#: src/dialogs/resume/index.tsx:168
+#: src/dialogs/resume/index.tsx:173
 msgid "Your resume has been updated successfully."
 msgstr "Votre CV a été mis à jour avec succès."
 
@@ -2693,11 +2698,11 @@ msgstr "Le lien public de votre CV est actuellement protégé par un mot de pass
 msgid "Your support ensures the project remains free and accessible for everyone, now and in the future."
 msgstr "Grâce à votre soutien, le projet reste gratuit et accessible à tous, aujourd'hui et à l'avenir."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:74
+#: src/routes/builder/$resumeId/-components/dock.tsx:75
 msgid "Zoom in"
 msgstr "Zoom avant"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:75
+#: src/routes/builder/$resumeId/-components/dock.tsx:76
 msgid "Zoom out"
 msgstr "Zoom arrière"
 

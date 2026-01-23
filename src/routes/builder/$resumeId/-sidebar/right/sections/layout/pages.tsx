@@ -166,10 +166,13 @@ export function LayoutPages() {
 
 			updateResumeData((draft) => {
 				const pageToDelete = draft.metadata.layout.pages[pageIndex];
-				// Move all sections from deleted page to first page
-				const firstPage = draft.metadata.layout.pages[0];
-				firstPage.main.push(...pageToDelete.main);
-				firstPage.sidebar.push(...pageToDelete.sidebar);
+				// Find the first available page that isn't being deleted
+				const targetPageIndex = pageIndex === 0 ? 1 : 0;
+				const targetPage = draft.metadata.layout.pages[targetPageIndex];
+
+				// Move all sections from deleted page to target page
+				targetPage.main.push(...pageToDelete.main);
+				targetPage.sidebar.push(...pageToDelete.sidebar);
 
 				draft.metadata.layout.pages.splice(pageIndex, 1);
 			});

@@ -77,7 +77,7 @@ export function CommandPalette() {
 
 	return (
 		<Dialog open={open} onOpenChange={handleOpenChange}>
-			<DialogHeader className="sr-only">
+			<DialogHeader className="sr-only print:hidden">
 				<DialogTitle>
 					<Trans>Builder Command Palette</Trans>
 				</DialogTitle>

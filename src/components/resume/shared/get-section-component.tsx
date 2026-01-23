@@ -1,5 +1,5 @@
 import { match } from "ts-pattern";
-import type { CustomSectionItem, SectionType } from "@/schema/resume/data";
+import type { CustomSectionItem, SectionItem, SectionType } from "@/schema/resume/data";
 import { cn } from "@/utils/style";
 import { useResumeStore } from "../store/resume";
 import { AwardsItem } from "./items/awards-item";
@@ -25,38 +25,22 @@ type SectionComponentProps = {
 // Helper to render item component based on type
 function renderItemByType(type: SectionType, item: CustomSectionItem, itemClassName?: string) {
 	return match(type)
-		.with("profiles", () => (
-			<ProfilesItem {...(item as Parameters<typeof ProfilesItem>[0])} className={itemClassName} />
-		))
-		.with("experience", () => (
-			<ExperienceItem {...(item as Parameters<typeof ExperienceItem>[0])} className={itemClassName} />
-		))
-		.with("education", () => (
-			<EducationItem {...(item as Parameters<typeof EducationItem>[0])} className={itemClassName} />
-		))
-		.with("projects", () => (
-			<ProjectsItem {...(item as Parameters<typeof ProjectsItem>[0])} className={itemClassName} />
-		))
-		.with("skills", () => <SkillsItem {...(item as Parameters<typeof SkillsItem>[0])} className={itemClassName} />)
-		.with("languages", () => (
-			<LanguagesItem {...(item as Parameters<typeof LanguagesItem>[0])} className={itemClassName} />
-		))
-		.with("interests", () => (
-			<InterestsItem {...(item as Parameters<typeof InterestsItem>[0])} className={itemClassName} />
-		))
-		.with("awards", () => <AwardsItem {...(item as Parameters<typeof AwardsItem>[0])} className={itemClassName} />)
+		.with("profiles", () => <ProfilesItem {...(item as SectionItem<"profiles">)} className={itemClassName} />)
+		.with("experience", () => <ExperienceItem {...(item as SectionItem<"experience">)} className={itemClassName} />)
+		.with("education", () => <EducationItem {...(item as SectionItem<"education">)} className={itemClassName} />)
+		.with("projects", () => <ProjectsItem {...(item as SectionItem<"projects">)} className={itemClassName} />)
+		.with("skills", () => <SkillsItem {...(item as SectionItem<"skills">)} className={itemClassName} />)
+		.with("languages", () => <LanguagesItem {...(item as SectionItem<"languages">)} className={itemClassName} />)
+		.with("interests", () => <InterestsItem {...(item as SectionItem<"interests">)} className={itemClassName} />)
+		.with("awards", () => <AwardsItem {...(item as SectionItem<"awards">)} className={itemClassName} />)
 		.with("certifications", () => (
-			<CertificationsItem {...(item as Parameters<typeof CertificationsItem>[0])} className={itemClassName} />
+			<CertificationsItem {...(item as SectionItem<"certifications">)} className={itemClassName} />
 		))
 		.with("publications", () => (
-			<PublicationsItem {...(item as Parameters<typeof PublicationsItem>[0])} className={itemClassName} />
+			<PublicationsItem {...(item as SectionItem<"publications">)} className={itemClassName} />
 		))
-		.with("volunteer", () => (
-			<VolunteerItem {...(item as Parameters<typeof VolunteerItem>[0])} className={itemClassName} />
-		))
-		.with("references", () => (
-			<ReferencesItem {...(item as Parameters<typeof ReferencesItem>[0])} className={itemClassName} />
-		))
+		.with("volunteer", () => <VolunteerItem {...(item as SectionItem<"volunteer">)} className={itemClassName} />)
+		.with("references", () => <ReferencesItem {...(item as SectionItem<"references">)} className={itemClassName} />)
 		.exhaustive();
 }
 
@@ -186,7 +170,10 @@ export function getSectionComponent(
 							style={{ gridTemplateColumns: `repeat(${customSection.columns}, 1fr)` }}
 						>
 							{visibleItems.map((item) => (
-								<div key={item.id} className={cn(`section-item section-item-${customSection.type}`)}>
+								<div
+									key={item.id}
+									className={cn(`section-item section-item-${customSection.type} print:break-inside-avoid`)}
+								>
 									{renderItemByType(customSection.type, item, itemClassName)}
 								</div>
 							))}
@@ -194,6 +181,7 @@ export function getSectionComponent(
 					</section>
 				);
 			};
+
 			return CustomSectionComponent;
 		});
 }

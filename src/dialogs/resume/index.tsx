@@ -65,6 +65,11 @@ export function CreateResumeDialog(_: DialogProps<"resume.create">) {
 				closeDialog();
 			},
 			onError: (error) => {
+				if (error.message === "RESUME_SLUG_ALREADY_EXISTS") {
+					toast.error(t`A resume with this slug already exists.`, { id: toastId });
+					return;
+				}
+
 				toast.error(error.message, { id: toastId });
 			},
 		});
@@ -169,6 +174,11 @@ export function UpdateResumeDialog({ data }: DialogProps<"resume.update">) {
 				closeDialog();
 			},
 			onError: (error) => {
+				if (error.message === "RESUME_SLUG_ALREADY_EXISTS") {
+					toast.error(t`A resume with this slug already exists.`, { id: toastId });
+					return;
+				}
+
 				toast.error(error.message, { id: toastId });
 			},
 		});

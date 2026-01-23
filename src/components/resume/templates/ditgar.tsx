@@ -13,6 +13,13 @@ const sectionClassName = cn(
 	// Section Item Header in Sidebar Layout
 	"group-data-[layout=sidebar]:[&_.section-item-header>div]:flex-col",
 	"group-data-[layout=sidebar]:[&_.section-item-header>div]:items-start",
+
+	// Decoration Line in Section Item Header
+	"group-data-[layout=main]:[&_.section-item-header]:pl-2",
+	"group-data-[layout=main]:[&_.section-item-header]:py-0.5",
+	"group-data-[layout=main]:[&_.section-item-header]:-ml-2.5",
+	"group-data-[layout=main]:[&_.section-item-header]:border-l-2",
+	"group-data-[layout=main]:[&_.section-item-header]:border-(--page-primary-color)",
 );
 
 /**
@@ -27,32 +34,36 @@ export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	});
 
 	return (
-		<div className="template-ditgar page-content grid min-h-[inherit] grid-cols-3">
-			<div
-				data-layout="sidebar"
-				className={cn("sidebar group flex flex-col", !(isFirstPage || !fullWidth) && "hidden")}
-			>
-				{isFirstPage && <Header />}
+		<div className="template-ditgar page-content">
+			{/* Sidebar Background */}
+			{!fullWidth && (
+				<div className="page-sidebar-background absolute inset-y-0 left-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20" />
+			)}
 
-				<div className="flex-1 space-y-4 bg-(--page-primary-color)/20 px-(--page-margin-x) py-(--page-margin-y)">
-					{sidebar.map((section) => {
-						const Component = getSectionComponent(section, { sectionClassName });
-						return <Component key={section} id={section} />;
-					})}
-				</div>
-			</div>
+			<div className="flex">
+				<aside data-layout="sidebar" className="sidebar group z-10 flex w-(--page-sidebar-width) shrink-0 flex-col">
+					{isFirstPage && <Header />}
 
-			<div data-layout="main" className={cn("main group", !fullWidth ? "col-span-2" : "col-span-3")}>
-				{isFirstPage && <SummaryComponent id="summary" />}
-
-				<div className="space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
-					{main
-						.filter((section) => section !== "summary")
-						.map((section) => {
+					<div className="flex-1 space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
+						{sidebar.map((section) => {
 							const Component = getSectionComponent(section, { sectionClassName });
 							return <Component key={section} id={section} />;
 						})}
-				</div>
+					</div>
+				</aside>
+
+				<main data-layout="main" className={cn("main group z-10", !fullWidth ? "col-span-2" : "col-span-3")}>
+					{isFirstPage && <SummaryComponent id="summary" />}
+
+					<div className="space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
+						{main
+							.filter((section) => section !== "summary")
+							.map((section) => {
+								const Component = getSectionComponent(section, { sectionClassName });
+								return <Component key={section} id={section} />;
+							})}
+					</div>
+				</main>
 			</div>
 		</div>
 	);

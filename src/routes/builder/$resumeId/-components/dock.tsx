@@ -24,9 +24,10 @@ import { downloadFromUrl, downloadWithAnchor, generateFilename } from "@/utils/f
 import { cn } from "@/utils/style";
 
 export function BuilderDock() {
-	const [_, copyToClipboard] = useCopyToClipboard();
 	const { data: session } = authClient.useSession();
 	const params = useParams({ from: "/builder/$resumeId" });
+
+	const [_, copyToClipboard] = useCopyToClipboard();
 	const { zoomIn, zoomOut, centerView } = useControls();
 
 	const { data: resume } = useQuery(orpc.resume.getById.queryOptions({ input: { id: params.resumeId } }));

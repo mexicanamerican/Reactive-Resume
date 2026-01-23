@@ -19,14 +19,14 @@ export function PageSection<T extends SectionType>({ type, className, children }
 
 	return (
 		<section className={cn(`page-section page-section-${type}`, className)}>
-			<h6 className="mb-1 text-(--page-primary-color)">{section.title || getSectionTitle(type)}</h6>
+			<h6 className="mb-2 text-(--page-primary-color)">{section.title || getSectionTitle(type)}</h6>
 
 			<div
 				className="section-content grid gap-x-(--page-gap-x) gap-y-(--page-gap-y)"
 				style={{ gridTemplateColumns: `repeat(${section.columns}, 1fr)` }}
 			>
 				{items.map((item) => (
-					<div key={item.id} className={cn(`section-item section-item-${type} *:space-y-1`)}>
+					<div key={item.id} className={cn(`section-item section-item-${type} print:break-inside-avoid`)}>
 						{children(item)}
 					</div>
 				))}

@@ -1,5 +1,6 @@
 import { ORPCError } from "@orpc/client";
 import { and, arrayContains, asc, desc, eq, sql } from "drizzle-orm";
+import { get } from "es-toolkit/compat";
 import { match } from "ts-pattern";
 import { schema } from "@/integrations/drizzle";
 import { db } from "@/integrations/drizzle/client";
@@ -238,16 +239,26 @@ export const resumeService = {
 		input.data = input.data ?? defaultResumeData;
 		input.data.metadata.page.locale = input.locale;
 
-		await db.insert(schema.resume).values({
-			id,
-			name: input.name,
-			slug: input.slug,
-			tags: input.tags,
-			userId: input.userId,
-			data: input.data,
-		});
+		try {
+			await db.insert(schema.resume).values({
+				id,
+				name: input.name,
+				slug: input.slug,
+				tags: input.tags,
+				userId: input.userId,
+				data: input.data,
+			});
 
-		return id;
+			return id;
+		} catch (error) {
+			const constraint = get(error, "cause.constraint") as string | undefined;
+
+			if (constraint === "resume_slug_user_id_unique") {
+				throw new ORPCError("RESUME_SLUG_ALREADY_EXISTS", { status: 400 });
+			}
+
+			throw error;
+		}
 	},
 
 	update: async (input: {
@@ -274,12 +285,24 @@ export const resumeService = {
 			isPublic: input.isPublic,
 		};
 
-		await db
-			.update(schema.resume)
-			.set(updateData)
-			.where(
-				and(eq(schema.resume.id, input.id), eq(schema.resume.isLocked, false), eq(schema.resume.userId, input.userId)),
-			);
+		try {
+			await db
+				.update(schema.resume)
+				.set(updateData)
+				.where(
+					and(
+						eq(schema.resume.id, input.id),
+						eq(schema.resume.isLocked, false),
+						eq(schema.resume.userId, input.userId),
+					),
+				);
+		} catch (error) {
+			if (get(error, "cause.constraint") === "resume_slug_user_id_unique") {
+				throw new ORPCError("RESUME_SLUG_ALREADY_EXISTS", { status: 400 });
+			}
+
+			throw error;
+		}
 	},
 
 	setLocked: async (input: { id: string; userId: string; isLocked: boolean }): Promise<void> => {

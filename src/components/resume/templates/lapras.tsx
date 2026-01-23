@@ -9,7 +9,7 @@ import type { TemplateProps } from "./types";
 
 const sectionClassName = cn(
 	// Container
-	"rounded-(--container-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4 shadow-md",
+	"rounded-(--container-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4",
 
 	// Section Heading
 	"[&>h6]:-mt-(--heading-negative-margin) [&>h6]:max-w-fit [&>h6]:bg-(--page-background-color) [&>h6]:px-4 [&>h6]:pb-0.5",
@@ -63,7 +63,7 @@ function Header() {
 		<div
 			className={cn(
 				"page-header flex items-center gap-x-4",
-				"rounded-(--picture-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4 shadow-md",
+				"rounded-(--picture-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4",
 			)}
 		>
 			<PagePicture />
