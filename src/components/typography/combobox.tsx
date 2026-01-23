@@ -63,9 +63,17 @@ type FontWeightComboboxProps = Omit<MultipleComboboxProps, "options"> & { fontFa
 export function FontWeightCombobox({ fontFamily, ...props }: FontWeightComboboxProps) {
 	const options = useMemo(() => {
 		const fontData = webFontMap.get(fontFamily);
-		if (!fontData || !Array.isArray(fontData.weights)) return [];
 
-		return fontData.weights.map((variant: string) => ({
+		let weights: string[] = [];
+
+		if (!fontData || !Array.isArray(fontData.weights)) {
+			// Provide all possible options for local fonts or unknown fontFamily
+			weights = ["100", "200", "300", "400", "500", "600", "700", "800", "900"];
+		} else {
+			weights = fontData.weights as string[];
+		}
+
+		return weights.map((variant: string) => ({
 			value: variant,
 			label: variant,
 			keywords: [variant],
