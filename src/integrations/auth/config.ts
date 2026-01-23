@@ -86,7 +86,7 @@ const getAuthConfig = () => {
 				await sendEmail({
 					to: user.email,
 					subject: "Reset your password",
-					text: `To reset your password, please visit the following URL: ${url}. If you did not request a password reset, please ignore this email.`,
+					text: `You requested a password reset for your Reactive Resume account.\n\nTo reset your password, please visit the following URL:\n${url}.\n\nIf you did not request a password reset, please ignore this email.`,
 				});
 			},
 			password: {
@@ -102,7 +102,7 @@ const getAuthConfig = () => {
 				await sendEmail({
 					to: user.email,
 					subject: "Verify your email",
-					text: `You recently signed up for an account on Reactive Resume.\nTo verify your email, please visit the following URL: ${url}`,
+					text: `You recently signed up for an account on Reactive Resume.\n\nTo verify your email, please visit the following URL:\n${url}`,
 				});
 			},
 		},
@@ -114,7 +114,7 @@ const getAuthConfig = () => {
 					await sendEmail({
 						to: newEmail,
 						subject: "Verify your new email",
-						text: `You recently requested to change your email on Reactive Resume from ${user.email} to ${newEmail}.\nTo verify this change, please visit the following URL: ${url}\nIf you did not request this change, please ignore this email.`,
+						text: `You recently requested to change your email on Reactive Resume from ${user.email} to ${newEmail}.\n\nTo verify this change, please visit the following URL:\n${url}\n\nIf you did not request this change, please ignore this email.`,
 					});
 				},
 			},
