@@ -16,6 +16,9 @@ declare namespace NodeJS {
 		// Authentication
 		AUTH_SECRET: string;
 
+		// Printer
+		PRINTER_ENDPOINT?: string;
+
 		// Database
 		DATABASE_URL: string;
 
@@ -41,9 +44,13 @@ declare namespace NodeJS {
 		OAUTH_CLIENT_SECRET?: string;
 		OAUTH_DISCOVERY_URL?: string;
 		OAUTH_AUTHORIZATION_URL?: string;
+		OAUTH_TOKEN_URL?: string;
+		OAUTH_USER_INFO_URL?: string;
+		OAUTH_SCOPES?: string;
 
 		// Feature Flags
 		FLAG_DEBUG_PRINTER: string | boolean;
-		FLAG_DISABLE_SIGNUP: string | boolean;
+		FLAG_DISABLE_SIGNUPS: string | boolean;
+		FLAG_DISABLE_EMAIL_AUTH: string | boolean;
 	}
 }
