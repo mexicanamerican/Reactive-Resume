@@ -122,41 +122,47 @@ export const printerService = {
 
 			// Step 5: Adjust the DOM for proper PDF pagination
 			// This runs in the browser context to modify CSS before PDF generation
-			await page.evaluate((marginY: number) => {
-				const root = document.documentElement;
-				const container = document.querySelector(".resume-preview-container") as HTMLElement | null;
+			await page.evaluate(
+				(marginY: number, minPageHeight: number) => {
+					const root = document.documentElement;
+					const container = document.querySelector(".resume-preview-container") as HTMLElement | null;
 
-				// The --page-height CSS variable controls the height of each resume page.
-				// We need to reduce it by the PDF margins so content fits within the printable area.
-				// Without this, content would overflow and create empty pages.
-				const containerHeight = container ? getComputedStyle(container).getPropertyValue("--page-height").trim() : null;
-				const rootHeight = getComputedStyle(root).getPropertyValue("--page-height").trim();
-				const currentHeight = containerHeight || rootHeight;
-				const heightValue = Number.parseFloat(currentHeight);
+					// The --page-height CSS variable controls the height of each resume page.
+					// We need to reduce it by the PDF margins so content fits within the printable area.
+					// Without this, content would overflow and create empty pages.
+					const containerHeight = container
+						? getComputedStyle(container).getPropertyValue("--page-height").trim()
+						: null;
+					const rootHeight = getComputedStyle(root).getPropertyValue("--page-height").trim();
+					const currentHeight = containerHeight || rootHeight;
+					const heightValue = Math.max(Number.parseFloat(currentHeight), minPageHeight);
 
-				if (!Number.isNaN(heightValue)) {
-					// Subtract top + bottom margins from page height
-					const newHeight = `${heightValue - marginY}px`;
-					if (container) container.style.setProperty("--page-height", newHeight);
-					root.style.setProperty("--page-height", newHeight);
-				}
+					if (!Number.isNaN(heightValue)) {
+						// Subtract top + bottom margins from page height
+						const newHeight = `${heightValue - marginY}px`;
+						if (container) container.style.setProperty("--page-height", newHeight);
+						root.style.setProperty("--page-height", newHeight);
+					}
 
-				// Add page break CSS to each resume page element (identified by data-page-index attribute)
-				// This ensures each visual resume page starts a new PDF page
-				const pageElements = document.querySelectorAll("[data-page-index]");
+					// Add page break CSS to each resume page element (identified by data-page-index attribute)
+					// This ensures each visual resume page starts a new PDF page
+					const pageElements = document.querySelectorAll("[data-page-index]");
 
-				for (const el of pageElements) {
-					const element = el as HTMLElement;
-					const index = Number.parseInt(element.getAttribute("data-page-index") ?? "0", 10);
+					for (const el of pageElements) {
+						const element = el as HTMLElement;
+						const index = Number.parseInt(element.getAttribute("data-page-index") ?? "0", 10);
 
-					// Force a page break before each page except the first
-					if (index > 0) element.style.breakBefore = "page";
+						// Force a page break before each page except the first
+						if (index > 0) element.style.breakBefore = "page";
 
-					// Allow content within a page to break naturally if it overflows
-					// (e.g., if a single page has more content than fits on one PDF page)
-					element.style.breakInside = "auto";
-				}
-			}, marginY);
+						// Allow content within a page to break naturally if it overflows
+						// (e.g., if a single page has more content than fits on one PDF page)
+						element.style.breakInside = "auto";
+					}
+				},
+				marginY,
+				pageDimensions[format].height,
+			);
 
 			// Step 6: Generate the PDF with the specified dimensions and margins
 			const pdfBuffer = await page.pdf({
