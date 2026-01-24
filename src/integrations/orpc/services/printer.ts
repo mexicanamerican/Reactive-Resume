@@ -12,12 +12,17 @@ const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
 
 async function getBrowser(): Promise<Browser> {
 	const endpoint = new URL(env.PRINTER_ENDPOINT);
+	endpoint.searchParams.append(
+		"launch",
+		JSON.stringify({ args: ["--disable-dev-shm-usage", "--disable-features=FedCm"] }),
+	);
+
 	const isWebSocket = endpoint.protocol.startsWith("ws");
 
 	const connectOptions: ConnectOptions = { acceptInsecureCerts: true };
 
-	if (isWebSocket) connectOptions.browserWSEndpoint = env.PRINTER_ENDPOINT;
-	else connectOptions.browserURL = env.PRINTER_ENDPOINT;
+	if (isWebSocket) connectOptions.browserWSEndpoint = endpoint.toString();
+	else connectOptions.browserURL = endpoint.toString();
 
 	return puppeteer.connect(connectOptions);
 }
