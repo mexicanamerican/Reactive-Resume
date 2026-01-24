@@ -135,13 +135,13 @@ export const resumeService = {
 		const [resume] = await db
 			.select({
 				id: schema.resume.id,
-				userId: schema.resume.userId,
 				name: schema.resume.name,
 				slug: schema.resume.slug,
 				tags: schema.resume.tags,
 				data: schema.resume.data,
-				isPublic: schema.resume.isPublic,
+				userId: schema.resume.userId,
 				isLocked: schema.resume.isLocked,
+				updatedAt: schema.resume.updatedAt,
 			})
 			.from(schema.resume)
 			.where(eq(schema.resume.id, input.id));

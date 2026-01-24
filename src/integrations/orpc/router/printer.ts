@@ -15,8 +15,8 @@ export const printerRouter = {
 		.input(z.object({ id: z.string() }))
 		.output(z.object({ url: z.string() }))
 		.handler(async ({ input, context }) => {
-			const resume = await resumeService.getByIdForPrinter({ id: input.id });
-			const url = await printerService.printResumeAsPDF(resume);
+			const { id, data, userId } = await resumeService.getByIdForPrinter({ id: input.id });
+			const url = await printerService.printResumeAsPDF({ id, data, userId });
 
 			if (!context.user) {
 				await resumeService.statistics.increment({ id: input.id, downloads: true });
@@ -36,8 +36,8 @@ export const printerRouter = {
 		.input(z.object({ id: z.string() }))
 		.output(z.object({ url: z.string() }))
 		.handler(async ({ input }) => {
-			const resume = await resumeService.getByIdForPrinter({ id: input.id });
-			const url = await printerService.getResumeScreenshot(resume);
+			const { id, data, userId, updatedAt } = await resumeService.getByIdForPrinter({ id: input.id });
+			const url = await printerService.getResumeScreenshot({ id, data, userId, updatedAt });
 
 			return { url };
 		}),

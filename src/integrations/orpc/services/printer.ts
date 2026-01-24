@@ -64,9 +64,9 @@ export const printerService = {
 	 * 7. Upload to storage and return the URL
 	 */
 	printResumeAsPDF: async (
-		input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data">,
+		input: Pick<InferSelectModel<typeof schema.resume>, "id" | "data" | "userId">,
 	): Promise<string> => {
-		const { id, userId, data } = input;
+		const { id, data, userId } = input;
 
 		// Step 1: Delete any existing PDF for this resume to ensure fresh generation
 		const storageService = getStorageService();
@@ -190,15 +190,16 @@ export const printerService = {
 	},
 
 	getResumeScreenshot: async (
-		input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data">,
+		input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data" | "updatedAt">,
 	): Promise<string> => {
-		const { id, userId, data } = input;
+		const { id, userId, data, updatedAt } = input;
 
 		const storageService = getStorageService();
 		const screenshotPrefix = `uploads/${userId}/screenshots/${id}`;
 
 		const existingScreenshots = await storageService.list(screenshotPrefix);
 		const now = Date.now();
+		const resumeUpdatedAt = updatedAt.getTime();
 
 		if (existingScreenshots.length > 0) {
 			const sortedFiles = existingScreenshots
@@ -214,8 +215,17 @@ export const printerService = {
 				const latest = sortedFiles[0];
 				const age = now - latest.timestamp;
 
+				// Return existing screenshot if it's still fresh (within TTL)
 				if (age < SCREENSHOT_TTL) return new URL(latest.path, env.APP_URL).toString();
 
+				// Screenshot is stale (past TTL), but only regenerate if the resume
+				// was updated after the screenshot was taken. If the resume hasn't
+				// changed, keep using the existing screenshot to avoid unnecessary work.
+				if (resumeUpdatedAt <= latest.timestamp) {
+					return new URL(latest.path, env.APP_URL).toString();
+				}
+
+				// Resume was updated after the screenshot - delete old ones and regenerate
 				await Promise.all(sortedFiles.map((file) => storageService.delete(file.path)));
 			}
 		}
