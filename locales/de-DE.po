@@ -496,6 +496,10 @@ msgstr "Design ändern zu..."
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "Sie haben es sich anders überlegt? Benennen Sie Ihren Lebenslauf in etwas Aussagekräftigeres um."
 
+#: src/routes/_home/-sections/footer.tsx:31
+msgid "Changelog"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx:111
 msgid "Check your email for a link to reset your password."
 msgstr "Bitte prüfen Sie Ihre E-Mails auf einen Link zum Zurücksetzen Ihres Passworts."
@@ -569,10 +573,6 @@ msgstr ""
 
 #: src/dialogs/resume/import.tsx:197
 msgid "Continue where you left off by importing an existing resume you created using Reactive Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Reactive Resume."
-msgstr ""
-
-#: src/routes/_home/-sections/footer.tsx:38
-msgid "Contributing"
 msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:188
@@ -833,8 +833,8 @@ msgstr "Die Zwei-Faktor-Authentifizierung wird deaktiviert..."
 msgid "Disconnect"
 msgstr "Trennen"
 
-#: src/routes/_home/-sections/footer.tsx:35
-msgid "Discussions"
+#: src/routes/_home/-sections/footer.tsx:38
+msgid "Discord"
 msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx:28
@@ -845,10 +845,6 @@ msgstr "Dokumentation"
 #: src/routes/auth/login.tsx:92
 msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
 msgstr "Sie haben noch kein Konto? <0><1>Jetzt erstellen <2/></1></0>"
-
-#: src/routes/_home/-sections/footer.tsx:31
-msgid "Donate"
-msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx:31
 msgid "Donate to Reactive Resume"
@@ -1371,6 +1367,10 @@ msgstr ""
 msgid "Learn More"
 msgstr "Mehr erfahren"
 
+#: src/components/resume/preview.tsx:179
+msgid "Learn more about how to fit content on a page"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:63
 msgid "Leave empty to reset the title to the original."
 msgstr "Leer lassen, um den Titel auf den Original zurückzusetzen."
@@ -1603,7 +1603,7 @@ msgstr "Seite"
 msgid "Page {0}"
 msgstr "Seite {0}"
 
-#: src/components/resume/preview.tsx:113
+#: src/components/resume/preview.tsx:152
 msgid "Page {pageNumber} of {totalNumberOfPages}"
 msgstr "Seite {pageNumber} von {totalNumberOfPages}"
 
@@ -1825,8 +1825,8 @@ msgstr "Umbenennen"
 msgid "Report a Bug"
 msgstr "Fehler melden"
 
-#: src/routes/_home/-sections/footer.tsx:36
-msgid "Report an Issue"
+#: src/routes/_home/-sections/footer.tsx:35
+msgid "Report an issue"
 msgstr ""
 
 #: src/routes/dashboard/settings/profile.tsx:202
@@ -2081,7 +2081,7 @@ msgstr "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
 msgid "Sort by"
 msgstr "Sortieren nach"
 
-#: src/routes/_home/-sections/footer.tsx:29
+#: src/routes/_home/-sections/footer.tsx:30
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx:46
 msgid "Source Code"
 msgstr "Quellcode"
@@ -2101,6 +2101,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx:64
 msgid "Sponsors"
 msgstr "Sponsoren"
+
+#: src/routes/_home/-sections/footer.tsx:29
+msgid "Sponsorships"
+msgstr ""
 
 #: src/components/level/combobox.tsx:16
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx:233
@@ -2131,6 +2135,10 @@ msgstr "Statistiken"
 #: src/components/input/rich-input.tsx:355
 msgid "Strike"
 msgstr "Durchgestrichen"
+
+#: src/routes/_home/-sections/footer.tsx:37
+msgid "Subreddit"
+msgstr ""
 
 #: src/utils/resume/section.tsx:92
 msgid "Summary"
@@ -2214,6 +2222,10 @@ msgstr ""
 
 #: src/components/command-palette/index.tsx:108
 msgid "The command you're looking for doesn't exist."
+msgstr ""
+
+#: src/components/resume/preview.tsx:174
+msgid "The content is too tall for this page, this may cause undesirable results when exporting to PDF."
 msgstr ""
 
 #: src/routes/auth/resume-password.tsx:75
@@ -2313,8 +2325,7 @@ msgstr "Um Ihr Konto zu löschen, müssen Sie den Bestätigungstext eingeben und
 msgid "Track your resume's views and downloads"
 msgstr "Verfolgen Sie die Aufrufe und Downloads Ihres Lebenslaufs"
 
-#: src/routes/_home/-sections/footer.tsx:30
-#: src/routes/_home/-sections/footer.tsx:37
+#: src/routes/_home/-sections/footer.tsx:36
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx:58
 msgid "Translations"
 msgstr "Übersetzungen"
