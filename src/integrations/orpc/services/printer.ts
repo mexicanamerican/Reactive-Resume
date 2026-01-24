@@ -138,7 +138,7 @@ export const printerService = {
 
 			if (!Number.isNaN(heightValue)) {
 				// Subtract top + bottom margins from page height
-				const newHeight = `${heightValue - marginY * 2}px`;
+				const newHeight = `${heightValue - marginY}px`;
 				if (container) container.style.setProperty("--page-height", newHeight);
 				root.style.setProperty("--page-height", newHeight);
 			}
@@ -170,7 +170,7 @@ export const printerService = {
 			margin: {
 				top: marginY,
 				right: marginX,
-				bottom: marginY,
+				// bottom: marginY,
 				left: marginX,
 			},
 		});

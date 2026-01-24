@@ -24,7 +24,7 @@ export function LeafishTemplate({ pageIndex, pageLayout }: TemplateProps) {
 		<div className="template-leafish page-content space-y-4">
 			{isFirstPage && <Header />}
 
-			<div className="flex gap-x-(--page-margin-x) px-(--page-margin-x) pb-(--page-margin-y)">
+			<div className="flex gap-x-(--page-margin-x) px-(--page-margin-x) pt-(--page-margin-y)">
 				<main data-layout="main" className="group page-main space-y-4">
 					{main
 						.filter((section) => section !== "summary")

@@ -8,7 +8,7 @@ type Props = z.infer<typeof levelDesignSchema> & React.ComponentProps<"div"> & {
 
 export function LevelDisplay({ icon, type, level, className, ...props }: Props) {
 	if (level === 0) return null;
-	if (type === "hidden") return null;
+	if (type === "hidden" || icon === "") return null;
 
 	return (
 		<div

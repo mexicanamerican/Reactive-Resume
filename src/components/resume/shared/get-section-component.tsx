@@ -163,7 +163,7 @@ export function getSectionComponent(
 
 				return (
 					<section className={cn(`page-section page-section-custom page-section-${id}`, sectionClassName)}>
-						<h6 className="mb-1 text-(--page-primary-color)">{customSection.title}</h6>
+						<h6 className="mb-1.5 text-(--page-primary-color)">{customSection.title}</h6>
 
 						<div
 							className="section-content grid gap-x-(--page-gap-x) gap-y-(--page-gap-y)"

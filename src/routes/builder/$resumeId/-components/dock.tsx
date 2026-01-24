@@ -36,9 +36,9 @@ export function BuilderDock() {
 	);
 
 	const publicUrl = useMemo(() => {
-		if (!session || !resume) return "";
+		if (!session?.user.username || !resume?.slug) return "";
 		return `${window.location.origin}/${session.user.username}/${resume.slug}`;
-	}, [session, resume]);
+	}, [session?.user.username, resume?.slug]);
 
 	const onCopyUrl = useCallback(async () => {
 		await copyToClipboard(publicUrl);
@@ -46,22 +46,27 @@ export function BuilderDock() {
 	}, [publicUrl, copyToClipboard]);
 
 	const onDownloadJSON = useCallback(async () => {
-		if (!resume) return;
-		const jsonString = JSON.stringify(resume, null, 2);
-		const blob = new Blob([jsonString], { type: "application/json" });
+		if (!resume?.data) return;
 		const filename = generateFilename(resume.data.basics.name, "json");
+		const jsonString = JSON.stringify(resume.data, null, 2);
+		const blob = new Blob([jsonString], { type: "application/json" });
 
 		downloadWithAnchor(blob, filename);
-	}, [resume]);
+	}, [resume?.data]);
 
 	const onDownloadPDF = useCallback(async () => {
-		if (!resume) return;
+		if (!resume?.id) return;
 
 		const filename = generateFilename(resume.data.basics.name, "pdf");
-		const { url } = await printResumeAsPDF({ id: resume.id });
 
-		downloadFromUrl(url, filename);
-	}, [resume, printResumeAsPDF]);
+		try {
+			const { url } = await printResumeAsPDF({ id: resume.id });
+			downloadFromUrl(url, filename);
+		} catch (error) {
+			toast.error(t`There was a problem while generating the PDF, please try again in some time.`);
+			console.error("[Error from printResumeAsPDF]:", error);
+		}
+	}, [resume?.id, resume?.data.basics.name, printResumeAsPDF]);
 
 	return (
 		<div className="fixed inset-x-0 bottom-4 flex items-center justify-center">

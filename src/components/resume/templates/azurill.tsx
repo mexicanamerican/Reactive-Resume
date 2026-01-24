@@ -61,7 +61,7 @@ export function AzurillTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-azurill page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y) print:p-0">
+		<div className="template-azurill page-content space-y-(--page-gap-y) px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<div className="flex gap-x-(--page-gap-x)">

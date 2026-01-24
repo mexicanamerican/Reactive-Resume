@@ -39,7 +39,7 @@ export function GengarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 						{isFirstPage && <Header />}
 
 						{!fullWidth && (
-							<div className="shrink-0 space-y-4 overflow-x-hidden px-(--page-margin-x) pt-4 pb-(--page-margin-y)">
+							<div className="shrink-0 space-y-4 overflow-x-hidden px-(--page-margin-x) pt-(--page-margin-y)">
 								{sidebar
 									.filter((section) => section !== "summary")
 									.map((section) => {
@@ -61,7 +61,7 @@ export function GengarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 						/>
 					)}
 
-					<div className="space-y-4 px-(--page-margin-x) pt-4 pb-(--page-margin-y)">
+					<div className="space-y-4 px-(--page-margin-x) pt-(--page-margin-y)">
 						{main
 							.filter((section) => section !== "summary")
 							.map((section) => {

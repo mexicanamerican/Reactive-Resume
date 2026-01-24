@@ -44,7 +44,7 @@ export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				<aside data-layout="sidebar" className="sidebar group z-10 flex w-(--page-sidebar-width) shrink-0 flex-col">
 					{isFirstPage && <Header />}
 
-					<div className="flex-1 space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
+					<div className="flex-1 space-y-4 px-(--page-margin-x) pt-(--page-margin-y)">
 						{sidebar.map((section) => {
 							const Component = getSectionComponent(section, { sectionClassName });
 							return <Component key={section} id={section} />;
@@ -55,7 +55,7 @@ export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				<main data-layout="main" className={cn("main group z-10", !fullWidth ? "col-span-2" : "col-span-3")}>
 					{isFirstPage && <SummaryComponent id="summary" />}
 
-					<div className="space-y-4 px-(--page-margin-x) py-(--page-margin-y)">
+					<div className="space-y-4 px-(--page-margin-x) pt-(--page-margin-y)">
 						{main
 							.filter((section) => section !== "summary")
 							.map((section) => {

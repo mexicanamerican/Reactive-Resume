@@ -12,7 +12,7 @@ const sectionClassName = cn(
 	"rounded-(--container-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4",
 
 	// Section Heading
-	"[&>h6]:-mt-(--heading-negative-margin) [&>h6]:max-w-fit [&>h6]:bg-(--page-background-color) [&>h6]:px-4 [&>h6]:pb-0.5",
+	"[&>h6]:-mt-(--heading-negative-margin) [&>h6]:max-w-fit [&>h6]:bg-(--page-background-color) [&>h6]:px-4",
 );
 
 /**
@@ -33,11 +33,11 @@ export function LaprasTemplate({ pageIndex, pageLayout }: TemplateProps) {
 					"--heading-negative-margin": `${headingNegativeMargin}pt`,
 				} as React.CSSProperties
 			}
-			className="template-lapras page-content space-y-7 px-(--page-margin-x) py-(--page-margin-y) print:p-0"
+			className="template-lapras page-content space-y-6 px-(--page-margin-x) pt-(--page-margin-y) print:p-0"
 		>
 			{isFirstPage && <Header />}
 
-			<main data-layout="main" className="group page-main space-y-7">
+			<main data-layout="main" className="group page-main space-y-6">
 				{main.map((section) => {
 					const Component = getSectionComponent(section, { sectionClassName });
 					return <Component key={section} id={section} />;
@@ -45,7 +45,7 @@ export function LaprasTemplate({ pageIndex, pageLayout }: TemplateProps) {
 			</main>
 
 			{!fullWidth && (
-				<aside data-layout="sidebar" className="group page-sidebar space-y-7">
+				<aside data-layout="sidebar" className="group page-sidebar space-y-6">
 					{sidebar.map((section) => {
 						const Component = getSectionComponent(section, { sectionClassName });
 						return <Component key={section} id={section} />;

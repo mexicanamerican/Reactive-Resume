@@ -17,7 +17,7 @@ export function OnyxTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-onyx page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y) print:p-0">
+		<div className="template-onyx page-content space-y-(--page-gap-y) px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<main data-layout="main" className="group page-main space-y-(--page-gap-y)">
@@ -43,7 +43,7 @@ function Header() {
 	const basics = useResumeStore((state) => state.resume.data.basics);
 
 	return (
-		<div className="page-header flex items-center gap-x-4 border-(--page-primary-color) border-b pb-(--page-gap-y)">
+		<div className="page-header flex items-center gap-x-4 border-(--page-primary-color) border-b pb-(--page-margin-y)">
 			<PagePicture />
 
 			<div className="page-basics space-y-2">

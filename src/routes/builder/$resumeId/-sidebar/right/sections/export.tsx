@@ -1,7 +1,9 @@
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { CircleNotchIcon, FileJsIcon, FilePdfIcon } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
 import { useCallback } from "react";
+import { toast } from "sonner";
 import { useResumeStore } from "@/components/resume/store/resume";
 import { Button } from "@/components/ui/button";
 import { orpc } from "@/integrations/orpc/client";
@@ -17,7 +19,7 @@ export function ExportSectionBuilder() {
 
 	const onDownloadJSON = useCallback(() => {
 		const filename = generateFilename(resume.data.basics.name, "json");
-		const jsonString = JSON.stringify(resume, null, 2);
+		const jsonString = JSON.stringify(resume.data, null, 2);
 		const blob = new Blob([jsonString], { type: "application/json" });
 
 		downloadWithAnchor(blob, filename);
@@ -25,9 +27,14 @@ export function ExportSectionBuilder() {
 
 	const onDownloadPDF = useCallback(async () => {
 		const filename = generateFilename(resume.data.basics.name, "pdf");
-		const { url } = await printResumeAsPDF({ id: resume.id });
 
-		downloadFromUrl(url, filename);
+		try {
+			const { url } = await printResumeAsPDF({ id: resume.id });
+			downloadFromUrl(url, filename);
+		} catch (error) {
+			toast.error(t`There was a problem while generating the PDF, please try again in some time.`);
+			console.error("[Error from printResumeAsPDF]:", error);
+		}
 	}, [resume, printResumeAsPDF]);
 
 	return (

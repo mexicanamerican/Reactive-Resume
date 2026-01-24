@@ -20,7 +20,7 @@ export function RhyhornTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const { main, sidebar, fullWidth } = pageLayout;
 
 	return (
-		<div className="template-rhyhorn page-content space-y-4 px-(--page-margin-x) py-(--page-margin-y) print:p-0">
+		<div className="template-rhyhorn page-content space-y-4 px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<main data-layout="main" className="group page-main space-y-4">

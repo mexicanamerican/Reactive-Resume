@@ -1,5 +1,6 @@
 import z from "zod";
-import { resumeDataSchema, sampleResumeData } from "@/schema/resume/data";
+import { resumeDataSchema } from "@/schema/resume/data";
+import { sampleResumeData } from "@/schema/resume/sample";
 import { generateRandomName, slugify } from "@/utils/string";
 import { protectedProcedure, publicProcedure, serverOnlyProcedure } from "../context";
 import { resumeService } from "../services/resume";

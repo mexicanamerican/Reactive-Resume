@@ -467,7 +467,7 @@ msgstr "Catalan"
 msgid "Center Align"
 msgstr "Center Align"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:77
+#: src/routes/builder/$resumeId/-components/dock.tsx:82
 msgid "Center view"
 msgstr "Center view"
 
@@ -590,7 +590,7 @@ msgstr "Copy Backup Codes"
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Copy this secret key and use it in your applications to access your data."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:79
+#: src/routes/builder/$resumeId/-components/dock.tsx:84
 msgid "Copy URL"
 msgstr "Copy URL"
 
@@ -854,19 +854,19 @@ msgstr "Donate to Reactive Resume"
 msgid "Download"
 msgstr "Download"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:44
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:51
 msgid "Download a copy of your resume in JSON format. Use this file for backup or to import your resume into other applications, including AI assistants."
 msgstr "Download a copy of your resume in JSON format. Use this file for backup or to import your resume into other applications, including AI assistants."
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:67
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:74
 msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 msgstr "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:80
+#: src/routes/builder/$resumeId/-components/dock.tsx:85
 msgid "Download JSON"
 msgstr "Download JSON"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:82
+#: src/routes/builder/$resumeId/-components/dock.tsx:87
 msgid "Download PDF"
 msgstr "Download PDF"
 
@@ -2228,6 +2228,11 @@ msgstr "Theme"
 msgid "Then, enter the 6 digit code that the app provides to continue."
 msgstr "Then, enter the 6 digit code that the app provides to continue."
 
+#: src/routes/builder/$resumeId/-components/dock.tsx:66
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:35
+msgid "There was a problem while generating the PDF, please try again in some time."
+msgstr "There was a problem while generating the PDF, please try again in some time."
+
 #: src/routes/builder/$resumeId/-components/header.tsx:103
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:80
 msgid "This action cannot be undone."
@@ -2693,11 +2698,11 @@ msgstr "Your resume's public link is currently protected by a password. Share th
 msgid "Your support ensures the project remains free and accessible for everyone, now and in the future."
 msgstr "Your support ensures the project remains free and accessible for everyone, now and in the future."
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:75
+#: src/routes/builder/$resumeId/-components/dock.tsx:80
 msgid "Zoom in"
 msgstr "Zoom in"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx:76
+#: src/routes/builder/$resumeId/-components/dock.tsx:81
 msgid "Zoom out"
 msgstr "Zoom out"
 
