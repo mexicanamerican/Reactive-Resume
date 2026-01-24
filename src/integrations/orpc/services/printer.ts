@@ -11,15 +11,13 @@ import { getStorageService, uploadFile } from "./storage";
 const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
 
 async function getBrowser(): Promise<Browser> {
+	const args = ["--disable-dev-shm-usage", "--disable-features=LocalNetworkAccessChecks,site-per-process,FedCm"];
+
 	const endpoint = new URL(env.PRINTER_ENDPOINT);
-	endpoint.searchParams.append(
-		"launch",
-		JSON.stringify({ args: ["--disable-dev-shm-usage", "--disable-features=FedCm"] }),
-	);
-
 	const isWebSocket = endpoint.protocol.startsWith("ws");
-
 	const connectOptions: ConnectOptions = { acceptInsecureCerts: true };
+
+	endpoint.searchParams.append("launch", JSON.stringify({ args }));
 
 	if (isWebSocket) connectOptions.browserWSEndpoint = endpoint.toString();
 	else connectOptions.browserURL = endpoint.toString();
