@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-01-23 22:54\n"
+"PO-Revision-Date: 2026-01-24 22:03\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -40,7 +40,7 @@ msgstr "(s'ouvre dans un nouvel onglet)"
 #. placeholder {0}: section.items.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:122
 msgid "{0, plural, one {# item} other {# items}}"
-msgstr ""
+msgstr "{0, plural, one {# élément} other {# éléments}}"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:244
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx:149
@@ -108,7 +108,7 @@ msgstr "Un projet-passion de <0>Amruth Pillai</0>."
 #: src/dialogs/resume/index.tsx:69
 #: src/dialogs/resume/index.tsx:178
 msgid "A resume with this slug already exists."
-msgstr ""
+msgstr "Un CV avec ce slug existe déjà."
 
 #: src/routes/_home/-sections/faq.tsx:27
 msgid "Absolutely! You can export your resume to PDF with a single click. The exported PDF maintains all your formatting and styling perfectly."
@@ -405,7 +405,7 @@ msgstr "Largeur de la bordure"
 
 #: src/components/command-palette/index.tsx:82
 msgid "Builder Command Palette"
-msgstr ""
+msgstr "Palette de commandes du créateur"
 
 #: src/utils/locale.ts:74
 msgid "Bulgarian"
@@ -865,7 +865,7 @@ msgstr "Téléchargez un exemplaire de votre CV au format PDF. Utilisez ce fichi
 
 #: src/routes/builder/$resumeId/-components/dock.tsx:90
 msgid "Download JSON"
-msgstr ""
+msgstr "Télécharger le JSON"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx:92
 msgid "Download PDF"
@@ -1481,7 +1481,7 @@ msgstr "Modèle"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:108
 msgid "Move to"
-msgstr ""
+msgstr "Déplacer vers"
 
 #: src/routes/_home/-sections/features.tsx:70
 msgid "Multilingual"
@@ -1517,7 +1517,7 @@ msgstr "Nouvelle ligne"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:145
 msgid "New Page"
-msgstr ""
+msgstr "Nouvelle page"
 
 #: src/dialogs/auth/change-password.tsx:110
 #: src/routes/auth/reset-password.tsx:85
@@ -1526,7 +1526,7 @@ msgstr "Nouveau mot de passe"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:134
 msgid "New Section"
-msgstr ""
+msgstr "Nouvelle section"
 
 #: src/routes/_home/-sections/features.tsx:52
 msgid "No Advertising, No Tracking"
@@ -1657,7 +1657,7 @@ msgstr "Persan"
 
 #: src/routes/_home/-sections/features.tsx:95
 msgid "Personalize your resume with any colors, fonts or designs, and make it your own."
-msgstr ""
+msgstr "Personnalisez votre CV avec les couleurs, polices ou designs de votre choix, et faites-en le vôtre."
 
 #: src/dialogs/resume/sections/reference.tsx:184
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx:98
@@ -1683,7 +1683,7 @@ msgstr "Veuillez saisir l'URL vers laquelle vous souhaitez rediriger :"
 #: src/routes/builder/$resumeId/-components/dock.tsx:61
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:30
 msgid "Please wait while your PDF is being generated..."
-msgstr ""
+msgstr "Veuillez patienter pendant que votre PDF est en cours de génération..."
 
 #: src/utils/locale.ts:104
 msgid "Polish"
@@ -1930,7 +1930,7 @@ msgstr "Secret copié dans le presse-papiers."
 
 #: src/dialogs/resume/sections/custom.tsx:172
 msgid "Section Type"
-msgstr ""
+msgstr "Type de section"
 
 #: src/components/ui/combobox.tsx:41
 #: src/components/ui/multiple-combobox.tsx:49
@@ -2253,7 +2253,7 @@ msgstr "Ensuite, entrez le code à 6 chiffres fourni par l'application pour cont
 #: src/routes/builder/$resumeId/-components/dock.tsx:69
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:38
 msgid "There was a problem while generating the PDF, please try again in some time."
-msgstr ""
+msgstr "Un problème est survenu lors de la génération du PDF, veuillez réessayer dans quelque temps."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
 #: src/routes/dashboard/resumes/-components/resume-card.tsx:80
@@ -2280,7 +2280,7 @@ msgstr "Cela peut prendre quelques minutes, en fonction de la réponse du fourni
 #: src/routes/builder/$resumeId/-components/dock.tsx:62
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx:31
 msgid "This may take a while depending on the server capacity. Please do not close the window or refresh the page."
-msgstr ""
+msgstr "Cela peut prendre un certain temps, selon la capacité du serveur. Ne fermez pas la fenêtre et n’actualisez pas la page."
 
 #: src/components/resume/store/resume.ts:53
 msgid "This resume is locked and cannot be updated."
@@ -2660,7 +2660,7 @@ msgstr "Votre clé API a été copiée dans le presse-papiers."
 
 #: src/routes/builder/$resumeId/index.tsx:18
 msgid "Your changes are saved automatically."
-msgstr ""
+msgstr "Vos modifications sont enregistrées automatiquement."
 
 #: src/routes/_home/-sections/features.tsx:59
 msgid "Your data is secure, and never shared or sold to anyone."
