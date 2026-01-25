@@ -14,7 +14,3 @@ node_modules
 public/sw.js
 scripts/**/*.json
 public/workbox-*.js
-
-# Compiled translation files
-/locales/*.js
-!/locales/*.po

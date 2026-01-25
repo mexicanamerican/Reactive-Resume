@@ -53,7 +53,7 @@ function DialogContent({ className, children, ...props }: DialogContentProps) {
 			<DialogOverlay />
 			<DialogContentPrimitive
 				className={cn(
-					"fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg sm:max-w-2xl",
+					"fixed top-[50%] left-[50%] z-50 grid max-h-[calc(100%-2rem)] w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 overflow-y-auto rounded-lg border bg-background p-6 shadow-lg sm:max-w-2xl 2xl:max-w-4xl",
 					className,
 				)}
 				{...props}

@@ -48,9 +48,11 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			links: [
 				{ rel: "stylesheet", href: appCss },
 				// Icons
-				{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
-				{ rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
-				{ rel: "apple-touch-icon", href: "/apple-touch-icon-180x180.png", type: "image/png", sizes: "180x180" },
+				{ rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "128x128" },
+				{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml", sizes: "256x256 any" },
+				{ rel: "apple-touch-icon", href: "/apple-touch-icon-180x180.png", type: "image/png", sizes: "180x180 any" },
+				// Manifest
+				{ rel: "manifest", href: "/manifest.webmanifest", crossOrigin: "use-credentials" },
 			],
 			meta: [
 				{ title },
@@ -68,6 +70,18 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 				{ property: "og:title", content: title },
 				{ property: "og:description", content: description },
 				{ property: "og:url", content: appUrl },
+			],
+			// Register service worker via script tag
+			scripts: [
+				{
+					children: `
+						if('serviceWorker' in navigator) {
+							window.addEventListener('load', () => {
+								navigator.serviceWorker.register('/sw.js', { scope: '/' })
+							})
+						}
+					`,
+				},
 			],
 		};
 	},

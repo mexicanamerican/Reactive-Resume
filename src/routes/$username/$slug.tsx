@@ -16,11 +16,18 @@ import { cn } from "@/utils/style";
 export const Route = createFileRoute("/$username/$slug")({
 	component: RouteComponent,
 	loader: async ({ context, params: { username, slug } }) => {
-		const resume = await context.queryClient.ensureQueryData(
-			orpc.resume.getBySlug.queryOptions({ input: { username, slug } }),
-		);
+		try {
+			// Ignore .well-known requests
+			if (username === ".well-known") throw notFound();
 
-		return { resume };
+			const resume = await context.queryClient.ensureQueryData(
+				orpc.resume.getBySlug.queryOptions({ input: { username, slug } }),
+			);
+
+			return { resume };
+		} catch {
+			throw notFound();
+		}
 	},
 	head: ({ loaderData }) => ({
 		meta: [{ title: loaderData ? `${loaderData.resume.name} - Reactive Resume` : "Reactive Resume" }],
