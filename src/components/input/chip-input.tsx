@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { PencilSimpleIcon, XIcon } from "@phosphor-icons/react";
 import { motion, Reorder, useDragControls } from "motion/react";
 import * as React from "react";
@@ -5,12 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useControlledState } from "@/hooks/use-controlled-state";
 import { cn } from "@/utils/style";
+import { Kbd } from "../ui/kbd";
 
-type Props = Omit<React.ComponentProps<"div">, "value" | "onChange"> & {
-	value?: string[];
-	defaultValue?: string[];
-	onChange?: (value: string[]) => void;
-};
+const RETURN_KEY = "Enter";
+const COMMA_KEY = ",";
 
 type ChipItemProps = {
 	chip: string;
@@ -84,6 +83,12 @@ function ChipItem({ chip, index, isEditing, onEdit, onRemove }: ChipItemProps) {
 		</Reorder.Item>
 	);
 }
+
+type Props = Omit<React.ComponentProps<"div">, "value" | "onChange"> & {
+	value?: string[];
+	defaultValue?: string[];
+	onChange?: (value: string[]) => void;
+};
 
 export function ChipInput({ value, defaultValue = [], onChange, className, ...props }: Props) {
 	const [chips, setChips] = useControlledState<string[]>({
@@ -225,7 +230,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, ...pr
 				<Reorder.Group axis="x" values={chips} onReorder={handleReorder} className="flex flex-wrap gap-1.5">
 					{chips.map((chip, idx) => (
 						<ChipItem
-							key={chip}
+							key={`${chip}-${idx}`}
 							chip={chip}
 							index={idx}
 							isEditing={editingIndex === idx}
@@ -236,7 +241,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, ...pr
 				</Reorder.Group>
 			)}
 
-			<div className="flex flex-col gap-1">
+			<div className="flex flex-col gap-2">
 				<Input
 					ref={inputRef}
 					type="text"
@@ -247,7 +252,11 @@ export function ChipInput({ value, defaultValue = [], onChange, className, ...pr
 					onKeyDown={handleKeyDown}
 					onChange={handleInputChange}
 				/>
-				<p className="text-muted-foreground text-xs">Press Enter or comma to save your keyword</p>
+				<p className="text-muted-foreground text-xs">
+					<Trans>
+						Press <Kbd>{RETURN_KEY}</Kbd> or <Kbd>{COMMA_KEY}</Kbd> to add or save the current keyword.
+					</Trans>
+				</p>
 			</div>
 		</div>
 	);

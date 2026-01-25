@@ -1733,6 +1733,10 @@ msgstr "Càrrec"
 msgid "Preferences"
 msgstr "Preferències"
 
+#: src/components/input/chip-input.tsx
+msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "Color principal"
