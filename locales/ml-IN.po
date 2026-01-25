@@ -2017,7 +2017,7 @@ msgstr "കാണിക്കുക"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "സൈഡ്ബാർ"
+msgstr "സൈഡ്ബാർ<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"

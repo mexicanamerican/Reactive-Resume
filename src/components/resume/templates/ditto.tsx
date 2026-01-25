@@ -1,4 +1,5 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -19,16 +20,18 @@ const sectionClassName = cn(
 export function DittoTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
+	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
+	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-ditto page-content">
+		<div className="template-ditto page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
 			{isFirstPage && <Header />}
 
 			<div className="flex pt-(--page-margin-y)">
 				{!fullWidth && (
 					<aside
 						data-layout="sidebar"
-						className="group page-sidebar w-(--page-sidebar-width) shrink-0 space-y-4 overflow-x-hidden pl-(--page-margin-x)"
+						className="group page-sidebar w-(--page-sidebar-width) shrink-0 space-y-4 overflow-x-hidden ps-(--page-margin-x)"
 					>
 						{sidebar.map((section) => {
 							const Component = getSectionComponent(section, { sectionClassName });
@@ -55,7 +58,7 @@ function Header() {
 		<div className="page-header relative">
 			<div className="page-basics bg-(--page-primary-color) text-(--page-background-color)">
 				<div className="basics-header flex items-center">
-					<div className="flex w-(--page-sidebar-width) shrink-0 justify-center pl-(--page-margin-x)">
+					<div className="flex w-(--page-sidebar-width) shrink-0 justify-center ps-(--page-margin-x)">
 						<PagePicture className="absolute top-8" />
 					</div>
 

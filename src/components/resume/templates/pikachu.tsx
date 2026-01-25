@@ -1,4 +1,5 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -22,39 +23,46 @@ const sectionClassName = cn(
 export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
+	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
+	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-pikachu page-content flex gap-x-(--page-margin-x) px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
-			<aside
-				data-layout="sidebar"
-				className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-(--page-gap-y)"
-			>
-				{isFirstPage && (
-					<div className="flex max-w-(--page-sidebar-width) items-center justify-start">
-						<PagePicture />
-					</div>
-				)}
+		<div
+			className="template-pikachu page-content px-(--page-margin-x) py-(--page-margin-y) print:p-0"
+			style={{ direction: rtlDirection ? "rtl" : "ltr" }}
+		>
+			<div className="flex gap-x-(--page-margin-x)">
+				<aside
+					data-layout="sidebar"
+					className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-3"
+				>
+					{isFirstPage && (
+						<div className="flex items-center justify-center">
+							<PagePicture />
+						</div>
+					)}
 
-				{!fullWidth && (
-					<div className="shrink-0 space-y-(--page-gap-y) overflow-x-hidden">
-						{sidebar.map((section) => {
+					{!fullWidth && (
+						<div className="shrink-0 space-y-(--page-gap-y) overflow-x-hidden">
+							{sidebar.map((section) => {
+								const Component = getSectionComponent(section, { sectionClassName });
+								return <Component key={section} id={section} />;
+							})}
+						</div>
+					)}
+				</aside>
+
+				<main data-layout="main" className="group page-main flex-1 space-y-(--page-margin-y)">
+					{isFirstPage && <Header />}
+
+					<div className="space-y-(--page-gap-y)">
+						{main.map((section) => {
 							const Component = getSectionComponent(section, { sectionClassName });
 							return <Component key={section} id={section} />;
 						})}
 					</div>
-				)}
-			</aside>
-
-			<main data-layout="main" className="group page-main flex-1 space-y-(--page-margin-y)">
-				{isFirstPage && <Header />}
-
-				<div className="space-y-(--page-gap-y)">
-					{main.map((section) => {
-						const Component = getSectionComponent(section, { sectionClassName });
-						return <Component key={section} id={section} />;
-					})}
-				</div>
-			</main>
+				</main>
+			</div>
 		</div>
 	);
 }

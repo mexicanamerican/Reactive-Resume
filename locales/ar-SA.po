@@ -2017,7 +2017,7 @@ msgstr "إظهار"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "الشريط الجانبي"
+msgstr "الشريط الجانبي<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"

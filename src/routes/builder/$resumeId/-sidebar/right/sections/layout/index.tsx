@@ -24,13 +24,15 @@ const formSchema = metadataSchema.shape.layout.omit({ pages: true });
 type FormValues = z.infer<typeof formSchema>;
 
 function LayoutSectionForm() {
-	const sidebarWidth = useResumeStore((state) => state.resume.data.metadata.layout.sidebarWidth);
+	const layout = useResumeStore((state) => state.resume.data.metadata.layout);
 	const updateResumeData = useResumeStore((state) => state.updateResumeData);
 
 	const form = useForm<FormValues>({
 		mode: "onChange",
 		resolver: zodResolver(formSchema),
-		defaultValues: { sidebarWidth },
+		defaultValues: {
+			sidebarWidth: layout.sidebarWidth,
+		},
 	});
 
 	const onSubmit = (data: FormValues) => {

@@ -2017,7 +2017,7 @@ msgstr "ತೋರಿಸು"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "ಪಾರ್ಶ್ವಪಟ್ಟಿ"
+msgstr "ಪಾರ್ಶ್ವಪಟ್ಟಿ<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"

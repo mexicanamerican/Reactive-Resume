@@ -1,4 +1,5 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -33,12 +34,16 @@ const sectionClassName = cn(
 export function ChikoritaTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
+	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
+	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-chikorita page-content">
+		<div className="template-chikorita page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
 			{/* Sidebar Background */}
 			{!fullWidth && (
-				<div className="page-sidebar-background absolute inset-y-0 right-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)" />
+				<div
+					className={`page-sidebar-background absolute inset-y-0 ${rtlDirection ? "start-0" : "end-0"} z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)`}
+				/>
 			)}
 
 			{isFirstPage && <Header />}
@@ -75,7 +80,7 @@ function Header() {
 
 	return (
 		<div className="page-header relative flex">
-			<div className="flex flex-1 items-center pt-(--page-margin-y) pl-(--page-margin-x)">
+			<div className="flex flex-1 items-center ps-(--page-margin-x) pt-(--page-margin-y)">
 				<PagePicture />
 
 				<div className="page-basics space-y-2 px-(--page-margin-x)">

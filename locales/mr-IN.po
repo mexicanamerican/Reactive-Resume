@@ -2017,7 +2017,7 @@ msgstr "दाखवा"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "बाजूची पट्टी"
+msgstr "बाजूची पट्टी<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
