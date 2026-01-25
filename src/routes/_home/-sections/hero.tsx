@@ -29,9 +29,9 @@ export function Hero() {
 						playsInline
 						// @ts-expect-error - typescript doesn't know about fetchPriority for video elements
 						fetchPriority="high"
-						src="/videos/timelapse.webm"
+						src="/videos/timelapse.mp4"
 						aria-label={t`Timelapse demonstration of building a resume with Reactive Resume`}
-						className="pointer-events-none aspect-video size-full rounded-lg border object-cover shadow-2xl"
+						className="pointer-events-none size-full rounded-lg border object-cover"
 					/>
 
 					<div
