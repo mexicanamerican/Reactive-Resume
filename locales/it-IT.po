@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:51
+#: src/routes/dashboard/resumes/index.tsx:59
 msgid "Last Updated"
 msgstr "Ultimo aggiornamento"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:52
+#: src/routes/dashboard/resumes/index.tsx:60
 msgid "Created"
 msgstr "Creato"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:53
+#: src/routes/dashboard/resumes/index.tsx:61
 msgid "Name"
 msgstr "Nome"
 
@@ -302,7 +302,8 @@ msgid "Are you sure you want to delete this passkey?"
 msgstr "Sei sicuro di voler eliminare questa passkey?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:79
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:65
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:65
 msgid "Are you sure you want to delete this resume?"
 msgstr "Sei sicuro di voler eliminare questo curriculum?"
 
@@ -311,7 +312,8 @@ msgid "Are you sure you want to delete your account?"
 msgstr "Sei sicuro di voler eliminare il tuo account?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:61
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:47
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:47
 msgid "Are you sure you want to lock this resume?"
 msgstr "È sicuro di voler bloccare questo curriculum?"
 
@@ -567,7 +569,8 @@ msgstr "Connetti"
 msgid "Continue"
 msgstr "Continua"
 
-#: src/routes/dashboard/resumes/-components/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:69
 msgid "Continue where you left off"
 msgstr "Continua da dove avevi interrotto"
 
@@ -672,7 +675,8 @@ msgstr "Crea un nuovo referente"
 
 #: src/components/command-palette/pages/resumes.tsx:55
 #: src/dialogs/resume/index.tsx:107
-#: src/routes/dashboard/resumes/-components/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:40
 msgid "Create a new resume"
 msgstr "Crea un nuovo curriculum"
 
@@ -755,7 +759,8 @@ msgstr "Titolo di studio"
 #: src/routes/builder/$resumeId/-components/header.tsx:152
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:257
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:291
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:152
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:119
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:119
 #: src/routes/dashboard/settings/api-keys.tsx:39
 msgid "Delete"
 msgstr "Elimina"
@@ -793,7 +798,8 @@ msgid "Deleting your passkey..."
 msgstr "Eliminazione della passkey in corso..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:108
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:85
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:71
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:71
 msgid "Deleting your resume..."
 msgstr "Eliminazione del tuo curriculum in corso..."
 
@@ -887,7 +893,8 @@ msgstr "Trascina e rilascia qui le sezioni per spostarle tra le colonne"
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:140
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:107
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:107
 msgid "Duplicate"
 msgstr "Duplica"
 
@@ -1028,7 +1035,7 @@ msgstr "Impossibile configurare l'autenticazione a due fattori."
 msgid "Features"
 msgstr "Funzionalità"
 
-#: src/routes/dashboard/resumes/index.tsx:91
+#: src/routes/dashboard/resumes/index.tsx:104
 msgid "Filter by"
 msgstr "Filtra per"
 
@@ -1131,6 +1138,10 @@ msgstr "Voto"
 #: src/utils/locale.ts:80
 msgid "Greek"
 msgstr "Greco"
+
+#: src/routes/dashboard/resumes/index.tsx:123
+msgid "Grid"
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:193
 msgid "Grow the Team"
@@ -1244,7 +1255,8 @@ msgid "Import"
 msgstr "Importazione"
 
 #: src/dialogs/resume/import.tsx:194
-#: src/routes/dashboard/resumes/-components/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:65
 msgid "Import an existing resume"
 msgstr "Importa un curriculum esistente"
 
@@ -1346,7 +1358,8 @@ msgstr "Lingue"
 msgid "Last downloaded on {0}"
 msgstr "Ultimo download il {0}"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:105
+#: src/routes/dashboard/resumes/-components/cards/resume-card.tsx:30
+#: src/routes/dashboard/resumes/-components/list-view.tsx:111
 msgid "Last updated on {updatedAt}"
 msgstr "Ultimo aggiornamento: {updatedAt}"
 
@@ -1411,6 +1424,10 @@ msgstr "Altezza linea"
 msgid "Linking your {providerName} account..."
 msgstr "Collegamento del tuo account {providerName} in corso..."
 
+#: src/routes/dashboard/resumes/index.tsx:128
+msgid "List"
+msgstr ""
+
 #: src/utils/locale.ts:95
 msgid "Lithuanian"
 msgstr "Lituano"
@@ -1431,7 +1448,8 @@ msgid "Location"
 msgstr "Località"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Lock"
 msgstr "Blocca"
 
@@ -1557,7 +1575,8 @@ msgstr "Accesso con un clic"
 msgid "Ongoing Maintenance"
 msgstr "Manutenzione continua"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:127
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:94
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:94
 msgid "Open"
 msgstr "Apri"
 
@@ -1864,7 +1883,7 @@ msgstr "Risorse"
 #: src/components/command-palette/pages/resumes.tsx:52
 #: src/routes/_home/-sections/statistics.tsx:25
 #: src/routes/dashboard/-components/sidebar.tsx:46
-#: src/routes/dashboard/resumes/index.tsx:59
+#: src/routes/dashboard/resumes/index.tsx:72
 msgid "Resumes"
 msgstr "Curricula"
 
@@ -2077,7 +2096,7 @@ msgstr "Slug"
 msgid "Something went wrong. Please try again."
 msgstr "Qualcosa è andato storto. Riprova."
 
-#: src/routes/dashboard/resumes/index.tsx:72
+#: src/routes/dashboard/resumes/index.tsx:85
 msgid "Sort by"
 msgstr "Ordina per"
 
@@ -2124,7 +2143,8 @@ msgstr "Metti una stella su GitHub, attualmente {0} stelle (apre in una nuova sc
 msgid "Start building your resume by giving it a name."
 msgstr "Inizia a costruire il tuo curriculum dandogli un nome."
 
-#: src/routes/dashboard/resumes/-components/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:44
 msgid "Start building your resume from scratch"
 msgstr "Inizia a costruire il tuo curriculum da zero"
 
@@ -2256,7 +2276,8 @@ msgid "There was a problem while generating the PDF, please try again in some ti
 msgstr "Si è verificato un problema durante la generazione del PDF, riprova tra qualche istante."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:80
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:66
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:66
 msgid "This action cannot be undone."
 msgstr "Questa azione non può essere annullata."
 
@@ -2422,7 +2443,8 @@ msgstr "Scollegamento del tuo account {providerName} in corso..."
 
 #: src/routes/auth/resume-password.tsx:128
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Unlock"
 msgstr "Sblocca"
 
@@ -2433,7 +2455,8 @@ msgstr "Non verificato"
 #: src/routes/builder/$resumeId/-components/header.tsx:135
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:226
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:275
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:135
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:102
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:102
 msgid "Update"
 msgstr "Aggiorna"
 
@@ -2608,7 +2631,8 @@ msgid "What's new in the latest version?"
 msgstr "Cosa c'è di nuovo nell'ultima versione?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:85
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:62
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:48
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:48
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Quando è bloccato, il curriculum non può essere aggiornato o eliminato."
 
@@ -2700,7 +2724,8 @@ msgid "Your resume has been created successfully."
 msgstr "Il tuo curriculum è stato creato correttamente."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:114
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:91
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:77
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:77
 msgid "Your resume has been deleted successfully."
 msgstr "Il tuo curriculum è stato eliminato correttamente."
 

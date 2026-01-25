@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:51
+#: src/routes/dashboard/resumes/index.tsx:59
 msgid "Last Updated"
 msgstr "അവസാനമായി പുതുക്കിയത്"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:52
+#: src/routes/dashboard/resumes/index.tsx:60
 msgid "Created"
 msgstr "സൃഷ്‌ടിച്ചത്"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:53
+#: src/routes/dashboard/resumes/index.tsx:61
 msgid "Name"
 msgstr "പേര്"
 
@@ -302,7 +302,8 @@ msgid "Are you sure you want to delete this passkey?"
 msgstr "ഈ പാസ്‌കി ഡിലീറ്റ് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:79
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:65
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:65
 msgid "Are you sure you want to delete this resume?"
 msgstr "ഈ റിസ്യൂം ഡിലീറ്റ് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
 
@@ -311,7 +312,8 @@ msgid "Are you sure you want to delete your account?"
 msgstr "നിങ്ങളുടെ അക്കൗണ്ട് ഡിലീറ്റ് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:61
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:47
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:47
 msgid "Are you sure you want to lock this resume?"
 msgstr "ഈ റിസ്യൂം ലോക്ക് ചെയ്യണമെന്നുറപ്പാണോ?"
 
@@ -567,7 +569,8 @@ msgstr "കണക്റ്റ് ചെയ്യുക"
 msgid "Continue"
 msgstr "തുടരുക"
 
-#: src/routes/dashboard/resumes/-components/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:69
 msgid "Continue where you left off"
 msgstr "നിങ്ങൾ അവസാനിപ്പിച്ചിടത്തു നിന്നു തുടരുക"
 
@@ -672,7 +675,8 @@ msgstr "ഒരു പുതിയ റഫറൻസ് സൃഷ്‌ടിക്
 
 #: src/components/command-palette/pages/resumes.tsx:55
 #: src/dialogs/resume/index.tsx:107
-#: src/routes/dashboard/resumes/-components/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:40
 msgid "Create a new resume"
 msgstr "ഒരു പുതിയ റിസ്യൂം സൃഷ്‌ടിക്കുക"
 
@@ -755,7 +759,8 @@ msgstr "ഡിഗ്രി"
 #: src/routes/builder/$resumeId/-components/header.tsx:152
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:257
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:291
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:152
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:119
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:119
 #: src/routes/dashboard/settings/api-keys.tsx:39
 msgid "Delete"
 msgstr "ഡിലീറ്റ് ചെയ്യുക"
@@ -793,7 +798,8 @@ msgid "Deleting your passkey..."
 msgstr "നിങ്ങളുടെ പാസ്‌കി ഡിലീറ്റ് ചെയ്യുന്നു..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:108
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:85
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:71
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:71
 msgid "Deleting your resume..."
 msgstr "നിങ്ങളുടെ റിസ്യൂം ഡിലീറ്റ് ചെയ്യുന്നു..."
 
@@ -887,7 +893,8 @@ msgstr "സെക്ഷനുകൾ കോളങ്ങൾക്കിടയി�
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:140
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:107
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:107
 msgid "Duplicate"
 msgstr "ഡൂപ്ലിക്കേറ്റ് ചെയ്യുക"
 
@@ -1028,7 +1035,7 @@ msgstr "ടു‑ഫാക്ടർ ഓത്‌ന്റിക്കേഷൻ �
 msgid "Features"
 msgstr "സവിശേഷതകൾ"
 
-#: src/routes/dashboard/resumes/index.tsx:91
+#: src/routes/dashboard/resumes/index.tsx:104
 msgid "Filter by"
 msgstr "ഫിൽറ്റർ ചെയ്യുക"
 
@@ -1131,6 +1138,10 @@ msgstr "ഗ്രേഡ്"
 #: src/utils/locale.ts:80
 msgid "Greek"
 msgstr "ഗ്രീക്ക്"
+
+#: src/routes/dashboard/resumes/index.tsx:123
+msgid "Grid"
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:193
 msgid "Grow the Team"
@@ -1244,7 +1255,8 @@ msgid "Import"
 msgstr "ഇംപോർട്ട്"
 
 #: src/dialogs/resume/import.tsx:194
-#: src/routes/dashboard/resumes/-components/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:65
 msgid "Import an existing resume"
 msgstr "നിലവിലുള്ള ഒരു റിസ്യൂം ഇംപോർട്ട് ചെയ്യുക"
 
@@ -1346,7 +1358,8 @@ msgstr "ഭാഷകൾ"
 msgid "Last downloaded on {0}"
 msgstr "അവസാനം {0}-ന് ഡൗൺലോഡ് ചെയ്തു"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:105
+#: src/routes/dashboard/resumes/-components/cards/resume-card.tsx:30
+#: src/routes/dashboard/resumes/-components/list-view.tsx:111
 msgid "Last updated on {updatedAt}"
 msgstr "അവസാനമായി അപ്‌ഡേറ്റ് ചെയ്തത് {updatedAt}"
 
@@ -1411,6 +1424,10 @@ msgstr "ലൈൻ ഹൈറ്റ്"
 msgid "Linking your {providerName} account..."
 msgstr "നിങ്ങളുടെ {providerName} അക്കൗണ്ട് ലിങ്ക് ചെയ്യുന്നു..."
 
+#: src/routes/dashboard/resumes/index.tsx:128
+msgid "List"
+msgstr ""
+
 #: src/utils/locale.ts:95
 msgid "Lithuanian"
 msgstr "ലിത്വാനിയൻ"
@@ -1431,7 +1448,8 @@ msgid "Location"
 msgstr "സ്ഥലം"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Lock"
 msgstr "ലോക്ക് ചെയ്യുക"
 
@@ -1557,7 +1575,8 @@ msgstr "ഒരു ക്ലിക്കിൽ സൈൻ‑ഇൻ"
 msgid "Ongoing Maintenance"
 msgstr "തുടർച്ചയായ മെയിൻറനൻസ്"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:127
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:94
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:94
 msgid "Open"
 msgstr "ഓപ്പൺ ചെയ്യുക"
 
@@ -1864,7 +1883,7 @@ msgstr "റിസോഴ്സുകൾ"
 #: src/components/command-palette/pages/resumes.tsx:52
 #: src/routes/_home/-sections/statistics.tsx:25
 #: src/routes/dashboard/-components/sidebar.tsx:46
-#: src/routes/dashboard/resumes/index.tsx:59
+#: src/routes/dashboard/resumes/index.tsx:72
 msgid "Resumes"
 msgstr "റിസ്യൂങ്ങൾ"
 
@@ -2077,7 +2096,7 @@ msgstr "സ്ലഗ്"
 msgid "Something went wrong. Please try again."
 msgstr "എന്തോ പിശക് സംഭവിച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക."
 
-#: src/routes/dashboard/resumes/index.tsx:72
+#: src/routes/dashboard/resumes/index.tsx:85
 msgid "Sort by"
 msgstr "സോർട്ട് ചെയ്യുക"
 
@@ -2124,7 +2143,8 @@ msgstr "GitHub‑ൽ ഞങ്ങളെ സ്റ്റാർ ചെയ്യൂ
 msgid "Start building your resume by giving it a name."
 msgstr "ഒരു പേര് നൽകിക്കൊണ്ട് നിങ്ങളുടെ റിസ്യൂം നിർമ്മിക്കൽ ആരംഭിക്കുക."
 
-#: src/routes/dashboard/resumes/-components/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:44
 msgid "Start building your resume from scratch"
 msgstr "നിറുത്തിടുന്നിടത്ത് നിന്ന് നിങ്ങളുടെ റിസ്യൂം പൂർണ്ണമായും പുതിയതായി നിർമ്മിക്കാൻ ആരംഭിക്കുക"
 
@@ -2256,7 +2276,8 @@ msgid "There was a problem while generating the PDF, please try again in some ti
 msgstr "PDF നിർമ്മിക്കുന്നതിനിടെ ഒരു പ്രശ്നം ഉണ്ടായി, ദയവായി കുറച്ചുസമയം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:80
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:66
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:66
 msgid "This action cannot be undone."
 msgstr "ഈ പ്രവർത്തി തിരികെ ലഭ്യമാക്കാൻ സാധിക്കില്ല."
 
@@ -2422,7 +2443,8 @@ msgstr "നിങ്ങളുടെ {providerName} അക്കൗണ്ട് �
 
 #: src/routes/auth/resume-password.tsx:128
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Unlock"
 msgstr "അൺലോക്ക് ചെയ്യുക"
 
@@ -2433,7 +2455,8 @@ msgstr "സ്ഥിരീകരിച്ചിട്ടില്ല"
 #: src/routes/builder/$resumeId/-components/header.tsx:135
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:226
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:275
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:135
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:102
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:102
 msgid "Update"
 msgstr "അപ്‌ഡേറ്റ് ചെയ്യുക"
 
@@ -2608,7 +2631,8 @@ msgid "What's new in the latest version?"
 msgstr "പുതിയ വേർഷനിൽ എന്താണ് പുതിയത്?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:85
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:62
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:48
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:48
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "ലോക്കുചെയ്തിരിക്കുമ്പോൾ, റിസ്യൂം അപ്‌ഡേറ്റ് ചെയ്തോ ഡിലീറ്റ് ചെയ്‍തോ കഴിയില്ല."
 
@@ -2700,7 +2724,8 @@ msgid "Your resume has been created successfully."
 msgstr "നിങ്ങളുടെ റിസ്യൂം വിജയകരമായി സൃഷ്‌ടിച്ചിട്ടുണ്ട്."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:114
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:91
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:77
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:77
 msgid "Your resume has been deleted successfully."
 msgstr "നിങ്ങളുടെ റിസ്യൂം വിജയകരമായി ഡിലീറ്റ് ചെയ്തിട്ടുണ്ട്."
 

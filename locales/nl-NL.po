@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:51
+#: src/routes/dashboard/resumes/index.tsx:59
 msgid "Last Updated"
 msgstr "Laatst bijgewerkt"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:52
+#: src/routes/dashboard/resumes/index.tsx:60
 msgid "Created"
 msgstr "Aangemaakt"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:53
+#: src/routes/dashboard/resumes/index.tsx:61
 msgid "Name"
 msgstr "Naam"
 
@@ -302,7 +302,8 @@ msgid "Are you sure you want to delete this passkey?"
 msgstr "Weet u zeker dat u deze passkey wilt verwijderen?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:79
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:65
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:65
 msgid "Are you sure you want to delete this resume?"
 msgstr "Weet u zeker dat u dit cv wilt verwijderen?"
 
@@ -311,7 +312,8 @@ msgid "Are you sure you want to delete your account?"
 msgstr "Weet u zeker dat u uw account wilt verwijderen?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:61
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:47
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:47
 msgid "Are you sure you want to lock this resume?"
 msgstr "Weet u zeker dat u dit cv wilt vergrendelen?"
 
@@ -567,7 +569,8 @@ msgstr "Verbinden"
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/routes/dashboard/resumes/-components/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:69
 msgid "Continue where you left off"
 msgstr "Ga verder waar u was gebleven"
 
@@ -672,7 +675,8 @@ msgstr "Maak een nieuwe referentie aan"
 
 #: src/components/command-palette/pages/resumes.tsx:55
 #: src/dialogs/resume/index.tsx:107
-#: src/routes/dashboard/resumes/-components/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:40
 msgid "Create a new resume"
 msgstr "Maak een nieuwe cv aan"
 
@@ -755,7 +759,8 @@ msgstr "Graad"
 #: src/routes/builder/$resumeId/-components/header.tsx:152
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:257
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:291
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:152
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:119
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:119
 #: src/routes/dashboard/settings/api-keys.tsx:39
 msgid "Delete"
 msgstr "Verwijderen"
@@ -793,7 +798,8 @@ msgid "Deleting your passkey..."
 msgstr "Uw passkey wordt verwijderd..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:108
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:85
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:71
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:71
 msgid "Deleting your resume..."
 msgstr "Uw cv wordt verwijderd..."
 
@@ -887,7 +893,8 @@ msgstr "Sleep secties hierheen om ze tussen kolommen te verplaatsen"
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:140
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:107
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:107
 msgid "Duplicate"
 msgstr "Dupliceren"
 
@@ -1028,7 +1035,7 @@ msgstr "Het instellen van tweestapsverificatie is mislukt."
 msgid "Features"
 msgstr "Functies"
 
-#: src/routes/dashboard/resumes/index.tsx:91
+#: src/routes/dashboard/resumes/index.tsx:104
 msgid "Filter by"
 msgstr "Filteren op"
 
@@ -1131,6 +1138,10 @@ msgstr "Cijfer"
 #: src/utils/locale.ts:80
 msgid "Greek"
 msgstr "Grieks"
+
+#: src/routes/dashboard/resumes/index.tsx:123
+msgid "Grid"
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:193
 msgid "Grow the Team"
@@ -1244,7 +1255,8 @@ msgid "Import"
 msgstr "Importeren"
 
 #: src/dialogs/resume/import.tsx:194
-#: src/routes/dashboard/resumes/-components/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:65
 msgid "Import an existing resume"
 msgstr "Een bestaand cv importeren"
 
@@ -1346,7 +1358,8 @@ msgstr "Talen"
 msgid "Last downloaded on {0}"
 msgstr "Laatst gedownload op {0}"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:105
+#: src/routes/dashboard/resumes/-components/cards/resume-card.tsx:30
+#: src/routes/dashboard/resumes/-components/list-view.tsx:111
 msgid "Last updated on {updatedAt}"
 msgstr "Laatst bijgewerkt op {updatedAt}"
 
@@ -1411,6 +1424,10 @@ msgstr "Regelafstand"
 msgid "Linking your {providerName} account..."
 msgstr "Uw {providerName}-account wordt gekoppeld..."
 
+#: src/routes/dashboard/resumes/index.tsx:128
+msgid "List"
+msgstr ""
+
 #: src/utils/locale.ts:95
 msgid "Lithuanian"
 msgstr "Litouws"
@@ -1431,7 +1448,8 @@ msgid "Location"
 msgstr "Locatie"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Lock"
 msgstr "Vergrendelen"
 
@@ -1557,7 +1575,8 @@ msgstr "Inloggen met één klik"
 msgid "Ongoing Maintenance"
 msgstr "Doorlopend onderhoud"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:127
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:94
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:94
 msgid "Open"
 msgstr "Openen"
 
@@ -1864,7 +1883,7 @@ msgstr "Bronnen"
 #: src/components/command-palette/pages/resumes.tsx:52
 #: src/routes/_home/-sections/statistics.tsx:25
 #: src/routes/dashboard/-components/sidebar.tsx:46
-#: src/routes/dashboard/resumes/index.tsx:59
+#: src/routes/dashboard/resumes/index.tsx:72
 msgid "Resumes"
 msgstr "Cv's"
 
@@ -2077,7 +2096,7 @@ msgstr "Korte naam"
 msgid "Something went wrong. Please try again."
 msgstr "Er is iets misgegaan. Probeer het alstublieft opnieuw."
 
-#: src/routes/dashboard/resumes/index.tsx:72
+#: src/routes/dashboard/resumes/index.tsx:85
 msgid "Sort by"
 msgstr "Sorteren op"
 
@@ -2124,7 +2143,8 @@ msgstr "Geef ons een ster op GitHub, momenteel {0} sterren (opent in nieuw tabbl
 msgid "Start building your resume by giving it a name."
 msgstr "Begin het opstellen van uw cv door het een naam te geven."
 
-#: src/routes/dashboard/resumes/-components/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:44
 msgid "Start building your resume from scratch"
 msgstr "Begin met het opstellen van uw cv vanaf nul"
 
@@ -2256,7 +2276,8 @@ msgid "There was a problem while generating the PDF, please try again in some ti
 msgstr "Er is een probleem opgetreden bij het genereren van de PDF, probeer het over enige tijd opnieuw."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:80
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:66
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:66
 msgid "This action cannot be undone."
 msgstr "Deze actie kan niet ongedaan worden gemaakt."
 
@@ -2422,7 +2443,8 @@ msgstr "Uw {providerName}-account wordt ontkoppeld..."
 
 #: src/routes/auth/resume-password.tsx:128
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Unlock"
 msgstr "Ontgrendelen"
 
@@ -2433,7 +2455,8 @@ msgstr "Niet geverifiëerd"
 #: src/routes/builder/$resumeId/-components/header.tsx:135
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:226
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:275
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:135
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:102
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:102
 msgid "Update"
 msgstr "Bijwerken"
 
@@ -2608,7 +2631,8 @@ msgid "What's new in the latest version?"
 msgstr "Wat is er nieuw in de laatste versie?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:85
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:62
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:48
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:48
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Wanneer het cv is vergrendeld, kan het niet worden bijgewerkt of verwijderd."
 
@@ -2700,7 +2724,8 @@ msgid "Your resume has been created successfully."
 msgstr "Uw cv is succesvol aangemaakt."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:114
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:91
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:77
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:77
 msgid "Your resume has been deleted successfully."
 msgstr "Uw cv is succesvol verwijderd."
 

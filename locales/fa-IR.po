@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:51
+#: src/routes/dashboard/resumes/index.tsx:59
 msgid "Last Updated"
 msgstr "آخرین به‌روزرسانی"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:52
+#: src/routes/dashboard/resumes/index.tsx:60
 msgid "Created"
 msgstr "ایجاد شده"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:53
+#: src/routes/dashboard/resumes/index.tsx:61
 msgid "Name"
 msgstr "نام"
 
@@ -302,7 +302,8 @@ msgid "Are you sure you want to delete this passkey?"
 msgstr "آیا از حذف این کلید عبور مطمئن هستید؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:79
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:65
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:65
 msgid "Are you sure you want to delete this resume?"
 msgstr "آیا مطمئن هستید که می‌خواهید این رزومه را حذف کنید؟"
 
@@ -311,7 +312,8 @@ msgid "Are you sure you want to delete your account?"
 msgstr "آیا مطمئن هستید که می‌خواهید حساب کاربری خود را حذف کنید؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:61
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:47
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:47
 msgid "Are you sure you want to lock this resume?"
 msgstr "آیا مطمئن هستید که می‌خواهید این رزومه را قفل کنید؟"
 
@@ -567,7 +569,8 @@ msgstr "اتصال"
 msgid "Continue"
 msgstr "ادامه"
 
-#: src/routes/dashboard/resumes/-components/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:69
 msgid "Continue where you left off"
 msgstr "ادامه از جایی که رها کرده بودید"
 
@@ -672,7 +675,8 @@ msgstr "ایجاد معرف جدید"
 
 #: src/components/command-palette/pages/resumes.tsx:55
 #: src/dialogs/resume/index.tsx:107
-#: src/routes/dashboard/resumes/-components/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:40
 msgid "Create a new resume"
 msgstr "ایجاد رزومهٔ جدید"
 
@@ -755,7 +759,8 @@ msgstr "مدرک"
 #: src/routes/builder/$resumeId/-components/header.tsx:152
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:257
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:291
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:152
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:119
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:119
 #: src/routes/dashboard/settings/api-keys.tsx:39
 msgid "Delete"
 msgstr "حذف"
@@ -793,7 +798,8 @@ msgid "Deleting your passkey..."
 msgstr "در حال حذف کلید عبور شما..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:108
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:85
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:71
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:71
 msgid "Deleting your resume..."
 msgstr "در حال حذف رزومه شما..."
 
@@ -887,7 +893,8 @@ msgstr "برای جابه‌جا کردن بخش‌ها بین ستون‌ها،
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:140
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:107
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:107
 msgid "Duplicate"
 msgstr "تکثیر"
 
@@ -1028,7 +1035,7 @@ msgstr "راه‌اندازی احراز هویت دو مرحله‌ای نام�
 msgid "Features"
 msgstr "امکانات"
 
-#: src/routes/dashboard/resumes/index.tsx:91
+#: src/routes/dashboard/resumes/index.tsx:104
 msgid "Filter by"
 msgstr "فیلتر بر اساس"
 
@@ -1131,6 +1138,10 @@ msgstr "نمره"
 #: src/utils/locale.ts:80
 msgid "Greek"
 msgstr "یونانی"
+
+#: src/routes/dashboard/resumes/index.tsx:123
+msgid "Grid"
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:193
 msgid "Grow the Team"
@@ -1244,7 +1255,8 @@ msgid "Import"
 msgstr "وارد کردن"
 
 #: src/dialogs/resume/import.tsx:194
-#: src/routes/dashboard/resumes/-components/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:65
 msgid "Import an existing resume"
 msgstr "وارد کردن یک رزومهٔ موجود"
 
@@ -1346,7 +1358,8 @@ msgstr "زبان‌ها"
 msgid "Last downloaded on {0}"
 msgstr "آخرین‌بار در {0} دانلود شد"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:105
+#: src/routes/dashboard/resumes/-components/cards/resume-card.tsx:30
+#: src/routes/dashboard/resumes/-components/list-view.tsx:111
 msgid "Last updated on {updatedAt}"
 msgstr "آخرین به‌روزرسانی در {updatedAt}"
 
@@ -1411,6 +1424,10 @@ msgstr "فاصلهٔ بین خطوط"
 msgid "Linking your {providerName} account..."
 msgstr "در حال پیوند دادن حساب {providerName} شما..."
 
+#: src/routes/dashboard/resumes/index.tsx:128
+msgid "List"
+msgstr ""
+
 #: src/utils/locale.ts:95
 msgid "Lithuanian"
 msgstr "لیتوانیایی"
@@ -1431,7 +1448,8 @@ msgid "Location"
 msgstr "موقعیت مکانی"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Lock"
 msgstr "قفل کردن"
 
@@ -1557,7 +1575,8 @@ msgstr "ورود با یک کلیک"
 msgid "Ongoing Maintenance"
 msgstr "نگه‌داری مداوم"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:127
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:94
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:94
 msgid "Open"
 msgstr "باز کردن"
 
@@ -1864,7 +1883,7 @@ msgstr "منابع"
 #: src/components/command-palette/pages/resumes.tsx:52
 #: src/routes/_home/-sections/statistics.tsx:25
 #: src/routes/dashboard/-components/sidebar.tsx:46
-#: src/routes/dashboard/resumes/index.tsx:59
+#: src/routes/dashboard/resumes/index.tsx:72
 msgid "Resumes"
 msgstr "رزومه‌ها"
 
@@ -2077,7 +2096,7 @@ msgstr "نام یکتا"
 msgid "Something went wrong. Please try again."
 msgstr "مشکلی پیش آمد. لطفاً دوباره تلاش کنید."
 
-#: src/routes/dashboard/resumes/index.tsx:72
+#: src/routes/dashboard/resumes/index.tsx:85
 msgid "Sort by"
 msgstr "مرتب‌سازی بر اساس"
 
@@ -2124,7 +2143,8 @@ msgstr "در GitHub برای ما ستاره بگذارید، در حال حاض
 msgid "Start building your resume by giving it a name."
 msgstr "ساخت رزومه خود را با دادن یک نام به آن شروع کنید."
 
-#: src/routes/dashboard/resumes/-components/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:44
 msgid "Start building your resume from scratch"
 msgstr "ساخت رزومه خود را از صفر شروع کنید"
 
@@ -2256,7 +2276,8 @@ msgid "There was a problem while generating the PDF, please try again in some ti
 msgstr "هنگام تولید PDF مشکلی پیش آمد، لطفاً بعداً دوباره تلاش کنید."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:80
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:66
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:66
 msgid "This action cannot be undone."
 msgstr "این عمل قابل بازگشت نیست."
 
@@ -2422,7 +2443,8 @@ msgstr "در حال قطع پیوند حساب {providerName} شما..."
 
 #: src/routes/auth/resume-password.tsx:128
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Unlock"
 msgstr "باز کردن قفل"
 
@@ -2433,7 +2455,8 @@ msgstr "تأیید نشده"
 #: src/routes/builder/$resumeId/-components/header.tsx:135
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:226
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:275
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:135
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:102
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:102
 msgid "Update"
 msgstr "به‌روزرسانی"
 
@@ -2608,7 +2631,8 @@ msgid "What's new in the latest version?"
 msgstr "چه خبر در آخرین نسخه؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:85
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:62
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:48
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:48
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "وقتی قفل باشد، رزومه قابل به‌روزرسانی یا حذف نخواهد بود."
 
@@ -2700,7 +2724,8 @@ msgid "Your resume has been created successfully."
 msgstr "رزومه شما با موفقیت ایجاد شد."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:114
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:91
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:77
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:77
 msgid "Your resume has been deleted successfully."
 msgstr "رزومه شما با موفقیت حذف شد."
 

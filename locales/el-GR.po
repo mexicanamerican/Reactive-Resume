@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:51
+#: src/routes/dashboard/resumes/index.tsx:59
 msgid "Last Updated"
 msgstr "Τελευταία ενημέρωση"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:52
+#: src/routes/dashboard/resumes/index.tsx:60
 msgid "Created"
 msgstr "Ημερομηνία δημιουργίας"
 
 #. js-lingui-explicit-id
-#: src/routes/dashboard/resumes/index.tsx:53
+#: src/routes/dashboard/resumes/index.tsx:61
 msgid "Name"
 msgstr "Όνομα"
 
@@ -302,7 +302,8 @@ msgid "Are you sure you want to delete this passkey?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το κλειδί πρόσβασης;"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:102
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:79
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:65
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:65
 msgid "Are you sure you want to delete this resume?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το βιογραφικό σημείωμα;"
 
@@ -311,7 +312,8 @@ msgid "Are you sure you want to delete your account?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό;"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:84
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:61
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:47
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:47
 msgid "Are you sure you want to lock this resume?"
 msgstr "Είστε βέβαιοι ότι θέλετε να κλειδώσετε αυτό το βιογραφικό σημείωμα;"
 
@@ -567,7 +569,8 @@ msgstr "Σύνδεση"
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/routes/dashboard/resumes/-components/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:69
 msgid "Continue where you left off"
 msgstr "Συνεχίστε από εκεί που σταματήσατε"
 
@@ -672,7 +675,8 @@ msgstr "Δημιουργία νέας σύστασης"
 
 #: src/components/command-palette/pages/resumes.tsx:55
 #: src/dialogs/resume/index.tsx:107
-#: src/routes/dashboard/resumes/-components/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:40
 msgid "Create a new resume"
 msgstr "Δημιουργία νέου βιογραφικού σημειώματος"
 
@@ -755,7 +759,8 @@ msgstr "Πτυχίο"
 #: src/routes/builder/$resumeId/-components/header.tsx:152
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:257
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:291
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:152
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:119
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:119
 #: src/routes/dashboard/settings/api-keys.tsx:39
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -793,7 +798,8 @@ msgid "Deleting your passkey..."
 msgstr "Διαγραφή του κλειδιού πρόσβασής σας..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:108
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:85
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:71
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:71
 msgid "Deleting your resume..."
 msgstr "Διαγραφή του βιογραφικού σας σημειώματος..."
 
@@ -887,7 +893,8 @@ msgstr "Σύρετε και αποθέστε ενότητες εδώ για να
 #: src/routes/builder/$resumeId/-components/header.tsx:140
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:231
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:280
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:140
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:107
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:107
 msgid "Duplicate"
 msgstr "Δημιουργία αντιγράφου"
 
@@ -1028,7 +1035,7 @@ msgstr "Αποτυχία ρύθμισης ελέγχου ταυτότητας δ
 msgid "Features"
 msgstr "Λειτουργίες"
 
-#: src/routes/dashboard/resumes/index.tsx:91
+#: src/routes/dashboard/resumes/index.tsx:104
 msgid "Filter by"
 msgstr "Φιλτράρισμα κατά"
 
@@ -1131,6 +1138,10 @@ msgstr "Βαθμός"
 #: src/utils/locale.ts:80
 msgid "Greek"
 msgstr "Ελληνικά"
+
+#: src/routes/dashboard/resumes/index.tsx:123
+msgid "Grid"
+msgstr ""
 
 #: src/routes/_home/-sections/donate.tsx:193
 msgid "Grow the Team"
@@ -1244,7 +1255,8 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 #: src/dialogs/resume/import.tsx:194
-#: src/routes/dashboard/resumes/-components/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/cards/import-card.tsx:11
+#: src/routes/dashboard/resumes/-components/list-view.tsx:65
 msgid "Import an existing resume"
 msgstr "Εισαγωγή υπάρχοντος βιογραφικού σημειώματος"
 
@@ -1346,7 +1358,8 @@ msgstr "Γλώσσες"
 msgid "Last downloaded on {0}"
 msgstr "Τελευταία λήψη στις {0}"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:105
+#: src/routes/dashboard/resumes/-components/cards/resume-card.tsx:30
+#: src/routes/dashboard/resumes/-components/list-view.tsx:111
 msgid "Last updated on {updatedAt}"
 msgstr "Τελευταία ενημέρωση στις {updatedAt}"
 
@@ -1411,6 +1424,10 @@ msgstr "Ύψος γραμμής"
 msgid "Linking your {providerName} account..."
 msgstr "Σύνδεση του λογαριασμού σας στο {providerName}..."
 
+#: src/routes/dashboard/resumes/index.tsx:128
+msgid "List"
+msgstr ""
+
 #: src/utils/locale.ts:95
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
@@ -1431,7 +1448,8 @@ msgid "Location"
 msgstr "Τοποθεσία"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Lock"
 msgstr "Κλείδωμα"
 
@@ -1557,7 +1575,8 @@ msgstr "Σύνδεση με ένα κλικ"
 msgid "Ongoing Maintenance"
 msgstr "Συνεχής συντήρηση"
 
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:127
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:94
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:94
 msgid "Open"
 msgstr "Άνοιγμα"
 
@@ -1864,7 +1883,7 @@ msgstr "Πόροι"
 #: src/components/command-palette/pages/resumes.tsx:52
 #: src/routes/_home/-sections/statistics.tsx:25
 #: src/routes/dashboard/-components/sidebar.tsx:46
-#: src/routes/dashboard/resumes/index.tsx:59
+#: src/routes/dashboard/resumes/index.tsx:72
 msgid "Resumes"
 msgstr "Βιογραφικά σημειώματα"
 
@@ -2077,7 +2096,7 @@ msgstr "Slug"
 msgid "Something went wrong. Please try again."
 msgstr "Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά."
 
-#: src/routes/dashboard/resumes/index.tsx:72
+#: src/routes/dashboard/resumes/index.tsx:85
 msgid "Sort by"
 msgstr "Ταξινόμηση κατά"
 
@@ -2124,7 +2143,8 @@ msgstr "Κάντε μας star στο GitHub, αυτή τη στιγμή {0} sta
 msgid "Start building your resume by giving it a name."
 msgstr "Ξεκινήστε να φτιάχνετε το βιογραφικό σας σημείωμα δίνοντάς του ένα όνομα."
 
-#: src/routes/dashboard/resumes/-components/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/cards/create-card.tsx:12
+#: src/routes/dashboard/resumes/-components/list-view.tsx:44
 msgid "Start building your resume from scratch"
 msgstr "Ξεκινήστε να φτιάχνετε το βιογραφικό σας σημείωμα από την αρχή"
 
@@ -2256,7 +2276,8 @@ msgid "There was a problem while generating the PDF, please try again in some ti
 msgstr "Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του PDF, δοκιμάστε ξανά σε λίγο."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:103
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:80
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:66
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:66
 msgid "This action cannot be undone."
 msgstr "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
 
@@ -2422,7 +2443,8 @@ msgstr "Κατάργηση σύνδεσης του λογαριασμού σας
 
 #: src/routes/auth/resume-password.tsx:128
 #: src/routes/builder/$resumeId/-components/header.tsx:145
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:145
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:112
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:112
 msgid "Unlock"
 msgstr "Ξεκλείδωμα"
 
@@ -2433,7 +2455,8 @@ msgstr "Μη επαληθευμένο"
 #: src/routes/builder/$resumeId/-components/header.tsx:135
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx:226
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx:275
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:135
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:102
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:102
 msgid "Update"
 msgstr "Ενημέρωση"
 
@@ -2608,7 +2631,8 @@ msgid "What's new in the latest version?"
 msgstr "Τι νέο υπάρχει στην τελευταία έκδοση;"
 
 #: src/routes/builder/$resumeId/-components/header.tsx:85
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:62
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:48
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:48
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Όταν είναι κλειδωμένο, το βιογραφικό σημείωμα δεν μπορεί να ενημερωθεί ή να διαγραφεί."
 
@@ -2700,7 +2724,8 @@ msgid "Your resume has been created successfully."
 msgstr "Το βιογραφικό σας σημείωμα δημιουργήθηκε με επιτυχία."
 
 #: src/routes/builder/$resumeId/-components/header.tsx:114
-#: src/routes/dashboard/resumes/-components/resume-card.tsx:91
+#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx:77
+#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx:77
 msgid "Your resume has been deleted successfully."
 msgstr "Το βιογραφικό σας σημείωμα διαγράφηκε με επιτυχία."
 

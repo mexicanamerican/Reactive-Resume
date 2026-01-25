@@ -132,7 +132,7 @@ function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
 const defaultLayout = { left: 30, artboard: 40, right: 30 };
 const BUILDER_LAYOUT_COOKIE_NAME = "builder_layout";
 
-const layoutSchema = z.record(z.string(), z.number());
+const layoutSchema = z.record(z.string(), z.number()).catch(defaultLayout);
 
 const setBuilderLayoutServerFn = createServerFn({ method: "POST" })
 	.inputValidator(layoutSchema)

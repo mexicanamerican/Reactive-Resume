@@ -1,22 +1,24 @@
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { ReadCvLogoIcon, SortAscendingIcon, TagIcon } from "@phosphor-icons/react";
+import { Trans } from "@lingui/react/macro";
+import { GridFourIcon, ListIcon, ReadCvLogoIcon, SortAscendingIcon, TagIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute, stripSearchParams, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, stripSearchParams, useNavigate, useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { getCookie, setCookie } from "@tanstack/react-start/server";
 import { zodValidator } from "@tanstack/zod-adapter";
-import { AnimatePresence, motion } from "motion/react";
 import { useMemo } from "react";
 import z from "zod";
 import { Badge } from "@/components/ui/badge";
 import { Combobox } from "@/components/ui/combobox";
 import { MultipleCombobox } from "@/components/ui/multiple-combobox";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { orpc } from "@/integrations/orpc/client";
 import { cn } from "@/utils/style";
 import { DashboardHeader } from "../-components/header";
-import { CreateResumeCard } from "./-components/create-card";
-import { ImportResumeCard } from "./-components/import-card";
-import { ResumeCard } from "./-components/resume-card";
+import { GridView } from "./-components/grid-view";
+import { ListView } from "./-components/list-view";
 
 type SortOption = "lastUpdatedAt" | "createdAt" | "name";
 
@@ -31,10 +33,16 @@ export const Route = createFileRoute("/dashboard/resumes/")({
 	search: {
 		middlewares: [stripSearchParams({ tags: [], sort: "lastUpdatedAt" })],
 	},
+	loader: async () => {
+		const view = await getViewServerFn();
+		return { view };
+	},
 });
 
 function RouteComponent() {
+	const router = useRouter();
 	const { i18n } = useLingui();
+	const { view } = Route.useLoaderData();
 	const { tags, sort } = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
 
@@ -53,6 +61,11 @@ function RouteComponent() {
 			{ value: "name", label: i18n.t("Name") },
 		];
 	}, [i18n]);
+
+	const onViewChange = (value: string) => {
+		setViewServerFn({ data: value as "grid" | "list" });
+		router.invalidate();
+	};
 
 	return (
 		<div className="space-y-4">
@@ -102,37 +115,39 @@ function RouteComponent() {
 						),
 					}}
 				/>
+
+				<Tabs className="ml-auto" value={view} onValueChange={onViewChange}>
+					<TabsList>
+						<TabsTrigger value="grid" className="rounded-r-none">
+							<GridFourIcon />
+							<Trans>Grid</Trans>
+						</TabsTrigger>
+
+						<TabsTrigger value="list" className="rounded-l-none">
+							<ListIcon />
+							<Trans>List</Trans>
+						</TabsTrigger>
+					</TabsList>
+				</Tabs>
 			</div>
 
-			<div className="grid 3xl:grid-cols-6 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-				<motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
-					<CreateResumeCard />
-				</motion.div>
-
-				<motion.div
-					initial={{ opacity: 0, x: -50 }}
-					animate={{ opacity: 1, x: 0 }}
-					exit={{ opacity: 0, x: -50 }}
-					transition={{ delay: 0.05 }}
-				>
-					<ImportResumeCard />
-				</motion.div>
-
-				<AnimatePresence>
-					{resumes?.map((resume, index) => (
-						<motion.div
-							layout
-							key={resume.id}
-							initial={{ opacity: 0, x: -50 }}
-							animate={{ opacity: 1, x: 0 }}
-							exit={{ opacity: 0, y: -50, filter: "blur(12px)" }}
-							transition={{ delay: (index + 2) * 0.05 }}
-						>
-							<ResumeCard resume={resume} />
-						</motion.div>
-					))}
-				</AnimatePresence>
-			</div>
+			{view === "list" ? <ListView resumes={resumes ?? []} /> : <GridView resumes={resumes ?? []} />}
 		</div>
 	);
 }
+
+const RESUMES_VIEW_COOKIE_NAME = "resumes_view";
+
+const viewSchema = z.enum(["grid", "list"]).catch("grid");
+
+const setViewServerFn = createServerFn({ method: "POST" })
+	.inputValidator(viewSchema)
+	.handler(async ({ data }) => {
+		setCookie(RESUMES_VIEW_COOKIE_NAME, JSON.stringify(data));
+	});
+
+const getViewServerFn = createServerFn({ method: "GET" }).handler(async () => {
+	const view = getCookie(RESUMES_VIEW_COOKIE_NAME);
+	if (!view) return "grid";
+	return viewSchema.parse(JSON.parse(view));
+});
