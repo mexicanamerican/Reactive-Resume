@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -20,11 +19,9 @@ const sectionClassName = cn(
 export function DittoTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-ditto page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
+		<div className="template-ditto page-content">
 			{isFirstPage && <Header />}
 
 			<div className="flex pt-(--page-margin-y)">

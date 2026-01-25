@@ -28,17 +28,17 @@ export const templates = {
 		imageUrl: "/templates/jpg/chikorita.jpg",
 		tags: ["Two-column", "Soft accent", "Marketing", "HR", "Client-facing"],
 	},
-	ditto: {
-		name: "Ditto",
-		description: msg`Two-column, minimal and text-dense with no decorative elements; perfect for traditional industries or ATS-heavy applications.`,
-		imageUrl: "/templates/jpg/ditto.jpg",
-		tags: ["Two-column", "ATS friendly", "Minimal", "Text-dense", "Traditional", "No decoration"],
-	},
 	ditgar: {
 		name: "Ditgar",
 		description: msg`Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs.`,
 		imageUrl: "/templates/jpg/ditgar.jpg",
 		tags: ["Two-column", "Modern", "Developer", "Data science", "Technical PM", "Dark sidebar"],
+	},
+	ditto: {
+		name: "Ditto",
+		description: msg`Two-column, minimal and text-dense with no decorative elements; perfect for traditional industries or ATS-heavy applications.`,
+		imageUrl: "/templates/jpg/ditto.jpg",
+		tags: ["Two-column", "ATS friendly", "Minimal", "Text-dense", "Traditional", "No decoration"],
 	},
 	gengar: {
 		name: "Gengar",

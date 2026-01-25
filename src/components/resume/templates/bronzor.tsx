@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -22,14 +21,9 @@ const sectionClassName = cn(
 export function BronzorTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div
-			className="template-bronzor page-content space-y-(--page-gap-y) px-(--page-margin-x) py-(--page-margin-y) print:p-0"
-			style={{ direction: rtlDirection ? "rtl" : "ltr" }}
-		>
+		<div className="template-bronzor page-content space-y-(--page-gap-y) px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
 			<div className="space-y-(--page-gap-y)">

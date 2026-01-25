@@ -1,4 +1,3 @@
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -29,31 +28,17 @@ const sectionClassName = cn(
 export function DitgarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	const SummaryComponent = getSectionComponent("summary", {
 		sectionClassName: cn(sectionClassName, "px-(--page-margin-x) pt-(--page-margin-y)"),
 	});
 
 	return (
-		<div
-			className="template-ditgar page-content grid min-h-[inherit] grid-cols-3"
-			style={{ direction: rtlDirection ? "rtl" : "ltr" }}
-		>
+		<div className="template-ditgar page-content">
 			{/* Sidebar Background */}
 			{(!fullWidth || isFirstPage) && (
-				<div
-					className={`page-sidebar-background absolute inset-y-0 ${rtlDirection ? "end-0" : "start-0"} z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20`}
-				/>
+				<div className="page-sidebar-background absolute inset-y-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20 ltr:start-0 rtl:end-0" />
 			)}
-
-			<div
-				data-layout="sidebar"
-				className={cn("sidebar group flex flex-col", !(isFirstPage || !fullWidth) && "hidden")}
-			>
-				{isFirstPage && <Header />}
-			</div>
 
 			<div className="flex">
 				{(!fullWidth || isFirstPage) && (

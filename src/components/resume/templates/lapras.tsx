@@ -1,5 +1,5 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
+import { useMemo } from "react";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -22,21 +22,20 @@ const sectionClassName = cn(
 export function LaprasTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	const containerBorderRadius = useResumeStore((state) => Math.min(state.resume.data.picture.borderRadius, 30));
 	const headingNegativeMargin = useResumeStore((state) => state.resume.data.metadata.typography.heading.fontSize + 6);
 
+	const style = useMemo(() => {
+		return {
+			"--container-border-radius": `${containerBorderRadius}pt`,
+			"--heading-negative-margin": `${headingNegativeMargin}pt`,
+		} as React.CSSProperties;
+	}, [containerBorderRadius, headingNegativeMargin]);
+
 	return (
 		<div
-			style={
-				{
-					"--container-border-radius": `${containerBorderRadius}pt`,
-					"--heading-negative-margin": `${headingNegativeMargin}pt`,
-					direction: rtlDirection ? "rtl" : "ltr",
-				} as React.CSSProperties
-			}
+			style={style}
 			className="template-lapras page-content space-y-6 px-(--page-margin-x) pt-(--page-margin-y) print:p-0"
 		>
 			{isFirstPage && <Header />}
@@ -66,13 +65,13 @@ function Header() {
 	return (
 		<div
 			className={cn(
-				"page-header flex items-center gap-x-4",
+				"page-header flex items-center gap-x-(--page-gap-x)",
 				"rounded-(--picture-border-radius) border border-(--page-text-color)/10 bg-(--page-background-color) p-4",
 			)}
 		>
 			<PagePicture />
 
-			<div className="page-basics space-y-2">
+			<div className="page-basics space-y-(--page-gap-y)">
 				<div>
 					<h2 className="basics-name">{basics.name}</h2>
 					<p className="basics-headline">{basics.headline}</p>

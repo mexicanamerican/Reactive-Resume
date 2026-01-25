@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -23,34 +22,32 @@ const sectionClassName = cn(
 export function GlalieTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-glalie page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
+		<div className="template-glalie page-content">
 			{/* Sidebar Background */}
 			{(!fullWidth || isFirstPage) && (
-				<div
-					className={`page-sidebar-background absolute inset-y-0 ${rtlDirection ? "end-0" : "start-0"} z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20`}
-				/>
+				<div className="page-sidebar-background absolute inset-y-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20 ltr:start-0 rtl:end-0" />
 			)}
 
 			<div className="flex">
-				<aside
-					data-layout="sidebar"
-					className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-4 px-(--page-margin-x) pt-(--page-margin-y)"
-				>
-					{isFirstPage && <Header />}
+				{(!fullWidth || isFirstPage) && (
+					<aside
+						data-layout="sidebar"
+						className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-4 px-(--page-margin-x) pt-(--page-margin-y)"
+					>
+						{isFirstPage && <Header />}
 
-					{!fullWidth && (
-						<div className="shrink-0 space-y-4 overflow-x-hidden">
-							{sidebar.map((section) => {
-								const Component = getSectionComponent(section, { sectionClassName });
-								return <Component key={section} id={section} />;
-							})}
-						</div>
-					)}
-				</aside>
+						{!fullWidth && (
+							<div className="shrink-0 space-y-4 overflow-x-hidden">
+								{sidebar.map((section) => {
+									const Component = getSectionComponent(section, { sectionClassName });
+									return <Component key={section} id={section} />;
+								})}
+							</div>
+						)}
+					</aside>
+				)}
 
 				<main data-layout="main" className="group page-main">
 					<div className="space-y-4 px-(--page-margin-x) pt-(--page-margin-y)">

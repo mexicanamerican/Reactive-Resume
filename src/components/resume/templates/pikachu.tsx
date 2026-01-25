@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -23,21 +22,16 @@ const sectionClassName = cn(
 export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div
-			className="template-pikachu page-content px-(--page-margin-x) py-(--page-margin-y) print:p-0"
-			style={{ direction: rtlDirection ? "rtl" : "ltr" }}
-		>
+		<div className="template-pikachu page-content px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			<div className="flex gap-x-(--page-margin-x)">
 				<aside
 					data-layout="sidebar"
-					className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-3"
+					className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-(--page-gap-y)"
 				>
 					{isFirstPage && (
-						<div className="flex items-center justify-center">
+						<div className="flex max-w-(--page-sidebar-width) items-center justify-start">
 							<PagePicture />
 						</div>
 					)}
@@ -52,7 +46,7 @@ export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 					)}
 				</aside>
 
-				<main data-layout="main" className="group page-main flex-1 space-y-(--page-margin-y)">
+				<main data-layout="main" className="group page-main flex-1 space-y-(--page-gap-y)">
 					{isFirstPage && <Header />}
 
 					<div className="space-y-(--page-gap-y)">
@@ -71,7 +65,7 @@ function Header() {
 	const basics = useResumeStore((state) => state.resume.data.basics);
 
 	return (
-		<div className="page-header w-full space-y-2 rounded-(--picture-border-radius) bg-(--page-primary-color) px-(--page-margin-x) py-(--page-margin-y) text-(--page-background-color)">
+		<div className="page-header w-full space-y-(--page-gap-y) rounded-(--picture-border-radius) bg-(--page-primary-color) px-(--page-margin-x) py-(--page-margin-y) text-(--page-background-color)">
 			<div className="border-(--page-background-color)/50 border-b pb-2">
 				<h2 className="basics-name">{basics.name}</h2>
 				<p className="basics-headline">{basics.headline}</p>

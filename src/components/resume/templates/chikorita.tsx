@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -34,16 +33,12 @@ const sectionClassName = cn(
 export function ChikoritaTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-chikorita page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
+		<div className="template-chikorita page-content">
 			{/* Sidebar Background */}
 			{!fullWidth && (
-				<div
-					className={`page-sidebar-background absolute inset-y-0 ${rtlDirection ? "start-0" : "end-0"} z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)`}
-				/>
+				<div className="page-sidebar-background absolute inset-y-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color) ltr:end-0 rtl:start-0" />
 			)}
 
 			{isFirstPage && <Header />}

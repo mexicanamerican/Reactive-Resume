@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -20,15 +19,13 @@ const sectionClassName = cn(
 export function LeafishTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-leafish page-content space-y-4" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
+		<div className="template-leafish page-content">
 			{isFirstPage && <Header />}
 
 			<div className="flex gap-x-(--page-margin-x) px-(--page-margin-x) pt-(--page-margin-y)">
-				<main data-layout="main" className="group page-main space-y-4">
+				<main data-layout="main" className="group page-main space-y-(--page-gap-y)">
 					{main
 						.filter((section) => section !== "summary")
 						.map((section) => {
@@ -38,7 +35,10 @@ export function LeafishTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				</main>
 
 				{!fullWidth && (
-					<aside data-layout="sidebar" className="group page-sidebar w-(--page-sidebar-width) shrink-0 space-y-4">
+					<aside
+						data-layout="sidebar"
+						className="group page-sidebar w-(--page-sidebar-width) shrink-0 space-y-(--page-gap-y)"
+					>
 						{sidebar
 							.filter((section) => section !== "summary")
 							.map((section) => {
@@ -60,7 +60,7 @@ function Header() {
 			<div className="flex items-center gap-x-(--page-margin-x) px-(--page-margin-x) py-(--page-margin-y)">
 				<PagePicture />
 
-				<div className="space-y-2">
+				<div className="space-y-(--page-gap-y)">
 					<div>
 						<h2 className="basics-name">{basics.name}</h2>
 						<p className="basics-headline">{basics.headline}</p>

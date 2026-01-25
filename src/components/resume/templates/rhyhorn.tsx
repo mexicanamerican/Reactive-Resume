@@ -1,5 +1,4 @@
 import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -19,17 +18,12 @@ const sectionClassName = cn(
 export function RhyhornTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div
-			className="template-rhyhorn page-content space-y-4 px-(--page-margin-x) py-(--page-margin-y) print:p-0"
-			style={{ direction: rtlDirection ? "rtl" : "ltr" }}
-		>
+		<div className="template-rhyhorn page-content space-y-(--page-gap-y) px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			{isFirstPage && <Header />}
 
-			<main data-layout="main" className="group page-main space-y-4">
+			<main data-layout="main" className="group page-main space-y-(--page-gap-y)">
 				{main.map((section) => {
 					const Component = getSectionComponent(section, { sectionClassName });
 					return <Component key={section} id={section} />;
@@ -37,7 +31,7 @@ export function RhyhornTemplate({ pageIndex, pageLayout }: TemplateProps) {
 			</main>
 
 			{!fullWidth && (
-				<aside data-layout="sidebar" className="group page-sidebar space-y-4">
+				<aside data-layout="sidebar" className="group page-sidebar space-y-(--page-gap-y)">
 					{sidebar.map((section) => {
 						const Component = getSectionComponent(section, { sectionClassName });
 						return <Component key={section} id={section} />;
@@ -52,8 +46,8 @@ function Header() {
 	const basics = useResumeStore((state) => state.resume.data.basics);
 
 	return (
-		<div className="page-header flex items-center gap-x-4">
-			<div className="page-basics grow space-y-2">
+		<div className="page-header flex items-center gap-x-(--page-gap-x)">
+			<div className="page-basics grow space-y-(--page-gap-y)">
 				<div>
 					<h2 className="basics-name">{basics.name}</h2>
 					<p className="basics-headline">{basics.headline}</p>

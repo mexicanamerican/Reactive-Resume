@@ -1,4 +1,3 @@
-import { isRTL } from "@/utils/locale";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -23,16 +22,12 @@ const sectionClassName = cn(
 export function GengarTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	const isFirstPage = pageIndex === 0;
 	const { main, sidebar, fullWidth } = pageLayout;
-	const locale = useResumeStore((state) => state.resume.data.metadata.page.locale);
-	const rtlDirection = isRTL(locale);
 
 	return (
-		<div className="template-gengar page-content" style={{ direction: rtlDirection ? "rtl" : "ltr" }}>
+		<div className="template-gengar page-content">
 			{/* Sidebar Background */}
 			{(!fullWidth || isFirstPage) && (
-				<div
-					className={`page-sidebar-background absolute inset-y-0 ${rtlDirection ? "end-0" : "start-0"} z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20`}
-				/>
+				<div className="page-sidebar-background absolute inset-y-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color)/20 ltr:start-0 rtl:end-0" />
 			)}
 
 			<div className="flex">
