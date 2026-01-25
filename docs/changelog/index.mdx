@@ -4,6 +4,16 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.0.3" description="25th January 2026">
+  - Allow the user to override the default endpoint for all AI providers, not just Ollama. Also display the default endpoint for each provider in the AI settings page.
+  - Updated the chip input component, to allow the user to add, edit, remove or reorder keywords for skills and other sections.
+  - Improved RTL support across the app, thanks to @obreo for the contribution. [(link)](https://github.com/amruthpillai/reactive-resume/pull/2583)
+  - Updates to the translation configuration to remove line numbers from the translation files, as this was causing unnecessary diffs.
+  - Updated the video on the homepage to be lighter and faster to load, while still maintaining the same quality.
+  - Increased the screenshot TTL for resumes, to avoid regenerating screenshots unnecessarily unless the resume has been updated recently (in the last hour).
+  - Update dependencies and translations to the latest versions.
+</Update>
+
 <Update label="v5.0.2" description="24th January 2026">
   - Added an agent skill `skills/resume-builder` for agentic AI assistants to build resumes for Reactive Resume through conversational AI.
   - Added a new guide on how to fit content on a page, to avoid issues when exporting to PDF. [(link)](/guides/fitting-content-on-a-page)
