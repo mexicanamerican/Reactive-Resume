@@ -49,10 +49,12 @@ export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				)}
 
 				<main data-layout="main" className="group page-main flex-1 space-y-(--page-gap-y)">
-					<div className="flex items-center gap-x-6">
-						{fullWidth && <PagePicture />}
-						{isFirstPage && <Header />}
-					</div>
+					{isFirstPage && (
+						<div className="flex items-center gap-x-6">
+							{fullWidth && <PagePicture />}
+							<Header />
+						</div>
+					)}
 
 					<div className="space-y-(--page-gap-y)">
 						{main.map((section) => {
