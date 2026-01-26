@@ -1,5 +1,6 @@
 import { TiptapContent } from "@/components/input/rich-input";
 import { getSectionTitle } from "@/utils/resume/section";
+import { stripHtml } from "@/utils/string";
 import { cn } from "@/utils/style";
 import { useResumeStore } from "../store/resume";
 
@@ -15,7 +16,7 @@ export function PageSummary({ className }: PageSummaryProps) {
 			className={cn(
 				"page-section page-section-summary",
 				section.hidden && "hidden",
-				section.content === "" && "hidden",
+				!stripHtml(section.content) && "hidden",
 				className,
 			)}
 		>

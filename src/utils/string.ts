@@ -58,3 +58,12 @@ export function generateRandomName() {
 		length: 3,
 	});
 }
+
+/**
+ * Strips HTML tags from a string and returns the text content.
+ * @param html - The HTML string to strip.
+ * @returns The text content without HTML tags.
+ */
+export function stripHtml(html: string) {
+	return html.replace(/<[^>]*>/g, "").trim();
+}

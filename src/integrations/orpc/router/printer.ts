@@ -34,11 +34,17 @@ export const printerRouter = {
 			description: "Get a screenshot of a resume. Returns a URL to the screenshot image.",
 		})
 		.input(z.object({ id: z.string() }))
-		.output(z.object({ url: z.string() }))
+		.output(z.object({ url: z.string().nullable() }))
 		.handler(async ({ input }) => {
-			const { id, data, userId, updatedAt } = await resumeService.getByIdForPrinter({ id: input.id });
-			const url = await printerService.getResumeScreenshot({ id, data, userId, updatedAt });
+			try {
+				const { id, data, userId, updatedAt } = await resumeService.getByIdForPrinter({ id: input.id });
+				const url = await printerService.getResumeScreenshot({ id, data, userId, updatedAt });
 
-			return { url };
+				return { url };
+			} catch {
+				// ignore errors, as the screenshot is not critical
+			}
+
+			return { url: null };
 		}),
 };

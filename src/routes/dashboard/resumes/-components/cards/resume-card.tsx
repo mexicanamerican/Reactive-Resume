@@ -22,8 +22,6 @@ export function ResumeCard({ resume }: ResumeCardProps) {
 		orpc.printer.getResumeScreenshot.queryOptions({ input: { id: resume.id } }),
 	);
 
-	const imageSrc = screenshotData?.url;
-
 	const updatedAt = useMemo(() => {
 		return Intl.DateTimeFormat(i18n.locale, { dateStyle: "long", timeStyle: "short" }).format(resume.updatedAt);
 	}, [i18n.locale, resume.updatedAt]);
@@ -32,13 +30,13 @@ export function ResumeCard({ resume }: ResumeCardProps) {
 		<ResumeContextMenu resume={resume}>
 			<Link to="/builder/$resumeId" params={{ resumeId: resume.id }} className="cursor-default">
 				<BaseCard title={resume.name} description={t`Last updated on ${updatedAt}`} tags={resume.tags}>
-					{match({ isLoading, imageSrc })
+					{match({ isLoading, imageSrc: screenshotData?.url })
 						.with({ isLoading: true }, () => (
 							<div className="flex size-full items-center justify-center">
 								<CircleNotchIcon weight="thin" className="size-12 animate-spin" />
 							</div>
 						))
-						.with({ imageSrc: P.string }, () => (
+						.with({ imageSrc: P.string }, ({ imageSrc }) => (
 							<img
 								src={imageSrc}
 								alt={resume.name}

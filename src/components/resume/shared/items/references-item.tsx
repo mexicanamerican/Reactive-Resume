@@ -1,5 +1,6 @@
 import { TiptapContent } from "@/components/input/rich-input";
 import type { SectionItem } from "@/schema/resume/data";
+import { stripHtml } from "@/utils/string";
 import { cn } from "@/utils/style";
 import { PageLink } from "../page-link";
 
@@ -24,7 +25,9 @@ export function ReferencesItem({ className, ...item }: ReferencesItemProps) {
 			</div>
 
 			{/* Description */}
-			<div className="section-item-description references-item-description">
+			<div
+				className={cn("section-item-description references-item-description", !stripHtml(item.description) && "hidden")}
+			>
 				<TiptapContent content={item.description} />
 			</div>
 
