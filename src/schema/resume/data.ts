@@ -61,13 +61,13 @@ export const customFieldSchema = z.object({
 	id: z.string().describe("The unique identifier for the custom field. Usually generated as a UUID."),
 	icon: iconSchema,
 	text: z.string().describe("The text to display for the custom field."),
-	link: z.url().or(z.literal("")).describe("If the custom field should be a link, the URL to link to.").catch(""),
+	link: z.string().describe("If the custom field should be a link, the URL to link to.").catch(""),
 });
 
 export const basicsSchema = z.object({
 	name: z.string().describe("The full name of the author of the resume."),
 	headline: z.string().describe("The headline of the author of the resume."),
-	email: z.email().or(z.literal("")).describe("The email address of the author of the resume."),
+	email: z.string().describe("The email address of the author of the resume."),
 	phone: z.string().describe("The phone number of the author of the resume."),
 	location: z.string().describe("The location of the author of the resume."),
 	website: urlSchema.describe("The website of the author of the resume."),

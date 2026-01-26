@@ -82,9 +82,7 @@ export const aiRouter = {
 				const result = await generateText({
 					model,
 					maxRetries: 0,
-					output: Output.object({
-						schema: resumeDataSchema.omit({ picture: true, metadata: true, customSections: true }),
-					}),
+					output: Output.object({ schema: resumeDataSchema }),
 					messages: [
 						{
 							role: "system",
@@ -139,9 +137,7 @@ export const aiRouter = {
 				const result = await generateText({
 					model,
 					maxRetries: 0,
-					output: Output.object({
-						schema: resumeDataSchema.omit({ picture: true, metadata: true, customSections: true }),
-					}),
+					output: Output.object({ schema: resumeDataSchema }),
 					messages: [
 						{ role: "system", content: docxParserSystemPrompt },
 						{

@@ -3,7 +3,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { DownloadSimpleIcon, FileIcon, UploadSimpleIcon } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
@@ -66,10 +66,11 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 	const { enabled: isAIEnabled, provider, model, apiKey, baseURL } = useAIStore();
 	const closeDialog = useDialogStore((state) => state.closeDialog);
 
-	const inputRef = useRef<HTMLInputElement>(null);
 	const prevTypeRef = useRef<string>("");
+	const inputRef = useRef<HTMLInputElement>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	const { mutateAsync: importResume, isPending } = useMutation(orpc.resume.import.mutationOptions());
+	const { mutateAsync: importResume } = useMutation(orpc.resume.import.mutationOptions());
 
 	const form = useForm<FormValues>({
 		resolver: zodResolver(formSchema),
@@ -100,6 +101,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 	const onSubmit = async (values: FormValues) => {
 		if (values.type === "") return;
 
+		setIsLoading(true);
+
 		const toastId = toast.loading(t`Importing your resume...`, {
 			description: t`This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page.`,
 		});
@@ -126,13 +129,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 			}
 
 			if (values.type === "pdf") {
-				if (!isAIEnabled) {
-					toast.error(t`This feature requires AI Integration to be enabled. Please enable it in the settings.`, {
-						id: toastId,
-						description: null,
-					});
-					return;
-				}
+				if (!isAIEnabled)
+					throw new Error(t`This feature requires AI Integration to be enabled. Please enable it in the settings.`);
 
 				const arrayBuffer = await values.file.arrayBuffer();
 				const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
@@ -147,13 +145,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 			}
 
 			if (values.type === "docx") {
-				if (!isAIEnabled) {
-					toast.error(t`This feature requires AI Integration to be enabled. Please enable it in the settings.`, {
-						id: toastId,
-						description: null,
-					});
-					return;
-				}
+				if (!isAIEnabled)
+					throw new Error(t`This feature requires AI Integration to be enabled. Please enable it in the settings.`);
 
 				const arrayBuffer = await values.file.arrayBuffer();
 				const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
@@ -172,7 +165,7 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 				});
 			}
 
-			if (!data) return;
+			if (!data) throw new Error("No data was returned from the AI provider.");
 
 			await importResume({ data });
 			toast.success(t`Your resume has been imported successfully.`, { id: toastId, description: null });
@@ -183,6 +176,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 			} else {
 				toast.error(t`An unknown error occurred while importing your resume.`, { id: toastId, description: null });
 			}
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -279,9 +274,9 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 					/>
 
 					<DialogFooter>
-						<Button type="submit" disabled={!type || isPending}>
-							{isPending ? <Spinner /> : null}
-							{isPending ? t`Importing...` : t`Import`}
+						<Button type="submit" disabled={!type || isLoading}>
+							{isLoading ? <Spinner /> : null}
+							{isLoading ? t`Importing...` : t`Import`}
 						</Button>
 					</DialogFooter>
 				</form>
