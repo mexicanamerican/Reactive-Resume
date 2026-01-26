@@ -180,7 +180,7 @@ Comprehensive guides are available at [docs.rxresu.me](https://docs.rxresu.me):
 | Guide                                                                       | Description                       |
 | --------------------------------------------------------------------------- | --------------------------------- |
 | [Getting Started](https://docs.rxresu.me/getting-started)                   | First-time setup and basic usage  |
-| [Self-Hosting](https://docs.rxresu.me/guides/self-hosting-with-docker)      | Deploy on your own server         |
+| [Self-Hosting](https://docs.rxresu.me/self-hosting/docker)                  | Deploy on your own server         |
 | [Development Setup](https://docs.rxresu.me/contributing/development)        | Local development environment     |
 | [Project Architecture](https://docs.rxresu.me/contributing/architecture)    | Codebase structure and patterns   |
 | [Exporting Your Resume](https://docs.rxresu.me/guides/exporting-your-resume)| PDF and JSON export options       |
