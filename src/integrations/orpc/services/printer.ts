@@ -8,7 +8,7 @@ import { env } from "@/utils/env";
 import { generatePrinterToken } from "@/utils/printer-token";
 import { getStorageService, uploadFile } from "./storage";
 
-const SCREENSHOT_TTL = 1000 * 60 * 60; // 1 hour
+const SCREENSHOT_TTL = 1000 * 60 * 60 * 6; // 6 hours
 
 async function getBrowser(): Promise<Browser> {
 	const args = ["--disable-dev-shm-usage", "--disable-features=LocalNetworkAccessChecks,site-per-process,FedCm"];
@@ -37,18 +37,6 @@ export const printerService = {
 		const data = await response.json();
 
 		return data;
-	},
-
-	chromeDebug: async (): Promise<void> => {
-		const browser = await getBrowser();
-
-		const page = await browser.newPage();
-
-		await page.goto("https://www.google.com");
-
-		await page.pdf({ path: `screenshot-${Date.now()}.pdf` });
-
-		await browser.disconnect();
 	},
 
 	/**
@@ -208,6 +196,8 @@ export const printerService = {
 				},
 			});
 
+			await page.close();
+
 			// Step 7: Upload the generated PDF to storage
 			const result = await uploadFile({
 				userId,
@@ -221,7 +211,7 @@ export const printerService = {
 		} catch (error) {
 			throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
 		} finally {
-			if (browser) await browser.close();
+			if (browser?.connected) await browser.disconnect();
 		}
 	},
 
@@ -289,6 +279,8 @@ export const printerService = {
 
 			const screenshotBuffer = await page.screenshot({ type: "webp", quality: 80 });
 
+			await page.close();
+
 			const result = await uploadFile({
 				userId,
 				resumeId: id,
@@ -301,7 +293,7 @@ export const printerService = {
 		} catch (error) {
 			throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
 		} finally {
-			if (browser) await browser.close();
+			if (browser?.connected) await browser.disconnect();
 		}
 	},
 };
