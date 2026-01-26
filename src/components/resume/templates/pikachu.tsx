@@ -26,28 +26,33 @@ export function PikachuTemplate({ pageIndex, pageLayout }: TemplateProps) {
 	return (
 		<div className="template-pikachu page-content px-(--page-margin-x) pt-(--page-margin-y) print:p-0">
 			<div className="flex gap-x-(--page-margin-x)">
-				<aside
-					data-layout="sidebar"
-					className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-(--page-gap-y)"
-				>
-					{isFirstPage && (
-						<div className="flex max-w-(--page-sidebar-width) items-center justify-start">
-							<PagePicture />
-						</div>
-					)}
+				{!fullWidth && (
+					<aside
+						data-layout="sidebar"
+						className="group page-sidebar flex w-(--page-sidebar-width) shrink-0 flex-col space-y-(--page-gap-y)"
+					>
+						{isFirstPage && (
+							<div className="flex max-w-(--page-sidebar-width) items-center justify-start">
+								<PagePicture />
+							</div>
+						)}
 
-					{!fullWidth && (
-						<div className="shrink-0 space-y-(--page-gap-y) overflow-x-hidden">
-							{sidebar.map((section) => {
-								const Component = getSectionComponent(section, { sectionClassName });
-								return <Component key={section} id={section} />;
-							})}
-						</div>
-					)}
-				</aside>
+						{!fullWidth && (
+							<div className="shrink-0 space-y-(--page-gap-y) overflow-x-hidden">
+								{sidebar.map((section) => {
+									const Component = getSectionComponent(section, { sectionClassName });
+									return <Component key={section} id={section} />;
+								})}
+							</div>
+						)}
+					</aside>
+				)}
 
 				<main data-layout="main" className="group page-main flex-1 space-y-(--page-gap-y)">
-					{isFirstPage && <Header />}
+					<div className="flex items-center gap-x-6">
+						{fullWidth && <PagePicture />}
+						{isFirstPage && <Header />}
+					</div>
 
 					<div className="space-y-(--page-gap-y)">
 						{main.map((section) => {
