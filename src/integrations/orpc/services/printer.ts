@@ -10,7 +10,13 @@ import { getStorageService, uploadFile } from "./storage";
 
 const SCREENSHOT_TTL = 1000 * 60 * 60 * 6; // 6 hours
 
+// Singleton browser instance for connection reuse
+let browserInstance: Browser | null = null;
+
 async function getBrowser(): Promise<Browser> {
+	// Reuse existing connected browser if available
+	if (browserInstance?.connected) return browserInstance;
+
 	const args = ["--disable-dev-shm-usage", "--disable-features=LocalNetworkAccessChecks,site-per-process,FedCm"];
 
 	const endpoint = new URL(env.PRINTER_ENDPOINT);
@@ -22,8 +28,27 @@ async function getBrowser(): Promise<Browser> {
 	if (isWebSocket) connectOptions.browserWSEndpoint = endpoint.toString();
 	else connectOptions.browserURL = endpoint.toString();
 
-	return puppeteer.connect(connectOptions);
+	browserInstance = await puppeteer.connect(connectOptions);
+	return browserInstance;
 }
+
+async function closeBrowser(): Promise<void> {
+	if (browserInstance?.connected) {
+		await browserInstance.close();
+		browserInstance = null;
+	}
+}
+
+// Close browser on process termination
+process.on("SIGINT", async () => {
+	await closeBrowser();
+	process.exit(0);
+});
+
+process.on("SIGTERM", async () => {
+	await closeBrowser();
+	process.exit(0);
+});
 
 export const printerService = {
 	healthcheck: async (): Promise<object> => {
@@ -210,8 +235,6 @@ export const printerService = {
 			return result.url;
 		} catch (error) {
 			throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
-		} finally {
-			if (browser?.connected) await browser.disconnect();
 		}
 	},
 
@@ -292,8 +315,6 @@ export const printerService = {
 			return result.url;
 		} catch (error) {
 			throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
-		} finally {
-			if (browser?.connected) await browser.disconnect();
 		}
 	},
 };
