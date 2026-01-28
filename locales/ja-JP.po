@@ -1828,6 +1828,11 @@ msgstr "長方形"
 msgid "Rectangle (Full Width)"
 msgstr "長方形（全幅）"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "推薦者"
@@ -2449,6 +2454,11 @@ msgstr "ウクライナ語"
 msgid "Underline"
 msgstr "下線"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "無制限の履歴書"
@@ -2776,4 +2786,3 @@ msgstr "ズームアウト"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

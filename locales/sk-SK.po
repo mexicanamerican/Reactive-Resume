@@ -1828,6 +1828,11 @@ msgstr "Obdĺžnik"
 msgid "Rectangle (Full Width)"
 msgstr "Obdĺžnik (plná šírka)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Referencie"
@@ -2449,6 +2454,11 @@ msgstr "Ukrajinčina"
 msgid "Underline"
 msgstr "Podčiarknuté"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Neobmedzený počet životopisov"
@@ -2776,4 +2786,3 @@ msgstr "Oddialiť"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

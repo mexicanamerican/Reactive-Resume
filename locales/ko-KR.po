@@ -1828,6 +1828,11 @@ msgstr "사각형"
 msgid "Rectangle (Full Width)"
 msgstr "사각형(전체 너비)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "추천인"
@@ -2449,6 +2454,11 @@ msgstr "우크라이나어"
 msgid "Underline"
 msgstr "밑줄"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "무제한 이력서"
@@ -2776,4 +2786,3 @@ msgstr "축소"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

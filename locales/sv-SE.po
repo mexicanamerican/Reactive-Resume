@@ -1828,6 +1828,11 @@ msgstr "Rektangel"
 msgid "Rectangle (Full Width)"
 msgstr "Rektangel (full bredd)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Referenser"
@@ -2449,6 +2454,11 @@ msgstr "Ukrainska"
 msgid "Underline"
 msgstr "Understrykning"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Obegränsat antal CV:n"
@@ -2776,4 +2786,3 @@ msgstr "Zooma ut"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

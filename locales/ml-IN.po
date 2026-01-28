@@ -1828,6 +1828,11 @@ msgstr "ചതുരാകൃതി"
 msgid "Rectangle (Full Width)"
 msgstr "ചതുരാകൃതി (പൂർണ്ണ വീതി)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "റഫറൻസുകൾ"
@@ -2449,6 +2454,11 @@ msgstr "ഉക്രേനിയൻ"
 msgid "Underline"
 msgstr "അണ്ടർലൈൻ"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "പരിമിതിയില്ലാത്ത റിസ്യൂങ്ങൾ"
@@ -2776,4 +2786,3 @@ msgstr "സൂം ഔട്ട് ചെയ്യുക"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "സൂളു"
-

@@ -1828,6 +1828,11 @@ msgstr "Persegi Panjang"
 msgid "Rectangle (Full Width)"
 msgstr "Persegi Panjang (Lebar Penuh)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Referensi"
@@ -2449,6 +2454,11 @@ msgstr "Ukraina"
 msgid "Underline"
 msgstr "Garis Bawah"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Resume Tak Terbatas"
@@ -2776,4 +2786,3 @@ msgstr "Perkecil"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

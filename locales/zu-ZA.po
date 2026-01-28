@@ -1823,6 +1823,11 @@ msgstr ""
 msgid "Rectangle (Full Width)"
 msgstr ""
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr ""
@@ -2442,6 +2447,11 @@ msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Underline"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
 msgstr ""
 
 #: src/routes/_home/-sections/features.tsx

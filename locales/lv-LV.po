@@ -1828,6 +1828,11 @@ msgstr "Taisnstūris"
 msgid "Rectangle (Full Width)"
 msgstr "Taisnstūris (pilns platums)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Atsauksmes"
@@ -2449,6 +2454,11 @@ msgstr "Ukraiņu"
 msgid "Underline"
 msgstr "Pasvītrot"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Neierobežoti CV"
@@ -2776,4 +2786,3 @@ msgstr "Tālināt"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

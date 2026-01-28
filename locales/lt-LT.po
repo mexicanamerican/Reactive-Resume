@@ -1828,6 +1828,11 @@ msgstr "Stačiakampis"
 msgid "Rectangle (Full Width)"
 msgstr "Stačiakampis (visas plotis)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Rekomendacijos"
@@ -2449,6 +2454,11 @@ msgstr "Ukrainiečių"
 msgid "Underline"
 msgstr "Pabraukti"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "Neriboti gyvenimo aprašymai"
@@ -2776,4 +2786,3 @@ msgstr "Tolinti"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

@@ -1828,6 +1828,11 @@ msgstr "አክታ"
 msgid "Rectangle (Full Width)"
 msgstr "አክታ (ሙሉ ወፍር)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "ማመልከቻዎች"
@@ -2449,6 +2454,11 @@ msgstr "ዩክሬንኛ"
 msgid "Underline"
 msgstr "ነጥብ ተስማሚ"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "ያለ ገደብ የየታሪክ ማቅረቢያዎች"
@@ -2776,4 +2786,3 @@ msgstr "አጉር"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-

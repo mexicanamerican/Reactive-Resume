@@ -1828,6 +1828,11 @@ msgstr "מלבן"
 msgid "Rectangle (Full Width)"
 msgstr "מלבן (רוחב מלא)"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Redo (Ctrl+Y)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "ממליצים"
@@ -2449,6 +2454,11 @@ msgstr "אוקראינית"
 msgid "Underline"
 msgstr "קו תחתון"
 
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
+msgid "Undo (Ctrl+Z)"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
 msgstr "מסמכי קורות חיים ללא הגבלה"
@@ -2776,4 +2786,3 @@ msgstr "התרחקות"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "זולו"
-

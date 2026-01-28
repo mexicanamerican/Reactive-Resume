@@ -99,8 +99,24 @@ export function BuilderDock() {
 				transition={{ duration: 0.2 }}
 				className="flex items-center rounded-r-full rounded-l-full bg-popover px-2 shadow-xl"
 			>
-				<DockIcon icon={ArrowUUpLeftIcon} title={t`Undo (Ctrl+Z)`} disabled={!canUndo} onClick={() => undo()} />
-				<DockIcon icon={ArrowUUpRightIcon} title={t`Redo (Ctrl+Y)`} disabled={!canRedo} onClick={() => redo()} />
+				<DockIcon
+					disabled={!canUndo}
+					onClick={() => undo()}
+					icon={ArrowUUpLeftIcon}
+					title={t({
+						context: "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts).",
+						message: "Undo (Ctrl+Z)",
+					})}
+				/>
+				<DockIcon
+					disabled={!canRedo}
+					onClick={() => redo()}
+					icon={ArrowUUpRightIcon}
+					title={t({
+						context: "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts).",
+						message: "Redo (Ctrl+Y)",
+					})}
+				/>
 				<div className="mx-1 h-8 w-px bg-border" />
 				<DockIcon icon={MagnifyingGlassPlusIcon} title={t`Zoom in`} onClick={() => zoomIn(0.1)} />
 				<DockIcon icon={MagnifyingGlassMinusIcon} title={t`Zoom out`} onClick={() => zoomOut(0.1)} />
