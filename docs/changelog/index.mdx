@@ -4,6 +4,23 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.0.4" description="28th January 2026">
+  - Bring back Undo/Redo functionality in the resume builder for improved editing experience.
+  - Arrange the sidebar builder dynamically based on the section type in each template. [#2564](https://github.com/amruthpillai/reactive-resume/pull/2603)
+  - Remove extra spacing when proficiency is empty. [#2607](https://github.com/amruthpillai/reactive-resume/pull/2626)
+  - Fix rendering in Pikachu template: conditionally render header and page picture using `isFirstPage`, and respect the `fullWidth` property for page layout.
+  - Fixes to templates to improve layout and rendering consistency.
+  - Fix GitHub OAuth login for users migrated from previous versions.
+  - Improve communication with the printer service and reduce resource usage for better PDF generation reliability.
+  - Update and sync translations from Crowdin (Afrikaans, Persian, Portuguese/Brazilian, and other languages).
+  - Update translation sources and configuration.
+  - Fix "empty" Git merge remnants in codebase.
+  - Update package dependencies and fix self-hosting guide links in README.
+  - Remove dead code, update screenshots, and add PWA (Progressive Web App) support.
+  - Update links to PDF example files in documentation.
+  - Other bug fixes and minor improvements (#2542, #2573, #2598).
+</Update>
+
 <Update label="v5.0.3" description="25th January 2026">
   - Implement the ability to print Free-Form PDFs which do not have a fixed page height, allowing the user to fit the content on a page as they see fit. [(link)](/guides/selecting-page-format)
   - Allow the user to override the default endpoint for all AI providers, not just Ollama. Also display the default endpoint for each provider in the AI settings page.
