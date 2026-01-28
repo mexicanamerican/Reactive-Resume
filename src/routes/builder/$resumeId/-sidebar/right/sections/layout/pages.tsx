@@ -19,6 +19,7 @@ import { match } from "ts-pattern";
 import { useResumeStore } from "@/components/resume/store/resume";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { templates } from "@/dialogs/resume/template/data";
 import type { SectionType } from "@/schema/resume/data";
 import { getSectionTitle } from "@/utils/resume/section";
 import { cn } from "@/utils/style";
@@ -62,6 +63,9 @@ const createDroppableId = (pageIndex: number, columnId: ColumnId): string => {
 
 export function LayoutPages() {
 	const [activeId, setActiveId] = useState<string | null>(null);
+
+	const template = useResumeStore((state) => state.resume.data.metadata.template);
+	const templateSidebarPosition = templates[template].sidebarPosition;
 
 	const layout = useResumeStore((state) => state.resume.data.metadata.layout);
 	const updateResumeData = useResumeStore((state) => state.updateResumeData);
@@ -216,6 +220,7 @@ export function LayoutPages() {
 						pageIndex={pageIndex}
 						page={page}
 						canDelete={layout.pages.length > 1}
+						sidebarPosition={templateSidebarPosition}
 						onDelete={handleDeletePage}
 						onToggleFullWidth={handleToggleFullWidth}
 					/>
@@ -236,11 +241,21 @@ type PageContainerProps = {
 	pageIndex: number;
 	page: { fullWidth: boolean; main: string[]; sidebar: string[] };
 	canDelete: boolean;
+	sidebarPosition: "left" | "right" | "none";
 	onDelete: (pageIndex: number) => void;
 	onToggleFullWidth: (pageIndex: number, fullWidth: boolean) => void;
 };
 
-function PageContainer({ pageIndex, page, canDelete, onDelete, onToggleFullWidth }: PageContainerProps) {
+function PageContainer({
+	pageIndex,
+	page,
+	canDelete,
+	sidebarPosition,
+	onDelete,
+	onToggleFullWidth,
+}: PageContainerProps) {
+	const isFullWidth = page.fullWidth;
+
 	return (
 		<div className="space-y-3 rounded-md border border-dashed bg-background/40">
 			<div className="flex items-center justify-between bg-secondary/50 px-4 py-3">
@@ -268,12 +283,27 @@ function PageContainer({ pageIndex, page, canDelete, onDelete, onToggleFullWidth
 
 			<div
 				className={cn(
-					"grid w-full gap-x-4 gap-y-2 p-4 pt-0 font-medium",
-					page.fullWidth ? "grid-cols-1" : "@md:grid-cols-2",
+					"grid w-full @md:grid-cols-2 gap-x-4 gap-y-2 p-4 pt-0 font-medium",
+					sidebarPosition === "none" && "@md:grid-cols-1",
 				)}
 			>
-				<LayoutColumn pageIndex={pageIndex} columnId="main" items={page.main} disabled={false} />
-				{!page.fullWidth && <LayoutColumn pageIndex={pageIndex} columnId="sidebar" items={page.sidebar} />}
+				<LayoutColumn
+					pageIndex={pageIndex}
+					columnId="main"
+					items={page.main}
+					disabled={false}
+					className={cn(sidebarPosition === "left" ? "order-2" : "order-1")}
+				/>
+
+				{!isFullWidth && (
+					<LayoutColumn
+						pageIndex={pageIndex}
+						columnId="sidebar"
+						items={page.sidebar}
+						hideLabel={sidebarPosition === "none"}
+						className={cn(sidebarPosition === "left" ? "order-1" : "order-2")}
+					/>
+				)}
 			</div>
 		</div>
 	);
@@ -283,17 +313,26 @@ type LayoutColumnProps = {
 	pageIndex: number;
 	columnId: ColumnId;
 	items: string[];
+	hideLabel?: boolean;
 	disabled?: boolean;
+	className?: string;
 };
 
-function LayoutColumn({ pageIndex, columnId, items, disabled = false }: LayoutColumnProps) {
+function LayoutColumn({
+	pageIndex,
+	columnId,
+	items,
+	hideLabel = false,
+	disabled = false,
+	className,
+}: LayoutColumnProps) {
 	const droppableId = createDroppableId(pageIndex, columnId);
 	const { setNodeRef, isOver } = useDroppable({ id: droppableId, disabled });
 
 	return (
 		<SortableContext id={droppableId} items={items} strategy={verticalListSortingStrategy}>
-			<div className={cn("space-y-1.5", disabled && "opacity-50")}>
-				<div className="@md:row-start-1 ps-4 font-medium text-xs">{getColumnLabel(columnId)}</div>
+			<div className={cn("space-y-1.5", disabled && "opacity-50", className)}>
+				{!hideLabel && <div className="@md:row-start-1 ps-4 font-medium text-xs">{getColumnLabel(columnId)}</div>}
 
 				<div
 					ref={setNodeRef}
