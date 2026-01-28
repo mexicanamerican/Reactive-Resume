@@ -5,37 +5,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: uk\n"
+"Language: sl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2026-01-28 20:54\n"
 "Last-Translator: \n"
-"Language-Team: Ukrainian\n"
-"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"Language-Team: Slovenian\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
-"X-Crowdin-Language: uk\n"
+"X-Crowdin-Language: sl\n"
 "X-Crowdin-File: /main/locales/en-US.po\n"
 "X-Crowdin-File-ID: 518\n"
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
-msgstr "Оновлено востаннє"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Created"
-msgstr "Створено"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Name"
-msgstr "Назва"
+msgstr ""
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "(opens in new tab)"
-msgstr "(відкриється у новій вкладці)"
+msgstr ""
 
 #. placeholder {0}: section.items.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -49,237 +49,237 @@ msgstr ""
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
-msgstr "<0>Нарешті,</0><1>безкоштовний конструктор резюме з відкритим кодом</1>"
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Every word needs to be wrapped in a tag"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>Запитання</0><1>і</1><2>Відповіді</2>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
-msgstr "<0>Дякую що скористались Reactive Resume! Цей додаток створено з любовʼю у мій вільний час з прекрасною підтримкою від open-source волонтерів з усього світу.</0><1>Якщо Reactive Resume був вам корисним, і ви хотіли б зберегти його безкоштовним та вільним для користування, то ваша пожертва дуже допоможе. Кожен внесок неоціненний!</1>"
+msgstr ""
 
 #: src/dialogs/api-key/create.tsx
 msgid "1 month"
-msgstr "1 місяць"
+msgstr ""
 
 #: src/dialogs/api-key/create.tsx
 msgid "1 year"
-msgstr "1 рік"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "12+ Templates"
-msgstr "12+ шаблонів"
+msgstr ""
 
 #: src/dialogs/api-key/create.tsx
 msgid "3 months"
-msgstr "3 місяці"
+msgstr ""
 
 #: src/dialogs/api-key/create.tsx
 msgid "6 months"
-msgstr "6 місяців"
+msgstr ""
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "A confirmation link has been sent to your current email address. Please check your inbox to confirm the change."
-msgstr "Посилання з підтвердженням було надіслане на вашу поточну електронну адресу. Будь ласка, перевірте свою поштову скриньку для підтвердження змін."
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
-msgstr "Безкоштовний конструктор резюме з відкритим вихідним кодом, що спрощує створення, оновлення, і поширення вашого резюме."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "A link to your resume has been copied to clipboard."
-msgstr "Посилання на ваше резюме скопійоване до буфера обміну."
+msgstr ""
 
 #: src/routes/_home/-sections/testimonials.tsx
 msgid "A lot of people have written to me over the years to share their experiences with Reactive Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
-msgstr "Роками люди ділились своїм досвідом використання Reactive Resume і як їм це допомогло, і я ніколи не стомлююсь їх читати. Якщо у вас є історія на \"поділитись\", то звʼяжіться зі мною через цей емейл <0>{email}</0>."
+msgstr ""
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
-msgstr "Нове посилання з підтвердженням було надіслане на вашу електронну адресу. Будь ласка, перевірте свою скриньку для підтвердження вашого акаунту."
+msgstr ""
 
 #: src/components/ui/copyright.tsx
 msgid "A passion project by <0>Amruth Pillai</0>."
-msgstr "Зроблено з любовʼю від <0>Amruth Pillai</0>."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
-msgstr "Резюме з таким slug вже існує."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "A4"
-msgstr "A4"
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Absolutely! You can export your resume to PDF with a single click. The exported PDF maintains all your formatting and styling perfectly."
-msgstr "Звісно! Ви можете експортувати своє резюме як PDF одним кліком. Експортований PDF ідеально відтворює ваше форматування і стилі."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Access your resumes and data programmatically using the API."
-msgstr "Отримуйте доступ до ваших резюме і даних за допомогою API."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add a custom field"
-msgstr "Додати користувацьке поле"
+msgstr ""
 
 #: src/components/input/url-input.tsx
 msgid "Add a label to the URL"
-msgstr "Додати мітку до посилання"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/awards.tsx
 msgid "Add a new award"
-msgstr "Додати нову нагороду"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/certifications.tsx
 msgid "Add a new certification"
-msgstr "Додати нову сертифікацію"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Add a new custom section"
-msgstr "Додати новий користувацький розділ"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/education.tsx
 msgid "Add a new education"
-msgstr "Додати нову освіту"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "Add a new experience"
-msgstr "Додати новий досвід"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/interests.tsx
 msgid "Add a new interest"
-msgstr "Додати новий інтерес"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Add a new item"
-msgstr "Додати новий елемент"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/languages.tsx
 msgid "Add a new language"
-msgstr "Додати нову мову"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/profiles.tsx
 msgid "Add a new profile"
-msgstr "Додати новий профіль"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/projects.tsx
 msgid "Add a new project"
-msgstr "Додати новий проєкт"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/publications.tsx
 msgid "Add a new publication"
-msgstr "Додати нову публікацію"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/references.tsx
 msgid "Add a new reference"
-msgstr "Додати нову рекомендацію"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/skills.tsx
 msgid "Add a new skill"
-msgstr "Додати нове вміння"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/volunteer.tsx
 msgid "Add a new volunteer experience"
-msgstr "Додати новий волонтерський досвід"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Column After"
-msgstr "Додати Колонку Справа"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Column Before"
-msgstr "Додати Колонку Зліва"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
-msgstr "Додати сторінку"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
-msgstr "Додати Рядок Знизу"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row Before"
-msgstr "Додати Рядок Згори"
+msgstr ""
 
 #. placeholder {0}: passkey.createdAt.toLocaleDateString()
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Added on {0}"
-msgstr "Додано {0}"
+msgstr ""
 
 #: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Adding your passkey..."
-msgstr "Додаємо ваш ключ доступу..."
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Afrikaans"
-msgstr "Африканська"
+msgstr ""
 
 #: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "AI"
-msgstr "ШІ"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Albanian"
-msgstr "Албанська"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
-msgstr "Дозволити Загальний Доступ"
+msgstr ""
 
 #: src/routes/auth/register.tsx
 msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "Вже маєте профіль? <0><1>Увійдіть зараз <2/></1></0>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
-msgstr "Амхарська"
+msgstr ""
 
 #: src/components/layout/error-screen.tsx
 #: src/components/layout/not-found-screen.tsx
 msgid "An error occurred while loading the page."
-msgstr "Виникла помилка під час завантаження сторінки."
+msgstr ""
 
 #: src/dialogs/resume/import.tsx
 msgid "An unknown error occurred while importing your resume."
-msgstr "Під час імпорту вашого резюме сталась невідома помилка."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
-msgstr "Та багато іншого..."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone visiting the resume's public URL must enter this password to access it."
-msgstr "Кожен, хто відкриває резюме через публічне посилання повинен ввести цей пароль для доступу."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone who has the resume's public URL will be able to view and download your resume without entering a password."
-msgstr "Кожен, хто має публічне посилання зможе переглянути і завантажити ваше резюме без пароля."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone with the link can view and download the resume."
-msgstr "Будь-хто з посиланням зможе переглядати і завантажувати резюме."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "API Access"
-msgstr "API доступ"
+msgstr ""
 
 #: src/routes/dashboard/settings/ai.tsx
 msgid "API Key"
-msgstr "API Ключ"
+msgstr ""
 
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "API Keys"
-msgstr "API Ключі"
+msgstr ""
 
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "API Reference"
@@ -1527,7 +1527,7 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
-msgstr "Назва"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2038,7 +2038,7 @@ msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
