@@ -297,6 +297,10 @@ msgstr "యాప్ గణాంకాలు"
 msgid "Arabic"
 msgstr "అరబిక్"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Are you sure you want to close this dialog?"
+msgstr ""
+
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
 msgstr "మీరు ఖచ్చితంగా ఈ API కీని తొలగించాలనుకుంటున్నారా?"
@@ -1392,6 +1396,10 @@ msgstr "మరింత తెలుసుకోండి"
 msgid "Learn more about how to fit content on a page"
 msgstr "పేజీలో కంటెంట్ ని సరిపడేలా ఎలా ఏర్పాటు చేయాలో మరింత తెలుసుకోండి"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Leave"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
 msgstr "ప్రధాన శీర్షికను పునఃస్థాపించడానికి ఖాళీగా వదిలేయండి."
@@ -2038,7 +2046,7 @@ msgstr "చూపించండి"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -2172,6 +2180,10 @@ msgstr "స్క్రాచ్ నుండి మీ రెజ్యూమే
 #: src/utils/resume/section.tsx
 msgid "Statistics"
 msgstr "స్టాటిస్టిక్స్"
+
+#: src/hooks/use-form-blocker.tsx
+msgid "Stay"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2695,6 +2707,10 @@ msgstr "మీ రిజ్యూమ్‌ను ప్రత్యేకమై�
 msgid "You cannot use the passkey \"{0}\" anymore to sign in after deletion. This action cannot be undone."
 msgstr "తొలగించిన తరువాత మీరు ఇకపై \"{0}\" పాస్‌కీతో సైన్ ఇన్ చేయలేరు. ఈ చర్య రద్దు చేయలేనిది."
 
+#: src/hooks/use-form-blocker.tsx
+msgid "You have unsaved changes that will be lost."
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx
 msgid "You've got mail!"
@@ -2785,5 +2801,4 @@ msgstr "జూమ్ అవుట్ చేయండి"
 
 #: src/utils/locale.ts
 msgid "Zulu"
-msgstr "జులు"
-
+msgstr ""

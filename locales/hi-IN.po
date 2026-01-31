@@ -297,6 +297,10 @@ msgstr "ऐप आँकड़े"
 msgid "Arabic"
 msgstr "अरबी"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Are you sure you want to close this dialog?"
+msgstr ""
+
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
 msgstr "क्या आप वाकई इस API कुंजी को हटाना चाहते हैं?"
@@ -1392,6 +1396,10 @@ msgstr "अधिक जानें"
 msgid "Learn more about how to fit content on a page"
 msgstr "पृष्ठ पर सामग्री फिट करने के बारे में अधिक जानें"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Leave"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
 msgstr "शीर्षक को मूल पर रीसेट करने के लिए खाली छोड़ दें।"
@@ -2038,7 +2046,7 @@ msgstr "दिखाएँ"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "साइडबार<<<<<<< HEAD"
+msgstr "साइडबार"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -2172,6 +2180,10 @@ msgstr "शुरुआत से अपना रेज़्यूमे ब�
 #: src/utils/resume/section.tsx
 msgid "Statistics"
 msgstr "आंकड़े"
+
+#: src/hooks/use-form-blocker.tsx
+msgid "Stay"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2695,6 +2707,10 @@ msgstr "आप अपना रेज़्यूमे एक यूनिक �
 msgid "You cannot use the passkey \"{0}\" anymore to sign in after deletion. This action cannot be undone."
 msgstr "हटाने के बाद आप साइन इन करने के लिए पासकी \"{0}\" का उपयोग नहीं कर पाएंगे। इस कार्रवाई को पूर्ववत नहीं किया जा सकता।"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "You have unsaved changes that will be lost."
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx
 msgid "You've got mail!"
@@ -2786,4 +2802,3 @@ msgstr "ज़ूम आउट"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ज़ुलु"
-

@@ -297,6 +297,10 @@ msgstr "應用程式統計資料"
 msgid "Arabic"
 msgstr "阿拉伯文"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Are you sure you want to close this dialog?"
+msgstr ""
+
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
 msgstr "確定要刪除此 API Key 嗎？"
@@ -1392,6 +1396,10 @@ msgstr "瞭解更多"
 msgid "Learn more about how to fit content on a page"
 msgstr "深入了解如何讓內容適應頁面"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Leave"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
 msgstr "留空則會將標題重設為原始值。"
@@ -2038,7 +2046,7 @@ msgstr "顯示"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "側邊欄<<<<<<< HEAD"
+msgstr "側邊欄"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -2172,6 +2180,10 @@ msgstr "從零開始建立您的履歷"
 #: src/utils/resume/section.tsx
 msgid "Statistics"
 msgstr "統計資料"
+
+#: src/hooks/use-form-blocker.tsx
+msgid "Stay"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2695,6 +2707,10 @@ msgstr "您可以透過唯一的公開 URL 分享履歷、以密碼加以保護�
 msgid "You cannot use the passkey \"{0}\" anymore to sign in after deletion. This action cannot be undone."
 msgstr "刪除後，您將無法再使用通行金鑰「{0}」登入。此動作無法復原。"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "You have unsaved changes that will be lost."
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx
 msgid "You've got mail!"
@@ -2786,4 +2802,3 @@ msgstr "縮小"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

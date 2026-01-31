@@ -297,6 +297,10 @@ msgstr "สถิติของแอปพลิเคชัน"
 msgid "Arabic"
 msgstr "อารบิก"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Are you sure you want to close this dialog?"
+msgstr ""
+
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ API Key นี้?"
@@ -1392,6 +1396,10 @@ msgstr "เรียนรู้เพิ่มเติม"
 msgid "Learn more about how to fit content on a page"
 msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับวิธีปรับเนื้อหาให้พอดีกับหน้า"
 
+#: src/hooks/use-form-blocker.tsx
+msgid "Leave"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
 msgstr "เว้นว่างไว้เพื่อรีเซ็ตชื่อกลับเป็นค่าเดิม"
@@ -2038,7 +2046,7 @@ msgstr "แสดง"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -2172,6 +2180,10 @@ msgstr "เริ่มสร้างเรซูเม่ตั้งแต่
 #: src/utils/resume/section.tsx
 msgid "Statistics"
 msgstr "สถิติ"
+
+#: src/hooks/use-form-blocker.tsx
+msgid "Stay"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2695,6 +2707,10 @@ msgstr "คุณสามารถแบ่งปันประวัติย
 msgid "You cannot use the passkey \"{0}\" anymore to sign in after deletion. This action cannot be undone."
 msgstr "คุณไม่สามารถใช้กุญแจผ่าน \"{0}\" เพื่อลงชื่อเข้าใช้หลังจากลบแล้ว การกระทำนี้จะไม่สามารถย้อนกลับได้."
 
+#: src/hooks/use-form-blocker.tsx
+msgid "You have unsaved changes that will be lost."
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx
 msgid "You've got mail!"
@@ -2785,5 +2801,4 @@ msgstr "ซูมออก"
 
 #: src/utils/locale.ts
 msgid "Zulu"
-msgstr "ซูลู"
-
+msgstr ""
