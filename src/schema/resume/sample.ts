@@ -479,7 +479,7 @@ export const sampleResumeData: ResumeData = {
 					id: "019bef5b-0f8d-77d1-9b2a-4a1b65e1b8aa",
 					hidden: false,
 					recipient:
-						"<p>Hiring Manager<br />Sunrise Games Studio<br />Seattle, WA<br /><a href=\"mailto:hiring@sunrisegames.com\">hiring@sunrisegames.com</a></p>",
+						'<p>Hiring Manager<br />Sunrise Games Studio<br />Seattle, WA<br /><a href="mailto:hiring@sunrisegames.com">hiring@sunrisegames.com</a></p>',
 					content:
 						"<p>Dear Hiring Manager,</p><p>I'm excited to apply for the Senior Gameplay Engineer role at Sunrise Games Studio. Over the past five years, I have shipped cross-platform titles in Unity and Unreal Engine, leading core gameplay and tooling efforts that improved iteration speed and player experience. At Cascade Studios, I architected combat systems and optimized performance to maintain 60 FPS on console while partnering closely with design and art.</p><p>I thrive in collaborative, cross-disciplinary teams and enjoy mentoring junior engineers. I'd welcome the chance to bring my gameplay systems expertise and tooling focus to your next title.</p><p>Sincerely,<br />David Kowalski</p>",
 				},
