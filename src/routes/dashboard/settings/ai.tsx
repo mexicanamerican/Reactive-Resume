@@ -100,6 +100,10 @@ function AIForm() {
 					});
 				},
 				onError: (error) => {
+					set((draft) => {
+						draft.testStatus = "failure";
+					});
+
 					toast.error(error.message);
 				},
 			},
