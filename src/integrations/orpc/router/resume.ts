@@ -1,4 +1,3 @@
-import type { Operation } from "fast-json-patch";
 import z from "zod";
 import { sampleResumeData } from "@/schema/resume/sample";
 import { generateRandomName, slugify } from "@/utils/string";
@@ -215,7 +214,7 @@ export const resumeRouter = {
 			return await resumeService.patch({
 				id: input.id,
 				userId: context.user.id,
-				operations: input.operations as Operation[],
+				operations: input.operations,
 			});
 		}),
 

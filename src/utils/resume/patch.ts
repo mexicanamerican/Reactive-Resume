@@ -1,8 +1,21 @@
 import type { JsonPatchError, Operation } from "fast-json-patch";
 import jsonpatch from "fast-json-patch";
+import z from "zod";
 import { type ResumeData, resumeDataSchema } from "@/schema/resume/data";
 
-export type { Operation };
+/**
+ * A Zod schema that models JSON Patch (RFC 6902) operations as a discriminated union on `op`.
+ * This ensures required fields (`value` for add/replace/test, `from` for move/copy) are
+ * validated at the request boundary rather than failing later at the `fast-json-patch` layer.
+ */
+export const jsonPatchOperationSchema = z.discriminatedUnion("op", [
+	z.object({ op: z.literal("add"), path: z.string(), value: z.any() }),
+	z.object({ op: z.literal("remove"), path: z.string() }),
+	z.object({ op: z.literal("replace"), path: z.string(), value: z.any() }),
+	z.object({ op: z.literal("move"), path: z.string(), from: z.string() }),
+	z.object({ op: z.literal("copy"), path: z.string(), from: z.string() }),
+	z.object({ op: z.literal("test"), path: z.string(), value: z.any() }),
+]);
 
 /**
  * A structured error thrown when a JSON Patch operation fails.
