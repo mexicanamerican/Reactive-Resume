@@ -19,8 +19,8 @@ const sectionClassName = cn(
 	"group-data-[layout=sidebar]:[&_.section-item_i]:text-(--page-background-color)!",
 
 	// Level Display in Sidebar Layout
-	"group-data-[layout=sidebar]:[&_.section-item-level>div]:bg-(--page-background-color)",
-	"group-data-[layout=sidebar]:[&_.section-item-level>div]:text-(--page-background-color)",
+	"group-data-[layout=sidebar]:[&_.section-item-level>div]:border-(--page-background-color)",
+	"group-data-[layout=sidebar]:[&_.section-item-level>div]:data-[active=true]:bg-(--page-background-color)",
 
 	// Section Item Header in Sidebar Layout
 	"group-data-[layout=sidebar]:[&_.section-item-header>div]:flex-col",
