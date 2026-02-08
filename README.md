@@ -193,7 +193,7 @@ docker pull amruthpillai/reactive-resume:latest
 docker pull ghcr.io/amruthpillai/reactive-resume:latest
 ```
 
-See the [self-hosting guide](https://docs.rxresu.me/guides/self-hosting-with-docker) for complete instructions.
+See the [self-hosting guide](https://docs.rxresu.me/self-hosting/docker) for complete instructions.
 
 ## Support
 
