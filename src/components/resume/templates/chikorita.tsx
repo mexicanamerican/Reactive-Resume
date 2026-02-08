@@ -41,13 +41,13 @@ export function ChikoritaTemplate({ pageIndex, pageLayout }: TemplateProps) {
 				<div className="page-sidebar-background pointer-events-none absolute inset-y-0 z-0 w-(--page-sidebar-width) shrink-0 bg-(--page-primary-color) ltr:end-0 rtl:start-0" />
 			)}
 
-			{isFirstPage && <Header />}
-
 			<div className="flex">
 				<main
 					data-layout="main"
 					className="group page-main z-10 flex-1 space-y-4 px-(--page-margin-x) pt-(--page-margin-y)"
 				>
+					{isFirstPage && <Header />}
+
 					{main.map((section) => {
 						const Component = getSectionComponent(section, { sectionClassName });
 						return <Component key={section} id={section} />;
@@ -75,10 +75,10 @@ function Header() {
 
 	return (
 		<div className="page-header relative flex">
-			<div className="flex flex-1 items-center ps-(--page-margin-x) pt-(--page-margin-y)">
+			<div className="flex flex-1 items-center gap-x-(--page-margin-x)">
 				<PagePicture />
 
-				<div className="page-basics space-y-2 px-(--page-margin-x)">
+				<div className="page-basics space-y-2">
 					<div>
 						<h2 className="basics-name">{basics.name}</h2>
 						<p className="basics-headline">{basics.headline}</p>
@@ -122,8 +122,6 @@ function Header() {
 					</div>
 				</div>
 			</div>
-
-			<div className="w-(--page-sidebar-width) shrink-0" />
 		</div>
 	);
 }
