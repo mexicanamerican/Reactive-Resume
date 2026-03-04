@@ -8,7 +8,6 @@ import {
 	S3Client,
 } from "@aws-sdk/client-s3";
 import { env } from "@/utils/env";
-import { logger } from "@/utils/logger";
 
 interface StorageWriteInput {
 	key: string;
@@ -90,9 +89,6 @@ interface ProcessedImage {
 export async function processImageForUpload(file: File): Promise<ProcessedImage> {
 	const fileBuffer = await file.arrayBuffer();
 
-	logger.debug("Image processing feature flag resolved", {
-		flagDisableImageProcessing: env.FLAG_DISABLE_IMAGE_PROCESSING,
-	});
 	if (env.FLAG_DISABLE_IMAGE_PROCESSING) {
 		return {
 			data: new Uint8Array(fileBuffer),
