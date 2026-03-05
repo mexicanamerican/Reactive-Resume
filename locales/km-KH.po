@@ -42,6 +42,11 @@ msgstr "(បើក​ក្នុងផ្ទាំង​ថ្មី)"
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr "{0, plural, other {# ធាតុ}}"
 
+#. placeholder {0}: item.roles.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
+msgid "{0, plural, one {# role} other {# roles}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
@@ -195,9 +200,17 @@ msgstr "បន្ថែម​ជួរឈរ​នៅ​ក្រោយ"
 msgid "Add Column Before"
 msgstr "បន្ថែម​ជួរឈរ​នៅ​មុខ"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add multiple roles to show career progression at the same company."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "បន្ថែម​ទំព័រ"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add Role"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -359,6 +372,7 @@ msgctxt "(noun) person, organization, or entity that gives an award"
 msgid "Awarder"
 msgstr "អ្នក​ផ្តល់​រង្វាន់"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Awards"
 msgstr "រង្វាន់"
@@ -489,6 +503,7 @@ msgstr "តម្រង់​កណ្ដាល"
 msgid "Center view"
 msgstr "ផ្ដោត​ទិដ្ឋភាព​ទៅ​កណ្ដាល"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Certifications"
 msgstr "វិញ្ញាបនបត្រ"
@@ -622,6 +637,7 @@ msgstr "ចម្លង​កូនសោ​សម្ងាត់​នេះ �
 msgid "Copy URL"
 msgstr "ចម្លង URL"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
 msgstr ""
@@ -837,6 +853,7 @@ msgstr "កំពុង​លុប​ប្រវត្តិរូប​រប
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
@@ -948,6 +965,7 @@ msgstr "Dutch"
 msgid "e.g. Change my name to..."
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Education"
 msgstr "ការ​សិក្សា"
@@ -1040,6 +1058,7 @@ msgstr "អ្វីៗ​ដែល​អ្នក​ត្រូវការ �
 msgid "Exit Fullscreen"
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "បទពិសោធន៍"
@@ -1068,6 +1087,10 @@ msgstr "នាំចេញ"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "បានបរាជ័យ​ក្នុងការ​រៀបចំ​ការ​ផ្ទៀងផ្ទាត់​ពីរ​ជាន់។"
+
+#: src/routes/auth/login.tsx
+msgid "Failed to sign in. Please try again."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1330,6 +1353,7 @@ msgstr "កូដ​ក្នុង​បន្ទាត់"
 msgid "Insert Table"
 msgstr "បញ្ចូល​តារាង"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "ចំណាប់អារម្មណ៍"
@@ -1395,6 +1419,7 @@ msgstr "ផ្ទៃ​ទេសភាព"
 msgid "Language"
 msgstr "ភាសា"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Languages"
 msgstr "ភាសា"
@@ -1666,6 +1691,14 @@ msgstr "បញ្ជី​មាន​លេខ"
 msgid "Organization"
 msgstr "អង្គការ"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Period"
+msgstr ""
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Title (optional)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ទំព័រ"
@@ -1714,6 +1747,7 @@ msgid "Password protection has been enabled."
 msgstr "ការ​ការពារ​ដោយ​ពាក្យសម្ងាត់​ត្រូវ​បាន​បើក។"
 
 #: src/dialogs/resume/sections/education.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
@@ -1771,6 +1805,7 @@ msgid "Portuguese (Portugal)"
 msgstr "Portuguese (Portugal)"
 
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "តួនាទី"
@@ -1802,6 +1837,7 @@ msgstr "កម្រិត​ជំនាញ"
 msgid "Profile"
 msgstr "ប្រវត្តិ​សង្ខេប"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Profiles"
 msgstr "ប្រវត្តិ​សង្ខេប​បណ្ដាញ​សង្គម"
@@ -1810,6 +1846,7 @@ msgstr "ប្រវត្តិ​សង្ខេប​បណ្ដាញ​ស
 msgid "Progress Bar"
 msgstr "របារ​វឌ្ឍនភាព"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Projects"
 msgstr "គម្រោង"
@@ -1826,6 +1863,7 @@ msgstr "ការពារ​ប្រវត្តិរូប​របស់​
 msgid "Provider"
 msgstr "អ្នកផ្តល់សេវា"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Publications"
 msgstr "អត្ថបទផ្សព្វផ្សាយ"
@@ -1875,6 +1913,7 @@ msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg'
 msgid "Redo (Ctrl+Y)"
 msgstr "ធ្វើម្ដងទៀត (Ctrl+Y)"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "យោង"
@@ -1886,6 +1925,10 @@ msgstr "ផ្ទៀងផ្ទាត់​ម្ដងទៀត"
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
 msgstr "ចង់​ចាំ​ពាក្យសម្ងាត់វិញ​ហើយ​ឬ? <0><1>ចូល​ឥឡូវនេះ <2/></1></0>"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Remove"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1902,6 +1945,10 @@ msgstr "កំពុង​ដក​ការ​ការពារ​ដោយ​
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Rename"
 msgstr "ប្ដូរ​ឈ្មោះ"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Reorder"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -1953,6 +2000,10 @@ msgstr "ប្រវត្តិរូប"
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
 msgstr "តម្រង់​ស្ដាំ"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Role Progression"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2150,6 +2201,7 @@ msgstr "ជួរឈរ​តែមួយ រូបរាង​រលោង ន�
 msgid "Size"
 msgstr "ទំហំ"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Skills"
 msgstr "ជំនាញ"
@@ -2240,6 +2292,7 @@ msgstr "អក្សរ​ឆូត"
 msgid "Subreddit"
 msgstr "Subreddit"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Summary"
 msgstr "សង្ខេប"
@@ -2698,6 +2751,7 @@ msgstr "Vietnamese"
 msgid "Views"
 msgstr "ចំនួន​មើល"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Volunteer"
 msgstr "ស្ម័គ្រចិត្ត"

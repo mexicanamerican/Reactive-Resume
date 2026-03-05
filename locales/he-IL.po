@@ -42,6 +42,11 @@ msgstr "(נפתח בלשונית חדשה)"
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr "{0, plural, one {# פריט} two {# פריטים} many {# פריטים} other {# פריטים}}"
 
+#. placeholder {0}: item.roles.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
+msgid "{0, plural, one {# role} other {# roles}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
@@ -195,9 +200,17 @@ msgstr "הוספת עמודה אחרי"
 msgid "Add Column Before"
 msgstr "הוספת עמודה לפני"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add multiple roles to show career progression at the same company."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "הוספת עמוד"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add Role"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -359,6 +372,7 @@ msgctxt "(noun) person, organization, or entity that gives an award"
 msgid "Awarder"
 msgstr "גוף מעניק"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Awards"
 msgstr "פרסים"
@@ -489,6 +503,7 @@ msgstr "יישור למרכז"
 msgid "Center view"
 msgstr "מרכוז התצוגה"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Certifications"
 msgstr "הסמכות"
@@ -622,6 +637,7 @@ msgstr "העתק את המפתח הסודי הזה והשתמש בו ביישו�
 msgid "Copy URL"
 msgstr "העתקת כתובת"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
 msgstr ""
@@ -837,6 +853,7 @@ msgstr "מוחק את קורות החיים שלך..."
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
@@ -948,6 +965,7 @@ msgstr "הולנדית"
 msgid "e.g. Change my name to..."
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Education"
 msgstr "השכלה"
@@ -1040,6 +1058,7 @@ msgstr "כל מה שצריך כדי ליצור, להתאים אישית ולשת
 msgid "Exit Fullscreen"
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "ניסיון"
@@ -1068,6 +1087,10 @@ msgstr "ייצוא"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "ההגנה עם אימות דו־שלבי נכשלה."
+
+#: src/routes/auth/login.tsx
+msgid "Failed to sign in. Please try again."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1330,6 +1353,7 @@ msgstr "קוד מוטמע"
 msgid "Insert Table"
 msgstr "הוספת טבלה"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "תחביבים"
@@ -1395,6 +1419,7 @@ msgstr "לרוחב"
 msgid "Language"
 msgstr "שפה"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Languages"
 msgstr "שפות"
@@ -1666,6 +1691,14 @@ msgstr "רשימה ממוספרת"
 msgid "Organization"
 msgstr "ארגון"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Period"
+msgstr ""
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Title (optional)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "עמוד"
@@ -1714,6 +1747,7 @@ msgid "Password protection has been enabled."
 msgstr "ההגנה באמצעות סיסמה הופעלה."
 
 #: src/dialogs/resume/sections/education.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
@@ -1771,6 +1805,7 @@ msgid "Portuguese (Portugal)"
 msgstr "פורטוגזית (פורטוגל)"
 
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "תפקיד"
@@ -1802,6 +1837,7 @@ msgstr "רמת מיומנות"
 msgid "Profile"
 msgstr "פרופיל"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Profiles"
 msgstr "פרופילים"
@@ -1810,6 +1846,7 @@ msgstr "פרופילים"
 msgid "Progress Bar"
 msgstr "פס התקדמות"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Projects"
 msgstr "פרויקטים"
@@ -1826,6 +1863,7 @@ msgstr "הגן על קורות החיים שלך באמצעות סיסמה, כך
 msgid "Provider"
 msgstr "ספק"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Publications"
 msgstr "פרסומים"
@@ -1875,6 +1913,7 @@ msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg'
 msgid "Redo (Ctrl+Y)"
 msgstr "בצע שוב (Ctrl+Y)"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "ממליצים"
@@ -1886,6 +1925,10 @@ msgstr "רענון"
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
 msgstr "נזכרת בסיסמה? <0><1>התחברות עכשיו <2/></1></0>"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Remove"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1902,6 +1945,10 @@ msgstr "מסיר את ההגנה באמצעות סיסמה..."
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Rename"
 msgstr "שינוי שם"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Reorder"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -1953,6 +2000,10 @@ msgstr "מסמכי קורות חיים"
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
 msgstr "יישור לימין"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Role Progression"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2150,6 +2201,7 @@ msgstr "עמודה אחת; מלוטש ורציני לתפקידים בכירים
 msgid "Size"
 msgstr "גודל"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Skills"
 msgstr "מיומנויות"
@@ -2240,6 +2292,7 @@ msgstr "קו חוצה"
 msgid "Subreddit"
 msgstr "סברדיט"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Summary"
 msgstr "תקציר"
@@ -2698,6 +2751,7 @@ msgstr "וייטנאמית"
 msgid "Views"
 msgstr "צפיות"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Volunteer"
 msgstr "התנדבות"

@@ -42,6 +42,11 @@ msgstr "(yeni sekmede açılır)"
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr "{0, plural, one {# öğe} other {# öğe}}"
 
+#. placeholder {0}: item.roles.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
+msgid "{0, plural, one {# role} other {# roles}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
@@ -195,9 +200,17 @@ msgstr "Sonra Sütun Ekle"
 msgid "Add Column Before"
 msgstr "Önce Sütun Ekle"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add multiple roles to show career progression at the same company."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "Sayfa Ekle"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add Role"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -359,6 +372,7 @@ msgctxt "(noun) person, organization, or entity that gives an award"
 msgid "Awarder"
 msgstr "Ödül veren"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Awards"
 msgstr "Ödüller"
@@ -489,6 +503,7 @@ msgstr "Ortala"
 msgid "Center view"
 msgstr "Görünümü ortala"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Certifications"
 msgstr "Sertifikalar"
@@ -622,6 +637,7 @@ msgstr "Bu gizli anahtarı kopyalayıp uygulamalarınızda verilerinize erişmek
 msgid "Copy URL"
 msgstr "URL'yi Kopyala"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
 msgstr ""
@@ -837,6 +853,7 @@ msgstr "Özgeçmişiniz siliniyor..."
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
@@ -948,6 +965,7 @@ msgstr "Felemenkçe"
 msgid "e.g. Change my name to..."
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Education"
 msgstr "Eğitim"
@@ -1040,6 +1058,7 @@ msgstr "Profesyonel özgeçmişler oluşturmak, özelleştirmek ve paylaşmak i�
 msgid "Exit Fullscreen"
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "Deneyim"
@@ -1068,6 +1087,10 @@ msgstr "Dışa aktar"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "İki faktörlü kimlik doğrulama kurulamadı."
+
+#: src/routes/auth/login.tsx
+msgid "Failed to sign in. Please try again."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1330,6 +1353,7 @@ msgstr "Satır İçi Kod"
 msgid "Insert Table"
 msgstr "Tablo Ekle"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "İlgi Alanları"
@@ -1395,6 +1419,7 @@ msgstr "Yatay"
 msgid "Language"
 msgstr "Dil"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Languages"
 msgstr "Diller"
@@ -1666,6 +1691,14 @@ msgstr "Sıralı Liste"
 msgid "Organization"
 msgstr "Organizasyon"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Period"
+msgstr ""
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Title (optional)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Sayfa"
@@ -1714,6 +1747,7 @@ msgid "Password protection has been enabled."
 msgstr "Şifre koruması etkinleştirildi."
 
 #: src/dialogs/resume/sections/education.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
@@ -1771,6 +1805,7 @@ msgid "Portuguese (Portugal)"
 msgstr "Portekizce (Portekiz)"
 
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "Pozisyon"
@@ -1802,6 +1837,7 @@ msgstr "Yeterlilik"
 msgid "Profile"
 msgstr "Profil"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Profiles"
 msgstr "Profiller"
@@ -1810,6 +1846,7 @@ msgstr "Profiller"
 msgid "Progress Bar"
 msgstr "İlerleme Çubuğu"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Projects"
 msgstr "Projeler"
@@ -1826,6 +1863,7 @@ msgstr "Özgeçmişinizi bir şifre ile koruyun ve yalnızca şifreye sahip kiş
 msgid "Provider"
 msgstr "Sağlayıcı"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Publications"
 msgstr "Yayınlar"
@@ -1875,6 +1913,7 @@ msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg'
 msgid "Redo (Ctrl+Y)"
 msgstr "Yinele (Ctrl+Y)"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "Referanslar"
@@ -1886,6 +1925,10 @@ msgstr "Yenile"
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
 msgstr "Şifrenizi hatırlıyor musunuz? <0><1>Şimdi giriş yapın <2/></1></0>"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Remove"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1902,6 +1945,10 @@ msgstr "Şifre koruması kaldırılıyor..."
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Rename"
 msgstr "Yeniden adlandır"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Reorder"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -1953,6 +2000,10 @@ msgstr "Özgeçmişler"
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
 msgstr "Sağa Hizala"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Role Progression"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2150,6 +2201,7 @@ msgstr "Tek sütun; üst düzey veya kurumsal pozisyonlar için ciddi ve özenli
 msgid "Size"
 msgstr "Boyut"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Skills"
 msgstr "Yetenekler"
@@ -2240,6 +2292,7 @@ msgstr "Üstü Çizili"
 msgid "Subreddit"
 msgstr "Alt Reddit"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Summary"
 msgstr "Özet"
@@ -2698,6 +2751,7 @@ msgstr "Vietnamca"
 msgid "Views"
 msgstr "Görüntülenmeler"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Volunteer"
 msgstr "Gönüllü"

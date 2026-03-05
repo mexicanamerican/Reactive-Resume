@@ -42,6 +42,11 @@ msgstr "(புதிய தாவலில் திறக்கிறது)"
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr "{0, plural, one {# உருப்படி} other {# உருப்படிகள்}}"
 
+#. placeholder {0}: item.roles.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
+msgid "{0, plural, one {# role} other {# roles}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
@@ -195,9 +200,17 @@ msgstr "பின் நெடுவரிசைச் சேர்க்கவ�
 msgid "Add Column Before"
 msgstr "முன் நெடுவரிசைச் சேர்க்கவும்"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add multiple roles to show career progression at the same company."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "பக்கத்தைச் சேர்க்கவும்"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add Role"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -359,6 +372,7 @@ msgctxt "(noun) person, organization, or entity that gives an award"
 msgid "Awarder"
 msgstr "விருது வழங்குநர்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Awards"
 msgstr "விருதுகள்"
@@ -489,6 +503,7 @@ msgstr "நடுவில் சீரமை"
 msgid "Center view"
 msgstr "நடுப்பார்வை"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Certifications"
 msgstr "சான்றிதழ்கள்"
@@ -622,6 +637,7 @@ msgstr "இந்த ரகசிய விசையை நகலெடுத்
 msgid "Copy URL"
 msgstr "URL-ஐ நகலெடு"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
 msgstr ""
@@ -837,6 +853,7 @@ msgstr "உங்கள் ரெஸ்யூமியை நீக்கிக�
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
@@ -948,6 +965,7 @@ msgstr "டச்சு"
 msgid "e.g. Change my name to..."
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Education"
 msgstr "கல்வி"
@@ -1040,6 +1058,7 @@ msgstr "தொழில்முறை ரெஸ்யூமிகளை உர�
 msgid "Exit Fullscreen"
 msgstr ""
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "அனுபவம்"
@@ -1068,6 +1087,10 @@ msgstr "ஏற்றுமதி"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "இரண்டு நிலை அங்கீகாரத்தை அமைப்பது தோல்வியடைந்தது."
+
+#: src/routes/auth/login.tsx
+msgid "Failed to sign in. Please try again."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1330,6 +1353,7 @@ msgstr "இன்லைன் குறியீடு"
 msgid "Insert Table"
 msgstr "அட்டவணையை நுழைக்கவும்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "விருப்பங்கள்"
@@ -1395,6 +1419,7 @@ msgstr "கிடைமட்டப் படலம்"
 msgid "Language"
 msgstr "மொழி"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Languages"
 msgstr "மொழிகள்"
@@ -1666,6 +1691,14 @@ msgstr "வரிசைப்படுத்தப்பட்ட பட்ட�
 msgid "Organization"
 msgstr "நிறுவனம் / அமைப்பு"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Period"
+msgstr ""
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Title (optional)"
+msgstr ""
+
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "பக்கம்"
@@ -1714,6 +1747,7 @@ msgid "Password protection has been enabled."
 msgstr "கடவுச்சொல் பாதுகாப்பு இயக்கப்பட்டுள்ளது."
 
 #: src/dialogs/resume/sections/education.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
@@ -1771,6 +1805,7 @@ msgid "Portuguese (Portugal)"
 msgstr "போர்ச்சுகீஸ் (போர்ச்சுகல்)"
 
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "பதவி"
@@ -1802,6 +1837,7 @@ msgstr "திறமைத் தரம்"
 msgid "Profile"
 msgstr "சுயவிவரம்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Profiles"
 msgstr "சுயவிவரங்கள்"
@@ -1810,6 +1846,7 @@ msgstr "சுயவிவரங்கள்"
 msgid "Progress Bar"
 msgstr "முன்னேற்ற பட்டை"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Projects"
 msgstr "திட்டங்கள்"
@@ -1826,6 +1863,7 @@ msgstr "உங்கள் ரெஸ்யூமியை கடவுச்ச�
 msgid "Provider"
 msgstr "வழங்குபவர்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Publications"
 msgstr "வெளியீடுகள்"
@@ -1875,6 +1913,7 @@ msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg'
 msgid "Redo (Ctrl+Y)"
 msgstr "மீண்டும் செயல்படுத்து (Ctrl+Y)"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "References"
 msgstr "பரிந்துரைகள்"
@@ -1886,6 +1925,10 @@ msgstr "மீண்டும் ஏற்று"
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
 msgstr "உங்கள் கடவுச்சொல் நினைவில் இருக்கிறதா? <0><1>உடனே உள்நுழைக <2/></1></0>"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Remove"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1902,6 +1945,10 @@ msgstr "கடவுச்சொல் பாதுகாப்பை நீக�
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Rename"
 msgstr "மறுபெயரிடு"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Reorder"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -1953,6 +2000,10 @@ msgstr "ரெஸ்யூமிகள்"
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
 msgstr "வலது சீரமை"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Role Progression"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2150,6 +2201,7 @@ msgstr "ஒற்றை நெடுவரிசை; மெத்தனமாக
 msgid "Size"
 msgstr "அளவு"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Skills"
 msgstr "திறன்கள்"
@@ -2240,6 +2292,7 @@ msgstr "கோடு கிழித்தல்"
 msgid "Subreddit"
 msgstr "சப்ரெட்டிட்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Summary"
 msgstr "சுருக்கம்"
@@ -2698,6 +2751,7 @@ msgstr "வியட்‌നாமீஸ்"
 msgid "Views"
 msgstr "பார்வைகள்"
 
+#: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Volunteer"
 msgstr "தன்னார்வம்"
