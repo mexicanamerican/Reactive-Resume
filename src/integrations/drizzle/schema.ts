@@ -229,7 +229,7 @@ export const apikey = pg.pgTable(
 		start: pg.text("start"),
 		prefix: pg.text("prefix"),
 		key: pg.text("key").notNull(),
-		configId: pg.text("config_id").notNull(),
+		configId: pg.text("config_id").notNull().default("default"),
 		referenceId: pg
 			.uuid("reference_id")
 			.notNull()
