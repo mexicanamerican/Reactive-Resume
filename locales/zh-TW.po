@@ -508,6 +508,10 @@ msgstr "置中檢視"
 msgid "Certifications"
 msgstr "證照"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "變更語言為…"

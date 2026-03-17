@@ -59,7 +59,7 @@ export function Header() {
 				<div className="ml-auto flex items-center gap-x-2">
 					<LocaleCombobox
 						render={
-							<Button size="icon" variant="ghost">
+							<Button size="icon" variant="ghost" aria-label={t`Change language`}>
 								<TranslateIcon />
 							</Button>
 						}

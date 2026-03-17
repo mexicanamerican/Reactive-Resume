@@ -508,6 +508,10 @@ msgstr "Центриране на изгледа"
 msgid "Certifications"
 msgstr "Сертификати"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "Промяна на езика на..."

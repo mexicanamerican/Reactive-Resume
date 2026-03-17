@@ -508,6 +508,10 @@ msgstr "Κεντράρισμα προβολής"
 msgid "Certifications"
 msgstr "Πιστοποιήσεις"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "Αλλαγή γλώσσας σε..."

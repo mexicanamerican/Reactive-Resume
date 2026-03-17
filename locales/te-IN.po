@@ -508,6 +508,10 @@ msgstr "ప్రదర్శనను మధ్య భాగంగా ఉంచ
 msgid "Certifications"
 msgstr "ప్రామாணపత్రాలు"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "భాష మార్చండి..."

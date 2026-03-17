@@ -508,6 +508,10 @@ msgstr "ಮಧ್ಯದಲ್ಲಿ ವೀಕ್ಷಿಸಿ"
 msgid "Certifications"
 msgstr "ಪ್ರಮಾಣಪತ್ರಗಳು"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "ಭಾಷೆಯನ್ನು ಈ ಕೆಳಗಿನದಕ್ಕೆ ಬದಲಾಯಿಸಿ..."

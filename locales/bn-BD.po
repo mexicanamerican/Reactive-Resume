@@ -508,6 +508,10 @@ msgstr "ভিউ কেন্দ্র করুন"
 msgid "Certifications"
 msgstr "সার্টিফিকেশনসমূহ"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "ভাষা পরিবর্তন করুন..."

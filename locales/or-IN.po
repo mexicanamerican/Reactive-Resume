@@ -508,6 +508,10 @@ msgstr "ଭ୍ୟୁକୁ ମଧ୍ୟରେ ରଖନ୍ତୁ"
 msgid "Certifications"
 msgstr "ପ୍ରମାଣପତ୍ରଗୁଡିକ"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "ଭାଷାକୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ..."

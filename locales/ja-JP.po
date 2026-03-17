@@ -508,6 +508,10 @@ msgstr "中央に表示"
 msgid "Certifications"
 msgstr "認定資格"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "言語を変更..."

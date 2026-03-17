@@ -508,6 +508,10 @@ msgstr "Vycentrovat zobrazení"
 msgid "Certifications"
 msgstr "Osvědčení"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "Změnit jazyk na…"

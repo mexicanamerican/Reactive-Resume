@@ -508,6 +508,10 @@ msgstr "ផ្ដោត​ទិដ្ឋភាព​ទៅ​កណ្ដាល
 msgid "Certifications"
 msgstr "វិញ្ញាបនបត្រ"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "ប្តូរ​ភាសា​ទៅ..."

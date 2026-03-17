@@ -508,6 +508,10 @@ msgstr "مركزة العرض"
 msgid "Certifications"
 msgstr "الشهادات"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "تغيير اللغة إلى..."

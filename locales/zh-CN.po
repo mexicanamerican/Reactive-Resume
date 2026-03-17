@@ -508,6 +508,10 @@ msgstr "视图居中"
 msgid "Certifications"
 msgstr "证书"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "将语言更改为…"

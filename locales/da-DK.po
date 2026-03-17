@@ -508,6 +508,10 @@ msgstr "Centrér visning"
 msgid "Certifications"
 msgstr "Certificeringer"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Change language"
+msgstr ""
+
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "Skift sprog til..."
