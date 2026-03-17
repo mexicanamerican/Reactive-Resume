@@ -246,8 +246,8 @@ msgid "Allow Public Access"
 msgstr "सार्वजनिक पहुँच अनुमति दिनुहोस्"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "पहिले नै खाता छ? <0><1>अहिले साइन इन गर्नुहोस् <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -508,10 +508,6 @@ msgstr "दृश्य केन्द्रमा ल्याउनुहो�
 msgid "Certifications"
 msgstr "प्रमाणपत्रहरू"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Change language"
-msgstr "भाषा परिवर्तन गर्नुहोस्"
-
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "भाषा यसमा परिवर्तन गर्नुहोस्..."
@@ -552,13 +548,14 @@ msgstr "वृत्त"
 msgid "Clear chat history"
 msgstr ""
 
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "चयन खाली गर्नुहोस्"
-
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "आयात गर्न फाइल छान्न यहाँ क्लिक गर्नुहोस्"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -896,8 +893,8 @@ msgid "Documentation"
 msgstr "प्रलेखन (Documentation)"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "खाता छैन? <0><1>अहिले नै एउटा बनाउनुहोस् <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1013,6 +1010,10 @@ msgstr "दुई-कारक प्रमाणीकरण सक्रिय
 #: src/utils/locale.ts
 msgid "English"
 msgstr "अंग्रेजी"
+
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1630,7 +1631,6 @@ msgid "No Advertising, No Tracking"
 msgstr "कुनै विज्ञापन छैन, कुनै ट्र्याकिङ छैन"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "कुनै परिणाम फेला परेन।"
 
@@ -1923,8 +1923,8 @@ msgid "Refresh"
 msgstr "रिफ्रेस गर्नुहोस्"
 
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "पासवर्ड सम्झनुभयो? <0><1>अहिले साइन इन गर्नुहोस् <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2055,9 +2055,8 @@ msgid "Search for..."
 msgstr "यसको लागि खोज्नुहोस्..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
-msgstr "खोज्नुहोस्..."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2068,9 +2067,8 @@ msgid "Section Type"
 msgstr "खण्ड प्रकार"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
-msgstr "छान्नुहोस्..."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2902,4 +2900,3 @@ msgstr "जूम आउट"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "जुलु"
-

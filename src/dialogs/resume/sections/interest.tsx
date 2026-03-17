@@ -157,9 +157,11 @@ function InterestForm() {
 					name={"icon"}
 					render={({ field }) => (
 						<FormItem className="shrink-0">
-							<FormControl>
-								<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
-							</FormControl>
+							<FormControl
+								render={
+									<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
+								}
+							/>
 						</FormItem>
 					)}
 				/>
@@ -172,9 +174,7 @@ function InterestForm() {
 							<FormLabel>
 								<Trans>Name</Trans>
 							</FormLabel>
-							<FormControl>
-								<Input className="rounded-l-none!" {...field} />
-							</FormControl>
+							<FormControl render={<Input className="rounded-l-none!" {...field} />} />
 							<FormMessage />
 						</FormItem>
 					)}
@@ -189,9 +189,7 @@ function InterestForm() {
 						<FormLabel>
 							<Trans>Keywords</Trans>
 						</FormLabel>
-						<FormControl>
-							<ChipInput {...field} />
-						</FormControl>
+						<FormControl render={<ChipInput {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}

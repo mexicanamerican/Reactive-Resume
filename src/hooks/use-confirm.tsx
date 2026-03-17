@@ -76,6 +76,7 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
 							{state.description}
 						</AlertDialogDescription>
 					</AlertDialogHeader>
+
 					<AlertDialogFooter>
 						<AlertDialogCancel onClick={handleCancel}>{state.cancelText ?? "Cancel"}</AlertDialogCancel>
 						<AlertDialogAction onClick={handleConfirm}>{state.confirmText ?? "Confirm"}</AlertDialogAction>

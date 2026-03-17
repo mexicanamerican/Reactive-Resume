@@ -159,9 +159,7 @@ function AwardForm() {
 						<FormLabel>
 							<Trans>Title</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -175,9 +173,7 @@ function AwardForm() {
 						<FormLabel>
 							<Trans context="(noun) person, organization, or entity that gives an award">Awarder</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -191,9 +187,7 @@ function AwardForm() {
 						<FormLabel>
 							<Trans>Date</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -207,14 +201,12 @@ function AwardForm() {
 						<FormLabel>
 							<Trans>Website</Trans>
 						</FormLabel>
-						<FormControl>
-							<URLInput
-								{...field}
-								value={field.value}
-								onChange={field.onChange}
-								hideLabelButton={form.watch("options.showLinkInTitle")}
-							/>
-						</FormControl>
+						<URLInput
+							{...field}
+							value={field.value}
+							onChange={field.onChange}
+							hideLabelButton={form.watch("options.showLinkInTitle")}
+						/>
 						<FormMessage />
 					</FormItem>
 				)}
@@ -225,10 +217,8 @@ function AwardForm() {
 				name="options.showLinkInTitle"
 				render={({ field }) => (
 					<FormItem className="flex items-center gap-x-2">
-						<FormControl>
-							<Switch checked={field.value} onCheckedChange={field.onChange} />
-						</FormControl>
-						<FormLabel className="!mt-0">
+						<FormControl render={<Switch checked={field.value} onCheckedChange={field.onChange} />} />
+						<FormLabel className="mt-0!">
 							<Trans>Show link in title</Trans>
 						</FormLabel>
 					</FormItem>
@@ -243,9 +233,7 @@ function AwardForm() {
 						<FormLabel>
 							<Trans>Description</Trans>
 						</FormLabel>
-						<FormControl>
-							<RichInput {...field} value={field.value} onChange={field.onChange} />
-						</FormControl>
+						<FormControl render={<RichInput {...field} value={field.value} onChange={field.onChange} />} />
 						<FormMessage />
 					</FormItem>
 				)}

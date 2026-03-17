@@ -24,7 +24,7 @@ import { isLocale, loadLocale, localeMap, setLocaleServerFn } from "@/utils/loca
 import { isTheme } from "@/utils/theme";
 
 type Props = {
-	children: ({ session }: { session: AuthSession }) => React.ReactNode;
+	children: ({ session }: { session: AuthSession }) => React.ComponentProps<typeof DropdownMenuTrigger>["render"];
 };
 
 export function UserDropdownMenu({ children }: Props) {
@@ -64,7 +64,7 @@ export function UserDropdownMenu({ children }: Props) {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger asChild>{children({ session })}</DropdownMenuTrigger>
+			<DropdownMenuTrigger render={children({ session })} />
 
 			<DropdownMenuContent align="start" side="top">
 				<DropdownMenuGroup>
@@ -104,7 +104,7 @@ export function UserDropdownMenu({ children }: Props) {
 
 				<DropdownMenuSeparator />
 
-				<DropdownMenuItem onSelect={handleLogout}>
+				<DropdownMenuItem onClick={handleLogout}>
 					<SignOutIcon />
 					<Trans>Logout</Trans>
 				</DropdownMenuItem>

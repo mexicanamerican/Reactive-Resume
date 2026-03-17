@@ -91,11 +91,13 @@ export function IconPicker({ value, onChange, popoverProps, ...props }: IconPick
 
 	return (
 		<Popover {...popoverProps}>
-			<PopoverTrigger asChild>
-				<Button size="icon" variant="outline" {...props}>
-					<i className={cn("ph size-4 text-base", `ph-${value}`)} />
-				</Button>
-			</PopoverTrigger>
+			<PopoverTrigger
+				render={
+					<Button size="icon" variant="outline" {...props}>
+						<i className={cn("ph size-4 text-base", `ph-${value}`)} />
+					</Button>
+				}
+			/>
 
 			<PopoverContent align="start" className="h-[326px] w-[290px] gap-0 p-0">
 				<IconSearchInput value={search} onChange={setSearch} />

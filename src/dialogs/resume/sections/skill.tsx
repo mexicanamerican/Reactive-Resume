@@ -163,9 +163,11 @@ function SkillForm() {
 					name={"icon"}
 					render={({ field }) => (
 						<FormItem className="shrink-0">
-							<FormControl>
-								<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
-							</FormControl>
+							<FormControl
+								render={
+									<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
+								}
+							/>
 						</FormItem>
 					)}
 				/>
@@ -178,9 +180,7 @@ function SkillForm() {
 							<FormLabel>
 								<Trans>Name</Trans>
 							</FormLabel>
-							<FormControl>
-								<Input className="rounded-l-none!" {...field} />
-							</FormControl>
+							<FormControl render={<Input className="rounded-l-none!" {...field} />} />
 							<FormMessage />
 						</FormItem>
 					)}
@@ -195,9 +195,7 @@ function SkillForm() {
 						<FormLabel>
 							<Trans>Proficiency</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -211,15 +209,17 @@ function SkillForm() {
 						<FormLabel>
 							<Trans>Level</Trans>
 						</FormLabel>
-						<FormControl>
-							<Slider
-								min={0}
-								max={5}
-								step={1}
-								value={[field.value]}
-								onValueChange={(value) => field.onChange(value[0])}
-							/>
-						</FormControl>
+						<FormControl
+							render={
+								<Slider
+									min={0}
+									max={5}
+									step={1}
+									value={[field.value]}
+									onValueChange={(value) => field.onChange(Array.isArray(value) ? value[0] : value)}
+								/>
+							}
+						/>
 						<FormMessage />
 						<FormDescription>{Number(field.value) === 0 ? t`Hidden` : `${field.value} / 5`}</FormDescription>
 					</FormItem>
@@ -234,9 +234,7 @@ function SkillForm() {
 						<FormLabel>
 							<Trans>Keywords</Trans>
 						</FormLabel>
-						<FormControl>
-							<ChipInput {...field} />
-						</FormControl>
+						<FormControl render={<ChipInput {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}

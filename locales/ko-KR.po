@@ -246,8 +246,8 @@ msgid "Allow Public Access"
 msgstr "공개 액세스 허용"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "이미 계정이 있으신가요? <0><1>지금 로그인하기 <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -508,10 +508,6 @@ msgstr "보기 가운데로"
 msgid "Certifications"
 msgstr "자격증"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Change language"
-msgstr "언어 변경"
-
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "언어를 변경..."
@@ -552,13 +548,14 @@ msgstr "원"
 msgid "Clear chat history"
 msgstr ""
 
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "선택 해제"
-
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "가져올 파일을 선택하려면 여기를 클릭하세요"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -896,8 +893,8 @@ msgid "Documentation"
 msgstr "문서"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "계정이 없으신가요? <0><1>지금 가입하기 <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1013,6 +1010,10 @@ msgstr "2단계 인증을 활성화하는 중입니다..."
 #: src/utils/locale.ts
 msgid "English"
 msgstr "영어"
+
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1630,7 +1631,6 @@ msgid "No Advertising, No Tracking"
 msgstr "광고 없음, 추적 없음"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "결과가 없습니다."
 
@@ -1923,8 +1923,8 @@ msgid "Refresh"
 msgstr "새로고침"
 
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "비밀번호가 기억나시나요? <0><1>지금 로그인하기 <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2055,9 +2055,8 @@ msgid "Search for..."
 msgstr "검색..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
-msgstr "검색..."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2068,9 +2067,8 @@ msgid "Section Type"
 msgstr "섹션 유형"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
-msgstr "선택..."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2902,4 +2900,3 @@ msgstr "축소"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

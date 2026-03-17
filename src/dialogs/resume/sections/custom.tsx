@@ -167,9 +167,7 @@ function CustomSectionForm({ isUpdate = false }: { isUpdate?: boolean }) {
 						<FormLabel>
 							<Trans>Title</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -183,18 +181,20 @@ function CustomSectionForm({ isUpdate = false }: { isUpdate?: boolean }) {
 						<FormLabel>
 							<Trans>Section Type</Trans>
 						</FormLabel>
-						<FormControl>
-							<Combobox
-								{...field}
-								value={field.value}
-								disabled={isUpdate}
-								onValueChange={field.onChange}
-								options={SECTION_TYPE_OPTIONS.map((option) => ({
-									value: option.value,
-									label: i18n.t(option.label),
-								}))}
-							/>
-						</FormControl>
+						<FormControl
+							render={
+								<Combobox
+									{...field}
+									value={field.value}
+									disabled={isUpdate}
+									onValueChange={field.onChange}
+									options={SECTION_TYPE_OPTIONS.map((option) => ({
+										value: option.value,
+										label: i18n.t(option.label),
+									}))}
+								/>
+							}
+						/>
 						<FormMessage />
 					</FormItem>
 				)}

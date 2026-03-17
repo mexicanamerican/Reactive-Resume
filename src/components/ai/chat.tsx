@@ -305,11 +305,13 @@ export function AIChat() {
 
 	return (
 		<Popover open={open} onOpenChange={handleOpenChange}>
-			<PopoverTrigger asChild>
-				<Button size="icon" variant="ghost">
-					<SparkleIcon />
-				</Button>
-			</PopoverTrigger>
+			<PopoverTrigger
+				render={
+					<Button size="icon" variant="ghost">
+						<SparkleIcon />
+					</Button>
+				}
+			/>
 
 			<PopoverContent className="flex h-128 w-md flex-col gap-y-0 overflow-hidden p-0" side="top" align="center">
 				{/* Header with clear button */}

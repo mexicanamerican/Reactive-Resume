@@ -246,8 +246,8 @@ msgid "Allow Public Access"
 msgstr "ప్రజా యాక్సెస్‌ని అనుమతించండి"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "మీకు ఖాతా ఉందా? <0><1>ఇప్పుడే సైన్ ఇన్ చెయ్యండి <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -508,10 +508,6 @@ msgstr "ప్రదర్శనను మధ్య భాగంగా ఉంచ
 msgid "Certifications"
 msgstr "ప్రామாணపత్రాలు"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Change language"
-msgstr "భాష మార్చండి"
-
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "భాష మార్చండి..."
@@ -552,13 +548,14 @@ msgstr "వృత్తం"
 msgid "Clear chat history"
 msgstr ""
 
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "ఎంపికను క్లియర్ చేయండి"
-
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ఇంపోర్ట్ చేయడానికి ఫైల్ ను ఎంచుకోవడానికి ఇక్కడ క్లిక్ చేయండి"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -896,8 +893,8 @@ msgid "Documentation"
 msgstr "డాక్యుమెంటేషన్"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "ఖాతా లేదా? <0><1>ఇప్పుడు ఖాతా సృష్టించండి <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1013,6 +1010,10 @@ msgstr "రెండు దశల ధృవీకరణను ప్రారం
 #: src/utils/locale.ts
 msgid "English"
 msgstr "ఆంగ్లం"
+
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1630,7 +1631,6 @@ msgid "No Advertising, No Tracking"
 msgstr "ప్రకటనలు లేవు, ట్రాకింగ్ లేదు"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "ఏ ఫలితాలు లభించలేదు."
 
@@ -1923,8 +1923,8 @@ msgid "Refresh"
 msgstr "రిఫ్రెష్ చేయండి"
 
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "మీకు పాస్‌వర్డ్ గుర్తుంది? <0><1>ఇప్పుడే సైన్ ఇన్ అవ్వండి <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2055,9 +2055,8 @@ msgid "Search for..."
 msgstr "శోధించండి..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
-msgstr "శోధన..."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2068,9 +2067,8 @@ msgid "Section Type"
 msgstr "విభాగపు రకం"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
-msgstr "ఎంచుకోండి..."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2902,4 +2900,3 @@ msgstr "జూమ్ అవుట్ చేయండి"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "జులు"
-

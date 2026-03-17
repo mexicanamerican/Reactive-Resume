@@ -246,8 +246,8 @@ msgid "Allow Public Access"
 msgstr "সর্বজনীন অ্যাক্সেসের অনুমতি দিন"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "ইতিমধ্যেই একটি অ্যাকাউন্ট আছে? <0><1>এখনই সাইন ইন করুন <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -508,10 +508,6 @@ msgstr "ভিউ কেন্দ্র করুন"
 msgid "Certifications"
 msgstr "সার্টিফিকেশনসমূহ"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Change language"
-msgstr "ভাষা পরিবর্তন করুন"
-
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "ভাষা পরিবর্তন করুন..."
@@ -552,13 +548,14 @@ msgstr "বৃত্ত"
 msgid "Clear chat history"
 msgstr ""
 
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "নির্বাচন মুছে ফেলুন"
-
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ইমপোর্ট করার জন্য এখান ক্লিক করে একটি ফাইল নির্বাচন করুন"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -896,8 +893,8 @@ msgid "Documentation"
 msgstr "ডকুমেন্টেশন"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "অ্যাকাউন্ট নেই? <0><1>এখনই একটি তৈরি করুন <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1013,6 +1010,10 @@ msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ সক�
 #: src/utils/locale.ts
 msgid "English"
 msgstr "ইংরেজি"
+
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1630,7 +1631,6 @@ msgid "No Advertising, No Tracking"
 msgstr "কোনো বিজ্ঞাপন নয়, কোনো ট্র্যাকিং নয়"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "কোন ফলাফল খুঁজে পাওয়া যায়নি।"
 
@@ -1923,8 +1923,8 @@ msgid "Refresh"
 msgstr "রিফ্রেশ"
 
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "পাসওয়ার্ড মনে আছে? <0><1>এখনই সাইন ইন করুন <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2055,9 +2055,8 @@ msgid "Search for..."
 msgstr "খুঁজুন..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
-msgstr "অনুসন্ধান..."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2068,9 +2067,8 @@ msgid "Section Type"
 msgstr "বিভাগের ধরন"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
-msgstr "নির্বাচন করুন..."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2902,4 +2900,3 @@ msgstr "জুম আউট"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "জুলু"
-

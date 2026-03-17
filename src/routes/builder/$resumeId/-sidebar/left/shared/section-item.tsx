@@ -125,7 +125,7 @@ function MoveItemSubmenu({ type, item, customSectionId }: MoveItemSubmenuProps) 
 						<DropdownMenuSubContent>
 							{/* Existing compatible sections on this page */}
 							{sections.map(({ sectionId, sectionTitle }) => (
-								<DropdownMenuItem key={sectionId} onSelect={() => handleMoveToSection(sectionId)}>
+								<DropdownMenuItem key={sectionId} onClick={() => handleMoveToSection(sectionId)}>
 									{sectionTitle}
 								</DropdownMenuItem>
 							))}
@@ -134,7 +134,7 @@ function MoveItemSubmenu({ type, item, customSectionId }: MoveItemSubmenuProps) 
 							{sections.length > 0 && <DropdownMenuSeparator />}
 
 							{/* Option to create a new section on this page */}
-							<DropdownMenuItem onSelect={() => handleNewSectionOnPage(pageIndex)}>
+							<DropdownMenuItem onClick={() => handleNewSectionOnPage(pageIndex)}>
 								<FolderPlusIcon />
 								<Trans>New Section</Trans>
 							</DropdownMenuItem>
@@ -145,7 +145,7 @@ function MoveItemSubmenu({ type, item, customSectionId }: MoveItemSubmenuProps) 
 				<DropdownMenuSeparator />
 
 				{/* Option to create a new page with a new section */}
-				<DropdownMenuItem onSelect={handleNewPage}>
+				<DropdownMenuItem onClick={handleNewPage}>
 					<PlusCircleIcon />
 					<Trans>New Page</Trans>
 				</DropdownMenuItem>
@@ -266,15 +266,13 @@ export function SectionItem<T extends CustomSectionItem | SectionItemType>({
 			</button>
 
 			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<button className="flex cursor-context-menu items-center px-1.5 opacity-40 transition-[background-color,opacity] hover:bg-secondary/40 focus:outline-none focus-visible:ring-1 group-hover:opacity-100">
-						<DotsThreeVerticalIcon />
-					</button>
+				<DropdownMenuTrigger className="flex cursor-context-menu items-center px-1.5 opacity-40 transition-[background-color,opacity] hover:bg-secondary/40 focus:outline-none focus-visible:ring-1 group-hover:opacity-100">
+					<DotsThreeVerticalIcon />
 				</DropdownMenuTrigger>
 
 				<DropdownMenuContent align="end">
 					<DropdownMenuGroup>
-						<DropdownMenuItem onSelect={onToggleVisibility}>
+						<DropdownMenuItem onClick={onToggleVisibility}>
 							{item.hidden ? <EyeIcon /> : <EyeClosedIcon />}
 							{item.hidden ? <Trans>Show</Trans> : <Trans>Hide</Trans>}
 						</DropdownMenuItem>
@@ -283,12 +281,12 @@ export function SectionItem<T extends CustomSectionItem | SectionItemType>({
 					<DropdownMenuSeparator />
 
 					<DropdownMenuGroup>
-						<DropdownMenuItem onSelect={onUpdate}>
+						<DropdownMenuItem onClick={onUpdate}>
 							<PencilSimpleLineIcon />
 							<Trans>Update</Trans>
 						</DropdownMenuItem>
 
-						<DropdownMenuItem onSelect={onDuplicate}>
+						<DropdownMenuItem onClick={onDuplicate}>
 							<CopySimpleIcon />
 							<Trans>Duplicate</Trans>
 						</DropdownMenuItem>
@@ -299,7 +297,7 @@ export function SectionItem<T extends CustomSectionItem | SectionItemType>({
 					<DropdownMenuSeparator />
 
 					<DropdownMenuGroup>
-						<DropdownMenuItem variant="destructive" onSelect={onDelete}>
+						<DropdownMenuItem variant="destructive" onClick={onDelete}>
 							<TrashSimpleIcon />
 							<Trans>Delete</Trans>
 						</DropdownMenuItem>
@@ -328,7 +326,6 @@ export function SectionAddItemButton({ type, customSectionId, className, childre
 
 	return (
 		<Button
-			tapScale={1}
 			variant="ghost"
 			onClick={handleAdd}
 			className={cn("h-12 w-full justify-start rounded-t-none", className)}

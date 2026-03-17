@@ -77,15 +77,17 @@ export function DisableTwoFactorDialog(_: DialogProps<"auth.two-factor.disable">
 									<Trans>Password</Trans>
 								</FormLabel>
 								<div className="flex items-center gap-x-1.5">
-									<FormControl>
-										<Input
-											min={6}
-											max={64}
-											type={showPassword ? "text" : "password"}
-											autoComplete="current-password"
-											{...field}
-										/>
-									</FormControl>
+									<FormControl
+										render={
+											<Input
+												min={6}
+												max={64}
+												type={showPassword ? "text" : "password"}
+												autoComplete="current-password"
+												{...field}
+											/>
+										}
+									/>
 
 									<Button size="icon" variant="ghost" type="button" onClick={toggleShowPassword}>
 										{showPassword ? <EyeIcon /> : <EyeSlashIcon />}

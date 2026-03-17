@@ -125,14 +125,16 @@ export function CreateResumeDialog(_: DialogProps<"resume.create">) {
 							</Button>
 
 							<DropdownMenu>
-								<DropdownMenuTrigger asChild>
-									<Button size="icon" disabled={isPending}>
-										<CaretDownIcon />
-									</Button>
-								</DropdownMenuTrigger>
+								<DropdownMenuTrigger
+									render={
+										<Button size="icon" disabled={isPending}>
+											<CaretDownIcon />
+										</Button>
+									}
+								/>
 
 								<DropdownMenuContent align="end" className="w-fit">
-									<DropdownMenuItem onSelect={onCreateSampleResume}>
+									<DropdownMenuItem onClick={onCreateSampleResume}>
 										<TestTubeIcon />
 										<Trans>Create a Sample Resume</Trans>
 									</DropdownMenuItem>
@@ -309,9 +311,7 @@ function ResumeForm() {
 							<Trans>Name</Trans>
 						</FormLabel>
 						<div className="flex items-center gap-x-2">
-							<FormControl>
-								<Input min={1} max={64} {...field} />
-							</FormControl>
+							<FormControl render={<Input min={1} max={64} {...field} />} />
 
 							<Button size="icon" variant="outline" title={t`Generate a random name`} onClick={onGenerateName}>
 								<MagicWandIcon />
@@ -333,14 +333,16 @@ function ResumeForm() {
 						<FormLabel>
 							<Trans>Slug</Trans>
 						</FormLabel>
-						<FormControl>
-							<InputGroup>
-								<InputGroupAddon align="inline-start" className="hidden sm:flex">
-									<InputGroupText>{slugPrefix}</InputGroupText>
-								</InputGroupAddon>
-								<InputGroupInput min={1} max={64} className="ps-0!" {...field} />
-							</InputGroup>
-						</FormControl>
+						<FormControl
+							render={
+								<InputGroup>
+									<InputGroupAddon align="inline-start" className="hidden sm:flex">
+										<InputGroupText>{slugPrefix}</InputGroupText>
+									</InputGroupAddon>
+									<InputGroupInput min={1} max={64} className="ps-0!" {...field} />
+								</InputGroup>
+							}
+						/>
 						<FormMessage />
 						<FormDescription>
 							<Trans>This is a URL-friendly name for your resume.</Trans>
@@ -357,9 +359,7 @@ function ResumeForm() {
 						<FormLabel>
 							<Trans>Tags</Trans>
 						</FormLabel>
-						<FormControl>
-							<ChipInput {...field} />
-						</FormControl>
+						<FormControl render={<ChipInput {...field} />} />
 						<FormMessage />
 						<FormDescription>
 							<Trans>Tags can be used to categorize your resume by keywords.</Trans>

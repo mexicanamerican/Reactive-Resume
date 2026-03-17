@@ -246,8 +246,8 @@ msgid "Allow Public Access"
 msgstr "பொது அணுகலை அனுமதிக்கவும்"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "ஏற்கனவே கணக்கு இருக்கிறதா? <0><1>உடனே உள்நுழைக <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -508,10 +508,6 @@ msgstr "நடுப்பார்வை"
 msgid "Certifications"
 msgstr "சான்றிதழ்கள்"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Change language"
-msgstr "மொழியை மாற்று"
-
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
 msgstr "மொழியை மாற்ற..."
@@ -552,13 +548,14 @@ msgstr "வட்டம்"
 msgid "Clear chat history"
 msgstr ""
 
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "தேர்வை அழிக்கவும்"
-
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "இறக்குமதி செய்ய ஒரு கோப்பை தேர்ந்தெடுக்க இங்கே கிளிக் செய்யவும்"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -896,8 +893,8 @@ msgid "Documentation"
 msgstr "ஆவணங்கள்"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "கணக்கு இல்லையா? <0><1>இப்போதே ஒன்றை உருவாக்கவும் <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1013,6 +1010,10 @@ msgstr "இரண்டு நிலை அங்கீகாரத்தை இ
 #: src/utils/locale.ts
 msgid "English"
 msgstr "ஆங்கிலம்"
+
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1630,7 +1631,6 @@ msgid "No Advertising, No Tracking"
 msgstr "விளம்பரம் இல்லை, கண்காணிப்பு இல்லை"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "எந்த முடிவுகளும் கிடைக்கவில்லை."
 
@@ -1923,8 +1923,8 @@ msgid "Refresh"
 msgstr "மீண்டும் ஏற்று"
 
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "உங்கள் கடவுச்சொல் நினைவில் இருக்கிறதா? <0><1>உடனே உள்நுழைக <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr ""
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2055,9 +2055,8 @@ msgid "Search for..."
 msgstr "தேடுங்கள்..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
-msgstr "தேடல்..."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2068,9 +2067,8 @@ msgid "Section Type"
 msgstr "பகுதி வகை"
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
-msgstr "தேர்வு செய்க..."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2902,4 +2900,3 @@ msgstr "சிறிதாக்கு"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-

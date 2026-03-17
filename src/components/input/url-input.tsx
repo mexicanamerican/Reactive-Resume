@@ -63,11 +63,13 @@ export function URLInput({ value, onChange, hideLabelButton, ...props }: Props) 
 			{!hideLabelButton && (
 				<InputGroupAddon align="inline-end">
 					<Popover>
-						<PopoverTrigger asChild>
-							<InputGroupButton size="icon-sm" title={t`Add a label to the URL`}>
-								<TagIcon />
-							</InputGroupButton>
-						</PopoverTrigger>
+						<PopoverTrigger
+							render={
+								<InputGroupButton size="icon-sm" title={t`Add a label to the URL`}>
+									<TagIcon />
+								</InputGroupButton>
+							}
+						/>
 
 						<PopoverContent className="pt-3">
 							<div className="grid gap-2" onClick={(e) => e.stopPropagation()}>

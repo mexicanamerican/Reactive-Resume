@@ -18,7 +18,7 @@ export function StatisticsSectionBuilder() {
 
 	return (
 		<SectionBase type="statistics">
-			<Accordion collapsible type="single" value={statistics.isPublic ? "isPublic" : "isPrivate"}>
+			<Accordion value={statistics.isPublic ? ["isPublic"] : ["isPrivate"]}>
 				<AccordionItem value="isPrivate">
 					<AccordionContent className="pb-0">
 						<Alert>

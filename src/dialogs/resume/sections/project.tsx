@@ -157,9 +157,7 @@ function ProjectForm() {
 						<FormLabel>
 							<Trans>Name</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -173,9 +171,7 @@ function ProjectForm() {
 						<FormLabel>
 							<Trans>Period</Trans>
 						</FormLabel>
-						<FormControl>
-							<Input {...field} />
-						</FormControl>
+						<FormControl render={<Input {...field} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -189,14 +185,12 @@ function ProjectForm() {
 						<FormLabel>
 							<Trans>Website</Trans>
 						</FormLabel>
-						<FormControl>
-							<URLInput
-								{...field}
-								value={field.value}
-								onChange={field.onChange}
-								hideLabelButton={form.watch("options.showLinkInTitle")}
-							/>
-						</FormControl>
+						<URLInput
+							{...field}
+							value={field.value}
+							onChange={field.onChange}
+							hideLabelButton={form.watch("options.showLinkInTitle")}
+						/>
 						<FormMessage />
 					</FormItem>
 				)}
@@ -207,10 +201,8 @@ function ProjectForm() {
 				name="options.showLinkInTitle"
 				render={({ field }) => (
 					<FormItem className="flex items-center gap-x-2 sm:col-span-full">
-						<FormControl>
-							<Switch checked={field.value} onCheckedChange={field.onChange} />
-						</FormControl>
-						<FormLabel className="!mt-0">
+						<FormControl render={<Switch checked={field.value} onCheckedChange={field.onChange} />} />
+						<FormLabel className="mt-0!">
 							<Trans>Show link in title</Trans>
 						</FormLabel>
 					</FormItem>
@@ -225,9 +217,7 @@ function ProjectForm() {
 						<FormLabel>
 							<Trans>Description</Trans>
 						</FormLabel>
-						<FormControl>
-							<RichInput {...field} value={field.value} onChange={field.onChange} />
-						</FormControl>
+						<FormControl render={<RichInput {...field} value={field.value} onChange={field.onChange} />} />
 						<FormMessage />
 					</FormItem>
 				)}

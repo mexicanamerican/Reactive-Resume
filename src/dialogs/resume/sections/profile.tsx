@@ -162,9 +162,11 @@ function ProfileForm() {
 					name={"icon"}
 					render={({ field }) => (
 						<FormItem className="shrink-0">
-							<FormControl>
-								<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
-							</FormControl>
+							<FormControl
+								render={
+									<IconPicker {...field} popoverProps={{ modal: true }} className="rounded-r-none! border-e-0!" />
+								}
+							/>
 						</FormItem>
 					)}
 				/>
@@ -177,9 +179,7 @@ function ProfileForm() {
 							<FormLabel>
 								<Trans>Network</Trans>
 							</FormLabel>
-							<FormControl>
-								<Input className="rounded-l-none!" {...field} />
-							</FormControl>
+							<FormControl render={<Input className="rounded-l-none!" {...field} />} />
 							<FormMessage />
 						</FormItem>
 					)}
@@ -201,9 +201,7 @@ function ProfileForm() {
 								</InputGroupText>
 							</InputGroupAddon>
 
-							<FormControl>
-								<InputGroupInput {...field} />
-							</FormControl>
+							<FormControl render={<InputGroupInput {...field} />} />
 						</InputGroup>
 						<FormMessage />
 					</FormItem>
@@ -218,14 +216,12 @@ function ProfileForm() {
 						<FormLabel>
 							<Trans>Website</Trans>
 						</FormLabel>
-						<FormControl>
-							<URLInput
-								{...field}
-								value={field.value}
-								onChange={field.onChange}
-								hideLabelButton={form.watch("options.showLinkInTitle")}
-							/>
-						</FormControl>
+						<URLInput
+							{...field}
+							value={field.value}
+							onChange={field.onChange}
+							hideLabelButton={form.watch("options.showLinkInTitle")}
+						/>
 						<FormMessage />
 					</FormItem>
 				)}
@@ -236,10 +232,8 @@ function ProfileForm() {
 				name="options.showLinkInTitle"
 				render={({ field }) => (
 					<FormItem className="flex items-center gap-x-2 sm:col-span-full">
-						<FormControl>
-							<Switch checked={field.value} onCheckedChange={field.onChange} />
-						</FormControl>
-						<FormLabel className="!mt-0">
+						<FormControl render={<Switch checked={field.value} onCheckedChange={field.onChange} />} />
+						<FormLabel className="mt-0!">
 							<Trans>Show link in title</Trans>
 						</FormLabel>
 					</FormItem>

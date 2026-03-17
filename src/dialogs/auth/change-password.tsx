@@ -85,15 +85,17 @@ export function ChangePasswordDialog(_: DialogProps<"auth.change-password">) {
 									<Trans>Current Password</Trans>
 								</FormLabel>
 								<div className="flex items-center gap-x-1.5">
-									<FormControl>
-										<Input
-											min={6}
-											max={64}
-											type={showCurrentPassword ? "text" : "password"}
-											autoComplete="current-password"
-											{...field}
-										/>
-									</FormControl>
+									<FormControl
+										render={
+											<Input
+												min={6}
+												max={64}
+												type={showCurrentPassword ? "text" : "password"}
+												autoComplete="current-password"
+												{...field}
+											/>
+										}
+									/>
 
 									<Button size="icon" variant="ghost" type="button" onClick={toggleShowCurrentPassword}>
 										{showCurrentPassword ? <EyeIcon /> : <EyeSlashIcon />}
@@ -113,15 +115,17 @@ export function ChangePasswordDialog(_: DialogProps<"auth.change-password">) {
 									<Trans>New Password</Trans>
 								</FormLabel>
 								<div className="flex items-center gap-x-1.5">
-									<FormControl>
-										<Input
-											min={6}
-											max={64}
-											type={showNewPassword ? "text" : "password"}
-											autoComplete="new-password"
-											{...field}
-										/>
-									</FormControl>
+									<FormControl
+										render={
+											<Input
+												min={6}
+												max={64}
+												type={showNewPassword ? "text" : "password"}
+												autoComplete="new-password"
+												{...field}
+											/>
+										}
+									/>
 
 									<Button size="icon" variant="ghost" type="button" onClick={toggleShowNewPassword}>
 										{showNewPassword ? <EyeIcon /> : <EyeSlashIcon />}

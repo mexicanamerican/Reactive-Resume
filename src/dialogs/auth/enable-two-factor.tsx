@@ -189,15 +189,17 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
 											<Trans>Password</Trans>
 										</FormLabel>
 										<div className="flex items-center gap-x-1.5">
-											<FormControl>
-												<Input
-													min={6}
-													max={64}
-													type={showPassword ? "text" : "password"}
-													autoComplete="current-password"
-													{...field}
-												/>
-											</FormControl>
+											<FormControl
+												render={
+													<Input
+														min={6}
+														max={64}
+														type={showPassword ? "text" : "password"}
+														autoComplete="current-password"
+														{...field}
+													/>
+												}
+											/>
 
 											<Button size="icon" variant="ghost" type="button" onClick={toggleShowPassword}>
 												{showPassword ? <EyeIcon /> : <EyeSlashIcon />}
@@ -244,25 +246,27 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
 										name="code"
 										render={({ field }) => (
 											<FormItem>
-												<FormControl>
-													<InputOTP
-														maxLength={6}
-														value={field.value}
-														onChange={field.onChange}
-														pattern={REGEXP_ONLY_DIGITS}
-														onComplete={verifyForm.handleSubmit(onVerifySubmit)}
-														pasteTransformer={(pasted) => pasted.replaceAll("-", "")}
-													>
-														<InputOTPGroup>
-															<InputOTPSlot index={0} className="size-12" />
-															<InputOTPSlot index={1} className="size-12" />
-															<InputOTPSlot index={2} className="size-12" />
-															<InputOTPSlot index={3} className="size-12" />
-															<InputOTPSlot index={4} className="size-12" />
-															<InputOTPSlot index={5} className="size-12" />
-														</InputOTPGroup>
-													</InputOTP>
-												</FormControl>
+												<FormControl
+													render={
+														<InputOTP
+															maxLength={6}
+															value={field.value}
+															onChange={field.onChange}
+															pattern={REGEXP_ONLY_DIGITS}
+															onComplete={verifyForm.handleSubmit(onVerifySubmit)}
+															pasteTransformer={(pasted) => pasted.replaceAll("-", "")}
+														>
+															<InputOTPGroup>
+																<InputOTPSlot index={0} className="size-12" />
+																<InputOTPSlot index={1} className="size-12" />
+																<InputOTPSlot index={2} className="size-12" />
+																<InputOTPSlot index={3} className="size-12" />
+																<InputOTPSlot index={4} className="size-12" />
+																<InputOTPSlot index={5} className="size-12" />
+															</InputOTPGroup>
+														</InputOTP>
+													}
+												/>
 												<FormMessage />
 											</FormItem>
 										)}

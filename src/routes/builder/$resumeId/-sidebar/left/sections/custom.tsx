@@ -232,28 +232,23 @@ function CustomSectionDropdownMenu({ section }: { section: CustomSection }) {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<button
-					type="button"
-					className="flex cursor-context-menu items-center px-1.5 opacity-40 transition-[background-color,opacity] hover:bg-secondary/40 focus:outline-none focus-visible:ring-1 group-hover:opacity-100"
-				>
-					<DotsThreeVerticalIcon />
-				</button>
+			<DropdownMenuTrigger>
+				<DotsThreeVerticalIcon />
 			</DropdownMenuTrigger>
 
 			<DropdownMenuContent align="end">
 				<DropdownMenuGroup>
-					<DropdownMenuItem onSelect={onToggleSectionVisibility}>
+					<DropdownMenuItem onClick={onToggleSectionVisibility}>
 						{section.hidden ? <EyeIcon /> : <EyeClosedIcon />}
 						{section.hidden ? <Trans>Show</Trans> : <Trans>Hide</Trans>}
 					</DropdownMenuItem>
 
-					<DropdownMenuItem onSelect={onUpdateSection}>
+					<DropdownMenuItem onClick={onUpdateSection}>
 						<PencilSimpleLineIcon />
 						<Trans>Update</Trans>
 					</DropdownMenuItem>
 
-					<DropdownMenuItem onSelect={onDuplicateSection}>
+					<DropdownMenuItem onClick={onDuplicateSection}>
 						<CopySimpleIcon />
 						<Trans>Duplicate</Trans>
 					</DropdownMenuItem>
@@ -279,7 +274,7 @@ function CustomSectionDropdownMenu({ section }: { section: CustomSection }) {
 				<DropdownMenuSeparator />
 
 				<DropdownMenuGroup>
-					<DropdownMenuItem variant="destructive" onSelect={onDeleteSection}>
+					<DropdownMenuItem variant="destructive" onClick={onDeleteSection}>
 						<TrashSimpleIcon />
 						<Trans>Delete</Trans>
 					</DropdownMenuItem>

@@ -143,9 +143,7 @@ function CoverLetterForm() {
 						<FormLabel>
 							<Trans>Recipient</Trans>
 						</FormLabel>
-						<FormControl>
-							<RichInput {...field} value={field.value} onChange={field.onChange} />
-						</FormControl>
+						<FormControl render={<RichInput {...field} value={field.value} onChange={field.onChange} />} />
 						<FormMessage />
 					</FormItem>
 				)}
@@ -159,9 +157,7 @@ function CoverLetterForm() {
 						<FormLabel>
 							<Trans>Content</Trans>
 						</FormLabel>
-						<FormControl>
-							<RichInput {...field} value={field.value} onChange={field.onChange} />
-						</FormControl>
+						<FormControl render={<RichInput {...field} value={field.value} onChange={field.onChange} />} />
 						<FormMessage />
 					</FormItem>
 				)}

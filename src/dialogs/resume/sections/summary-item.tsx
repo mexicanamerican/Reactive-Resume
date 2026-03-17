@@ -140,9 +140,7 @@ function SummaryItemForm() {
 					<FormLabel>
 						<Trans>Content</Trans>
 					</FormLabel>
-					<FormControl>
-						<RichInput {...field} value={field.value} onChange={field.onChange} />
-					</FormControl>
+					<FormControl render={<RichInput {...field} value={field.value} onChange={field.onChange} />} />
 					<FormMessage />
 				</FormItem>
 			)}

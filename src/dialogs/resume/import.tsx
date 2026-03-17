@@ -226,34 +226,36 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 								<FormLabel>
 									<Trans>Type</Trans>
 								</FormLabel>
-								<FormControl>
-									<Combobox
-										clearable={false}
-										value={field.value}
-										onValueChange={field.onChange}
-										options={[
-											{ value: "reactive-resume-json", label: "Reactive Resume (JSON)" },
-											{ value: "reactive-resume-v4-json", label: "Reactive Resume v4 (JSON)" },
-											{ value: "json-resume-json", label: "JSON Resume" },
-											{
-												value: "pdf",
-												label: (
-													<div className="flex items-center gap-x-2">
-														PDF <Badge>{t`AI`}</Badge>
-													</div>
-												),
-											},
-											{
-												value: "docx",
-												label: (
-													<div className="flex items-center gap-x-2">
-														Microsoft Word <Badge>{t`AI`}</Badge>
-													</div>
-												),
-											},
-										]}
-									/>
-								</FormControl>
+								<FormControl
+									render={
+										<Combobox
+											showClear={false}
+											value={field.value}
+											onValueChange={field.onChange}
+											options={[
+												{ value: "reactive-resume-json", label: "Reactive Resume (JSON)" },
+												{ value: "reactive-resume-v4-json", label: "Reactive Resume v4 (JSON)" },
+												{ value: "json-resume-json", label: "JSON Resume" },
+												{
+													value: "pdf",
+													label: (
+														<div className="flex items-center gap-x-2">
+															PDF <Badge>{t`AI`}</Badge>
+														</div>
+													),
+												},
+												{
+													value: "docx",
+													label: (
+														<div className="flex items-center gap-x-2">
+															Microsoft Word <Badge>{t`AI`}</Badge>
+														</div>
+													),
+												},
+											]}
+										/>
+									}
+								/>
 								<FormMessage />
 							</FormItem>
 						)}
@@ -266,27 +268,25 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 						render={({ field }) => (
 							<FormItem className={cn(!type && "hidden")}>
 								<FormControl>
-									<div>
-										<Input type="file" className="hidden" ref={inputRef} onChange={onUploadFile} />
+									<Input type="file" className="hidden" ref={inputRef} onChange={onUploadFile} />
 
-										<Button
-											variant="outline"
-											className="h-auto w-full flex-col border-dashed py-8 font-normal"
-											onClick={onSelectFile}
-										>
-											{field.value ? (
-												<>
-													<FileIcon weight="thin" size={32} />
-													<p>{field.value.name}</p>
-												</>
-											) : (
-												<>
-													<UploadSimpleIcon weight="thin" size={32} />
-													<Trans>Click here to select a file to import</Trans>
-												</>
-											)}
-										</Button>
-									</div>
+									<Button
+										variant="outline"
+										className="h-auto w-full flex-col border-dashed py-8 font-normal"
+										onClick={onSelectFile}
+									>
+										{field.value ? (
+											<>
+												<FileIcon weight="thin" size={32} />
+												<p>{field.value.name}</p>
+											</>
+										) : (
+											<>
+												<UploadSimpleIcon weight="thin" size={32} />
+												<Trans>Click here to select a file to import</Trans>
+											</>
+										)}
+									</Button>
 								</FormControl>
 								<FormMessage />
 							</FormItem>

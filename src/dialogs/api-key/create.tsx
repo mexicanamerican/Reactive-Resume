@@ -90,9 +90,7 @@ const CreateApiKeyForm = ({ setApiKey }: CreateApiKeyFormProps) => {
 								<FormLabel>
 									<Trans>Name</Trans>
 								</FormLabel>
-								<FormControl>
-									<Input min={1} max={64} {...field} />
-								</FormControl>
+								<FormControl render={<Input min={1} max={64} {...field} />} />
 								<FormMessage />
 								<FormDescription>
 									<Trans>
@@ -112,34 +110,36 @@ const CreateApiKeyForm = ({ setApiKey }: CreateApiKeyFormProps) => {
 								<FormLabel>
 									<Trans>Expires in</Trans>
 								</FormLabel>
-								<FormControl>
-									<Combobox
-										value={field.value}
-										onValueChange={(value) => value && field.onChange(Number(value))}
-										options={[
-											{
-												// 1 month = 30 days
-												value: 3600 * 24 * 30,
-												label: t`1 month`,
-											},
-											{
-												// 3 months = 90 days
-												value: 3600 * 24 * 90,
-												label: t`3 months`,
-											},
-											{
-												// 6 months = 180 days
-												value: 3600 * 24 * 180,
-												label: t`6 months`,
-											},
-											{
-												// 1 year = 365 days
-												value: 3600 * 24 * 365,
-												label: t`1 year`,
-											},
-										]}
-									/>
-								</FormControl>
+								<FormControl
+									render={
+										<Combobox
+											value={field.value}
+											onValueChange={(value) => value && field.onChange(Number(value))}
+											options={[
+												{
+													// 1 month = 30 days
+													value: 3600 * 24 * 30,
+													label: t`1 month`,
+												},
+												{
+													// 3 months = 90 days
+													value: 3600 * 24 * 90,
+													label: t`3 months`,
+												},
+												{
+													// 6 months = 180 days
+													value: 3600 * 24 * 180,
+													label: t`6 months`,
+												},
+												{
+													// 1 year = 365 days
+													value: 3600 * 24 * 365,
+													label: t`1 year`,
+												},
+											]}
+										/>
+									}
+								/>
 								<FormMessage />
 							</FormItem>
 						)}
