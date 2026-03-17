@@ -1,5 +1,5 @@
-import * as dns from "dns";
-import { isIP } from "net";
+import dns from "node:dns/promises";
+import { isIP } from "node:net";
 import { ORPCError } from "@orpc/server";
 import type { InferSelectModel } from "drizzle-orm";
 import puppeteer, { type Browser, type ConnectOptions, type Page } from "puppeteer-core";
@@ -17,11 +17,11 @@ let browserInstance: Browser | null = null;
 
 async function normalizePrinterEndpoint(printerEndpoint: string): Promise<URL> {
 	// Convert endpoint hostname to IP when using chromedp
-	// SEE ISSUE: https://github.com/amruthpillai/reactive-resume/issues/2681
+	// https://github.com/amruthpillai/reactive-resume/issues/2681
 	const endpoint = new URL(printerEndpoint);
 
 	if (!isIP(endpoint.hostname) && !endpoint.protocol.startsWith("ws")) {
-		const { address } = await dns.promises.lookup(endpoint.hostname);
+		const { address } = await dns.lookup(endpoint.hostname);
 		endpoint.hostname = address;
 	}
 
