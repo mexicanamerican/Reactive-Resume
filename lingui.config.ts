@@ -45,6 +45,7 @@ export default defineConfig({
 		"ro-RO",
 		"ru-RU",
 		"sk-SK",
+		"sl-SI",
 		"sq-AL",
 		"sr-SP",
 		"sv-SE",
