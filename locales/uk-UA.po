@@ -45,7 +45,7 @@ msgstr "{0, plural, one {# елемент} few {# елементи} many {# ел
 #. placeholder {0}: item.roles.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
-msgstr ""
+msgstr "{0, plural, one {# посада} few {# посади} many {# посад} other {# посади}}"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -202,7 +202,7 @@ msgstr "Додати Колонку Зліва"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
-msgstr ""
+msgstr "Додайте кілька посад, щоб показати кар'єрний ріст в одній компанії."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
@@ -210,7 +210,7 @@ msgstr "Додати сторінку"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add Role"
-msgstr ""
+msgstr "Додати посаду"
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -222,7 +222,7 @@ msgstr "Додати Рядок Згори"
 
 #: src/components/ai/chat.tsx
 msgid "Added"
-msgstr ""
+msgstr "Додано"
 
 #: src/utils/locale.ts
 msgid "Afrikaans"
@@ -235,7 +235,7 @@ msgstr "ШІ"
 
 #: src/components/ai/chat.tsx
 msgid "AI Chat"
-msgstr ""
+msgstr "Чат з ШІ"
 
 #: src/utils/locale.ts
 msgid "Albanian"
@@ -247,7 +247,7 @@ msgstr "Дозволити Загальний Доступ"
 
 #: src/routes/auth/register.tsx
 msgid "Already have an account? <0/>"
-msgstr ""
+msgstr "Вже маєте обліковий запис? <0/>"
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -311,7 +311,7 @@ msgstr "Арабська"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
-msgstr ""
+msgstr "Ви впевнені, що хочете закрити цей діалог?"
 
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
@@ -350,7 +350,7 @@ msgstr "Штучний інтелект"
 
 #: src/components/ai/chat.tsx
 msgid "Ask me to update your resume..."
-msgstr ""
+msgstr "Попросіть мене оновити ваше резюме..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
@@ -510,7 +510,7 @@ msgstr "Сертифікати"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Change language"
-msgstr ""
+msgstr "Змінити мову"
 
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
@@ -550,7 +550,7 @@ msgstr "Кругле"
 
 #: src/components/ai/chat.tsx
 msgid "Clear chat history"
-msgstr ""
+msgstr "Очистити історію чату"
 
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
@@ -559,7 +559,7 @@ msgstr "Натисніть тут, щоб вибрати файл для імп�
 #: src/components/ui/dialog.tsx
 #: src/components/ui/sheet.tsx
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -596,7 +596,7 @@ msgstr "Підключити"
 #: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Content"
-msgstr ""
+msgstr "Зміст"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
@@ -641,7 +641,7 @@ msgstr "Скопіювати URL"
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
-msgstr ""
+msgstr "Супровідний лист"
 
 #: src/dialogs/api-key/create.tsx
 #: src/dialogs/resume/index.tsx
@@ -682,7 +682,7 @@ msgstr "Створити нову сертифікацію"
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Create a new cover letter"
-msgstr ""
+msgstr "Створити новий супровідний лист"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Create a new custom section"
@@ -733,7 +733,7 @@ msgstr "Створити нову навичку"
 
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Create a new summary item"
-msgstr ""
+msgstr "Створити новий елемент резюме"
 
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Create a new volunteer experience"
@@ -898,7 +898,7 @@ msgstr "Документація"
 
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
-msgstr ""
+msgstr "Немає облікового запису? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -964,7 +964,7 @@ msgstr "Голландська"
 
 #: src/components/ai/chat.tsx
 msgid "e.g. Change my name to..."
-msgstr ""
+msgstr "напр.: Змініть моє ім'я на..."
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1017,7 +1017,7 @@ msgstr "Англійська"
 
 #: src/utils/locale.ts
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Англійська (Велика Британія)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1061,7 +1061,7 @@ msgstr "Все необхідне для створення, налаштува�
 
 #: src/components/input/rich-input.tsx
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Вийти з повноекранного режиму"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1095,7 +1095,7 @@ msgstr "Не вдалося налаштувати двофакторну авт
 
 #: src/routes/auth/login.tsx
 msgid "Failed to sign in. Please try again."
-msgstr ""
+msgstr "Не вдалося увійти. Будь ласка, спробуйте ще раз."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1178,7 +1178,7 @@ msgstr "На всю ширину"
 
 #: src/components/input/rich-input.tsx
 msgid "Fullscreen"
-msgstr ""
+msgstr "Повноекранний режим"
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -1462,7 +1462,7 @@ msgstr "Дізнайтеся більше про розміщення конте
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
-msgstr ""
+msgstr "Залишити"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
@@ -1697,11 +1697,11 @@ msgstr "Організація"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Period"
-msgstr ""
+msgstr "Загальний період"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Title (optional)"
-msgstr ""
+msgstr "Загальна назва (необов'язково)"
 
 #: src/utils/resume/section.tsx
 msgid "Page"
@@ -1902,7 +1902,7 @@ msgstr "Reactive Resume є open-source, орієнтована на приват
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Recipient"
-msgstr ""
+msgstr "Одержувач"
 
 #: src/components/level/combobox.tsx
 msgid "Rectangle"
@@ -1928,11 +1928,11 @@ msgstr "Оновити"
 
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
-msgstr ""
+msgstr "Пригадали пароль? <0/>"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1940,7 +1940,7 @@ msgstr "Видалити пароль"
 
 #: src/components/ai/chat.tsx
 msgid "Removed"
-msgstr ""
+msgstr "Видалено"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
@@ -1952,7 +1952,7 @@ msgstr "Перейменувати"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
-msgstr ""
+msgstr "Змінити порядок"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2007,7 +2007,7 @@ msgstr "Вирівняти праворуч"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Role Progression"
-msgstr ""
+msgstr "Кар'єрне зростання"
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2060,7 +2060,7 @@ msgstr "Пошук..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
-msgstr ""
+msgstr "Пошук..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2072,7 +2072,7 @@ msgstr "Тип секції"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
-msgstr ""
+msgstr "Вибрати..."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2143,11 +2143,11 @@ msgstr "Показати"
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Show link in title"
-msgstr ""
+msgstr "Показати посилання в заголовку"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "<<<<<<< HEAD"
+msgstr "Бічна панель"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -2284,7 +2284,7 @@ msgstr "Статистика"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
-msgstr ""
+msgstr "Залишитись"
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2412,7 +2412,7 @@ msgstr "Сталася проблема під час створення PDF, б
 
 #: src/components/ai/chat.tsx
 msgid "Thinking..."
-msgstr ""
+msgstr "Думаю..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
@@ -2614,7 +2614,7 @@ msgstr "Оновити наявну сертифікацію"
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Update an existing cover letter"
-msgstr ""
+msgstr "Оновити наявний супровідний лист"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Update an existing custom section"
@@ -2658,7 +2658,7 @@ msgstr "Оновити навичку"
 
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Update an existing summary item"
-msgstr ""
+msgstr "Оновити наявний елемент резюме"
 
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Update an existing volunteer experience"
@@ -2679,7 +2679,7 @@ msgstr "Оновіть свій пароль"
 
 #: src/components/ai/chat.tsx
 msgid "Updated"
-msgstr ""
+msgstr "Оновлено"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -2819,7 +2819,7 @@ msgstr "Ви можете поділитися резюме за унікаль�
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
-msgstr ""
+msgstr "У вас є незбережені зміни, які буде втрачено."
 
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx

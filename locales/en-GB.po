@@ -510,7 +510,7 @@ msgstr "Certifications"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Change language"
-msgstr ""
+msgstr "Change language"
 
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
@@ -559,7 +559,7 @@ msgstr "Click here to select a file to import"
 #: src/components/ui/dialog.tsx
 #: src/components/ui/sheet.tsx
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -1017,7 +1017,7 @@ msgstr "English"
 
 #: src/utils/locale.ts
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "English (United Kingdom)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -2060,7 +2060,7 @@ msgstr "Search for..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
-msgstr ""
+msgstr "Search..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2072,7 +2072,7 @@ msgstr "Section Type"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
-msgstr ""
+msgstr "Select..."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"

@@ -231,16 +231,11 @@ const getAuthConfig = () => {
 		},
 
 		plugins: [
-			dash(),
 			openAPI(),
-			apiKey({
-				enableSessionForAPIKeys: true,
-				rateLimit: {
-					enabled: true,
-					timeWindow: 1000 * 60 * 60 * 24, // 1 day
-					maxRequests: 500, // 500 requests per day
-				},
-			}),
+			genericOAuth({ config: authConfigs }),
+			twoFactor({ issuer: "Reactive Resume" }),
+			dash({ apiKey: env.BETTER_AUTH_API_KEY }),
+			apiKey({ enableSessionForAPIKeys: true, rateLimit: { enabled: false } }),
 			username({
 				minUsernameLength: 3,
 				maxUsernameLength: 64,
@@ -249,8 +244,6 @@ const getAuthConfig = () => {
 				usernameValidator: (username) => /^[a-z0-9._-]+$/.test(username),
 				validationOrder: { username: "post-normalization", displayUsername: "post-normalization" },
 			}),
-			twoFactor({ issuer: "Reactive Resume" }),
-			genericOAuth({ config: authConfigs }),
 		],
 	});
 };

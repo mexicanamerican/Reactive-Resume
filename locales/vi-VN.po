@@ -45,7 +45,7 @@ msgstr "{0, plural, other {# mục}}"
 #. placeholder {0}: item.roles.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
-msgstr ""
+msgstr "{0, plural, one {# vai trò} other {# vai trò}}"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -202,7 +202,7 @@ msgstr "Thêm cột trước"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
-msgstr ""
+msgstr "Thêm nhiều vai trò để thể hiện sự thăng tiến nghề nghiệp tại cùng một công ty."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
@@ -210,7 +210,7 @@ msgstr "Thêm trang"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add Role"
-msgstr ""
+msgstr "Thêm vai trò"
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -222,7 +222,7 @@ msgstr "Thêm dòng trước"
 
 #: src/components/ai/chat.tsx
 msgid "Added"
-msgstr ""
+msgstr "Đã thêm"
 
 #: src/utils/locale.ts
 msgid "Afrikaans"
@@ -235,7 +235,7 @@ msgstr "AI"
 
 #: src/components/ai/chat.tsx
 msgid "AI Chat"
-msgstr ""
+msgstr "Trò chuyện AI"
 
 #: src/utils/locale.ts
 msgid "Albanian"
@@ -247,7 +247,7 @@ msgstr "Cho phép truy cập công khai"
 
 #: src/routes/auth/register.tsx
 msgid "Already have an account? <0/>"
-msgstr ""
+msgstr "Đã có tài khoản? <0/>"
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -311,7 +311,7 @@ msgstr "Tiếng Ả Rập"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn đóng hộp thoại này không?"
 
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "Are you sure you want to delete this API key?"
@@ -350,7 +350,7 @@ msgstr "Trí tuệ nhân tạo"
 
 #: src/components/ai/chat.tsx
 msgid "Ask me to update your resume..."
-msgstr ""
+msgstr "Hãy nhờ tôi cập nhật hồ sơ của bạn..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
@@ -510,7 +510,7 @@ msgstr "Chứng chỉ"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Change language"
-msgstr ""
+msgstr "Đổi ngôn ngữ"
 
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
@@ -550,7 +550,7 @@ msgstr "Vòng tròn"
 
 #: src/components/ai/chat.tsx
 msgid "Clear chat history"
-msgstr ""
+msgstr "Xóa lịch sử trò chuyện"
 
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
@@ -559,7 +559,7 @@ msgstr "Nhấn vào đây để chọn file cần nhập khẩu"
 #: src/components/ui/dialog.tsx
 #: src/components/ui/sheet.tsx
 msgid "Close"
-msgstr ""
+msgstr "Đóng"
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -596,7 +596,7 @@ msgstr "Kết nối"
 #: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Content"
-msgstr ""
+msgstr "Nội dung"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
@@ -641,7 +641,7 @@ msgstr "Sao chép URL"
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
-msgstr ""
+msgstr "Thư xin việc"
 
 #: src/dialogs/api-key/create.tsx
 #: src/dialogs/resume/index.tsx
@@ -682,7 +682,7 @@ msgstr "Tạo chứng chỉ mới"
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Create a new cover letter"
-msgstr ""
+msgstr "Tạo thư xin việc mới"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Create a new custom section"
@@ -733,7 +733,7 @@ msgstr "Tạo kỹ năng mới"
 
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Create a new summary item"
-msgstr ""
+msgstr "Tạo mục tóm tắt mới"
 
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Create a new volunteer experience"
@@ -898,7 +898,7 @@ msgstr "Tài liệu"
 
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
-msgstr ""
+msgstr "Chưa có tài khoản? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -964,7 +964,7 @@ msgstr "Tiếng Hà Lan"
 
 #: src/components/ai/chat.tsx
 msgid "e.g. Change my name to..."
-msgstr ""
+msgstr "vd. Đổi tên tôi thành..."
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1017,7 +1017,7 @@ msgstr "Tiếng Anh"
 
 #: src/utils/locale.ts
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Tiếng Anh (Vương quốc Anh)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1061,7 +1061,7 @@ msgstr "Mọi thứ bạn cần để tạo, tùy chỉnh và chia sẻ bản l�
 
 #: src/components/input/rich-input.tsx
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Thoát toàn màn hình"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1095,7 +1095,7 @@ msgstr "Thiết lập xác thực hai yếu tố thất bại."
 
 #: src/routes/auth/login.tsx
 msgid "Failed to sign in. Please try again."
-msgstr ""
+msgstr "Đăng nhập thất bại. Vui lòng thử lại."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1178,7 +1178,7 @@ msgstr "Chiều rộng đầy đủ"
 
 #: src/components/input/rich-input.tsx
 msgid "Fullscreen"
-msgstr ""
+msgstr "Toàn màn hình"
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -1462,7 +1462,7 @@ msgstr "Tìm hiểu thêm về cách căn chỉnh nội dung vừa trang"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
-msgstr ""
+msgstr "Rời đi"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
@@ -1697,11 +1697,11 @@ msgstr "Tổ chức"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Period"
-msgstr ""
+msgstr "Thời gian tổng thể"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Title (optional)"
-msgstr ""
+msgstr "Chức danh tổng thể (tùy chọn)"
 
 #: src/utils/resume/section.tsx
 msgid "Page"
@@ -1902,7 +1902,7 @@ msgstr "Resume Phản Ứng là mã nguồn mở, tập trung vào quyền riên
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Recipient"
-msgstr ""
+msgstr "Người nhận"
 
 #: src/components/level/combobox.tsx
 msgid "Rectangle"
@@ -1928,11 +1928,11 @@ msgstr "Làm mới"
 
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
-msgstr ""
+msgstr "Nhớ mật khẩu? <0/>"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
-msgstr ""
+msgstr "Xóa"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1940,7 +1940,7 @@ msgstr "Xóa mật khẩu"
 
 #: src/components/ai/chat.tsx
 msgid "Removed"
-msgstr ""
+msgstr "Đã xóa"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
@@ -1952,7 +1952,7 @@ msgstr "Đổi tên"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
-msgstr ""
+msgstr "Sắp xếp lại"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2007,7 +2007,7 @@ msgstr "Căn phải"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Role Progression"
-msgstr ""
+msgstr "Tiến trình vai trò"
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2060,7 +2060,7 @@ msgstr "Tìm kiếm..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
-msgstr ""
+msgstr "Tìm kiếm..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2072,7 +2072,7 @@ msgstr "Loại phần"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
-msgstr ""
+msgstr "Chọn..."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -2143,7 +2143,7 @@ msgstr "Hiện"
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Show link in title"
-msgstr ""
+msgstr "Hiển thị liên kết trong tiêu đề"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
@@ -2284,7 +2284,7 @@ msgstr "Thống kê"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
-msgstr ""
+msgstr "Ở lại"
 
 #: src/components/input/rich-input.tsx
 msgid "Strike"
@@ -2412,7 +2412,7 @@ msgstr "Đã xảy ra sự cố khi tạo PDF, hãy thử lại sau."
 
 #: src/components/ai/chat.tsx
 msgid "Thinking..."
-msgstr ""
+msgstr "Đang suy nghĩ..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
@@ -2614,7 +2614,7 @@ msgstr "Cập nhật một chứng nhận hiện có"
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Update an existing cover letter"
-msgstr ""
+msgstr "Cập nhật thư xin việc hiện có"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Update an existing custom section"
@@ -2658,7 +2658,7 @@ msgstr "Cập nhật kỹ năng hiện có"
 
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Update an existing summary item"
-msgstr ""
+msgstr "Cập nhật mục tóm tắt hiện có"
 
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Update an existing volunteer experience"
@@ -2679,7 +2679,7 @@ msgstr "Cập nhật mật khẩu của bạn"
 
 #: src/components/ai/chat.tsx
 msgid "Updated"
-msgstr ""
+msgstr "Đã cập nhật"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -2819,7 +2819,7 @@ msgstr "Bạn có thể chia sẻ resume của mình qua một URL công khai du
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
-msgstr ""
+msgstr "Bạn có thay đổi chưa lưu sẽ bị mất."
 
 #: src/routes/auth/forgot-password.tsx
 #: src/routes/auth/register.tsx

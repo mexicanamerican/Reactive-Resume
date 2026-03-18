@@ -202,7 +202,7 @@ msgstr "Spalte davor einfügen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
-msgstr ""
+msgstr "Fügen Sie mehrere Positionen hinzu, um den Karriereverlauf im gleichen Unternehmen darzustellen."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
@@ -210,7 +210,7 @@ msgstr "Seite hinzufügen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add Role"
-msgstr ""
+msgstr "Position hinzufügen"
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -247,7 +247,7 @@ msgstr "Öffentlichen Zugriff erlauben"
 
 #: src/routes/auth/register.tsx
 msgid "Already have an account? <0/>"
-msgstr ""
+msgstr "Sie haben bereits ein Konto? <0/>"
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -510,7 +510,7 @@ msgstr "Zertifizierungen"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Change language"
-msgstr ""
+msgstr "Sprache ändern"
 
 #: src/components/command-palette/pages/preferences/index.tsx
 msgid "Change language to..."
@@ -559,7 +559,7 @@ msgstr "Hier klicken, um eine Datei zum Importieren auszuwählen"
 #: src/components/ui/dialog.tsx
 #: src/components/ui/sheet.tsx
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -898,7 +898,7 @@ msgstr "Dokumentation"
 
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
-msgstr ""
+msgstr "Sie haben noch kein Konto? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -1017,7 +1017,7 @@ msgstr "Englisch"
 
 #: src/utils/locale.ts
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Englisch (Vereinigtes Königreich)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
@@ -1095,7 +1095,7 @@ msgstr "Die Einrichtung der Zwei-Faktor-Authentifizierung ist fehlgeschlagen."
 
 #: src/routes/auth/login.tsx
 msgid "Failed to sign in. Please try again."
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1252,7 +1252,7 @@ msgstr "Überschrift 6"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Headline"
-msgstr "Überschrift"
+msgstr "Berufsbezeichnung"
 
 #: src/utils/locale.ts
 msgid "Hebrew"
@@ -1466,7 +1466,7 @@ msgstr "Verlassen"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
-msgstr "Leer lassen, um den Titel auf den Original zurückzusetzen."
+msgstr "Leer lassen, um den Titel auf das Original zurückzusetzen."
 
 #: src/components/input/rich-input.tsx
 msgid "Left Align"
@@ -1697,11 +1697,11 @@ msgstr "Organisation"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Period"
-msgstr ""
+msgstr "Gesamtzeitraum"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Overall Title (optional)"
-msgstr ""
+msgstr "Gesamttitel (optional)"
 
 #: src/utils/resume/section.tsx
 msgid "Page"
@@ -1928,11 +1928,11 @@ msgstr "Aktualisieren"
 
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
-msgstr ""
+msgstr "Passwort noch parat? <0/>"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -1952,7 +1952,7 @@ msgstr "Umbenennen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
-msgstr ""
+msgstr "Neu anordnen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2007,7 +2007,7 @@ msgstr "Rechtsbündig"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Role Progression"
-msgstr ""
+msgstr "Karriereverlauf"
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2060,7 +2060,7 @@ msgstr "Suchen nach..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
-msgstr ""
+msgstr "Suchen..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -2072,7 +2072,7 @@ msgstr "Abschnittstyp"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
-msgstr ""
+msgstr "Auswählen..."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
