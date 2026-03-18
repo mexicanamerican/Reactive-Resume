@@ -8,38 +8,38 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
 import { Route as rootRouteImport } from "./routes/__root";
-import { Route as HomeIndexRouteImport } from "./routes/_home/index";
-import { Route as HomeRouteRouteImport } from "./routes/_home/route";
-import { Route as ApiAuthSplatRouteImport } from "./routes/api/auth.$";
-import { Route as ApiHealthRouteImport } from "./routes/api/health";
-import { Route as ApiOpenapiSplatRouteImport } from "./routes/api/openapi.$";
-import { Route as ApiRpcSplatRouteImport } from "./routes/api/rpc.$";
-import { Route as AuthForgotPasswordRouteImport } from "./routes/auth/forgot-password";
-import { Route as AuthIndexRouteImport } from "./routes/auth/index";
-import { Route as AuthLoginRouteImport } from "./routes/auth/login";
-import { Route as AuthRegisterRouteImport } from "./routes/auth/register";
-import { Route as AuthResetPasswordRouteImport } from "./routes/auth/reset-password";
-import { Route as AuthResumePasswordRouteImport } from "./routes/auth/resume-password";
-import { Route as AuthRouteRouteImport } from "./routes/auth/route";
-import { Route as AuthVerify2faRouteImport } from "./routes/auth/verify-2fa";
-import { Route as AuthVerify2faBackupRouteImport } from "./routes/auth/verify-2fa-backup";
-import { Route as BuilderResumeIdIndexRouteImport } from "./routes/builder/$resumeId/index";
-import { Route as BuilderResumeIdRouteRouteImport } from "./routes/builder/$resumeId/route";
-import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
-import { Route as DashboardResumesIndexRouteImport } from "./routes/dashboard/resumes/index";
-import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
-import { Route as DashboardSettingsAiRouteImport } from "./routes/dashboard/settings/ai";
-import { Route as DashboardSettingsApiKeysRouteImport } from "./routes/dashboard/settings/api-keys";
-import { Route as DashboardSettingsAuthenticationIndexRouteImport } from "./routes/dashboard/settings/authentication/index";
-import { Route as DashboardSettingsDangerZoneRouteImport } from "./routes/dashboard/settings/danger-zone";
-import { Route as DashboardSettingsPreferencesRouteImport } from "./routes/dashboard/settings/preferences";
-import { Route as DashboardSettingsProfileRouteImport } from "./routes/dashboard/settings/profile";
-import { Route as McpIndexRouteImport } from "./routes/mcp/index";
-import { Route as PrinterResumeIdRouteImport } from "./routes/printer/$resumeId";
 import { Route as SchemaDotjsonRouteImport } from "./routes/schema[.]json";
+import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
+import { Route as AuthRouteRouteImport } from "./routes/auth/route";
+import { Route as HomeRouteRouteImport } from "./routes/_home/route";
+import { Route as McpIndexRouteImport } from "./routes/mcp/index";
+import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
+import { Route as AuthIndexRouteImport } from "./routes/auth/index";
+import { Route as HomeIndexRouteImport } from "./routes/_home/index";
+import { Route as PrinterResumeIdRouteImport } from "./routes/printer/$resumeId";
+import { Route as AuthVerify2faBackupRouteImport } from "./routes/auth/verify-2fa-backup";
+import { Route as AuthVerify2faRouteImport } from "./routes/auth/verify-2fa";
+import { Route as AuthResumePasswordRouteImport } from "./routes/auth/resume-password";
+import { Route as AuthResetPasswordRouteImport } from "./routes/auth/reset-password";
+import { Route as AuthRegisterRouteImport } from "./routes/auth/register";
+import { Route as AuthLoginRouteImport } from "./routes/auth/login";
+import { Route as AuthForgotPasswordRouteImport } from "./routes/auth/forgot-password";
+import { Route as ApiHealthRouteImport } from "./routes/api/health";
+import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
+import { Route as BuilderResumeIdRouteRouteImport } from "./routes/builder/$resumeId/route";
+import { Route as DashboardResumesIndexRouteImport } from "./routes/dashboard/resumes/index";
+import { Route as BuilderResumeIdIndexRouteImport } from "./routes/builder/$resumeId/index";
 import { Route as UploadsUserIdSplatRouteImport } from "./routes/uploads/$userId.$";
+import { Route as DashboardSettingsProfileRouteImport } from "./routes/dashboard/settings/profile";
+import { Route as DashboardSettingsPreferencesRouteImport } from "./routes/dashboard/settings/preferences";
+import { Route as DashboardSettingsDangerZoneRouteImport } from "./routes/dashboard/settings/danger-zone";
+import { Route as DashboardSettingsApiKeysRouteImport } from "./routes/dashboard/settings/api-keys";
+import { Route as DashboardSettingsAiRouteImport } from "./routes/dashboard/settings/ai";
+import { Route as ApiRpcSplatRouteImport } from "./routes/api/rpc.$";
+import { Route as ApiOpenapiSplatRouteImport } from "./routes/api/openapi.$";
+import { Route as ApiAuthSplatRouteImport } from "./routes/api/auth.$";
+import { Route as DashboardSettingsAuthenticationIndexRouteImport } from "./routes/dashboard/settings/authentication/index";
 
 const SchemaDotjsonRoute = SchemaDotjsonRouteImport.update({
   id: "/schema.json",
@@ -150,26 +150,30 @@ const UploadsUserIdSplatRoute = UploadsUserIdSplatRouteImport.update({
   path: "/uploads/$userId/$",
   getParentRoute: () => rootRouteImport,
 } as any);
-const DashboardSettingsProfileRoute = DashboardSettingsProfileRouteImport.update({
-  id: "/settings/profile",
-  path: "/settings/profile",
-  getParentRoute: () => DashboardRouteRoute,
-} as any);
-const DashboardSettingsPreferencesRoute = DashboardSettingsPreferencesRouteImport.update({
-  id: "/settings/preferences",
-  path: "/settings/preferences",
-  getParentRoute: () => DashboardRouteRoute,
-} as any);
-const DashboardSettingsDangerZoneRoute = DashboardSettingsDangerZoneRouteImport.update({
-  id: "/settings/danger-zone",
-  path: "/settings/danger-zone",
-  getParentRoute: () => DashboardRouteRoute,
-} as any);
-const DashboardSettingsApiKeysRoute = DashboardSettingsApiKeysRouteImport.update({
-  id: "/settings/api-keys",
-  path: "/settings/api-keys",
-  getParentRoute: () => DashboardRouteRoute,
-} as any);
+const DashboardSettingsProfileRoute =
+  DashboardSettingsProfileRouteImport.update({
+    id: "/settings/profile",
+    path: "/settings/profile",
+    getParentRoute: () => DashboardRouteRoute,
+  } as any);
+const DashboardSettingsPreferencesRoute =
+  DashboardSettingsPreferencesRouteImport.update({
+    id: "/settings/preferences",
+    path: "/settings/preferences",
+    getParentRoute: () => DashboardRouteRoute,
+  } as any);
+const DashboardSettingsDangerZoneRoute =
+  DashboardSettingsDangerZoneRouteImport.update({
+    id: "/settings/danger-zone",
+    path: "/settings/danger-zone",
+    getParentRoute: () => DashboardRouteRoute,
+  } as any);
+const DashboardSettingsApiKeysRoute =
+  DashboardSettingsApiKeysRouteImport.update({
+    id: "/settings/api-keys",
+    path: "/settings/api-keys",
+    getParentRoute: () => DashboardRouteRoute,
+  } as any);
 const DashboardSettingsAiRoute = DashboardSettingsAiRouteImport.update({
   id: "/settings/ai",
   path: "/settings/ai",
@@ -190,11 +194,12 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: "/api/auth/$",
   getParentRoute: () => rootRouteImport,
 } as any);
-const DashboardSettingsAuthenticationIndexRoute = DashboardSettingsAuthenticationIndexRouteImport.update({
-  id: "/settings/authentication/",
-  path: "/settings/authentication/",
-  getParentRoute: () => DashboardRouteRoute,
-} as any);
+const DashboardSettingsAuthenticationIndexRoute =
+  DashboardSettingsAuthenticationIndexRouteImport.update({
+    id: "/settings/authentication/",
+    path: "/settings/authentication/",
+    getParentRoute: () => DashboardRouteRoute,
+  } as any);
 
 export interface FileRoutesByFullPath {
   "/": typeof HomeIndexRoute;
@@ -634,7 +639,9 @@ const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeIndexRoute: HomeIndexRoute,
 };
 
-const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(HomeRouteRouteChildren);
+const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
+  HomeRouteRouteChildren,
+);
 
 interface AuthRouteRouteChildren {
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute;
@@ -658,7 +665,9 @@ const AuthRouteRouteChildren: AuthRouteRouteChildren = {
   AuthIndexRoute: AuthIndexRoute,
 };
 
-const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(AuthRouteRouteChildren);
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+);
 
 interface DashboardRouteRouteChildren {
   DashboardIndexRoute: typeof DashboardIndexRoute;
@@ -679,10 +688,13 @@ const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardSettingsPreferencesRoute: DashboardSettingsPreferencesRoute,
   DashboardSettingsProfileRoute: DashboardSettingsProfileRoute,
   DashboardResumesIndexRoute: DashboardResumesIndexRoute,
-  DashboardSettingsAuthenticationIndexRoute: DashboardSettingsAuthenticationIndexRoute,
+  DashboardSettingsAuthenticationIndexRoute:
+    DashboardSettingsAuthenticationIndexRoute,
 };
 
-const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(DashboardRouteRouteChildren);
+const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
+  DashboardRouteRouteChildren,
+);
 
 interface BuilderResumeIdRouteRouteChildren {
   BuilderResumeIdIndexRoute: typeof BuilderResumeIdIndexRoute;
@@ -692,9 +704,8 @@ const BuilderResumeIdRouteRouteChildren: BuilderResumeIdRouteRouteChildren = {
   BuilderResumeIdIndexRoute: BuilderResumeIdIndexRoute,
 };
 
-const BuilderResumeIdRouteRouteWithChildren = BuilderResumeIdRouteRoute._addFileChildren(
-  BuilderResumeIdRouteRouteChildren,
-);
+const BuilderResumeIdRouteRouteWithChildren =
+  BuilderResumeIdRouteRoute._addFileChildren(BuilderResumeIdRouteRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   HomeRouteRoute: HomeRouteRouteWithChildren,
@@ -711,11 +722,12 @@ const rootRouteChildren: RootRouteChildren = {
   ApiRpcSplatRoute: ApiRpcSplatRoute,
   UploadsUserIdSplatRoute: UploadsUserIdSplatRoute,
 };
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>();
-
-import type { createStart } from "@tanstack/react-start";
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>();
 
 import type { getRouter } from "./router.tsx";
+import type { createStart } from "@tanstack/react-start";
 declare module "@tanstack/react-start" {
   interface Register {
     ssr: true;

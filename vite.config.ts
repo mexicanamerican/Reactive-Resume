@@ -14,7 +14,7 @@ const config = defineConfig({
 
   fmt: {
     printWidth: 120,
-    ignorePatterns: [],
+    ignorePatterns: ["routeTree.gen.ts"],
     sortPackageJson: {
       sortScripts: true,
     },
@@ -35,15 +35,14 @@ const config = defineConfig({
     },
   },
   lint: {
-    categories: {},
-    env: {
-      builtin: true,
-    },
-    globals: {},
-    ignorePatterns: [],
-    options: {
-      typeAware: true,
-      typeCheck: true,
+    env: { builtin: true },
+    ignorePatterns: ["routeTree.gen.ts"],
+    options: { typeAware: true, typeCheck: true },
+    settings: {
+      react: {
+        version: "19",
+        linkComponents: ["Link"],
+      },
     },
     plugins: [
       "eslint",
@@ -60,12 +59,6 @@ const config = defineConfig({
     ],
     rules: {
       "react/exhaustive-deps": "off",
-    },
-    settings: {
-      react: {
-        version: "19.2.4",
-        linkComponents: ["Link"],
-      },
     },
   },
 
