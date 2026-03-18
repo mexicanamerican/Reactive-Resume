@@ -2908,4 +2908,3 @@ msgstr "ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ଜୁଲୁ"
-

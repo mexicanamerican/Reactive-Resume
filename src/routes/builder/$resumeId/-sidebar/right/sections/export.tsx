@@ -13,77 +13,77 @@ import { downloadFromUrl, downloadWithAnchor, generateFilename } from "@/utils/f
 import { SectionBase } from "../shared/section-base";
 
 export function ExportSectionBuilder() {
-	const resume = useResumeStore((state) => state.resume);
+  const resume = useResumeStore((state) => state.resume);
 
-	const { mutateAsync: printResumeAsPDF, isPending: isPrinting } = useMutation(
-		orpc.printer.printResumeAsPDF.mutationOptions(),
-	);
+  const { mutateAsync: printResumeAsPDF, isPending: isPrinting } = useMutation(
+    orpc.printer.printResumeAsPDF.mutationOptions(),
+  );
 
-	const onDownloadJSON = useCallback(() => {
-		const filename = generateFilename(resume.data.basics.name, "json");
-		const jsonString = JSON.stringify(resume.data, null, 2);
-		const blob = new Blob([jsonString], { type: "application/json" });
+  const onDownloadJSON = useCallback(() => {
+    const filename = generateFilename(resume.data.basics.name, "json");
+    const jsonString = JSON.stringify(resume.data, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
 
-		downloadWithAnchor(blob, filename);
-	}, [resume]);
+    downloadWithAnchor(blob, filename);
+  }, [resume]);
 
-	const onDownloadPDF = useCallback(async () => {
-		const filename = generateFilename(resume.data.basics.name, "pdf");
-		const toastId = toast.loading(t`Please wait while your PDF is being generated...`, {
-			description: t`This may take a while depending on the server capacity. Please do not close the window or refresh the page.`,
-		});
+  const onDownloadPDF = useCallback(async () => {
+    const filename = generateFilename(resume.data.basics.name, "pdf");
+    const toastId = toast.loading(t`Please wait while your PDF is being generated...`, {
+      description: t`This may take a while depending on the server capacity. Please do not close the window or refresh the page.`,
+    });
 
-		try {
-			const { url } = await printResumeAsPDF({ id: resume.id });
-			await downloadFromUrl(url, filename);
-		} catch {
-			toast.error(t`There was a problem while generating the PDF, please try again in some time.`);
-		} finally {
-			toast.dismiss(toastId);
-		}
-	}, [resume, printResumeAsPDF]);
+    try {
+      const { url } = await printResumeAsPDF({ id: resume.id });
+      await downloadFromUrl(url, filename);
+    } catch {
+      toast.error(t`There was a problem while generating the PDF, please try again in some time.`);
+    } finally {
+      toast.dismiss(toastId);
+    }
+  }, [resume, printResumeAsPDF]);
 
-	return (
-		<SectionBase type="export" className="space-y-4">
-			<Button
-				variant="outline"
-				onClick={onDownloadJSON}
-				className="h-auto gap-x-4 p-4! text-start font-normal whitespace-normal active:scale-98"
-			>
-				<FileJsIcon className="size-6 shrink-0" />
-				<div className="flex flex-1 flex-col gap-y-1">
-					<h6 className="font-medium">JSON</h6>
-					<p className="text-xs leading-normal text-muted-foreground">
-						<Trans>
-							Download a copy of your resume in JSON format. Use this file for backup or to import your resume into
-							other applications, including AI assistants.
-						</Trans>
-					</p>
-				</div>
-			</Button>
+  return (
+    <SectionBase type="export" className="space-y-4">
+      <Button
+        variant="outline"
+        onClick={onDownloadJSON}
+        className="h-auto gap-x-4 p-4! text-start font-normal whitespace-normal active:scale-98"
+      >
+        <FileJsIcon className="size-6 shrink-0" />
+        <div className="flex flex-1 flex-col gap-y-1">
+          <h6 className="font-medium">JSON</h6>
+          <p className="text-xs leading-normal text-muted-foreground">
+            <Trans>
+              Download a copy of your resume in JSON format. Use this file for backup or to import your resume into
+              other applications, including AI assistants.
+            </Trans>
+          </p>
+        </div>
+      </Button>
 
-			<Button
-				variant="outline"
-				disabled={isPrinting}
-				onClick={onDownloadPDF}
-				className="h-auto gap-x-4 p-4! text-start font-normal whitespace-normal active:scale-98"
-			>
-				{isPrinting ? (
-					<CircleNotchIcon className="size-6 shrink-0 animate-spin" />
-				) : (
-					<FilePdfIcon className="size-6 shrink-0" />
-				)}
+      <Button
+        variant="outline"
+        disabled={isPrinting}
+        onClick={onDownloadPDF}
+        className="h-auto gap-x-4 p-4! text-start font-normal whitespace-normal active:scale-98"
+      >
+        {isPrinting ? (
+          <CircleNotchIcon className="size-6 shrink-0 animate-spin" />
+        ) : (
+          <FilePdfIcon className="size-6 shrink-0" />
+        )}
 
-				<div className="flex flex-1 flex-col gap-y-1">
-					<h6 className="font-medium">PDF</h6>
-					<p className="text-xs leading-normal text-muted-foreground">
-						<Trans>
-							Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume
-							with recruiters.
-						</Trans>
-					</p>
-				</div>
-			</Button>
-		</SectionBase>
-	);
+        <div className="flex flex-1 flex-col gap-y-1">
+          <h6 className="font-medium">PDF</h6>
+          <p className="text-xs leading-normal text-muted-foreground">
+            <Trans>
+              Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume
+              with recruiters.
+            </Trans>
+          </p>
+        </div>
+      </Button>
+    </SectionBase>
+  );
 }
