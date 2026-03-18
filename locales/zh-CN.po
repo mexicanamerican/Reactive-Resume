@@ -2216,6 +2216,10 @@ msgstr "跳到主要内容"
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
 msgstr "短链接"

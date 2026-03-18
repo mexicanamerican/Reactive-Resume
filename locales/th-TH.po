@@ -2216,6 +2216,10 @@ msgstr "ข้ามไปยังเนื้อหาหลัก"
 msgid "Slovak"
 msgstr "สโลวัก"
 
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
 msgstr "ชื่อ"

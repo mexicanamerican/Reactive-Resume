@@ -2216,6 +2216,10 @@ msgstr "Kalo te përmbajtja kryesore"
 msgid "Slovak"
 msgstr "Sllovakisht"
 
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
 msgstr "Linku i normalizuar"

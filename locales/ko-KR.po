@@ -2216,6 +2216,10 @@ msgstr "본문으로 바로 가기"
 msgid "Slovak"
 msgstr "슬로바키아어"
 
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
 msgstr "슬러그"

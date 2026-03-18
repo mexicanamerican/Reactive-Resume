@@ -2216,6 +2216,10 @@ msgstr "ప్రధాన విషయానికి దాటండి"
 msgid "Slovak"
 msgstr "స్లోవాక్"
 
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
 msgstr "స్లగ్"
