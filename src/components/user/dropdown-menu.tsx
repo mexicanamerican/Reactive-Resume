@@ -64,7 +64,7 @@ export function UserDropdownMenu({ children }: Props) {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger render={children({ session })} />
+			<DropdownMenuTrigger render={children({ session: session as AuthSession })} />
 
 			<DropdownMenuContent align="start" side="top">
 				<DropdownMenuGroup>

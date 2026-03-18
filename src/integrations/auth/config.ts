@@ -8,11 +8,11 @@ import { genericOAuth } from "better-auth/plugins/generic-oauth";
 import { twoFactor } from "better-auth/plugins/two-factor";
 import { username } from "better-auth/plugins/username";
 import { and, eq, or } from "drizzle-orm";
-import { db } from "@/integrations/drizzle/client";
 import { env } from "@/utils/env";
 import { hashPassword, verifyPassword } from "@/utils/password";
 import { generateId, toUsername } from "@/utils/string";
 import { schema } from "../drizzle";
+import { db } from "../drizzle/client";
 import { sendEmail } from "../email/service";
 
 function isCustomOAuthProviderEnabled() {
@@ -90,6 +90,7 @@ const getAuthConfig = () => {
 
 		telemetry: { enabled: false },
 		trustedOrigins: getTrustedOrigins(),
+
 		advanced: {
 			database: { generateId },
 			useSecureCookies: env.APP_URL.startsWith("https://"),
@@ -234,8 +235,8 @@ const getAuthConfig = () => {
 			openAPI(),
 			genericOAuth({ config: authConfigs }),
 			twoFactor({ issuer: "Reactive Resume" }),
-			dash({ apiKey: env.BETTER_AUTH_API_KEY }),
 			apiKey({ enableSessionForAPIKeys: true, rateLimit: { enabled: false } }),
+			dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } }),
 			username({
 				minUsernameLength: 3,
 				maxUsernameLength: 64,
