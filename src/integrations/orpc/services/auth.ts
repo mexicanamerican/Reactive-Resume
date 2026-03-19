@@ -43,10 +43,7 @@ export const authService = {
     try {
       await db.delete(schema.user).where(eq(schema.user.id, input.userId));
     } catch (err) {
-      logger.error("Failed to delete user record", {
-        userId: input.userId,
-        error: err,
-      });
+      logger.error({ err, userId: input.userId }, "Failed to delete user record");
 
       throw new ORPCError("INTERNAL_SERVER_ERROR");
     }

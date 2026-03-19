@@ -1,73 +1,71 @@
-type LogLevel = "debug" | "info" | "warn" | "error";
+import pino from "pino";
 
-type LogContext = Record<string, unknown> & {
-  error?: unknown;
-};
+const isDev = process.env.NODE_ENV !== "production";
+const level = process.env.LOG_LEVEL ?? (isDev ? "debug" : "info");
 
-type SerializedError = {
-  name: string;
-  message: string;
-  stack?: string;
-};
+export const logger = pino({
+  level,
+  timestamp: pino.stdTimeFunctions.isoTime,
+  formatters: {
+    level: (label) => ({ level: label }),
+  },
+  redact: {
+    paths: [
+      "apiKey",
+      "password",
+      "secret",
+      "token",
+      "authorization",
+      "*.apiKey",
+      "*.password",
+      "*.secret",
+      "*.token",
+      "error.stack",
+    ],
+    censor: "[REDACTED]",
+  },
+  ...(isDev && {
+    transport: {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+        translateTime: "HH:MM:ss.l",
+        ignore: "pid,hostname",
+      },
+    },
+  }),
+});
 
-function serializeError(error: unknown): SerializedError | undefined {
-  if (!error) return undefined;
+const EXPECTED_ERROR_PATTERNS = [
+  "Unauthorized",
+  "Not Found",
+  "UNAUTHORIZED",
+  "NOT_FOUND",
+  "State mismatch",
+  "User not found",
+  "Credential account not found",
+  "Invalid API key",
+] as const;
 
-  if (error instanceof Error) {
-    return {
-      name: error.name,
-      message: error.message,
-      stack: error.stack,
-    };
-  }
-
-  if (typeof error === "string") {
-    return {
-      name: "Error",
-      message: error,
-    };
-  }
-
-  if (typeof error === "object") {
-    return {
-      name: "Error",
-      message: JSON.stringify(error),
-    };
-  }
-
-  return {
-    name: "Error",
-    message: String(error as string),
-  };
+export function isExpectedError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return EXPECTED_ERROR_PATTERNS.some((pattern) => message.includes(pattern));
 }
 
-function log(level: LogLevel, message: string, context: LogContext = {}) {
-  const { error, ...rest } = context;
-  const payload = {
-    ts: new Date().toISOString(),
-    level,
-    message,
-    ...rest,
-    error: serializeError(error),
-  };
-  const json = JSON.stringify(payload);
+export function getErrorSummary(error: unknown): { name: string; message: string } {
+  if (error instanceof Error) return { name: error.name, message: error.message };
+  if (typeof error === "string") return { name: "Error", message: error };
+  if (typeof error === "object" && error !== null) return { name: "Error", message: JSON.stringify(error) };
+  return { name: "Error", message: String(error) };
+}
 
-  if (level === "error") {
-    console.error(json);
+export function logServerError(context: string, error: unknown, extra: Record<string, unknown> = {}): void {
+  const summary = getErrorSummary(error);
+
+  if (isExpectedError(error)) {
+    logger.warn({ err: summary, ...extra }, context);
     return;
   }
 
-  if (level === "warn") {
-    console.warn(json);
-    return;
-  }
-
-  console.log(json);
+  logger.error({ err: error instanceof Error ? error : summary, ...extra }, context);
 }
-
-export const logger = {
-  debug: (message: string, context?: LogContext) => log("debug", message, context),
-  info: (message: string, context?: LogContext) => log("info", message, context),
-  warn: (message: string, context?: LogContext) => log("warn", message, context),
-  error: (message: string, context?: LogContext) => log("error", message, context),
-};

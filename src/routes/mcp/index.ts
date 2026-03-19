@@ -54,10 +54,7 @@ export const Route = createFileRoute("/mcp/")({
 
           return await transport.handleRequest(request);
         } catch (error) {
-          logger.error("MCP request failed", {
-            route: "/mcp",
-            error,
-          });
+          logger.error({ err: error, route: "/mcp" }, "MCP request failed");
 
           return Response.json({
             id: null,

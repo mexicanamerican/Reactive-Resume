@@ -2,9 +2,12 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import { definePlugin } from "nitro";
 import { Pool } from "pg";
+import pino from "pino";
+
+const log = pino({ name: "migrate" });
 
 async function migrateDatabase() {
-  console.log("⌛ Running database migrations...");
+  log.info("Running database migrations...");
 
   const connectionString = process.env.DATABASE_URL;
 
@@ -17,9 +20,9 @@ async function migrateDatabase() {
 
   try {
     await migrate(db, { migrationsFolder: "./migrations" });
-    console.log("✅ Database migrations completed");
+    log.info("Database migrations completed");
   } catch (error) {
-    console.error("🚨 Database migrations failed:", error);
+    log.error({ err: error }, "Database migrations failed");
     throw error;
   } finally {
     await pool.end();

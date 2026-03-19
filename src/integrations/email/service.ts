@@ -45,23 +45,16 @@ export const sendEmail = async (options: SendEmailOptions) => {
   };
 
   if (!transport) {
-    logger.info("SMTP not configured; skipping email send", {
-      to: payload.to,
-      subject: payload.subject,
-    });
+    logger.info({ to: payload.to, subject: payload.subject }, "SMTP not configured; skipping email send");
     return;
   }
 
   try {
     await transport.sendMail({ ...options, from });
   } catch (error) {
-    logger.error("SMTP send failed", {
-      smtpHost: env.SMTP_HOST,
-      smtpPort: env.SMTP_PORT,
-      smtpSecure: env.SMTP_SECURE,
-      to: payload.to,
-      subject: payload.subject,
-      error,
-    });
+    logger.error(
+      { err: error, smtpHost: env.SMTP_HOST, smtpPort: env.SMTP_PORT, to: payload.to, subject: payload.subject },
+      "SMTP send failed",
+    );
   }
 };

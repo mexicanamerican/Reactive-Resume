@@ -72,12 +72,7 @@ async function healthHandler() {
   };
 
   if (status === "unhealthy") {
-    logger.warn("Healthcheck failed", {
-      route: "/api/health",
-      database,
-      printer,
-      storage,
-    });
+    logger.warn({ route: "/api/health", database, printer, storage }, "Healthcheck failed");
   }
 
   const headers = new Headers();

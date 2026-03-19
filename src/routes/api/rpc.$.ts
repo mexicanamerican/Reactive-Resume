@@ -5,16 +5,13 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import router from "@/integrations/orpc/router";
 import { getLocale } from "@/utils/locale";
-import { logger } from "@/utils/logger";
+import { logServerError } from "@/utils/logger";
 
 const rpcHandler = new RPCHandler(router, {
   plugins: [new BatchHandlerPlugin(), new RequestHeadersPlugin(), new StrictGetMethodPlugin()],
   interceptors: [
     onError((error) => {
-      logger.error("oRPC server error", {
-        route: "/api/rpc",
-        error,
-      });
+      logServerError("oRPC server error", error, { route: "/api/rpc" });
     }),
   ],
 });
