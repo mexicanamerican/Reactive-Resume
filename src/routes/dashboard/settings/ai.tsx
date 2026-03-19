@@ -221,11 +221,12 @@ function RouteComponent() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        style={{ willChange: "transform, opacity" }}
         className="grid max-w-xl gap-6"
       >
-        <div className="flex items-start gap-4 rounded-sm border bg-popover p-6">
-          <div className="rounded-sm bg-primary/10 p-2.5">
+        <div className="flex items-start gap-4 rounded-md border bg-popover p-6">
+          <div className="rounded-md bg-primary/10 p-2.5">
             <InfoIcon className="text-primary" size={24} />
           </div>
 

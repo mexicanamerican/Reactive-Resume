@@ -5,6 +5,7 @@ import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import {
   BrainIcon,
+  BriefcaseIcon,
   GearSixIcon,
   KeyIcon,
   ReadCvLogoIcon,
@@ -48,6 +49,11 @@ const appSidebarItems = [
     label: msg`Resumes`,
     href: "/dashboard/resumes",
   },
+  {
+    icon: <BriefcaseIcon />,
+    label: msg`Job Search`,
+    href: "/dashboard/job-search",
+  },
 ] as const satisfies SidebarItem[];
 
 const settingsSidebarItems = [
@@ -75,6 +81,11 @@ const settingsSidebarItems = [
     icon: <BrainIcon />,
     label: msg`Artificial Intelligence`,
     href: "/dashboard/settings/ai",
+  },
+  {
+    icon: <BriefcaseIcon />,
+    label: msg`Job Search API`,
+    href: "/dashboard/settings/job-search",
   },
   {
     icon: <WarningIcon />,
@@ -183,9 +194,11 @@ export function DashboardSidebar() {
           {state === "expanded" && (
             <motion.div
               key="copyright"
-              initial={{ y: 50, height: 0, opacity: 0 }}
-              animate={{ y: 0, height: "auto", opacity: 1 }}
-              exit={{ y: 50, height: 0, opacity: 0 }}
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 12, opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
             >
               <Copyright className="shrink-0 p-2 wrap-break-word whitespace-normal" />
             </motion.div>

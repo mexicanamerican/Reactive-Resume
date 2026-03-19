@@ -4,7 +4,9 @@ import { AISDKError, type UIMessage } from "ai";
 import { OllamaError } from "ai-sdk-ollama";
 import z, { flattenError, ZodError } from "zod";
 
-import type { ResumeData } from "@/schema/resume/data";
+import { jobResultSchema } from "@/schema/jobs";
+import { type ResumeData, resumeDataSchema } from "@/schema/resume/data";
+import { tailorOutputSchema } from "@/schema/tailor";
 
 import { protectedProcedure } from "../context";
 import { aiCredentialsSchema, aiProviderSchema, aiService, fileInputSchema } from "../services/ai";
@@ -170,6 +172,54 @@ export const aiRouter = {
       } catch (error) {
         if (error instanceof AISDKError || error instanceof OllamaError) {
           throw new ORPCError("BAD_GATEWAY", { message: error.message });
+        }
+
+        throw error;
+      }
+    }),
+
+  tailorResume: protectedProcedure
+    .route({
+      method: "POST",
+      path: "/ai/tailor-resume",
+      tags: ["AI"],
+      operationId: "tailorResume",
+      summary: "Auto-tailor resume for a job posting",
+      description:
+        "Uses AI to automatically tailor a resume for a specific job posting. Rewrites the summary, adjusts experience descriptions, and curates skills for ATS optimization. Returns structured modifications as a simplified output object. Requires authentication and AI credentials.",
+      successDescription: "Structured tailoring output returned successfully.",
+    })
+    .input(
+      z.object({
+        ...aiCredentialsSchema.shape,
+        resumeData: resumeDataSchema,
+        job: jobResultSchema,
+      }),
+    )
+    .output(tailorOutputSchema)
+    .errors({
+      BAD_GATEWAY: {
+        message: "The AI provider returned an error or is unreachable.",
+        status: 502,
+      },
+      BAD_REQUEST: {
+        message: "The AI returned an improperly formatted structure.",
+        status: 400,
+      },
+    })
+    .handler(async ({ input }) => {
+      try {
+        return await aiService.tailorResume(input);
+      } catch (error) {
+        if (error instanceof AISDKError || error instanceof OllamaError) {
+          throw new ORPCError("BAD_GATEWAY", { message: error.message });
+        }
+
+        if (error instanceof ZodError) {
+          throw new ORPCError("BAD_REQUEST", {
+            message: "Invalid resume data structure",
+            cause: flattenError(error),
+          });
         }
 
         throw error;

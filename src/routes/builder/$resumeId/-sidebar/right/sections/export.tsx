@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { CircleNotchIcon, FileJsIcon, FilePdfIcon } from "@phosphor-icons/react";
+import { CircleNotchIcon, FileDocIcon, FileJsIcon, FilePdfIcon } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { toast } from "sonner";
@@ -9,6 +9,7 @@ import { useResumeStore } from "@/components/resume/store/resume";
 import { Button } from "@/components/ui/button";
 import { orpc } from "@/integrations/orpc/client";
 import { downloadFromUrl, downloadWithAnchor, generateFilename } from "@/utils/file";
+import { buildDocx } from "@/utils/resume/docx";
 
 import { SectionBase } from "../shared/section-base";
 
@@ -20,15 +21,26 @@ export function ExportSectionBuilder() {
   );
 
   const onDownloadJSON = useCallback(() => {
-    const filename = generateFilename(resume.data.basics.name, "json");
+    const filename = generateFilename(resume.name, "json");
     const jsonString = JSON.stringify(resume.data, null, 2);
     const blob = new Blob([jsonString], { type: "application/json" });
 
     downloadWithAnchor(blob, filename);
   }, [resume]);
 
+  const onDownloadDOCX = useCallback(async () => {
+    const filename = generateFilename(resume.name, "docx");
+
+    try {
+      const blob = await buildDocx(resume.data);
+      downloadWithAnchor(blob, filename);
+    } catch {
+      toast.error(t`There was a problem while generating the DOCX, please try again.`);
+    }
+  }, [resume]);
+
   const onDownloadPDF = useCallback(async () => {
-    const filename = generateFilename(resume.data.basics.name, "pdf");
+    const filename = generateFilename(resume.name, "pdf");
     const toastId = toast.loading(t`Please wait while your PDF is being generated...`, {
       description: t`This may take a while depending on the server capacity. Please do not close the window or refresh the page.`,
     });
@@ -57,6 +69,23 @@ export function ExportSectionBuilder() {
             <Trans>
               Download a copy of your resume in JSON format. Use this file for backup or to import your resume into
               other applications, including AI assistants.
+            </Trans>
+          </p>
+        </div>
+      </Button>
+
+      <Button
+        variant="outline"
+        onClick={onDownloadDOCX}
+        className="h-auto gap-x-4 p-4! text-start font-normal whitespace-normal active:scale-98"
+      >
+        <FileDocIcon className="size-6 shrink-0" />
+        <div className="flex flex-1 flex-col gap-y-1">
+          <h6 className="font-medium">DOCX</h6>
+          <p className="text-xs leading-normal text-muted-foreground">
+            <Trans>
+              Download a copy of your resume as a Word document. Use this file to further customize your resume in
+              Microsoft Word or Google Docs.
             </Trans>
           </p>
         </div>

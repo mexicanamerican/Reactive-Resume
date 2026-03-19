@@ -4,6 +4,7 @@ import {
   ArrowUUpRightIcon,
   CircleNotchIcon,
   CubeFocusIcon,
+  FileDocIcon,
   FileJsIcon,
   FilePdfIcon,
   type Icon,
@@ -27,6 +28,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { authClient } from "@/integrations/auth/client";
 import { orpc } from "@/integrations/orpc/client";
 import { downloadFromUrl, downloadWithAnchor, generateFilename } from "@/utils/file";
+import { buildDocx } from "@/utils/resume/docx";
 import { cn } from "@/utils/style";
 
 export function BuilderDock() {
@@ -66,17 +68,29 @@ export function BuilderDock() {
 
   const onDownloadJSON = useCallback(async () => {
     if (!resume?.data) return;
-    const filename = generateFilename(resume.data.basics.name, "json");
+    const filename = generateFilename(resume.name, "json");
     const jsonString = JSON.stringify(resume.data, null, 2);
     const blob = new Blob([jsonString], { type: "application/json" });
 
     downloadWithAnchor(blob, filename);
   }, [resume?.data]);
 
+  const onDownloadDOCX = useCallback(async () => {
+    if (!resume?.data) return;
+    const filename = generateFilename(resume.name, "docx");
+
+    try {
+      const blob = await buildDocx(resume.data);
+      downloadWithAnchor(blob, filename);
+    } catch {
+      toast.error(t`There was a problem while generating the DOCX, please try again.`);
+    }
+  }, [resume?.data]);
+
   const onDownloadPDF = useCallback(async () => {
     if (!resume?.id) return;
 
-    const filename = generateFilename(resume.data.basics.name, "pdf");
+    const filename = generateFilename(resume.name, "pdf");
     const toastId = toast.loading(t`Please wait while your PDF is being generated...`, {
       description: t`This may take a while depending on the server capacity. Please do not close the window or refresh the page.`,
     });
@@ -89,15 +103,16 @@ export function BuilderDock() {
     } finally {
       toast.dismiss(toastId);
     }
-  }, [resume?.id, resume?.data.basics.name, printResumeAsPDF]);
+  }, [resume?.id, resume?.name, printResumeAsPDF]);
 
   return (
     <div className="fixed inset-x-0 bottom-4 flex items-center justify-center">
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 0.5, y: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
+        initial={{ opacity: 0, y: -18 }}
+        animate={{ opacity: 0.6, y: 0 }}
+        whileHover={{ opacity: 1, y: -2, scale: 1.01 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        style={{ willChange: "transform, opacity" }}
         className="flex items-center rounded-l-full rounded-r-full bg-popover px-2 shadow-xl"
       >
         <DockIcon
@@ -126,6 +141,7 @@ export function BuilderDock() {
         <AIChat />
         <DockIcon icon={LinkSimpleIcon} title={t`Copy URL`} onClick={() => onCopyUrl()} />
         <DockIcon icon={FileJsIcon} title={t`Download JSON`} onClick={() => onDownloadJSON()} />
+        <DockIcon icon={FileDocIcon} title={t`Download DOCX`} onClick={() => onDownloadDOCX()} />
         <DockIcon
           title={t`Download PDF`}
           disabled={isPrinting}
@@ -151,9 +167,16 @@ function DockIcon({ icon: Icon, title, disabled, onClick, iconClassName }: DockI
     <Tooltip>
       <TooltipTrigger
         render={
-          <Button size="icon" variant="ghost" disabled={disabled} onClick={onClick}>
-            <Icon className={cn("size-4", iconClassName)} />
-          </Button>
+          <motion.div
+            whileHover={disabled ? undefined : { y: -1, scale: 1.04 }}
+            whileTap={disabled ? undefined : { scale: 0.97 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            style={{ willChange: "transform" }}
+          >
+            <Button size="icon" variant="ghost" disabled={disabled} onClick={onClick}>
+              <Icon className={cn("size-4", iconClassName)} />
+            </Button>
+          </motion.div>
         }
       />
 

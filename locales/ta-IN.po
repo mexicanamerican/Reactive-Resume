@@ -47,10 +47,34 @@ msgstr "{0, plural, one {# உருப்படி} other {# உருப்ப
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# பங்கு} other {# பங்குகள்}}"
 
+#. placeholder {0}: quota.used
+#. placeholder {1}: quota.limit
+#: src/routes/dashboard/job-search/index.tsx
+msgid "{0} / {1} requests used"
+msgstr ""
+
+#. placeholder {0}: Math.floor(diffDays / 30)
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{0} months ago"
+msgstr ""
+
+#. placeholder {0}: Math.floor(diffDays / 7)
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{0} weeks ago"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
 msgstr "{column, plural, one {# நெடுவரிசை} other {# நெடுவரிசைகள்}}"
+
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{diffDays} days ago"
+msgstr ""
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "{used} of {limit} requests used ({remaining} remaining)"
+msgstr ""
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -224,6 +248,15 @@ msgstr "முன் வரியைச் சேர்க்கவும்"
 msgid "Added"
 msgstr "சேர்க்கப்பட்டது"
 
+#. placeholder {0}: skillsToSync.length
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Added {0} new skills to your original resume"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Advanced Filters"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Afrikaans"
 msgstr "ஆஃப்ரிகான்ஸ்"
@@ -236,6 +269,10 @@ msgstr "AI"
 #: src/components/ai/chat.tsx
 msgid "AI Chat"
 msgstr "AI அரட்டை"
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "AI returned some invalid references"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Albanian"
@@ -265,6 +302,19 @@ msgstr "உங்கள் ரெஸ்யூமியை இறக்கும�
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
 msgstr "மேலும் பல..."
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any level"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any time"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any type"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone visiting the resume's public URL must enter this password to access it."
@@ -297,6 +347,10 @@ msgstr "API விசைகள்"
 msgid "API Reference"
 msgstr "API குறிப்பு"
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "API Usage"
+msgstr ""
+
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "App"
 msgstr "செயலி"
@@ -304,6 +358,18 @@ msgstr "செயலி"
 #: src/routes/_home/-sections/statistics.tsx
 msgid "Application Statistics"
 msgstr "செயலி புள்ளிவிபரங்கள்"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply Link"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply Via"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Arabic"
@@ -405,6 +471,10 @@ msgstr "அடிப்படைத் தகவல்கள்"
 msgid "Beautiful templates to choose from, with more on the way."
 msgstr "தேர்வு செய்ய அழகான டெம்ப்ளேட்டுகள், மேலும் பல வழியில் வருகின்றன."
 
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Benefits"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Bengali"
 msgstr "பெங்காலி"
@@ -485,6 +555,7 @@ msgstr "என் ரெஸ்யூமியை PDF ஆக ஏற்றும�
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -548,6 +619,10 @@ msgstr "சீனம் (சம்பிரதாய)"
 msgid "Circle"
 msgstr "வட்டம்"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Clear all"
+msgstr ""
+
 #: src/components/ai/chat.tsx
 msgid "Clear chat history"
 msgstr "அரட்டை வரலாற்றை அழி"
@@ -582,6 +657,10 @@ msgstr "நிறுவனம்"
 msgid "Completely free, forever, no hidden costs."
 msgstr "முழுவதுமாக இலவசம், எப்போதும், மறைந்த செலவுகள் இன்றி."
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Configure Job Search"
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -614,6 +693,10 @@ msgstr "நீங்கள் நிறுத்திய இடத்தில�
 msgid "Continue where you left off by importing an existing resume you created using Reactive Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Reactive Resume."
 msgstr "Reactive Resume அல்லது வேறு எந்த ரெஸ்யூம் பில்டரையும் பயன்படுத்தி நீங்கள் உருவாக்கிய ஏற்கனவே உள்ள ரெஸ்யூமியை இறக்குமதி செய்து, நீங்கள் நிறுத்திய இடத்தில் இருந்து தொடரலாம். ஆதரிக்கப்படும் வடிவங்கள் PDF, Microsoft Word மற்றும் Reactive Resume-இல் இருந்து ஏற்றுமதி செய்யப்பட்ட JSON கோப்புகளை உள்ளடக்கியவை."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Contractor"
+msgstr ""
+
 #: src/routes/_home/-sections/donate.tsx
 msgid "Contributions fund bug fixes, security updates, and continuous improvements to keep the app running smoothly."
 msgstr "பங்களிப்புகள் பிழை திருத்தங்கள், பாதுகாப்பு புதுப்பிப்புகள் மற்றும் செயலியை சீராக இயங்க தொடர்ந்து மேம்படுத்த உதவுகின்றன."
@@ -637,6 +720,14 @@ msgstr "இந்த ரகசிய விசையை நகலெடுத்
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Copy URL"
 msgstr "URL-ஐ நகலெடு"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Could not fetch jobs"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Country"
+msgstr ""
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -803,6 +894,10 @@ msgstr "தரவு பாதுகாப்பு"
 msgid "Date"
 msgstr "தேதி"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Date Posted"
+msgstr ""
+
 #: src/dialogs/resume/sections/education.tsx
 msgid "Degree"
 msgstr "பட்டம்"
@@ -859,12 +954,25 @@ msgstr "உங்கள் ரெஸ்யூமியை நீக்கிக�
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
 msgid "Description"
 msgstr "விளக்கம்"
 
 #: src/utils/resume/section.tsx
 msgid "Design"
 msgstr "வடிவமைப்பு"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Direct"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Direct Apply"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Direct apply only"
+msgstr ""
 
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/routes/dashboard/settings/authentication/-components/two-factor.tsx
@@ -910,12 +1018,20 @@ msgid "Download"
 msgstr "பதிவிறக்கு"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
+msgid "Download a copy of your resume as a Word document. Use this file to further customize your resume in Microsoft Word or Google Docs."
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume in JSON format. Use this file for backup or to import your resume into other applications, including AI assistants."
 msgstr "உங்கள் ரெஸ்யூமியின் ஒரு நகலை JSON வடிவில் பதிவிறக்கவும். இந்த கோப்பை காப்புப்பிரதி வைக்க அல்லது உங்கள் ரெஸ்யூமியை AI உதவியாளர்கள் உட்பட பிற பயன்பாடுகளுக்கு இறக்குமதி செய்ய பயன்படுத்தலாம்."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 msgstr "உங்கள் ரெஸ்யூமியின் ஒரு நகலை PDF வடிவில் பதிவிறக்கவும். இந்த கோப்பை அச்சிடுவதற்கும் அல்லது பணியமர்த்துநர்களுடன் எளிதாக பகிர்வதற்கும் பயன்படுத்தலாம்."
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Download DOCX"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Download JSON"
@@ -962,9 +1078,21 @@ msgstr "உங்கள் ரெஸ்யூமியின் நகலை உ
 msgid "Dutch"
 msgstr "டச்சு"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "e.g. 150000"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "e.g. 50000"
+msgstr ""
+
 #: src/components/ai/chat.tsx
 msgid "e.g. Change my name to..."
 msgstr "எ.கா. என் பெயரை மாற்று..."
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "e.g. frontend developer jobs in Berlin"
+msgstr ""
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1047,6 +1175,10 @@ msgstr "இரண்டு நிலை அங்கீகாரத்தை அ
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "இரண்டு நிலை அங்கீகாரத்தை முடக்க உங்கள் கடவுச்சொல்லை உள்ளிடவும். 2FA இயங்காவிட்டால் உங்கள் கணக்கு குறைந்த பாதுகாப்புடன் இருக்கும்."
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Enter your RapidAPI key"
+msgstr ""
+
 #: src/routes/_home/-sections/donate.tsx
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "ஒவ்வொரு பங்களிப்பும், பெரியதோ சிறியதோ, இந்த திட்டத்திற்கு மிகப் பெரிய மாற்றத்தை கொண்டுவந்து விடுகிறது.<0/>உங்கள் ஆதரவுக்கு நன்றி!"
@@ -1059,11 +1191,24 @@ msgstr "இங்கே நீங்கள் உள்ளிடும் அன
 msgid "Everything you need to create, customize, and share professional resumes. Built with privacy in mind, powered by open source, and completely free forever."
 msgstr "தொழில்முறை ரெஸ்யூமிகளை உருவாக்க, விருப்பத்துக்கு உருப்பெற்றி, பகிர்வதற்குத் தேவையான அனைத்தும் இங்கே. தனியுரிமையை கருத்தில் கொண்டு உருவாக்கப்பட்டதால், திறந்த மூலத்தால் இயக்கப்படுகிறது மற்றும் எப்போதும் முழுவதுமாக இலவசம்."
 
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Exclude {value}"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Exclude Companies"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Exclude Keywords"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Exit Fullscreen"
 msgstr "முழுத்திரையிலிருந்து வெளியேறு"
 
 #: src/dialogs/resume/sections/custom.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "அனுபவம்"
@@ -1089,6 +1234,10 @@ msgstr "Reactive Resume-ஐ உங்கள் பயன்பாடுகளு
 msgid "Export"
 msgstr "ஏற்றுமதி"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Failed to duplicate resume"
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "இரண்டு நிலை அங்கீகாரத்தை அமைப்பது தோல்வியடைந்தது."
@@ -1096,6 +1245,10 @@ msgstr "இரண்டு நிலை அங்கீகாரத்தை அ
 #: src/routes/auth/login.tsx
 msgid "Failed to sign in. Please try again."
 msgstr "உள்நுழைவு தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்."
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Failed to sync skills"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -1176,6 +1329,10 @@ msgstr "ஃபிரென்ச்"
 msgid "Full Width"
 msgstr "முழு அகலம்"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Full-time"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Fullscreen"
 msgstr "முழுத்திரை"
@@ -1192,6 +1349,10 @@ msgstr "ஜெர்மன்"
 msgid "Get Started"
 msgstr "தொடங்குங்கள்"
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
+msgstr ""
+
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Go Back"
@@ -1200,6 +1361,10 @@ msgstr "திரும்பிச் செல்"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "டாஷ்போர்டுக்கு செல்லவும்"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Settings"
+msgstr ""
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1342,6 +1507,10 @@ msgstr "உங்கள் ரெஸ்யூமியை இறக்கும�
 msgid "Importing..."
 msgstr "இறக்குமதி செய்து கொண்டிருக்கிறது..."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Include Keywords"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Indonesian"
 msgstr "இந்தோனேஷியன்"
@@ -1362,6 +1531,10 @@ msgstr "அட்டவணையை நுழைக்கவும்"
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "விருப்பங்கள்"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Intern"
+msgstr ""
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Is Reactive Resume available in multiple languages?"
@@ -1386,6 +1559,24 @@ msgstr "சாய்ந்த"
 #: src/utils/locale.ts
 msgid "Japanese"
 msgstr "ஜப்பானியம்"
+
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Job Search"
+msgstr ""
+
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Job Search API"
+msgstr ""
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
+msgstr ""
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "JSearch API Documentation"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -1428,6 +1619,10 @@ msgstr "மொழி"
 #: src/utils/resume/section.tsx
 msgid "Languages"
 msgstr "மொழிகள்"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Last 3 days"
+msgstr ""
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -1577,9 +1772,21 @@ msgstr "விளிம்பு (கிடைமட்ட)"
 msgid "Margin (Vertical)"
 msgstr "விளிம்பு (செங்குத்து)"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Maximum Salary"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Minimum Salary"
+msgstr ""
+
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Model"
 msgstr "மாதிரி"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "More than 3 years"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Move to"
@@ -1630,13 +1837,37 @@ msgstr "புதிய கடவுச்சொல்"
 msgid "New Section"
 msgstr "புதிய பகுதி"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "New Skills Detected"
+msgstr ""
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Next"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
 msgstr "விளம்பரம் இல்லை, கண்காணிப்பு இல்லை"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "No degree required"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "No experience"
+msgstr ""
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "No jobs found. Try a different search query."
+msgstr ""
+
 #: src/components/ui/combobox.tsx
 msgid "No results found."
 msgstr "எந்த முடிவுகளும் கிடைக்கவில்லை."
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "No resumes found. Create a resume first."
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Norwegian"
@@ -1678,6 +1909,11 @@ msgstr "திறந்த மூல"
 msgid "opens in new tab"
 msgstr "புதிய தாவலில் திறக்கிறது"
 
+#. placeholder {0}: job.job_title
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Optimizing summary, experience, and skills for {0}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "விருப்பமாக, ஒரு கடவுச்சொல்லை அமைக்கலாம்; அப்போது அந்த கடவுச்சொல்லை தெரிந்தவர்களுக்கே இணைப்பின் மூலம் உங்கள் ரெஸ்யூமியைப் பார்க்க முடியும்."
@@ -1713,6 +1949,10 @@ msgstr "பக்கம்"
 msgid "Page {0}"
 msgstr "பக்கம் {0}"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Page {currentPage}"
+msgstr ""
+
 #: src/components/resume/preview.tsx
 msgid "Page {pageNumber} of {totalNumberOfPages}"
 msgstr "மொத்தம் {totalNumberOfPages} பக்கங்களில் {pageNumber} ஆம் பக்கம்"
@@ -1720,6 +1960,10 @@ msgstr "மொத்தம் {totalNumberOfPages} பக்கங்களி�
 #: src/components/input/rich-input.tsx
 msgid "Paragraph"
 msgstr "பத்தியம்"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Part-time"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -1826,6 +2070,10 @@ msgstr "விருப்பங்கள்"
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "தற்போதைய முக்கிய சொல்லை சேர்க்க அல்லது சேமிக்க <0>{RETURN_KEY}</0> அல்லது <1>{COMMA_KEY}</1> ஐ அழுத்தவும்."
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Previous"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "முதன்மை நிறம்"
@@ -1875,6 +2123,15 @@ msgstr "வெளியீடுகள்"
 #: src/dialogs/resume/sections/publication.tsx
 msgid "Publisher"
 msgstr "பதிப்பாளர்"
+
+#. placeholder {0}: quota.remaining
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Quota: {0} remaining"
+msgstr ""
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "RapidAPI Key"
+msgstr ""
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -1930,6 +2187,16 @@ msgstr "மீண்டும் ஏற்று"
 msgid "Remember your password? <0/>"
 msgstr "உங்கள் கடவுச்சொல் நினைவிருக்கிறதா? <0/>"
 
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Remote"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Remote only"
+msgstr ""
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
 msgstr "நீக்கு"
@@ -1962,6 +2229,10 @@ msgstr "ஒரு பிழையை அறிவிக்கவும்"
 msgid "Report an issue"
 msgstr "ஒரு பிரச்சினையை அறிக்கையிடவும்"
 
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Required Skills"
+msgstr ""
+
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Resend verification email"
 msgstr "சரிபார்ப்பு மின்னஞ்சலை மீண்டும் அனுப்பவும்"
@@ -1971,6 +2242,7 @@ msgid "Resending verification email..."
 msgstr "சரிபார்ப்பு மின்னஞ்சலை மீண்டும் அனுப்பிக் கொண்டிருக்கிறது..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Reset"
 msgstr "மீட்டமை"
 
@@ -1990,6 +2262,12 @@ msgstr "உங்கள் கடவுச்சொல்லை மீட்ட�
 msgid "Resources"
 msgstr "வளங்கள்"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Resume tailored successfully"
+msgstr ""
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
@@ -2000,6 +2278,10 @@ msgstr "வளங்கள்"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Resumes"
 msgstr "ரெஸ்யூமிகள்"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Retry"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
@@ -2020,6 +2302,11 @@ msgstr "சுழற்சி"
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "ரஷ்யன்"
+
+#. placeholder {0}: selectedSkills.size
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Save {0} Skills"
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
@@ -2049,6 +2336,15 @@ msgstr "கீழே உள்ள QR குறியீட்டை நீங்
 msgid "School"
 msgstr "பள்ளி"
 
+#: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Search"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Search countries"
+msgstr ""
+
 #: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
@@ -2069,6 +2365,17 @@ msgstr "ரகசியம் கிளிப்போர்டுக்கு �
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Section Type"
 msgstr "பகுதி வகை"
+
+#. placeholder {0}: job.job_title
+#. placeholder {1}: job.employer_name
+#. placeholder {2}: aiEnabled ? " and the AI will optimize it for this position." : "."
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Select a resume to tailor for \"{0}\" at {1}. A copy will be created{2}"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Select country"
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -2208,6 +2515,10 @@ msgstr "அளவு"
 msgid "Skills"
 msgstr "திறன்கள்"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Skip"
+msgstr ""
+
 #: src/routes/_home/route.tsx
 msgid "Skip to main content"
 msgstr "முக்கிய உள்ளடக்கத்துக்கு செல்லவும்"
@@ -2335,6 +2646,19 @@ msgstr "டேக்குகள்"
 msgid "Tags can be used to categorize your resume by keywords."
 msgstr "டேக்குகளை உங்கள் ரெஸ்யூமியை முக்கிய சொற்களால் வகைப்படுத்த பயன்படுத்தலாம்."
 
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailor Resume"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailoring failed"
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailoring your resume..."
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Tamil"
 msgstr "தமிழ்"
@@ -2356,6 +2680,7 @@ msgid "Templates"
 msgstr "டெம்ப்ளேட்டுகள்"
 
 #: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/job-search.tsx
 msgid "Test Connection"
 msgstr "இணைப்பை சோதிக்கவும்"
 
@@ -2370,6 +2695,10 @@ msgstr "எழுத்து நிறம்"
 #: src/utils/locale.ts
 msgid "Thai"
 msgstr "தாய்"
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "The AI identified new skills from your experience that match this job. Select which ones to save back to your original resume for future applications. This will permanently modify your original resume and cannot be undone."
+msgstr ""
 
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "The API key has been deleted successfully."
@@ -2411,6 +2740,11 @@ msgstr "பின்னர், செயலி வழங்கும் 6 இல
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
+msgid "There was a problem while generating the DOCX, please try again."
+msgstr ""
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "There was a problem while generating the PDF, please try again in some time."
 msgstr "PDF உருவாக்கும் போது ஒரு பிரச்சனை ஏற்பட்டது, தயவுசெய்து சில நேரம் கழித்து மீண்டும் முயற்சிக்கவும்."
 
@@ -2446,6 +2780,10 @@ msgstr "இது சில நிமிடங்கள் ஆகலாம்; �
 msgid "This may take a while depending on the server capacity. Please do not close the window or refresh the page."
 msgstr "சேவையக திறனைப் பொறுத்து இது சிறிது நேரம் எடுக்கலாம். தயவுசெய்து சாளரத்தை மூடவோ பக்கத்தை மீண்டும் ஏற்றவோ செய்யாதீர்கள்."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "This month"
+msgstr ""
+
 #: src/components/resume/store/resume.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "இந்த ரெஸ்யூமி பூட்டப்பட்டுள்ளது மற்றும் புதுப்பிக்க முடியாது."
@@ -2457,6 +2795,10 @@ msgstr "இந்த பகுதி, இந்த ரெஸ்யூமிக�
 #: src/routes/auth/register.tsx
 msgid "This step is optional, but recommended."
 msgstr "இந்த படி கட்டாயமில்லை, ஆனால் பரிந்துரைக்கப்படுகிறது."
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "This week"
+msgstr ""
 
 #: src/dialogs/api-key/create.tsx
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
@@ -2484,6 +2826,15 @@ msgstr "தலைப்பு"
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "உங்கள் கணக்கை நீக்க, கீழே உள்ள உறுதிப்படுத்தல் உரையை உள்ளீடு செய்து, கீழே உள்ள பொத்தானை கிளிக் செய்ய வேண்டும்."
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "To search for job listings, you need to configure your RapidAPI key in settings."
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Today"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Track your resume's views and downloads"
@@ -2553,6 +2904,7 @@ msgstr "இரண்டு நிலை அங்கீகாரம் வெற
 
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Type"
 msgstr "வகை"
 
@@ -2571,6 +2923,10 @@ msgstr "எழுத்துரு வடிவமைப்பு"
 #: src/utils/locale.ts
 msgid "Ukrainian"
 msgstr "உக்ரேனியன்"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Under 3 years"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Underline"
@@ -2779,6 +3135,10 @@ msgstr "இணையதளம்"
 msgid "What do you want to rename this section to?"
 msgstr "இந்த பகுதியை என்ன என்று மறுபெயரிட விரும்புகிறீர்கள்?"
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "What is JSearch API?"
+msgstr ""
+
 #: src/routes/_home/-sections/faq.tsx
 msgid "What makes Reactive Resume different from other resume builders?"
 msgstr "மற்ற ரெஸ்யூம் பில்டர்களிலிருந்து Reactive Resume-ஐ வித்தியாசப்படுத்துவது என்ன?"
@@ -2808,6 +3168,10 @@ msgstr "ஆம்! ஒவ்வொரு டெம்ப்ளேட்டும
 #: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "ஆம்! Reactive Resume-ஐ எவ்வித மறைந்த செலவுகளும், பிரீமியம் அடுக்கு கட்டணங்களும், சந்தா கட்டணங்களும் இன்றி முற்றிலும் இலவசமாக பயன்படுத்தலாம். இது திறந்த மூலமாகும் மற்றும் எப்போதும் இலவசமாகவே இருக்கும்."
+
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "Yesterday"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "You also have the option to deploy on your own servers using the Docker image."
@@ -2865,6 +3229,10 @@ msgstr "உங்கள் கடவுச்சொல் வெற்றிக�
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Your profile has been updated successfully."
 msgstr "உங்கள் சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டுள்ளது."
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/index.tsx

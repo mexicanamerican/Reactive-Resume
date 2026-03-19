@@ -71,9 +71,10 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
         <span className="max-w-32 truncate">{chip}</span>
         <motion.div
           initial={false}
-          animate={{ width: isHovered ? 40 : 0, marginInlineStart: isHovered ? 8 : 0, opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.15, ease: "linear" }}
-          className="flex shrink-0 items-center gap-x-1 overflow-hidden"
+          animate={isHovered ? { opacity: 1, scaleX: 1, x: 0 } : { opacity: 0, scaleX: 0.95, x: -3 }}
+          transition={{ duration: 0.12, ease: "easeOut" }}
+          className="ms-2 flex w-10 shrink-0 origin-left items-center gap-x-1 overflow-hidden"
+          style={{ willChange: "transform, opacity" }}
         >
           <button
             type="button"
@@ -83,7 +84,7 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
               e.stopPropagation();
               onEdit(index);
             }}
-            className="rounded-sm p-0.5 hover:bg-secondary hover:text-foreground focus:outline-none"
+            className="rounded-md p-0.5 hover:bg-secondary hover:text-foreground focus:outline-none"
           >
             <PencilSimpleIcon className="size-3.5" />
           </button>
@@ -95,7 +96,7 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
               e.stopPropagation();
               onRemove(index);
             }}
-            className="rounded-sm p-0.5 hover:bg-destructive/10 hover:text-destructive focus:outline-none"
+            className="rounded-md p-0.5 hover:bg-destructive/10 hover:text-destructive focus:outline-none"
           >
             <XIcon className="size-3.5" />
           </button>
@@ -109,9 +110,10 @@ type Props = Omit<React.ComponentProps<"div">, "value" | "onChange"> & {
   value?: string[];
   defaultValue?: string[];
   onChange?: (value: string[]) => void;
+  hideDescription?: boolean;
 };
 
-export function ChipInput({ value, defaultValue = [], onChange, className, ...props }: Props) {
+export function ChipInput({ value, defaultValue = [], onChange, className, hideDescription = false, ...props }: Props) {
   const [chips, setChips] = useControlledState<string[]>({
     value,
     defaultValue,
@@ -293,11 +295,14 @@ export function ChipInput({ value, defaultValue = [], onChange, className, ...pr
           onKeyDown={handleKeyDown}
           onChange={handleInputChange}
         />
-        <p className="text-xs text-muted-foreground">
-          <Trans>
-            Press <Kbd>{RETURN_KEY}</Kbd> or <Kbd>{COMMA_KEY}</Kbd> to add or save the current keyword.
-          </Trans>
-        </p>
+
+        {!hideDescription && (
+          <p className="text-xs text-muted-foreground">
+            <Trans>
+              Press <Kbd>{RETURN_KEY}</Kbd> or <Kbd>{COMMA_KEY}</Kbd> to add or save the current keyword.
+            </Trans>
+          </p>
+        )}
       </div>
     </div>
   );
