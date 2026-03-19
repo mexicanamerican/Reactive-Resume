@@ -28,7 +28,6 @@
     "lingui:extract": "lingui extract --clean --overwrite",
     "lint": "vp lint --type-aware",
     "lint:fix": "vp lint --type-aware --fix",
-    "prepare": "vp config",
     "preview": "vp preview",
     "start": "node .output/server/index.mjs",
     "test": "vp test",
