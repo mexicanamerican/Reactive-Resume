@@ -163,7 +163,7 @@ const config = defineConfig({
 
   fmt: {
     printWidth: 120,
-    ignorePatterns: ["routeTree.gen.ts"],
+    ignorePatterns: ["routeTree.gen.ts", "docs/changelog/index.mdx"],
     sortPackageJson: {
       sortScripts: true,
     },

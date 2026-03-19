@@ -5,197 +5,228 @@ rss: true
 ---
 
 <Update label="v5.0.13" description="19th March 2026">
-  - **Features & Improvements**
-    - Added **Job Listings with AI-Powered Resume Tailoring**, a major new feature that integrates job search (via JSearch API) directly into the dashboard with AI-driven resume tailoring to match job descriptions. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
-      - Search for jobs with filters for location (city, state, country), employment type, remote status, and more.
-      - View detailed job listings in a slide-out panel with apply links and tags.
-      - Tailor your resume to a specific job posting using AI — rewrites skills, experience, and references for optimal fit.
-      - Per-user API quota management with usage tracking in settings.
-      - Pagination with 30 results per page.
-    - Added **DOCX resume export** — generate and download tailored resumes as Word documents. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
-    - Migrated the entire project toolchain to **Vite+** (`vp` CLI), unifying Vite, Vitest, Oxlint, and Oxfmt under a single developer experience.
-    - Migrated from **Biome to Oxlint/Oxfmt** for linting and formatting, with a new autofix CI workflow. [#2822](https://github.com/amruthpillai/reactive-resume/pull/2822)
-    - Added **Slovenian** locale support.
-    - Added a new `Progress` UI component.
+## Features & Improvements
+- Added **Job Listings with AI-Powered Resume Tailoring**, a major new feature that integrates job search (via JSearch API) directly into the dashboard with AI-driven resume tailoring to match job descriptions. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
+  - Search for jobs with filters for location (city, state, country), employment type, remote status, and more.
+  - View detailed job listings in a slide-out panel with apply links and tags.
+  - Tailor your resume to a specific job posting using AI — rewrites skills, experience, and references for optimal fit.
+  - Per-user API quota management with usage tracking in settings.
+  - Pagination with 30 results per page.
+- Added **DOCX resume export** — generate and download tailored resumes as Word documents. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
+- Migrated the entire project toolchain to **Vite+** (`vp` CLI), unifying Vite, Vitest, Oxlint, and Oxfmt under a single developer experience.
+- Migrated from **Biome to Oxlint/Oxfmt** for linting and formatting, with a new autofix CI workflow. [#2822](https://github.com/amruthpillai/reactive-resume/pull/2822)
+- Added **Slovenian** locale support.
+- Added a new `Progress` UI component.
 
-- **Fixes**
-  - Fixed type issues in auth client and configuration.
-  - Used RTL-friendly CSS classes across the app for improved bidirectional layout support.
-  - Removed dead code and unused imports.
-  - Updated route tree generation and added `routeTree.gen.ts` to `.gitignore`.
-  - Improved animation performance with `willChange` styles on animation components.
+## Fixes
+- Fixed type issues in auth client and configuration.
+- Used RTL-friendly CSS classes across the app for improved bidirectional layout support.
+- Removed dead code and unused imports.
+- Updated route tree generation and added `routeTree.gen.ts` to `.gitignore`.
+- Improved animation performance with `willChange` styles on animation components.
 
-- **Maintenance & Dependencies**
-  - Updated dependencies across the board, including `@typescript/native-preview`, `vite-plus`, and others.
-  - Added database migrations for missing indexes.
-  - Synced translations from Crowdin. [#2820](https://github.com/amruthpillai/reactive-resume/pull/2820), [#2824](https://github.com/amruthpillai/reactive-resume/pull/2824)
-  - Updated French translation for 'Volunteer' to 'Bénévolat'. [#2823](https://github.com/amruthpillai/reactive-resume/pull/2823)
-  - Multiple translation and language updates across all locales.
+## Maintenance & Dependencies
+- Updated dependencies across the board, including `@typescript/native-preview`, `vite-plus`, and others.
+- Added database migrations for missing indexes.
+- Synced translations from Crowdin. [#2820](https://github.com/amruthpillai/reactive-resume/pull/2820), [#2824](https://github.com/amruthpillai/reactive-resume/pull/2824)
+- Updated French translation for 'Volunteer' to 'Bénévolat'. [#2823](https://github.com/amruthpillai/reactive-resume/pull/2823)
+- Multiple translation and language updates across all locales.
 
-- **New Contributors** - @lukadfagundes - @Hephaisto-dev
-  </Update>
+## New Contributors
+- @lukadfagundes
+- @Hephaisto-dev
+</Update>
 
 <Update label="v5.0.12" description="17th March 2026">
-  - **Features & Improvements**
-    - Refactored the component system to `@base-ui/react` across the app for standardized UI behavior (dialogs, menus, accordions, comboboxes, switches, etc.).
-    - Improved auth infrastructure with Better Auth dashboard/sentinel integration and expanded IP/header handling for proxied deployments.
-    - Added a dedicated `src/server.ts` server entry using `FastResponse` for better runtime compatibility.
-    - Sidebar button list now scrolls internally on overflow.
+## Features & Improvements
+- Refactored the component system to `@base-ui/react` across the app for standardized UI behavior (dialogs, menus, accordions, comboboxes, switches, etc.).
+- Improved auth infrastructure with Better Auth dashboard/sentinel integration and expanded IP/header handling for proxied deployments.
+- Added a dedicated `src/server.ts` server entry using `FastResponse` for better runtime compatibility.
+- Sidebar button list now scrolls internally on overflow.
 
-- **Fixes**
-  - Printer endpoint now resolves to IP when using chromedp, improving compatibility with proxied deployments.
-  - Switched OpenAI integration to `chat/completions` for resume import and AI features.
-  - AI PDF/DOCX resume parsing is now more robust via direct file send (multimodal input).
-  - Resume import normalization hardened: section defaults merged, required fields enforced, missing IDs/flags autogenerated.
-  - Fixed UI migration regressions (accordion behavior, button interaction, right sidebar scrollbar).
-  - Fixed multi-page PDF crashes and Gemini API ingestion errors.
-  - Fixed role title styling, role spacing, and issues with skills item rendering and template headings.
+## Fixes
+- Printer endpoint now resolves to IP when using chromedp, improving compatibility with proxied deployments.
+- Switched OpenAI integration to `chat/completions` for resume import and AI features.
+- AI PDF/DOCX resume parsing is now more robust via direct file send (multimodal input).
+- Resume import normalization hardened: section defaults merged, required fields enforced, missing IDs/flags autogenerated.
+- Fixed UI migration regressions (accordion behavior, button interaction, right sidebar scrollbar).
+- Fixed multi-page PDF crashes and Gemini API ingestion errors.
+- Fixed role title styling, role spacing, and issues with skills item rendering and template headings.
 
-- **Maintenance & Dependencies**
-  - Updated dependencies and lockfile.
-  - Synced translation strings across locales, including multiple contributions from Crowdin.
-  - General dependency and code style improvements, plus removal of redundant indexes and plugins.
+## Maintenance & Dependencies
+- Updated dependencies and lockfile.
+- Synced translation strings across locales, including multiple contributions from Crowdin.
+- General dependency and code style improvements, plus removal of redundant indexes and plugins.
 
-- **Community & Contributors** - Users can now view other public resumes while logged in. - New Contributors: @yang-summer, @FrancocDev, @obitton, @jondycz. - Full changelog: https://docs.rxresu.me/changelog
-  </Update>
+## New Contributors
+- @yang-summer
+- @FrancocDev
+- @obitton
+- @jondycz
+</Update>
 
 <Update label="v5.0.10" description="24th February 2026">
-  - **Fixes**
-    - Show section titles for summary-type custom sections in the resume builder. [#2744](https://github.com/amruthpillai/reactive-resume/pull/2744)
-    - Prevent browser password managers and Edge autofill/save prompts from appearing on AI settings API key fields. [#2719](https://github.com/amruthpillai/reactive-resume/pull/2719)
-    - Replace deprecated Tailwind CSS classes: use `inset-s-*`/`inset-e-*` instead of `start-*`/`end-*`.
-    - Fix PDF downloader to work correctly in offline mode. [#2743](https://github.com/amruthpillai/reactive-resume/pull/2743)
-    - Make bold formatting visible for `<strong>` in the resume rich text editor (uses plain `font-weight: bold` fallback if the CSS variable is unset). Fixes [#2730](https://github.com/amruthpillai/reactive-resume/issues/2730)
-    - Prevent credentials sign-in from dropping `session_token` Set-Cookie, improves login reliability. [#2718](https://github.com/amruthpillai/reactive-resume/pull/2718)
-    - Remove redundant `resume-` prefix from download filename; add spacing between pages in shared view. [#2709](https://github.com/amruthpillai/reactive-resume/pull/2709)
-    - Normalize autocomplete tokens for login and register forms. [#2714](https://github.com/amruthpillai/reactive-resume/pull/2714)
-    - Fix improper chips reordering and update dependency/translations. [#2711](https://github.com/amruthpillai/reactive-resume/issues/2711)
-    - Fix issue with clipping of heading in Lapras resume template.
-    - Remove error-causing plugins in oRPC integration.
-    - Remove duplicate database indexes; add index for `created_at` on user and resume tables.
+## Fixes
+- Show section titles for summary-type custom sections in the resume builder. [#2744](https://github.com/amruthpillai/reactive-resume/pull/2744)
+- Prevent browser password managers and Edge autofill/save prompts from appearing on AI settings API key fields. [#2719](https://github.com/amruthpillai/reactive-resume/pull/2719)
+- Replace deprecated Tailwind CSS classes: use `inset-s-*`/`inset-e-*` instead of `start-*`/`end-*`.
+- Fix PDF downloader to work correctly in offline mode. [#2743](https://github.com/amruthpillai/reactive-resume/pull/2743)
+- Make bold formatting visible for `<strong>` in the resume rich text editor (uses plain `font-weight: bold` fallback if the CSS variable is unset). Fixes [#2730](https://github.com/amruthpillai/reactive-resume/issues/2730)
+- Prevent credentials sign-in from dropping `session_token` Set-Cookie, improves login reliability. [#2718](https://github.com/amruthpillai/reactive-resume/pull/2718)
+- Remove redundant `resume-` prefix from download filename; add spacing between pages in shared view. [#2709](https://github.com/amruthpillai/reactive-resume/pull/2709)
+- Normalize autocomplete tokens for login and register forms. [#2714](https://github.com/amruthpillai/reactive-resume/pull/2714)
+- Fix improper chips reordering and update dependency/translations. [#2711](https://github.com/amruthpillai/reactive-resume/issues/2711)
+- Fix clipping of heading in Lapras resume template.
+- Remove error-causing plugins in oRPC integration.
+- Remove duplicate database indexes; add index for `created_at` on user and resume tables.
 
-- **Features & Improvements**
-  - Add new feature flag: `FLAG_DISABLE_IMAGE_PROCESSING` (allows disabling of image processing site-wide).
-  - Update Discord invite link in the app and documentation.
-  - Add comprehensive codebase and architecture documentation in `CLAUDE.md`.
-  - Sync latest translations from Crowdin (updated and added multiple languages).
+## Features & Improvements
+- Added feature flag: `FLAG_DISABLE_IMAGE_PROCESSING` (allows disabling image processing site-wide).
+- Updated Discord invite link in the app and documentation.
+- Added comprehensive codebase and architecture documentation in `CLAUDE.md`.
+- Synced latest translations from Crowdin (multiple language updates and additions).
 
-- **Other** - Refactor: rename auth utility from `originWith` to `withHostname`, preserve localhost/127.0.0.1 sibling trust. - General dependency updates and code style improvements. - Documentation and README updates.
-  </Update>
+## Maintenance & Other
+- Refactored auth utility from `originWith` to `withHostname` to preserve localhost/127.0.0.1 sibling trust.
+- Updated dependencies and improved code style.
+- Updated documentation and README files.
+</Update>
 
 <Update label="v5.0.9" description="9th February 2026">
-  - Add Computer Modern web fonts to the font selector, allowing the user to choose from a variety of "Computer Modern"
-  (LaTeX) fonts. - This lets you create a resume that looks just like a LaTeX document, with the same fonts and styles.
-  - Update dependencies to the latest versions.
+## Features & Improvements
+- Added Computer Modern web fonts to the font selector, allowing users to choose from LaTeX-style "Computer Modern" fonts for a classic scientific look.
+- Updated dependencies to the latest versions.
 </Update>
 
 <Update label="v5.0.8" description="9th February 2026">
-  - Remove Passkey support from the authentication system, as it was causing issues with the authentication provider. -
-  Update dependencies to the latest versions.
+## Fixes
+- Removed Passkey support from the authentication system due to provider compatibility issues.
+- Updated dependencies to the latest versions.
 </Update>
 
 <Update label="v5.0.7" description="9th February 2026">
-  - Introduce a new **MCP (Model Context Protocol) server** that lets you manage and edit resumes from any
-  MCP-compatible AI tool — Claude Desktop, Cursor, Codex, and more. Supports listing, reading, creating, deleting,
-  locking/unlocking, and patching resumes via natural language. [(guide)](/guides/using-the-mcp-server) - Add an **AI
-  Chat** panel to the resume builder, allowing you to modify your resume through conversational AI directly within the
-  editor. The chat uses tool-calling to apply JSON Patch operations to your resume in real-time, with visual feedback
-  for each change. - Add a system prompt and `patch_resume` tool for the AI chat, enabling structured, minimal-diff
-  resume edits following RFC 6902 JSON Patch operations. - Chat history is now persisted per resume in localStorage, so
-  conversations are preserved across sessions. - Fix rendering issues in the Lapras and Onyx resume templates. -
-  Improvements to the Combobox and ScrollArea UI components. - Fix an issue with skills item rendering in the shared
-  resume components. - Update authentication configuration and auth route handling. - Update the JSON Schema to reflect
-  the latest resume data model. - Update dependencies to the latest versions.
+## Features & Improvements
+- Introduced a new **MCP (Model Context Protocol) server** for managing and editing resumes from MCP-compatible AI tools (Claude Desktop, Cursor, Codex, and others). Supports listing, reading, creating, deleting, locking/unlocking, and patching resumes via natural language. [(guide)](/guides/using-the-mcp-server)
+- Added an **AI Chat** panel to the resume builder, allowing conversational resume modifications through tool-calling (JSON Patch operations applied to the resume in real time with visual feedback).
+- Added a system prompt and `patch_resume` tool for structured, minimal-diff resume edits via RFC 6902 JSON Patch.
+- Chat history is now persisted per resume in localStorage.
+
+## Fixes
+- Fixed rendering issues in the Lapras and Onyx resume templates.
+- Improved Combobox and ScrollArea UI components.
+- Fixed skills item rendering in shared resume components.
+- Updated authentication configuration and route handling.
+- Updated JSON Schema to match the latest resume data model.
+
+## Maintenance
+- Updated dependencies to latest versions.
 </Update>
 
 <Update label="v5.0.6" description="8th February 2026">
-  - Implement Atomic Resume Patching API for fine-grained resume updates, allowing partial, atomic updates to resumes
-  via a new PATCH endpoint. [#2692](https://github.com/amruthpillai/reactive-resume/pull/2692) - The API endpoint `PUT
-  /resume/{id}` now returns the updated resume object instead of void. Also, resume routing/services now use explicit
-  DTOs for input and output schemas. [#2688](https://github.com/amruthpillai/reactive-resume/pull/2688) - Add error
-  logging for API server errors (server-side only) to improve debugging and reliability. - Refactor and clean up
-  imports/exports for clarity and maintainability. - Added `.devcontainer` configuration for improved contributor
-  development environment. - Update dependencies to the latest versions. - Add build status badge and documentation link
-  to README. - Sync latest translations from Crowdin (notably: French, other languages). - Other minor fixes and
-  improvements.
+## Features & Improvements
+- Implemented Atomic Resume Patching API for fine-grained, partial updates to resumes via a new PATCH endpoint. [#2692](https://github.com/amruthpillai/reactive-resume/pull/2692)
+- API endpoint `PUT /resume/{id}` now returns the updated resume object rather than void, with explicit DTOs for input/output. [#2688](https://github.com/amruthpillai/reactive-resume/pull/2688)
+- Added error logging for API server errors (server-side only) to improve debugging and reliability.
+- Refactored and cleaned up imports/exports for clarity and maintainability.
+- Added `.devcontainer` configuration for improved contributor development environment.
+- Added build status badge and documentation link to README.
+
+## Fixes
+- General bug fixes and minor improvements.
+- Synced latest translations from Crowdin (notably: French, other languages).
+- Updated dependencies to latest versions.
 </Update>
 
 <Update label="v5.0.5" description="31st January 2026">
-  - Implement Cover Letter functionality in the resume builder, allowing the user to create cover letters as custom
-  sections. [(link)](/guides/adding-a-cover-letter) - Implement full-screen mode for the rich text editor in the resume
-  builder, allowing the user to write in a more focused environment. - Implement a new custom section type: `summary`,
-  which allows the user to add another "summary" like section to the resume. - Implement a `useFormBlocker` hook to
-  prevent the user from closing a dialog while the form has unsaved changes. - Fix an issue where keywords spacing was
-  not consistent in the interests section. [#2631](https://github.com/amruthpillai/reactive-resume/pull/2631) - Fix an
-  issue where the AI connection test was not working correctly, also return appropriate error messages for AI provider
-  issues.
+## Features & Improvements
+- Implemented Cover Letter functionality as a custom section in the resume builder. [(link)](/guides/adding-a-cover-letter)
+- Added full-screen mode to the rich text editor for distraction-free writing.
+- Introduced a new custom section type: `summary`, enabling users to add extra summary sections.
+- Added `useFormBlocker` hook to prevent dialogs from being closed with unsaved form changes.
+
+## Fixes
+- Fixed keyword spacing issue in the interests section. [#2631](https://github.com/amruthpillai/reactive-resume/pull/2631)
+- Fixed AI connection test and improved error reporting for AI provider issues.
 </Update>
 
 <Update label="v5.0.4" description="28th January 2026">
-  - Bring back Undo/Redo functionality in the resume builder for improved editing experience. - Arrange the sidebar
-  builder dynamically based on the section type in each template.
-  [#2564](https://github.com/amruthpillai/reactive-resume/pull/2603) - Remove extra spacing when proficiency is empty.
-  [#2607](https://github.com/amruthpillai/reactive-resume/pull/2626) - Fix rendering in Pikachu template: conditionally
-  render header and page picture using `isFirstPage`, and respect the `fullWidth` property for page layout. - Fixes to
-  templates to improve layout and rendering consistency. - Fix GitHub OAuth login for users migrated from previous
-  versions. - Improve communication with the printer service and reduce resource usage for better PDF generation
-  reliability. - Update and sync translations from Crowdin (Afrikaans, Persian, Portuguese/Brazilian, and other
-  languages). - Update translation sources and configuration. - Fix "empty" Git merge remnants in codebase. - Update
-  package dependencies and fix self-hosting guide links in README. - Remove dead code, update screenshots, and add PWA
-  (Progressive Web App) support. - Update links to PDF example files in documentation. - Other bug fixes and minor
-  improvements (#2542, #2573, #2598).
+## Features & Improvements
+- Brought back Undo/Redo functionality in the resume builder for an improved editing experience.
+- Sidebar builder now arranges dynamically based on the section type in each template. [#2564](https://github.com/amruthpillai/reactive-resume/pull/2603)
+- Added PWA (Progressive Web App) support and updated PDF example file links in documentation.
+
+## Fixes
+- Removed extra spacing when proficiency is empty. [#2607](https://github.com/amruthpillai/reactive-resume/pull/2626)
+- Fixed Pikachu template: header/page picture rendering, and respect for `fullWidth` property.
+- General template improvements for layout and rendering consistency.
+- Fixed GitHub OAuth login for users migrated from previous versions.
+- Improved printer service communication and reduced resource usage for more reliable PDF generation.
+- Fixed "empty" Git merge remnants in codebase.
+
+## Maintenance
+- Synced translations from Crowdin (Afrikaans, Persian, Portuguese/Brazilian, others).
+- Updated translation sources and configuration.
+- Updated package dependencies and fixed self-hosting guide links in README.
+- Removed dead code and updated screenshots.
+- Other bug fixes and minor improvements (#2542, #2573, #2598).
 </Update>
 
 <Update label="v5.0.3" description="25th January 2026">
-  - Implement the ability to print Free-Form PDFs which do not have a fixed page height, allowing the user to fit the
-  content on a page as they see fit. [(link)](/guides/selecting-page-format) - Allow the user to override the default
-  endpoint for all AI providers, not just Ollama. Also display the default endpoint for each provider in the AI settings
-  page. - Updated the chip input component, to allow the user to add, edit, remove or reorder keywords for skills and
-  other sections. - Improved RTL support across the app, thanks to @obreo for the contribution.
-  [(link)](https://github.com/amruthpillai/reactive-resume/pull/2583) - Updates to the translation configuration to
-  remove line numbers from the translation files, as this was causing unnecessary diffs. - Updated the video on the
-  homepage to be lighter and faster to load, while still maintaining the same quality. - Increased the screenshot TTL
-  for resumes, to avoid regenerating screenshots unnecessarily unless the resume has been updated recently (in the last
-  hour). - Update dependencies and translations to the latest versions.
+## Features & Improvements
+- Added support for printing Free-Form PDFs (no fixed page height), allowing for custom-fit page content. [(link)](/guides/selecting-page-format)
+- Allow overriding the default endpoint for all AI providers, not just Ollama; default endpoint now visible in AI settings.
+- Updated the chip input component: supports adding, editing, removing, and reordering keywords for skills and other sections.
+- Improved RTL support across the app, thanks to @obreo. [(link)](https://github.com/amruthpillai/reactive-resume/pull/2583)
+
+## Fixes
+- Updated translation configuration to remove line numbers, reducing unnecessary diffs.
+- Homepage video optimized for faster loading without quality loss.
+- Increased screenshot TTL for resumes to reduce unnecessary regenerations.
+- Updated dependencies and translations to latest versions.
 </Update>
 
 <Update label="v5.0.2" description="24th January 2026">
-  - Added an agent skill `skills/resume-builder` for agentic AI assistants to build resumes for Reactive Resume through
-  conversational AI. - Added a new guide on how to fit content on a page, to avoid issues when exporting to PDF.
-  [(link)](/guides/fitting-content-on-a-page) - Display an alert when the content is too tall for a page, to help the
-  user fit the content on a page. - Fix an issue with the Ditgar template, where the page was not respecting the
-  `fullWidth` setting. - Updated the JSON Schema to conform to a proper format. - Updated the Discord Server invite link
-  to a new one. - Updated dependencies to the latest versions.
+## Features & Improvements
+- Added an agent skill `skills/resume-builder` for agentic AI assistants, enabling resume construction through conversational AI.
+- Added a guide for how to fit content on a page when exporting to PDF. [(link)](/guides/fitting-content-on-a-page)
+- Alert user when content is too tall for a page for easier export troubleshooting.
+
+## Fixes
+- Ditgar template now respects `fullWidth` setting.
+- Updated JSON Schema for proper format.
+- Updated Discord server invite link.
+- Updated dependencies to latest versions.
 </Update>
 
 <Update label="v5.0.1" description="23th January 2026">
-  - Updated translations from Crowdin. - Added a Community Spotlight section to the documentation. - Remove `-r
-  require-metadata` from the Dockerfile as it was not needed. - Fixed inconsistencies in the docker compose examples in
-  the documentation. - Fixed an issue with usernames not allowing hyphens in them. - Fixed issues with the printer
-  service, when using the `getResumeScreenshot` or `printResumeAsPDF` endpoints.
+## Maintenance & Fixes
+- Updated translations from Crowdin.
+- Added Community Spotlight section to the documentation.
+- Removed `-r require-metadata` from the Dockerfile (was not needed).
+- Fixed inconsistencies in Docker compose documentation examples.
+- Fixed username validation to allow hyphens.
+- Fixed issues with the printer service when using `getResumeScreenshot` or `printResumeAsPDF` endpoints.
 </Update>
 
 <Update label="v5.0.0" description="22th January 2026">
-  This has been a major overhaul from the previous version of Reactive Resume. The app has been completely redesigned and rebuilt from scratch, to be more intuitive and user-friendly.
+This release is a major overhaul of Reactive Resume. The app has been completely redesigned and rebuilt from scratch for a more intuitive, user-friendly experience.
 
-**Here are some of the key changes from the previous version:**
-
-- 2 new templates: _Ditgar_ and _Lapras_
-- Authentication via Passkeys
-- New user interface and refreshed design
-- API Access and Reference Documentation
+**Highlights:**
+- 2 new resume templates: _Ditgar_ and _Lapras_
+- Passkeys for authentication
+- Entirely new user interface and refreshed design
+- API access and reference docs
 - AI Integration with OpenAI, Google, Anthropic, and Ollama
-- A better font selector, with real-time preview of the font
-- More comprehensive documentation, with guides for specific features
-- An improved templates gallery, with clear overview of each template
-- Ability to import resumes from PDF or DOCX (requires AI Integration)
-- Reliable server infrastructure, with improved performance and scalability
-- Ability to move items between sections and pages, for better organization
-- A more powerful CSS Editor, with better autocomplete and syntax highlighting
-- Extended Custom Sections to include a type, for better customization and organization
-- Ability to choose the kind of icons to display for level indicators (stars, circles, custom icons, etc.)
-- Ability to resize how wide/narrow the sidebar should be on the resume, or convert a page to be full width
+- Improved font selector with real-time preview
+- Expanded and improved documentation, with more how-to guides
+- Redesigned template gallery with detailed views
+- Resume import from PDF/DOCX (requires AI Integration)
+- Stronger infrastructure for better reliability and scalability
+- Drag-and-drop for moving items between sections and pages
+- Powerful new CSS Editor with autocompletion and highlighting
+- Custom sections now support typed extension for finer control
+- Icon style selector for indicators (stars, circles, custom, etc.)
+- Sidebar width adjustment and full-width page support
 
-There's still a lot more that I'm forgetting, but I'm sure you'll find out soon enough as you explore the new version. I hope you enjoy building your resume now, better than ever. If you have any feedback, please feel free to [contact me](https://amruthpillai.com/#contact) or [open an issue](https://github.com/amruthpillai/reactive-resume/issues) on GitHub.
-
+And much more! Explore the new version and share your feedback via [contact](https://amruthpillai.com/#contact) or [GitHub issues](https://github.com/amruthpillai/reactive-resume/issues).
 </Update>
