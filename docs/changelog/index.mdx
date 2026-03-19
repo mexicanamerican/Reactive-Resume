@@ -4,6 +4,37 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.0.13" description="19th March 2026">
+  - **Features & Improvements**
+    - Added **Job Listings with AI-Powered Resume Tailoring**, a major new feature that integrates job search (via JSearch API) directly into the dashboard with AI-driven resume tailoring to match job descriptions. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
+      - Search for jobs with filters for location (city, state, country), employment type, remote status, and more.
+      - View detailed job listings in a slide-out panel with apply links and tags.
+      - Tailor your resume to a specific job posting using AI — rewrites skills, experience, and references for optimal fit.
+      - Per-user API quota management with usage tracking in settings.
+      - Pagination with 30 results per page.
+    - Added **DOCX resume export** — generate and download tailored resumes as Word documents. [#2788](https://github.com/amruthpillai/reactive-resume/pull/2788)
+    - Migrated the entire project toolchain to **Vite+** (`vp` CLI), unifying Vite, Vitest, Oxlint, and Oxfmt under a single developer experience.
+    - Migrated from **Biome to Oxlint/Oxfmt** for linting and formatting, with a new autofix CI workflow. [#2822](https://github.com/amruthpillai/reactive-resume/pull/2822)
+    - Added **Slovenian** locale support.
+    - Added a new `Progress` UI component.
+
+- **Fixes**
+  - Fixed type issues in auth client and configuration.
+  - Used RTL-friendly CSS classes across the app for improved bidirectional layout support.
+  - Removed dead code and unused imports.
+  - Updated route tree generation and added `routeTree.gen.ts` to `.gitignore`.
+  - Improved animation performance with `willChange` styles on animation components.
+
+- **Maintenance & Dependencies**
+  - Updated dependencies across the board, including `@typescript/native-preview`, `vite-plus`, and others.
+  - Added database migrations for missing indexes.
+  - Synced translations from Crowdin. [#2820](https://github.com/amruthpillai/reactive-resume/pull/2820), [#2824](https://github.com/amruthpillai/reactive-resume/pull/2824)
+  - Updated French translation for 'Volunteer' to 'Bénévolat'. [#2823](https://github.com/amruthpillai/reactive-resume/pull/2823)
+  - Multiple translation and language updates across all locales.
+
+- **New Contributors** - @lukadfagundes - @Hephaisto-dev
+  </Update>
+
 <Update label="v5.0.12" description="17th March 2026">
   - **Features & Improvements**
     - Refactored the component system to `@base-ui/react` across the app for standardized UI behavior (dialogs, menus, accordions, comboboxes, switches, etc.).
