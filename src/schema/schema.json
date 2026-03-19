@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "properties": {
     "picture": {
@@ -245,11 +245,14 @@
                     "minLength": 1,
                     "description": "The name of the company or organization."
                   },
-                  "position": { "type": "string", "description": "The position held at the company or organization." },
+                  "position": {
+                    "type": "string",
+                    "description": "The position held at the company or organization. Used when there is only a single role. If multiple roles are provided in the 'roles' field, this serves as a summary title or can be left blank."
+                  },
                   "location": { "type": "string", "description": "The location of the company or organization." },
                   "period": {
                     "type": "string",
-                    "description": "The period of time the author was employed at the company or organization."
+                    "description": "The overall period of time at the company. When multiple roles are used, this should reflect the total tenure."
                   },
                   "website": {
                     "type": "object",
@@ -270,9 +273,41 @@
                   "description": {
                     "type": "string",
                     "description": "The description of the experience. This should be a HTML-formatted string."
+                  },
+                  "roles": {
+                    "default": [],
+                    "description": "Optional list of individual roles held at this company to show career progression.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The unique identifier for the role. Usually generated as a UUID."
+                        },
+                        "position": { "type": "string", "description": "The position or job title for this role." },
+                        "period": { "type": "string", "description": "The period of time this role was held." },
+                        "description": {
+                          "type": "string",
+                          "description": "The description of this specific role. This should be a HTML-formatted string."
+                        }
+                      },
+                      "required": ["id", "position", "period", "description"],
+                      "additionalProperties": false
+                    }
                   }
                 },
-                "required": ["id", "hidden", "company", "position", "location", "period", "website", "description"],
+                "required": [
+                  "id",
+                  "hidden",
+                  "company",
+                  "position",
+                  "location",
+                  "period",
+                  "website",
+                  "description",
+                  "roles"
+                ],
                 "additionalProperties": false
               },
               "description": "The items to display in the experience section."
@@ -1132,12 +1167,12 @@
                     },
                     "position": {
                       "type": "string",
-                      "description": "The position held at the company or organization."
+                      "description": "The position held at the company or organization. Used when there is only a single role. If multiple roles are provided in the 'roles' field, this serves as a summary title or can be left blank."
                     },
                     "location": { "type": "string", "description": "The location of the company or organization." },
                     "period": {
                       "type": "string",
-                      "description": "The period of time the author was employed at the company or organization."
+                      "description": "The overall period of time at the company. When multiple roles are used, this should reflect the total tenure."
                     },
                     "website": {
                       "type": "object",
@@ -1158,9 +1193,41 @@
                     "description": {
                       "type": "string",
                       "description": "The description of the experience. This should be a HTML-formatted string."
+                    },
+                    "roles": {
+                      "default": [],
+                      "description": "Optional list of individual roles held at this company to show career progression.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The unique identifier for the role. Usually generated as a UUID."
+                          },
+                          "position": { "type": "string", "description": "The position or job title for this role." },
+                          "period": { "type": "string", "description": "The period of time this role was held." },
+                          "description": {
+                            "type": "string",
+                            "description": "The description of this specific role. This should be a HTML-formatted string."
+                          }
+                        },
+                        "required": ["id", "position", "period", "description"],
+                        "additionalProperties": false
+                      }
                     }
                   },
-                  "required": ["id", "hidden", "company", "position", "location", "period", "website", "description"],
+                  "required": [
+                    "id",
+                    "hidden",
+                    "company",
+                    "position",
+                    "location",
+                    "period",
+                    "website",
+                    "description",
+                    "roles"
+                  ],
                   "additionalProperties": false
                 },
                 {
