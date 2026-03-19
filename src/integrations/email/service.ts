@@ -1,7 +1,6 @@
 import nodemailer, { type Transporter } from "nodemailer";
 
 import { env } from "@/utils/env";
-import { logger } from "@/utils/logger";
 
 type SendEmailOptions = {
   to: string | string[];
@@ -45,16 +44,18 @@ export const sendEmail = async (options: SendEmailOptions) => {
   };
 
   if (!transport) {
-    logger.info({ to: payload.to, subject: payload.subject }, "SMTP not configured; skipping email send");
+    console.info("SMTP not configured; skipping email send.", {
+      to: payload.to,
+      subject: payload.subject,
+      text: payload.text,
+    });
+
     return;
   }
 
   try {
     await transport.sendMail({ ...options, from });
   } catch (error) {
-    logger.error(
-      { err: error, smtpHost: env.SMTP_HOST, smtpPort: env.SMTP_PORT, to: payload.to, subject: payload.subject },
-      "SMTP send failed",
-    );
+    console.error("There was an error sending mail.", error);
   }
 };

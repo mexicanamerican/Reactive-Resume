@@ -6,7 +6,6 @@ import type { AuthProvider } from "@/integrations/auth/types";
 import { schema } from "@/integrations/drizzle";
 import { db } from "@/integrations/drizzle/client";
 import { env } from "@/utils/env";
-import { logger } from "@/utils/logger";
 
 import { getStorageService } from "./storage";
 
@@ -43,7 +42,7 @@ export const authService = {
     try {
       await db.delete(schema.user).where(eq(schema.user.id, input.userId));
     } catch (err) {
-      logger.error({ err, userId: input.userId }, "Failed to delete user record");
+      console.error("Failed to delete user record:", err);
 
       throw new ORPCError("INTERNAL_SERVER_ERROR");
     }

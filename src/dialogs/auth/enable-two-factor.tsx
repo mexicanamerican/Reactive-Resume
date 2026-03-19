@@ -3,7 +3,6 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ArrowDownIcon, CopyIcon, EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 import { useRouter } from "@tanstack/react-router";
-import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { QRCodeSVG } from "qrcode.react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -16,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { authClient } from "@/integrations/auth/client";
 
@@ -242,7 +240,7 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
               </p>
 
               <Form {...verifyForm}>
-                <form onSubmit={verifyForm.handleSubmit(onVerifySubmit)}>
+                <form className="space-y-4" onSubmit={verifyForm.handleSubmit(onVerifySubmit)}>
                   <FormField
                     control={verifyForm.control}
                     name="code"
@@ -250,23 +248,13 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
                       <FormItem>
                         <FormControl
                           render={
-                            <InputOTP
+                            <Input
+                              type="number"
                               maxLength={6}
                               value={field.value}
                               onChange={field.onChange}
-                              pattern={REGEXP_ONLY_DIGITS}
-                              onComplete={verifyForm.handleSubmit(onVerifySubmit)}
-                              pasteTransformer={(pasted) => pasted.replaceAll("-", "")}
-                            >
-                              <InputOTPGroup>
-                                <InputOTPSlot index={0} className="size-12" />
-                                <InputOTPSlot index={1} className="size-12" />
-                                <InputOTPSlot index={2} className="size-12" />
-                                <InputOTPSlot index={3} className="size-12" />
-                                <InputOTPSlot index={4} className="size-12" />
-                                <InputOTPSlot index={5} className="size-12" />
-                              </InputOTPGroup>
-                            </InputOTP>
+                              className="max-w-xs"
+                            />
                           }
                         />
                         <FormMessage />

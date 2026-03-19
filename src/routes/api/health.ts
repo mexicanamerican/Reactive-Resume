@@ -4,7 +4,6 @@ import { sql } from "drizzle-orm";
 import { db } from "@/integrations/drizzle/client";
 import { printerService } from "@/integrations/orpc/services/printer";
 import { getStorageService } from "@/integrations/orpc/services/storage";
-import { logger } from "@/utils/logger";
 
 const HEALTHCHECK_TIMEOUT_MS = 1_500;
 
@@ -72,7 +71,7 @@ async function healthHandler() {
   };
 
   if (status === "unhealthy") {
-    logger.warn({ route: "/api/health", database, printer, storage }, "Healthcheck failed");
+    console.warn("[Healthcheck]", { route: "/api/health", database, printer, storage });
   }
 
   const headers = new Headers();

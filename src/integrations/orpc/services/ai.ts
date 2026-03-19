@@ -33,7 +33,6 @@ import {
 } from "@/integrations/ai/tools/patch-resume";
 import { defaultResumeData, resumeDataSchema } from "@/schema/resume/data";
 import { type TailorOutput, tailorOutputSchema } from "@/schema/tailor";
-import { logger } from "@/utils/logger";
 import { isObject } from "@/utils/sanitize";
 
 const aiExtractionTemplate = {
@@ -184,10 +183,11 @@ function mergeDefaults<T extends Record<string, unknown>, S extends Record<strin
 
 function logAndRethrow(context: string, error: unknown): never {
   if (error instanceof Error) {
-    logger.error({ err: error }, context);
+    console.error(`${context}:`, error);
     throw error;
   }
-  logger.error({ err: error }, `Unknown error in ${context}`);
+
+  console.error(`${context}:`, error);
   throw new Error(`An unknown error occurred during ${context}.`);
 }
 
@@ -224,11 +224,11 @@ function parseAndValidateResumeJson(resultText: string): ResumeData {
     });
   } catch (error: unknown) {
     if (error instanceof ZodError) {
-      logger.error({ err: flattenError(error) }, "Zod validation failed during resume parsing");
+      console.error("Zod validation failed during resume parsing:", flattenError(error));
       throw error;
     }
 
-    logger.error({ err: error }, "Unknown error during resume data validation");
+    console.error("Unknown error during resume data validation:", error);
     throw new Error("An unknown error occurred while validating the merged resume data.");
   }
 }

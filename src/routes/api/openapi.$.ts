@@ -10,7 +10,6 @@ import router from "@/integrations/orpc/router";
 import { resumeDataSchema } from "@/schema/resume/data";
 import { env } from "@/utils/env";
 import { getLocale } from "@/utils/locale";
-import { logServerError } from "@/utils/logger";
 
 const openAPIHandler = new OpenAPIHandler(router, {
   plugins: [
@@ -23,7 +22,7 @@ const openAPIHandler = new OpenAPIHandler(router, {
   ],
   interceptors: [
     onError((error) => {
-      logServerError("OpenAPI handler error", error, { route: "/api/openapi" });
+      console.error("[OpenAPI]", error);
     }),
   ],
 });

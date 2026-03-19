@@ -8,14 +8,13 @@ import { getRequestHeaders } from "@tanstack/react-start/server";
 
 import router from "@/integrations/orpc/router";
 import { getLocale } from "@/utils/locale";
-import { logServerError } from "@/utils/logger";
 
 export const getORPCClient = createIsomorphicFn()
   .server((): RouterClient<typeof router> => {
     return createRouterClient(router, {
       interceptors: [
         onError((error) => {
-          logServerError("oRPC server client error", error, { scope: "server" });
+          console.error("[oRPC server]", error);
         }),
       ],
       context: async () => {
@@ -42,7 +41,7 @@ export const getORPCClient = createIsomorphicFn()
       interceptors: [
         onError((error) => {
           if (error instanceof DOMException && error.name === "AbortError") return;
-          console.warn("[oRPC client]", error instanceof Error ? error.message : error);
+          console.warn("[oRPC client]", error);
         }),
       ],
     });

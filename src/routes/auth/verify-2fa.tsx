@@ -3,14 +3,13 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ArrowLeftIcon, CheckIcon } from "@phosphor-icons/react";
 import { createFileRoute, Link, redirect, useNavigate, useRouter } from "@tanstack/react-router";
-import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
+import { Input } from "@/components/ui/input";
 import { authClient } from "@/integrations/auth/client";
 
 export const Route = createFileRoute("/auth/verify-2fa")({
@@ -74,26 +73,13 @@ function RouteComponent() {
               <FormItem className="justify-self-center">
                 <FormControl
                   render={
-                    <InputOTP
+                    <Input
+                      type="number"
                       maxLength={6}
                       value={field.value}
-                      pattern={REGEXP_ONLY_DIGITS}
                       onChange={field.onChange}
-                      onComplete={form.handleSubmit(onSubmit)}
-                      pasteTransformer={(pasted) => pasted.replaceAll("-", "")}
-                    >
-                      <InputOTPGroup>
-                        <InputOTPSlot index={0} className="size-12" />
-                        <InputOTPSlot index={1} className="size-12" />
-                        <InputOTPSlot index={2} className="size-12" />
-                      </InputOTPGroup>
-                      <InputOTPSeparator />
-                      <InputOTPGroup>
-                        <InputOTPSlot index={3} className="size-12" />
-                        <InputOTPSlot index={4} className="size-12" />
-                        <InputOTPSlot index={5} className="size-12" />
-                      </InputOTPGroup>
-                    </InputOTP>
+                      className="max-w-xs"
+                    />
                   }
                 />
                 <FormMessage />

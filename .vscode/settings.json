@@ -25,6 +25,7 @@
   "i18n-ally.sourceLanguage": "en-US",
   "oxc.enable.oxfmt": true,
   "oxc.enable.oxlint": true,
+  "oxc.configPath": "./vite.config.ts",
   "oxc.fmt.configPath": "./vite.config.ts",
   "search.exclude": {
     "**/routeTree.gen.ts": true,
