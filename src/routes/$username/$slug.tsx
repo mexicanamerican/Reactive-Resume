@@ -21,9 +21,6 @@ type LoaderData = Omit<RouterOutput["resume"]["getBySlug"], "data"> & { data: Re
 export const Route = createFileRoute("/$username/$slug")({
   component: RouteComponent,
   loader: async ({ context, params: { username, slug } }) => {
-    // Ignore .well-known requests
-    if (username === ".well-known") throw notFound();
-
     const resume = await context.queryClient.ensureQueryData(
       orpc.resume.getBySlug.queryOptions({ input: { username, slug } }),
     );

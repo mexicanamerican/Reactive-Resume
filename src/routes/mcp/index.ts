@@ -2,6 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { createFileRoute } from "@tanstack/react-router";
 
+import { auth, authBaseUrl, verifyOAuthToken } from "@/integrations/auth/config";
+
 import { registerPrompts } from "./-helpers/prompts";
 import { registerResources } from "./-helpers/resources";
 import { registerTools } from "./-helpers/tools";
@@ -35,13 +37,46 @@ function createMcpServer() {
   return server;
 }
 
+class AuthError extends Error {
+  constructor() {
+    super("Unauthorized");
+  }
+}
+
+async function authenticateRequest(request: Request): Promise<void> {
+  // Try OAuth Bearer token first (for claude.ai and other MCP OAuth clients)
+  const authHeader = request.headers.get("authorization");
+
+  if (authHeader?.startsWith("Bearer ")) {
+    try {
+      const payload = await verifyOAuthToken(authHeader.slice(7));
+      if (payload?.sub) return;
+    } catch {
+      // Invalid or expired token (e.g. JWKS key mismatch) — fall through to AuthError
+    }
+  }
+
+  // Fall back to API key authentication
+  const apiKey = request.headers.get("x-api-key");
+
+  if (apiKey) {
+    try {
+      const result = await auth.api.verifyApiKey({ body: { key: apiKey } });
+      if (result.valid) return;
+    } catch {
+      // Invalid or malformed key — fall through to AuthError
+    }
+  }
+
+  throw new AuthError();
+}
+
 export const Route = createFileRoute("/mcp/")({
   server: {
     handlers: {
       ANY: async ({ request }) => {
         try {
-          const apiKey = request.headers.get("x-api-key");
-          if (!apiKey) throw new Error("Unauthorized");
+          await authenticateRequest(request);
 
           const server = createMcpServer();
           const transport = new WebStandardStreamableHTTPServerTransport({
@@ -52,6 +87,18 @@ export const Route = createFileRoute("/mcp/")({
 
           return await transport.handleRequest(request);
         } catch (error) {
+          if (error instanceof AuthError) {
+            return Response.json(
+              { id: null, jsonrpc: "2.0", error: { code: -32603, message: "Unauthorized" } },
+              {
+                status: 401,
+                headers: {
+                  "WWW-Authenticate": `Bearer resource_metadata="${authBaseUrl}/.well-known/oauth-protected-resource"`,
+                },
+              },
+            );
+          }
+
           console.error("[MCP]", error);
 
           return Response.json({

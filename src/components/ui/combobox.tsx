@@ -244,10 +244,6 @@ function ComboboxChipsInput({ className, ...props }: ComboboxPrimitive.Input.Pro
   );
 }
 
-function useComboboxAnchor() {
-  return React.useRef<HTMLDivElement | null>(null);
-}
-
 type ComboboxOption<TValue extends string | number = string> = {
   value: TValue;
   label: React.ReactNode;
@@ -442,13 +438,11 @@ export {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
-  type ComboboxOption,
-  type ComboboxProps,
   ComboboxRoot,
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
+  type ComboboxOption,
   type MultiComboboxProps,
   type SingleComboboxProps,
-  useComboboxAnchor,
 };

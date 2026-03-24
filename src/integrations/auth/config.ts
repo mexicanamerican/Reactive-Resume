@@ -1,10 +1,13 @@
 import type { GenericOAuthConfig } from "better-auth/plugins";
+import type { JWTPayload } from "jose";
 
 import { apiKey } from "@better-auth/api-key";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { dash } from "@better-auth/infra";
+import { oauthProvider } from "@better-auth/oauth-provider";
 import { BetterAuthError, betterAuth } from "better-auth";
-import { openAPI } from "better-auth/plugins";
+import { verifyAccessToken } from "better-auth/oauth2";
+import { jwt, openAPI } from "better-auth/plugins";
 import { genericOAuth } from "better-auth/plugins/generic-oauth";
 import { twoFactor } from "better-auth/plugins/two-factor";
 import { username } from "better-auth/plugins/username";
@@ -17,6 +20,24 @@ import { generateId, toUsername } from "@/utils/string";
 import { schema } from "../drizzle";
 import { db } from "../drizzle/client";
 import { sendEmail } from "../email/service";
+
+export const authBaseUrl = process.env.BETTER_AUTH_URL ?? env.APP_URL;
+
+function getOAuthAudiences(): string[] {
+  const base = authBaseUrl.replace(/\/$/, "");
+
+  return [base, `${base}/`, `${base}/mcp`, `${base}/mcp/`];
+}
+
+export async function verifyOAuthToken(token: string): Promise<JWTPayload> {
+  return await verifyAccessToken(token, {
+    jwksUrl: `${authBaseUrl}/api/auth/jwks`,
+    verifyOptions: {
+      issuer: `${authBaseUrl}/api/auth`,
+      audience: getOAuthAudiences(),
+    },
+  });
+}
 
 function isCustomOAuthProviderEnabled() {
   const hasDiscovery = Boolean(env.OAUTH_DISCOVERY_URL);
@@ -86,7 +107,7 @@ const getAuthConfig = () => {
 
   return betterAuth({
     appName: "Reactive Resume",
-    baseURL: process.env.BETTER_AUTH_URL ?? env.APP_URL,
+    baseURL: authBaseUrl,
     secret: process.env.BETTER_AUTH_SECRET ?? env.AUTH_SECRET,
 
     database: drizzleAdapter(db, { schema, provider: "pg" }),
@@ -231,11 +252,20 @@ const getAuthConfig = () => {
     },
 
     plugins: [
+      jwt(),
       openAPI(),
       genericOAuth({ config: authConfigs }),
       twoFactor({ issuer: "Reactive Resume" }),
       apiKey({ enableSessionForAPIKeys: true, rateLimit: { enabled: false } }),
       dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } }),
+      oauthProvider({
+        loginPage: "/auth/oauth",
+        consentPage: "/auth/oauth",
+        validAudiences: getOAuthAudiences(),
+        allowDynamicClientRegistration: true,
+        allowUnauthenticatedClientRegistration: true,
+        silenceWarnings: { oauthAuthServerConfig: true },
+      }),
       username({
         minUsernameLength: 3,
         maxUsernameLength: 64,

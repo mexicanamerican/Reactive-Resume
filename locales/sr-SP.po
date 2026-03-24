@@ -244,10 +244,6 @@ msgstr "Додај ред после"
 msgid "Add Row Before"
 msgstr "Додај ред пре"
 
-#: src/components/ai/chat.tsx
-msgid "Added"
-msgstr "Додато"
-
 #. placeholder {0}: skillsToSync.length
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Added {0} new skills to your original resume"
@@ -265,10 +261,6 @@ msgstr "Африканс"
 #: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "AI"
-
-#: src/components/ai/chat.tsx
-msgid "AI Chat"
-msgstr "AI ћаскање"
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "AI returned some invalid references"
@@ -413,10 +405,6 @@ msgstr "Област студија"
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
 msgstr "Вештачка интелигенција"
-
-#: src/components/ai/chat.tsx
-msgid "Ask me to update your resume..."
-msgstr "Замолите ме да ажурирам ваш животопис..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
@@ -622,10 +610,6 @@ msgstr "Круг"
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
 msgstr "Очисти све"
-
-#: src/components/ai/chat.tsx
-msgid "Clear chat history"
-msgstr "Обришите историју ћаскања"
 
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
@@ -1085,10 +1069,6 @@ msgstr "нпр. 150000"
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "e.g. 50000"
 msgstr "нпр. 50000"
-
-#: src/components/ai/chat.tsx
-msgid "e.g. Change my name to..."
-msgstr "нпр. Промените моје име у..."
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "e.g. frontend developer jobs in Berlin"
@@ -2205,10 +2185,6 @@ msgstr "Уклони"
 msgid "Remove Password"
 msgstr "Уклони лозинку"
 
-#: src/components/ai/chat.tsx
-msgid "Removed"
-msgstr "Уклоњено"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
 msgstr "Уклањање заштите лозинком..."
@@ -2748,10 +2724,6 @@ msgstr "Дошло је до проблема при генерисању DOCX-�
 msgid "There was a problem while generating the PDF, please try again in some time."
 msgstr "Дошло је до проблема током генерисања PDF-а, покушајте поново након неког времена."
 
-#: src/components/ai/chat.tsx
-msgid "Thinking..."
-msgstr "Размишљам..."
-
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
@@ -3037,10 +3009,6 @@ msgstr "Ажурирај резиме"
 msgid "Update your password"
 msgstr "Ажурирајте своју лозинку"
 
-#: src/components/ai/chat.tsx
-msgid "Updated"
-msgstr "Ажурирано"
-
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "Ажурирање ваше лозинке..."
@@ -3276,4 +3244,3 @@ msgstr "Умањи"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-

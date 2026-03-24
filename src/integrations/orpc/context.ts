@@ -7,13 +7,28 @@ import type { Locale } from "@/utils/locale";
 
 import { env } from "@/utils/env";
 
-import { auth } from "../auth/config";
+import { auth, verifyOAuthToken } from "../auth/config";
 import { db } from "../drizzle/client";
 import { user } from "../drizzle/schema";
 
 interface ORPCContext {
   locale: Locale;
   reqHeaders?: Headers;
+}
+
+async function getUserFromBearerToken(headers: Headers): Promise<User | null> {
+  try {
+    const authHeader = headers.get("authorization");
+    if (!authHeader?.startsWith("Bearer ")) return null;
+
+    const payload = await verifyOAuthToken(authHeader.slice(7));
+    if (!payload?.sub) return null;
+
+    const [userResult] = await db.select().from(user).where(eq(user.id, payload.sub)).limit(1);
+    return userResult ?? null;
+  } catch {
+    return null;
+  }
 }
 
 async function getUserFromHeaders(headers: Headers): Promise<User | null> {
@@ -47,7 +62,9 @@ export const publicProcedure = base.use(async ({ context, next }) => {
   const headers = context.reqHeaders ?? new Headers();
   const apiKey = headers.get("x-api-key");
 
-  const user = apiKey ? await getUserFromApiKey(apiKey) : await getUserFromHeaders(headers);
+  const user = apiKey
+    ? await getUserFromApiKey(apiKey)
+    : ((await getUserFromBearerToken(headers)) ?? (await getUserFromHeaders(headers)));
 
   return next({
     context: {

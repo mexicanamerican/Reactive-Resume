@@ -239,10 +239,6 @@ msgstr ""
 msgid "Add Row Before"
 msgstr ""
 
-#: src/components/ai/chat.tsx
-msgid "Added"
-msgstr ""
-
 #. placeholder {0}: skillsToSync.length
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Added {0} new skills to your original resume"
@@ -259,10 +255,6 @@ msgstr ""
 #: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "AI"
-msgstr ""
-
-#: src/components/ai/chat.tsx
-msgid "AI Chat"
 msgstr ""
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
@@ -407,10 +399,6 @@ msgstr ""
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
-msgstr ""
-
-#: src/components/ai/chat.tsx
-msgid "Ask me to update your resume..."
 msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -616,10 +604,6 @@ msgstr ""
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
-msgstr ""
-
-#: src/components/ai/chat.tsx
-msgid "Clear chat history"
 msgstr ""
 
 #: src/dialogs/resume/import.tsx
@@ -1079,10 +1063,6 @@ msgstr ""
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "e.g. 50000"
-msgstr ""
-
-#: src/components/ai/chat.tsx
-msgid "e.g. Change my name to..."
 msgstr ""
 
 #: src/routes/dashboard/job-search/index.tsx
@@ -2200,10 +2180,6 @@ msgstr ""
 msgid "Remove Password"
 msgstr ""
 
-#: src/components/ai/chat.tsx
-msgid "Removed"
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
 msgstr ""
@@ -2743,10 +2719,6 @@ msgstr ""
 msgid "There was a problem while generating the PDF, please try again in some time."
 msgstr ""
 
-#: src/components/ai/chat.tsx
-msgid "Thinking..."
-msgstr ""
-
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
@@ -3030,10 +3002,6 @@ msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
-msgstr ""
-
-#: src/components/ai/chat.tsx
-msgid "Updated"
 msgstr ""
 
 #: src/dialogs/auth/change-password.tsx

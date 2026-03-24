@@ -12,7 +12,7 @@ type LevelType = z.infer<typeof levelDesignSchema>["type"];
 
 type LevelTypeComboboxProps = Omit<SingleComboboxProps, "options">;
 
-export const getLevelTypeName = (type: LevelType) => {
+const getLevelTypeName = (type: LevelType) => {
   return match(type)
     .with("hidden", () => t`Hidden`)
     .with("circle", () => t`Circle`)
