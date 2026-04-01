@@ -21,6 +21,7 @@ import { Switch } from "@/components/ui/switch";
 import { useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { experienceItemSchema } from "@/schema/resume/data";
+import { createSectionItem, updateSectionItem } from "@/utils/resume/section-actions";
 import { generateId } from "@/utils/string";
 
 const formSchema = experienceItemSchema;
@@ -49,14 +50,8 @@ export function CreateExperienceDialog({ data }: DialogProps<"resume.sections.ex
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (section) section.items.push(formData);
-      } else {
-        draft.sections.experience.items.push(formData);
-      }
+      createSectionItem(draft, "experience", formData, data?.customSectionId);
     });
-
     closeDialog();
   };
 
@@ -113,17 +108,8 @@ export function UpdateExperienceDialog({ data }: DialogProps<"resume.sections.ex
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (!section) return;
-        const index = section.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) section.items[index] = formData;
-      } else {
-        const index = draft.sections.experience.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) draft.sections.experience.items[index] = formData;
-      }
+      updateSectionItem(draft, "experience", formData, data?.customSectionId);
     });
-
     closeDialog();
   };
 

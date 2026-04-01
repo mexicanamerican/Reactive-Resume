@@ -20,6 +20,10 @@ export const user = pg.pgTable(
     displayUsername: pg.text("display_username").notNull().unique(),
     twoFactorEnabled: pg.boolean("two_factor_enabled").notNull().default(false),
     lastActiveAt: pg.timestamp("last_active_at", { withTimezone: true }),
+    role: pg.text("role").default("user"),
+    banned: pg.boolean("banned").default(false),
+    banReason: pg.text("ban_reason"),
+    banExpires: pg.timestamp("ban_expires", { precision: 6, withTimezone: true }),
     createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: pg
       .timestamp("updated_at", { withTimezone: true })
@@ -41,6 +45,7 @@ export const session = pg.pgTable(
     token: pg.text("token").notNull().unique(),
     ipAddress: pg.text("ip_address"),
     userAgent: pg.text("user_agent"),
+    impersonatedBy: pg.text("impersonated_by"),
     userId: pg
       .uuid("user_id")
       .notNull()

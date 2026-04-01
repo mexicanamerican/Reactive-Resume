@@ -35,12 +35,11 @@ type TestimonialCardProps = {
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <motion.div
-      className="group relative w-[320px] shrink-0 sm:w-[360px] md:w-[400px]"
+      className="group relative w-[320px] shrink-0 will-change-transform sm:w-[360px] md:w-[400px]"
       initial={{ scale: 1 }}
       whileHover={{ y: -3, scale: 1.02 }}
       whileTap={{ scale: 0.995 }}
       transition={{ type: "spring", stiffness: 320, damping: 24 }}
-      style={{ willChange: "transform" }}
     >
       <div className="relative flex h-full flex-col rounded-md border bg-card p-5 shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
         <p className="flex-1 leading-relaxed text-muted-foreground">"{testimonial}"</p>

@@ -1,5 +1,5 @@
 import { createIsomorphicFn } from "@tanstack/react-start";
-import { createHash, timingSafeEqual } from "node:crypto";
+import { createHmac, timingSafeEqual } from "node:crypto";
 
 import { env } from "./env";
 
@@ -15,7 +15,7 @@ export const generatePrinterToken = createIsomorphicFn().server((resumeId: strin
   const payloadBase64 = Buffer.from(payload).toString("base64url");
 
   // Create HMAC signature using AUTH_SECRET
-  const signature = createHash("sha256").update(`${payloadBase64}.${env.AUTH_SECRET}`).digest("hex");
+  const signature = createHmac("sha256", env.AUTH_SECRET).update(payloadBase64).digest("hex");
 
   return `${payloadBase64}.${signature}`;
 });
@@ -31,7 +31,7 @@ export const verifyPrinterToken = createIsomorphicFn().server((token: string) =>
   const [payloadBase64, signature] = parts;
 
   // Verify signature
-  const expectedSignature = createHash("sha256").update(`${payloadBase64}.${env.AUTH_SECRET}`).digest("hex");
+  const expectedSignature = createHmac("sha256", env.AUTH_SECRET).update(payloadBase64).digest("hex");
   const signatureBuffer = Buffer.from(signature);
   const expectedBuffer = Buffer.from(expectedSignature);
 

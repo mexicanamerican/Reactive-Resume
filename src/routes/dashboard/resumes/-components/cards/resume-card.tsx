@@ -32,10 +32,10 @@ export function ResumeCard({ resume }: ResumeCardProps) {
     <ResumeContextMenu resume={resume}>
       <Link to="/builder/$resumeId" params={{ resumeId: resume.id }} className="cursor-default">
         <motion.div
+          className="will-change-transform"
           whileHover={{ y: -2, scale: 1.005 }}
           whileTap={{ scale: 0.998 }}
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
-          style={{ willChange: "transform" }}
         >
           <BaseCard title={resume.name} description={t`Last updated on ${updatedAt}`} tags={resume.tags}>
             {match({ isLoading, imageSrc: screenshotData?.url })
@@ -71,8 +71,7 @@ function ResumeLockOverlay({ isLocked }: { isLocked: boolean }) {
           animate={{ opacity: 0.6 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          style={{ willChange: "opacity" }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center will-change-[opacity]"
         >
           <div className="flex items-center justify-center rounded-full bg-popover p-6">
             <LockSimpleIcon weight="thin" className="size-12 opacity-60" />

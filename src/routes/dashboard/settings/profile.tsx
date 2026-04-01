@@ -124,8 +124,7 @@ function RouteComponent() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          style={{ willChange: "transform, opacity" }}
-          className="grid max-w-xl gap-6"
+          className="grid max-w-xl gap-6 will-change-[transform,opacity]"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <FormField
@@ -222,8 +221,7 @@ function RouteComponent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.16, ease: "easeOut" }}
-                style={{ willChange: "transform, opacity" }}
-                className="flex items-center gap-x-4 justify-self-end"
+                className="flex items-center gap-x-4 justify-self-end will-change-[transform,opacity]"
               >
                 <Button type="reset" variant="ghost" onClick={onCancel}>
                   <Trans>Cancel</Trans>

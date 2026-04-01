@@ -26,7 +26,8 @@ async function getUserFromBearerToken(headers: Headers): Promise<User | null> {
 
     const [userResult] = await db.select().from(user).where(eq(user.id, payload.sub)).limit(1);
     return userResult ?? null;
-  } catch {
+  } catch (error) {
+    console.warn("Bearer token verification failed:", error);
     return null;
   }
 }
@@ -37,7 +38,8 @@ async function getUserFromHeaders(headers: Headers): Promise<User | null> {
     if (!result || !result.user) return null;
 
     return result.user;
-  } catch {
+  } catch (error) {
+    console.warn("Session verification failed:", error);
     return null;
   }
 }
@@ -51,7 +53,8 @@ async function getUserFromApiKey(apiKey: string): Promise<User | null> {
     if (!userResult) return null;
 
     return userResult;
-  } catch {
+  } catch (error) {
+    console.warn("API key verification failed:", error);
     return null;
   }
 }

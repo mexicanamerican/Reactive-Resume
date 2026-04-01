@@ -18,10 +18,10 @@ export function Hero() {
       <Spotlight />
 
       <motion.div
+        className="will-change-[transform,opacity]"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
       >
         <CometCard glareOpacity={0} className="3xl:max-w-7xl relative -mb-12 max-w-4xl px-8 md:-mb-24 md:px-12 lg:px-0">
           <video
@@ -46,12 +46,12 @@ export function Hero() {
       <div className="xs:px-0 relative z-10 flex max-w-2xl flex-col items-center gap-y-6 px-4 text-center">
         {/* Badge */}
         <motion.a
+          className="will-change-[transform,opacity]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.55 }}
           whileHover={{ y: -2, scale: 1.01 }}
           whileTap={{ scale: 0.985 }}
-          style={{ willChange: "transform, opacity" }}
           target="_blank"
           rel="noopener noreferrer"
           href="https://docs.rxresu.me/getting-started"
@@ -64,10 +64,10 @@ export function Hero() {
 
         {/* Headline */}
         <motion.div
+          className="will-change-[transform,opacity]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.7 }}
-          style={{ willChange: "transform, opacity" }}
         >
           <Trans>
             <p className="font-medium tracking-tight text-muted-foreground md:text-lg">Finally,</p>
@@ -79,11 +79,10 @@ export function Hero() {
 
         {/* Description */}
         <motion.p
-          className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+          className="max-w-xl text-base leading-relaxed text-muted-foreground will-change-[transform,opacity] md:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.82 }}
-          style={{ willChange: "transform, opacity" }}
         >
           <Trans>
             Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating,
@@ -93,11 +92,10 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+          className="flex flex-col items-center gap-3 will-change-[transform,opacity] sm:flex-row sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.95 }}
-          style={{ willChange: "transform, opacity" }}
         >
           <Button
             size="lg"
@@ -144,10 +142,9 @@ export function Hero() {
         transition={{ delay: 1.25, duration: 0.7 }}
       >
         <motion.div
-          className="flex h-8 w-5 items-start justify-center rounded-full border border-muted-foreground/30 p-1.5"
+          className="flex h-8 w-5 items-start justify-center rounded-full border border-muted-foreground/30 p-1.5 will-change-transform"
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "transform" }}
         >
           <motion.div className="h-1.5 w-1 rounded-full bg-muted-foreground/50" />
         </motion.div>

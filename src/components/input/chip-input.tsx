@@ -70,11 +70,10 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
       >
         <span className="max-w-32 truncate">{chip}</span>
         <motion.div
-          initial={false}
+          initial="false"
           animate={isHovered ? { opacity: 1, scaleX: 1, x: 0 } : { opacity: 0, scaleX: 0.95, x: -3 }}
           transition={{ duration: 0.12, ease: "easeOut" }}
-          className="ms-2 flex w-10 shrink-0 origin-left items-center gap-x-1 overflow-hidden"
-          style={{ willChange: "transform, opacity" }}
+          className="ms-2 flex w-10 shrink-0 origin-left items-center gap-x-1 overflow-hidden will-change-[transform,opacity]"
         >
           <button
             type="button"

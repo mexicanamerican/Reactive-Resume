@@ -194,11 +194,11 @@ export function DashboardSidebar() {
           {state === "expanded" && (
             <motion.div
               key="copyright"
+              className="will-change-[transform,opacity]"
               initial={{ y: 12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 12, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              style={{ willChange: "transform, opacity" }}
             >
               <Copyright className="shrink-0 p-2 wrap-break-word whitespace-normal" />
             </motion.div>

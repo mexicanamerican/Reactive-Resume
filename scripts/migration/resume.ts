@@ -192,8 +192,7 @@ export async function migrateResumes() {
     process.exit(0);
   };
 
-  process.on("SIGINT", handleShutdown);
-  process.on("SIGTERM", handleShutdown);
+  process.on("exit", handleShutdown);
 
   // Initialize the importer
   const importer = new ReactiveResumeV4JSONImporter();
@@ -465,8 +464,7 @@ export async function migrateResumes() {
   }
 
   // Remove signal handlers
-  process.off("SIGINT", handleShutdown);
-  process.off("SIGTERM", handleShutdown);
+  process.off("exit", handleShutdown);
 
   const migrationEnd = performance.now();
   const migrationDurationMs = migrationEnd - migrationStart;

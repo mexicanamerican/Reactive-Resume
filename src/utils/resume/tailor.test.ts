@@ -612,3 +612,59 @@ describe("buildSkillSyncOperations", () => {
     expect(operations).toHaveLength(0);
   });
 });
+
+// --- Additional edge cases for branch coverage ---
+
+describe("tailorOutputToPatches — edge cases", () => {
+  it("skips experience description patch when description is empty", () => {
+    const output: TailorOutput = {
+      ...emptyTailorOutput,
+      experiences: [{ index: 0, description: "", roles: [] }],
+    };
+
+    const { operations } = tailorOutputToPatches(output, makeResumeData());
+    const expDescOps = operations.filter((op) => op.path.includes("/description"));
+    expect(expDescOps).toHaveLength(0);
+  });
+
+  it("skips reference description patch when description is empty", () => {
+    const output: TailorOutput = {
+      ...emptyTailorOutput,
+      references: [{ index: 0, description: "" }],
+    };
+
+    const { operations } = tailorOutputToPatches(output, makeResumeData());
+    const refDescOps = operations.filter((op) => op.path.includes("/references/"));
+    expect(refDescOps).toHaveLength(0);
+  });
+
+  it("handles experience with null-like roles", () => {
+    const output: TailorOutput = {
+      ...emptyTailorOutput,
+      experiences: [{ index: 0, description: "<p>Updated</p>" }],
+    };
+
+    const { operations } = tailorOutputToPatches(output, makeResumeData());
+    expect(operations.some((op) => op.path.includes("/description"))).toBe(true);
+  });
+
+  it("handles skill with empty proficiency", () => {
+    const output: TailorOutput = {
+      ...emptyTailorOutput,
+      skills: [{ name: "Go", keywords: [], proficiency: "", icon: "", isNew: true }],
+    };
+
+    const { newSkills } = tailorOutputToPatches(output, makeResumeData());
+    expect(newSkills[0].proficiency).toBe("");
+  });
+
+  it("handles summary with undefined content", () => {
+    const output: TailorOutput = {
+      ...emptyTailorOutput,
+      summary: { content: "" },
+    };
+
+    const { operations } = tailorOutputToPatches(output, makeResumeData());
+    expect(operations.filter((op) => op.path === "/summary/content")).toHaveLength(0);
+  });
+});

@@ -1,4 +1,3 @@
-import type { GenericOAuthConfig } from "better-auth/plugins";
 import type { JWTPayload } from "jose";
 
 import { apiKey } from "@better-auth/api-key";
@@ -7,7 +6,7 @@ import { dash } from "@better-auth/infra";
 import { oauthProvider } from "@better-auth/oauth-provider";
 import { BetterAuthError, betterAuth } from "better-auth";
 import { verifyAccessToken } from "better-auth/oauth2";
-import { jwt, openAPI } from "better-auth/plugins";
+import { admin, jwt, openAPI, type GenericOAuthConfig } from "better-auth/plugins";
 import { genericOAuth } from "better-auth/plugins/generic-oauth";
 import { twoFactor } from "better-auth/plugins/two-factor";
 import { username } from "better-auth/plugins/username";
@@ -124,7 +123,7 @@ const getAuthConfig = () => {
     emailAndPassword: {
       enabled: !env.FLAG_DISABLE_EMAIL_AUTH,
       autoSignIn: true,
-      minPasswordLength: 6,
+      minPasswordLength: 8,
       maxPasswordLength: 64,
       requireEmailVerification: false,
       disableSignUp: env.FLAG_DISABLE_SIGNUPS || env.FLAG_DISABLE_EMAIL_AUTH,
@@ -175,7 +174,7 @@ const getAuthConfig = () => {
     account: {
       accountLinking: {
         enabled: true,
-        trustedProviders: ["google", "github"],
+        trustedProviders: ["google", "github", "linkedin"],
       },
     },
 
@@ -249,10 +248,38 @@ const getAuthConfig = () => {
           };
         },
       },
+
+      linkedin: {
+        enabled: !!env.LINKEDIN_CLIENT_ID && !!env.LINKEDIN_CLIENT_SECRET,
+        disableSignUp: env.FLAG_DISABLE_SIGNUPS,
+        clientId: env.LINKEDIN_CLIENT_ID!,
+        clientSecret: env.LINKEDIN_CLIENT_SECRET!,
+        mapProfileToUser: async (profile) => {
+          if (!profile.email) {
+            throw new BetterAuthError(
+              "LinkedIn provider did not return an email address. This is required for user creation.",
+              { cause: "EMAIL_REQUIRED" },
+            );
+          }
+
+          const username = profile.email.split("@")[0];
+          const name = profile.name ?? username;
+
+          return {
+            name,
+            email: profile.email,
+            image: profile.picture,
+            username,
+            displayUsername: username,
+            emailVerified: true,
+          };
+        },
+      },
     },
 
     plugins: [
       jwt(),
+      admin(),
       openAPI(),
       genericOAuth({ config: authConfigs }),
       twoFactor({ issuer: "Reactive Resume" }),

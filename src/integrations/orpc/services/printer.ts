@@ -3,7 +3,7 @@ import type { InferSelectModel } from "drizzle-orm";
 import { ORPCError } from "@orpc/server";
 import dns from "node:dns/promises";
 import { isIP } from "node:net";
-import puppeteer, { type Browser, type ConnectOptions, type Page } from "puppeteer-core";
+import puppeteer, { type Browser, type BrowserContext, type ConnectOptions, type Page } from "puppeteer-core";
 
 import type { schema } from "@/integrations/drizzle";
 
@@ -15,6 +15,10 @@ import { generatePrinterToken } from "@/utils/printer-token";
 import { getStorageService, uploadFile } from "./storage";
 
 const SCREENSHOT_TTL = 1000 * 60 * 60 * 6; // 6 hours
+
+// Deduplicate concurrent requests for the same resume
+const activePrintJobs = new Map<string, Promise<string>>();
+const activeScreenshotJobs = new Map<string, Promise<string>>();
 
 // Singleton browser instance for connection reuse
 let browserInstance: Browser | null = null;
@@ -59,15 +63,312 @@ async function closeBrowser(): Promise<void> {
 }
 
 // Close browser on process termination
-process.on("SIGINT", async () => {
+process.on("exit", async () => {
   await closeBrowser();
   process.exit(0);
 });
 
-process.on("SIGTERM", async () => {
-  await closeBrowser();
-  process.exit(0);
-});
+/**
+ * Generates a PDF from a resume and uploads it to storage.
+ *
+ * The process:
+ * 1. Clean up any existing PDF for this resume
+ * 2. Navigate to the printer route which renders the resume
+ * 3. Calculate PDF margins (some templates require margins to be applied via PDF)
+ * 4. Adjust CSS variables so content fits within printable area (accounting for margins)
+ * 5. Add page break CSS to ensure each visual resume page becomes a PDF page
+ * 6. Generate the PDF with proper dimensions and margins
+ * 7. Upload to storage and return the URL
+ */
+async function doPrintResumeAsPDF(
+  input: Pick<InferSelectModel<typeof schema.resume>, "id" | "data" | "userId">,
+): Promise<string> {
+  const { id, data, userId } = input;
+
+  // Step 1: Delete any existing PDF for this resume to ensure fresh generation
+  const storageService = getStorageService();
+  const pdfPrefix = `uploads/${userId}/pdfs/${id}`;
+  await storageService.delete(pdfPrefix);
+
+  // Step 2: Prepare the URL and authentication for the printer route
+  // The printer route renders the resume in a format optimized for PDF generation
+  const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
+  const domain = new URL(baseUrl).hostname;
+
+  const format = data.metadata.page.format;
+  const locale = data.metadata.page.locale;
+  const template = data.metadata.template;
+
+  // Generate a secure token to authenticate the printer request
+  const token = generatePrinterToken(id);
+  const url = `${baseUrl}/printer/${id}?token=${token}`;
+
+  // Step 3: Calculate print paddings for templates that disable CSS padding in print mode.
+  // We render these margins inside the page (not via Puppeteer's PDF margins), so the margin
+  // area matches the resume background color instead of staying white.
+  let pagePaddingX = 0;
+  let pagePaddingY = 0;
+
+  if (printMarginTemplates.includes(template)) {
+    pagePaddingX = data.metadata.page.marginX;
+    pagePaddingY = data.metadata.page.marginY;
+  }
+
+  let context: BrowserContext | null = null;
+  let page: Page | null = null;
+
+  try {
+    // Step 4: Connect to the browser and navigate to the printer route
+    // Use an isolated browser context so concurrent requests with different locales don't interfere
+    const browser = await getBrowser();
+    context = await browser.createBrowserContext();
+
+    await context.setCookie({ name: "locale", value: locale, domain });
+
+    page = await context.newPage();
+
+    // Wait for the page to fully load (network idle + custom loaded attribute)
+    await page.emulateMediaType("print");
+    await page.setViewport(pageDimensionsAsPixels[format]);
+    await page.goto(url, { waitUntil: "networkidle0" });
+    await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
+
+    // Step 5a: Prepare the DOM for PDF rendering (background colors, reset margins, print padding)
+    await page.evaluate(
+      (pagePaddingX: number, pagePaddingY: number, backgroundColor: string) => {
+        const root = document.documentElement;
+        const body = document.body;
+        const pageElements = document.querySelectorAll("[data-page-index]");
+        const pageContentElements = document.querySelectorAll(".page-content");
+
+        // Ensure PDF margins inherit the resume background color instead of defaulting to white.
+        root.style.backgroundColor = backgroundColor;
+        body.style.backgroundColor = backgroundColor;
+        root.style.margin = "0";
+        body.style.margin = "0";
+        root.style.padding = "0";
+        body.style.padding = "0";
+
+        for (const el of pageElements) {
+          const pageWrapper = el as HTMLElement;
+          const pageSurface = pageWrapper.querySelector(".page") as HTMLElement | null;
+
+          pageWrapper.style.backgroundColor = backgroundColor;
+          pageWrapper.style.breakInside = "auto";
+
+          if (pageSurface) pageSurface.style.backgroundColor = backgroundColor;
+        }
+
+        // Apply print-only margins as padding inside each page's content surface.
+        if (pagePaddingX > 0 || pagePaddingY > 0) {
+          for (const el of pageContentElements) {
+            const pageContent = el as HTMLElement;
+
+            pageContent.style.boxSizing = "border-box";
+            // Ensure padding is repeated on every printed fragment when content
+            // flows across physical PDF pages (not just the first fragment).
+            pageContent.style.boxDecorationBreak = "clone";
+            pageContent.style.setProperty("-webkit-box-decoration-break", "clone");
+            if (pagePaddingX > 0) {
+              pageContent.style.paddingLeft = `${pagePaddingX}pt`;
+              pageContent.style.paddingRight = `${pagePaddingX}pt`;
+            }
+            if (pagePaddingY > 0) {
+              pageContent.style.paddingTop = `${pagePaddingY}pt`;
+              pageContent.style.paddingBottom = `${pagePaddingY}pt`;
+            }
+          }
+        }
+      },
+      pagePaddingX,
+      pagePaddingY,
+      data.metadata.design.colors.background,
+    );
+
+    // Step 5b: Format-specific layout adjustments
+    const isFreeForm = format === "free-form";
+    let contentHeight: number | null = null;
+
+    if (isFreeForm) {
+      // Free-form: measure actual content height after adding inter-page margins
+      contentHeight = await page.evaluate(
+        (pagePaddingY: number, minPageHeight: number) => {
+          const pageElements = document.querySelectorAll("[data-page-index]");
+          const numberOfPages = pageElements.length;
+
+          // Add margin between pages (except the last one)
+          for (let i = 0; i < numberOfPages - 1; i++) {
+            const pageEl = pageElements[i] as HTMLElement;
+            if (pagePaddingY > 0) pageEl.style.marginBottom = `${pagePaddingY}pt`;
+          }
+
+          // Measure the total height (margins are now part of the DOM)
+          let totalHeight = 0;
+
+          for (const el of pageElements) {
+            const pageEl = el as HTMLElement;
+            const style = getComputedStyle(pageEl);
+            const marginBottom = Number.parseFloat(style.marginBottom) || 0;
+            totalHeight += pageEl.offsetHeight + marginBottom;
+          }
+
+          return Math.max(totalHeight, minPageHeight);
+        },
+        pagePaddingY,
+        pageDimensionsAsPixels[format].height,
+      );
+    } else {
+      // A4/Letter: set fixed page height and add page breaks between pages
+      await page.evaluate((pageHeight: number) => {
+        const root = document.documentElement;
+        const pageElements = document.querySelectorAll("[data-page-index]");
+        const container = document.querySelector(".resume-preview-container") as HTMLElement | null;
+
+        const newHeight = `${pageHeight}px`;
+        if (container) container.style.setProperty("--page-height", newHeight);
+        root.style.setProperty("--page-height", newHeight);
+
+        for (const el of pageElements) {
+          const element = el as HTMLElement;
+          const index = Number.parseInt(element.getAttribute("data-page-index") ?? "0", 10);
+
+          // Force a page break before each page except the first
+          if (index > 0) {
+            element.style.breakBefore = "page";
+            element.style.pageBreakBefore = "always";
+          }
+
+          // Allow content within a page to break naturally if it overflows
+          element.style.breakInside = "auto";
+        }
+      }, pageDimensionsAsPixels[format].height);
+    }
+
+    // Step 6: Generate the PDF with the specified dimensions and margins
+    // For free-form: use measured content height (with minimum constraint)
+    // For A4/Letter: use fixed dimensions from pageDimensionsAsPixels
+    const pdfHeight = isFreeForm && contentHeight ? contentHeight : pageDimensionsAsPixels[format].height;
+
+    const pdfBuffer = await page.pdf({
+      width: `${pageDimensionsAsPixels[format].width}px`,
+      height: `${pdfHeight}px`,
+      tagged: true, // Adds accessibility tags to the PDF
+      waitForFonts: true, // Ensures all fonts are loaded before rendering
+      printBackground: true, // Includes background colors and images
+      margin: {
+        bottom: 0,
+        top: 0,
+        right: 0,
+        left: 0,
+      },
+    });
+
+    // Step 7: Upload the generated PDF to storage
+    const result = await uploadFile({
+      userId,
+      resumeId: id,
+      data: new Uint8Array(pdfBuffer),
+      contentType: "application/pdf",
+      type: "pdf",
+    });
+
+    return result.url;
+  } catch (error) {
+    throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Failed to generate PDF", cause: error });
+  } finally {
+    if (page) await page.close().catch(() => null);
+    if (context) await context.close().catch(() => null);
+  }
+}
+
+/**
+ * Captures a screenshot of the first page of a resume as WebP.
+ *
+ * Uses a timestamp-based cache (6-hour TTL) to avoid regenerating screenshots
+ * for resumes that haven't changed. Old screenshots are cleaned up on regeneration.
+ */
+async function doGetResumeScreenshot(
+  input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data" | "updatedAt">,
+): Promise<string> {
+  const { id, userId, data, updatedAt } = input;
+
+  const storageService = getStorageService();
+  const screenshotPrefix = `uploads/${userId}/screenshots/${id}`;
+
+  const existingScreenshots = await storageService.list(screenshotPrefix);
+  const now = Date.now();
+  const resumeUpdatedAt = updatedAt.getTime();
+
+  if (existingScreenshots.length > 0) {
+    const sortedFiles = existingScreenshots
+      .map((path) => {
+        const filename = path.split("/").pop();
+        const match = filename?.match(/^(\d+)\.webp$/);
+        return match ? { path, timestamp: Number(match[1]) } : null;
+      })
+      .filter((item): item is { path: string; timestamp: number } => item !== null)
+      .sort((a, b) => b.timestamp - a.timestamp);
+
+    if (sortedFiles.length > 0) {
+      const latest = sortedFiles[0];
+      const age = now - latest.timestamp;
+
+      // Return existing screenshot if it's still fresh (within TTL)
+      if (age < SCREENSHOT_TTL) return new URL(latest.path, env.APP_URL).toString();
+
+      // Screenshot is stale (past TTL), but only regenerate if the resume
+      // was updated after the screenshot was taken. If the resume hasn't
+      // changed, keep using the existing screenshot to avoid unnecessary work.
+      if (resumeUpdatedAt <= latest.timestamp) {
+        return new URL(latest.path, env.APP_URL).toString();
+      }
+
+      // Resume was updated after the screenshot - delete old ones and regenerate
+      await Promise.all(sortedFiles.map((file) => storageService.delete(file.path)));
+    }
+  }
+
+  const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
+  const domain = new URL(baseUrl).hostname;
+
+  const locale = data.metadata.page.locale;
+
+  const token = generatePrinterToken(id);
+  const url = `${baseUrl}/printer/${id}?token=${token}`;
+
+  let context: BrowserContext | null = null;
+  let page: Page | null = null;
+
+  try {
+    const browser = await getBrowser();
+    context = await browser.createBrowserContext();
+
+    await context.setCookie({ name: "locale", value: locale, domain });
+
+    page = await context.newPage();
+
+    await page.setViewport(pageDimensionsAsPixels.a4);
+    await page.goto(url, { waitUntil: "networkidle0" });
+    await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
+
+    const screenshotBuffer = await page.screenshot({ type: "webp", quality: 80 });
+
+    const result = await uploadFile({
+      userId,
+      resumeId: id,
+      data: new Uint8Array(screenshotBuffer),
+      contentType: "image/webp",
+      type: "screenshot",
+    });
+
+    return result.url;
+  } catch (error) {
+    throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Failed to capture screenshot", cause: error });
+  } finally {
+    if (page) await page.close().catch(() => null);
+    if (context) await context.close().catch(() => null);
+  }
+}
 
 export const printerService = {
   healthcheck: async (): Promise<object> => {
@@ -83,300 +384,39 @@ export const printerService = {
     return data;
   },
 
-  /**
-   * Generates a PDF from a resume and uploads it to storage.
-   *
-   * The process:
-   * 1. Clean up any existing PDF for this resume
-   * 2. Navigate to the printer route which renders the resume
-   * 3. Calculate PDF margins (some templates require margins to be applied via PDF)
-   * 4. Adjust CSS variables so content fits within printable area (accounting for margins)
-   * 5. Add page break CSS to ensure each visual resume page becomes a PDF page
-   * 6. Generate the PDF with proper dimensions and margins
-   * 7. Upload to storage and return the URL
-   */
+  /** Generates a PDF, deduplicating concurrent requests for the same resume. */
   printResumeAsPDF: async (
     input: Pick<InferSelectModel<typeof schema.resume>, "id" | "data" | "userId">,
   ): Promise<string> => {
-    const { id, data, userId } = input;
+    const { id } = input;
 
-    // Step 1: Delete any existing PDF for this resume to ensure fresh generation
-    const storageService = getStorageService();
-    const pdfPrefix = `uploads/${userId}/pdfs/${id}`;
-    await storageService.delete(pdfPrefix);
+    // Deduplicate concurrent requests for the same resume
+    const existing = activePrintJobs.get(id);
+    if (existing) return existing;
 
-    // Step 2: Prepare the URL and authentication for the printer route
-    // The printer route renders the resume in a format optimized for PDF generation
-    const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
-    const domain = new URL(baseUrl).hostname;
+    const job = doPrintResumeAsPDF(input).finally(() => {
+      activePrintJobs.delete(id);
+    });
 
-    const format = data.metadata.page.format;
-    const locale = data.metadata.page.locale;
-    const template = data.metadata.template;
-
-    // Generate a secure token to authenticate the printer request
-    const token = generatePrinterToken(id);
-    const url = `${baseUrl}/printer/${id}?token=${token}`;
-
-    // Step 3: Calculate print paddings for templates that disable CSS padding in print mode.
-    // We render these margins inside the page (not via Puppeteer's PDF margins), so the margin
-    // area matches the resume background color instead of staying white.
-    let pagePaddingX = 0;
-    let pagePaddingY = 0;
-
-    if (printMarginTemplates.includes(template)) {
-      pagePaddingX = data.metadata.page.marginX;
-      pagePaddingY = data.metadata.page.marginY;
-    }
-
-    let browser: Browser | null = null;
-    let page: Page | null = null;
-
-    try {
-      // Step 4: Connect to the browser and navigate to the printer route
-      browser = await getBrowser();
-
-      // Set locale cookie so the resume renders in the correct language
-      await browser.setCookie({ name: "locale", value: locale, domain });
-
-      page = await browser.newPage();
-
-      // Wait for the page to fully load (network idle + custom loaded attribute)
-      await page.emulateMediaType("print");
-      await page.setViewport(pageDimensionsAsPixels[format]);
-      await page.goto(url, { waitUntil: "networkidle0" });
-      await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
-
-      // Step 5: Adjust the DOM for proper PDF pagination
-      // This runs in the browser context to modify CSS before PDF generation
-      // For free-form: measure actual content height, don't add page breaks
-      // For A4/Letter: adjust page height for margins, add page breaks
-      const isFreeForm = format === "free-form";
-
-      const contentHeight = await page.evaluate(
-        (
-          pagePaddingX: number,
-          pagePaddingY: number,
-          isFreeForm: boolean,
-          minPageHeight: number,
-          backgroundColor: string,
-        ) => {
-          const root = document.documentElement;
-          const body = document.body;
-          const pageElements = document.querySelectorAll("[data-page-index]");
-          const pageContentElements = document.querySelectorAll(".page-content");
-          const container = document.querySelector(".resume-preview-container") as HTMLElement | null;
-
-          // Ensure PDF margins inherit the resume background color instead of defaulting to white.
-          root.style.backgroundColor = backgroundColor;
-          body.style.backgroundColor = backgroundColor;
-          root.style.margin = "0";
-          body.style.margin = "0";
-          root.style.padding = "0";
-          body.style.padding = "0";
-
-          for (const el of pageElements) {
-            const pageWrapper = el as HTMLElement;
-            const pageSurface = pageWrapper.querySelector(".page") as HTMLElement | null;
-
-            pageWrapper.style.backgroundColor = backgroundColor;
-            pageWrapper.style.breakInside = "auto";
-
-            if (pageSurface) pageSurface.style.backgroundColor = backgroundColor;
-          }
-
-          // Apply print-only margins as padding inside each page's content surface.
-          if (pagePaddingX > 0 || pagePaddingY > 0) {
-            for (const el of pageContentElements) {
-              const pageContent = el as HTMLElement;
-
-              pageContent.style.boxSizing = "border-box";
-              // Ensure padding is repeated on every printed fragment when content
-              // flows across physical PDF pages (not just the first fragment).
-              pageContent.style.boxDecorationBreak = "clone";
-              pageContent.style.setProperty("-webkit-box-decoration-break", "clone");
-              if (pagePaddingX > 0) {
-                pageContent.style.paddingLeft = `${pagePaddingX}pt`;
-                pageContent.style.paddingRight = `${pagePaddingX}pt`;
-              }
-              if (pagePaddingY > 0) {
-                pageContent.style.paddingTop = `${pagePaddingY}pt`;
-                pageContent.style.paddingBottom = `${pagePaddingY}pt`;
-              }
-            }
-          }
-
-          if (isFreeForm) {
-            const numberOfPages = pageElements.length;
-
-            // Add margin between pages (except the last one)
-            for (let i = 0; i < numberOfPages - 1; i++) {
-              const pageEl = pageElements[i] as HTMLElement;
-              if (pagePaddingY > 0) pageEl.style.marginBottom = `${pagePaddingY}pt`;
-            }
-
-            // Now measure the total height (margins are now part of the DOM)
-            let totalHeight = 0;
-
-            for (const el of pageElements) {
-              const pageEl = el as HTMLElement;
-              // offsetHeight includes padding and border, but not margin
-              const style = getComputedStyle(pageEl);
-              const marginBottom = Number.parseFloat(style.marginBottom) || 0;
-              totalHeight += pageEl.offsetHeight + marginBottom;
-            }
-
-            return Math.max(totalHeight, minPageHeight);
-          }
-
-          // For A4/Letter
-          const heightValue = minPageHeight;
-
-          // Keep page height fixed and let in-page padding (if any) define content bounds.
-          const newHeight = `${heightValue}px`;
-          if (container) container.style.setProperty("--page-height", newHeight);
-          root.style.setProperty("--page-height", newHeight);
-
-          // Add page break CSS to each resume page element (identified by data-page-index attribute)
-          // This ensures each visual resume page starts a new PDF page
-          for (const el of pageElements) {
-            const element = el as HTMLElement;
-            const index = Number.parseInt(element.getAttribute("data-page-index") ?? "0", 10);
-
-            // Force a page break before each page except the first
-            if (index > 0) {
-              element.style.breakBefore = "page";
-              element.style.pageBreakBefore = "always";
-            }
-
-            // Allow content within a page to break naturally if it overflows
-            // (e.g., if a single page has more content than fits on one PDF page)
-            element.style.breakInside = "auto";
-          }
-
-          return null; // Fixed height from pageDimensionsAsPixels for A4/Letter
-        },
-        pagePaddingX,
-        pagePaddingY,
-        isFreeForm,
-        pageDimensionsAsPixels[format].height,
-        data.metadata.design.colors.background,
-      );
-
-      // Step 6: Generate the PDF with the specified dimensions and margins
-      // For free-form: use measured content height (with minimum constraint)
-      // For A4/Letter: use fixed dimensions from pageDimensionsAsPixels
-      const pdfHeight = isFreeForm && contentHeight ? contentHeight : pageDimensionsAsPixels[format].height;
-
-      const pdfBuffer = await page.pdf({
-        width: `${pageDimensionsAsPixels[format].width}px`,
-        height: `${pdfHeight}px`,
-        tagged: true, // Adds accessibility tags to the PDF
-        waitForFonts: true, // Ensures all fonts are loaded before rendering
-        printBackground: true, // Includes background colors and images
-        margin: {
-          bottom: 0,
-          top: 0,
-          right: 0,
-          left: 0,
-        },
-      });
-
-      // Step 7: Upload the generated PDF to storage
-      const result = await uploadFile({
-        userId,
-        resumeId: id,
-        data: new Uint8Array(pdfBuffer),
-        contentType: "application/pdf",
-        type: "pdf",
-      });
-
-      return result.url;
-    } catch (error) {
-      throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
-    } finally {
-      if (page) await page.close().catch(() => null);
-    }
+    activePrintJobs.set(id, job);
+    return job;
   },
 
+  /** Captures a resume screenshot, deduplicating concurrent requests for the same resume. */
   getResumeScreenshot: async (
     input: Pick<InferSelectModel<typeof schema.resume>, "userId" | "id" | "data" | "updatedAt">,
   ): Promise<string> => {
-    const { id, userId, data, updatedAt } = input;
+    const { id } = input;
 
-    const storageService = getStorageService();
-    const screenshotPrefix = `uploads/${userId}/screenshots/${id}`;
+    // Deduplicate concurrent requests for the same resume
+    const existing = activeScreenshotJobs.get(id);
+    if (existing) return existing;
 
-    const existingScreenshots = await storageService.list(screenshotPrefix);
-    const now = Date.now();
-    const resumeUpdatedAt = updatedAt.getTime();
+    const job = doGetResumeScreenshot(input).finally(() => {
+      activeScreenshotJobs.delete(id);
+    });
 
-    if (existingScreenshots.length > 0) {
-      const sortedFiles = existingScreenshots
-        .map((path) => {
-          const filename = path.split("/").pop();
-          const match = filename?.match(/^(\d+)\.webp$/);
-          return match ? { path, timestamp: Number(match[1]) } : null;
-        })
-        .filter((item): item is { path: string; timestamp: number } => item !== null)
-        .sort((a, b) => b.timestamp - a.timestamp);
-
-      if (sortedFiles.length > 0) {
-        const latest = sortedFiles[0];
-        const age = now - latest.timestamp;
-
-        // Return existing screenshot if it's still fresh (within TTL)
-        if (age < SCREENSHOT_TTL) return new URL(latest.path, env.APP_URL).toString();
-
-        // Screenshot is stale (past TTL), but only regenerate if the resume
-        // was updated after the screenshot was taken. If the resume hasn't
-        // changed, keep using the existing screenshot to avoid unnecessary work.
-        if (resumeUpdatedAt <= latest.timestamp) {
-          return new URL(latest.path, env.APP_URL).toString();
-        }
-
-        // Resume was updated after the screenshot - delete old ones and regenerate
-        await Promise.all(sortedFiles.map((file) => storageService.delete(file.path)));
-      }
-    }
-
-    const baseUrl = env.PRINTER_APP_URL ?? env.APP_URL;
-    const domain = new URL(baseUrl).hostname;
-
-    const locale = data.metadata.page.locale;
-
-    const token = generatePrinterToken(id);
-    const url = `${baseUrl}/printer/${id}?token=${token}`;
-
-    let browser: Browser | null = null;
-    let page: Page | null = null;
-
-    try {
-      browser = await getBrowser();
-
-      await browser.setCookie({ name: "locale", value: locale, domain });
-
-      page = await browser.newPage();
-
-      await page.setViewport(pageDimensionsAsPixels.a4);
-      await page.goto(url, { waitUntil: "networkidle0" });
-      await page.waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 });
-
-      const screenshotBuffer = await page.screenshot({ type: "webp", quality: 80 });
-
-      const result = await uploadFile({
-        userId,
-        resumeId: id,
-        data: new Uint8Array(screenshotBuffer),
-        contentType: "image/webp",
-        type: "screenshot",
-      });
-
-      return result.url;
-    } catch (error) {
-      throw new ORPCError("INTERNAL_SERVER_ERROR", error as Error);
-    } finally {
-      if (page) await page.close().catch(() => null);
-    }
+    activeScreenshotJobs.set(id, job);
+    return job;
   },
 };

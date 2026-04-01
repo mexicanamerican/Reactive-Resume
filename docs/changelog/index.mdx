@@ -4,6 +4,37 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.0.15" description="1st April 2026">
+## Features & Improvements
+- Added **LinkedIn sign-in** support for self-hosted instances, including sign-in on the auth page and account linking in settings.
+- Improved the sign-in experience by showing loading placeholders while social login providers are being fetched.
+- Resume builder panel sizes are now persisted more reliably, making the layout feel more consistent between sessions.
+- Added clearer labels for resume sorting and filtering controls on the dashboard.
+
+## Fixes
+- Improved autosave reliability in the resume builder:
+  - Unsaved edits are flushed before page unload.
+  - You now get a clear persistent warning if changes fail to save (for example, due to network issues).
+- Strengthened authentication defaults by increasing the minimum password length requirement to 8 characters.
+- Improved reliability around resume deletion and server-side error handling for create/update operations.
+- Fixed a rare language mix-up during printing/export when multiple print jobs run at the same time, so each PDF/screenshot now reliably uses the correct locale.
+- Improved print stability under heavy usage by reusing in-progress PDF and screenshot generation requests for the same resume instead of starting duplicate jobs.
+- Hardened printer token signing and token/session/API-key verification paths for better security.
+- Improved resilience in AI tailoring output parsing and JSON Resume import normalization.
+- Printer service now provides descriptive error messages ("Failed to generate PDF" / "Failed to capture screenshot") instead of generic internal server errors.
+- Job descriptions in the job detail sheet now render HTML formatting (headings, lists, bold text) instead of showing raw tags.
+- Fixed the "Tailor Resume" button being incorrectly disabled when AI is not configured — the dialog already supports plain resume duplication as a fallback.
+- Fixed the tailor resume flow to open the resume builder in a new tab while keeping the job listing open for reference, instead of navigating away and auto-opening the application page.
+- Apply option links in the job detail sheet are now validated before rendering, preventing malformed or potentially unsafe URLs.
+- Improved job card loading skeletons to match the actual card layout (logo, title, badges) for a smoother loading experience.
+- Centered the "Configure Job Search" empty state on the page.
+- Extracted the `JobCard` component into its own file for better code organization.
+
+## Docs & Localization
+- Updated self-hosting and environment variable documentation to include LinkedIn OAuth configuration.
+- Synced translations across locales for the latest authentication and save-status messaging.
+</Update>
+
 <Update label="v5.0.14" description="24th March 2026">
 ## Features
 - Implemented OAuth 2.1 support for MCP authentication, thanks to @5queezer. [#2829](https://github.com/amruthpillai/reactive-resume/pull/2829)

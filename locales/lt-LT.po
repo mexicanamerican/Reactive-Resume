@@ -3186,6 +3186,10 @@ msgstr "Jūsų duomenys saugomi vietoje"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Jūsų duomenys saugiai laikomi ir niekada nebendrinami su trečiosiomis šalimis. Taip pat galite savarankiškai talpinti „Reactive Resume“ savo serveriuose ir visiškai kontroliuoti savo duomenis."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "Jūsų slaptažodis sėkmingai atstatytas. Dabar galite prisijungti naudodami naują slaptažodį."
@@ -3244,4 +3248,3 @@ msgstr "Tolinti"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

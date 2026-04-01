@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { t } from "@lingui/core/macro";
-import { GithubLogoIcon, GoogleLogoIcon, PasswordIcon, VaultIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, GoogleLogoIcon, LinkedinLogoIcon, PasswordIcon, VaultIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { toast } from "sonner";
@@ -20,6 +20,7 @@ export function getProviderName(providerId: AuthProvider): string {
     .with("credential", () => "Password")
     .with("google", () => "Google")
     .with("github", () => "GitHub")
+    .with("linkedin", () => "LinkedIn")
     .with("custom", () => "Custom OAuth")
     .exhaustive();
 }
@@ -32,6 +33,7 @@ export function getProviderIcon(providerId: AuthProvider): ReactNode {
     .with("credential", () => <PasswordIcon />)
     .with("google", () => <GoogleLogoIcon />)
     .with("github", () => <GithubLogoIcon />)
+    .with("linkedin", () => <LinkedinLogoIcon />)
     .with("custom", () => <VaultIcon />)
     .exhaustive();
 }
@@ -100,7 +102,7 @@ export function useAuthProviderActions() {
 
 /**
  * Hook to get enabled social providers for the current user
- * Possible values: "credential", "google", "github", "custom"
+ * Possible values: "credential", "google", "github", "linkedin", "custom"
  */
 export function useEnabledProviders() {
   const { data: enabledProviders = [] } = useQuery(orpc.auth.providers.list.queryOptions());

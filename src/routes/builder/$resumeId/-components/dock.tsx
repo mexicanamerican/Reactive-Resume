@@ -111,8 +111,7 @@ export function BuilderDock() {
         animate={{ opacity: 0.6, y: 0 }}
         whileHover={{ opacity: 1, y: -2, scale: 1.01 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
-        className="flex items-center rounded-l-full rounded-r-full bg-popover px-2 shadow-xl"
+        className="flex items-center rounded-l-full rounded-r-full bg-popover px-2 shadow-xl will-change-[transform,opacity]"
       >
         <DockIcon
           disabled={!canUndo}
@@ -166,10 +165,10 @@ function DockIcon({ icon: Icon, title, disabled, onClick, iconClassName }: DockI
       <TooltipTrigger
         render={
           <motion.div
+            className="will-change-transform"
             whileHover={disabled ? undefined : { y: -1, scale: 1.04 }}
             whileTap={disabled ? undefined : { scale: 0.97 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            style={{ willChange: "transform" }}
           >
             <Button size="icon" variant="ghost" disabled={disabled} onClick={onClick}>
               <Icon className={cn("size-4", iconClassName)} />

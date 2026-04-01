@@ -18,6 +18,7 @@ import { Switch } from "@/components/ui/switch";
 import { useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { educationItemSchema } from "@/schema/resume/data";
+import { createSectionItem, updateSectionItem } from "@/utils/resume/section-actions";
 import { generateId } from "@/utils/string";
 
 const formSchema = educationItemSchema;
@@ -47,12 +48,7 @@ export function CreateEducationDialog({ data }: DialogProps<"resume.sections.edu
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (section) section.items.push(formData);
-      } else {
-        draft.sections.education.items.push(formData);
-      }
+      createSectionItem(draft, "education", formData, data?.customSectionId);
     });
     closeDialog();
   };
@@ -111,15 +107,7 @@ export function UpdateEducationDialog({ data }: DialogProps<"resume.sections.edu
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (!section) return;
-        const index = section.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) section.items[index] = formData;
-      } else {
-        const index = draft.sections.education.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) draft.sections.education.items[index] = formData;
-      }
+      updateSectionItem(draft, "education", formData, data?.customSectionId);
     });
     closeDialog();
   };

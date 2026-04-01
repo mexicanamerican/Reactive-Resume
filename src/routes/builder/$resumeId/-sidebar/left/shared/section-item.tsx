@@ -245,8 +245,7 @@ export function SectionItem<T extends CustomSectionItem | SectionItemType>({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.16, ease: "easeOut" }}
-      style={{ willChange: "transform, opacity" }}
-      className="group relative flex h-18 border-b select-none"
+      className="group relative flex h-18 border-b will-change-[transform,opacity] select-none"
     >
       <div
         className="flex cursor-ns-resize touch-none items-center px-1.5 opacity-40 transition-[background-color,opacity] group-hover:opacity-100 hover:bg-secondary/40"

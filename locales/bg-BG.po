@@ -3186,6 +3186,10 @@ msgstr "Вашите данни се съхраняват локално"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Вашите данни се съхраняват сигурно и никога не се споделят с трети страни. Можете също да хоствате Reactive Resume самостоятелно на свои сървъри за пълен контрол върху данните си."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "Паролата ви беше нулирана успешно. Сега можете да влезете с новата си парола."
@@ -3244,4 +3248,3 @@ msgstr "Намаляване"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Зулуски"
-

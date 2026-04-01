@@ -31,10 +31,10 @@ export function TwoFactorSection() {
 
   return (
     <motion.div
+      className="will-change-[transform,opacity]"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: 0.2, ease: "easeOut" }}
-      style={{ willChange: "transform, opacity" }}
     >
       <Separator />
 
@@ -47,10 +47,10 @@ export function TwoFactorSection() {
         {match(hasTwoFactor)
           .with(true, () => (
             <motion.div
+              className="will-change-transform"
               whileHover={{ y: -1, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.14, ease: "easeOut" }}
-              style={{ willChange: "transform" }}
             >
               <Button variant="outline" onClick={handleTwoFactorAction}>
                 <ToggleLeftIcon />
@@ -60,10 +60,10 @@ export function TwoFactorSection() {
           ))
           .with(false, () => (
             <motion.div
+              className="will-change-transform"
               whileHover={{ y: -1, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.14, ease: "easeOut" }}
-              style={{ willChange: "transform" }}
             >
               <Button variant="outline" onClick={handleTwoFactorAction}>
                 <ToggleRightIcon />

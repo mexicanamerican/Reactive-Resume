@@ -51,6 +51,8 @@ export const tailorOutputSchema = z.object({
                 ),
             }),
           )
+          .optional()
+          .catch([])
           .describe(
             "Tailored role-level updates. Use an empty array when the experience does not have role progression.",
           ),

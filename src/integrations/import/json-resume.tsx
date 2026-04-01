@@ -1,9 +1,12 @@
 import { flattenError, ZodError, z } from "zod";
 
-import type { IconName } from "@/schema/icons";
-
 import { defaultResumeData, type ResumeData, resumeDataSchema } from "@/schema/resume/data";
+import { formatPeriod, formatSingleDate } from "@/utils/date";
+import { arrayToHtmlList, toHtmlDescription } from "@/utils/html";
+import { parseLevel } from "@/utils/level";
+import { getNetworkIcon } from "@/utils/network-icons";
 import { generateId } from "@/utils/string";
+import { createUrl } from "@/utils/url";
 
 // Custom ISO 8601 date pattern that allows partial dates (year only, year-month, or full date)
 const iso8601 = z
@@ -153,138 +156,6 @@ const jsonResumeSchema = z.looseObject({
 
 type JSONResume = z.infer<typeof jsonResumeSchema>;
 
-// Helper function to format date period from start and end dates
-function formatPeriod(startDate?: string, endDate?: string): string {
-  if (!startDate && !endDate) return "";
-  if (!startDate) return endDate || "";
-  if (!endDate) return `${startDate} - Present`;
-
-  // Format dates to be more readable
-  const formatDate = (date: string): string => {
-    // Handle YYYY-MM-DD, YYYY-MM, or YYYY formats
-    const parts = date.split("-");
-
-    if (parts.length === 3) {
-      // YYYY-MM-DD
-      const [year, month] = parts;
-      const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
-    }
-
-    if (parts.length === 2) {
-      // YYYY-MM
-      const [year, month] = parts;
-      const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
-    }
-
-    // YYYY
-    return date;
-  };
-
-  return `${formatDate(startDate)} - ${formatDate(endDate)}`;
-}
-
-// Helper function to format a single date
-function formatSingleDate(date?: string): string {
-  if (!date) return "";
-
-  // Format dates to be more readable
-  const parts = date.split("-");
-
-  if (parts.length === 3) {
-    // YYYY-MM-DD
-    const [year, month, day] = parts;
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return `${monthNames[parseInt(month, 10) - 1]} ${day}, ${year}`;
-  }
-  if (parts.length === 2) {
-    // YYYY-MM
-    const [year, month] = parts;
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
-  }
-  // YYYY
-  return date;
-}
-
-// Helper function to convert text and highlights to HTML
-function toHtmlDescription(summary?: string, highlights?: string[]): string {
-  const parts: string[] = [];
-
-  if (summary) {
-    parts.push(`<p>${summary}</p>`);
-  }
-
-  if (highlights && highlights.length > 0) {
-    parts.push("<ul>");
-    for (const highlight of highlights) {
-      parts.push(`<li>${highlight}</li>`);
-    }
-    parts.push("</ul>");
-  }
-
-  return parts.join("");
-}
-
-// Helper function to convert array to HTML list
-function arrayToHtmlList(items?: string[]): string {
-  if (!items || items.length === 0) return "";
-  return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
-}
-
 // Helper function to format location object to string
 function formatLocation(location?: {
   address?: string;
@@ -301,62 +172,6 @@ function formatLocation(location?: {
   if (location.countryCode) parts.push(location.countryCode);
 
   return parts.join(", ");
-}
-
-// Helper function to map network name to icon
-function getNetworkIcon(network?: string): IconName {
-  if (!network) return "star";
-
-  const networkLower = network.toLowerCase();
-  if (networkLower.includes("github")) return "github-logo";
-  if (networkLower.includes("linkedin")) return "linkedin-logo";
-  if (networkLower.includes("twitter") || networkLower.includes("x.com")) return "twitter-logo";
-  if (networkLower.includes("facebook")) return "facebook-logo";
-  if (networkLower.includes("instagram")) return "instagram-logo";
-  if (networkLower.includes("youtube")) return "youtube-logo";
-  if (networkLower.includes("stackoverflow") || networkLower.includes("stack-overflow")) return "stack-overflow-logo";
-  if (networkLower.includes("medium")) return "medium-logo";
-  if (networkLower.includes("dev.to") || networkLower.includes("devto")) return "code";
-  if (networkLower.includes("dribbble")) return "dribbble-logo";
-  if (networkLower.includes("behance")) return "behance-logo";
-  if (networkLower.includes("gitlab")) return "git-branch";
-  if (networkLower.includes("bitbucket")) return "code";
-  if (networkLower.includes("codepen")) return "code";
-
-  return "star";
-}
-
-// Helper function to parse skill/language level to number (0-5)
-function parseLevel(level?: string): number {
-  if (!level) return 0;
-
-  const levelLower = level.toLowerCase();
-  // Try to parse numeric values
-  const numeric = parseInt(levelLower, 10);
-  if (!Number.isNaN(numeric) && numeric >= 0 && numeric <= 5) return numeric;
-
-  // Map text levels to numbers
-  if (levelLower.includes("native") || levelLower.includes("expert") || levelLower.includes("master")) return 5;
-  if (levelLower.includes("fluent") || levelLower.includes("advanced") || levelLower.includes("proficient")) return 4;
-  if (levelLower.includes("intermediate") || levelLower.includes("conversational")) return 3;
-  if (levelLower.includes("beginner") || levelLower.includes("basic") || levelLower.includes("elementary")) return 2;
-  if (levelLower.includes("novice")) return 1;
-
-  // CEFR levels
-  if (levelLower.includes("c2")) return 5;
-  if (levelLower.includes("c1")) return 4;
-  if (levelLower.includes("b2")) return 3;
-  if (levelLower.includes("b1")) return 2;
-  if (levelLower.includes("a2")) return 1;
-  if (levelLower.includes("a1")) return 1;
-
-  return 0;
-}
-
-// Helper function to create URL object
-function createUrl(url?: string, label?: string): { url: string; label: string } {
-  if (!url) return { url: "", label: "" };
-  return { url, label: label || url };
 }
 
 export class JSONResumeImporter {

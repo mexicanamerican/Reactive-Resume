@@ -1,5 +1,3 @@
-# AGENTS.md
-
 ## Overview
 
 Reactive Resume is a single-package full-stack TypeScript app (not a monorepo) built with [TanStack Start](https://tanstack.com/start/latest/docs/framework/react/overview) (React, Vite, Nitro). It serves both frontend and API on port 3000.
@@ -130,4 +128,4 @@ Copy `.env.example` to `.env` if not present. Key notes for local dev:
 ## Review Checklist for Agents
 
 - [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `vp check` and `vp test` to validate changes.
+- [ ] Run `pnpm lint:fix`, `pnpm fmt:fix`, `pnpm typecheck` and `vp test` to validate changes.

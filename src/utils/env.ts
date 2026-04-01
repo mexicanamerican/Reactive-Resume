@@ -32,6 +32,10 @@ export const env = createEnv({
     GITHUB_CLIENT_ID: z.string().min(1).optional(),
     GITHUB_CLIENT_SECRET: z.string().min(1).optional(),
 
+    // Social Auth (LinkedIn)
+    LINKEDIN_CLIENT_ID: z.string().min(1).optional(),
+    LINKEDIN_CLIENT_SECRET: z.string().min(1).optional(),
+
     // Custom OAuth Provider
     OAUTH_PROVIDER_NAME: z.string().min(1).optional(),
     OAUTH_CLIENT_ID: z.string().min(1).optional(),

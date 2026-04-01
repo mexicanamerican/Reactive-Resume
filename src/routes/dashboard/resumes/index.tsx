@@ -11,6 +11,7 @@ import { useMemo } from "react";
 import z from "zod";
 
 import { Combobox } from "@/components/ui/combobox";
+import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { orpc } from "@/integrations/orpc/client";
@@ -74,26 +75,35 @@ function RouteComponent() {
       <Separator />
 
       <div className="flex items-center gap-x-4">
-        <Combobox
-          value={sort}
-          options={sortOptions}
-          placeholder={t`Sort by`}
-          onValueChange={(value) => {
-            if (!value) return;
-            void navigate({ search: { tags, sort: value as SortOption } });
-          }}
-        />
+        <div className="flex gap-2">
+          <Label>
+            <Trans>Sort by</Trans>
+          </Label>
+          <Combobox
+            value={sort}
+            options={sortOptions}
+            placeholder={t`Sort by`}
+            onValueChange={(value) => {
+              if (!value) return;
+              void navigate({ search: { tags, sort: value as SortOption } });
+            }}
+          />
+        </div>
 
-        <Combobox
-          multiple
-          value={tags}
-          options={tagOptions}
-          placeholder={t`Filter by`}
-          className={cn({ hidden: tagOptions.length === 0 })}
-          onValueChange={(value) => {
-            void navigate({ search: { tags: value ?? [], sort } });
-          }}
-        />
+        <div className={cn("flex gap-2", { hidden: tagOptions.length === 0 })}>
+          <Label>
+            <Trans>Filter by</Trans>
+          </Label>
+          <Combobox
+            multiple
+            value={tags}
+            options={tagOptions}
+            placeholder={t`Filter by`}
+            onValueChange={(value) => {
+              void navigate({ search: { tags: value ?? [], sort } });
+            }}
+          />
+        </div>
 
         <Tabs className="ltr:ms-auto rtl:me-auto" value={view} onValueChange={onViewChange}>
           <TabsList>

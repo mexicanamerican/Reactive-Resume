@@ -30,8 +30,7 @@ export function PasswordSection() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: 0.1, ease: "easeOut" }}
-      style={{ willChange: "transform, opacity" }}
-      className="flex items-center justify-between gap-x-4"
+      className="flex items-center justify-between gap-x-4 will-change-[transform,opacity]"
     >
       <h2 className="flex items-center gap-x-3 text-base font-medium">
         <PasswordIcon />
@@ -41,10 +40,10 @@ export function PasswordSection() {
       {match(hasPassword)
         .with(true, () => (
           <motion.div
+            className="will-change-transform"
             whileHover={{ y: -1, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
             transition={{ duration: 0.14, ease: "easeOut" }}
-            style={{ willChange: "transform" }}
           >
             <Button variant="outline" onClick={handleUpdatePassword}>
               <PencilSimpleLineIcon />
@@ -54,10 +53,10 @@ export function PasswordSection() {
         ))
         .with(false, () => (
           <motion.div
+            className="will-change-transform"
             whileHover={{ y: -1, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
             transition={{ duration: 0.14, ease: "easeOut" }}
-            style={{ willChange: "transform" }}
           >
             <Button
               variant="outline"

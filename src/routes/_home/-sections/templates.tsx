@@ -13,12 +13,11 @@ type TemplateItemProps = {
 function TemplateItem({ metadata }: TemplateItemProps) {
   return (
     <motion.div
-      className="group relative shrink-0"
+      className="group relative shrink-0 will-change-transform"
       initial={{ scale: 1, zIndex: 10 }}
       whileHover={{ scale: 1.06, zIndex: 20 }}
       whileTap={{ scale: 0.99 }}
       transition={{ type: "spring", stiffness: 320, damping: 26 }}
-      style={{ willChange: "transform" }}
     >
       <div className="relative aspect-page w-48 overflow-hidden rounded-md border bg-card shadow-lg transition-all duration-300 group-hover:shadow-2xl sm:w-56 md:w-64 lg:w-72">
         <img src={metadata.imageUrl} alt={metadata.name} className="size-full object-cover" />
@@ -86,12 +85,11 @@ export function Templates() {
   return (
     <section id="templates" className="overflow-hidden border-t-0! p-4 md:p-8 xl:py-16">
       <motion.div
-        className="space-y-4"
+        className="space-y-4 will-change-[transform,opacity]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.35 }}
-        style={{ willChange: "transform, opacity" }}
       >
         <h2 className="text-2xl font-semibold tracking-tight md:text-4xl xl:text-5xl">
           <Trans>Templates</Trans>

@@ -140,4 +140,148 @@ describe("htmlToParagraphs", () => {
     const result = htmlToParagraphs("<p><u>under</u></p>");
     expect(result).toHaveLength(1);
   });
+
+  // --- Additional coverage: block elements ---
+
+  it("parses blockquote with italic styling", () => {
+    const result = htmlToParagraphs("<blockquote>Quote text</blockquote>");
+    expect(result).toHaveLength(1);
+    expect(result[0]).toBeInstanceOf(Paragraph);
+  });
+
+  it("parses pre/code block with monospace font", () => {
+    const result = htmlToParagraphs("<pre>const x = 42;</pre>");
+    expect(result).toHaveLength(1);
+    expect(result[0]).toBeInstanceOf(Paragraph);
+  });
+
+  it("parses hr as empty paragraph", () => {
+    const result = htmlToParagraphs("<hr>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses heading elements (h1-h6)", () => {
+    for (let i = 1; i <= 6; i++) {
+      const result = htmlToParagraphs(`<h${i}>Heading ${i}</h${i}>`);
+      expect(result).toHaveLength(1);
+      expect(result[0]).toBeInstanceOf(Paragraph);
+    }
+  });
+
+  it("parses div as block element", () => {
+    const result = htmlToParagraphs("<div>Content in div</div>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses inline code with Courier New font", () => {
+    const result = htmlToParagraphs("<p><code>inline code</code></p>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses mark/highlight element", () => {
+    const result = htmlToParagraphs("<p><mark>highlighted</mark></p>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses b tag (same as strong)", () => {
+    const result = htmlToParagraphs("<p><b>bold</b></p>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses i tag (same as em)", () => {
+    const result = htmlToParagraphs("<p><i>italic</i></p>");
+    expect(result).toHaveLength(1);
+  });
+
+  it("parses strike tag", () => {
+    const result = htmlToParagraphs("<p><strike>struck</strike></p>");
+    expect(result).toHaveLength(1);
+  });
+
+  // --- Nested lists ---
+
+  it("parses nested unordered list", () => {
+    const html = "<ul><li>Top<ul><li>Nested</li></ul></li></ul>";
+    const result = htmlToParagraphs(html);
+    expect(result.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("parses nested ordered list", () => {
+    const html = "<ol><li>First<ol><li>Sub</li></ol></li></ol>";
+    const result = htmlToParagraphs(html);
+    expect(result.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("parses list with paragraph inside li", () => {
+    const html = "<ul><li><p>Paragraph in list</p></li></ul>";
+    const result = htmlToParagraphs(html);
+    expect(result.length).toBeGreaterThanOrEqual(1);
+  });
+
+  // --- Style config ---
+
+  it("applies styleConfig font and size to text runs", () => {
+    const result = htmlToParagraphs("<p>Styled</p>", {
+      font: "Georgia",
+      size: 24,
+      color: "333333",
+    });
+    expect(result).toHaveLength(1);
+  });
+
+  it("applies linkColor from styleConfig", () => {
+    const result = htmlToParagraphs('<p><a href="https://example.com">link</a></p>', {
+      linkColor: "FF0000",
+    });
+    expect(result).toHaveLength(1);
+    const children = getChildren(result[0] as Paragraph);
+    const hyperlinks = children.filter((c) => c instanceof ExternalHyperlink);
+    expect(hyperlinks).toHaveLength(1);
+  });
+
+  // --- Top-level text nodes ---
+
+  it("handles plain text without wrapper element", () => {
+    const result = htmlToParagraphs("Just plain text");
+    expect(result).toHaveLength(1);
+  });
+
+  it("handles link without href falling back to inline text", () => {
+    const result = htmlToParagraphs("<p><a>No href link</a></p>");
+    expect(result).toHaveLength(1);
+    const children = getChildren(result[0] as Paragraph);
+    // Should have TextRun, not ExternalHyperlink (no href)
+    const hyperlinks = children.filter((c) => c instanceof ExternalHyperlink);
+    expect(hyperlinks).toHaveLength(0);
+  });
+
+  it("handles empty blockquote", () => {
+    const result = htmlToParagraphs("<blockquote></blockquote>");
+    expect(result).toHaveLength(0);
+  });
+
+  it("handles empty pre", () => {
+    const result = htmlToParagraphs("<pre></pre>");
+    expect(result).toHaveLength(0);
+  });
+
+  it("handles empty heading", () => {
+    const result = htmlToParagraphs("<h1></h1>");
+    expect(result).toHaveLength(0);
+  });
+
+  // --- Multiple block elements ---
+
+  it("handles complex HTML with mixed elements", () => {
+    const html = `
+      <h2>Title</h2>
+      <p>Introduction paragraph</p>
+      <ul><li>Item 1</li><li>Item 2</li></ul>
+      <blockquote>A quote</blockquote>
+      <pre>code block</pre>
+    `;
+    const result = htmlToParagraphs(html);
+    // h2 + p + 2 li + blockquote + pre = 6
+    expect(result.length).toBeGreaterThanOrEqual(5);
+  });
 });

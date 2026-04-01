@@ -20,7 +20,7 @@ export function GridView({ resumes }: Props) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
+        className="will-change-[transform,opacity]"
       >
         <CreateResumeCard />
       </motion.div>
@@ -30,7 +30,7 @@ export function GridView({ resumes }: Props) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.2, delay: 0.03, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
+        className="will-change-[transform,opacity]"
       >
         <ImportResumeCard />
       </motion.div>
@@ -48,7 +48,7 @@ export function GridView({ resumes }: Props) {
               filter: "blur(8px)",
             }}
             transition={{ duration: 0.2, delay: Math.min(0.12, (index + 2) * 0.02), ease: "easeOut" }}
-            style={{ willChange: "transform, opacity" }}
+            className="will-change-[transform,opacity]"
           >
             <ResumeCard resume={resume} />
           </motion.div>

@@ -20,6 +20,7 @@ import { Slider } from "@/components/ui/slider";
 import { useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { skillItemSchema } from "@/schema/resume/data";
+import { createSectionItem, updateSectionItem } from "@/utils/resume/section-actions";
 import { generateId } from "@/utils/string";
 import { cn } from "@/utils/style";
 
@@ -46,12 +47,7 @@ export function CreateSkillDialog({ data }: DialogProps<"resume.sections.skills.
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (section) section.items.push(formData);
-      } else {
-        draft.sections.skills.items.push(formData);
-      }
+      createSectionItem(draft, "skills", formData, data?.customSectionId);
     });
     closeDialog();
   };
@@ -106,15 +102,7 @@ export function UpdateSkillDialog({ data }: DialogProps<"resume.sections.skills.
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (!section) return;
-        const index = section.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) section.items[index] = formData;
-      } else {
-        const index = draft.sections.skills.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) draft.sections.skills.items[index] = formData;
-      }
+      updateSectionItem(draft, "skills", formData, data?.customSectionId);
     });
     closeDialog();
   };

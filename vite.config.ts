@@ -1,4 +1,5 @@
 import type { PluginOption } from "vite-plus";
+import type { BuiltinReporters } from "vite-plus/test/reporters";
 
 import { lingui } from "@lingui/vite-plugin";
 import babel from "@rolldown/plugin-babel";
@@ -10,6 +11,16 @@ import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vite-plus";
 
 const isVitest = Boolean(process.env.VITEST);
+
+const testReporters: BuiltinReporters[] = [];
+
+if (process.env.GITHUB_ACTIONS) {
+  testReporters.push("github-actions");
+} else if (process.env.AGENT) {
+  testReporters.push("agent");
+} else {
+  testReporters.push("dot");
+}
 
 const plugins: PluginOption[] = [tanstackStart({ router: { semicolons: true, quoteStyle: "double" } }), viteReact()];
 
@@ -223,8 +234,28 @@ const config = defineConfig({
   },
 
   test: {
-    environment: "jsdom",
-    reporters: process.env.GITHUB_ACTIONS ? ["github-actions"] : ["dot"],
+    environment: "happy-dom",
+    reporters: testReporters,
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html", "lcov", "json-summary"],
+      reportsDirectory: "./coverage",
+      include: [
+        "src/utils/**/*.{ts,tsx}",
+        "src/hooks/**/*.{ts,tsx}",
+        "src/integrations/**/*.{ts,tsx}",
+        "src/components/**/*.{ts,tsx}",
+        "src/schema/**/*.{ts,tsx}",
+        "src/dialogs/**/*.{ts,tsx}",
+      ],
+      exclude: ["**/*.test.{ts,tsx}", "**/*.d.ts", "**/node_modules/**", "src/components/ui/**"],
+      thresholds: {
+        statements: 32,
+        branches: 37,
+        functions: 20,
+        lines: 31,
+      },
+    },
   },
 
   build: {

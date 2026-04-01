@@ -2,7 +2,6 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ReadCvLogoIcon } from "@phosphor-icons/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -40,7 +39,6 @@ type DialogPhase =
   | { step: "skill-sync"; newResumeId: string; newSkills: NewSkillInfo[]; sourceResumeId: string };
 
 export function TailorDialog({ job, open, onOpenChange }: Props) {
-  const navigate = useNavigate();
   const { data: resumes, isLoading } = useQuery(orpc.resume.list.queryOptions());
 
   const [phase, setPhase] = useState<DialogPhase>({ step: "select" });
@@ -65,11 +63,7 @@ export function TailorDialog({ job, open, onOpenChange }: Props) {
   };
 
   const navigateToBuilder = (resumeId: string) => {
-    if (job.job_apply_link) {
-      window.open(job.job_apply_link, "_blank", "noopener,noreferrer");
-    }
-    handleOpenChange(false);
-    void navigate({ to: "/builder/$resumeId", params: { resumeId } });
+    window.open(`/builder/${resumeId}`, "_blank", "noopener,noreferrer");
   };
 
   const handleSelectResume = async (resumeId: string, resumeName: string) => {

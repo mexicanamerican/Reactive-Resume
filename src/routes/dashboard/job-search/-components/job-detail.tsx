@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { useAIStore } from "@/integrations/ai/store";
+import { sanitizeHtml } from "@/utils/sanitize";
 
 import { formatSalary, isValidExternalUrl } from "./job-utils";
 import { TailorDialog } from "./tailor-dialog";
@@ -31,7 +31,6 @@ type Props = {
 };
 
 export function JobDetailSheet({ job, open, onOpenChange }: Props) {
-  const isAIEnabled = useAIStore((s) => s.enabled);
   const [tailorOpen, setTailorOpen] = useState(false);
 
   if (!job) return null;
@@ -119,12 +118,7 @@ export function JobDetailSheet({ job, open, onOpenChange }: Props) {
                   <Trans>Apply</Trans>
                 </Button>
 
-                <Button
-                  variant="outline"
-                  className="flex-1"
-                  disabled={!isAIEnabled}
-                  onClick={() => setTailorOpen(true)}
-                >
+                <Button variant="outline" className="flex-1" onClick={() => setTailorOpen(true)}>
                   <StarIcon />
                   <Trans>Tailor Resume</Trans>
                 </Button>
@@ -137,9 +131,10 @@ export function JobDetailSheet({ job, open, onOpenChange }: Props) {
                   <h4 className="font-medium">
                     <Trans>Description</Trans>
                   </h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap text-muted-foreground">
-                    {job.job_description}
-                  </p>
+                  <div
+                    className="text-sm leading-relaxed text-muted-foreground [&_a]:text-primary [&_a]:underline [&_h1]:text-base [&_h1]:font-semibold [&_h1]:text-foreground [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:text-sm [&_h3]:font-medium [&_h3]:text-foreground [&_li]:ml-4 [&_ol]:list-decimal [&_p]:mb-2 [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc"
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(job.job_description) }}
+                  />
                 </div>
               )}
 
@@ -197,7 +192,7 @@ export function JobDetailSheet({ job, open, onOpenChange }: Props) {
                 </>
               )}
 
-              {job.apply_options.length > 0 && (
+              {job.apply_options.some((option) => isValidExternalUrl(option.apply_link)) && (
                 <>
                   <Separator />
                   <div className="flex flex-col gap-y-2">
@@ -205,23 +200,25 @@ export function JobDetailSheet({ job, open, onOpenChange }: Props) {
                       <Trans>Apply Via</Trans>
                     </h4>
                     <div className="flex flex-col gap-y-1.5">
-                      {job.apply_options.map((option, i) => (
-                        <a
-                          key={i}
-                          href={option.apply_link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-x-2 text-sm text-primary hover:underline"
-                        >
-                          <ArrowSquareOutIcon className="size-3.5 shrink-0" />
-                          {option.publisher || t`Apply Link`}
-                          {option.is_direct && (
-                            <Badge variant="outline" className="text-[10px]">
-                              <Trans>Direct</Trans>
-                            </Badge>
-                          )}
-                        </a>
-                      ))}
+                      {job.apply_options
+                        .filter((option) => isValidExternalUrl(option.apply_link))
+                        .map((option, i) => (
+                          <a
+                            key={i}
+                            href={option.apply_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-x-2 text-sm text-primary hover:underline"
+                          >
+                            <ArrowSquareOutIcon className="size-3.5 shrink-0" />
+                            {option.publisher || t`Apply Link`}
+                            {option.is_direct && (
+                              <Badge variant="outline" className="text-[10px]">
+                                <Trans>Direct</Trans>
+                              </Badge>
+                            )}
+                          </a>
+                        ))}
                     </div>
                   </div>
                 </>

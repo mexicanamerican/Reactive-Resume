@@ -3186,6 +3186,10 @@ msgstr "መረጃዎ በአካባቢዎ መሣሪያ ላይ ይቀመጣል"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "መረጃዎ በደህና ይከማቻል እና ከሶስተኛ ወገኖች ጋር አይተካፈልም። ደግሞም በራስዎ ሰርቨር ላይ Reactive Resumeን በመጫን በመረጃዎ ላይ ሙሉ ቁጥጥር ማግኘት ትችላላችሁ።"
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "የይለፍ ቃልዎ በተሳካ ሁኔታ ዳግም ተጀምሯል። አሁን በአዲሱ የይለፍ ቃል መግባት ትችላላችሁ።"
@@ -3244,4 +3248,3 @@ msgstr "አጉር"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-

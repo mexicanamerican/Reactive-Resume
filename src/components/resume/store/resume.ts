@@ -32,11 +32,36 @@ type ResumeStore = ResumeStoreState & ResumeStoreActions;
 const controller = new AbortController();
 const signal = controller.signal;
 
-const _syncResume = (resume: Resume) => {
-  void orpc.resume.update.call({ id: resume.id, data: resume.data }, { signal });
+let syncErrorToastId: string | number | undefined;
+
+const _syncResume = async (resume: Resume) => {
+  try {
+    await orpc.resume.update.call({ id: resume.id, data: resume.data }, { signal });
+
+    // Dismiss error toast on successful sync
+    if (syncErrorToastId !== undefined) {
+      toast.dismiss(syncErrorToastId);
+      syncErrorToastId = undefined;
+    }
+  } catch (error: unknown) {
+    // Ignore aborted requests (e.g. page navigation)
+    if (error instanceof DOMException && error.name === "AbortError") return;
+
+    syncErrorToastId = toast.error(
+      t`Your latest changes could not be saved. Please make sure you are connected to the internet and try again.`,
+      { id: syncErrorToastId, duration: Infinity },
+    );
+  }
 };
 
 const syncResume = debounce(_syncResume, 500, { signal });
+
+// Flush pending sync before the page unloads to prevent data loss
+if (typeof window !== "undefined") {
+  window.addEventListener("beforeunload", () => {
+    syncResume.flush();
+  });
+}
 
 let errorToastId: string | number | undefined;
 

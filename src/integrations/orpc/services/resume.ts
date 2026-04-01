@@ -269,7 +269,8 @@ export const resumeService = {
         throw new ORPCError("RESUME_SLUG_ALREADY_EXISTS", { status: 400 });
       }
 
-      throw error;
+      console.error("Failed to create resume:", error);
+      throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Failed to create resume" });
     }
   },
 
@@ -325,7 +326,8 @@ export const resumeService = {
         throw new ORPCError("RESUME_SLUG_ALREADY_EXISTS", { status: 400 });
       }
 
-      throw error;
+      console.error("Failed to update resume:", error);
+      throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Failed to update resume" });
     }
   },
 
@@ -426,26 +428,23 @@ export const resumeService = {
   },
 
   delete: async (input: { id: string; userId: string }) => {
-    const [resume] = await db
-      .select({ isLocked: schema.resume.isLocked })
-      .from(schema.resume)
-      .where(and(eq(schema.resume.id, input.id), eq(schema.resume.userId, input.userId)));
+    await db.transaction(async (tx) => {
+      const [resume] = await tx
+        .select({ isLocked: schema.resume.isLocked })
+        .from(schema.resume)
+        .where(and(eq(schema.resume.id, input.id), eq(schema.resume.userId, input.userId)));
 
-    if (!resume) throw new ORPCError("NOT_FOUND");
-    if (resume.isLocked) throw new ORPCError("RESUME_LOCKED");
+      if (!resume) throw new ORPCError("NOT_FOUND");
+      if (resume.isLocked) throw new ORPCError("RESUME_LOCKED");
 
+      await tx.delete(schema.resume).where(and(eq(schema.resume.id, input.id), eq(schema.resume.userId, input.userId)));
+    });
+
+    // Clean up storage files after the DB transaction succeeds
     const storageService = getStorageService();
-
-    const deleteResumePromise = db
-      .delete(schema.resume)
-      .where(
-        and(eq(schema.resume.id, input.id), eq(schema.resume.isLocked, false), eq(schema.resume.userId, input.userId)),
-      );
-
-    // Delete screenshots and PDFs using the new key format
-    const deleteScreenshotsPromise = storageService.delete(`uploads/${input.userId}/screenshots/${input.id}`);
-    const deletePdfsPromise = storageService.delete(`uploads/${input.userId}/pdfs/${input.id}`);
-
-    await Promise.allSettled([deleteResumePromise, deleteScreenshotsPromise, deletePdfsPromise]);
+    await Promise.allSettled([
+      storageService.delete(`uploads/${input.userId}/screenshots/${input.id}`),
+      storageService.delete(`uploads/${input.userId}/pdfs/${input.id}`),
+    ]);
   },
 };

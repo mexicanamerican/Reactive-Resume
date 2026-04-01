@@ -50,12 +50,11 @@ export function Footer() {
   return (
     <motion.footer
       id="footer"
-      className="p-4 pb-8 md:p-8 md:pb-12"
+      className="p-4 pb-8 will-change-[opacity] md:p-8 md:pb-12"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45 }}
-      style={{ willChange: "opacity" }}
     >
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand Column */}
@@ -143,8 +142,7 @@ function FooterLink({ url, label }: FooterLinkItem) {
           initial={{ width: 0, opacity: 0 }}
           animate={isHovered ? { width: "100%", opacity: 1 } : { width: 0, opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="pointer-events-none absolute inset-s-0 -bottom-0.5 h-px rounded-md bg-primary"
-          style={{ willChange: "width, opacity" }}
+          className="pointer-events-none absolute inset-s-0 -bottom-0.5 h-px rounded-md bg-primary will-change-[width,opacity]"
         />
       </a>
     </li>

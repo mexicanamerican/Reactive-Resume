@@ -38,10 +38,10 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 
   return (
     <motion.div
+      className="will-change-[transform,opacity]"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: animationDelay, ease: "easeOut" }}
-      style={{ willChange: "transform, opacity" }}
     >
       <Separator />
 
@@ -54,10 +54,10 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
         {match(isConnected)
           .with(true, () => (
             <motion.div
+              className="will-change-transform"
               whileHover={{ y: -1, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.14, ease: "easeOut" }}
-              style={{ willChange: "transform" }}
             >
               <Button variant="outline" onClick={handleUnlink}>
                 <LinkBreakIcon />
@@ -67,10 +67,10 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
           ))
           .with(false, () => (
             <motion.div
+              className="will-change-transform"
               whileHover={{ y: -1, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.14, ease: "easeOut" }}
-              style={{ willChange: "transform" }}
             >
               <Button variant="outline" onClick={handleLink}>
                 <LinkIcon />

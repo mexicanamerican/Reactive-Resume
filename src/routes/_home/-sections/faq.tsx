@@ -70,14 +70,13 @@ export function FAQ() {
     >
       <motion.h2
         className={cn(
-          "flex-1 text-2xl font-semibold tracking-tight md:text-4xl xl:text-5xl",
+          "flex-1 text-2xl font-semibold tracking-tight will-change-[transform,opacity] md:text-4xl xl:text-5xl",
           "flex shrink-0 flex-wrap items-center gap-x-1.5 lg:flex-col lg:items-start",
         )}
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45 }}
-        style={{ willChange: "transform, opacity" }}
       >
         <Trans context="Every word needs to be wrapped in a tag">
           <span>Frequently</span>
@@ -87,12 +86,11 @@ export function FAQ() {
       </motion.h2>
 
       <motion.div
-        className="max-w-2xl flex-2 lg:ml-auto 2xl:max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45, delay: 0.08 }}
-        style={{ willChange: "transform, opacity" }}
+        className="max-w-2xl flex-2 will-change-[transform,opacity] lg:ml-auto 2xl:max-w-3xl"
       >
         <Accordion multiple>
           {faqItems.map((item, index) => (
@@ -112,12 +110,11 @@ type FAQItemComponentProps = {
 function FAQItemComponent({ item, index }: FAQItemComponentProps) {
   return (
     <motion.div
-      className="last:border-b"
+      className="will-change-[transform,opacity] last:border-b"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.24, delay: Math.min(0.16, index * 0.03) }}
-      style={{ willChange: "transform, opacity" }}
     >
       <AccordionItem value={item.question} className="group border-t">
         <AccordionTrigger className="py-5">{item.question}</AccordionTrigger>

@@ -3186,6 +3186,10 @@ msgstr "Τα δεδομένα σας αποθηκεύονται τοπικά"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Τα δεδομένα σας αποθηκεύονται με ασφάλεια και δεν κοινοποιούνται ποτέ σε τρίτους. Μπορείτε επίσης να φιλοξενήσετε μόνοι σας το Reactive Resume στους δικούς σας διακομιστές για πλήρη έλεγχο των δεδομένων σας."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "Ο κωδικός πρόσβασής σας επαναφέρθηκε με επιτυχία. Τώρα μπορείτε να συνδεθείτε με τον νέο σας κωδικό πρόσβασης."
@@ -3244,4 +3248,3 @@ msgstr "Σμίκρυνση"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Ζουλού"
-

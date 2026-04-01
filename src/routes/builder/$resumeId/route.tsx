@@ -1,13 +1,12 @@
 import type React from "react";
+import type { Layout } from "react-resizable-panels";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getCookie, setCookie } from "@tanstack/react-start/server";
-import { useEffect } from "react";
-import { type Layout, usePanelRef } from "react-resizable-panels";
-import { useDebounceCallback } from "usehooks-ts";
-import z from "zod";
+import { useEffect, useRef } from "react";
+import { usePanelRef } from "react-resizable-panels";
 
 import { LoadingScreen } from "@/components/layout/loading-screen";
 import { useCSSVariables } from "@/components/resume/hooks/use-css-variables";
@@ -19,7 +18,15 @@ import { orpc } from "@/integrations/orpc/client";
 import { BuilderHeader } from "./-components/header";
 import { BuilderSidebarLeft } from "./-sidebar/left";
 import { BuilderSidebarRight } from "./-sidebar/right";
-import { useBuilderSidebar, useBuilderSidebarStore } from "./-store/sidebar";
+import {
+  BUILDER_LAYOUT_COOKIE_NAME,
+  DEFAULT_BUILDER_LAYOUT,
+  mapPanelLayoutToBuilderLayout,
+  parseBuilderLayoutCookie,
+  useBuilderSidebar,
+  useBuilderSidebarStore,
+  type BuilderLayout,
+} from "./-store/sidebar";
 
 export const Route = createFileRoute("/builder/$resumeId")({
   component: RouteComponent,
@@ -61,26 +68,36 @@ function RouteComponent() {
 }
 
 type BuilderLayoutProps = React.ComponentProps<"div"> & {
-  initialLayout: Layout;
+  initialLayout: BuilderLayout;
 };
 
 function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
   const isMobile = useIsMobile();
+  const canPersistLayoutRef = useRef(false);
 
   const leftSidebarRef = usePanelRef();
   const rightSidebarRef = usePanelRef();
 
   const setLeftSidebar = useBuilderSidebarStore((state) => state.setLeftSidebar);
   const setRightSidebar = useBuilderSidebarStore((state) => state.setRightSidebar);
+  const setLayout = useBuilderSidebarStore((state) => state.setLayout);
 
   const { maxSidebarSize, collapsedSidebarSize } = useBuilderSidebar((state) => ({
     maxSidebarSize: state.maxSidebarSize,
     collapsedSidebarSize: state.collapsedSidebarSize,
   }));
 
-  const onLayoutChange = useDebounceCallback((layout: Layout) => {
-    void setBuilderLayoutServerFn({ data: layout });
-  }, 200);
+  useEffect(() => {
+    setLayout(initialLayout);
+    canPersistLayoutRef.current = true;
+  }, [initialLayout, setLayout]);
+
+  const onLayoutChanged = (layout: Layout) => {
+    const nextLayout = mapPanelLayoutToBuilderLayout(layout);
+    if (!canPersistLayoutRef.current) return;
+    setLayout(nextLayout);
+    void setBuilderLayoutServerFn({ data: nextLayout });
+  };
 
   useEffect(() => {
     if (!leftSidebarRef || !rightSidebarRef) return;
@@ -89,22 +106,24 @@ function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
     setRightSidebar(rightSidebarRef);
   }, [leftSidebarRef, rightSidebarRef, setLeftSidebar, setRightSidebar]);
 
-  const leftSidebarSize = isMobile ? 0 : initialLayout.left;
-  const rightSidebarSize = isMobile ? 0 : initialLayout.right;
-  const artboardSize = isMobile ? 100 : initialLayout.artboard;
+  const sidebarMinSize = isMobile ? "0%" : `${collapsedSidebarSize * 2}px`;
+  const sidebarCollapsedSize = isMobile ? "0%" : `${collapsedSidebarSize}px`;
+  const leftSidebarSize = isMobile ? "0%" : `${initialLayout.left}%`;
+  const rightSidebarSize = isMobile ? "0%" : `${initialLayout.right}%`;
+  const artboardSize = isMobile ? "100%" : `${initialLayout.artboard}%`;
 
   return (
     <div className="flex h-svh flex-col" {...props}>
       <BuilderHeader />
 
-      <ResizableGroup orientation="horizontal" className="mt-14 flex-1" onLayoutChange={onLayoutChange}>
+      <ResizableGroup orientation="horizontal" className="mt-14 flex-1" onLayoutChanged={onLayoutChanged}>
         <ResizablePanel
           collapsible
           id="left"
           panelRef={leftSidebarRef}
           maxSize={maxSidebarSize}
-          minSize={collapsedSidebarSize * 2}
-          collapsedSize={collapsedSidebarSize}
+          minSize={sidebarMinSize}
+          collapsedSize={sidebarCollapsedSize}
           defaultSize={leftSidebarSize}
           className="z-20 h-[calc(100svh-3.5rem)]"
         >
@@ -120,8 +139,8 @@ function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
           id="right"
           panelRef={rightSidebarRef}
           maxSize={maxSidebarSize}
-          minSize={collapsedSidebarSize * 2}
-          collapsedSize={collapsedSidebarSize}
+          minSize={sidebarMinSize}
+          collapsedSize={sidebarCollapsedSize}
           defaultSize={rightSidebarSize}
           className="z-20 h-[calc(100svh-3.5rem)]"
         >
@@ -132,19 +151,14 @@ function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
   );
 }
 
-const defaultLayout = { left: 30, artboard: 40, right: 30 };
-const BUILDER_LAYOUT_COOKIE_NAME = "builder_layout";
-
-const layoutSchema = z.record(z.string(), z.number()).catch(defaultLayout);
-
 const setBuilderLayoutServerFn = createServerFn({ method: "POST" })
-  .inputValidator(layoutSchema)
+  .inputValidator((data): BuilderLayout => parseBuilderLayoutCookie(JSON.stringify(data)))
   .handler(async ({ data }) => {
-    setCookie(BUILDER_LAYOUT_COOKIE_NAME, JSON.stringify(data));
+    setCookie(BUILDER_LAYOUT_COOKIE_NAME, JSON.stringify(data), { path: "/" });
   });
 
-const getBuilderLayoutServerFn = createServerFn({ method: "GET" }).handler(async () => {
+const getBuilderLayoutServerFn = createServerFn({ method: "GET" }).handler(async (): Promise<BuilderLayout> => {
   const layout = getCookie(BUILDER_LAYOUT_COOKIE_NAME);
-  if (!layout) return defaultLayout;
-  return layoutSchema.parse(JSON.parse(layout));
+  if (!layout) return DEFAULT_BUILDER_LAYOUT;
+  return parseBuilderLayoutCookie(layout);
 });

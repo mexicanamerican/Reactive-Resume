@@ -136,7 +136,7 @@ function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
   return (
     <motion.div
       className={cn(
-        "group relative flex min-h-48 flex-col gap-4 overflow-hidden border-b bg-background p-6 transition-[background-color] duration-300",
+        "group relative flex min-h-48 flex-col gap-4 overflow-hidden border-b bg-background p-6 transition-[background-color] duration-300 will-change-[transform,opacity]",
         "not-nth-[2n]:border-r xl:not-nth-[4n]:border-r",
         "hover:bg-secondary/30",
       )}
@@ -146,7 +146,6 @@ function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
       transition={{ duration: 0.35, ease: "easeOut" }}
       whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.995 }}
-      style={{ willChange: "transform, opacity" }}
     >
       {/* Hover gradient overlay */}
       <div
@@ -177,12 +176,11 @@ export function Features() {
     <section id="features">
       {/* Header */}
       <motion.div
-        className="space-y-4 p-4 md:p-8 xl:py-16"
+        className="space-y-4 p-4 will-change-[transform,opacity] md:p-8 xl:py-16"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45 }}
-        style={{ willChange: "transform, opacity" }}
       >
         <h2 className="text-2xl font-semibold tracking-tight md:text-4xl xl:text-5xl">
           <Trans>Features</Trans>

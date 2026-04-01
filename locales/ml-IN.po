@@ -3186,6 +3186,10 @@ msgstr "നിങ്ങളുടെ ഡാറ്റ നിങ്ങളുടെ 
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "നിങ്ങളുടെ ഡാറ്റ സുരക്ഷിതമായി സൂക്ഷിക്കപ്പെടുന്നു, ഒരിക്കലും മൂന്നാം കക്ഷികളുമായി പങ്കിടുന്നില്ല. നിങ്ങളുടെ ഡാറ്റയ്‌ക്ക് പൂർണ്ണ നിയന്ത്രണം നേടാൻ Reactive Resume നിങ്ങളുടെ സ്വന്തം സെർവറുകളിൽ സെൽഫ്‑ഹോസ്റ്റ് ചെയ്യാനും നിങ്ങൾക്ക് കഴിയും."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് വിജയകരമായി റീസെറ്റ് ചെയ്തിട്ടുണ്ട്. ഇനി നിങ്ങൾക്ക് പുതിയ പാസ്‌വേഡ് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യാം."
@@ -3244,4 +3248,3 @@ msgstr "സൂം ഔട്ട് ചെയ്യുക"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "സൂളു"
-

@@ -288,6 +288,150 @@ describe("buildDocument", () => {
     expect(doc).toBeInstanceOf(Document);
   });
 
+  // --- Template configs ---
+
+  it("renders with chikorita template (sidebar-only header, solid sidebar bg)", () => {
+    const data = makeResumeData({
+      basics: { ...defaultResumeData.basics, name: "Jane", headline: "Dev", email: "j@e.com" },
+      metadata: {
+        ...defaultResumeData.metadata,
+        template: "chikorita",
+        layout: {
+          sidebarWidth: 35,
+          pages: [{ fullWidth: false, main: ["experience"], sidebar: ["skills"] }],
+        },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  it("renders with ditgar template (sidebar-only header, tint sidebar bg)", () => {
+    const data = makeResumeData({
+      basics: { ...defaultResumeData.basics, name: "Alice", headline: "PM" },
+      metadata: {
+        ...defaultResumeData.metadata,
+        template: "ditgar",
+        layout: {
+          sidebarWidth: 30,
+          pages: [{ fullWidth: false, main: ["experience"], sidebar: ["skills"] }],
+        },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  it("renders with pikachu template (main-only header)", () => {
+    const data = makeResumeData({
+      basics: { ...defaultResumeData.basics, name: "Bob" },
+      metadata: {
+        ...defaultResumeData.metadata,
+        template: "pikachu",
+        layout: {
+          sidebarWidth: 35,
+          pages: [{ fullWidth: false, main: ["experience"], sidebar: ["skills"] }],
+        },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  it("renders with unknown template (falls back to default config)", () => {
+    const data = makeResumeData({
+      metadata: {
+        ...defaultResumeData.metadata,
+        template: "unknown-template" as any,
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  // --- Header edge cases ---
+
+  it("renders header with custom fields (with links)", () => {
+    const data = makeResumeData({
+      basics: {
+        ...defaultResumeData.basics,
+        name: "Jane",
+        customFields: [
+          { id: "cf1", icon: "star", text: "Portfolio", link: "https://portfolio.dev" },
+          { id: "cf2", icon: "", text: "Plain text field", link: "" },
+          { id: "cf3", icon: "", text: "", link: "" }, // empty text — skipped
+          { id: "cf4", icon: "", text: "Bad link", link: "javascript:alert(1)" }, // unsafe link — rendered as text
+        ],
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  it("renders header without name (no title paragraph)", () => {
+    const data = makeResumeData({
+      basics: { ...defaultResumeData.basics, name: "" },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  it("renders header without headline", () => {
+    const data = makeResumeData({
+      basics: { ...defaultResumeData.basics, name: "Jane", headline: "" },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  // --- Multi-page layout ---
+
+  it("renders multi-page layout", () => {
+    const data = makeResumeData({
+      metadata: {
+        ...defaultResumeData.metadata,
+        layout: {
+          sidebarWidth: 35,
+          pages: [
+            { fullWidth: false, main: ["experience"], sidebar: ["skills"] },
+            { fullWidth: true, main: ["education"], sidebar: [] },
+          ],
+        },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  // --- Section rendering with unknown section ID ---
+
+  it("handles unknown section IDs in layout gracefully", () => {
+    const data = makeResumeData({
+      metadata: {
+        ...defaultResumeData.metadata,
+        layout: {
+          sidebarWidth: 35,
+          pages: [{ fullWidth: false, main: ["nonexistent-section"], sidebar: [] }],
+        },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
+  // --- Free-form page format ---
+
+  it("handles free-form page format", () => {
+    const data = makeResumeData({
+      metadata: {
+        ...defaultResumeData.metadata,
+        page: { ...defaultResumeData.metadata.page, format: "free-form" },
+      },
+    });
+    const doc = buildDocument(data);
+    expect(doc).toBeInstanceOf(Document);
+  });
+
   it("produces a valid DOCX blob via Packer", async () => {
     const { Packer } = await import("docx");
     const data = makeResumeData({

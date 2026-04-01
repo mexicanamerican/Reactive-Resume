@@ -32,11 +32,11 @@ export function ListView({ resumes }: Props) {
   return (
     <div className="flex flex-col gap-y-1">
       <motion.div
+        className="will-change-[transform,opacity]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
       >
         <Button
           size="lg"
@@ -56,11 +56,11 @@ export function ListView({ resumes }: Props) {
       </motion.div>
 
       <motion.div
+        className="will-change-[transform,opacity]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.2, delay: 0.03, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
       >
         <Button
           size="lg"
@@ -85,11 +85,11 @@ export function ListView({ resumes }: Props) {
           <motion.div
             layout
             key={resume.id}
+            className="will-change-[transform,opacity]"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.18, delay: Math.min(0.12, (index + 2) * 0.02), ease: "easeOut" }}
-            style={{ willChange: "transform, opacity" }}
           >
             <ResumeListItem resume={resume} />
           </motion.div>

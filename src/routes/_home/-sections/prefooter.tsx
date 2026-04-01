@@ -16,12 +16,11 @@ export function Prefooter() {
         <TextMaskEffect aria-hidden="true" text="Reactive Resume" className="hidden md:block" />
 
         <motion.div
-          className="mx-auto max-w-3xl space-y-8 px-6 text-center md:px-8 xl:px-0"
+          className="mx-auto max-w-3xl space-y-8 px-6 text-center will-change-[transform,opacity] md:px-8 xl:px-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          style={{ willChange: "transform, opacity" }}
         >
           <h2 className="text-2xl font-bold tracking-tight md:text-4xl">
             <Trans>By the community, for the community.</Trans>

@@ -3186,6 +3186,10 @@ msgstr "데이터는 브라우저에 로컬로 저장됩니다"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "데이터는 안전하게 저장되며 제3자와 공유되지 않습니다. 또한 Reactive Resume를 직접 서버에 호스팅해 데이터에 대한 완전한 제어권을 가질 수 있습니다."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr ""
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "비밀번호가 성공적으로 재설정되었습니다. 이제 새 비밀번호로 로그인할 수 있습니다."
@@ -3244,4 +3248,3 @@ msgstr "축소"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

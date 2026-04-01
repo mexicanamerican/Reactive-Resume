@@ -2,14 +2,9 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
   BriefcaseIcon,
-  BuildingsIcon,
   CaretLeftIcon,
   CaretRightIcon,
-  ClockIcon,
-  GlobeIcon,
   MagnifyingGlassIcon,
-  MapPinIcon,
-  MoneyIcon,
   WarningCircleIcon,
   XIcon,
 } from "@phosphor-icons/react";
@@ -17,94 +12,25 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useMemo } from "react";
 
-import type { JobResult } from "@/schema/jobs";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/utils/style";
 
 import { DashboardHeader } from "../-components/header";
+import { JobCard } from "./-components/job-card";
 import { JobDetailSheet } from "./-components/job-detail";
-import { formatPostedDate, formatSalary, getQuotaStatus } from "./-components/job-utils";
+import { getQuotaStatus } from "./-components/job-utils";
 import { hasActiveFilters, initialFilterState, SearchFilters } from "./-components/search-filters";
 import { useJobSearch } from "./-components/use-job-search";
 
 export const Route = createFileRoute("/dashboard/job-search/")({
   component: RouteComponent,
 });
-
-function JobCard({ job, onClick }: { job: JobResult; onClick: () => void }) {
-  const salary = formatSalary(job.job_min_salary, job.job_max_salary, job.job_salary_currency, job.job_salary_period);
-  const posted = formatPostedDate(job.job_posted_at_timestamp);
-  const location = [job.job_city, job.job_state, job.job_country].filter(Boolean).join(", ");
-
-  return (
-    <motion.button
-      type="button"
-      className="flex w-full cursor-pointer flex-col gap-y-3 rounded-md border bg-card p-4 text-start transition-colors hover:bg-accent/50"
-      onClick={onClick}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-    >
-      <div className="flex items-start gap-x-3">
-        {job.employer_logo ? (
-          <img src={job.employer_logo} alt={job.employer_name} className="size-10 shrink-0 rounded-md object-contain" />
-        ) : (
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-muted">
-            <BuildingsIcon className="size-5 text-muted-foreground" />
-          </div>
-        )}
-
-        <div className="min-w-0 flex-1">
-          <h3 className="truncate font-medium">{job.job_title}</h3>
-          <p className="truncate text-sm text-muted-foreground">{job.employer_name}</p>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2">
-        {location && (
-          <Badge variant="secondary" className="gap-x-1">
-            <MapPinIcon className="size-3" />
-            {location}
-          </Badge>
-        )}
-
-        {job.job_is_remote && (
-          <Badge variant="secondary" className="gap-x-1">
-            <GlobeIcon className="size-3" />
-            <Trans>Remote</Trans>
-          </Badge>
-        )}
-
-        {job.job_employment_type && (
-          <Badge variant="secondary" className="gap-x-1">
-            <BriefcaseIcon className="size-3" />
-            {job.job_employment_type.replaceAll("_", " ")}
-          </Badge>
-        )}
-
-        {salary && (
-          <Badge variant="secondary" className="gap-x-1">
-            <MoneyIcon className="size-3" />
-            {salary}
-          </Badge>
-        )}
-
-        {posted && (
-          <Badge variant="outline" className="gap-x-1">
-            <ClockIcon className="size-3" />
-            {posted}
-          </Badge>
-        )}
-      </div>
-    </motion.button>
-  );
-}
 
 function RouteComponent() {
   const {
@@ -144,7 +70,7 @@ function RouteComponent() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex max-w-xl flex-col items-center gap-y-4 py-12 text-center"
+          className="mx-auto flex max-w-xl flex-col items-center gap-y-4 py-12 text-center"
         >
           <MagnifyingGlassIcon className="size-12 text-muted-foreground" weight="light" />
           <h2 className="text-lg font-medium">
@@ -230,10 +156,19 @@ function RouteComponent() {
           {isPending && jobs.length === 0 && (
             <div className="grid gap-3 sm:grid-cols-2">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className="flex animate-pulse flex-col gap-y-3 rounded-md border bg-card p-4">
-                  <div className="h-4 w-3/4 rounded bg-muted" />
-                  <div className="h-3 w-1/2 rounded bg-muted" />
-                  <div className="h-3 w-5/6 rounded bg-muted" />
+                <div key={index} className="flex flex-col gap-y-3 rounded-md border bg-card p-4">
+                  <div className="flex items-start gap-x-3">
+                    <Skeleton className="size-10 shrink-0 rounded-md" />
+                    <div className="flex flex-1 flex-col gap-y-1.5">
+                      <Skeleton className="h-4 w-3/4" />
+                      <Skeleton className="h-3 w-1/2" />
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Skeleton className="h-5 w-20 rounded-full" />
+                    <Skeleton className="h-5 w-16 rounded-full" />
+                    <Skeleton className="h-5 w-24 rounded-full" />
+                  </div>
                 </div>
               ))}
             </div>

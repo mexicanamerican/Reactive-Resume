@@ -18,6 +18,7 @@ import { Switch } from "@/components/ui/switch";
 import { type DialogProps, useDialogStore } from "@/dialogs/store";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { profileItemSchema } from "@/schema/resume/data";
+import { createSectionItem, updateSectionItem } from "@/utils/resume/section-actions";
 import { generateId } from "@/utils/string";
 import { cn } from "@/utils/style";
 
@@ -44,12 +45,7 @@ export function CreateProfileDialog({ data }: DialogProps<"resume.sections.profi
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (section) section.items.push(formData);
-      } else {
-        draft.sections.profiles.items.push(formData);
-      }
+      createSectionItem(draft, "profiles", formData, data?.customSectionId);
     });
     closeDialog();
   };
@@ -104,15 +100,7 @@ export function UpdateProfileDialog({ data }: DialogProps<"resume.sections.profi
 
   const onSubmit = (formData: FormValues) => {
     updateResumeData((draft) => {
-      if (data?.customSectionId) {
-        const section = draft.customSections.find((s) => s.id === data.customSectionId);
-        if (!section) return;
-        const index = section.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) section.items[index] = formData;
-      } else {
-        const index = draft.sections.profiles.items.findIndex((item) => item.id === formData.id);
-        if (index !== -1) draft.sections.profiles.items[index] = formData;
-      }
+      updateSectionItem(draft, "profiles", formData, data?.customSectionId);
     });
     closeDialog();
   };

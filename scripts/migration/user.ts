@@ -186,8 +186,7 @@ export async function migrateUsers() {
     process.exit(0);
   };
 
-  process.on("SIGINT", handleShutdown);
-  process.on("SIGTERM", handleShutdown);
+  process.on("exit", handleShutdown);
 
   while (hasMore) {
     // Check if shutdown was requested
@@ -409,8 +408,7 @@ export async function migrateUsers() {
   }
 
   // Remove signal handlers
-  process.off("SIGINT", handleShutdown);
-  process.off("SIGTERM", handleShutdown);
+  process.off("exit", handleShutdown);
 
   const migrationEnd = performance.now();
   const migrationDurationMs = migrationEnd - migrationStart;

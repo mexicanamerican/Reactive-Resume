@@ -28,8 +28,7 @@ function RouteComponent() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
-        className="grid max-w-xl gap-4"
+        className="grid max-w-xl gap-4 will-change-[transform,opacity]"
       >
         <PasswordSection />
 
@@ -46,8 +45,10 @@ function RouteComponent() {
 
         {"github" in enabledProviders && <SocialProviderSection provider="github" animationDelay={0.5} />}
 
+        {"linkedin" in enabledProviders && <SocialProviderSection provider="linkedin" animationDelay={0.6} />}
+
         {"custom" in enabledProviders && (
-          <SocialProviderSection provider="custom" animationDelay={0.6} name={enabledProviders.custom} />
+          <SocialProviderSection provider="custom" animationDelay={0.7} name={enabledProviders.custom} />
         )}
       </motion.div>
     </div>

@@ -67,8 +67,7 @@ function RouteComponent() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        style={{ willChange: "transform, opacity" }}
-        className="grid max-w-xl gap-6"
+        className="grid max-w-xl gap-6 will-change-[transform,opacity]"
       >
         <div className="flex items-start gap-4 rounded-md border bg-popover p-6">
           <div className="rounded-md bg-primary/10 p-2.5">
@@ -116,12 +115,11 @@ function RouteComponent() {
             {apiKeys.map((key, index) => (
               <motion.div
                 key={key.id}
-                className="flex items-center gap-x-4 py-4"
+                className="flex items-center gap-x-4 py-4 will-change-[transform,opacity]"
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.16, delay: Math.min(0.12, index * 0.04) }}
-                style={{ willChange: "transform, opacity" }}
               >
                 <KeyIcon />
 
@@ -133,10 +131,10 @@ function RouteComponent() {
                 </div>
 
                 <motion.div
+                  className="will-change-transform"
                   whileHover={{ y: -1, scale: 1.03 }}
                   whileTap={{ scale: 0.96 }}
                   transition={{ duration: 0.14, ease: "easeOut" }}
-                  style={{ willChange: "transform" }}
                 >
                   <Button size="icon" variant="ghost" onClick={() => onDelete(key.id)}>
                     <TrashSimpleIcon />
