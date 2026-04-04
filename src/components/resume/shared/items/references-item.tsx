@@ -40,9 +40,9 @@ export function ReferencesItem({ className, ...item }: ReferencesItemProps) {
     <div className={cn("references-item", className)}>
       {/* Header */}
       <div className="section-item-header references-item-header">
-        <div className="grid grid-cols-2 items-start justify-between gap-x-2">
+        <div className="flex flex-wrap items-start justify-between gap-x-2">
           {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index % 2 === 1 && "text-end whitespace-nowrap")}>
+            <div key={field.key} className={cn(index === 0 && "basis-full")}>
               {field.content}
             </div>
           ))}
