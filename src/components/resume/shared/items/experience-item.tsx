@@ -51,9 +51,9 @@ export function ExperienceItem({ className, ...item }: ExperienceItemProps) {
     <div className={cn("experience-item", className)}>
       {/* Header */}
       <div className="section-item-header experience-item-header">
-        <div className="grid grid-cols-2 items-start gap-x-2">
+        <div className="grid grid-cols-2 items-start justify-between gap-x-2">
           {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index % 2 === 1 && "shrink-0 justify-self-end text-end")}>
+            <div key={field.key} className={cn(index % 2 === 1 && "text-end whitespace-nowrap")}>
               {field.content}
             </div>
           ))}
@@ -65,11 +65,11 @@ export function ExperienceItem({ className, ...item }: ExperienceItemProps) {
         <div className="experience-item-roles mt-0 flex flex-col gap-y-1">
           {item.roles.map((role) => (
             <div key={role.id} className="experience-item-role">
-              <div className="flex items-start justify-between gap-x-2">
-                <span className="section-item-metadata experience-item-role-position">{role.position}</span>
-                <span className="section-item-metadata experience-item-role-period shrink-0 justify-self-end text-end">
+              <div className="grid grid-cols-2 items-start justify-between gap-x-2">
+                <div className="section-item-metadata experience-item-role-position">{role.position}</div>
+                <div className="section-item-metadata experience-item-role-period text-end whitespace-nowrap">
                   {role.period}
-                </span>
+                </div>
               </div>
 
               {stripHtml(role.description) && (

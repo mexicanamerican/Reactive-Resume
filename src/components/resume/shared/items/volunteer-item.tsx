@@ -45,9 +45,9 @@ export function VolunteerItem({ className, ...item }: VolunteerItemProps) {
     <div className={cn("volunteer-item", className)}>
       {/* Header */}
       <div className="section-item-header volunteer-item-header">
-        <div className="grid grid-cols-2 items-start gap-x-2">
+        <div className="grid grid-cols-2 items-start justify-between gap-x-2">
           {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index % 2 === 1 && "shrink-0 justify-self-end text-end")}>
+            <div key={field.key} className={cn(index % 2 === 1 && "text-end whitespace-nowrap")}>
               {field.content}
             </div>
           ))}
