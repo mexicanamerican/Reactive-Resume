@@ -1912,14 +1912,6 @@ msgstr "Nummereret liste"
 msgid "Organization"
 msgstr "Organisation"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Samlet periode"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Overordnet titel (valgfrit)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Side"

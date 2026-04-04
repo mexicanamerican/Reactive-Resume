@@ -1912,14 +1912,6 @@ msgstr "କ୍ରମିକ ତାଲିକା"
 msgid "Organization"
 msgstr "ସଂଗଠନ"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "ସାମଗ୍ରିକ ସମୟସୀମା"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "ସାମଗ୍ରିକ ଶୀର୍ଷକ (ଐଚ୍ଛିକ)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ପେଜ୍"

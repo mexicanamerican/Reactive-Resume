@@ -1912,14 +1912,6 @@ msgstr "ഓർഡേർഡ് ലിസ്റ്റ്"
 msgid "Organization"
 msgstr "സ്ഥാപനം"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "മൊത്തം കാലയളവ്"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "മൊത്തം ശീർഷകം (ഐച്ഛികം)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "പേജ്"

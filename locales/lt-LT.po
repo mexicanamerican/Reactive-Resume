@@ -1912,14 +1912,6 @@ msgstr "Sunumeruotas sąrašas"
 msgid "Organization"
 msgstr "Organizacija"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Bendras laikotarpis"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Bendrasis pavadinimas (neprivaloma)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Puslapis"

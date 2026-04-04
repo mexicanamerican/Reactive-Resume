@@ -1912,14 +1912,6 @@ msgstr "Číslovaný zoznam"
 msgid "Organization"
 msgstr "Organizácia"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Celkové obdobie"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Celkový titul (voliteľné)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Strana"

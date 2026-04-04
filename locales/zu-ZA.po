@@ -1907,14 +1907,6 @@ msgstr ""
 msgid "Organization"
 msgstr ""
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr ""
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr ""
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr ""

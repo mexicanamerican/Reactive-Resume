@@ -1912,14 +1912,6 @@ msgstr "Daftar Bernomor"
 msgid "Organization"
 msgstr "Organisasi"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Periode Keseluruhan"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Judul Keseluruhan (opsional)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Halaman"

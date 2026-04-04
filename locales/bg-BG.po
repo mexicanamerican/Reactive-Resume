@@ -1912,14 +1912,6 @@ msgstr "Подреден списък"
 msgid "Organization"
 msgstr "Организация"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Общ период"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Обща длъжност (незадължително)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Страница"

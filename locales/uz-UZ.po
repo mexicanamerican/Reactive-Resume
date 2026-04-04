@@ -1912,14 +1912,6 @@ msgstr "Tartibli roʻyxat"
 msgid "Organization"
 msgstr "Tashkilot"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Umumiy davr"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Umumiy sarlavha (ixtiyoriy)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Sahifa"

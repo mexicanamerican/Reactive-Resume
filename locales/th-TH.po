@@ -1912,14 +1912,6 @@ msgstr "ลำดับรายการแบบเรียงลำดับ
 msgid "Organization"
 msgstr "องค์กร"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "ช่วงเวลาโดยรวม"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "ตำแหน่งโดยรวม (ไม่บังคับ)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "หน้า"

@@ -1912,14 +1912,6 @@ msgstr "有序列表"
 msgid "Organization"
 msgstr "组织"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "总时间段"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "总标题（可选）"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "页面"

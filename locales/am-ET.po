@@ -1912,14 +1912,6 @@ msgstr "ተደራሽ ዝርዝር"
 msgid "Organization"
 msgstr "ድርጅት"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "አጠቃላይ ጊዜ"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "አጠቃላይ ርዕስ (አማራጭ)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ገጽ"

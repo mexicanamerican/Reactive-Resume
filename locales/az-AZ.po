@@ -1912,14 +1912,6 @@ msgstr "Nömrələnmiş Siyahı"
 msgid "Organization"
 msgstr "Təşkilat"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Ümumi dövr"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Ümumi başlıq (isteğe bağlı)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Səhifə"

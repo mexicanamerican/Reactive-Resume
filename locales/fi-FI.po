@@ -1912,14 +1912,6 @@ msgstr "Numeroitu lista"
 msgid "Organization"
 msgstr "Organisaatio"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Kokonaisajanjakso"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Yleinen nimike (valinnainen)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Sivu"

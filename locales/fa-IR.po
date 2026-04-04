@@ -1912,14 +1912,6 @@ msgstr "فهرست شماره‌دار"
 msgid "Organization"
 msgstr "سازمان"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "دوره کلی"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "عنوان کلی (اختیاری)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "صفحه"

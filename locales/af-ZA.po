@@ -1912,14 +1912,6 @@ msgstr "Genommerde lys"
 msgid "Organization"
 msgstr "Organisasie"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Totale tydperk"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Algehele titel (opsioneel)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Bladsy"

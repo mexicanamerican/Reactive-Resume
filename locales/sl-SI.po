@@ -1912,14 +1912,6 @@ msgstr "Oštevilčen seznam"
 msgid "Organization"
 msgstr "Organizacija"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Skupno obdobje"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Skupni naziv (neobvezno)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Stran"

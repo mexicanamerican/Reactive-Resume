@@ -1912,14 +1912,6 @@ msgstr "ఆర్డర్డ్ లిస్ట్"
 msgid "Organization"
 msgstr "ఆర్గనైజేషన్"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "మొత్తం కాలం"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "మొత్తం శీర్షిక (ఐచ్ఛికం)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "పేజ్"

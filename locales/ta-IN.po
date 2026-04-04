@@ -1912,14 +1912,6 @@ msgstr "வரிசைப்படுத்தப்பட்ட பட்ட�
 msgid "Organization"
 msgstr "நிறுவனம் / அமைப்பு"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "ஒட்டுமொத்த காலம்"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "ஒட்டுமொத்த தலைப்பு (விருப்பத்தேர்வு)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "பக்கம்"

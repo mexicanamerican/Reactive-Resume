@@ -1912,14 +1912,6 @@ msgstr "क्रमबद्ध यादी"
 msgid "Organization"
 msgstr "संघटना"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "एकूण कालावधी"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "एकूण शीर्षक (पर्यायी)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "पान"

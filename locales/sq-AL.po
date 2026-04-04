@@ -1912,14 +1912,6 @@ msgstr "Listë e renditur"
 msgid "Organization"
 msgstr "Organizata"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Periudha e përgjithshme"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Titulli i përgjithshëm (opsional)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Faqja"

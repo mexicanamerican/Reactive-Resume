@@ -1912,14 +1912,6 @@ msgstr "Αριθμημένη λίστα"
 msgid "Organization"
 msgstr "Οργανισμός"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Συνολική περίοδος"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Γενικός τίτλος (προαιρετικό)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Σελίδα"

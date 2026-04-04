@@ -1912,14 +1912,6 @@ msgstr "Sorszámozott lista"
 msgid "Organization"
 msgstr "Szervezet"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Teljes időszak"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Teljes cím (opcionális)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Oldal"

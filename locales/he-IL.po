@@ -1912,14 +1912,6 @@ msgstr "רשימה ממוספרת"
 msgid "Organization"
 msgstr "ארגון"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "תקופה כוללת"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "כותרת כוללת (רשות)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "עמוד"

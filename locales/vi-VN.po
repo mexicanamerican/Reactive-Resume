@@ -1912,14 +1912,6 @@ msgstr "Danh sách có thứ tự"
 msgid "Organization"
 msgstr "Tổ chức"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Thời gian tổng thể"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Chức danh tổng thể (tùy chọn)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Trang"

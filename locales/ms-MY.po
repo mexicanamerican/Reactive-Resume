@@ -1912,14 +1912,6 @@ msgstr "Senarai Bernombor"
 msgid "Organization"
 msgstr "Organisasi"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Tempoh Keseluruhan"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Tajuk Keseluruhan (pilihan)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Halaman"

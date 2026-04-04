@@ -1912,14 +1912,6 @@ msgstr "Numurēts saraksts"
 msgid "Organization"
 msgstr "Organizācija"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Kopējais periods"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Kopējais nosaukums (neobligāts)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Lapa"

@@ -1912,14 +1912,6 @@ msgstr "បញ្ជី​មាន​លេខ"
 msgid "Organization"
 msgstr "អង្គការ"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "រយៈពេលទាំងមូល"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "ចំណងជើងទាំងមូល (ជាជម្រើស)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ទំព័រ"

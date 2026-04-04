@@ -1912,14 +1912,6 @@ msgstr "Liste triée"
 msgid "Organization"
 msgstr "Organisation"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Période globale"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Titre global (optionnel)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Page"

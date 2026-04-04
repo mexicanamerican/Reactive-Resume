@@ -1912,14 +1912,6 @@ msgstr "ক্রমযুক্ত লিস্ট"
 msgid "Organization"
 msgstr "প্রতিষ্ঠান"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "সামগ্রিক সময়কাল"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "সামগ্রিক শিরোনাম (ঐচ্ছিক)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "পৃষ্ঠা"

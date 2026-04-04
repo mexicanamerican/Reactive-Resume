@@ -1912,14 +1912,6 @@ msgstr "ಕ್ರಮಿತ ಪಟ್ಟ್ತಿ"
 msgid "Organization"
 msgstr "ಸಂಸ್ಥೆ"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "ಒಟ್ಟಾರೆ ಅವಧಿ"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "ಒಟ್ಟಾರೆ ಶೀರ್ಷಿಕೆ (ಐಚ್ಛಿಕ)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ಪುಟ"

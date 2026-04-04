@@ -1907,14 +1907,6 @@ msgstr "Ordered List"
 msgid "Organization"
 msgstr "Organization"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "Overall Period"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "Overall Title (optional)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "Page"

@@ -1912,14 +1912,6 @@ msgstr "번호 매기기 목록"
 msgid "Organization"
 msgstr "기관"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "전체 기간"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "전체 제목 (선택 사항)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "페이지"

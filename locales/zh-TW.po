@@ -1912,14 +1912,6 @@ msgstr "編號清單"
 msgid "Organization"
 msgstr "組織"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "整體期間"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "整體標題（選填）"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "頁"

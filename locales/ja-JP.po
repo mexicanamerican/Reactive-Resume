@@ -1912,14 +1912,6 @@ msgstr "番号付きリスト"
 msgid "Organization"
 msgstr "団体名"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "全体の期間"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "全体タイトル（任意）"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "ページ"

@@ -1912,14 +1912,6 @@ msgstr "क्रमबद्ध सूची"
 msgid "Organization"
 msgstr "संगठन"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr "कुल अवधि"
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
-msgstr "समग्र शीर्षक (वैकल्पिक)"
-
 #: src/utils/resume/section.tsx
 msgid "Page"
 msgstr "पृष्ठ"
