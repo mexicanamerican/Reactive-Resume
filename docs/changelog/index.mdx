@@ -4,6 +4,20 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.0.16" description="4th April 2026">
+## Features & Improvements
+- Updated shared resume item layouts (Experience, Education, Awards, Certifications, Publications, References, Volunteer) for better alignment and spacing consistency.
+- Generated printer pages now set a meaningful document title from the resume owner's name (`<Name> - Resume`) for cleaner PDF metadata and tab titles. [#2863](https://github.com/amruthpillai/reactive-resume/pull/2863)
+
+## Fixes
+- Fixed [#2733](https://github.com/amruthpillai/reactive-resume/issues/2733), where date ranges could appear on a separate line unexpectedly in resume items. [#2862](https://github.com/amruthpillai/reactive-resume/pull/2862)
+- Adjusted Experience section form field ordering/labels so `Location`, `Position`, and `Period` are mapped and displayed correctly.
+
+## Maintenance & Localization
+- Synced translation catalogs across all supported locales.
+- Updated dependencies and lockfile, including AI SDK, TipTap, TanStack Query, and Vite+ package aliases.
+</Update>
+
 <Update label="v5.0.15" description="1st April 2026">
 ## Features & Improvements
 - Added **LinkedIn sign-in** support for self-hosted instances, including sign-in on the auth page and account linking in settings.
