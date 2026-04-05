@@ -10,7 +10,7 @@ type LinkedTitleProps = {
 export function LinkedTitle({ title, website, showLinkInTitle, className }: LinkedTitleProps) {
   if (showLinkInTitle && website?.url) {
     return (
-      <a href={website.url} target="_blank" rel="noopener" className={cn("inline-block", className)}>
+      <a href={website.url} target="_blank" rel="noopener" className={cn("inline", className)}>
         <strong>{title}</strong>
       </a>
     );

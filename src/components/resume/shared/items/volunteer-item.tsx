@@ -45,12 +45,13 @@ export function VolunteerItem({ className, ...item }: VolunteerItemProps) {
     <div className={cn("volunteer-item", className)}>
       {/* Header */}
       <div className="section-item-header volunteer-item-header">
-        <div className="flex flex-wrap items-start justify-between gap-x-2">
-          {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index === 0 && "basis-full")}>
-              {field.content}
-            </div>
-          ))}
+        <div className="flex items-start justify-between gap-x-2">
+          <div className="flex min-w-0 flex-1 flex-col items-start">
+            {headerFields.get("organization")?.content}
+            {headerFields.get("location")?.content}
+          </div>
+
+          <div className="flex min-w-0 shrink-0 flex-col items-end text-end">{headerFields.get("period")?.content}</div>
         </div>
       </div>
 

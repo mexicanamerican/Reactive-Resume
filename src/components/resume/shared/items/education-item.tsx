@@ -52,12 +52,16 @@ export function EducationItem({ className, ...item }: EducationItemProps) {
     <div className={cn("education-item", className)}>
       {/* Header */}
       <div className="section-item-header education-item-header mb-2">
-        <div className="flex flex-wrap items-start justify-between gap-x-2">
-          {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index === 0 && "basis-full")}>
-              {field.content}
-            </div>
-          ))}
+        <div className="flex items-start justify-between gap-x-2">
+          <div className="flex min-w-0 flex-1 flex-col items-start">
+            {headerFields.get("school")?.content}
+            {headerFields.get("area")?.content}
+          </div>
+
+          <div className="flex min-w-0 shrink-0 flex-col items-end text-end">
+            {headerFields.get("degreeAndGrade")?.content}
+            {headerFields.get("locationAndPeriod")?.content}
+          </div>
         </div>
       </div>
 

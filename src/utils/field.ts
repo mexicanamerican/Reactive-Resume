@@ -19,5 +19,6 @@ export function filterFieldValues<TKey extends string, TField extends KeyedField
   values: KeyValueMap<TKey>,
   ...fields: TField[]
 ) {
-  return fields.filter((field) => Boolean(values[field.key]?.trim()));
+  const filteredFields = fields.filter((field) => Boolean(values[field.key]?.trim()));
+  return new Map(filteredFields.map((field) => [field.key, field] as const));
 }

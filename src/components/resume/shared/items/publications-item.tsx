@@ -45,12 +45,13 @@ export function PublicationsItem({ className, ...item }: PublicationsItemProps) 
     <div className={cn("publications-item", className)}>
       {/* Header */}
       <div className="section-item-header publications-item-header">
-        <div className="flex flex-wrap items-start justify-between gap-x-2">
-          {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index === 0 && "basis-full")}>
-              {field.content}
-            </div>
-          ))}
+        <div className="flex items-start justify-between gap-x-2">
+          <div className="flex min-w-0 flex-1 flex-col items-start">
+            {headerFields.get("title")?.content}
+            {headerFields.get("publisher")?.content}
+          </div>
+
+          <div className="flex min-w-0 shrink-0 flex-col items-end text-end">{headerFields.get("date")?.content}</div>
         </div>
       </div>
 

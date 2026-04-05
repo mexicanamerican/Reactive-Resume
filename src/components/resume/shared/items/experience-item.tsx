@@ -46,17 +46,20 @@ export function ExperienceItem({ className, ...item }: ExperienceItemProps) {
       content: <span className="section-item-metadata experience-item-period">{item.period}</span>,
     },
   );
-
   return (
     <div className={cn("experience-item", className)}>
       {/* Header */}
       <div className="section-item-header experience-item-header">
-        <div className="flex flex-wrap items-start justify-between gap-x-2">
-          {headerFields.map((field, index) => (
-            <div key={field.key} className={cn(index === 0 && "basis-full")}>
-              {field.content}
-            </div>
-          ))}
+        <div className="flex items-start justify-between gap-x-2">
+          <div className="flex min-w-0 flex-1 flex-col items-start">
+            {headerFields.get("company")?.content}
+            {headerFields.get("position")?.content}
+          </div>
+
+          <div className="flex min-w-0 shrink-0 flex-col items-end text-end">
+            {headerFields.get("location")?.content}
+            {headerFields.get("period")?.content}
+          </div>
         </div>
       </div>
 
@@ -65,7 +68,7 @@ export function ExperienceItem({ className, ...item }: ExperienceItemProps) {
         <div className="experience-item-roles mt-0 flex flex-col gap-y-1">
           {item.roles.map((role) => (
             <div key={role.id} className="experience-item-role">
-              <div className="flex flex-wrap items-start justify-between gap-x-2">
+              <div className="grid grid-cols-2 items-start justify-between gap-x-2">
                 <div className="section-item-metadata experience-item-role-position">{role.position}</div>
                 <div className="section-item-metadata experience-item-role-period">{role.period}</div>
               </div>
