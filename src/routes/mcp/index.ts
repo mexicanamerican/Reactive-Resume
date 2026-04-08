@@ -9,26 +9,37 @@ import { registerResources } from "./-helpers/resources";
 import { registerTools } from "./-helpers/tools";
 
 function createMcpServer() {
-  const server = new McpServer({
-    name: "reactive-resume",
-    version: "1.0.0",
-    title: "Reactive Resume",
-    websiteUrl: "https://rxresu.me",
-    description:
-      "Reactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
-    icons: [
-      {
-        src: "https://rxresu.me/icon/light.svg",
-        mimeType: "image/svg+xml",
-        theme: "light",
-      },
-      {
-        src: "https://rxresu.me/icon/dark.svg",
-        mimeType: "image/svg+xml",
-        theme: "dark",
-      },
-    ],
-  });
+  const server = new McpServer(
+    {
+      name: "reactive-resume",
+      version: __APP_VERSION__,
+      title: "Reactive Resume",
+      websiteUrl: "https://rxresu.me",
+      description:
+        "Reactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
+      icons: [
+        {
+          src: "https://rxresu.me/icon/light.svg",
+          mimeType: "image/svg+xml",
+          theme: "light",
+        },
+        {
+          src: "https://rxresu.me/icon/dark.svg",
+          mimeType: "image/svg+xml",
+          theme: "dark",
+        },
+      ],
+    },
+    {
+      instructions: [
+        "You are connected to Reactive Resume over MCP.",
+        "Authenticate with OAuth (recommended) or an API key (`x-api-key`).",
+        "Discover resume IDs with `reactive_resume.list_resumes` (not `resources/list`).",
+        "Read schema at `resume://_meta/schema`; read resume JSON via `resume://{id}` or `reactive_resume.get_resume`.",
+        "Apply edits with JSON Patch through `reactive_resume.patch_resume`.",
+      ].join(" "),
+    },
+  );
 
   registerResources(server);
   registerTools(server);

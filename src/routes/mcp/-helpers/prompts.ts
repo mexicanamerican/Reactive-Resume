@@ -2,11 +2,15 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import z from "zod";
 
+import { MCP_TOOL_NAME as T } from "./tools";
+
 // ── Shared prompt helpers ────────────────────────────────────────
 
 const resumeIdArg = z
   .string()
-  .describe("The ID of the resume. Use `list_resumes` to find IDs, or `create_resume` to create a new one first.");
+  .describe(
+    `The ID of the resume. Use \`${T.listResumes}\` to find IDs, or \`${T.createResume}\` to create a new one first.`,
+  );
 
 /** Embeds the resume data and JSON schema as context messages. */
 function resumeContext(id: string) {
@@ -27,7 +31,7 @@ function resumeContext(id: string) {
       content: {
         type: "resource" as const,
         resource: {
-          uri: "resume://schema",
+          uri: "resume://_meta/schema",
           mimeType: "application/json",
           text: "Resume data JSON Schema — use this to understand valid paths and types for JSON Patch operations",
         },
@@ -39,7 +43,7 @@ function resumeContext(id: string) {
 const PATCH_REFERENCE = [
   "## JSON Patch Reference",
   "",
-  "Use the `patch_resume` tool for every change. Common operations:",
+  `Use the \`${T.patchResume}\` tool for every change. Common operations:`,
   "",
   "| Action | Operation |",
   "|--------|-----------|",
@@ -57,7 +61,7 @@ const PATCH_REFERENCE = [
   "- New item IDs must be valid UUIDs (format: `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`).",
   "- HTML content fields (`description`, `summary.content`) must use valid HTML: `<p>`, `<ul>`/`<li>`, `<strong>`, `<em>`.",
   "- Every `website` field is an object: `{ url: string, label: string }`.",
-  "- Use `get_resume_screenshot` after making visual changes (template, colors, layout) to verify the result.",
+  `- Use \`${T.getResumeScreenshot}\` after making visual changes (template, colors, layout) to verify the result.`,
 ].join("\n");
 
 // ── Prompt Registration ──────────────────────────────────────────
@@ -137,7 +141,7 @@ export function registerPrompts(server: McpServer) {
               "1. Start with an **overall assessment** (strengths + key areas to improve).",
               "2. Work through improvements **one section at a time**.",
               "3. For each suggestion, explain the **rationale** and show the before/after.",
-              "4. Wait for my **approval** before applying changes via `patch_resume`.",
+              `4. Wait for my **approval** before applying changes via \`${T.patchResume}\`.`,
               "5. Do NOT fabricate information — suggest improvements based on what exists, ask me for missing details.",
               "",
               PATCH_REFERENCE,
@@ -183,7 +187,7 @@ export function registerPrompts(server: McpServer) {
               "5. **Section Ordering** — Reorder to put the most relevant sections first.",
               "6. **De-emphasis** — Suggest hiding sections that don't add value for this specific role.",
               "",
-              "Present a summary of all proposed changes before applying. Apply via `patch_resume` only after I approve.",
+              `Present a summary of all proposed changes before applying. Apply via \`${T.patchResume}\` only after I approve.`,
               "Do NOT fabricate experience or skills I don't have — only reframe existing content and ask me about gaps.",
               "",
               PATCH_REFERENCE,
@@ -232,7 +236,7 @@ export function registerPrompts(server: McpServer) {
               "3. **Top 5 Recommendations** — Prioritized by impact, with specific actionable suggestions.",
               "4. **Strengths** — What's working well and should be preserved.",
               "",
-              "This is a **read-only review**. Do NOT call `patch_resume` or make any changes.",
+              `This is a **read-only review**. Do NOT call \`${T.patchResume}\` or make any changes.`,
               "Format the review as a clear, structured report.",
             ].join("\n"),
           },

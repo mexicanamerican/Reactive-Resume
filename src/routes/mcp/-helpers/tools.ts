@@ -8,6 +8,21 @@ import { jsonPatchOperationSchema } from "@/utils/resume/patch";
 
 type PatchOperation = z.infer<typeof jsonPatchOperationSchema>;
 
+/** Hierarchical MCP tool names (SEP-986-style namespacing). */
+export const MCP_TOOL_NAME = {
+  listResumes: "reactive_resume.list_resumes",
+  getResume: "reactive_resume.get_resume",
+  createResume: "reactive_resume.create_resume",
+  duplicateResume: "reactive_resume.duplicate_resume",
+  patchResume: "reactive_resume.patch_resume",
+  deleteResume: "reactive_resume.delete_resume",
+  lockResume: "reactive_resume.lock_resume",
+  unlockResume: "reactive_resume.unlock_resume",
+  exportResumePdf: "reactive_resume.export_resume_pdf",
+  getResumeScreenshot: "reactive_resume.get_resume_screenshot",
+  getResumeStatistics: "reactive_resume.get_resume_statistics",
+} as const;
+
 // ── Shared Helpers ──────────────────────────────────────────────
 
 function errorMessage(error: unknown): string {
@@ -16,13 +31,15 @@ function errorMessage(error: unknown): string {
 
 function errorHint(error: unknown): string {
   const msg = errorMessage(error);
+  const { unlockResume, listResumes, getResume } = MCP_TOOL_NAME;
   if (msg.includes("slug already exists")) return "\n\nHint: The slug is already in use. Try a different one.";
-  if (msg.includes("locked")) return "\n\nHint: This resume is locked. Use `unlock_resume` first.";
+  if (msg.includes("locked")) return `\n\nHint: This resume is locked. Use \`${unlockResume}\` first.`;
   if (msg.includes("404") || msg.includes("not found"))
-    return "\n\nHint: Resume not found. Use `list_resumes` to find valid IDs.";
+    return `\n\nHint: Resume not found. Use \`${listResumes}\` to find valid IDs.`;
   if (msg.includes("400"))
-    return "\n\nHint: Invalid request. Check the input parameters or use `get_resume` to inspect the resume structure.";
-  if (msg.includes("403")) return "\n\nHint: Permission denied. The resume may be locked — use `unlock_resume` first.";
+    return `\n\nHint: Invalid request. Check the input parameters or use \`${getResume}\` to inspect the resume structure.`;
+  if (msg.includes("403"))
+    return `\n\nHint: Permission denied. The resume may be locked — use \`${unlockResume}\` first.`;
   return "";
 }
 
@@ -50,23 +67,26 @@ function text(value: string): CallToolResult {
 
 // ── Shared Zod Fragments ────────────────────────────────────────
 
-const resumeIdSchema = z.string().min(1).describe("Resume ID. Use `list_resumes` to find valid IDs.");
+const T = MCP_TOOL_NAME;
+
+const resumeIdSchema = z.string().min(1).describe(`Resume ID. Use \`${T.listResumes}\` to find valid IDs.`);
 
 // ── Tool Registration ───────────────────────────────────────────
 
 export function registerTools(server: McpServer) {
   // ── List Resumes ──────────────────────────────────────────────
   server.registerTool(
-    "list_resumes",
+    T.listResumes,
     {
       title: "List Resumes",
       description: [
-        "List all resumes for the authenticated user.",
+        "Primary way to discover resume IDs for this account. Resumes are not listed as MCP resources;",
+        "use this tool (not `resources/list`) to enumerate IDs.",
         "",
         "Returns an array of resume objects (without full resume data) containing:",
         "id, name, slug, tags, isPublic, isLocked, createdAt, updatedAt.",
         "",
-        "Use this tool first to discover resume IDs before calling other tools.",
+        `Call this before \`${T.getResume}\`, \`${T.patchResume}\`, prompts, or \`resources/read\` with \`resume://{id}\`.`,
         "Results can be filtered by tags and sorted by last updated date, creation date, or name.",
       ].join("\n"),
       inputSchema: z.object({
@@ -95,7 +115,7 @@ export function registerTools(server: McpServer) {
       async ({ tags, sort }: { tags: string[]; sort: "lastUpdatedAt" | "createdAt" | "name" }) => {
         const resumes = await client.resume.list({ tags, sort });
 
-        if (resumes.length === 0) return text("No resumes found. Use `create_resume` to create one.");
+        if (resumes.length === 0) return text(`No resumes found. Use \`${T.createResume}\` to create one.`);
 
         return text(JSON.stringify(resumes, null, 2));
       },
@@ -104,7 +124,7 @@ export function registerTools(server: McpServer) {
 
   // ── Get Resume ────────────────────────────────────────────────
   server.registerTool(
-    "get_resume",
+    T.getResume,
     {
       title: "Get Resume",
       description: [
@@ -114,8 +134,8 @@ export function registerTools(server: McpServer) {
         "location, website), summary, picture settings, all sections (experience, education, skills,",
         "projects, etc.), custom sections, and metadata (template, layout, typography, colors).",
         "",
-        "Use `list_resumes` first to find valid IDs.",
-        "The `resume://schema` resource describes the full data structure.",
+        `Use \`${T.listResumes}\` first to find valid IDs.`,
+        "The `resume://_meta/schema` resource describes the full data structure for JSON Patch paths.",
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
       annotations: {
@@ -134,7 +154,7 @@ export function registerTools(server: McpServer) {
 
   // ── Create Resume ─────────────────────────────────────────────
   server.registerTool(
-    "create_resume",
+    T.createResume,
     {
       title: "Create Resume",
       description: [
@@ -142,7 +162,7 @@ export function registerTools(server: McpServer) {
         "",
         "Returns the ID of the newly created resume.",
         "Set `withSampleData` to true to pre-fill with example content (useful for testing).",
-        "After creating, use `get_resume` to view or `patch_resume` to populate it.",
+        `After creating, use \`${T.getResume}\` to view or \`${T.patchResume}\` to populate it.`,
       ].join("\n"),
       inputSchema: z.object({
         name: z.string().min(1).max(64).describe("Display name for the resume (e.g. 'Software Engineer 2026')"),
@@ -181,7 +201,7 @@ export function registerTools(server: McpServer) {
         const id = await client.resume.create({ name, slug, tags, withSampleData });
 
         return text(
-          `Created resume "${name}" (ID: ${id}) with slug "${slug}".${withSampleData ? " Pre-filled with sample data." : ""}\n\nNext steps: Use \`get_resume\` to view it, or \`patch_resume\` to start editing.`,
+          `Created resume "${name}" (ID: ${id}) with slug "${slug}".${withSampleData ? " Pre-filled with sample data." : ""}\n\nNext steps: Use \`${T.getResume}\` to view it, or \`${T.patchResume}\` to start editing.`,
         );
       },
     ),
@@ -189,7 +209,7 @@ export function registerTools(server: McpServer) {
 
   // ── Duplicate Resume ──────────────────────────────────────────
   server.registerTool(
-    "duplicate_resume",
+    T.duplicateResume,
     {
       title: "Duplicate Resume",
       description: [
@@ -218,7 +238,7 @@ export function registerTools(server: McpServer) {
         const newId = await client.resume.duplicate({ id, name, slug, tags });
 
         return text(
-          `Duplicated resume as "${name}" (ID: ${newId}) with slug "${slug}".\n\nNext steps: Use \`get_resume\` to view it, or \`patch_resume\` to customize.`,
+          `Duplicated resume as "${name}" (ID: ${newId}) with slug "${slug}".\n\nNext steps: Use \`${T.getResume}\` to view it, or \`${T.patchResume}\` to customize.`,
         );
       },
     ),
@@ -226,14 +246,14 @@ export function registerTools(server: McpServer) {
 
   // ── Patch Resume ──────────────────────────────────────────────
   server.registerTool(
-    "patch_resume",
+    T.patchResume,
     {
       title: "Patch Resume",
       description: [
         "Apply JSON Patch (RFC 6902) operations to partially update a resume's data.",
         "",
-        "This is the primary way to edit resume content. Use `get_resume` first to inspect the",
-        "current structure, and `resume://schema` to understand valid paths and types.",
+        `This is the primary way to edit resume content. Use \`${T.getResume}\` first to inspect the`,
+        "current structure, and `resume://_meta/schema` to understand valid paths and types.",
         "",
         "Supported operations: add, remove, replace, move, copy, test.",
         "",
@@ -250,7 +270,7 @@ export function registerTools(server: McpServer) {
         "",
         "Important: HTML content fields (description, summary.content) must use valid HTML.",
         "New items must include a valid UUID as `id` and `hidden: false`.",
-        "Locked resumes cannot be patched — use `unlock_resume` first.",
+        `Locked resumes cannot be patched — use \`${T.unlockResume}\` first.`,
       ].join("\n"),
       inputSchema: z.object({
         id: resumeIdSchema,
@@ -276,14 +296,14 @@ export function registerTools(server: McpServer) {
 
   // ── Delete Resume ─────────────────────────────────────────────
   server.registerTool(
-    "delete_resume",
+    T.deleteResume,
     {
       title: "Delete Resume",
       description: [
         "Permanently delete a resume and all its associated files (screenshots, PDFs).",
         "",
-        "This action is IRREVERSIBLE. Locked resumes cannot be deleted — use `unlock_resume` first.",
-        "Consider using `duplicate_resume` to create a backup before deleting.",
+        `This action is IRREVERSIBLE. Locked resumes cannot be deleted — use \`${T.unlockResume}\` first.`,
+        `Consider using \`${T.duplicateResume}\` to create a backup before deleting.`,
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
       annotations: {
@@ -302,15 +322,15 @@ export function registerTools(server: McpServer) {
 
   // ── Lock Resume ───────────────────────────────────────────────
   server.registerTool(
-    "lock_resume",
+    T.lockResume,
     {
       title: "Lock Resume",
       description: [
         "Lock a resume to prevent any modifications.",
         "",
-        "When locked, a resume cannot be edited (patch_resume), updated, or deleted.",
+        `When locked, a resume cannot be edited (${T.patchResume}), updated, or deleted.`,
         "Useful for protecting finalized resumes from accidental changes.",
-        "Use `unlock_resume` to re-enable editing.",
+        `Use \`${T.unlockResume}\` to re-enable editing.`,
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
       annotations: {
@@ -329,7 +349,7 @@ export function registerTools(server: McpServer) {
 
   // ── Unlock Resume ─────────────────────────────────────────────
   server.registerTool(
-    "unlock_resume",
+    T.unlockResume,
     {
       title: "Unlock Resume",
       description: "Unlock a previously locked resume, re-enabling edits, patches, and deletion.",
@@ -350,7 +370,7 @@ export function registerTools(server: McpServer) {
 
   // ── Export Resume as PDF ──────────────────────────────────────
   server.registerTool(
-    "export_resume_pdf",
+    T.exportResumePdf,
     {
       title: "Export Resume as PDF",
       description: [
@@ -377,7 +397,7 @@ export function registerTools(server: McpServer) {
 
   // ── Get Resume Screenshot ────────────────────────────────────
   server.registerTool(
-    "get_resume_screenshot",
+    T.getResumeScreenshot,
     {
       title: "Get Resume Screenshot",
       description: [
@@ -408,7 +428,7 @@ export function registerTools(server: McpServer) {
 
   // ── Get Resume Statistics ────────────────────────────────────
   server.registerTool(
-    "get_resume_statistics",
+    T.getResumeStatistics,
     {
       title: "Get Resume Statistics",
       description: [

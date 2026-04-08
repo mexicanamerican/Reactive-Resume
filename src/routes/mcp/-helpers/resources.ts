@@ -5,34 +5,12 @@ import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { client } from "@/integrations/orpc/client";
 import schemaJSON from "@/schema/schema.json";
 
+import { MCP_TOOL_NAME as T } from "./tools";
+
 export function registerResources(server: McpServer) {
   // ── Resource: resume://{id} ──────────────────────────────────
-  // Dynamic resource that exposes each resume's full data as JSON.
-  // Clients can list all available resumes and read individual ones by ID.
-  const resumeTemplate = new ResourceTemplate("resume://{id}", {
-    list: async () => {
-      const resumes = await client.resume.list();
-
-      return {
-        resources: resumes.map(({ id, name, slug, tags, isPublic, isLocked, updatedAt }) => ({
-          name,
-          title: `${name} (${slug})`,
-          uri: `resume://${id}`,
-          mimeType: "application/json" as const,
-          description: [
-            isPublic ? "Public" : "Private",
-            isLocked ? "Locked" : null,
-            tags.length > 0 ? `Tags: ${tags.join(", ")}` : null,
-          ]
-            .filter(Boolean)
-            .join(" | "),
-          annotations: {
-            lastModified: updatedAt.toISOString(),
-          },
-        })),
-      };
-    },
-  });
+  // Template resource: read resume JSON by ID. Discovery is via list tool (tools), not resources/list.
+  const resumeTemplate = new ResourceTemplate("resume://{id}", { list: undefined });
 
   server.registerResource(
     "resume",
@@ -42,8 +20,9 @@ export function registerResources(server: McpServer) {
       mimeType: "application/json",
       description: [
         "Full resume data as JSON, including basics, summary, sections, custom sections, and metadata.",
-        "Use resume://{id} with an ID from list_resumes.",
-        "This is also embedded as context in all MCP prompts (build_resume, improve_resume, etc.).",
+        `Discover resume IDs with the \`${T.listResumes}\` tool, then read \`resume://{id}\` or use \`${T.getResume}\`.`,
+        "Appears in `resources/templates/list`; not enumerated in `resources/list`.",
+        "Embedded as context in MCP prompts (build_resume, improve_resume, etc.).",
       ].join(" "),
     },
     async (uri: URL) => {
@@ -64,13 +43,13 @@ export function registerResources(server: McpServer) {
     },
   );
 
-  // ── Resource: resume://schema ────────────────────────────────
+  // ── Resource: resume://_meta/schema ───────────────────────────
   // Static resource containing the JSON Schema for resume data.
   // LLMs should reference this when generating JSON Patch operations
   // to ensure paths and values conform to the expected structure.
   server.registerResource(
     "resume-schema",
-    "resume://schema",
+    "resume://_meta/schema",
     {
       title: "Resume Data JSON Schema",
       mimeType: "application/json",

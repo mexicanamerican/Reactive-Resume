@@ -169,7 +169,6 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
         if (!isAIEnabled)
           throw new Error(t`This feature requires AI Integration to be enabled. Please enable it in the settings.`);
 
-        // const arrayBuffer = await values.file.arrayBuffer();
         const base64 = await fileToBase64(values.file);
 
         const mediaType =

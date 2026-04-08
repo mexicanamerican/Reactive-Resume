@@ -2,6 +2,7 @@ dist
 .env*
 /data
 .nitro
+.agents
 .output
 .vercel
 .cursor

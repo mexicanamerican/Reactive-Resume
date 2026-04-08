@@ -207,32 +207,52 @@ If you're running a self-hosted Reactive Resume instance, replace `https://rxres
 
 ## Available Tools
 
-The MCP server exposes the following tools:
+Tool names use a hierarchical `reactive_resume.*` prefix ([SEP-986](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/986) style) so they stay distinct when multiple MCP servers are enabled in the same client.
 
-| Tool                    | Description                                                                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `list_resumes`          | List all resumes with IDs, names, tags, and status. Supports filtering by tags and sorting by last updated, creation date, or name |
-| `get_resume`            | Get the full data of a specific resume by ID                                                                                       |
-| `create_resume`         | Create a new, empty resume with a name and slug. Optionally pre-fill with sample data                                              |
-| `duplicate_resume`      | Create a copy of an existing resume with a new name and slug                                                                       |
-| `patch_resume`          | Apply JSON Patch (RFC 6902) operations to modify a resume's data                                                                   |
-| `delete_resume`         | Permanently delete a resume and all associated files. **Irreversible**                                                             |
-| `lock_resume`           | Lock a resume to prevent edits, patches, and deletion                                                                              |
-| `unlock_resume`         | Unlock a previously locked resume to re-enable editing                                                                             |
-| `export_resume_pdf`     | Generate a PDF from the resume and return a download URL                                                                           |
-| `get_resume_screenshot` | Get a visual preview of the resume's first page as a WebP image URL                                                                |
-| `get_resume_statistics` | Get view and download statistics for a resume                                                                                      |
+| Tool                                    | Description                                                                                                                        |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `reactive_resume.list_resumes`          | List all resumes with IDs, names, tags, and status. Supports filtering by tags and sorting by last updated, creation date, or name |
+| `reactive_resume.get_resume`            | Get the full data of a specific resume by ID                                                                                       |
+| `reactive_resume.create_resume`         | Create a new, empty resume with a name and slug. Optionally pre-fill with sample data                                              |
+| `reactive_resume.duplicate_resume`      | Create a copy of an existing resume with a new name and slug                                                                       |
+| `reactive_resume.patch_resume`          | Apply JSON Patch (RFC 6902) operations to modify a resume's data                                                                   |
+| `reactive_resume.delete_resume`         | Permanently delete a resume and all associated files. **Irreversible**                                                             |
+| `reactive_resume.lock_resume`           | Lock a resume to prevent edits, patches, and deletion                                                                              |
+| `reactive_resume.unlock_resume`         | Unlock a previously locked resume to re-enable editing                                                                             |
+| `reactive_resume.export_resume_pdf`     | Generate a PDF from the resume and return a download URL                                                                           |
+| `reactive_resume.get_resume_screenshot` | Get a visual preview of the resume's first page as a WebP image URL                                                                |
+| `reactive_resume.get_resume_statistics` | Get view and download statistics for a resume                                                                                      |
+
+### Breaking change (tool names)
+
+Older clients may refer to unprefixed names (`list_resumes`, `get_resume`, …). Those names are no longer used; update automations and saved prompts to the `reactive_resume.*` names above.
 
 ## Available Resources
 
-| Resource          | Description                                                                                                     |
-| ----------------- | --------------------------------------------------------------------------------------------------------------- |
-| `resume://{id}`   | The full resume data as a readable JSON resource. Lists all resumes and supports reading individual ones by ID  |
-| `resume://schema` | The ResumeData JSON Schema — reference this to understand valid paths and value types for JSON Patch operations |
+Resources follow MCP conventions: **static** items appear in `resources/list`; **parameterized** access is declared in `resources/templates/list` and read via `resources/read` once you know the ID.
+
+| Discovery                             | What you get                                                                                  |
+| ------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `resources/list`                      | Static resources only — currently **`resume://_meta/schema`** (ResumeData JSON Schema)        |
+| `resources/templates/list`            | **`resume://{id}`** — template for reading full resume JSON by ID (not enumerated per resume) |
+| `reactive_resume.list_resumes` (tool) | **Primary way to discover resume IDs** — resumes are not listed as separate MCP resources     |
+
+| URI                     | Description                                                              |
+| ----------------------- | ------------------------------------------------------------------------ |
+| `resume://_meta/schema` | ResumeData JSON Schema — use for valid JSON Patch paths and value types  |
+| `resume://{id}`         | Full resume data as JSON — use an ID from `reactive_resume.list_resumes` |
+
+### Breaking change (schema URI)
+
+The schema resource was previously `resume://schema`. It is now **`resume://_meta/schema`**. Update any saved prompts, automations, or client configs that referenced the old URI.
+
+### Static server card (`/.well-known/mcp/server-card.json`)
+
+`GET /.well-known/mcp/server-card.json` returns a JSON document ([SEP-1649](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1649)) with `serverInfo`, optional authentication metadata, and summaries of tools, resources, resource templates, and prompts. It is generated to match the live MCP server and can be used for discovery when a client cannot run a full capability scan against `/mcp/`.
 
 ## Available Prompts
 
-Prompts are pre-built workflows that provide the AI with structured instructions and context. Each prompt embeds the resume data and schema automatically.
+Prompts are pre-built workflows that provide the AI with structured instructions and context. Each prompt embeds the resume data and the schema resource (`resume://_meta/schema`) automatically.
 
 | Prompt           | Description                                                                                                                                                  |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -286,8 +306,8 @@ Once your MCP client is connected, you can use natural language to interact with
 - "Tailor my resume for this job description: ..." (uses `tailor_resume`)
 
 <Tip>
-  The AI will use `get_resume` to inspect your current resume before making changes with `patch_resume`. This ensures
-  the correct JSON paths are used.
+  The AI will use `reactive_resume.get_resume` to inspect your current resume before making changes with
+  `reactive_resume.patch_resume`. This ensures the correct JSON paths are used.
 </Tip>
 
 ## Troubleshooting
@@ -297,7 +317,7 @@ Once your MCP client is connected, you can use natural language to interact with
 | "Unauthorized" with no login prompt                           | Your client may not support MCP OAuth discovery. Use API key mode (`x-api-key`)                                                |
 | OAuth login opens but fails redirect/callback                 | Confirm your client's MCP OAuth callback settings and retry the connection                                                     |
 | "API error (401)"                                             | Your API key is invalid or expired. Create a new one in **Settings → API Keys**                                                |
-| "API error (404)"                                             | The resume ID doesn't exist. Use `list_resumes` to find valid IDs                                                              |
+| "API error (404)"                                             | The resume ID doesn't exist. Use `reactive_resume.list_resumes` to find valid IDs                                              |
 | "API error (403)"                                             | The resume is locked. Unlock it in the Reactive Resume dashboard                                                               |
 | Connection refused                                            | Check that the URL is correct and the instance is running                                                                      |
 | "ReferenceError: File is not defined" when using `mcp-remote` | You're running Node.js 18. `mcp-remote` requires **Node.js 20 or later** — upgrade with `nvm use 20` or `nvm alias default 20` |
