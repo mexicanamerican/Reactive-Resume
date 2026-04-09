@@ -6,22 +6,12 @@ import z from "zod";
 import { client } from "@/integrations/orpc/client";
 import { jsonPatchOperationSchema } from "@/utils/resume/patch";
 
-type PatchOperation = z.infer<typeof jsonPatchOperationSchema>;
+import { MCP_TOOL_NAME } from "./mcp-tool-names";
+import { TOOL_ANNOTATIONS } from "./tool-annotations";
 
-/** Hierarchical MCP tool names (SEP-986-style namespacing). */
-export const MCP_TOOL_NAME = {
-  listResumes: "reactive_resume.list_resumes",
-  getResume: "reactive_resume.get_resume",
-  createResume: "reactive_resume.create_resume",
-  duplicateResume: "reactive_resume.duplicate_resume",
-  patchResume: "reactive_resume.patch_resume",
-  deleteResume: "reactive_resume.delete_resume",
-  lockResume: "reactive_resume.lock_resume",
-  unlockResume: "reactive_resume.unlock_resume",
-  exportResumePdf: "reactive_resume.export_resume_pdf",
-  getResumeScreenshot: "reactive_resume.get_resume_screenshot",
-  getResumeStatistics: "reactive_resume.get_resume_statistics",
-} as const;
+export { MCP_TOOL_NAME } from "./mcp-tool-names";
+
+type PatchOperation = z.infer<typeof jsonPatchOperationSchema>;
 
 // ── Shared Helpers ──────────────────────────────────────────────
 
@@ -103,12 +93,7 @@ export function registerTools(server: McpServer) {
           .default("lastUpdatedAt")
           .describe("Sort order for results. Default: lastUpdatedAt."),
       }),
-      annotations: {
-        readOnlyHint: true,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.listResumes],
     },
     withErrorHandling(
       "listing resumes",
@@ -138,12 +123,7 @@ export function registerTools(server: McpServer) {
         "The `resume://_meta/schema` resource describes the full data structure for JSON Patch paths.",
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: true,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.getResume],
     },
     withErrorHandling("getting resume", async ({ id }: { id: string }) => {
       const resume = await client.resume.getById({ id });
@@ -178,12 +158,7 @@ export function registerTools(server: McpServer) {
           .describe("Tags to categorize the resume (e.g. ['tech', 'senior'])"),
         withSampleData: z.boolean().optional().default(false).describe("Pre-fill with sample data. Default: false."),
       }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: false,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.createResume],
     },
     withErrorHandling(
       "creating resume",
@@ -225,12 +200,7 @@ export function registerTools(server: McpServer) {
         slug: z.string().min(1).max(64).describe("URL-friendly slug for the duplicate (must be unique)"),
         tags: z.array(z.string()).optional().default([]).describe("Tags for the duplicate"),
       }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: false,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.duplicateResume],
     },
     withErrorHandling(
       "duplicating resume",
@@ -279,12 +249,7 @@ export function registerTools(server: McpServer) {
           .min(1)
           .describe("Array of JSON Patch (RFC 6902) operations to apply"),
       }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: false,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.patchResume],
     },
     withErrorHandling("patching resume", async ({ id, operations }: { id: string; operations: PatchOperation[] }) => {
       const resume = await client.resume.patch({ id, operations });
@@ -306,12 +271,7 @@ export function registerTools(server: McpServer) {
         `Consider using \`${T.duplicateResume}\` to create a backup before deleting.`,
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: true,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.deleteResume],
     },
     withErrorHandling("deleting resume", async ({ id }: { id: string }) => {
       await client.resume.delete({ id });
@@ -333,12 +293,7 @@ export function registerTools(server: McpServer) {
         `Use \`${T.unlockResume}\` to re-enable editing.`,
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.lockResume],
     },
     withErrorHandling("locking resume", async ({ id }: { id: string }) => {
       await client.resume.setLocked({ id, isLocked: true });
@@ -354,12 +309,7 @@ export function registerTools(server: McpServer) {
       title: "Unlock Resume",
       description: "Unlock a previously locked resume, re-enabling edits, patches, and deletion.",
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.unlockResume],
     },
     withErrorHandling("unlocking resume", async ({ id }: { id: string }) => {
       await client.resume.setLocked({ id, isLocked: false });
@@ -381,12 +331,7 @@ export function registerTools(server: McpServer) {
         "PDF generation may take a few seconds depending on the resume's complexity.",
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: true,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.exportResumePdf],
     },
     withErrorHandling("exporting resume as PDF", async ({ id }: { id: string }) => {
       const { url } = await client.printer.printResumeAsPDF({ id });
@@ -408,12 +353,7 @@ export function registerTools(server: McpServer) {
         "Use this after making changes to visually verify the result.",
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: true,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.getResumeScreenshot],
     },
     withErrorHandling("getting resume screenshot", async ({ id }: { id: string }) => {
       const { url } = await client.printer.getResumeScreenshot({ id });
@@ -438,12 +378,7 @@ export function registerTools(server: McpServer) {
         "lastViewedAt (timestamp or null), lastDownloadedAt (timestamp or null).",
       ].join("\n"),
       inputSchema: z.object({ id: resumeIdSchema }),
-      annotations: {
-        readOnlyHint: true,
-        destructiveHint: false,
-        idempotentHint: true,
-        openWorldHint: false,
-      },
+      annotations: TOOL_ANNOTATIONS[T.getResumeStatistics],
     },
     withErrorHandling("getting resume statistics", async ({ id }: { id: string }) => {
       const stats = await client.resume.statistics.getById({ id });

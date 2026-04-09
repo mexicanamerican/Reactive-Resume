@@ -123,7 +123,7 @@ export function ResumeAnalysisSectionBuilder() {
               </div>
             </div>
 
-            {!analysis && !isPending && (
+            {analysisQuery.isFetched && !analysis && !isPending && (
               <div className="rounded-md border border-dashed p-3">
                 <p className="max-w-xs text-sm text-muted-foreground">
                   <Trans>Run your first analysis to get a scorecard, strengths, and prioritized suggestions.</Trans>

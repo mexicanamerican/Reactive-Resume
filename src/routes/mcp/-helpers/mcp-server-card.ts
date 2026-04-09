@@ -3,13 +3,17 @@ import z from "zod";
 
 import { jsonPatchOperationSchema } from "@/utils/resume/patch";
 
-import { MCP_TOOL_NAME as T } from "./tools";
+import { MCP_TOOL_NAME as T } from "./mcp-tool-names";
+import { TOOL_ANNOTATIONS } from "./tool-annotations";
 
 const resumeId = z.string().min(1).describe("Resume ID.");
 
 /**
  * Static MCP server card (SEP-1649 / well-known `mcp/server-card.json`).
  * Kept in sync with `registerTools`, `registerResources`, and `registerPrompts`.
+ *
+ * Some registries only surface the `resources` array in their UI, not `resourceTemplates`.
+ * The parameterized resume URI is therefore duplicated here so discovery matches the live template.
  */
 export function buildMcpServerCard(appVersion: string) {
   const tools = [
@@ -42,6 +46,7 @@ export function buildMcpServerCard(appVersion: string) {
             .describe("Sort order for results. Default: lastUpdatedAt."),
         }),
       ),
+      annotations: TOOL_ANNOTATIONS[T.listResumes],
     },
     {
       name: T.getResume,
@@ -57,6 +62,7 @@ export function buildMcpServerCard(appVersion: string) {
         "The `resume://_meta/schema` resource describes the full data structure for JSON Patch paths.",
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.getResume],
     },
     {
       name: T.createResume,
@@ -84,6 +90,7 @@ export function buildMcpServerCard(appVersion: string) {
           withSampleData: z.boolean().optional().default(false).describe("Pre-fill with sample data. Default: false."),
         }),
       ),
+      annotations: TOOL_ANNOTATIONS[T.createResume],
     },
     {
       name: T.duplicateResume,
@@ -103,6 +110,7 @@ export function buildMcpServerCard(appVersion: string) {
           tags: z.array(z.string()).optional().default([]).describe("Tags for the duplicate"),
         }),
       ),
+      annotations: TOOL_ANNOTATIONS[T.duplicateResume],
     },
     {
       name: T.patchResume,
@@ -124,6 +132,7 @@ export function buildMcpServerCard(appVersion: string) {
             .describe("Array of JSON Patch (RFC 6902) operations to apply"),
         }),
       ),
+      annotations: TOOL_ANNOTATIONS[T.patchResume],
     },
     {
       name: T.deleteResume,
@@ -135,6 +144,7 @@ export function buildMcpServerCard(appVersion: string) {
         `Consider using \`${T.duplicateResume}\` to create a backup before deleting.`,
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.deleteResume],
     },
     {
       name: T.lockResume,
@@ -146,12 +156,14 @@ export function buildMcpServerCard(appVersion: string) {
         `Use \`${T.unlockResume}\` to re-enable editing.`,
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.lockResume],
     },
     {
       name: T.unlockResume,
       title: "Unlock Resume",
       description: "Unlock a previously locked resume, re-enabling edits, patches, and deletion.",
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.unlockResume],
     },
     {
       name: T.exportResumePdf,
@@ -163,6 +175,7 @@ export function buildMcpServerCard(appVersion: string) {
         "then uploaded to storage. The returned URL can be shared or downloaded directly.",
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.exportResumePdf],
     },
     {
       name: T.getResumeScreenshot,
@@ -174,6 +187,7 @@ export function buildMcpServerCard(appVersion: string) {
         "is updated. Returns null if the printer service is unavailable.",
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.getResumeScreenshot],
     },
     {
       name: T.getResumeStatistics,
@@ -185,6 +199,7 @@ export function buildMcpServerCard(appVersion: string) {
         "lastViewedAt (timestamp or null), lastDownloadedAt (timestamp or null).",
       ].join("\n"),
       inputSchema: toJsonSchemaCompat(z.object({ id: resumeId })),
+      annotations: TOOL_ANNOTATIONS[T.getResumeStatistics],
     },
   ];
 
@@ -235,6 +250,17 @@ export function buildMcpServerCard(appVersion: string) {
       ].join(" "),
       mimeType: "application/json",
     },
+    {
+      name: "resume",
+      title: "Resume Data",
+      uri: "resume://{id}",
+      description: [
+        "Full resume JSON for one resume. Substitute a real ID for `{id}` (UUID from your account).",
+        "On the wire this is a resource template (`resources/templates/list`), not a row in `resources/list`.",
+        `Discover IDs with \`${T.listResumes}\`; read via \`resources/read\` on e.g. \`resume://<id>\` or use \`${T.getResume}\`.`,
+      ].join(" "),
+      mimeType: "application/json",
+    },
   ];
 
   const resourceTemplates = [
@@ -248,6 +274,21 @@ export function buildMcpServerCard(appVersion: string) {
   ];
 
   return {
+    /**
+     * Optional session fields for gateways. OAuth is primary; API key is optional for clients that support custom headers.
+     */
+    configurationSchema: {
+      type: "object",
+      properties: {
+        apiKey: {
+          type: "string",
+          title: "API key",
+          description:
+            "Optional. Create a key under Account → API Keys. Forwarded as the x-api-key header when not using OAuth.",
+          "x-from": { header: "x-api-key" },
+        },
+      },
+    },
     serverInfo: {
       name: "reactive-resume",
       version: appVersion,
