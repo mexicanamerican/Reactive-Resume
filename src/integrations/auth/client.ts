@@ -2,6 +2,7 @@ import { apiKeyClient } from "@better-auth/api-key/client";
 import { dashClient } from "@better-auth/infra/client";
 import { oauthProviderClient } from "@better-auth/oauth-provider/client";
 import { oauthProviderResourceClient } from "@better-auth/oauth-provider/resource-client";
+import { passkeyClient } from "@better-auth/passkey/client";
 import {
   adminClient,
   genericOAuthClient,
@@ -19,6 +20,7 @@ const getAuthClient = () => {
       dashClient(),
       adminClient(),
       apiKeyClient(),
+      passkeyClient(),
       usernameClient(),
       twoFactorClient({
         onTwoFactorRedirect() {

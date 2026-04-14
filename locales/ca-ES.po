@@ -900,6 +900,7 @@ msgstr "Titulació"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Delete"
 msgstr "Suprimeix"
 
@@ -1226,9 +1227,17 @@ msgstr "Exporta"
 msgid "Failed to analyze resume."
 msgstr ""
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to delete passkey. Please try again."
+msgstr ""
+
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Failed to duplicate resume"
 msgstr "No s'ha pogut duplicar la continuació."
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to register passkey. Please try again."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
@@ -1750,6 +1759,10 @@ msgstr "Sostenibilitat a llarg termini"
 msgid "Lost access to your authenticator?"
 msgstr "Has perdut l’accés a l’autenticador?"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "MacBook Touch ID"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Principal"
@@ -1814,6 +1827,10 @@ msgstr "Multilingüe"
 msgid "Name"
 msgstr "Nom"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Name your passkey"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Nepali"
 msgstr "Nepalès"
@@ -1866,6 +1883,10 @@ msgstr "Sense experiència"
 #: src/routes/dashboard/job-search/index.tsx
 msgid "No jobs found. Try a different search query."
 msgstr "No s'han trobat feines. Prova una altra consulta de cerca."
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "No passkeys registered yet."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -1970,6 +1991,18 @@ msgstr "Paràgraf"
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Part-time"
 msgstr "Temps parcial"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey deleted successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey registered successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkeys"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -2189,6 +2222,10 @@ msgstr "Referències"
 msgid "Refresh"
 msgstr "Actualitza"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Register New Device"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
 msgstr "Recordeu la contrasenya? <0/>"
@@ -2316,6 +2353,10 @@ msgstr ""
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "Rus"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Save"
+msgstr ""
 
 #. placeholder {0}: selectedSkills.size
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
@@ -2494,6 +2535,7 @@ msgstr "Inicia sessió amb GitHub, Google o un proveïdor OAuth personalitzat."
 msgid "Sign up"
 msgstr "Registra’t"
 
+#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
@@ -2975,6 +3017,10 @@ msgstr "S’està desvinculant el compte de {providerName}..."
 msgid "Unlock"
 msgstr "Desbloqueja"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Unnamed passkey"
+msgstr ""
+
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Unverified"
 msgstr "Sense verificar"
@@ -3203,6 +3249,10 @@ msgstr "També pots utilitzar el nom d’usuari per iniciar sessió."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Pots compartir el currículum mitjançant un URL públic únic, protegir-lo amb una contrasenya o baixar-lo en PDF per compartir-lo directament. Tu tries!"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "You can skip this and keep the default name."
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

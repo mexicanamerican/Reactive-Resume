@@ -13,7 +13,7 @@ export type ProviderList = Partial<Record<AuthProvider, string>>;
 
 const providers = {
   list: (): ProviderList => {
-    const providers: ProviderList = { credential: "Password" };
+    const providers: ProviderList = { credential: "Password", passkey: "Passkey" };
 
     if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) providers.google = "Google";
     if (env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET) providers.github = "GitHub";

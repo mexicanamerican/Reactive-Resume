@@ -900,6 +900,7 @@ msgstr "Laipsnis"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -1226,9 +1227,17 @@ msgstr "Eksportuoti"
 msgid "Failed to analyze resume."
 msgstr ""
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to delete passkey. Please try again."
+msgstr ""
+
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Failed to duplicate resume"
 msgstr "Nepavyko dubliuoti gyvenimo aprašymo"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to register passkey. Please try again."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
@@ -1750,6 +1759,10 @@ msgstr "Ilgalaikis tvarumas"
 msgid "Lost access to your authenticator?"
 msgstr "Nebeturite prieigos prie autentifikavimo programos?"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "MacBook Touch ID"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Pagrindinis"
@@ -1814,6 +1827,10 @@ msgstr "Daugiakalbė"
 msgid "Name"
 msgstr "Pavadinimas"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Name your passkey"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Nepali"
 msgstr "Nepalų"
@@ -1866,6 +1883,10 @@ msgstr "Nėra patirties"
 #: src/routes/dashboard/job-search/index.tsx
 msgid "No jobs found. Try a different search query."
 msgstr "Darbo vietų nerasta. Išbandykite kitą paieškos užklausą."
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "No passkeys registered yet."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -1970,6 +1991,18 @@ msgstr "Pastraipa"
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Part-time"
 msgstr "Ne visą darbo dieną"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey deleted successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey registered successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkeys"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -2189,6 +2222,10 @@ msgstr "Rekomendacijos"
 msgid "Refresh"
 msgstr "Perkrauti"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Register New Device"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
 msgstr "Prisimenate slaptažodį? <0/>"
@@ -2316,6 +2353,10 @@ msgstr ""
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "Rusų"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Save"
+msgstr ""
 
 #. placeholder {0}: selectedSkills.size
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
@@ -2494,6 +2535,7 @@ msgstr "Prisijunkite naudodami „GitHub“, „Google“ arba pasirinktą OAuth
 msgid "Sign up"
 msgstr "Registruotis"
 
+#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
@@ -2975,6 +3017,10 @@ msgstr "Atsiejamas jūsų {providerName} profilis..."
 msgid "Unlock"
 msgstr "Atrakinti"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Unnamed passkey"
+msgstr ""
+
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Unverified"
 msgstr "Nepatikrintas"
@@ -3203,6 +3249,10 @@ msgstr "Prisijungti taip pat galite naudodami vartotojo vardą."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Gyvenimo aprašymu galite dalintis per unikalų viešą URL, apsaugoti jį slaptažodžiu arba atsisiųsti kaip PDF ir dalintis tiesiogiai. Pasirinkimas – jūsų!"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "You can skip this and keep the default name."
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

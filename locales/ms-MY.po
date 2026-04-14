@@ -900,6 +900,7 @@ msgstr "Ijazah"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Delete"
 msgstr "Padam"
 
@@ -1226,9 +1227,17 @@ msgstr "Eksport"
 msgid "Failed to analyze resume."
 msgstr ""
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to delete passkey. Please try again."
+msgstr ""
+
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Failed to duplicate resume"
 msgstr "Gagal menyalin sambungan"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to register passkey. Please try again."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
@@ -1750,6 +1759,10 @@ msgstr "Kelestarian Jangka Panjang"
 msgid "Lost access to your authenticator?"
 msgstr "Kehilangan akses kepada aplikasi pengesah anda?"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "MacBook Touch ID"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Utama"
@@ -1814,6 +1827,10 @@ msgstr "Berbilang bahasa"
 msgid "Name"
 msgstr "Nama"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Name your passkey"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Nepali"
 msgstr "Nepal"
@@ -1866,6 +1883,10 @@ msgstr "Tiada pengalaman"
 #: src/routes/dashboard/job-search/index.tsx
 msgid "No jobs found. Try a different search query."
 msgstr "Tiada pekerjaan ditemui. Cuba pertanyaan carian yang berbeza."
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "No passkeys registered yet."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -1970,6 +1991,18 @@ msgstr "Perenggan"
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Part-time"
 msgstr "Sewaktu"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey deleted successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey registered successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkeys"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -2189,6 +2222,10 @@ msgstr "Rujukan"
 msgid "Refresh"
 msgstr "Muat semula"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Register New Device"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
 msgstr "Ingat kata laluan anda? <0/>"
@@ -2316,6 +2353,10 @@ msgstr ""
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "Rusia"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Save"
+msgstr ""
 
 #. placeholder {0}: selectedSkills.size
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
@@ -2494,6 +2535,7 @@ msgstr "Log masuk dengan GitHub, Google atau penyedia OAuth tersuai."
 msgid "Sign up"
 msgstr "Daftar"
 
+#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
@@ -2975,6 +3017,10 @@ msgstr "Menyahpaut akaun {providerName} anda..."
 msgid "Unlock"
 msgstr "Buka Kunci"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Unnamed passkey"
+msgstr ""
+
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Unverified"
 msgstr "Belum disahkan"
@@ -3203,6 +3249,10 @@ msgstr "Anda juga boleh menggunakan nama pengguna anda untuk log masuk."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Anda boleh berkongsi resume anda melalui URL awam unik, melindunginya dengan kata laluan, atau memuat turunnya sebagai PDF untuk dikongsi secara terus. Pilihan di tangan anda!"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "You can skip this and keep the default name."
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

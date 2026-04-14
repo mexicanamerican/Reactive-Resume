@@ -900,6 +900,7 @@ msgstr "ডিগ্রি"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Delete"
 msgstr "মুছে ফেলুন"
 
@@ -1226,9 +1227,17 @@ msgstr "এক্সপোর্ট"
 msgid "Failed to analyze resume."
 msgstr ""
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to delete passkey. Please try again."
+msgstr ""
+
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Failed to duplicate resume"
 msgstr "রিজ্যুমের অনুলিপি তৈরি করতে ব্যর্থ হয়েছে"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to register passkey. Please try again."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
@@ -1750,6 +1759,10 @@ msgstr "দীর্ঘমেয়াদি স্থায়িত্ব"
 msgid "Lost access to your authenticator?"
 msgstr "অথেনটিকেটরে প্রবেশাধিকার হারিয়েছেন?"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "MacBook Touch ID"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "প্রধান"
@@ -1814,6 +1827,10 @@ msgstr "বহুভাষিক"
 msgid "Name"
 msgstr "নাম"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Name your passkey"
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Nepali"
 msgstr "নেপালি"
@@ -1866,6 +1883,10 @@ msgstr "কোনও অভিজ্ঞতা নেই"
 #: src/routes/dashboard/job-search/index.tsx
 msgid "No jobs found. Try a different search query."
 msgstr "কোনও চাকরি পাওয়া যায়নি। অন্য কোনো অনুসন্ধান শব্দবিন্যাস চেষ্টা করুন।"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "No passkeys registered yet."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -1970,6 +1991,18 @@ msgstr "অনুচ্ছেদ"
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Part-time"
 msgstr "অংশকালীন"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey deleted successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey registered successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkeys"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -2189,6 +2222,10 @@ msgstr "রেফারেন্সসমূহ"
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Register New Device"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 msgid "Remember your password? <0/>"
 msgstr "আপনার পাসওয়ার্ড মনে আছে? <0/>"
@@ -2316,6 +2353,10 @@ msgstr ""
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "রুশ"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Save"
+msgstr ""
 
 #. placeholder {0}: selectedSkills.size
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
@@ -2494,6 +2535,7 @@ msgstr "GitHub, Google বা যেকোনো কাস্টম OAuth প্
 msgid "Sign up"
 msgstr "সাইন আপ"
 
+#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
@@ -2975,6 +3017,10 @@ msgstr "আপনার {providerName} অ্যাকাউন্টের ল�
 msgid "Unlock"
 msgstr "আনলক করুন"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Unnamed passkey"
+msgstr ""
+
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Unverified"
 msgstr "যাচাই করা হয়নি"
@@ -3203,6 +3249,10 @@ msgstr "আপনি চাইলে ইউজারনেম দিয়েও
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "আপনি একটি আলাদা সর্বজনীন URL‑এর মাধ্যমে জীবনবৃত্তান্ত শেয়ার করতে পারেন, পাসওয়ার্ড দিয়ে সুরক্ষিত করতে পারেন, অথবা সরাসরি শেয়ার করার জন্য PDF হিসেবে ডাউনলোড করতে পারেন। সিদ্ধান্ত আপনার!"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "You can skip this and keep the default name."
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

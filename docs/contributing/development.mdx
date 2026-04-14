@@ -126,7 +126,7 @@ Here are the most commonly used scripts during development:
 | `pnpm run build`     | Build the application for production         |
 | `pnpm run start`     | Start the production server                  |
 | `pnpm run lint`      | Run Oxlint linter and formatter              |
-| `pnpm run fmt`       | Run Oxfmt formatter                          |
+| `pnpm run format`    | Run Oxfmt formatter                          |
 | `pnpm run typecheck` | Run TypeScript type checking                 |
 
 ### Database
@@ -252,8 +252,8 @@ Uses [Oxlint](https://oxlint.dev/) for linting and [Oxfmt](https://oxfmt.dev/) f
 
 ```bash
 # Check and auto-fix issues
-pnpm run lint
-pnpm run fmt
+pnpm run lint:fix
+pnpm run format:fix
 ```
 
 ### Type Checking

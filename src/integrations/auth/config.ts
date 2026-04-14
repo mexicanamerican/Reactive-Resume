@@ -4,6 +4,7 @@ import { apiKey } from "@better-auth/api-key";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { dash } from "@better-auth/infra";
 import { oauthProvider } from "@better-auth/oauth-provider";
+import { passkey } from "@better-auth/passkey";
 import { BetterAuthError, betterAuth } from "better-auth";
 import { verifyAccessToken } from "better-auth/oauth2";
 import { admin, jwt, openAPI, type GenericOAuthConfig } from "better-auth/plugins";
@@ -341,6 +342,7 @@ const getAuthConfig = () => {
       jwt(),
       admin(),
       openAPI(),
+      passkey(),
       genericOAuth({ config: authConfigs }),
       twoFactor({ issuer: "Reactive Resume" }),
       apiKey({ enableSessionForAPIKeys: true, rateLimit: { enabled: false } }),

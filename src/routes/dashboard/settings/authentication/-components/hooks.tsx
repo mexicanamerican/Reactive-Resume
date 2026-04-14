@@ -1,7 +1,14 @@
 import type { ReactNode } from "react";
 
 import { t } from "@lingui/core/macro";
-import { GithubLogoIcon, GoogleLogoIcon, LinkedinLogoIcon, PasswordIcon, VaultIcon } from "@phosphor-icons/react";
+import {
+  FingerprintIcon,
+  GithubLogoIcon,
+  GoogleLogoIcon,
+  LinkedinLogoIcon,
+  PasswordIcon,
+  VaultIcon,
+} from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { toast } from "sonner";
@@ -18,6 +25,7 @@ import { orpc } from "@/integrations/orpc/client";
 export function getProviderName(providerId: AuthProvider): string {
   return match(providerId)
     .with("credential", () => "Password")
+    .with("passkey", () => "Passkey")
     .with("google", () => "Google")
     .with("github", () => "GitHub")
     .with("linkedin", () => "LinkedIn")
@@ -31,6 +39,7 @@ export function getProviderName(providerId: AuthProvider): string {
 export function getProviderIcon(providerId: AuthProvider): ReactNode {
   return match(providerId)
     .with("credential", () => <PasswordIcon />)
+    .with("passkey", () => <FingerprintIcon />)
     .with("google", () => <GoogleLogoIcon />)
     .with("github", () => <GithubLogoIcon />)
     .with("linkedin", () => <LinkedinLogoIcon />)

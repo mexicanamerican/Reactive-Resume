@@ -89,24 +89,24 @@ Copy `.env.example` to `.env` if not present. Key notes for local dev:
 
 `vp` is the global CLI for Vite+. Do not use pnpm/npm/yarn directly — Vite+ wraps the underlying package manager.
 
-| Task                       | Command                                                         |
-| -------------------------- | --------------------------------------------------------------- |
-| Install dependencies       | `vp install`                                                    |
-| Dev server (port 3000)     | `vp dev`                                                        |
-| Lint (Oxlint, type-aware)  | `vp lint --type-aware`                                          |
-| Format (Oxfmt)             | `vp fmt`                                                        |
-| Check (lint + fmt + types) | `vp check`                                                      |
-| Typecheck                  | `pnpm typecheck` (uses tsgo)                                    |
-| Run tests                  | `vp test`                                                       |
-| DB migrations              | `pnpm db:generate` / `pnpm db:migrate` (auto-runs on dev start) |
-| DB studio                  | `pnpm db:studio`                                                |
-| i18n extraction            | `pnpm lingui:extract`                                           |
-| Add a dependency           | `vp add <package>`                                              |
-| Remove a dependency        | `vp remove <package>`                                           |
-| One-off binary             | `vp dlx <package>`                                              |
-| Build for production       | `vp build`                                                      |
-| Preview production build   | `vp preview`                                                    |
-| Start production server    | `pnpm start`                                                    |
+| Task                          | Command                                                         |
+| ----------------------------- | --------------------------------------------------------------- |
+| Install dependencies          | `vp install`                                                    |
+| Dev server (port 3000)        | `vp dev`                                                        |
+| Lint (Oxlint, type-aware)     | `vp lint --type-aware`                                          |
+| Format (Oxfmt)                | `vp fmt`                                                        |
+| Check (lint + format + types) | `vp check`                                                      |
+| Typecheck                     | `pnpm typecheck` (uses tsgo)                                    |
+| Run tests                     | `vp test`                                                       |
+| DB migrations                 | `pnpm db:generate` / `pnpm db:migrate` (auto-runs on dev start) |
+| DB studio                     | `pnpm db:studio`                                                |
+| i18n extraction               | `pnpm lingui:extract`                                           |
+| Add a dependency              | `vp add <package>`                                              |
+| Remove a dependency           | `vp remove <package>`                                           |
+| One-off binary                | `vp dlx <package>`                                              |
+| Build for production          | `vp build`                                                      |
+| Preview production build      | `vp preview`                                                    |
+| Start production server       | `pnpm start`                                                    |
 
 ## Vite+ Pitfalls
 
@@ -128,4 +128,4 @@ Copy `.env.example` to `.env` if not present. Key notes for local dev:
 ## Review Checklist for Agents
 
 - [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `pnpm lint:fix`, `pnpm fmt:fix`, `pnpm typecheck` and `vp test` to validate changes.
+- [ ] Run `pnpm lint:fix`, `pnpm format:fix`, `pnpm typecheck` and `vp test` to validate changes.

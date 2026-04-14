@@ -28,7 +28,19 @@ if (!isVitest) {
   plugins.push(
     lingui(),
     tailwindcss(),
-    nitro({ plugins: ["plugins/1.migrate.ts"] }),
+    nitro({
+      plugins: ["plugins/1.migrate.ts"],
+      rolldownConfig: {
+        treeshake: {
+          moduleSideEffects: (id) => {
+            if (id.includes("unenv/polyfill/")) return true;
+            if (id.includes("reflect-metadata/Reflect")) return true;
+            if (id.includes("node-fetch-native/polyfill")) return true;
+            return false;
+          },
+        },
+      },
+    }),
     babel({ plugins: ["@lingui/babel-plugin-lingui-macro"] }),
     VitePWA({
       outDir: "public",

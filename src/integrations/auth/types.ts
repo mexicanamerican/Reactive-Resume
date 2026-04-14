@@ -7,6 +7,6 @@ export type AuthSession = {
   user: typeof auth.$Infer.Session.user;
 };
 
-const authProviderSchema = z.enum(["credential", "google", "github", "linkedin", "custom"]);
+const authProviderSchema = z.enum(["credential", "passkey", "google", "github", "linkedin", "custom"]);
 
 export type AuthProvider = z.infer<typeof authProviderSchema>;

@@ -3,15 +3,6 @@ title: "Setting up passkeys"
 description: "Learn how to register passkeys (WebAuthn) to sign in securely using biometrics or your device PIN"
 ---
 
-<Warning>
-  <strong>Passkeys Temporarily Disabled:</strong> Passkey registration and sign-in are currently unavailable in Reactive Resume due to an upstream issue with our authentication provider. We are closely monitoring the situation and will re-enable passkeys once it is resolved.
-
-For more details and technical updates, see the <a href="https://github.com/better-auth/better-auth/issues/7463" target="_blank" rel="noopener">GitHub issue #7463</a>.
-
-</Warning>
-
----
-
 <Steps>
   <Step title="Sign in to the dashboard">
     Head over to [https://rxresu.me](https://rxresu.me) and sign in with your account credentials.
@@ -27,8 +18,7 @@ For more details and technical updates, see the <a href="https://github.com/bett
 </Step>
 
 <Step title="Name your passkey">
-  You'll be prompted to enter a name for the passkey. Use something descriptive so you can recognize it later (for
-  example, “MacBook Touch ID” or “iPhone Face ID”).
+  Enter a descriptive name so you can recognize it later (for example, "MacBook Touch ID" or "iPhone Face ID").
 </Step>
 
   <Step title="Complete the passkey prompt">
@@ -41,11 +31,15 @@ For more details and technical updates, see the <a href="https://github.com/bett
   </Step>
 
   <Step title="Manage passkeys (optional)">
-    After registering, your passkey will show up in the list. You can delete a passkey using the trash icon next to it.
+    After registering, your passkey will show up in the list. You can rename it or delete it from the same section.
 
     <Warning>
       Deleting a passkey cannot be undone. After deletion, you won't be able to sign in using that passkey anymore.
     </Warning>
 
+  </Step>
+
+  <Step title="Sign in with a passkey">
+    On the login page, click <Badge>Sign in with Passkey</Badge> to authenticate without entering your password.
   </Step>
 </Steps>
