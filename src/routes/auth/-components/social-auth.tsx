@@ -3,7 +3,7 @@ import { Trans } from "@lingui/react/macro";
 import { FingerprintIcon, GithubLogoIcon, GoogleLogoIcon, LinkedinLogoIcon, VaultIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 
 import type { RouterOutput } from "@/integrations/orpc/client";
@@ -51,6 +51,7 @@ type SocialAuthButtonsProps = {
 
 function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
   const router = useRouter();
+  const hasStartedConditionalPasskeyRef = useRef(false);
 
   const handleSocialLogin = async (provider: string) => {
     const toastId = toast.loading(t`Signing in...`);
@@ -101,15 +102,23 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
   };
 
   useEffect(() => {
+    if (!("passkey" in providers)) return;
     if (typeof window === "undefined") return;
     if (!("PublicKeyCredential" in window)) return;
     if (!PublicKeyCredential.isConditionalMediationAvailable) return;
+    if (hasStartedConditionalPasskeyRef.current) return;
 
-    void PublicKeyCredential.isConditionalMediationAvailable().then((isAvailable) => {
+    hasStartedConditionalPasskeyRef.current = true;
+
+    void PublicKeyCredential.isConditionalMediationAvailable().then(async (isAvailable) => {
       if (!isAvailable) return;
-      void authClient.signIn.passkey({ autoFill: true });
+
+      const { error } = await authClient.signIn.passkey({ autoFill: true });
+      if (error) return;
+
+      await router.invalidate();
     });
-  }, []);
+  }, [providers, router]);
 
   return (
     <div className="grid grid-cols-2 gap-4">

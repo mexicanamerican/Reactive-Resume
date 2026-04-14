@@ -121,7 +121,8 @@ function RouteComponent() {
                   <FormControl
                     render={
                       <Input
-                        autoComplete="section-login username"
+                        autoFocus
+                        autoComplete="section-login username webauthn"
                         placeholder="john.doe@example.com"
                         className="lowercase"
                         {...field}
