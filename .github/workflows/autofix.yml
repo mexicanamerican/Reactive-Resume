@@ -16,16 +16,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout Repository
+        uses: actions/checkout@v6
 
-      - uses: voidzero-dev/setup-vp@v1
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@v1
         with:
           node-version: "24"
           cache: true
 
-      - run: vp install
+      - name: Install Dependencies
+        run: vp install
 
-      - run: vp test
-      - run: vp check --fix
+      - name: Run Tests
+        run: vp test
 
-      - uses: autofix-ci/action@7a166d7532b277f34e16238930461bf77f9d7ed8
+      - name: Run Lint and Format
+        run: vp check --fix
+
+      - name: Autofix
+        uses: autofix-ci/action@7a166d7532b277f34e16238930461bf77f9d7ed8
