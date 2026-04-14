@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1140,6 +1140,10 @@ msgstr "英語（英國）"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "透過額外的保護層級強化您的帳戶安全。"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "請輸入其中一組已儲存的備份代碼以存取您的帳戶"
@@ -1759,10 +1763,6 @@ msgstr "長期永續發展"
 msgid "Lost access to your authenticator?"
 msgstr "無法使用驗證器了嗎？"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "MacBook Touch ID"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "主要"
@@ -1826,10 +1826,6 @@ msgstr "多語系"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "名稱"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "命名您的密碼"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "本週"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "這會產生一組新的 API Key，讓機器可以透過 Reactive Resume API 與您的履歷資料互動。"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "使用 Reactive Resume 建立履歷的縮時示範影片"
@@ -3249,10 +3249,6 @@ msgstr "您也可以使用使用者名稱登入。"
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "您可以透過唯一的公開 URL 分享履歷、以密碼加以保護，或下載成 PDF 直接分享，一切由您決定！"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "您可以跳過此步驟，保留預設名稱。"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

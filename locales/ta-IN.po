@@ -8,7 +8,7 @@ msgstr ""
 "Language: ta\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Tamil\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1140,6 +1140,10 @@ msgstr "ஆங்கிலம் (ஐக்கிய இராச்சியம
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "உங்கள் கணக்கின் பாதுகாப்பை கூடுதல் பாதுகாப்பு அடுக்குகளால் மேம்படுத்துங்கள்."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "உங்கள் சேமித்த காப்பு குறியீடுகளில் எதனாவது ஒன்றை உள்ளீடு செய்து உங்கள் கணக்கை அணுகவும்"
@@ -1759,10 +1763,6 @@ msgstr "நீண்டகால நிலைத்தன்மை"
 msgid "Lost access to your authenticator?"
 msgstr "உங்கள் அங்கீகார செயலியை அணுக முடியவில்லையா?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "மெக்புக் டச் ஐடி"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "முதன்மை"
@@ -1826,10 +1826,6 @@ msgstr "பல்மொழி"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "பெயர்"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "உங்கள் கடவுச்சொல்லைப் பெயரிடுங்கள்"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "இந்த வாரம்"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "இது Reactive Resume API-யை அணுக ஒரு புதிய API விசையை உருவாக்கும்; இதன் மூலம் இயந்திரங்களுக்கு உங்கள் ரெஸ்யூமி தரவுடன் தொடர்பு கொள்ள அனுமதித்து விடலாம்."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Reactive Resume-யை பயன்படுத்தி ஒரு ரெஸ்யூமியை உருவாக்கும் காலச்சுருக்கக் காணொளி விளக்கம்"
@@ -3249,10 +3249,6 @@ msgstr "உள்நுழைய நீங்கள் உங்கள் பய
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "உங்கள் ரெஸ்யூமியை தனித்துவமான பொது URL மூலம் பகிரலாம், அதை கடவுச்சொல்லால் பாதுகாக்கலாம், அல்லது நேரடியாக பகிர்வதற்காக PDF ஆக பதிவிறக்கலாம். விருப்பம் உங்களுடையது!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "இதை நீங்கள் தவிர்த்து, இயல்புநிலைப் பெயரை வைத்திருக்கலாம்."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

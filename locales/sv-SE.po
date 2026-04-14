@@ -8,7 +8,7 @@ msgstr ""
 "Language: sv\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1140,6 +1140,10 @@ msgstr "Engelska (Storbritannien)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Förbättra säkerheten för ditt konto med ytterligare skyddslager."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Ange en av dina sparade reservkoder för att komma åt ditt konto"
@@ -1759,10 +1763,6 @@ msgstr "Långsiktig hållbarhet"
 msgid "Lost access to your authenticator?"
 msgstr "Förlorat åtkomsten till din autentiserare?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "MacBook Touch ID"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Huvud"
@@ -1826,10 +1826,6 @@ msgstr "Flerspråkig"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Namn"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "Namnge din passerkod"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "Denna vecka"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "Detta skapar en ny API-nyckel för åtkomst till Reactive Resume API så att andra program kan interagera med din CV-data."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Demonstration av hur man bygger ett CV med Reactive Resume"
@@ -3249,10 +3249,6 @@ msgstr "Du kan också använda ditt användarnamn för att logga in."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Du kan dela ditt CV via en unik offentlig URL, skydda det med ett lösenord eller ladda ner det som en PDF för att dela direkt. Valet är ditt!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "Du kan hoppa över detta och behålla standardnamnet."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

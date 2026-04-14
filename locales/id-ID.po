@@ -8,7 +8,7 @@ msgstr ""
 "Language: id\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1140,6 +1140,10 @@ msgstr "Inggris (Britania Raya)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Tingkatkan keamanan akun Anda dengan lapisan perlindungan tambahan."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Masukkan salah satu kode cadangan tersimpan Anda untuk mengakses akun"
@@ -1759,10 +1763,6 @@ msgstr "Keberlanjutan Jangka Panjang"
 msgid "Lost access to your authenticator?"
 msgstr "Kehilangan akses ke autentikator Anda?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "ID Sentuh MacBook"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Utama"
@@ -1826,10 +1826,6 @@ msgstr "Multibahasa"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Nama"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "Beri nama kunci sandi Anda"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "Minggu ini"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "Ini akan menghasilkan API key baru untuk mengakses API Reactive Resume agar mesin dapat berinteraksi dengan data resume Anda."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Demo timelapse membuat resume dengan Reactive Resume"
@@ -3249,10 +3249,6 @@ msgstr "Anda juga dapat menggunakan nama pengguna untuk masuk."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Anda dapat membagikan resume Anda melalui URL publik unik, melindunginya dengan kata sandi, atau mengunduhnya sebagai PDF untuk dibagikan langsung. Pilihan ada di tangan Anda!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "Anda dapat melewatkan langkah ini dan menggunakan nama default."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

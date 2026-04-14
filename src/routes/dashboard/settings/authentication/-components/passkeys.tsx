@@ -33,11 +33,10 @@ export function PasskeysSection() {
       toast.success(t`Passkey registered successfully.`);
       await queryClient.invalidateQueries({ queryKey: ["auth", "passkeys"] });
 
-      const name = await prompt(t`Name your passkey`, {
-        description: t`You can skip this and keep the default name.`,
+      const name = await prompt(t`Enter a name for your passkey.`, {
+        description: t`This will help you identify it later, if you plan to have multiple passkeys.`,
         defaultValue: "",
         confirmText: t`Save`,
-        inputProps: { placeholder: t`MacBook Touch ID` },
       });
       if (name === null) return;
 

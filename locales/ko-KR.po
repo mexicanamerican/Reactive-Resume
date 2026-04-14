@@ -8,7 +8,7 @@ msgstr ""
 "Language: ko\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1140,6 +1140,10 @@ msgstr "영어 (영국)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "계정 보안을 강화하기 위해 추가 보호 계층을 적용하세요."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "저장해 둔 백업 코드 중 하나를 입력해 계정에 접속하세요"
@@ -1759,10 +1763,6 @@ msgstr "장기적인 지속 가능성"
 msgid "Lost access to your authenticator?"
 msgstr "인증 앱에 접근할 수 없으신가요?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "MacBook Touch ID"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "메인"
@@ -1826,10 +1826,6 @@ msgstr "다국어 지원"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "이름"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "패스키 이름 지정"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "이번 주"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "이 작업은 Reactive Resume API에 액세스할 수 있는 새 API 키를 생성하여, 기계가 이력서 데이터와 상호 작용할 수 있도록 합니다."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Reactive Resume로 이력서를 작성하는 타임랩스 데모"
@@ -3249,10 +3249,6 @@ msgstr "사용자 이름으로도 로그인할 수 있습니다."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "고유한 공개 URL로 이력서를 공유하고, 비밀번호로 보호하거나, PDF로 다운로드해 직접 공유할 수 있습니다. 선택은 여러분에게 달려 있습니다!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "이 단계를 건너뛰고 기본 이름을 그대로 사용할 수 있습니다."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

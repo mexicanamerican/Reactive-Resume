@@ -8,7 +8,7 @@ msgstr ""
 "Language: te\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1140,6 +1140,10 @@ msgstr "ఆంగ్లం (యునైటెడ్ కింగ్‌డమ్
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "మీ ఖాతా భద్రతను అదనపు పరిరక్షణతో మెరుగుపరచండి."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "మీరు సేవ్ చేసిన బ్యాకప్ కోడ్స్‌లో ఒకదాన్ని నమోదు చేసి మీ ఖాతాలోకి ప్రవేశించండి"
@@ -1759,10 +1763,6 @@ msgstr "దీర్ఘకాలిక స్థిరత్వం"
 msgid "Lost access to your authenticator?"
 msgstr "మీరు మీ ఆథెంటికేటర్‌ను కోల్పోయారా?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "మ్యాక్‌బుక్ టచ్ ఐడి"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "ప్రధానం"
@@ -1826,10 +1826,6 @@ msgstr "బహుభాషాక"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "పేరు"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "మీ పాస్‌కీకి పేరు పెట్టండి"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "ఈ వారం"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "ఈ చర్య ద్వారా Reactive Resume API ని యాక్సెస్ చేసేందుకు కొత్త API కీ రూపొందించబడుతుంది, దీని ద్వారా యంత్రాలు మీ రెజ్యూమ్ డేటాతో ఇంటరాక్ట్ చేయగలవు."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Reactive Resume తో జీవన చరిత్రను తయారుచేసే టైమ్‌లాప్ డెమో"
@@ -3249,10 +3249,6 @@ msgstr "మీరు మీ యూజర్‌నేమ్‌తో కూడా
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "మీ రిజ్యూమ్‌ను ప్రత్యేకమైన పబ్లిక్ URL ద్వారా షేర్ చేయవచ్చు, దానికి పాస్‌వర్డ్ రక్షణ ఇవ్వచ్చు లేదా డైరెక్టుగా షేర్ చేసేందుకు PDFగా డౌన్లోడ్ చేసుకోవచ్చు. ఎంపిక మీదే!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "మీరు దీన్ని వదిలివేసి, డిఫాల్ట్ పేరును ఉంచుకోవచ్చు."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

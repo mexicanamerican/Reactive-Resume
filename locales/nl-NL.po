@@ -8,7 +8,7 @@ msgstr ""
 "Language: nl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1140,6 +1140,10 @@ msgstr "Engels (Verenigd Koninkrijk)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Verhoog de beveiliging van uw account met extra beschermingslagen."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Voer een van uw opgeslagen back-upcodes in om toegang te krijgen tot uw account"
@@ -1759,10 +1763,6 @@ msgstr "Langdurige duurzaamheid"
 msgid "Lost access to your authenticator?"
 msgstr "Geen toegang meer tot uw authenticator?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "MacBook Touch ID"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Algemeen"
@@ -1826,10 +1826,6 @@ msgstr "Meertalig"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Naam"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "Geef uw passkey een naam"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "Deze week"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "Hiermee wordt een nieuwe API-sleutel gegenereerd voor toegang tot de Reactive Resume API, zodat machines met uw cv-gegevens kunnen communiceren."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Timelapse-demonstratie van het maken van een cv met Reactive Resume"
@@ -3249,10 +3249,6 @@ msgstr "U kunt ook uw gebruikersnaam gebruiken om in te loggen."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "U kunt uw cv delen via een unieke openbare URL, het met een wachtwoord beveiligen of het downloaden als PDF om direct te delen. De keuze is aan u!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "U kunt dit overslaan en de standaardnaam behouden."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

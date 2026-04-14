@@ -8,7 +8,7 @@ msgstr ""
 "Language: lv\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
@@ -1140,6 +1140,10 @@ msgstr "Angļu valoda (Lielbritānija)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Pastipriniet sava konta drošību ar papildu aizsardzības līmeņiem."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Ievadiet vienu no saglabātajiem rezerves kodiem, lai piekļūtu savam kontam"
@@ -1759,10 +1763,6 @@ msgstr "Ilgtermiņa ilgtspēja"
 msgid "Lost access to your authenticator?"
 msgstr "Zaudējāt piekļuvi autentifikatoram?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "MacBook Touch ID"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Galvenā"
@@ -1826,10 +1826,6 @@ msgstr "Daudzvalodu"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Nosaukums"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "Nosauciet savu piekļuves atslēgu"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "Šonedēļ"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "Tas ģenerēs jaunu API atslēgu piekļuvei Reactive Resume API, lai ļautu sistēmām mijiedarboties ar jūsu CV datiem."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Paātrināts ieraksts, kurā demonstrēta CV veidošana ar Reactive Resume"
@@ -3249,10 +3249,6 @@ msgstr "Pieteikšanās laikā varat izmantot arī savu lietotājvārdu."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Varat kopīgot savu CV, izmantojot unikālu publisku URL, aizsargāt to ar paroli vai lejupielādēt kā PDF un kopīgot tieši. Izvēle ir jūsu rokās!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "Varat to izlaist un saglabāt noklusējuma nosaukumu."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

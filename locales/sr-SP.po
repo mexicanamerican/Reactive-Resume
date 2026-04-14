@@ -8,7 +8,7 @@ msgstr ""
 "Language: sr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-14 10:15\n"
+"PO-Revision-Date: 2026-04-14 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Serbian (Cyrillic)\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -1140,6 +1140,10 @@ msgstr "Енглески (Уједињено Краљевство)"
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Побољшајте безбедност свог налога додатним слојевима заштите."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Enter a name for your passkey."
+msgstr ""
+
 #: src/routes/auth/verify-2fa-backup.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Унесите један од сачуваних резервних кодова да приступите налогу"
@@ -1759,10 +1763,6 @@ msgstr "Дугорочна одрживост"
 msgid "Lost access to your authenticator?"
 msgstr "Изгубили сте приступ својој апликацији за аутентификацију?"
 
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "MacBook Touch ID"
-msgstr "МацБук Тач ИД"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Главно"
@@ -1826,10 +1826,6 @@ msgstr "Вишејезично"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Име"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "Name your passkey"
-msgstr "Назовите свој тајни кључ"
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -2869,6 +2865,10 @@ msgstr "Ове недеље"
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
 msgstr "Ово ће генерисати нови API кључ за приступ Реактивни Резиме API-ју како би машине могле да комуницирају са подацима вашег резимеа."
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "This will help you identify it later, if you plan to have multiple passkeys."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Убрзана демонстрација креирања резимеа помоћу Реактивног Резимеа"
@@ -3249,10 +3249,6 @@ msgstr "Такође можете користити своје кориснич
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Свој резиме можете поделити путем јединственог јавног URL-а, заштитити га лозинком или га преузети као PDF и делити директно. Избор је на вама!"
-
-#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
-msgid "You can skip this and keep the default name."
-msgstr "Можете прескочити ово и задржати подразумевано име."
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
