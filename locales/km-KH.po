@@ -135,7 +135,6 @@ msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "គម្រោង​ចិត្តស្រឡាញ់​មួយ​របស់ <0>Amruth Pillai</0>។"
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
 msgstr "មាន​ប្រវត្តិរូប​មួយ​ដែល​មាន slug នេះ​រួច​ហើយ។"
 
@@ -258,7 +257,6 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: src/dialogs/resume/import.tsx
-#: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "AI"
 
@@ -308,7 +306,6 @@ msgid "Any level"
 msgstr ""
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
-#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any time"
 msgstr ""
 
@@ -336,7 +333,6 @@ msgstr "ការចូលដំណើរការ API"
 msgid "API Key"
 msgstr "កូនសោ API"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
@@ -408,7 +404,6 @@ msgid "Area of Study"
 msgstr "ជំនាញ​រៀន"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
@@ -418,7 +413,6 @@ msgstr "បញ្ញាសិប្បនិម្មិត"
 msgid "Aspect Ratio"
 msgstr "សមាមាត្រទ្រង់ទ្រាយ"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/authentication/index.tsx
@@ -520,34 +514,19 @@ msgstr "តើ​ខ្ញុំ​អាច​នាំចេញ​ប្រវ
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/skill.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -669,8 +648,6 @@ msgstr "តភ្ជាប់"
 msgid "Content"
 msgstr "មាតិកា"
 
-#: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/auth/register.tsx
 msgid "Continue"
@@ -835,7 +812,6 @@ msgid "Creating your API key..."
 msgstr "កំពុង​បង្កើត​កូនសោ API របស់​អ្នក..."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "កំពុង​បង្កើត​ប្រវត្តិរូប​របស់​អ្នក..."
 
@@ -856,7 +832,6 @@ msgstr "ផ្នែក​ផ្ទាល់ខ្លួន"
 msgid "Czech"
 msgstr "Czech"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
@@ -941,7 +916,6 @@ msgstr "កំពុង​លុប​ប្រវត្តិរូប​រប
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
@@ -1260,7 +1234,6 @@ msgid "Features"
 msgstr "មុខងារ"
 
 #: src/routes/dashboard/resumes/index.tsx
-#: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "ត្រង​តាម"
 
@@ -1277,11 +1250,9 @@ msgid "Fluency"
 msgstr "កម្រិត​ភាសា"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
 msgstr "គ្រួសារ​ពុម្ពអក្សរ"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Size"
 msgstr "ទំហំ​ពុម្ពអក្សរ"
@@ -1477,7 +1448,6 @@ msgstr "រំលេច"
 msgid "Hindi"
 msgstr "Hindi"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Home"
 msgstr "ទំព័រដើម"
@@ -1714,7 +1684,6 @@ msgid "Light theme"
 msgstr "ស្បែកភ្លឺ"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Line Height"
 msgstr "កម្ពស់​បន្ទាត់"
 
@@ -1930,8 +1899,6 @@ msgid "Open Source"
 msgstr "បើក​ប្រភព"
 
 #: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "បើក​ក្នុង​ផ្ទាំង​ថ្មី"
@@ -2031,7 +1998,6 @@ msgstr "ការ​ការពារ​ដោយ​ពាក្យសម្ង
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -2088,12 +2054,10 @@ msgid "Portuguese (Portugal)"
 msgstr "Portuguese (Portugal)"
 
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "តួនាទី"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2117,7 +2081,6 @@ msgstr "ពណ៌​មូលដ្ឋាន"
 msgid "Proficiency"
 msgstr "កម្រិត​ជំនាញ"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -2306,15 +2269,10 @@ msgid "Resume analysis complete."
 msgstr ""
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Resume tailored successfully"
 msgstr ""
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/resumes.tsx
-#: src/components/command-palette/pages/resumes.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2392,7 +2350,6 @@ msgid "Scorecard"
 msgstr ""
 
 #: src/routes/dashboard/job-search/index.tsx
-#: src/routes/dashboard/job-search/index.tsx
 msgid "Search"
 msgstr ""
 
@@ -2400,7 +2357,6 @@ msgstr ""
 msgid "Search countries"
 msgstr ""
 
-#: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
 msgstr "ស្វែងរក​រូបតំណាង"
@@ -2457,13 +2413,10 @@ msgid "Serbian"
 msgstr "Serbian"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 #: src/routes/dashboard/settings/authentication/-components/password.tsx
 msgid "Set Password"
 msgstr "កំណត់​ពាក្យសម្ងាត់"
 
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Settings"
@@ -2532,8 +2485,6 @@ msgid "Sign up"
 msgstr "ចុះឈ្មោះ"
 
 #: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "កំពុង​ចូល..."
@@ -2592,12 +2543,9 @@ msgid "Slug"
 msgstr "Slug"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "មាន​អ្វីមួយ​ខុសប្រក្រតី។ សូម​ព្យាយាម​ម្ដង​ទៀត។"
 
-#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "តម្រៀប​តាម"
@@ -2823,7 +2771,6 @@ msgstr "សកម្មភាព​នេះ​មិន​អាច​មិន
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "សកម្មភាព​នេះ​មិន​អាច​មិនធ្វើវិញ​បានទេ។ ទិន្នន័យ​ទាំងអស់​របស់​អ្នក​នឹង​ត្រូវ​បាន​លុប​ជា​អចិន្ត្រៃយ៍។"
 
-#: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "មុខងារ​នេះ​ទាមទារ​ឱ្យ​បើក​ការ​រួមបញ្ចូល AI ជាមុនសិន។ សូម​បើក​វា​ក្នុង​ផ្នែក​ការកំណត់។"
@@ -3304,7 +3251,6 @@ msgid "Your RapidAPI key is stored locally on your browser. It is only sent to t
 msgstr ""
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Your resume has been created successfully."
 msgstr "ប្រវត្តិរូប​របស់​អ្នក​ត្រូវ​បាន​បង្កើត​ដោយ​ជោគជ័យ។"
 
@@ -3345,4 +3291,3 @@ msgstr "បង្រួម"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

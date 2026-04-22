@@ -135,7 +135,6 @@ msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Зроблено з любовʼю від <0>Amruth Pillai</0>."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
 msgstr "Резюме з таким slug вже існує."
 
@@ -258,7 +257,6 @@ msgid "Afrikaans"
 msgstr "Африканська"
 
 #: src/dialogs/resume/import.tsx
-#: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "ШІ"
 
@@ -308,7 +306,6 @@ msgid "Any level"
 msgstr "Будь-який рівень"
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
-#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any time"
 msgstr "У будь-який час"
 
@@ -336,7 +333,6 @@ msgstr "API доступ"
 msgid "API Key"
 msgstr "API Ключ"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
@@ -408,7 +404,6 @@ msgid "Area of Study"
 msgstr "Освітня програма"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
@@ -418,7 +413,6 @@ msgstr "Штучний інтелект"
 msgid "Aspect Ratio"
 msgstr "Пропорції"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/authentication/index.tsx
@@ -520,34 +514,19 @@ msgstr "Чи можу я експортувати своє резюме у PDF?"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/skill.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -669,8 +648,6 @@ msgstr "Підключити"
 msgid "Content"
 msgstr "Зміст"
 
-#: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/auth/register.tsx
 msgid "Continue"
@@ -835,7 +812,6 @@ msgid "Creating your API key..."
 msgstr "Створення вашого API ключа..."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Створення вашого резюме..."
 
@@ -856,7 +832,6 @@ msgstr "Користувацькі розділи"
 msgid "Czech"
 msgstr "Чеська"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
@@ -941,7 +916,6 @@ msgstr "Видалення вашого резюме..."
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
@@ -1260,7 +1234,6 @@ msgid "Features"
 msgstr "Функції"
 
 #: src/routes/dashboard/resumes/index.tsx
-#: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "Фільтрувати за"
 
@@ -1277,11 +1250,9 @@ msgid "Fluency"
 msgstr "Володіння мовою"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
 msgstr "Гарнітура шрифту"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Size"
 msgstr "Розмір шрифту"
@@ -1477,7 +1448,6 @@ msgstr "Виділити"
 msgid "Hindi"
 msgstr "Гінді"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Home"
 msgstr "Головна"
@@ -1714,7 +1684,6 @@ msgid "Light theme"
 msgstr "Світла тема"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Line Height"
 msgstr "Інтервал між рядками"
 
@@ -1930,8 +1899,6 @@ msgid "Open Source"
 msgstr "Опен-сорс"
 
 #: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "відкриється у новій вкладці"
@@ -2031,7 +1998,6 @@ msgstr "Захист паролем увімкнено."
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -2088,12 +2054,10 @@ msgid "Portuguese (Portugal)"
 msgstr "Португальська (Португалія)"
 
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "Посада"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2117,7 +2081,6 @@ msgstr "Основний колір"
 msgid "Proficiency"
 msgstr "Рівень володіння"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -2306,15 +2269,10 @@ msgid "Resume analysis complete."
 msgstr "Аналіз резюме завершено."
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Resume tailored successfully"
 msgstr "Успішно складено резюме"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/resumes.tsx
-#: src/components/command-palette/pages/resumes.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2392,7 +2350,6 @@ msgid "Scorecard"
 msgstr "Картка оцінювання"
 
 #: src/routes/dashboard/job-search/index.tsx
-#: src/routes/dashboard/job-search/index.tsx
 msgid "Search"
 msgstr "Пошук"
 
@@ -2400,7 +2357,6 @@ msgstr "Пошук"
 msgid "Search countries"
 msgstr "Країни для пошуку"
 
-#: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
 msgstr "Пошук іконки"
@@ -2457,13 +2413,10 @@ msgid "Serbian"
 msgstr "Сербська"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 #: src/routes/dashboard/settings/authentication/-components/password.tsx
 msgid "Set Password"
 msgstr "Встановити пароль"
 
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Settings"
@@ -2532,8 +2485,6 @@ msgid "Sign up"
 msgstr "Зареєструватися"
 
 #: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "Вхід..."
@@ -2592,12 +2543,9 @@ msgid "Slug"
 msgstr "Посилання"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Щось пішло не так. Будь ласка, спробуйте ще раз."
 
-#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "Сортувати за"
@@ -2823,7 +2771,6 @@ msgstr "Цю дію неможливо скасувати."
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Цю дію неможливо скасувати. Усі ваші дані буде остаточно видалено."
 
-#: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Ця функція вимагає активації інтеграції з AI. Будь ласка, увімкніть її в налаштуваннях."
@@ -3304,7 +3251,6 @@ msgid "Your RapidAPI key is stored locally on your browser. It is only sent to t
 msgstr "Ваш ключ RapidAPI зберігається локально у вашому браузері. Він надсилається на сервер лише під час запиту на пошук вакансій і ніколи не зберігається та не реєструється на наших серверах."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Your resume has been created successfully."
 msgstr "Ваше резюме успішно створено."
 
@@ -3345,4 +3291,3 @@ msgstr "Зменшити"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-

@@ -135,7 +135,6 @@ msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Rakkaudella tehty projekti, jonka on luonut <0>Amruth Pillai</0>."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
 msgstr "Tällä polkutunnuksella varustettu ansioluettelo on jo olemassa."
 
@@ -258,7 +257,6 @@ msgid "Afrikaans"
 msgstr "afrikaans"
 
 #: src/dialogs/resume/import.tsx
-#: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "AI"
 
@@ -308,7 +306,6 @@ msgid "Any level"
 msgstr "Mikä tahansa taso"
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
-#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any time"
 msgstr "Milloin tahansa"
 
@@ -336,7 +333,6 @@ msgstr "API-käyttö"
 msgid "API Key"
 msgstr "API-avain"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
@@ -408,7 +404,6 @@ msgid "Area of Study"
 msgstr "Opintoala"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
@@ -418,7 +413,6 @@ msgstr "Tekoäly"
 msgid "Aspect Ratio"
 msgstr "Kuvasuhde"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/authentication/index.tsx
@@ -520,34 +514,19 @@ msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/skill.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -669,8 +648,6 @@ msgstr "Yhdistä"
 msgid "Content"
 msgstr "Sisältö"
 
-#: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/auth/register.tsx
 msgid "Continue"
@@ -835,7 +812,6 @@ msgid "Creating your API key..."
 msgstr "Luodaan API-avaintasi..."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Luodaan ansioluetteloasi..."
 
@@ -856,7 +832,6 @@ msgstr "Mukautetut osiot"
 msgid "Czech"
 msgstr "tšekki"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
@@ -941,7 +916,6 @@ msgstr "Poistetaan ansioluetteloasi..."
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
@@ -1260,7 +1234,6 @@ msgid "Features"
 msgstr "Ominaisuudet"
 
 #: src/routes/dashboard/resumes/index.tsx
-#: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "Suodata"
 
@@ -1277,11 +1250,9 @@ msgid "Fluency"
 msgstr "Sujuvuus"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
 msgstr "Fonttiperhe"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Size"
 msgstr "Fonttikoko"
@@ -1477,7 +1448,6 @@ msgstr "Korostus"
 msgid "Hindi"
 msgstr "hindi"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Home"
 msgstr "Etusivu"
@@ -1714,7 +1684,6 @@ msgid "Light theme"
 msgstr "Vaalea teema"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Line Height"
 msgstr "Riviväli"
 
@@ -1930,8 +1899,6 @@ msgid "Open Source"
 msgstr "Avoin lähdekoodi"
 
 #: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "avautuu uuteen välilehteen"
@@ -2031,7 +1998,6 @@ msgstr "Salasanasuojaus on otettu käyttöön."
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -2088,12 +2054,10 @@ msgid "Portuguese (Portugal)"
 msgstr "portugali (Portugali)"
 
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "Tehtävänimike"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2117,7 +2081,6 @@ msgstr "Pääväri"
 msgid "Proficiency"
 msgstr "Osaamistaso"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -2306,15 +2269,10 @@ msgid "Resume analysis complete."
 msgstr "Ansioluettelon analyysi valmis."
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Resume tailored successfully"
 msgstr "Räätälöity ansioluettelo onnistuneesti"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/resumes.tsx
-#: src/components/command-palette/pages/resumes.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2392,7 +2350,6 @@ msgid "Scorecard"
 msgstr "Tuloskortti"
 
 #: src/routes/dashboard/job-search/index.tsx
-#: src/routes/dashboard/job-search/index.tsx
 msgid "Search"
 msgstr "Etsi"
 
@@ -2400,7 +2357,6 @@ msgstr "Etsi"
 msgid "Search countries"
 msgstr "Etsi maita"
 
-#: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
 msgstr "Etsi ikonia"
@@ -2457,13 +2413,10 @@ msgid "Serbian"
 msgstr "serbia"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 #: src/routes/dashboard/settings/authentication/-components/password.tsx
 msgid "Set Password"
 msgstr "Aseta salasana"
 
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Settings"
@@ -2532,8 +2485,6 @@ msgid "Sign up"
 msgstr "Rekisteröidy"
 
 #: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "Kirjaudutaan sisään..."
@@ -2592,12 +2543,9 @@ msgid "Slug"
 msgstr "Polkutunnus"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Jokin meni pieleen. Yritä uudelleen."
 
-#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "Lajittele"
@@ -2823,7 +2771,6 @@ msgstr "Tätä toimintoa ei voi perua."
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Tätä toimintoa ei voi perua. Kaikki tietosi poistetaan pysyvästi."
 
-#: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Tämä ominaisuus edellyttää, että tekoälyintegraatio on otettu käyttöön. Ota se käyttöön asetuksista."
@@ -3304,7 +3251,6 @@ msgid "Your RapidAPI key is stored locally on your browser. It is only sent to t
 msgstr "RapidAPI-avaimesi tallennetaan paikallisesti selaimeesi. Se lähetetään palvelimelle vain silloin, kun pyydät hakemaan työpaikkoja, eikä sitä koskaan tallenneta tai kirjata palvelimillemme."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Your resume has been created successfully."
 msgstr "Ansioluettelosi on luotu onnistuneesti."
 
@@ -3345,4 +3291,3 @@ msgstr "Loitonna"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

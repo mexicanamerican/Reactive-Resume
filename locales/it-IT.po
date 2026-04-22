@@ -135,7 +135,6 @@ msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Un progetto appassionato di <0>Amruth Pillai</0>."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
 msgstr "Esiste già un curriculum con questo slug."
 
@@ -258,7 +257,6 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: src/dialogs/resume/import.tsx
-#: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "IA"
 
@@ -308,7 +306,6 @@ msgid "Any level"
 msgstr "Qualsiasi livello"
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
-#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any time"
 msgstr "In qualsiasi momento"
 
@@ -336,7 +333,6 @@ msgstr "Accesso API"
 msgid "API Key"
 msgstr "Chiave API"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
@@ -408,7 +404,6 @@ msgid "Area of Study"
 msgstr "Area di studio"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
@@ -418,7 +413,6 @@ msgstr "Intelligenza artificiale"
 msgid "Aspect Ratio"
 msgstr "Proporzioni"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/authentication/index.tsx
@@ -520,34 +514,19 @@ msgstr "Posso esportare il mio curriculum in PDF?"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/skill.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -669,8 +648,6 @@ msgstr "Connetti"
 msgid "Content"
 msgstr "Contenuto"
 
-#: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/auth/register.tsx
 msgid "Continue"
@@ -835,7 +812,6 @@ msgid "Creating your API key..."
 msgstr "Creazione della chiave API in corso..."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "Creazione del tuo curriculum in corso..."
 
@@ -856,7 +832,6 @@ msgstr "Sezioni personalizzate"
 msgid "Czech"
 msgstr "Ceco"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
@@ -941,7 +916,6 @@ msgstr "Eliminazione del tuo curriculum in corso..."
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
@@ -1260,7 +1234,6 @@ msgid "Features"
 msgstr "Funzionalità"
 
 #: src/routes/dashboard/resumes/index.tsx
-#: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "Filtra per"
 
@@ -1277,11 +1250,9 @@ msgid "Fluency"
 msgstr "Fluenza"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
 msgstr "Famiglia font"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Size"
 msgstr "Dimensioni carattere"
@@ -1477,7 +1448,6 @@ msgstr "Evidenzia"
 msgid "Hindi"
 msgstr "Hindi"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Home"
 msgstr "Home"
@@ -1714,7 +1684,6 @@ msgid "Light theme"
 msgstr "Tema chiaro"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Line Height"
 msgstr "Altezza linea"
 
@@ -1930,8 +1899,6 @@ msgid "Open Source"
 msgstr "Open Source"
 
 #: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "apre in una nuova scheda"
@@ -2031,7 +1998,6 @@ msgstr "La protezione tramite password è stata attivata."
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -2088,12 +2054,10 @@ msgid "Portuguese (Portugal)"
 msgstr "Portoghese (Portogallo)"
 
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "Posizione"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2117,7 +2081,6 @@ msgstr "Colore primario"
 msgid "Proficiency"
 msgstr "Competenza"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -2306,15 +2269,10 @@ msgid "Resume analysis complete."
 msgstr "Analisi del curriculum completata."
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Resume tailored successfully"
 msgstr "Il curriculum vitae è stato personalizzato con successo"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/resumes.tsx
-#: src/components/command-palette/pages/resumes.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2392,7 +2350,6 @@ msgid "Scorecard"
 msgstr "Scheda di valutazione"
 
 #: src/routes/dashboard/job-search/index.tsx
-#: src/routes/dashboard/job-search/index.tsx
 msgid "Search"
 msgstr "Ricerca"
 
@@ -2400,7 +2357,6 @@ msgstr "Ricerca"
 msgid "Search countries"
 msgstr "Ricerca Paesi"
 
-#: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
 msgstr "Cerca un'icona"
@@ -2457,13 +2413,10 @@ msgid "Serbian"
 msgstr "Serbo"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 #: src/routes/dashboard/settings/authentication/-components/password.tsx
 msgid "Set Password"
 msgstr "Imposta password"
 
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Settings"
@@ -2532,8 +2485,6 @@ msgid "Sign up"
 msgstr "Registrazione"
 
 #: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "Accesso in corso..."
@@ -2592,12 +2543,9 @@ msgid "Slug"
 msgstr "Slug"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Qualcosa è andato storto. Riprova."
 
-#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "Ordina per"
@@ -2823,7 +2771,6 @@ msgstr "Questa azione non può essere annullata."
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Questa azione non può essere annullata. Tutti i tuoi dati verranno eliminati in modo permanente."
 
-#: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "Questa funzionalità richiede che l'integrazione con l'IA sia abilitata. Abilitala nelle impostazioni."
@@ -3304,7 +3251,6 @@ msgid "Your RapidAPI key is stored locally on your browser. It is only sent to t
 msgstr "La sua chiave RapidAPI viene memorizzata localmente sul suo browser. Viene inviata al server solo quando effettua una richiesta di ricerca di lavoro e non viene mai memorizzata o registrata sui nostri server."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Your resume has been created successfully."
 msgstr "Il tuo curriculum è stato creato correttamente."
 
@@ -3345,4 +3291,3 @@ msgstr "Rimpicciolisci"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

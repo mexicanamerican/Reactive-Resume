@@ -135,7 +135,6 @@ msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "<0>அம்ருத் பிள்ளை</0> உருவாக்கிய ஒரு ஆர்வமான திட்டம்."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "A resume with this slug already exists."
 msgstr "இந்த ஸ்லக் உடன் ஒரு ரெஸ்யூமி ஏற்கனவே உள்ளது."
 
@@ -258,7 +257,6 @@ msgid "Afrikaans"
 msgstr "ஆஃப்ரிகான்ஸ்"
 
 #: src/dialogs/resume/import.tsx
-#: src/dialogs/resume/import.tsx
 msgid "AI"
 msgstr "AI"
 
@@ -308,7 +306,6 @@ msgid "Any level"
 msgstr "எந்த அளவிலும்"
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
-#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Any time"
 msgstr "எந்த நேரத்திலும்"
 
@@ -336,7 +333,6 @@ msgstr "API அணுகல்"
 msgid "API Key"
 msgstr "API விசை"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
@@ -408,7 +404,6 @@ msgid "Area of Study"
 msgstr "கற்றல் துறை"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
@@ -418,7 +413,6 @@ msgstr "செயற்கை நுண்ணறிவு"
 msgid "Aspect Ratio"
 msgstr "ஒப்புத்திணைவு விகிதம்"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/authentication/index.tsx
@@ -520,34 +514,19 @@ msgstr "என் ரெஸ்யூமியை PDF ஆக ஏற்றும�
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
-#: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/language.tsx
 #: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/skill.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -669,8 +648,6 @@ msgstr "இணைக்கவும்"
 msgid "Content"
 msgstr "உள்ளடக்கம்"
 
-#: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/auth/register.tsx
 msgid "Continue"
@@ -835,7 +812,6 @@ msgid "Creating your API key..."
 msgstr "உங்கள் API விசையை உருவாக்குகிறது..."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Creating your resume..."
 msgstr "உங்கள் ரெஸ்யூமியை உருவாக்குகிறது..."
 
@@ -856,7 +832,6 @@ msgstr "தனிப்பயன் பகுதிகள்"
 msgid "Czech"
 msgstr "செக்"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
@@ -941,7 +916,6 @@ msgstr "உங்கள் ரெஸ்யூமியை நீக்கிக�
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
@@ -1260,7 +1234,6 @@ msgid "Features"
 msgstr "அம்சங்கள்"
 
 #: src/routes/dashboard/resumes/index.tsx
-#: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "இதன்படி வடிகட்டு"
 
@@ -1277,11 +1250,9 @@ msgid "Fluency"
 msgstr "வழக்காற்றுத் திறன்"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
 msgstr "எழுத்துரு குடும்பம்"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Size"
 msgstr "எழுத்துரு அளவு"
@@ -1477,7 +1448,6 @@ msgstr "ஹைலைட்"
 msgid "Hindi"
 msgstr "ஹிந்தி"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Home"
 msgstr "முகப்பு"
@@ -1714,7 +1684,6 @@ msgid "Light theme"
 msgstr "லைட் தீம்"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Line Height"
 msgstr "வரி உயரம்"
 
@@ -1930,8 +1899,6 @@ msgid "Open Source"
 msgstr "திறந்த மூல"
 
 #: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/donate.tsx
-#: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "புதிய தாவலில் திறக்கிறது"
@@ -2031,7 +1998,6 @@ msgstr "கடவுச்சொல் பாதுகாப்பு இயக�
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -2088,12 +2054,10 @@ msgid "Portuguese (Portugal)"
 msgstr "போர்ச்சுகீஸ் (போர்ச்சுகல்)"
 
 #: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
 msgstr "பதவி"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2117,7 +2081,6 @@ msgstr "முதன்மை நிறம்"
 msgid "Proficiency"
 msgstr "திறமைத் தரம்"
 
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -2306,15 +2269,10 @@ msgid "Resume analysis complete."
 msgstr "விண்ணப்பப் பகுப்பாய்வு நிறைவடைந்தது."
 
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Resume tailored successfully"
 msgstr "வெற்றிகரமாக வடிவமைக்கப்பட்ட ரெஸ்யூம்"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/resumes.tsx
-#: src/components/command-palette/pages/resumes.tsx
 #: src/components/command-palette/pages/resumes.tsx
 #: src/routes/_home/-sections/statistics.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2392,7 +2350,6 @@ msgid "Scorecard"
 msgstr "மதிப்பெண் அட்டை"
 
 #: src/routes/dashboard/job-search/index.tsx
-#: src/routes/dashboard/job-search/index.tsx
 msgid "Search"
 msgstr "தேடல்"
 
@@ -2400,7 +2357,6 @@ msgstr "தேடல்"
 msgid "Search countries"
 msgstr "நாடுகளைத் தேடு"
 
-#: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
 msgstr "ஒரு ஐகானைத் தேடுங்கள்"
@@ -2457,13 +2413,10 @@ msgid "Serbian"
 msgstr "செர்பியன்"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 #: src/routes/dashboard/settings/authentication/-components/password.tsx
 msgid "Set Password"
 msgstr "கடவுச்சொல்லை அமைக்கவும்"
 
-#: src/components/command-palette/pages/navigation.tsx
-#: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Settings"
@@ -2532,8 +2485,6 @@ msgid "Sign up"
 msgstr "பதிவு செய்யவும்"
 
 #: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
-#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "உள்நுழைகிறது..."
@@ -2592,12 +2543,9 @@ msgid "Slug"
 msgstr "ஸ்லக்"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "ஏதோ தவறு நடந்துள்ளது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்."
 
-#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "இதன்படி வரிசைப்படுத்து"
@@ -2823,7 +2771,6 @@ msgstr "இந்த செயலைக் களைந்து விட ம�
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "இந்த செயலைக் களைந்து விட முடியாது. உங்கள் அனைத்து தரவும் நிரந்தரமாக நீக்கப்படும்."
 
-#: src/dialogs/resume/import.tsx
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires AI Integration to be enabled. Please enable it in the settings."
 msgstr "இந்த அம்சத்திற்கு AI ஒருங்கிணைப்பு இயக்கப்பட்டிருக்க வேண்டும். தயவுசெய்து அமைப்புகளில் அதை இயக்கவும்."
@@ -3304,7 +3251,6 @@ msgid "Your RapidAPI key is stored locally on your browser. It is only sent to t
 msgstr "உங்கள் RapidAPI சாவியை உங்கள் உலாவியில் உள்ளூரில் சேமித்து வைக்கப்பட்டுள்ளது. வேலைகளைத் தேடுவதற்கான கோரிக்கையைச் செய்யும்போது மட்டுமே அது சேவையகத்திற்கு அனுப்பப்படும், மேலும் எங்கள் சேவையகங்களில் அது ஒருபோதும் சேமிக்கப்படவோ அல்லது பதிவு செய்யப்படவோ இல்லை."
 
 #: src/dialogs/resume/index.tsx
-#: src/dialogs/resume/index.tsx
 msgid "Your resume has been created successfully."
 msgstr "உங்கள் ரெஸ்யூமி வெற்றிகரமாக உருவாக்கப்பட்டுள்ளது."
 
@@ -3345,4 +3291,3 @@ msgstr "சிறிதாக்கு"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-
