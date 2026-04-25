@@ -2603,12 +2603,6 @@ msgstr "โควตา: {0} ที่เหลือ"
 msgid "RapidAPI Key"
 msgstr "คีย์ RapidAPI"
 
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "เรกทีฟ เรซูเม่"
-
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - ไปที่หน้าแรก"
@@ -3934,4 +3928,3 @@ msgstr "ซูมออก"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ซูลู"
-

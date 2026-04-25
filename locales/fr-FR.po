@@ -2603,12 +2603,6 @@ msgstr "Quota : {0} restant"
 msgid "RapidAPI Key"
 msgstr "Clé RapidAPI"
 
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "CV réactif"
-
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - Aller à la page d'accueil"
@@ -3934,4 +3928,3 @@ msgstr "Zoom arrière"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zoulou"
-

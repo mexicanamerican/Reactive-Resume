@@ -2603,12 +2603,6 @@ msgstr "配额： {0} 剩余"
 msgid "RapidAPI Key"
 msgstr "RapidAPI 密钥"
 
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "反应式简历"
-
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - 返回首页"
@@ -3934,4 +3928,3 @@ msgstr "缩小"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
-

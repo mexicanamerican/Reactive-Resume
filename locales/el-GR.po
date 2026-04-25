@@ -2603,12 +2603,6 @@ msgstr "Ποσοστό: {0} που απομένει"
 msgid "RapidAPI Key"
 msgstr "Κλειδί RapidAPI"
 
-#. Brand name suffix in browser tab title for public resume pages
-#. Browser tab title before the public resume finishes loading
-#: src/routes/$username/$slug.tsx
-msgid "Reactive Resume"
-msgstr "Αντιδραστικό βιογραφικό σημείωμα"
-
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - Μετάβαση στην αρχική σελίδα"
@@ -3934,4 +3928,3 @@ msgstr "Σμίκρυνση"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Ζουλού"
-
