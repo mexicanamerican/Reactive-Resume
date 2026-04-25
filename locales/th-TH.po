@@ -8,7 +8,7 @@ msgstr ""
 "Language: th\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-25 22:34\n"
+"PO-Revision-Date: 2026-04-25 22:58\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -637,7 +637,7 @@ msgstr "จีน (ตัวเต็ม)"
 #. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
-msgstr ""
+msgstr "เลือกเฉดสีที่กำหนดไว้ล่วงหน้าหรือกำหนดเอง"
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -646,7 +646,7 @@ msgstr "วงกลม"
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
-msgstr ""
+msgstr "ชัดเจน"
 
 #: src/routes/dashboard/job-search/index.tsx
 msgid "Clear all"
@@ -938,7 +938,7 @@ msgstr "รหัสผ่านเดิม"
 
 #: src/components/input/rich-input.tsx
 msgid "Custom"
-msgstr ""
+msgstr "กำหนดเอง"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/utils/resume/section.tsx
@@ -2548,7 +2548,7 @@ msgstr "การตั้งค่าที่ต้องการ"
 
 #: src/components/input/rich-input.tsx
 msgid "Presets"
-msgstr ""
+msgstr "ค่าที่ตั้งไว้ล่วงหน้า"
 
 #: src/components/input/chip-input.tsx
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
@@ -3719,7 +3719,7 @@ msgstr "URL"
 
 #: src/components/input/rich-input.tsx
 msgid "Use color {color}"
-msgstr ""
+msgstr "ใช้สี {color}"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx
