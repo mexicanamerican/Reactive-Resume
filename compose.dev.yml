@@ -20,15 +20,15 @@ services:
     image: postgres:latest
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
       - postgres_data:/var/lib/postgresql
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
       start_period: 10s
       interval: 30s
       timeout: 10s
@@ -40,10 +40,10 @@ services:
     ports:
       - "4000:3000"
     environment:
-      - QUEUED=10
-      - HEALTH=true
-      - CONCURRENT=5
-      - TOKEN=1234567890
+      QUEUED: 10
+      HEALTH: "true"
+      CONCURRENT: 5
+      TOKEN: "1234567890"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=1234567890"]
       interval: 10s
@@ -63,8 +63,8 @@ services:
     restart: unless-stopped
     command: server -s3 -filer -dir=/data -ip=0.0.0.0
     environment:
-      - AWS_ACCESS_KEY_ID=seaweedfs
-      - AWS_SECRET_ACCESS_KEY=seaweedfs
+      AWS_ACCESS_KEY_ID: seaweedfs
+      AWS_SECRET_ACCESS_KEY: seaweedfs
     volumes:
       - seaweedfs_data:/data
     ports:
@@ -106,7 +106,50 @@ services:
       timeout: 10s
       retries: 3
 
+  web_app:
+    profiles: ["app"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      PRINTER_APP_URL: http://web_app:3000
+      PRINTER_ENDPOINT: ws://browserless:3000?token=1234567890
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
+      SMTP_HOST: mailpit
+      S3_ENDPOINT: http://seaweedfs:8333
+      CHOKIDAR_INTERVAL: 100
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/app
+      - web_app_data:/app/data
+      - web_app_pnpm_store:/pnpm/store
+      - web_app_nitro_cache:/app/.nitro
+      - web_app_tanstack_cache:/app/.tanstack
+      - web_app_node_modules:/app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      browserless:
+        condition: service_healthy
+      seaweedfs:
+        condition: service_healthy
+      seaweedfs_create_bucket:
+        condition: service_completed_successfully
+
 volumes:
   mailpit_data:
   postgres_data:
   seaweedfs_data:
+  web_app_data:
+  web_app_node_modules:
+  web_app_pnpm_store:
+  web_app_tanstack_cache:
+  web_app_nitro_cache:
