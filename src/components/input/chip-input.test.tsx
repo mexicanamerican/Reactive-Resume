@@ -44,6 +44,25 @@ vi.mock("motion/react", () => ({
 }));
 
 // Mock lingui
+vi.mock("@lingui/core/macro", () => ({
+  t: (stringsOrDescriptor: TemplateStringsArray | { message: string }, ...values: unknown[]) => {
+    if (
+      typeof stringsOrDescriptor === "object" &&
+      "message" in stringsOrDescriptor &&
+      typeof stringsOrDescriptor.message === "string"
+    ) {
+      return stringsOrDescriptor.message;
+    }
+
+    const strings = stringsOrDescriptor as TemplateStringsArray;
+    let result = strings[0];
+    for (let i = 0; i < values.length; i++) {
+      result += String(values[i]) + strings[i + 1];
+    }
+    return result;
+  },
+}));
+
 vi.mock("@lingui/react/macro", () => ({
   Trans: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
