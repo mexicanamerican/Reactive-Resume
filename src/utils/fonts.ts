@@ -1,4 +1,5 @@
 import type { LocalFont, WebFont } from "@/components/typography/types";
+
 import webFontListJSON from "@/components/typography/webfontlist.json";
 
 type FontCategory = LocalFont["category"];
@@ -172,8 +173,8 @@ export function getLoadableWebFontWeights(family: string, preferredWeights: stri
   if (!font) return [];
 
   const availableWeights = new Set<FontWeight>(font.weights);
-  const matchingWeights = unique(preferredWeights).filter(
-    (weight): weight is FontWeight => availableWeights.has(weight as FontWeight),
+  const matchingWeights = unique(preferredWeights).filter((weight): weight is FontWeight =>
+    availableWeights.has(weight as FontWeight),
   );
 
   if (matchingWeights.length > 0) return matchingWeights;
