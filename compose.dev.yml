@@ -35,7 +35,7 @@ services:
       retries: 3
 
   browserless:
-    image: ghcr.io/browserless/chromium:latest
+    image: ${BROWSERLESS_IMAGE:-ghcr.io/browserless/chromium:latest}
     restart: unless-stopped
     ports:
       - "4000:3000"
@@ -43,9 +43,11 @@ services:
       QUEUED: 10
       HEALTH: "true"
       CONCURRENT: 5
-      TOKEN: "1234567890"
+      TOKEN: ${BROWSERLESS_TOKEN:-change-me}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure?token=1234567890"]
+      test: ["CMD-SHELL", 'curl -f "http://localhost:3000/pressure?token=${BROWSERLESS_TOKEN:-change-me}"']
       interval: 10s
       timeout: 5s
       retries: 10
@@ -57,6 +59,8 @@ services:
     restart: unless-stopped
     ports:
       - "9222:9222"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   seaweedfs:
     image: chrislusf/seaweedfs:latest
@@ -118,15 +122,13 @@ services:
       - .env
     environment:
       PRINTER_APP_URL: http://web_app:3000
-      PRINTER_ENDPOINT: ws://browserless:3000?token=1234567890
+      PRINTER_ENDPOINT: ws://browserless:3000?token=${BROWSERLESS_TOKEN:-change-me}
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
       SMTP_HOST: mailpit
       S3_ENDPOINT: http://seaweedfs:8333
       CHOKIDAR_INTERVAL: 100
       WATCHPACK_POLLING: "true"
       CHOKIDAR_USEPOLLING: "true"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     volumes:
       - ./:/app
       - web_app_data:/app/data
@@ -143,13 +145,21 @@ services:
         condition: service_healthy
       seaweedfs_create_bucket:
         condition: service_completed_successfully
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      start_period: 10s
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 volumes:
   mailpit_data:
   postgres_data:
   seaweedfs_data:
   web_app_data:
-  web_app_node_modules:
   web_app_pnpm_store:
-  web_app_tanstack_cache:
   web_app_nitro_cache:
+  web_app_node_modules:
+  web_app_tanstack_cache:
