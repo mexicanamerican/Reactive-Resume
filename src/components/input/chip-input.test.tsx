@@ -1,26 +1,31 @@
+import type * as DndKitCore from "@dnd-kit/core";
+import type * as DndKitSortable from "@dnd-kit/sortable";
+
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vite-plus/test";
+
+import { ChipInput } from "./chip-input";
 
 afterEach(cleanup);
 
 // Mock dnd-kit
 vi.mock("@dnd-kit/core", () => ({
   DndContext: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  closestCenter: vi.fn(),
-  KeyboardSensor: vi.fn(),
-  PointerSensor: vi.fn(),
-  useSensor: vi.fn(() => ({})),
-  useSensors: vi.fn(() => []),
+  closestCenter: vi.fn<typeof DndKitCore.closestCenter>(),
+  KeyboardSensor: vi.fn<typeof DndKitCore.KeyboardSensor>(),
+  PointerSensor: vi.fn<typeof DndKitCore.PointerSensor>(),
+  useSensor: vi.fn<typeof DndKitCore.useSensor>(),
+  useSensors: vi.fn<typeof DndKitCore.useSensors>(),
 }));
 
 vi.mock("@dnd-kit/sortable", () => ({
   SortableContext: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  horizontalListSortingStrategy: vi.fn(),
-  sortableKeyboardCoordinates: vi.fn(),
+  horizontalListSortingStrategy: vi.fn<typeof DndKitSortable.horizontalListSortingStrategy>(),
+  sortableKeyboardCoordinates: vi.fn<typeof DndKitSortable.sortableKeyboardCoordinates>(),
   useSortable: () => ({
     attributes: {},
     listeners: {},
-    setNodeRef: vi.fn(),
+    setNodeRef: vi.fn<(node: HTMLElement | null) => void>(),
     transform: null,
     transition: null,
     isDragging: false,
@@ -48,8 +53,6 @@ vi.mock("@phosphor-icons/react", () => ({
   PencilSimpleIcon: ({ className }: any) => <span data-testid="edit-icon" className={className} />,
   XIcon: ({ className }: any) => <span data-testid="remove-icon" className={className} />,
 }));
-
-import { ChipInput } from "./chip-input";
 
 describe("ChipInput", () => {
   describe("rendering", () => {
@@ -85,7 +88,7 @@ describe("ChipInput", () => {
 
   describe("adding chips via Enter key", () => {
     it("adds a chip when Enter is pressed", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={[]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -96,7 +99,7 @@ describe("ChipInput", () => {
     });
 
     it("does not add empty chips", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={[]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -107,7 +110,7 @@ describe("ChipInput", () => {
     });
 
     it("trims whitespace from chips", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={[]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -118,7 +121,7 @@ describe("ChipInput", () => {
     });
 
     it("prevents duplicate chips", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={["React"]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -132,7 +135,7 @@ describe("ChipInput", () => {
 
   describe("adding chips via comma", () => {
     it("adds a chip when comma is typed in the input", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={[]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -142,7 +145,7 @@ describe("ChipInput", () => {
     });
 
     it("handles multiple comma-separated values", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={[]} onChange={onChange} />);
 
       const input = screen.getByRole("textbox");
@@ -155,7 +158,7 @@ describe("ChipInput", () => {
 
   describe("removing chips", () => {
     it("calls onChange without the removed chip when remove button is clicked", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={["React", "Vue", "Angular"]} onChange={onChange} />);
 
       // Find all remove buttons
@@ -166,7 +169,7 @@ describe("ChipInput", () => {
     });
 
     it("removes the first chip correctly", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={["A", "B", "C"]} onChange={onChange} />);
 
       const removeButtons = screen.getAllByLabelText(/Remove/);
@@ -176,7 +179,7 @@ describe("ChipInput", () => {
     });
 
     it("removes the last chip correctly", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={["A", "B", "C"]} onChange={onChange} />);
 
       const removeButtons = screen.getAllByLabelText(/Remove/);
@@ -212,7 +215,7 @@ describe("ChipInput", () => {
     });
 
     it("saves edit when Enter is pressed", () => {
-      const onChange = vi.fn();
+      const onChange = vi.fn<NonNullable<React.ComponentProps<typeof ChipInput>["onChange"]>>();
       render(<ChipInput value={["React"]} onChange={onChange} />);
 
       const editButton = screen.getByLabelText("Edit React");

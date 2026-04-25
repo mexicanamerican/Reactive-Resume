@@ -234,6 +234,7 @@ const config = defineConfig({
     ],
     rules: {
       "react/exhaustive-deps": "off",
+      "jest/no-conditional-expect": "off",
       "jest/require-to-throw-message": "off",
       "typescript/consistent-type-imports": "error",
     },
