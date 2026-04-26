@@ -2772,12 +2772,6 @@ msgstr "איפוס הסיסמה שלך..."
 msgid "Resources"
 msgstr "משאבים"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "קורות חיים"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "ניתוח קורות חיים"
@@ -3951,4 +3945,3 @@ msgstr "התרחקות"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "זולו"
-

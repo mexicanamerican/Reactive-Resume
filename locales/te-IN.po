@@ -2772,12 +2772,6 @@ msgstr "మీ పాస్‌వర్డ్‌ను రీసెట్ చే
 msgid "Resources"
 msgstr "వనరులు"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "రిజ్యూమ్"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "రిజ్యూమ్ విశ్లేషణ"
@@ -3951,4 +3945,3 @@ msgstr "జూమ్ అవుట్ చేయండి"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "జులు"
-

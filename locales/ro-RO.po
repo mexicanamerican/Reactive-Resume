@@ -2772,12 +2772,6 @@ msgstr "Se resetează parola..."
 msgid "Resources"
 msgstr "Resurse"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "CV"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "Analiza CV-ului"
@@ -3951,4 +3945,3 @@ msgstr "Micșorează"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

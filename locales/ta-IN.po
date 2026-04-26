@@ -2772,12 +2772,6 @@ msgstr "உங்கள் கடவுச்சொல்லை மீட்ட�
 msgid "Resources"
 msgstr "வளங்கள்"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "தொடர்"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "விண்ணப்பப் பகுப்பாய்வு"
@@ -3951,4 +3945,3 @@ msgstr "சிறிதாக்கு"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-

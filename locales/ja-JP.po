@@ -2772,12 +2772,6 @@ msgstr "パスワードをリセットしています..."
 msgid "Resources"
 msgstr "リソース"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "履歴書"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "履歴書分析"
@@ -3951,4 +3945,3 @@ msgstr "ズームアウト"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

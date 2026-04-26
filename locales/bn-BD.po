@@ -2772,12 +2772,6 @@ msgstr "আপনার পাসওয়ার্ড রিসেট করা
 msgid "Resources"
 msgstr "রিসোর্সসমূহ"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "জীবনবৃত্তান্ত"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "রিজিউমে বিশ্লেষণ"
@@ -3951,4 +3945,3 @@ msgstr "জুম আউট"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "জুলু"
-

@@ -15,6 +15,7 @@ rss: true
 ## Fixes & Security
 - Thank you to [@shaxbozaka](https://github.com/shaxbozaka) for running a security audit on Reactive Resume and helping make the app more secure.
 - Hardened auth, OAuth, AI URL validation, printer/export endpoints, resume access controls, Browserless configuration, and public route exposure. [a42dbcd4](https://github.com/amruthpillai/reactive-resume/commit/a42dbcd4)
+- Removed the public RPC surface for the printer-only resume fetch endpoint by moving it behind a server function, further shrinking the attack surface for `getByIdForPrinter`, thanks to [@shaxbozaka](https://github.com/shaxbozaka).
 - Corrected Computer Modern Sans italic font file mappings, thanks to [@russellbrenner](https://github.com/russellbrenner). [#2881](https://github.com/amruthpillai/reactive-resume/pull/2881)
 - Improved email handling and user lookup in OAuth configuration, thanks to [@VedantBhawsar](https://github.com/VedantBhawsar). [#2874](https://github.com/amruthpillai/reactive-resume/pull/2874)
 - Aligned role period text in experience items, thanks to [@JamesGoslings](https://github.com/JamesGoslings). [#2908](https://github.com/amruthpillai/reactive-resume/pull/2908)

@@ -2772,12 +2772,6 @@ msgstr "Nulstiller din adgangskode..."
 msgid "Resources"
 msgstr "Ressourcer"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "CV"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "CV-analyse"
@@ -3951,4 +3945,3 @@ msgstr "Zoom ud"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

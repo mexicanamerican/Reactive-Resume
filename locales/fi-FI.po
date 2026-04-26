@@ -2772,12 +2772,6 @@ msgstr "Palautetaan salasanaasi..."
 msgid "Resources"
 msgstr "Resurssit"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "Yhteenveto"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "Yhteenveto Analyysi"
@@ -3951,4 +3945,3 @@ msgstr "Loitonna"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

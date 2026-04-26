@@ -2772,12 +2772,6 @@ msgstr "正在重設您的密碼…"
 msgid "Resources"
 msgstr "資源"
 
-#. Browser tab suffix for printable resume pages
-#. Browser tab title before printable resume data finishes loading
-#: src/routes/printer/$resumeId.tsx
-msgid "Resume"
-msgstr "簡歷"
-
 #: src/utils/resume/section.tsx
 msgid "Resume Analysis"
 msgstr "履歷分析"
@@ -3951,4 +3945,3 @@ msgstr "縮小"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-
