@@ -3949,4 +3949,3 @@ msgstr "تصغير"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "الزولو"
-

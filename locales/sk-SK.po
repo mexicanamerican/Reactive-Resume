@@ -3949,4 +3949,3 @@ msgstr "Oddialiť"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

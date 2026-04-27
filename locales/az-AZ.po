@@ -3949,4 +3949,3 @@ msgstr "Uzaqlaşdır"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
