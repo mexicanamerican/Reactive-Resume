@@ -6,12 +6,21 @@ rss: true
 
 <Update label="v5.0.20" description="27th April 2026">
 ## Features & Improvements
-- New Resume Template: **Meowth**, thanks to [@JamesGoslings](https://github.com/JamesGoslings). [#2923](https://github.com/amruthpillai/reactive-resume/pull/2923)
-- Add better email templates for password reset and email verification.
+- Added the new **Meowth** resume template (compact ATS-friendly layout with an inline three-column entry header), thanks to [@JamesGoslings](https://github.com/JamesGoslings). [#2923](https://github.com/amruthpillai/reactive-resume/pull/2923)
+- Added support for custom icon colors on section items, thanks to [@Ruzenie](https://github.com/Ruzenie). [#2928](https://github.com/amruthpillai/reactive-resume/pull/2928)
+- Improved account-related email UX with better templates for password reset and email verification. [b87f2007](https://github.com/amruthpillai/reactive-resume/commit/b87f2007)
+- Consolidated separate settings pages into a single **Integrations** page for a more streamlined configuration flow. [5d8126d4](https://github.com/amruthpillai/reactive-resume/commit/5d8126d4)
 
-## Maintenance
-- Updated dependencies and lockfile.
-- Synced translation catalogs from Crowdin.
+## Fixes
+- Added a targeted Chinese localization fix for the `Skills` section title (`zh-CN`). [#2931](https://github.com/amruthpillai/reactive-resume/pull/2931)
+- Allowed MCP localhost loopback only for local MCP clients, improving local integration behavior while keeping external access restrictions intact. [623ca5c6](https://github.com/amruthpillai/reactive-resume/commit/623ca5c6)
+
+## Maintenance & Localization
+- Updated dependencies and lockfile, including cleanup of unused exports (Knip). [e1bccbcc](https://github.com/amruthpillai/reactive-resume/commit/e1bccbcc)
+- Synced translation catalogs from Crowdin. [#2922](https://github.com/amruthpillai/reactive-resume/pull/2922), [#2925](https://github.com/amruthpillai/reactive-resume/pull/2925), [#2926](https://github.com/amruthpillai/reactive-resume/pull/2926), [#2932](https://github.com/amruthpillai/reactive-resume/pull/2932), [#2934](https://github.com/amruthpillai/reactive-resume/pull/2934), [#2935](https://github.com/amruthpillai/reactive-resume/pull/2935)
+- Updated docs to list **Meowth** alongside existing templates. [#2929](https://github.com/amruthpillai/reactive-resume/pull/2929)
+
+**Full Changelog**: [v5.0.19...v5.0.20](https://github.com/amruthpillai/reactive-resume/compare/v5.0.19...v5.0.20)
 </Update>
 
 <Update label="v5.0.19" description="25th April 2026">
