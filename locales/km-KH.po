@@ -66,7 +66,7 @@ msgstr "{diffDays, plural, other {# ថ្ងៃមុន}}"
 msgid "{months, plural, one {# month ago} other {# months ago}}"
 msgstr "{months, plural, other {# ខែមុន}}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "{used} of {limit} requests used ({remaining} remaining)"
 msgstr "បានប្រើសំណើ {used} ក្នុងចំណោម {limit} ({remaining} នៅសល់)"
 
@@ -311,7 +311,7 @@ msgid "And many more..."
 msgstr "ហើយ​មាន​ច្រើន​ទៀត..."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Anthropic Claude"
 
@@ -343,7 +343,7 @@ msgstr "អ្នក​ណា​ដែល​មាន​តំណ​នេះ �
 msgid "API Access"
 msgstr "ការចូលដំណើរការ API"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "API Key"
 msgstr "កូនសោ API"
 
@@ -354,10 +354,11 @@ msgid "API Keys"
 msgstr "កូនសោ API"
 
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Reference"
 msgstr "ឯកសារ​យោង API"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Usage"
 msgstr "ការប្រើប្រាស់ API"
 
@@ -435,8 +436,7 @@ msgid "Area of Study"
 msgstr "ជំនាញ​រៀន"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Artificial Intelligence"
 msgstr "បញ្ញាសិប្បនិម្មិត"
 
@@ -481,7 +481,7 @@ msgstr "ពណ៌​ផ្ទៃ​ខាង​ក្រោយ"
 msgid "Backup codes copied to clipboard."
 msgstr "លេខ​កូដ​បម្រុងទុក​ត្រូវ​បាន​ចម្លង​ទៅ​ក្ដារ​តម្រៀប។"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Base URL (Optional)"
 msgstr "Base URL (ជា​ជម្រើស)"
 
@@ -782,7 +782,7 @@ msgid "Could not fetch jobs from JSearch API. Please try again."
 msgstr "មិនអាចទាញយកការងារពី JSearch API បានទេ។ សូមព្យាយាមម្ដងទៀត។"
 
 #. Error shown when JSearch API connection test fails in job search settings
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Could not reach JSearch API. Check your API key and try again."
 msgstr "មិនអាចភ្ជាប់ទៅ JSearch API បានទេ។ សូមពិនិត្យសោ API របស់អ្នក ហើយព្យាយាមម្ដងទៀត។"
 
@@ -793,7 +793,7 @@ msgstr "មិនអាចភ្ជាប់ទៅ JSearch API បានទេ�
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "មិនអាចភ្ជាប់ទៅអ្នកផ្តល់សេវា AI បានទេ។ សូមព្យាយាមម្ដងទៀត។"
 
@@ -1088,7 +1088,7 @@ msgstr "បិទ 2FA"
 msgid "Disable Two-Factor Authentication"
 msgstr "បិទ​ការ​ផ្ទៀងផ្ទាត់​ពីរ​ជាន់"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Disabled"
 msgstr "បាន​បិទ"
 
@@ -1201,7 +1201,7 @@ msgid "e.g. frontend developer jobs in Berlin"
 msgstr "ឧ. ការងារអ្នកអភិវឌ្ឍន៍ frontend នៅ Berlin"
 
 #. Example model-name placeholder in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "e.g., gpt-4, claude-3-opus, gemini-pro"
 msgstr "ឧ. gpt-4, claude-3-opus, gemini-pro"
 
@@ -1251,7 +1251,7 @@ msgstr "បើក​ប្រើ"
 msgid "Enable 2FA"
 msgstr "បើក​ប្រើ 2FA"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enable AI Features"
 msgstr "បើក​ប្រើ​មុខងារ AI"
 
@@ -1259,7 +1259,7 @@ msgstr "បើក​ប្រើ​មុខងារ AI"
 msgid "Enable Two-Factor Authentication"
 msgstr "បើក​ប្រើ​ការ​ផ្ទៀងផ្ទាត់​ពីរ​ជាន់"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enabled"
 msgstr "បានបើក"
 
@@ -1311,7 +1311,7 @@ msgstr "បញ្ចូល​ពាក្យសម្ងាត់​របស់
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "បញ្ចូល​ពាក្យសម្ងាត់​របស់​អ្នក ដើម្បី​បិទ​ការ​ផ្ទៀងផ្ទាត់​ពីរ​ជាន់។ គណនី​របស់​អ្នក​នឹង​កាន់តែ​មាន​ហានិភ័យ​នៅពេល​មិន​បាន​បើក 2FA ទៀត។"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Enter your RapidAPI key"
 msgstr "បញ្ចូលសោ RapidAPI របស់អ្នក"
 
@@ -1319,7 +1319,7 @@ msgstr "បញ្ចូលសោ RapidAPI របស់អ្នក"
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "រាល់​ការរួមចំណែក មួយ​ធំនោ ឬ​តូច ក៏​មាន​ឥទ្ធិពល​យ៉ាង​ច្រើន​លើ​គម្រោង​នេះ។<0/>សូម​អរគុណ​ចំពោះ​ការគាំទ្រ​របស់​អ្នក!"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Everything entered here is stored locally on your browser. Your data is only sent to the server when making a request to the AI provider, and is never stored or logged on our servers."
 msgstr "អ្វី​ដែល​បាន​បញ្ចូល​នៅ​ទីនេះ​ទាំងអស់ ត្រូវ​បាន​រក្សាទុក​នៅ​ក្នុង​កម្មវិធី​រុករក​របស់​អ្នក​តែប៉ុណ្ណោះ។ ទិន្នន័យ​របស់​អ្នក​ត្រូវ​បាន​ផ្ញើ​ទៅ​ម៉ាស៊ីន​បម្រើ​តែ​នៅ​ពេល​មាន​សំណើ​ទៅ​កាន់​អ្នកផ្តល់​សេវា AI ប៉ុណ្ណោះ ហើយ​មិនត្រូវ​បាន​រក្សាទុក ឬ​កត់ត្រា​នៅ​លើ​ម៉ាស៊ីន​បម្រើ​របស់​យើង​ឡើយ។"
 
@@ -1476,12 +1476,12 @@ msgid "Failed to sync skills"
 msgstr "បរាជ័យក្នុងការធ្វើសមកាលកម្មជំនាញ"
 
 #. Fallback toast when testing AI provider connection fails
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Failed to test AI provider connection. Please try again."
 msgstr "បរាជ័យក្នុងការសាកល្បងការតភ្ជាប់អ្នកផ្តល់សេវា AI។ សូមព្យាយាមម្ដងទៀត។"
 
 #. Fallback toast when testing RapidAPI job search connection fails
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Failed to test RapidAPI connection. Please try again."
 msgstr "បរាជ័យក្នុងការសាកល្បងការតភ្ជាប់ RapidAPI។ សូមព្យាយាមម្ដងទៀត។"
 
@@ -1639,7 +1639,7 @@ msgstr "ទទួលបានការពិនិត្យប្រវត្ត
 msgid "Get Started"
 msgstr "ចាប់ផ្តើម"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
 msgstr "ទទួលបានសោ API របស់អ្នកពី RapidAPI ដោយជាវ JSearch API។"
 
@@ -1660,14 +1660,14 @@ msgstr "ត្រឡប់​ក្រោយ"
 msgid "Go to dashboard"
 msgstr "ទៅ​កាន់​ផ្ទាំង​គ្រប់គ្រង"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Integrations"
+msgstr ""
+
 #. Accessible label for button navigating from builder to resumes dashboard
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Go to resumes dashboard"
 msgstr "ទៅកាន់ផ្ទាំងគ្រប់គ្រងប្រវត្តិរូប"
-
-#: src/routes/dashboard/job-search/index.tsx
-msgid "Go to Settings"
-msgstr "ទៅកាន់ការកំណត់"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1681,7 +1681,7 @@ msgid "Google"
 msgstr "Google"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Google Gemini"
 msgstr "Google Gemini"
 
@@ -1864,6 +1864,12 @@ msgstr "កូដ​ក្នុង​បន្ទាត់"
 msgid "Insert Table"
 msgstr "បញ្ចូល​តារាង"
 
+#: src/components/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/integrations/route.tsx
+msgid "Integrations"
+msgstr ""
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
@@ -1874,7 +1880,7 @@ msgid "Intern"
 msgstr "កម្មសិក្សាករ"
 
 #. Error shown when AI provider credentials or base URL are invalid in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Invalid AI provider configuration. Please check your settings."
 msgstr "ការកំណត់រចនាសម្ព័ន្ធអ្នកផ្តល់សេវា AI មិនត្រឹមត្រូវទេ។ សូមពិនិត្យការកំណត់របស់អ្នក។"
 
@@ -1904,11 +1910,11 @@ msgstr "Japanese"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Job Search"
 msgstr "ស្វែងរកការងារ"
 
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/components/command-palette/pages/navigation.tsx
 msgid "Job Search API"
 msgstr "API ស្វែងរកការងារ"
 
@@ -1942,13 +1948,9 @@ msgstr "john.doe"
 msgid "john.doe@example.com"
 msgstr "john.doe@example.com"
 
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
-msgstr "JSearch ប្រមូលបញ្ជីការងារពីក្តារការងារជាច្រើនដោយប្រើ Google for Jobs។ អ្នកអាចត្រងតាមប្រទេស (កូដ ISO alpha-2) កាលបរិច្ឆេទប្រកាស ប្រភេទការងារ ជម្រើសការងារពីចម្ងាយ និងកម្រិតបទពិសោធន៍។"
-
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch API Documentation"
-msgstr "ឯកសារណែនាំ JSearch API"
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
+msgid "JSearch aggregates job listings from multiple job boards. You can filter by country, date posted, job type, remote options, and experience level."
+msgstr ""
 
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
@@ -2199,7 +2201,7 @@ msgstr "Microsoft Word"
 msgid "Minimum Salary"
 msgstr "ប្រាក់ខែអប្បបរមា"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Model"
 msgstr "ម៉ូដែល"
 
@@ -2317,7 +2319,7 @@ msgid "Odia"
 msgstr "Odia"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Ollama"
 msgstr "Ollama"
 
@@ -2336,26 +2338,26 @@ msgstr "ការថែទាំ​បន្ត"
 msgid "Open"
 msgstr "បើក"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Open AI Settings"
-msgstr "បើកការកំណត់ AI"
-
 #. Button label to open the user's default email app
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "បើក​កម្មវិធី​អ៊ីមែល"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open Integrations Settings"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "បើក​ប្រភព"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenAI"
 msgstr "OpenAI"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenRouter"
 msgstr "OpenRouter"
 
@@ -2599,7 +2601,7 @@ msgstr "ការពារ​ប្រវត្តិរូប​របស់​
 msgid "Protect your resume with a password, and let only people with the password view it."
 msgstr "ការពារ​ប្រវត្តិរូប​របស់​អ្នក​ដោយ​ពាក្យសម្ងាត់ ហើយ​អនុញ្ញាត​ឲ្យ​តែ​មនុស្ស​ដែល​មាន​ពាក្យសម្ងាត់​ប៉ុណ្ណោះ​អាច​មើល​វា។"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Provider"
 msgstr "អ្នកផ្តល់សេវា"
 
@@ -2617,7 +2619,7 @@ msgstr "អ្នកបោះពុម្ពផ្សាយ"
 msgid "Quota: {0} remaining"
 msgstr "កូតា៖ នៅសល់ {0}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "RapidAPI Key"
 msgstr "សោ RapidAPI"
 
@@ -3269,8 +3271,8 @@ msgstr "វិចិត្រសាល​គំរូ"
 msgid "Templates"
 msgstr "គំរូ"
 
-#: src/routes/dashboard/settings/ai.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Test Connection"
 msgstr "សាក​ល្បង​តភ្ជាប់"
 
@@ -3739,7 +3741,7 @@ msgid "Valid URLs must start with http:// or https://."
 msgstr "URL ត្រឹមត្រូវ ត្រូវតែ​ចាប់ផ្តើម​ដោយ http:// ឬ https://។"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Vercel AI Gateway"
 msgstr "Vercel AI Gateway"
 
@@ -3805,7 +3807,7 @@ msgstr "គេហទំព័រ"
 msgid "What do you want to rename this section to?"
 msgstr "តើ​អ្នក​ចង់​ប្ដូរ​ឈ្មោះ​ផ្នែក​នេះ​ទៅ​ជា​អ្វី?"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "What is JSearch API?"
 msgstr "តើ JSearch API ជាអ្វី?"
 
@@ -3880,7 +3882,7 @@ msgstr "ការ​ផ្លាស់ប្ដូរ​របស់​អ្ន
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "ទិន្នន័យ​របស់​អ្នក​មាន​សុវត្ថិភាព ហើយ​មិន​ដែល​ត្រូវ​បាន​ចែករំលែក ឬ​លក់​ឲ្យ​នរណា​ម្នាក់​ទេ។"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Your data is stored locally"
 msgstr "ទិន្នន័យ​របស់​អ្នក​ត្រូវ​បានរក្សាទុក​ក្នុងកម្មវិធីរុករករបស់​អ្នក​តែប៉ុណ្ណោះ"
 
@@ -3904,7 +3906,7 @@ msgstr "ពាក្យសម្ងាត់​របស់​អ្នក​ត
 msgid "Your profile has been updated successfully."
 msgstr "ប្រវត្តិ​សង្ខេប​របស់​អ្នក​ត្រូវ​បាន​បច្ចុប្បន្នភាព​ដោយ​ជោគជ័យ។"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
 msgstr "សោ RapidAPI របស់អ្នកត្រូវបានរក្សាទុកក្នុងកម្មវិធីរុករករបស់អ្នកតែប៉ុណ្ណោះ។ វាត្រូវបានផ្ញើទៅម៉ាស៊ីនមេតែនៅពេលធ្វើសំណើស្វែងរកការងារ ហើយមិនត្រូវបានរក្សាទុក ឬកត់ត្រានៅលើម៉ាស៊ីនមេរបស់យើងឡើយ។"
 
@@ -3949,4 +3951,3 @@ msgstr "បង្រួម"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

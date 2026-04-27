@@ -36,5 +36,6 @@
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "tailwindCSS.experimental.configFile": "src/styles/globals.css",
-  "typescript.experimental.useTsgo": true
+  "typescript.experimental.useTsgo": true,
+  "i18n-ally.keystyle": "nested"
 }

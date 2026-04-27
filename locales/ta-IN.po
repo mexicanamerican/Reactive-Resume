@@ -66,7 +66,7 @@ msgstr "{diffDays, plural, one {# நாட்களுக்கு முன்
 msgid "{months, plural, one {# month ago} other {# months ago}}"
 msgstr "{months, plural, one {# மாதம் முன்பு} other {# மாதங்கள் முன்பு}}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "{used} of {limit} requests used ({remaining} remaining)"
 msgstr "{used} பயன்படுத்தப்பட்ட {limit} கோரிக்கைகள் ({remaining} மீதம்)"
 
@@ -311,7 +311,7 @@ msgid "And many more..."
 msgstr "மேலும் பல..."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "ஆந்த்ரோபிக் கிளாட்"
 
@@ -343,7 +343,7 @@ msgstr "இந்த இணைப்பு இருக்கும் அனை
 msgid "API Access"
 msgstr "API அணுகல்"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "API Key"
 msgstr "API விசை"
 
@@ -354,10 +354,11 @@ msgid "API Keys"
 msgstr "API விசைகள்"
 
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Reference"
 msgstr "API குறிப்பு"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Usage"
 msgstr "ஏபிஐ பயன்பாடு"
 
@@ -435,8 +436,7 @@ msgid "Area of Study"
 msgstr "கற்றல் துறை"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Artificial Intelligence"
 msgstr "செயற்கை நுண்ணறிவு"
 
@@ -481,7 +481,7 @@ msgstr "பின்னணி நிறம்"
 msgid "Backup codes copied to clipboard."
 msgstr "காப்பு குறியீடுகள் கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டுள்ளன."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Base URL (Optional)"
 msgstr "அடிப்படை URL (விருப்பத்தேர்வு)"
 
@@ -782,7 +782,7 @@ msgid "Could not fetch jobs from JSearch API. Please try again."
 msgstr "JSearch API-யிலிருந்து வேலைகளைப் பெற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #. Error shown when JSearch API connection test fails in job search settings
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Could not reach JSearch API. Check your API key and try again."
 msgstr "JSearch API-ஐ அணுக முடியவில்லை. உங்கள் API சாவியைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
 
@@ -793,7 +793,7 @@ msgstr "JSearch API-ஐ அணுக முடியவில்லை. உங�
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "AI வழங்குநரை அடைய முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
@@ -1088,7 +1088,7 @@ msgstr "2FA-ஐ முடக்கு"
 msgid "Disable Two-Factor Authentication"
 msgstr "இரண்டு நிலை அங்கீகாரத்தை முடக்கு"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Disabled"
 msgstr "முடக்கப்பட்டது"
 
@@ -1201,7 +1201,7 @@ msgid "e.g. frontend developer jobs in Berlin"
 msgstr "எ.கா. பெர்லினில் முன்முனை உருவாக்குநர் வேலைகள்"
 
 #. Example model-name placeholder in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "e.g., gpt-4, claude-3-opus, gemini-pro"
 msgstr "எ.கா., ஜிபிடி-4, கிளாட்-3-ஓபஸ், ஜெமினி-ப்ரோ"
 
@@ -1251,7 +1251,7 @@ msgstr "இயக்கு"
 msgid "Enable 2FA"
 msgstr "2FA-ஐ இயக்கு"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enable AI Features"
 msgstr "AI அம்சங்களை இயக்கு"
 
@@ -1259,7 +1259,7 @@ msgstr "AI அம்சங்களை இயக்கு"
 msgid "Enable Two-Factor Authentication"
 msgstr "இரண்டு நிலை அங்கீகாரத்தை இயக்கு"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enabled"
 msgstr "இயக்கப்பட்டுள்ளது"
 
@@ -1311,7 +1311,7 @@ msgstr "இரண்டு நிலை அங்கீகாரத்தை அ
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "இரண்டு நிலை அங்கீகாரத்தை முடக்க உங்கள் கடவுச்சொல்லை உள்ளிடவும். 2FA இயங்காவிட்டால் உங்கள் கணக்கு குறைந்த பாதுகாப்புடன் இருக்கும்."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Enter your RapidAPI key"
 msgstr "உங்கள் RapidAPI சாவியை உள்ளிடவும்"
 
@@ -1319,7 +1319,7 @@ msgstr "உங்கள் RapidAPI சாவியை உள்ளிடவு�
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "ஒவ்வொரு பங்களிப்பும், பெரியதோ சிறியதோ, இந்த திட்டத்திற்கு மிகப் பெரிய மாற்றத்தை கொண்டுவந்து விடுகிறது.<0/>உங்கள் ஆதரவுக்கு நன்றி!"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Everything entered here is stored locally on your browser. Your data is only sent to the server when making a request to the AI provider, and is never stored or logged on our servers."
 msgstr "இங்கே நீங்கள் உள்ளிடும் அனைத்தும் உங்கள் உலாவியில் உள்ளகமாக சேமிக்கப்படும். உங்கள் தரவு AI வழங்குநருக்கு கோரிக்கை அனுப்பும் போது மட்டுமே சேவையகத்துக்கு அனுப்பப்படும்; எங்களது சேவையகங்களில் ஒருபோதும் சேமிக்கவோ பதிவு செய்யவோ செய்யாது."
 
@@ -1476,12 +1476,12 @@ msgid "Failed to sync skills"
 msgstr "திறன்களை ஒத்திசைக்கத் தவறியது"
 
 #. Fallback toast when testing AI provider connection fails
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Failed to test AI provider connection. Please try again."
 msgstr "AI வழங்குநர் இணைப்பைச் சோதிக்கத் தவறியது. மீண்டும் முயற்சிக்கவும்."
 
 #. Fallback toast when testing RapidAPI job search connection fails
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Failed to test RapidAPI connection. Please try again."
 msgstr "RapidAPI இணைப்பைச் சோதிக்கத் தவறியது. மீண்டும் முயற்சிக்கவும்."
 
@@ -1639,7 +1639,7 @@ msgstr "உங்கள் ரெஸ்யூமிற்கான ஆழமா�
 msgid "Get Started"
 msgstr "தொடங்குங்கள்"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
 msgstr "JSearch API-க்குச் சந்தா செலுத்துவதன் மூலம் RapidAPI-யிலிருந்து உங்கள் API சாவியைப் பெறுங்கள்."
 
@@ -1660,14 +1660,14 @@ msgstr "திரும்பிச் செல்"
 msgid "Go to dashboard"
 msgstr "டாஷ்போர்டுக்கு செல்லவும்"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Integrations"
+msgstr ""
+
 #. Accessible label for button navigating from builder to resumes dashboard
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Go to resumes dashboard"
 msgstr "விண்ணப்பங்கள் டாஷ்போர்டுக்குச் செல்லவும்"
-
-#: src/routes/dashboard/job-search/index.tsx
-msgid "Go to Settings"
-msgstr "அமைப்புகளுக்குச் செல்க"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1681,7 +1681,7 @@ msgid "Google"
 msgstr "கூகிள்"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Google Gemini"
 msgstr "கூகிள் ஜெமினி"
 
@@ -1864,6 +1864,12 @@ msgstr "இன்லைன் குறியீடு"
 msgid "Insert Table"
 msgstr "அட்டவணையை நுழைக்கவும்"
 
+#: src/components/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/integrations/route.tsx
+msgid "Integrations"
+msgstr ""
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
@@ -1874,7 +1880,7 @@ msgid "Intern"
 msgstr "பயிற்சியாளர்"
 
 #. Error shown when AI provider credentials or base URL are invalid in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Invalid AI provider configuration. Please check your settings."
 msgstr "செயலற்ற AI வழங்குநர் உள்ளமைவு. தயவுசெய்து உங்கள் அமைப்புகளைச் சரிபார்க்கவும்."
 
@@ -1904,11 +1910,11 @@ msgstr "ஜப்பானியம்"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Job Search"
 msgstr "வேலை தேடல்"
 
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/components/command-palette/pages/navigation.tsx
 msgid "Job Search API"
 msgstr "வேலை தேடல் ஏபிஐ"
 
@@ -1942,13 +1948,9 @@ msgstr "ஜான்.டோ"
 msgid "john.doe@example.com"
 msgstr "john.doe@example.com"
 
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
-msgstr "ஜேசர்ச், 'Google for Jobs'-ஐப் பயன்படுத்தி பல வேலை வாரியங்களிலிருந்து வேலைப் பட்டியல்களைத் திரட்டுகிறது. நீங்கள் நாடு (ISO ஆல்ஃபா-2 குறியீடு), வெளியிடப்பட்ட தேதி, வேலை வகை, தொலைநிலை வேலை வாய்ப்புகள் மற்றும் அனுபவ நிலை ஆகியவற்றின் அடிப்படையில் வடிகட்டலாம்."
-
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch API Documentation"
-msgstr "ஜேசர்ச் ஏபிஐ ஆவணங்கள்"
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
+msgid "JSearch aggregates job listings from multiple job boards. You can filter by country, date posted, job type, remote options, and experience level."
+msgstr ""
 
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
@@ -2199,7 +2201,7 @@ msgstr "மைக்ரோசாஃப்ட் வேர்ட்"
 msgid "Minimum Salary"
 msgstr "குறைந்தபட்ச சம்பளம்"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Model"
 msgstr "மாதிரி"
 
@@ -2317,7 +2319,7 @@ msgid "Odia"
 msgstr "ஒடியா"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Ollama"
 msgstr "ஓல்லாமா"
 
@@ -2336,26 +2338,26 @@ msgstr "தொடர்ந்து பராமரிப்பு"
 msgid "Open"
 msgstr "திற"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Open AI Settings"
-msgstr "AI அமைப்புகளைத் திற"
-
 #. Button label to open the user's default email app
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "மின்னஞ்சல் பயன்பாட்டை திறக்கவும்"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open Integrations Settings"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "திறந்த மூல"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenAI"
 msgstr "ஓப்பன்ஏஐ"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenRouter"
 msgstr "ஓப்பன்ரவுட்டர்"
 
@@ -2599,7 +2601,7 @@ msgstr "உங்கள் ரெஸ்யூமியை அனுமதிய�
 msgid "Protect your resume with a password, and let only people with the password view it."
 msgstr "உங்கள் ரெஸ்யூமியை கடவுச்சொல்லால் பாதுகாக்கவும், கடவுச்சொல் தெரிந்தவர்களுக்கே அதை பார்க்க அனுமதிக்கவும்."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Provider"
 msgstr "வழங்குபவர்"
 
@@ -2617,7 +2619,7 @@ msgstr "பதிப்பாளர்"
 msgid "Quota: {0} remaining"
 msgstr "கோட்டா: {0} மீதமுள்ள"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI சாவியை உள்ளிடவும்"
 
@@ -3269,8 +3271,8 @@ msgstr "டெம்ப்ளேட் கலேரி"
 msgid "Templates"
 msgstr "டெம்ப்ளேட்டுகள்"
 
-#: src/routes/dashboard/settings/ai.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Test Connection"
 msgstr "இணைப்பை சோதிக்கவும்"
 
@@ -3739,7 +3741,7 @@ msgid "Valid URLs must start with http:// or https://."
 msgstr "சரியான URL-கள் http:// அல்லது https:// கொண்டு தொடங்க வேண்டும்."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Vercel AI Gateway"
 msgstr "வெர்சல் ஏஐ கேட்வே"
 
@@ -3805,7 +3807,7 @@ msgstr "இணையதளம்"
 msgid "What do you want to rename this section to?"
 msgstr "இந்த பகுதியை என்ன என்று மறுபெயரிட விரும்புகிறீர்கள்?"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "What is JSearch API?"
 msgstr "JSearch API என்றால் என்ன?"
 
@@ -3880,7 +3882,7 @@ msgstr "உங்கள் மாற்றங்கள் தானாகவே 
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "உங்கள் தரவு பாதுகாப்பாக உள்ளது; எவருடனும் பகிரப்பட்டோ விற்கப்பட்டோ இருக்காது."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Your data is stored locally"
 msgstr "உங்கள் தரவு உங்கள் உலாவியில் உள்ளகமாக சேமிக்கப்பட்டுள்ளது"
 
@@ -3904,7 +3906,7 @@ msgstr "உங்கள் கடவுச்சொல் வெற்றிக�
 msgid "Your profile has been updated successfully."
 msgstr "உங்கள் சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டுள்ளது."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
 msgstr "உங்கள் RapidAPI சாவியை உங்கள் உலாவியில் உள்ளூரில் சேமித்து வைக்கப்பட்டுள்ளது. வேலைகளைத் தேடுவதற்கான கோரிக்கையைச் செய்யும்போது மட்டுமே அது சேவையகத்திற்கு அனுப்பப்படும், மேலும் எங்கள் சேவையகங்களில் அது ஒருபோதும் சேமிக்கப்படவோ அல்லது பதிவு செய்யப்படவோ இல்லை."
 
@@ -3949,4 +3951,3 @@ msgstr "சிறிதாக்கு"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "ஜூலு"
-
