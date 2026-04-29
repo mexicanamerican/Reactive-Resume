@@ -8,7 +8,13 @@ type ContextWithHeaders = {
   user?: { id: string } | null;
 };
 
-export const TRUSTED_IP_HEADERS = ["CF-Connecting-IP", "X-Forwarded-For", "X-Real-IP", "True-Client-IP"];
+export const TRUSTED_IP_HEADERS = [
+  "CF-Connecting-IP",
+  "CF-Connecting-IPv6",
+  "True-Client-IP",
+  "X-Forwarded-For",
+  "X-Real-IP",
+];
 
 function getTrustedIp(headers?: Headers): string | null {
   if (!headers) return null;
