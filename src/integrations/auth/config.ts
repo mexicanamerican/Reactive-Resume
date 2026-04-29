@@ -374,7 +374,6 @@ const getAuthConfig = () => {
       genericOAuth({ config: authConfigs }),
       twoFactor({ issuer: "Reactive Resume" }),
       apiKey({ enableSessionForAPIKeys: true, rateLimit: rateLimitConfig.betterAuth.apiKey }),
-      dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } }),
       oauthProvider({
         loginPage: "/auth/oauth",
         consentPage: "/auth/oauth",
@@ -394,6 +393,9 @@ const getAuthConfig = () => {
         usernameValidator: (username) => /^[a-z0-9._-]+$/.test(username),
         validationOrder: { username: "post-normalization", displayUsername: "post-normalization" },
       }),
+      ...(env.BETTER_AUTH_API_KEY
+        ? [dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } })]
+        : []),
     ],
   });
 };
