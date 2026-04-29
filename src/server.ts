@@ -14,8 +14,17 @@ function setIfAbsent(headers: Headers, key: string, value: string) {
   if (!headers.has(key)) headers.set(key, value);
 }
 
+const reservedPathPrefixes = ["/assets/"];
+
+export function isReservedPathRequest(request: Request) {
+  const { pathname } = new URL(request.url);
+  return reservedPathPrefixes.some((prefix) => pathname.startsWith(prefix));
+}
+
 export default createServerEntry({
   async fetch(request) {
+    if (isReservedPathRequest(request)) return new Response(null, { status: 404 });
+
     const response = await handler.fetch(request);
     const headers = new Headers(response.headers);
     const contentType = headers.get("content-type") ?? "";
