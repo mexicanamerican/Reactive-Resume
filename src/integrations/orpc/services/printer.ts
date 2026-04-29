@@ -187,7 +187,7 @@ async function doPrintResumeAsPDF(
         ),
       );
     await page
-      .waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 })
+      .waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true")
       .catch((error) =>
         throwPrinterStepError(
           "Resume print page did not finish loading",
@@ -522,7 +522,7 @@ async function doGetResumeScreenshot(
         ),
       );
     await page
-      .waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true", { timeout: 5_000 })
+      .waitForFunction(() => document.body.getAttribute("data-wf-loaded") === "true")
       .catch((error) =>
         throwPrinterStepError(
           "Resume screenshot page did not finish loading",
