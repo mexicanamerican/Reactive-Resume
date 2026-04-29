@@ -52,6 +52,7 @@ if (!isVitest) {
         skipWaiting: true,
         clientsClaim: true,
         globPatterns: ["**/*"],
+        globIgnores: ["**/manifest.webmanifest"],
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10mb
         navigateFallback: null, // Disable navigation fallback for SSR
       },
