@@ -15,17 +15,18 @@ import { username } from "better-auth/plugins/username";
 import { eq, or } from "drizzle-orm";
 import { createElement } from "react";
 
+import { rateLimitConfig } from "@/integrations/rate-limit/config";
 import { env } from "@/utils/env";
 import { hashPassword, verifyPassword } from "@/utils/password";
 import { generateId, toUsername } from "@/utils/string";
 import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@/utils/url-security";
-import { rateLimitConfig } from "@/integrations/rate-limit/config";
 
 import { schema } from "../drizzle";
 import { db } from "../drizzle/client";
 import { lower } from "../drizzle/helpers";
 import { sendEmail } from "../email/service";
 import { ResetPasswordEmail, VerifyEmail, VerifyEmailChange } from "../email/templates/auth";
+import { TRUSTED_IP_HEADERS } from "../orpc/rate-limit";
 
 export const authBaseUrl = process.env.BETTER_AUTH_URL ?? env.APP_URL;
 
@@ -266,7 +267,7 @@ const getAuthConfig = () => {
     advanced: {
       database: { generateId },
       useSecureCookies: env.APP_URL.startsWith("https://"),
-      ipAddress: { ipAddressHeaders: ["x-forwarded-for", "cf-connecting-ip"] },
+      ipAddress: { ipAddressHeaders: TRUSTED_IP_HEADERS },
     },
 
     emailAndPassword: {
