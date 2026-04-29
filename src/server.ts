@@ -23,7 +23,7 @@ export default createServerEntry({
     // Policy for PDF printer routes
     if (request.url.includes("/printer/")) {
       headers.set(
-        "Content-Security-Policy-Report-Only",
+        "Content-Security-Policy",
         `default-src 'self'; img-src 'self' data:; font-src ${fontSrc}; style-src ${styleSrc}; connect-src 'self'; script-src ${scriptSrc}; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self';`,
       );
     }
@@ -33,7 +33,7 @@ export default createServerEntry({
       setIfAbsent(headers, "Cross-Origin-Resource-Policy", "same-site");
       setIfAbsent(
         headers,
-        "Content-Security-Policy-Report-Only",
+        "Content-Security-Policy",
         `default-src 'self'; script-src ${scriptSrc}; worker-src 'self' blob:; style-src ${styleSrc}; img-src 'self' data: blob: https:; font-src ${fontSrc} data:; connect-src 'self' https: wss:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';`,
       );
     }
