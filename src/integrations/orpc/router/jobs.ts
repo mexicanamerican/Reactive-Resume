@@ -4,6 +4,7 @@ import z from "zod";
 import { postFilterOptionsSchema, searchParamsSchema } from "@/schema/jobs";
 
 import { protectedProcedure } from "../context";
+import { jobsSearchRateLimit, jobsTestConnectionRateLimit } from "../rate-limit";
 import { jobsService } from "../services/jobs";
 
 export const jobsRouter = {
@@ -19,6 +20,7 @@ export const jobsRouter = {
       successDescription: "The RapidAPI key is valid and JSearch is reachable.",
     })
     .input(z.object({ apiKey: z.string().min(1) }))
+    .use(jobsTestConnectionRateLimit)
     .errors({
       BAD_GATEWAY: {
         message: "The JSearch API returned an error or is unreachable.",
@@ -54,6 +56,7 @@ export const jobsRouter = {
         filters: postFilterOptionsSchema.optional(),
       }),
     )
+    .use(jobsSearchRateLimit)
     .errors({
       BAD_GATEWAY: {
         message: "The JSearch API returned an error or is unreachable.",

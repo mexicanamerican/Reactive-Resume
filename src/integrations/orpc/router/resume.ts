@@ -6,7 +6,7 @@ import { generateRandomName, slugify } from "@/utils/string";
 
 import { protectedProcedure, publicProcedure } from "../context";
 import { resumeDto } from "../dto/resume";
-import { resumePasswordRateLimit } from "../rate-limit";
+import { resumeMutationRateLimit, resumePasswordRateLimit } from "../rate-limit";
 import { resumeService } from "../services/resume";
 
 const tagsRouter = {
@@ -145,6 +145,7 @@ export const resumeRouter = {
       successDescription: "The ID of the newly created resume.",
     })
     .input(resumeDto.create.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.create.output)
     .errors({
       RESUME_SLUG_ALREADY_EXISTS: {
@@ -175,6 +176,7 @@ export const resumeRouter = {
       successDescription: "The ID of the imported resume.",
     })
     .input(resumeDto.import.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.import.output)
     .errors({
       RESUME_SLUG_ALREADY_EXISTS: {
@@ -208,6 +210,7 @@ export const resumeRouter = {
       successDescription: "The updated resume with its full data.",
     })
     .input(resumeDto.update.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.update.output)
     .errors({
       RESUME_SLUG_ALREADY_EXISTS: {
@@ -239,6 +242,7 @@ export const resumeRouter = {
       successDescription: "The patched resume with its full data.",
     })
     .input(resumeDto.patch.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.patch.output)
     .errors({
       INVALID_PATCH_OPERATIONS: {
@@ -266,6 +270,7 @@ export const resumeRouter = {
       successDescription: "The resume lock status was updated successfully.",
     })
     .input(resumeDto.setLocked.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.setLocked.output)
     .handler(async ({ context, input }) => {
       return resumeService.setLocked({
@@ -287,6 +292,7 @@ export const resumeRouter = {
       successDescription: "The resume password was set successfully.",
     })
     .input(resumeDto.setPassword.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.setPassword.output)
     .handler(async ({ context, input }) => {
       return resumeService.setPassword({
@@ -336,6 +342,7 @@ export const resumeRouter = {
       successDescription: "The resume password was removed successfully.",
     })
     .input(resumeDto.removePassword.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.removePassword.output)
     .handler(async ({ context, input }) => {
       return resumeService.removePassword({
@@ -356,6 +363,7 @@ export const resumeRouter = {
       successDescription: "The ID of the duplicated resume.",
     })
     .input(resumeDto.duplicate.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.duplicate.output)
     .handler(async ({ context, input }) => {
       const original = await resumeService.getById({ id: input.id, userId: context.user.id });
@@ -382,6 +390,7 @@ export const resumeRouter = {
       successDescription: "The resume and its associated files were deleted successfully.",
     })
     .input(resumeDto.delete.input)
+    .use(resumeMutationRateLimit)
     .output(resumeDto.delete.output)
     .handler(async ({ context, input }) => {
       return resumeService.delete({ id: input.id, userId: context.user.id });

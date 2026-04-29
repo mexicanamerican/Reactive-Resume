@@ -2,6 +2,7 @@ import { ORPCError } from "@orpc/server";
 import z from "zod";
 
 import { protectedProcedure } from "../context";
+import { storageDeleteRateLimit, storageUploadRateLimit } from "../rate-limit";
 import { getStorageService, isImageFile, processImageForUpload, uploadFile } from "../services/storage";
 
 const storageService = getStorageService();
@@ -31,6 +32,7 @@ export const storageRouter = {
       successDescription: "The file was uploaded successfully.",
     })
     .input(fileSchema)
+    .use(storageUploadRateLimit)
     .output(
       z.object({
         url: z.string().describe("The public URL to access the uploaded file."),
@@ -79,6 +81,7 @@ export const storageRouter = {
       successDescription: "The file was deleted successfully.",
     })
     .input(filenameSchema)
+    .use(storageDeleteRateLimit)
     .output(z.void())
     .errors({
       NOT_FOUND: {

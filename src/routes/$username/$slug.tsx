@@ -15,6 +15,9 @@ type LoaderData = Omit<RouterOutput["resume"]["getBySlug"], "data"> & { data: Re
 
 export const Route = createFileRoute("/$username/$slug")({
   component: RouteComponent,
+  beforeLoad: async ({ location }) => {
+    console.log("/$username/$slug was invoked with pathname: ", location.pathname);
+  },
   loader: async ({ context, params }) => {
     const { username, slug } = params;
     const resume = await context.queryClient.ensureQueryData(

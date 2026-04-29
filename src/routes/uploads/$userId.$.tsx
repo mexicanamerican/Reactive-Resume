@@ -143,7 +143,6 @@ function buildResponseHeaders({
   headers.set("X-Robots-Tag", "noindex, nofollow");
   headers.set("Cross-Origin-Resource-Policy", "same-site");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  headers.set("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; sandbox;");
   headers.set("X-Frame-Options", "DENY");
   headers.set("X-Download-Options", "noopen");
   headers.set("Access-Control-Allow-Origin", env.APP_URL);
