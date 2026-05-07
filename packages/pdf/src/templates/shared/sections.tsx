@@ -38,6 +38,7 @@ import { MetaLine } from "./meta-line";
 import { getTemplateMetrics } from "./metrics";
 import { Bold, Div, Heading, Icon, Link, Small, Text } from "./primitives";
 import { RichText } from "./rich-text";
+import { getInlineItemWebsiteUrl, shouldRenderSeparateItemWebsite } from "./section-links";
 import { composeStyles } from "./styles";
 
 type SectionItemsContextValue = {
@@ -206,6 +207,27 @@ const SectionItemHeader = ({ children }: { children: ReactNode }) => {
 	return <View style={composeStyles(sectionItemHeaderStyle)}>{children}</View>;
 };
 
+type ItemWebsite = {
+	url: string;
+	label: string;
+	inlineLink?: boolean | undefined;
+};
+
+const ItemTitle = ({ children, website }: { children: ReactNode; website: ItemWebsite }) => {
+	const inlineWebsiteUrl = getInlineItemWebsiteUrl(website);
+	const title = <Bold>{children}</Bold>;
+
+	if (!inlineWebsiteUrl) return title;
+
+	return <Link src={inlineWebsiteUrl}>{title}</Link>;
+};
+
+const ItemWebsiteLink = ({ website }: { website: ItemWebsite }) => {
+	if (!shouldRenderSeparateItemWebsite(website)) return null;
+
+	return <Link src={website.url}>{website.label || website.url}</Link>;
+};
+
 const SummarySection = ({ showHeading = true }: { showHeading?: boolean } = {}) => {
 	const data = useRender();
 	const { summary } = data;
@@ -272,9 +294,7 @@ const ProfileSection = ({
 								<Bold>{item.network}</Bold>
 							</View>
 						</SectionItemHeader>
-						<Link src={item.website.url}>
-							<Text>{item.username}</Text>
-						</Link>
+						<Link src={item.website.url}>{item.username}</Link>
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -316,7 +336,7 @@ const ExperienceSection = ({
 									</Text>
 								) : null
 							}
-							middle={<Bold>{item.company}</Bold>}
+							middle={<ItemTitle website={item.website}>{item.company}</ItemTitle>}
 							trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
 						/>
 					);
@@ -324,7 +344,7 @@ const ExperienceSection = ({
 					const renderSplitHeader = () => (
 						<>
 							<View style={composeStyles(splitRowStyle)}>
-								<Bold>{item.company}</Bold>
+								<ItemTitle website={item.website}>{item.company}</ItemTitle>
 								<Text style={composeStyles(alignRightStyle)}>{item.location}</Text>
 							</View>
 
@@ -355,11 +375,7 @@ const ExperienceSection = ({
 
 							{item.roles.length === 0 && <RichText>{item.description}</RichText>}
 
-							{item.website.url && (
-								<Link src={item.website.url}>
-									<Small>{item.website.label || item.website.url}</Small>
-								</Link>
-							)}
+							<ItemWebsiteLink website={item.website} />
 						</SectionItem>
 					);
 				})}
@@ -406,7 +422,7 @@ const EducationSection = ({
 										</Text>
 									) : null
 								}
-								middle={<Bold>{item.school}</Bold>}
+								middle={<ItemTitle website={item.website}>{item.school}</ItemTitle>}
 								trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
 							/>
 							{gradeAndLocation && <Text>{gradeAndLocation}</Text>}
@@ -416,7 +432,7 @@ const EducationSection = ({
 					const renderSplitHeader = () => (
 						<>
 							<View style={composeStyles(splitRowStyle)}>
-								<Bold>{item.school}</Bold>
+								<ItemTitle website={item.website}>{item.school}</ItemTitle>
 								<Text style={composeStyles(alignRightStyle)}>{degreeAndGrade}</Text>
 							</View>
 
@@ -433,11 +449,7 @@ const EducationSection = ({
 
 							<RichText>{item.description}</RichText>
 
-							{item.website.url && (
-								<Link src={item.website.url}>
-									<Small>{item.website.label || item.website.url}</Small>
-								</Link>
-							)}
+							<ItemWebsiteLink website={item.website} />
 						</SectionItem>
 					);
 				})}
@@ -468,18 +480,14 @@ const ProjectsSection = ({
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle)}>
-								<Bold>{item.name}</Bold>
+								<ItemTitle website={item.website}>{item.name}</ItemTitle>
 								<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>
 							</View>
 						</SectionItemHeader>
 
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -610,17 +618,13 @@ const AwardsSection = ({
 				{items.map((item) => (
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
-							<Bold>{item.title}</Bold>
+							<ItemTitle website={item.website}>{item.title}</ItemTitle>
 							<Text>{item.awarder}</Text>
 							<Small>{item.date}</Small>
 						</SectionItemHeader>
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -647,17 +651,13 @@ const CertificationsSection = ({
 				{items.map((item) => (
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
-							<Bold>{item.title}</Bold>
+							<ItemTitle website={item.website}>{item.title}</ItemTitle>
 							<Text>{item.issuer}</Text>
 							<Small>{item.date}</Small>
 						</SectionItemHeader>
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -684,17 +684,13 @@ const PublicationsSection = ({
 				{items.map((item) => (
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
-							<Bold>{item.title}</Bold>
+							<ItemTitle website={item.website}>{item.title}</ItemTitle>
 							<Text>{item.publisher}</Text>
 							<Small>{item.date}</Small>
 						</SectionItemHeader>
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -727,13 +723,13 @@ const VolunteerSection = ({
 							{inlineItemHeader ? (
 								<InlineItemHeader
 									leading={<Text>{item.location}</Text>}
-									middle={<Bold>{item.organization}</Bold>}
+									middle={<ItemTitle website={item.website}>{item.organization}</ItemTitle>}
 									trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
 								/>
 							) : (
 								<>
 									<View style={composeStyles(splitRowStyle)}>
-										<Bold>{item.organization}</Bold>
+										<ItemTitle website={item.website}>{item.organization}</ItemTitle>
 										<Text style={composeStyles(alignRightStyle)}>{item.location}</Text>
 									</View>
 
@@ -743,11 +739,7 @@ const VolunteerSection = ({
 						</SectionItemHeader>
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -774,17 +766,13 @@ const ReferencesSection = ({
 				{items.map((item) => (
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
-							<Bold>{item.name}</Bold>
+							<ItemTitle website={item.website}>{item.name}</ItemTitle>
 							<Text>{item.position}</Text>
 							<MetaLine>{[item.phone]}</MetaLine>
 						</SectionItemHeader>
 						<RichText>{item.description}</RichText>
 
-						{item.website.url && (
-							<Link src={item.website.url}>
-								<Small>{item.website.label || item.website.url}</Small>
-							</Link>
-						)}
+						<ItemWebsiteLink website={item.website} />
 					</SectionItem>
 				))}
 			</SectionItems>
