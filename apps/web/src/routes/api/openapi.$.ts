@@ -9,9 +9,18 @@ import router from "@reactive-resume/api/routers";
 import { env } from "@reactive-resume/env/server";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
 import { getLocale } from "@/libs/locale";
+import { downloadResumePdfProcedure } from "./-helpers/resume-pdf";
+
+const openAPIRouter = {
+	...router,
+	resume: {
+		...router.resume,
+		downloadPdf: downloadResumePdfProcedure,
+	},
+};
 
 async function handler({ request }: { request: Request }) {
-	const openAPIHandler = new OpenAPIHandler(router, {
+	const openAPIHandler = new OpenAPIHandler(openAPIRouter, {
 		plugins: [
 			new BatchHandlerPlugin(),
 			new RequestHeadersPlugin(),
@@ -34,7 +43,7 @@ async function handler({ request }: { request: Request }) {
 	const locale = await getLocale();
 
 	if (request.method === "GET" && (request.url.endsWith("/spec.json") || request.url.endsWith("/spec"))) {
-		const spec = await openAPIGenerator.generate(router, {
+		const spec = await openAPIGenerator.generate(openAPIRouter, {
 			info: {
 				title: "Reactive Resume",
 				version: __APP_VERSION__,

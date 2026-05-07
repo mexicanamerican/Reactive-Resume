@@ -21,7 +21,7 @@ export const useLocalizedResumeDocument = (data?: ResumeData, template?: Templat
 	}, [data, template, sectionTitleResolver]);
 };
 
-const createLocalizedResumeDocument = async (data: ResumeData, template?: Template) => {
+export const createLocalizedResumeDocument = async (data: ResumeData, template?: Template) => {
 	const sectionTitleResolver = await createSectionTitleResolverForLocale(data.metadata.page.locale);
 
 	return (
