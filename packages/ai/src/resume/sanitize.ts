@@ -5,6 +5,7 @@ import { flattenError, ZodError } from "zod";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { isObject } from "@reactive-resume/utils/sanitize";
+import { generateId } from "@reactive-resume/utils/string";
 import { buildAiExtractionTemplate } from "./extraction-template";
 
 const aiExtractionTemplate = buildAiExtractionTemplate();
@@ -206,7 +207,7 @@ function normalizeResumeDataForSchema(data: Record<string, unknown>, diagnostics
 				const normalizedItem = { ...item };
 				if (typeof normalizedItem.id !== "string" || normalizedItem.id.trim().length === 0) {
 					diagnostics.salvageApplied = true;
-					normalizedItem.id = crypto.randomUUID();
+					normalizedItem.id = generateId();
 				}
 				if (typeof normalizedItem.hidden !== "boolean") {
 					diagnostics.salvageApplied = true;

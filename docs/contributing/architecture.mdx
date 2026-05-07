@@ -182,7 +182,7 @@ The database schema is defined using Drizzle ORM in `src/integrations/drizzle/sc
 import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const resume = pgTable("resume", {
-  id: uuid("id").primaryKey().defaultRandom(),
+  id: text("id").primaryKey().defaultRandom(),
   title: text("title").notNull(),
   slug: text("slug").notNull(),
   // ... more fields
