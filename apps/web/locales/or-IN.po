@@ -3497,4 +3497,3 @@ msgstr "ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ଜୁଲୁ"
-

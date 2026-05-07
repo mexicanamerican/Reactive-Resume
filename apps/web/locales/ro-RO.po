@@ -3497,4 +3497,3 @@ msgstr "Micșorează"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

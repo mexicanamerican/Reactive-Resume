@@ -3497,4 +3497,3 @@ msgstr "አጉር"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-
