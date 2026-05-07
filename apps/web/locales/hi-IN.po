@@ -8,7 +8,7 @@ msgstr ""
 "Language: hi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-07 13:13\n"
+"PO-Revision-Date: 2026-05-07 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1046,7 +1046,7 @@ msgstr "उदाहरण के लिए, जीपीटी-4, क्लॉ�
 
 #: src/components/input/chip-input.tsx
 msgid "Edit"
-msgstr ""
+msgstr "संपादन करना"
 
 #. Screen reader label for button that edits a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
@@ -1195,7 +1195,7 @@ msgstr "निर्यात"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Export your resume to PDF instantly, without any waiting or delays."
-msgstr ""
+msgstr "बिना किसी प्रतीक्षा या देरी के, अपने रिज्यूमे को तुरंत पीडीएफ में एक्सपोर्ट करें।"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
@@ -1651,7 +1651,7 @@ msgstr "तालिका डालें"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Instant Generation"
-msgstr ""
+msgstr "तत्काल उत्पादन"
 
 #: src/components/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -2958,7 +2958,7 @@ msgstr "DOCX उत्पन्न करते समय एक समस्य
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "There was a problem while generating the PDF, please try again."
-msgstr ""
+msgstr "पीडीएफ जनरेट करने में समस्या आ रही है, कृपया पुनः प्रयास करें।"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
@@ -3381,7 +3381,7 @@ msgstr "जब लॉक किया गया हो, तो रेज़्�
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"
-msgstr ""
+msgstr "एक्स (ट्विटर)"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Yes, Reactive Resume is available in multiple languages. You can choose your preferred language in the settings page, or using the language switcher in the top right corner. If you don't see your language, or you would like to improve the existing translations, you can <0>contribute to the translations on Crowdin<1> (opens in new tab)</1></0>."
@@ -3442,7 +3442,7 @@ msgstr "आपका डेटा सुरक्षित रूप से स�
 
 #: src/components/resume/use-resume.ts
 msgid "Your latest changes could not be saved."
-msgstr ""
+msgstr "आपके नवीनतम परिवर्तन सहेजे नहीं जा सके।"
 
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
