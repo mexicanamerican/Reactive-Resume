@@ -12,7 +12,7 @@ export const user = pg.pgTable(
 	"user",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -45,7 +45,7 @@ export const session = pg.pgTable(
 	"session",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -54,7 +54,7 @@ export const session = pg.pgTable(
 		userAgent: pg.text("user_agent"),
 		impersonatedBy: pg.text("impersonated_by"),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		expiresAt: pg.timestamp("expires_at", { withTimezone: true }).notNull(),
@@ -72,14 +72,14 @@ export const account = pg.pgTable(
 	"account",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
 		accountId: pg.text("account_id").notNull(),
 		providerId: pg.text("provider_id").notNull().default("credential"),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		scope: pg.text("scope"),
@@ -107,7 +107,7 @@ export const verification = pg.pgTable(
 	"verification",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -128,12 +128,12 @@ export const twoFactor = pg.pgTable(
 	"two_factor",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		secret: pg.text("secret").notNull(),
@@ -153,7 +153,7 @@ export const passkey = pg.pgTable(
 	"passkey",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -166,7 +166,7 @@ export const passkey = pg.pgTable(
 		backedUp: pg.boolean("backed_up").notNull().default(false),
 		transports: pg.text("transports").notNull(),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -183,7 +183,7 @@ export const apikey = pg.pgTable(
 	"apikey",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -193,7 +193,7 @@ export const apikey = pg.pgTable(
 		key: pg.text("key").notNull(),
 		configId: pg.text("config_id").notNull().default("default"),
 		referenceId: pg
-			.uuid("reference_id")
+			.text("reference_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		refillInterval: pg.integer("refill_interval"),
@@ -226,7 +226,7 @@ export const apikey = pg.pgTable(
 
 export const jwks = pg.pgTable("jwks", {
 	id: pg
-		.uuid("id")
+		.text("id")
 		.notNull()
 		.primaryKey()
 		.$defaultFn(() => generateId()),
@@ -240,7 +240,7 @@ export const oauthClient = pg.pgTable(
 	"oauth_client",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -251,7 +251,7 @@ export const oauthClient = pg.pgTable(
 		enableEndSession: pg.boolean("enable_end_session"),
 		subjectType: pg.text("subject_type"),
 		scopes: pg.text("scopes").array(),
-		userId: pg.uuid("user_id").references(() => user.id, { onDelete: "cascade" }),
+		userId: pg.text("user_id").references(() => user.id, { onDelete: "cascade" }),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).defaultNow(),
 		updatedAt: pg
 			.timestamp("updated_at", { withTimezone: true })
@@ -284,7 +284,7 @@ export const oauthRefreshToken = pg.pgTable(
 	"oauth_refresh_token",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -293,9 +293,9 @@ export const oauthRefreshToken = pg.pgTable(
 			.text("client_id")
 			.notNull()
 			.references(() => oauthClient.clientId, { onDelete: "cascade" }),
-		sessionId: pg.uuid("session_id").references(() => session.id, { onDelete: "set null" }),
+		sessionId: pg.text("session_id").references(() => session.id, { onDelete: "set null" }),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		referenceId: pg.text("reference_id"),
@@ -312,7 +312,7 @@ export const oauthAccessToken = pg.pgTable(
 	"oauth_access_token",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -321,10 +321,10 @@ export const oauthAccessToken = pg.pgTable(
 			.text("client_id")
 			.notNull()
 			.references(() => oauthClient.clientId, { onDelete: "cascade" }),
-		sessionId: pg.uuid("session_id").references(() => session.id, { onDelete: "set null" }),
-		userId: pg.uuid("user_id").references(() => user.id, { onDelete: "cascade" }),
+		sessionId: pg.text("session_id").references(() => session.id, { onDelete: "set null" }),
+		userId: pg.text("user_id").references(() => user.id, { onDelete: "cascade" }),
 		referenceId: pg.text("reference_id"),
-		refreshId: pg.uuid("refresh_id").references(() => oauthRefreshToken.id, { onDelete: "cascade" }),
+		refreshId: pg.text("refresh_id").references(() => oauthRefreshToken.id, { onDelete: "cascade" }),
 		expiresAt: pg.timestamp("expires_at", { withTimezone: true }),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).defaultNow(),
 		scopes: pg.text("scopes").array().notNull(),
@@ -336,7 +336,7 @@ export const oauthConsent = pg.pgTable(
 	"oauth_consent",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -344,7 +344,7 @@ export const oauthConsent = pg.pgTable(
 			.text("client_id")
 			.notNull()
 			.references(() => oauthClient.clientId, { onDelete: "cascade" }),
-		userId: pg.uuid("user_id").references(() => user.id, { onDelete: "cascade" }),
+		userId: pg.text("user_id").references(() => user.id, { onDelete: "cascade" }),
 		referenceId: pg.text("reference_id"),
 		scopes: pg.text("scopes").array().notNull(),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).defaultNow(),

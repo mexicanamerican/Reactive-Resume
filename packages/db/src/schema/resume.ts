@@ -9,7 +9,7 @@ export const resume = pg.pgTable(
 	"resume",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
@@ -25,7 +25,7 @@ export const resume = pg.pgTable(
 			.$type<ResumeData>()
 			.$defaultFn(() => defaultResumeData),
 		userId: pg
-			.uuid("user_id")
+			.text("user_id")
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -46,7 +46,7 @@ export const resume = pg.pgTable(
 
 export const resumeStatistics = pg.pgTable("resume_statistics", {
 	id: pg
-		.uuid("id")
+		.text("id")
 		.notNull()
 		.primaryKey()
 		.$defaultFn(() => generateId()),
@@ -55,7 +55,7 @@ export const resumeStatistics = pg.pgTable("resume_statistics", {
 	lastViewedAt: pg.timestamp("last_viewed_at", { withTimezone: true }),
 	lastDownloadedAt: pg.timestamp("last_downloaded_at", { withTimezone: true }),
 	resumeId: pg
-		.uuid("resume_id")
+		.text("resume_id")
 		.unique()
 		.notNull()
 		.references(() => resume.id, { onDelete: "cascade" }),
@@ -71,13 +71,13 @@ export const resumeAnalysis = pg.pgTable(
 	"resume_analysis",
 	{
 		id: pg
-			.uuid("id")
+			.text("id")
 			.notNull()
 			.primaryKey()
 			.$defaultFn(() => generateId()),
 		analysis: pg.jsonb("analysis").notNull().$type<StoredResumeAnalysis>(),
 		resumeId: pg
-			.uuid("resume_id")
+			.text("resume_id")
 			.unique()
 			.notNull()
 			.references(() => resume.id, { onDelete: "cascade" }),
