@@ -13,7 +13,7 @@ import { getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
-import { composeStyles, resolvePlacementColor } from "../shared/styles";
+import { composeStyles, headerNameLineHeight, resolvePlacementColor } from "../shared/styles";
 
 type ChikoritaStyles = Omit<TemplateStyleSlots, "page"> & {
 	page: Style;
@@ -290,7 +290,7 @@ const useChikoritaTemplate = (): ChikoritaTemplate => {
 			},
 			headerName: {
 				fontSize: metadata.typography.heading.fontSize * 1.5,
-				lineHeight: 1,
+				lineHeight: headerNameLineHeight,
 			},
 			headerContactList: {
 				rowGap: metrics.gapY(0.125),

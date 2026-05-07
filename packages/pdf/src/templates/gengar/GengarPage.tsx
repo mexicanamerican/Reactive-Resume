@@ -13,7 +13,7 @@ import { getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
-import { composeStyles, resolvePlacementColor } from "../shared/styles";
+import { composeStyles, headerNameLineHeight, resolvePlacementColor } from "../shared/styles";
 
 type GengarStyles = Omit<TemplateStyleSlots, "page"> & {
 	page: Style;
@@ -318,7 +318,7 @@ const useGengarTemplate = (): GengarTemplate => {
 			headerName: {
 				fontSize: metadata.typography.heading.fontSize * 1.5,
 				color: background,
-				lineHeight: 1,
+				lineHeight: headerNameLineHeight,
 			},
 			headerText: {
 				color: background,

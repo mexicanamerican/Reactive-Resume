@@ -21,6 +21,8 @@ export const mergeStyles = (...styles: StyleInput[]): Style => Object.assign({},
 
 export const mergeLinkStyles = (...styles: StyleInput[]): Style => mergeStyles(...styles, linkUnderlineStyle);
 
+export const headerNameLineHeight = 1.2;
+
 export type ResolvePlacementColorOptions = {
 	placement: TemplatePlacement;
 	defaultForeground: string;

@@ -13,7 +13,7 @@ import { getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
-import { composeStyles } from "../shared/styles";
+import { composeStyles, headerNameLineHeight } from "../shared/styles";
 
 type MeowthStyles = Omit<TemplateStyleSlots, "page"> & {
 	page: Style;
@@ -194,7 +194,7 @@ const useMeowthTemplate = (): MeowthTemplate => {
 			header: { flexDirection: "row", alignItems: "flex-start", columnGap: metrics.gapX(1) },
 			headerTitle: { flex: 1, rowGap: metrics.gapY(0.5) },
 			headerIdentity: { textAlign: "left", alignItems: "flex-start", rowGap: metrics.gapY(0.35) },
-			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: 1 },
+			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: headerNameLineHeight },
 			headerHeadline: { opacity: 0.8 },
 			contactList: {
 				flexDirection: "row",

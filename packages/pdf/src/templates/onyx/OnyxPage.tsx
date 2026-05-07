@@ -13,7 +13,7 @@ import { getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
 import { Section } from "../shared/sections";
-import { composeStyles } from "../shared/styles";
+import { composeStyles, headerNameLineHeight } from "../shared/styles";
 
 type OnyxStyles = Omit<TemplateStyleSlots, "page"> & {
 	page: Style;
@@ -196,7 +196,7 @@ const useOnyxTemplate = (): OnyxTemplate => {
 			},
 			headerTitle: { rowGap: metrics.gapY(0.5) },
 			headerIdentity: { textAlign: "left", alignItems: "flex-start", rowGap: metrics.gapY(0.35) },
-			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: 1 },
+			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: headerNameLineHeight },
 			contactList: {
 				flexDirection: "row",
 				flexWrap: "wrap",
