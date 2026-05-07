@@ -37,8 +37,5 @@ jobs:
       - name: Lint and Format
         run: pnpm check
 
-      - name: Extract Translations
-        run: pnpm lingui:extract
-
       - name: Autofix
         uses: autofix-ci/action@7a166d7532b277f34e16238930461bf77f9d7ed8
