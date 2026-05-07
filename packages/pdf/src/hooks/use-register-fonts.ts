@@ -41,22 +41,25 @@ export const registerFonts = (typography: Typography) => {
 	const bodyRange = getFontWeightRange(typography.body.fontWeights);
 	const headingRange = getFontWeightRange(typography.heading.fontWeights);
 
-	const registerFont = (family: string, weight: number) => {
+	const registerFont = (family: string, weight: number, italic = false) => {
 		if (isStandardPdfFontFamily(family)) return;
 
 		const normalizedWeight = toFontWeight(weight);
-		const key = `${family}:${normalizedWeight}`;
+		const fontStyle = italic ? "italic" : "normal";
+		const key = `${family}:${normalizedWeight}:${fontStyle}`;
 		if (registeredFontVariants.has(key)) return;
 
-		const source = getWebFontSource(family, normalizedWeight);
+		const source = getWebFontSource(family, normalizedWeight, italic);
 		if (!source) return;
 
-		Font.register({ family, src: source, fontWeight: Number(normalizedWeight) });
+		Font.register({ family, src: source, fontWeight: Number(normalizedWeight), fontStyle });
 		registeredFontVariants.add(key);
 	};
 
-	registerFont(bodyFontFamily, bodyRange.lowest);
-	registerFont(bodyFontFamily, bodyRange.highest);
-	registerFont(headingFontFamily, headingRange.lowest);
-	registerFont(headingFontFamily, headingRange.highest);
+	for (const italic of [false, true]) {
+		registerFont(bodyFontFamily, bodyRange.lowest, italic);
+		registerFont(bodyFontFamily, bodyRange.highest, italic);
+		registerFont(headingFontFamily, headingRange.lowest, italic);
+		registerFont(headingFontFamily, headingRange.highest, italic);
+	}
 };
