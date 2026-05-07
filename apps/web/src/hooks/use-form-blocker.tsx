@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { useStore } from "@tanstack/react-form";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 
@@ -37,11 +37,16 @@ export function useFormBlocker<TStore extends BlockableFormStore>(
 
 	const isDirty = useStore(form.store, (state) => state.isDirty);
 	const isSubmitting = useStore(form.store, (state) => state.isSubmitting);
+	const shouldBlockRef = useRef(options?.shouldBlock);
+
+	useEffect(() => {
+		shouldBlockRef.current = options?.shouldBlock;
+	}, [options?.shouldBlock]);
 
 	const shouldBlock = useCallback(() => {
-		if (options?.shouldBlock) return options.shouldBlock();
+		if (shouldBlockRef.current) return shouldBlockRef.current();
 		return isDirty && !isSubmitting;
-	}, [options, isDirty, isSubmitting]);
+	}, [isDirty, isSubmitting]);
 
 	const confirmClose = useCallback(async () => {
 		if (!shouldBlock()) return true;
