@@ -4,6 +4,8 @@
 @import "@fontsource-variable/ibm-plex-sans";
 @import "@phosphor-icons/web/regular/style.css";
 
+@plugin "@tailwindcss/typography";
+
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 

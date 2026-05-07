@@ -122,6 +122,7 @@ export function RichInput({ value, onChange, style, className, editorClassName, 
 				"data-fullscreen": isFullscreen ? "true" : "false",
 				class: cn(
 					"group/editor overflow-y-auto p-3 pb-4",
+					"prose prose-sm prose-zinc dark:prose-invert max-w-none",
 					"rounded-md rounded-t-none border outline-none focus-visible:border-ring",
 					"[td:has(.selectedCell)]:bg-primary",
 					"data-[fullscreen=false]:max-h-[400px] data-[fullscreen=false]:min-h-[100px]",
