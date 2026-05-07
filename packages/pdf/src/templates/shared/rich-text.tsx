@@ -3,7 +3,7 @@ import { Text as PdfText, View } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
 import { useTemplateStyle } from "./context";
 import { safeTextStyle } from "./primitives";
-import { composeStyles, mergeStyles } from "./styles";
+import { composeStyles, mergeLinkStyles, mergeStyles } from "./styles";
 
 export const RichText = ({ children }: { children: string }) => {
 	const boldStyle = useTemplateStyle("bold");
@@ -38,7 +38,7 @@ export const RichText = ({ children }: { children: string }) => {
 				b: mergeStyles(boldStyle, safeTextStyle),
 				strong: mergeStyles(boldStyle, safeTextStyle),
 				p: mergeStyles(richParagraphStyle, safeTextStyle),
-				a: mergeStyles(linkStyle, { textDecoration: "underline" }, safeTextStyle),
+				a: mergeLinkStyles(linkStyle, safeTextStyle),
 			}}
 		>
 			{children}
