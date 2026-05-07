@@ -1,7 +1,7 @@
 import type { FontWeight } from "@reactive-resume/fonts";
 import type { Typography } from "@reactive-resume/schema/resume/data";
 import { Font } from "@react-pdf/renderer";
-import { getWebFontSource, isStandardPdfFontFamily } from "@reactive-resume/fonts";
+import { getFont, getWebFontSource, isStandardPdfFontFamily } from "@reactive-resume/fonts";
 
 type FontWeightRange = {
 	lowest: number;
@@ -9,6 +9,7 @@ type FontWeightRange = {
 };
 
 const registeredFontVariants = new Set<string>();
+const fallbackFontFamily = "IBM Plex Serif";
 
 const getFontWeightRange = (fontWeights: string[]): FontWeightRange => {
 	const numericWeights = fontWeights.map(Number).filter((weight) => Number.isFinite(weight));
@@ -33,13 +34,33 @@ const toFontWeight = (weight: number): FontWeight => {
 	return "900";
 };
 
-export const registerFonts = (typography: Typography) => {
+const resolvePdfFontFamily = (family: string) => {
+	return getFont(family) ? family : fallbackFontFamily;
+};
+
+const resolvePdfTypography = (typography: Typography): Typography => {
+	const bodyFontFamily = resolvePdfFontFamily(typography.body.fontFamily);
+	const headingFontFamily = resolvePdfFontFamily(typography.heading.fontFamily);
+
+	if (bodyFontFamily === typography.body.fontFamily && headingFontFamily === typography.heading.fontFamily) {
+		return typography;
+	}
+
+	return {
+		...typography,
+		body: { ...typography.body, fontFamily: bodyFontFamily },
+		heading: { ...typography.heading, fontFamily: headingFontFamily },
+	};
+};
+
+export const registerFonts = (typography: Typography): Typography => {
 	Font.registerHyphenationCallback((word) => [word]);
 
-	const bodyFontFamily = typography.body.fontFamily;
-	const headingFontFamily = typography.heading.fontFamily;
-	const bodyRange = getFontWeightRange(typography.body.fontWeights);
-	const headingRange = getFontWeightRange(typography.heading.fontWeights);
+	const pdfTypography = resolvePdfTypography(typography);
+	const bodyFontFamily = pdfTypography.body.fontFamily;
+	const headingFontFamily = pdfTypography.heading.fontFamily;
+	const bodyRange = getFontWeightRange(pdfTypography.body.fontWeights);
+	const headingRange = getFontWeightRange(pdfTypography.heading.fontWeights);
 
 	const registerFont = (family: string, weight: number, italic = false) => {
 		if (isStandardPdfFontFamily(family)) return;
@@ -62,4 +83,6 @@ export const registerFonts = (typography: Typography) => {
 		registerFont(headingFontFamily, headingRange.lowest, italic);
 		registerFont(headingFontFamily, headingRange.highest, italic);
 	}
+
+	return pdfTypography;
 };

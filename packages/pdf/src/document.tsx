@@ -22,12 +22,18 @@ export type ResumeDocumentProps = {
 
 export const ResumeDocument = ({ data, template, resolveSectionTitle }: ResumeDocumentProps) => {
 	const TemplatePageComponent = getTemplatePage(template);
-	registerFonts(data.metadata.typography);
+	const typography = registerFonts(data.metadata.typography);
+	const resumeData =
+		typography === data.metadata.typography ? data : { ...data, metadata: { ...data.metadata, typography } };
 
 	return (
-		<RenderProvider data={data} resolveSectionTitle={resolveSectionTitle}>
-			<Document title={`${data.basics.name} Resume`} author={data.basics.name} subject={data.basics.headline}>
-				{data.metadata.layout.pages.map((page, index) => (
+		<RenderProvider data={resumeData} resolveSectionTitle={resolveSectionTitle}>
+			<Document
+				title={`${resumeData.basics.name} Resume`}
+				author={resumeData.basics.name}
+				subject={resumeData.basics.headline}
+			>
+				{resumeData.metadata.layout.pages.map((page, index) => (
 					<TemplatePageComponent key={index} page={page} pageIndex={index} />
 				))}
 			</Document>
