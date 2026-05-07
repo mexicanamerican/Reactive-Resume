@@ -25,7 +25,6 @@ export const getRouter = async () => {
 	const router = createRouter({
 		routeTree,
 		scrollRestoration: true,
-		defaultPreload: "intent",
 		defaultViewTransition: true,
 		defaultStructuralSharing: true,
 		defaultErrorComponent: ErrorScreen,

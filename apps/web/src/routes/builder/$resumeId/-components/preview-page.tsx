@@ -18,9 +18,9 @@ export function PreviewPage() {
 			<div className="fixed inset-0">
 				<TransformWrapper
 					centerOnInit
-					maxScale={6}
-					minScale={0.3}
-					initialScale={0.6}
+					maxScale={5}
+					minScale={0.5}
+					initialScale={0.75}
 					limitToBounds={false}
 					wheel={{ step: 0.001 }}
 				>
