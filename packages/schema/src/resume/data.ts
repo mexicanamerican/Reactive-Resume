@@ -511,7 +511,7 @@ export const metadataSchema = z.object({
 		),
 });
 
-export const resumeDataSchema = z.object({
+export const resumeDataSchema = z.looseObject({
 	picture: pictureSchema.describe("Configuration for photograph displayed on the resume"),
 	basics: basicsSchema.describe(
 		"Basic information about the author, such as name, email, phone, location, and website",
