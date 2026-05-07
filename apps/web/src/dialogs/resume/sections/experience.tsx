@@ -158,103 +158,6 @@ const ExperienceForm = withForm({
 			form.setFieldValue("roles", newOrder);
 		};
 
-		const RoleFields = ({ role, index, onRemove }: { role: RoleItem; index: number; onRemove: () => void }) => {
-			const controls = useDragControls();
-
-			return (
-				<Reorder.Item
-					value={role}
-					dragListener={false}
-					dragControls={controls}
-					initial={{ opacity: 1, y: -10 }}
-					animate={{ opacity: 1, y: 0 }}
-					exit={{ opacity: 0, y: -10 }}
-					className="relative grid rounded-md border sm:col-span-full sm:grid-cols-2"
-				>
-					<div className="col-span-full flex items-center justify-between rounded-t bg-border/30 px-2 py-1.5">
-						<Button
-							size="sm"
-							variant="ghost"
-							className="cursor-grab touch-none"
-							onPointerDown={(e) => {
-								e.preventDefault();
-								controls.start(e);
-							}}
-						>
-							<RowsIcon />
-							<Trans>Reorder</Trans>
-						</Button>
-
-						<Button size="sm" variant="ghost" className="text-destructive hover:text-destructive" onClick={onRemove}>
-							<TrashSimpleIcon />
-							<Trans>Remove</Trans>
-						</Button>
-					</div>
-
-					<div className="grid gap-4 p-4 sm:col-span-full sm:grid-cols-2">
-						<form.Field name={`roles[${index}].position`}>
-							{(field) => (
-								<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-									<FormLabel>
-										<Trans>Position</Trans>
-									</FormLabel>
-									<FormControl
-										render={
-											<Input
-												name={field.name}
-												value={field.state.value}
-												onBlur={field.handleBlur}
-												onChange={(event) => field.handleChange(event.target.value)}
-											/>
-										}
-									/>
-									<FormMessage errors={field.state.meta.errors} />
-								</FormItem>
-							)}
-						</form.Field>
-
-						<form.Field name={`roles[${index}].period`}>
-							{(field) => (
-								<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-									<FormLabel>
-										<Trans>Period</Trans>
-									</FormLabel>
-									<FormControl
-										render={
-											<Input
-												name={field.name}
-												value={field.state.value}
-												onBlur={field.handleBlur}
-												onChange={(event) => field.handleChange(event.target.value)}
-											/>
-										}
-									/>
-									<FormMessage errors={field.state.meta.errors} />
-								</FormItem>
-							)}
-						</form.Field>
-
-						<form.Field name={`roles[${index}].description`}>
-							{(field) => (
-								<FormItem
-									className="sm:col-span-full"
-									hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}
-								>
-									<FormLabel>
-										<Trans>Description</Trans>
-									</FormLabel>
-									<FormControl
-										render={<RichInput value={field.state.value} onChange={(v) => field.handleChange(v)} />}
-									/>
-									<FormMessage errors={field.state.meta.errors} />
-								</FormItem>
-							)}
-						</form.Field>
-					</div>
-				</Reorder.Item>
-			);
-		};
-
 		return (
 			<>
 				<form.AppField name="company">{(field) => <field.TextField label={<Trans>Company</Trans>} />}</form.AppField>
@@ -346,6 +249,7 @@ const ExperienceForm = withForm({
 									{rolesField.state.value.map((role: RoleItem, index: number) => (
 										<RoleFields
 											key={role.id}
+											form={form}
 											role={role}
 											index={index}
 											onRemove={() => {
@@ -377,6 +281,114 @@ const ExperienceForm = withForm({
 					</form.Field>
 				)}
 			</>
+		);
+	},
+});
+
+const RoleFields = withForm({
+	defaultValues,
+	props: {
+		role: {
+			id: "",
+			position: "",
+			period: "",
+			description: "",
+		} as RoleItem,
+		index: 0,
+		onRemove: () => undefined,
+	},
+	render: ({ form, role, index, onRemove }) => {
+		const controls = useDragControls();
+
+		return (
+			<Reorder.Item
+				value={role}
+				dragListener={false}
+				dragControls={controls}
+				initial={{ opacity: 1, y: -10 }}
+				animate={{ opacity: 1, y: 0 }}
+				exit={{ opacity: 0, y: -10 }}
+				className="relative grid rounded-md border sm:col-span-full sm:grid-cols-2"
+			>
+				<div className="col-span-full flex items-center justify-between rounded-t bg-border/30 px-2 py-1.5">
+					<Button
+						size="sm"
+						variant="ghost"
+						className="cursor-grab touch-none"
+						onPointerDown={(e) => {
+							e.preventDefault();
+							controls.start(e);
+						}}
+					>
+						<RowsIcon />
+						<Trans>Reorder</Trans>
+					</Button>
+
+					<Button size="sm" variant="ghost" className="text-destructive hover:text-destructive" onClick={onRemove}>
+						<TrashSimpleIcon />
+						<Trans>Remove</Trans>
+					</Button>
+				</div>
+
+				<div className="grid gap-4 p-4 sm:col-span-full sm:grid-cols-2">
+					<form.Field name={`roles[${index}].position`}>
+						{(field) => (
+							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+								<FormLabel>
+									<Trans>Position</Trans>
+								</FormLabel>
+								<FormControl
+									render={
+										<Input
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(event) => field.handleChange(event.target.value)}
+										/>
+									}
+								/>
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
+
+					<form.Field name={`roles[${index}].period`}>
+						{(field) => (
+							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+								<FormLabel>
+									<Trans>Period</Trans>
+								</FormLabel>
+								<FormControl
+									render={
+										<Input
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(event) => field.handleChange(event.target.value)}
+										/>
+									}
+								/>
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
+
+					<form.Field name={`roles[${index}].description`}>
+						{(field) => (
+							<FormItem
+								className="sm:col-span-full"
+								hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}
+							>
+								<FormLabel>
+									<Trans>Description</Trans>
+								</FormLabel>
+								<FormControl render={<RichInput value={field.state.value} onChange={(v) => field.handleChange(v)} />} />
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
+				</div>
+			</Reorder.Item>
 		);
 	},
 });
