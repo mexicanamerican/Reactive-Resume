@@ -4,7 +4,6 @@ import { Trans } from "@lingui/react/macro";
 import { GridFourIcon, ListIcon, ReadCvLogoIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, stripSearchParams, useNavigate } from "@tanstack/react-router";
-import { zodValidator } from "@tanstack/zod-adapter";
 import { useMemo } from "react";
 import z from "zod";
 import { Label } from "@reactive-resume/ui/components/label";
@@ -25,11 +24,15 @@ const searchSchema = z.object({
 	view: z.enum(["grid", "list"]).default("grid"),
 });
 
+type Search = z.output<typeof searchSchema>;
+
+const defaultSearch: Search = { tags: [], sort: "lastUpdatedAt", view: "grid" };
+
 export const Route = createFileRoute("/dashboard/resumes/")({
 	component: RouteComponent,
-	validateSearch: zodValidator(searchSchema),
+	validateSearch: searchSchema,
 	search: {
-		middlewares: [stripSearchParams({ tags: [], sort: "lastUpdatedAt", view: "grid" })],
+		middlewares: [stripSearchParams(defaultSearch)],
 	},
 });
 
@@ -71,7 +74,7 @@ function RouteComponent() {
 						placeholder={t`Sort by`}
 						onValueChange={(value) => {
 							if (!value) return;
-							void navigate({ search: { tags, sort: value as SortOption } });
+							void navigate({ search: (prev) => ({ ...prev, sort: value as SortOption }) });
 						}}
 					/>
 				</div>
@@ -86,7 +89,7 @@ function RouteComponent() {
 						options={tagOptions}
 						placeholder={t`Filter by`}
 						onValueChange={(value) => {
-							void navigate({ search: { tags: value ?? [], sort } });
+							void navigate({ search: (prev) => ({ ...prev, tags: value ?? [] }) });
 						}}
 					/>
 				</div>
@@ -97,7 +100,7 @@ function RouteComponent() {
 							value="grid"
 							nativeButton={false}
 							className="rounded-r-none"
-							render={<Link to="." search={{ view: "grid" }} />}
+							render={<Link to="." search={(prev) => ({ ...prev, view: "grid" })} />}
 						>
 							<GridFourIcon />
 							<Trans>Grid</Trans>
@@ -107,7 +110,7 @@ function RouteComponent() {
 							value="list"
 							nativeButton={false}
 							className="rounded-l-none"
-							render={<Link to="." search={{ view: "list" }} />}
+							render={<Link to="." search={(prev) => ({ ...prev, view: "list" })} />}
 						>
 							<ListIcon />
 							<Trans>List</Trans>

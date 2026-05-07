@@ -4,7 +4,6 @@ import { ORPCError } from "@orpc/client";
 import { EyeIcon, EyeSlashIcon, LockOpenIcon } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, redirect, SearchParamError, useNavigate } from "@tanstack/react-router";
-import { zodValidator } from "@tanstack/zod-adapter";
 import { useMemo } from "react";
 import { toast } from "sonner";
 import { useToggle } from "usehooks-ts";
@@ -25,7 +24,7 @@ const searchSchema = z.object({
 
 export const Route = createFileRoute("/auth/resume-password")({
 	component: RouteComponent,
-	validateSearch: zodValidator(searchSchema),
+	validateSearch: searchSchema,
 	onError: (error) => {
 		if (error instanceof SearchParamError) {
 			throw redirect({ to: "/" });

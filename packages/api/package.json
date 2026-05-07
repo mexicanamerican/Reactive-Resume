@@ -22,7 +22,7 @@
 		"@ai-sdk/google": "^3.0.68",
 		"@ai-sdk/openai": "^3.0.62",
 		"@ai-sdk/openai-compatible": "^2.0.46",
-		"@aws-sdk/client-s3": "^3.1044.0",
+		"@aws-sdk/client-s3": "^3.1045.0",
 		"@orpc/client": "^1.14.2",
 		"@orpc/experimental-ratelimit": "^1.14.2",
 		"@orpc/server": "^1.14.2",

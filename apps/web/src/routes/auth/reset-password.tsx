@@ -2,7 +2,6 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 import { createFileRoute, redirect, SearchParamError, useNavigate } from "@tanstack/react-router";
-import { zodValidator } from "@tanstack/zod-adapter";
 import { toast } from "sonner";
 import { useToggle } from "usehooks-ts";
 import z from "zod";
@@ -16,7 +15,7 @@ const searchSchema = z.object({ token: z.string().min(1) });
 
 export const Route = createFileRoute("/auth/reset-password")({
 	component: RouteComponent,
-	validateSearch: zodValidator(searchSchema),
+	validateSearch: searchSchema,
 	beforeLoad: async ({ context }) => {
 		if (context.flags.disableEmailAuth) throw redirect({ to: "/auth/login", replace: true });
 	},
