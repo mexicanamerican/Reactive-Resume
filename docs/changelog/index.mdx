@@ -4,6 +4,71 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.1.5" description="19th May 2026">
+<Note>
+  **Self-hosters, please review your environment before upgrading.** The production image now runs a dedicated Hono
+  server from `apps/server/dist/index.mjs`. Remove `OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS`,
+  `CLOUDFLARE_ACCOUNT_ID`, and `CLOUDFLARE_API_TOKEN` from your environment if they are still set.
+
+  Local development now uses `PORT=3000` for Vite and `SERVER_PORT=3001` for the Hono server. This should not affect
+  production deployments.
+</Note>
+
+## Highlights
+
+- **Dedicated Hono server runtime.** Reactive Resume now builds a separate `apps/server` app that mounts auth, RPC, MCP, OpenAPI, uploads, schema JSON, SEO endpoints, health checks, and the built web app from one Node.js process. [ecc1fd9a8](https://github.com/amruthpillai/reactive-resume/commit/ecc1fd9a8), [9033da082](https://github.com/amruthpillai/reactive-resume/commit/9033da082)
+- **Clearer self-hosting runtime model.** The Docker image now builds both `web` and `server`, runs `node apps/server/dist/index.mjs`, and keeps `/api/health` pointed at the production server port. [ecc1fd9a8](https://github.com/amruthpillai/reactive-resume/commit/ecc1fd9a8)
+- **Safer Agent restore behavior.** Agent edits now store a resume snapshot before applying a patch, so restoring an action can roll the draft back to the exact prior state and mark later agent patches as rolled back. [d961e6535](https://github.com/amruthpillai/reactive-resume/commit/d961e6535)
+
+## Self-Hosting & Environment
+
+- Added `SERVER_PORT` for local development. Vite serves the web app on `PORT` and proxies API, MCP, upload, well-known, and schema routes to the Hono server on `SERVER_PORT`.
+- Updated the production Dockerfile to copy `apps/web/dist`, `apps/server/dist`, server package dependencies, and migrations into the runtime image. The production start command is now `node apps/server/dist/index.mjs`.
+- Updated `compose.yml` to use the published image by default and load app configuration through `.env` instead of embedding the main app environment block inline.
+- Updated `compose.dev.yml` to expose both `3000` and `3001`, add an app profile, and health-check the Hono server port.
+- Startup checks now run from the server process, including database migrations and local storage writability validation when S3-compatible storage is not configured.
+- Removed `OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS`. Dynamic OAuth client registration now allows the app origin and loopback callbacks by default.
+- Added `FLAG_ALLOW_UNSAFE_OAUTH_REDIRECT_URI` for trusted self-hosted deployments that intentionally need arbitrary redirect URIs, including custom schemes, private hosts, or non-loopback `http://` callbacks. Keep this disabled on public or multi-tenant instances. [445359ebe](https://github.com/amruthpillai/reactive-resume/commit/445359ebe)
+- Removed the documented `BETTER_AUTH_URL` and `BETTER_AUTH_SECRET` override path. Auth metadata, JWKS, and OAuth callback URLs are now derived from `APP_URL` and `AUTH_SECRET`.
+- Removed Cloudflare URL extraction environment variables. Live Agent web research now depends on the selected AI provider and model supporting native web search.
+- Renamed the Crowdin token example from `CROWDIN_PERSONAL_TOKEN` to `CROWDIN_API_TOKEN`.
+
+## App Runtime & Architecture
+
+- Moved API/auth/MCP/OpenAPI/static route ownership out of the web app and into `apps/server`.
+- Changed the web app build to a Vite/TanStack Router SPA output under `apps/web/dist`, with the Hono server serving the built app and static fallback responses.
+- Added `robots.txt`, `sitemap.xml`, `llms.txt`, structured data helpers, and server-owned SEO responses. [8fcf0ec64](https://github.com/amruthpillai/reactive-resume/commit/8fcf0ec64)
+- Added package-boundary rules to Turborepo and per-workspace `turbo.json` files to enforce browser, server, domain, adapter, and infra ownership.
+- Split focused domains into new packages: `@reactive-resume/docx`, `@reactive-resume/mcp`, and `@reactive-resume/resume`.
+- Moved development-only scripts from `packages/scripts` to `tooling` so workspace packages contain app/runtime code rather than private repo tooling.
+- Reorganized API implementation into feature-owned modules under `packages/api/src/features/*`.
+
+## AI & Agent Workflows
+
+- Replaced stored inverse JSON patches with `snapshot_data` on agent actions. Legacy actions without snapshots remain non-restorable.
+- Added a migration that adds `agent_actions.snapshot_data` and drops `agent_actions.inverse_operations`.
+- Updated Agent UI and docs from "Revert" language to "Restore" language to clarify that restoring an older action rolls back that action and later applied agent patches.
+- Updated Agent tool documentation to describe provider-native `web_search` behavior instead of app-owned URL fetching.
+- Kept unsafe/private AI provider base URLs behind `FLAG_ALLOW_UNSAFE_AI_BASE_URL`, with public HTTPS provider URLs remaining the default safe path.
+
+## Resume Rendering & Exports
+
+- Moved browser PDF preview code into `apps/web/src/features/resume/preview` and public resume viewer code into `apps/web/src/features/resume/public`.
+- Added direct PDF.js canvas preview and thumbnail rendering through legacy PDF.js entrypoints, with tests that prevent browser preview code from importing the modern PDF.js runtime. [7cade6980](https://github.com/amruthpillai/reactive-resume/commit/7cade6980)
+- Added explicit `@reactive-resume/pdf/browser` and `@reactive-resume/pdf/server` generation adapters.
+- Simplified shared sidebar summary handling for PDF templates and added focused coverage for featured summary behavior. [17f351171](https://github.com/amruthpillai/reactive-resume/commit/17f351171)
+
+## Docs & Maintenance
+
+- Added new use-case docs for free, open-source, self-hosted, privacy-focused, export/share, AI, and API/MCP resume workflows.
+- Rewrote contributor architecture docs around the new monorepo runtime, package ownership model, and boundary checks.
+- Updated self-hosting Docker and SSO docs for the Hono runtime, removed environment variables, OAuth redirect safety, provider-native Agent web research, and local development ports.
+- Added and updated architecture notes, plans, and specs for the Hono migration, monorepo reorganization, Docker tagging, manifest-only PWA behavior, unsafe OAuth redirect policy, and Agent snapshot restore design.
+- Updated Knip configuration so server runtime dependencies that are imported by the built server bundle are treated as intentional dependencies.
+
+**Full Changelog**: [v5.1.4...v5.1.5](https://github.com/amruthpillai/reactive-resume/compare/v5.1.4...v5.1.5)
+</Update>
+
 <Update label="v5.1.4" description="14th May 2026">
 <Note>
   **Self-hosters using AI features:** saved AI providers now require `ENCRYPTION_SECRET`, and the new AI Agent
@@ -26,7 +91,7 @@ rss: true
 ## AI & Agent Workflows
 
 - Added server-side AI provider management with encrypted credentials, provider testing, and provider/model capability checks. This replaces the old local AI store and keeps AI configuration centralized. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)
-- Added Agent tools for reading resume drafts, fetching public URLs, reading supported attachments, asking follow-up questions, and applying JSON Patch updates to the AI draft. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)
+- Added Agent tools for reading resume drafts, using provider-native web search when supported, reading supported attachments, asking follow-up questions, and applying JSON Patch updates to the AI draft. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)
 - Added archive and delete actions for Agent threads, including read-only archived states, in-flight run cleanup when archiving, and ownership checks before destructive deletion. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)
 - Added attachment upload rate limits, private S3 ACLs for Agent attachments, runtime validation for streamed messages, transactional patch/action writes, and a unique message sequence index for safer Agent runs. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)
 - Added `FLAG_ALLOW_UNSAFE_AI_BASE_URL` for trusted self-hosted deployments that need private or local AI provider URLs, while still restricting provider URLs to `http` or `https`. Thanks to [@SirSKillz](https://github.com/SirSKillz). [#3059](https://github.com/amruthpillai/reactive-resume/pull/3059)
@@ -40,7 +105,7 @@ rss: true
 ## Self-Hosting, Docs & Maintenance
 
 - Added a development Dockerfile plus improved Compose development services and health checks for running Reactive Resume with local dependencies. [1294d3354](https://github.com/amruthpillai/reactive-resume/commit/1294d3354)
-- Updated self-hosting documentation for Redis, encrypted AI provider credentials, optional Cloudflare URL extraction, private Agent attachments, S3 path-style storage, and unsafe AI base URL behavior. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062), [#3059](https://github.com/amruthpillai/reactive-resume/pull/3059)
+- Updated self-hosting documentation for Redis, encrypted AI provider credentials, provider-native web research, private Agent attachments, S3 path-style storage, and unsafe AI base URL behavior. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062), [#3059](https://github.com/amruthpillai/reactive-resume/pull/3059)
 - Added new and refreshed guides for the AI Agent workspace, Agent tools, AI setup, builder dock, dashboard management, importing, exporting, public sharing, and private notes. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062), [affa1d664](https://github.com/amruthpillai/reactive-resume/commit/affa1d664)
 - Removed a stale Custom CSS documentation link now that custom CSS is no longer part of the v5.1 renderer flow. [#3056](https://github.com/amruthpillai/reactive-resume/pull/3056)
 - Added a Reactive Resume design system reference and updated dependencies across the workspace. [#3062](https://github.com/amruthpillai/reactive-resume/pull/3062)

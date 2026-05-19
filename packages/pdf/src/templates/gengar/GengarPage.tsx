@@ -7,6 +7,7 @@ import { parseColorString, rgbaStringToHex } from "@reactive-resume/utils/color"
 import { useRender } from "../../context";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
+import { getFeaturedSummaryLayout } from "../shared/featured-summary";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
@@ -48,8 +49,13 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 	const showSidebar = !page.fullWidth || showHeader;
 	const sidebarSections = filterSections(page.sidebar, data);
 	const mainSections = filterSections(page.main, data);
-	const specialMainSection = showHeader ? mainSections[0] : undefined;
-	const regularMainSections = showHeader ? mainSections.slice(1) : mainSections;
+	const { featuredSummarySection, regularSections: regularMainSections } = getFeaturedSummaryLayout({
+		sections: mainSections,
+		canFeatureSummary: showHeader,
+	});
+	const regularSidebarSections = featuredSummarySection
+		? sidebarSections.filter((section) => section !== "summary")
+		: sidebarSections;
 
 	return (
 		<Page size={pageSize} style={composeStyles(styles.page, pageMinHeightStyle)}>
@@ -64,7 +70,7 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 
 						{!page.fullWidth && (
 							<View style={styles.sidebarContent}>
-								{sidebarSections.map((section, index) => (
+								{regularSidebarSections.map((section, index) => (
 									<Fragment key={index}>
 										<Section section={section} placement="sidebar" />
 									</Fragment>
@@ -75,9 +81,9 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 				)}
 
 				<View style={styles.mainColumn}>
-					{specialMainSection && (
+					{featuredSummarySection && (
 						<View style={styles.specialContainer}>
-							<Section section={specialMainSection} placement="main" showHeading={specialMainSection !== "summary"} />
+							<Section section={featuredSummarySection} placement="main" showHeading={false} />
 						</View>
 					)}
 

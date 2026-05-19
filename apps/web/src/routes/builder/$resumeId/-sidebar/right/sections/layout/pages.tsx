@@ -1,5 +1,4 @@
 import type { DragEndEvent, DragStartEvent } from "@dnd-kit/core";
-import type { SectionType } from "@reactive-resume/schema/resume/data";
 import type { CSSProperties, HTMLAttributes } from "react";
 import {
 	closestCorners,
@@ -20,9 +19,9 @@ import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Switch } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
-import { useCurrentResume, useUpdateResumeData } from "@/components/resume/builder-resume-draft";
 import { templates } from "@/dialogs/resume/template/data";
-import { getSectionTitle } from "@/libs/resume/section";
+import { useCurrentResume, useUpdateResumeData } from "@/features/resume/builder/draft";
+import { resolveLayoutSectionTitle } from "./title";
 import { filterVisibleLayoutSectionIds } from "./visibility";
 
 type ColumnId = "main" | "sidebar";
@@ -403,15 +402,7 @@ type LayoutItemContentProps = HTMLAttributes<HTMLDivElement> & {
 const LayoutItemContent = forwardRef<HTMLDivElement, LayoutItemContentProps>(
 	({ id, isDragging, isOverlay, className, style, ...rest }, ref) => {
 		const resume = useCurrentResume();
-		const title = (() => {
-			if (!resume) return id;
-			if (id === "summary") return resume.data.summary.title || getSectionTitle("summary");
-			if (id in resume.data.sections)
-				return resume.data.sections[id as SectionType].title || getSectionTitle(id as SectionType);
-			const customSection = resume.data.customSections.find((section) => section.id === id);
-			if (customSection) return customSection.title;
-			return id;
-		})();
+		const title = resume ? resolveLayoutSectionTitle(resume.data, id) : id;
 
 		return (
 			<div

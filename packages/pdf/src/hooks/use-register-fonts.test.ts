@@ -71,13 +71,11 @@ describe("registerFonts", () => {
 		);
 	});
 
-	it("registers a bold CJK fallback variant so <strong> renders bold for CJK glyphs", async () => {
+	it("registers bold CJK fallback variants so strong text keeps bold glyphs", async () => {
 		const registerSpy = vi.spyOn(Font, "register").mockImplementation(() => {});
 		vi.spyOn(Font, "registerHyphenationCallback").mockImplementation(() => {});
 		const { registerFonts } = await import("./use-register-fonts");
 
-		// body has highest weight 700, heading has 600 — both should be registered
-		// for the CJK fallback so textkit can substitute bold CJK glyphs.
 		const boldTypography = {
 			body: { ...typography.body, fontWeights: ["400", "700"] },
 			heading: { ...typography.heading, fontWeights: ["400", "600"] },

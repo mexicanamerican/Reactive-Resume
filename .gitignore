@@ -3,7 +3,7 @@ node_modules
 .pnpm-store
 
 # Build Outputs
-.output
+dist
 .vercel
 .wrangler
 
@@ -47,8 +47,9 @@ temp
 .claude
 .cursor
 .superpowers
-docs/superpowers
 
 # Local Storage Data
 /data
 /apps/web/data
+
+.vite-hooks/

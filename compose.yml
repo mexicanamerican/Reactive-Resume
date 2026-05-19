@@ -78,26 +78,18 @@ services:
         condition: service_healthy
 
   reactive_resume:
-    # image: ghcr.io/amruthpillai/reactive-resume:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/amruthpillai/reactive-resume:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     networks:
       - data_network
       - storage_network
     ports:
       - "3000:3000"
-    environment:
-      - APP_URL=http://localhost:3000
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
-      - AUTH_SECRET=change-me-to-a-secure-secret-key-in-production
-      - S3_ACCESS_KEY_ID=seaweedfs
-      - S3_SECRET_ACCESS_KEY=seaweedfs
-      - S3_ENDPOINT=http://seaweedfs:8333
-      - S3_BUCKET=reactive-resume
-      - S3_FORCE_PATH_STYLE=true
-      - REDIS_URL=redis://redis:6379
-      - ENCRYPTION_SECRET=change-me-to-a-secure-agent-secret-in-production
+    env_file:
+      - path: .env
+        required: false
     volumes:
       - ./data:/app/data
     depends_on:

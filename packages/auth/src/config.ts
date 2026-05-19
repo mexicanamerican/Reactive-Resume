@@ -24,7 +24,8 @@ import { sendEmail } from "@reactive-resume/email/transport";
 import { env } from "@reactive-resume/env/server";
 import { rateLimitConfig, TRUSTED_IP_HEADERS } from "@reactive-resume/utils/rate-limit";
 import { generateId, toUsername } from "@reactive-resume/utils/string";
-import { isAllowedOAuthRedirectUri, parseAllowedHostList } from "@reactive-resume/utils/url-security.node";
+import { isAllowedOAuthRedirectUri } from "@reactive-resume/utils/url-security.node";
+import { getTrustedOrigins } from "./trusted-origins";
 
 const authBaseUrl = env.APP_URL;
 const isRateLimitEnabled = process.env.NODE_ENV === "production";
@@ -55,17 +56,7 @@ function isCustomOAuthProviderEnabled() {
 	return Boolean(env.OAUTH_CLIENT_ID) && Boolean(env.OAUTH_CLIENT_SECRET) && (hasDiscovery || hasManual);
 }
 
-function getTrustedOrigins(): string[] {
-	const normalizeOrigin = (origin: string): string => origin.replace(/\/$/, "");
-	const trustedOrigins = new Set<string>(["http://localhost:3000", "http://127.0.0.1:3000"]);
-
-	trustedOrigins.add(normalizeOrigin(new URL(env.APP_URL).origin));
-
-	return Array.from(trustedOrigins);
-}
-
-const TRUSTED_ORIGINS = getTrustedOrigins();
-const OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS = parseAllowedHostList(env.OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS);
+const TRUSTED_ORIGINS = getTrustedOrigins(env.APP_URL);
 const oauthProviderRateLimit = isRateLimitEnabled
 	? rateLimitConfig.betterAuth.oauthProvider
 	: ({
@@ -261,7 +252,11 @@ const getAuthConfig = () => {
 					if (typeof uri !== "string") {
 						throw new APIError("BAD_REQUEST", { message: "redirect_uris entries must be strings" });
 					}
-					if (!isAllowedOAuthRedirectUri(uri, TRUSTED_ORIGINS, OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS)) {
+					if (
+						!isAllowedOAuthRedirectUri(uri, TRUSTED_ORIGINS, {
+							allowUnsafe: env.FLAG_ALLOW_UNSAFE_OAUTH_REDIRECT_URI,
+						})
+					) {
 						throw new APIError("BAD_REQUEST", {
 							message: "redirect_uri is not allowed for dynamic client registration",
 						});
@@ -390,12 +385,12 @@ const getAuthConfig = () => {
 				},
 			}),
 			oauthProvider({
-				loginPage: "/auth/oauth",
-				consentPage: "/auth/oauth",
+				loginPage: "/api/auth/oauth",
+				consentPage: "/api/auth/oauth",
 				validAudiences: OAUTH_AUDIENCES,
 				allowDynamicClientRegistration: true,
 				// Required for MCP client onboarding (RFC 7591). Phishing vector is closed by the
-				// redirect_uri allowlist in the hooks.before middleware above and in src/routes/api/auth.$.ts.
+				// redirect_uri policy in the hooks.before middleware above and server auth preflight.
 				allowUnauthenticatedClientRegistration: true,
 				rateLimit: oauthProviderRateLimit,
 				silenceWarnings: { oauthAuthServerConfig: true },

@@ -52,6 +52,17 @@ const toFontWeight = (weight: number): FontWeight => {
 	return "900";
 };
 
+const collectFontRangeWeights = (ranges: FontWeightRange[]): number[] => {
+	const weights = new Set<number>();
+
+	for (const range of ranges) {
+		weights.add(range.lowest);
+		weights.add(range.highest);
+	}
+
+	return [...weights];
+};
+
 // Resolves the user-stored family to the one we hand to Font.register:
 // direct match → legacy alias (#2989) → IBM Plex Serif fallback.
 const resolvePdfFontFamily = (family: string) => {
@@ -133,30 +144,21 @@ export const registerFonts = (typography: Typography, locale: Locale, hasCjkCont
 	}
 
 	// Register a CJK fallback so textkit can substitute per-codepoint for
-	// characters the primary font lacks (#2986). We register both the
-	// regular and bold weights so that <strong>/font-weight: 700 styles
-	// are honored for CJK glyphs — without the bold variant, textkit
-	// would only find a 400-weight match and synthesize an unbolded run.
+	// characters the primary font lacks (#2986). Register the regular and
+	// bold ranges so CJK glyph fallback preserves <strong>/font-weight styles.
 	const bodyCjkFallback = needsCjkTextSupport ? getPdfCjkFallbackFontFamily(bodyFontFamily) : null;
 	const headingCjkFallback = needsCjkTextSupport ? getPdfCjkFallbackFontFamily(headingFontFamily) : null;
 
 	const registerCjkFallback = (family: string, ranges: FontWeightRange[]) => {
-		const weights = new Set<number>();
-		for (const range of ranges) {
-			weights.add(range.lowest);
-			weights.add(range.highest);
-		}
-		for (const italic of [false, true]) {
-			for (const weight of weights) {
-				registerFont(family, weight, italic);
-			}
+		const weights = collectFontRangeWeights(ranges);
+
+		for (const weight of weights) {
+			registerFont(family, weight, false);
+			registerFont(family, weight, true);
 		}
 	};
 
 	if (bodyCjkFallback && bodyCjkFallback === headingCjkFallback) {
-		// Same fallback for body and heading: merge weight ranges so that
-		// bold styles applied to either typography level have a matching
-		// CJK glyph variant.
 		registerCjkFallback(bodyCjkFallback, [bodyRange, headingRange]);
 	} else {
 		if (bodyCjkFallback) {

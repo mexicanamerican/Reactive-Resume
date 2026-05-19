@@ -3,11 +3,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useIsClient } from "usehooks-ts";
 import { sampleResumeData } from "@reactive-resume/schema/resume/sample";
 import { templateSchema } from "@reactive-resume/schema/templates";
-import { useLocalizedResumeDocument } from "@/libs/resume/pdf-document";
+import { useLocalizedResumeDocument } from "@/features/resume/export/pdf-document";
+import { createNoindexFollowMeta } from "@/libs/seo";
 
 export const Route = createFileRoute("/templates/$")({
 	component: TemplatePdfRoute,
 	errorComponent: () => <div>Template not found</div>,
+	head: () => ({
+		meta: [createNoindexFollowMeta()],
+	}),
 });
 
 function TemplatePdfRoute() {

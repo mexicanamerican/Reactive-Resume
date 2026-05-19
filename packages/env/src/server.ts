@@ -14,6 +14,7 @@ export const env = createEnv({
 	server: {
 		// Application
 		APP_URL: z.url({ protocol: /https?/ }),
+		SERVER_PORT: z.coerce.number().int().min(1).max(65535).default(3001),
 
 		// Database
 		DATABASE_URL: z.url({ protocol: /postgres(ql)?/ }),
@@ -42,7 +43,6 @@ export const env = createEnv({
 		OAUTH_AUTHORIZATION_URL: z.url({ protocol: /https?/ }).optional(),
 		OAUTH_TOKEN_URL: z.url({ protocol: /https?/ }).optional(),
 		OAUTH_USER_INFO_URL: z.url({ protocol: /https?/ }).optional(),
-		OAUTH_DYNAMIC_CLIENT_REDIRECT_HOSTS: z.string().optional(),
 		OAUTH_SCOPES: z
 			.string()
 			.min(1)
@@ -69,14 +69,13 @@ export const env = createEnv({
 		// AI Agent Workspace (optional until the agent feature is used)
 		REDIS_URL: z.url({ protocol: /redis(s)?/ }).optional(),
 		ENCRYPTION_SECRET: z.string().min(32, "ENCRYPTION_SECRET must be at least 32 characters").optional(),
-		CLOUDFLARE_ACCOUNT_ID: z.string().min(1).optional(),
-		CLOUDFLARE_API_TOKEN: z.string().min(1).optional(),
 
 		// Feature Flags
 		FLAG_DISABLE_SIGNUPS: z.stringbool().default(false),
 		FLAG_DISABLE_EMAIL_AUTH: z.stringbool().default(false),
 		FLAG_DISABLE_IMAGE_PROCESSING: z.stringbool().default(false),
 		FLAG_ALLOW_UNSAFE_AI_BASE_URL: z.stringbool().default(false),
+		FLAG_ALLOW_UNSAFE_OAUTH_REDIRECT_URI: z.stringbool().default(false),
 
 		// Crowdin (optional, for translation tooling)
 		CROWDIN_PROJECT_ID: z.string().optional(),

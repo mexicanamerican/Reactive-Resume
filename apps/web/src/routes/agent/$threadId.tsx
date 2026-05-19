@@ -50,11 +50,11 @@ import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
-import { ResumePreview } from "@/components/resume/preview";
+import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
+import { ResumePreview } from "@/features/resume/preview/preview";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { client, orpc, streamClient } from "@/libs/orpc/client";
-import { createResumePdfBlob } from "@/libs/resume/pdf-document";
 import { AgentThreadSidebar } from "./-components/thread-sidebar";
 import { attachmentIdsFromTransportBody, buildAgentChatSubmission } from "./-helpers/chat-attachments";
 
@@ -105,12 +105,14 @@ function PatchToolCard({
 			? t`Patch failed`
 			: state !== "output-available"
 				? t`Patch pending`
-				: status === "reverted"
-					? t`Patch reverted`
+				: status === "rolled_back" || status === "reverted"
+					? t`Patch rolled back`
 					: status === "conflicted"
 						? t`Patch conflicted`
 						: t`Patch applied`;
-	const revertDisabled = isReverting || status === "reverted" || status === "conflicted";
+	const canRollback = action?.canRollback ?? (Boolean(actionId) && status === "applied");
+	const revertDisabled =
+		isReverting || !canRollback || status === "rolled_back" || status === "reverted" || status === "conflicted";
 	const errorText = typeof partRecord.errorText === "string" ? partRecord.errorText : null;
 	const rawPayload = JSON.stringify(
 		{
@@ -140,12 +142,15 @@ function PatchToolCard({
 						{status === "conflicted" && revertMessage ? (
 							<p className="mt-1 text-amber-600 dark:text-amber-300">{revertMessage}</p>
 						) : null}
+						{status === "rolled_back" && revertMessage ? (
+							<p className="mt-1 text-muted-foreground">{revertMessage}</p>
+						) : null}
 						{errorText ? <p className="mt-1 text-rose-500">{errorText}</p> : null}
 					</div>
 					{actionId ? (
 						<Button size="xs" variant="ghost" disabled={revertDisabled} onClick={() => onRevert(actionId)}>
 							<ClockCounterClockwiseIcon />
-							<Trans>Revert</Trans>
+							<Trans>Restore</Trans>
 						</Button>
 					) : null}
 				</div>
@@ -159,7 +164,6 @@ function PatchToolCard({
 
 export const Route = createFileRoute("/agent/$threadId")({
 	component: RouteComponent,
-	ssr: false,
 });
 
 function fileToBase64(file: File): Promise<string> {
@@ -364,24 +368,6 @@ function MessagePart({
 					))}
 				</div>
 			</div>
-		);
-	}
-
-	if (part.type === "tool-fetch_url") {
-		const output =
-			"output" in part && typeof part.output === "object" && part.output
-				? (part.output as Record<string, unknown>)
-				: null;
-		return (
-			<details className="rounded-md border bg-card p-3 text-sm">
-				<summary className="cursor-pointer font-medium">
-					<Trans>Fetched URL</Trans>
-				</summary>
-				<div className="mt-2 space-y-1 text-muted-foreground">
-					<p>{typeof output?.url === "string" ? output.url : t`Waiting for fetch result...`}</p>
-					{typeof output?.title === "string" ? <p>{output.title}</p> : null}
-				</div>
-			</details>
 		);
 	}
 
@@ -789,25 +775,31 @@ function AgentChat({
 							onAnswer={(toolCallId, answer) => {
 								addToolOutput({ tool: "ask_user_question", toolCallId, output: answer });
 							}}
-							onRevert={(actionId) =>
+							onRevert={(actionId) => {
+								const confirmation = window.confirm(
+									t`Restore the resume to before this patch? This will roll back this patch and any patches applied after it.`,
+								);
+								if (!confirmation) return;
+
 								revertMutation.mutate(
 									{ id: actionId },
 									{
 										onSuccess: (action) => {
 											if (action.status === "conflicted") {
 												toast.error(
-													action.revertMessage ?? t`Cannot revert; the resume has changed since this edit was applied.`,
+													action.revertMessage ??
+														t`Cannot restore; the resume has changed since this edit was applied.`,
 												);
-											} else if (action.status === "reverted") {
-												toast.success(t`Patch reverted.`);
+											} else if (action.status === "rolled_back" || action.status === "reverted") {
+												toast.success(t`Patch rolled back.`);
 											}
 											void refreshThread();
 										},
 										onError: (error) =>
-											toast.error(getOrpcErrorMessage(error, { fallback: t`Could not revert this patch.` })),
+											toast.error(getOrpcErrorMessage(error, { fallback: t`Could not restore this patch.` })),
 									},
-								)
-							}
+								);
+							}}
 						/>
 					))}
 

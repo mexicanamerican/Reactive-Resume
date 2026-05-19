@@ -1,11 +1,15 @@
-/// <reference path="./markdown-raw.d.ts" />
+import { readFileSync } from "node:fs";
 
-import analyzeResumeSystemPrompt from "./prompts/analyze-resume-system.md?raw";
-import chatSystemPromptTemplate from "./prompts/chat-system.md?raw";
-import docxParserSystemPrompt from "./prompts/docx-parser-system.md?raw";
-import docxParserUserPrompt from "./prompts/docx-parser-user.md?raw";
-import pdfParserSystemPrompt from "./prompts/pdf-parser-system.md?raw";
-import pdfParserUserPrompt from "./prompts/pdf-parser-user.md?raw";
+const readPrompt = (filename: string) => {
+	return readFileSync(new URL(`./prompts/${filename}`, import.meta.url), "utf-8");
+};
+
+const analyzeResumeSystemPrompt = readPrompt("analyze-resume-system.md");
+const chatSystemPromptTemplate = readPrompt("chat-system.md");
+const docxParserSystemPrompt = readPrompt("docx-parser-system.md");
+const docxParserUserPrompt = readPrompt("docx-parser-user.md");
+const pdfParserSystemPrompt = readPrompt("pdf-parser-system.md");
+const pdfParserUserPrompt = readPrompt("pdf-parser-user.md");
 
 export {
 	analyzeResumeSystemPrompt,

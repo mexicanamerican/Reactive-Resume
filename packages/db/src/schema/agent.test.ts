@@ -41,6 +41,7 @@ describe("agent workspace table definitions", () => {
 		expect(getTableColumns(agentThread).lastMessageAt).toBeDefined();
 		expect(getTableColumns(agentMessage).uiMessage).toBeDefined();
 		expect(getTableColumns(agentAttachment).storageKey).toBeDefined();
-		expect(getTableColumns(agentAction).inverseOperations).toBeDefined();
+		expect(getTableColumns(agentAction).snapshotData).toBeDefined();
+		expect("inverseOperations" in getTableColumns(agentAction)).toBe(false);
 	});
 });

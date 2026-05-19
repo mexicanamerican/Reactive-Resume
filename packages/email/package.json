@@ -8,7 +8,7 @@
 		"./templates/auth": "./src/templates/auth.tsx"
 	},
 	"scripts": {
-		"dev": "email dev --dir src/templates --port 3001",
+		"dev": "email dev --dir src/templates --port 3002",
 		"typecheck": "tsgo --noEmit",
 		"test": "vitest run --passWithNoTests",
 		"test:coverage": "vitest run --coverage --passWithNoTests",
@@ -19,14 +19,14 @@
 		"@reactive-resume/env": "workspace:*",
 		"nodemailer": "^8.0.7",
 		"react": "^19.2.6",
-		"react-email": "^6.1.4"
+		"react-email": "^6.1.5"
 	},
 	"devDependencies": {
-		"@react-email/ui": "^6.1.4",
+		"@react-email/ui": "^6.1.5",
 		"@reactive-resume/config": "workspace:*",
 		"@types/nodemailer": "^8.0.0",
 		"@types/react": "^19.2.14",
-		"@typescript/native-preview": "7.0.0-dev.20260517.1",
+		"@typescript/native-preview": "7.0.0-dev.20260518.1",
 		"typescript": "^6.0.3"
 	}
 }
