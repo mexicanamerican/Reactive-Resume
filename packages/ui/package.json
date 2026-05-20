@@ -18,7 +18,7 @@
 		"test:agent": "vitest run --reporter=agent --reporter=json --outputFile.json=reports/vitest-results.json --passWithNoTests"
 	},
 	"dependencies": {
-		"@base-ui/react": "^1.4.1",
+		"@base-ui/react": "^1.5.0",
 		"@fontsource-variable/ibm-plex-sans": "^5.2.8",
 		"@phosphor-icons/react": "^2.1.10",
 		"@phosphor-icons/web": "^2.1.2",
@@ -39,10 +39,10 @@
 		"@tailwindcss/postcss": "^4.3.0",
 		"@tailwindcss/typography": "^0.5.19",
 		"@types/js-cookie": "^3.0.6",
-		"@types/react": "^19.2.14",
+		"@types/react": "^19.2.15",
 		"@types/react-dom": "^19.2.3",
-		"@typescript/native-preview": "7.0.0-dev.20260518.1",
-		"postcss": "^8.5.14",
+		"@typescript/native-preview": "7.0.0-dev.20260519.1",
+		"postcss": "^8.5.15",
 		"tailwindcss": "^4.3.0",
 		"typescript": "^6.0.3"
 	}

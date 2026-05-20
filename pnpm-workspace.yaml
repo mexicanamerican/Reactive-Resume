@@ -4,6 +4,7 @@ packages:
   - tooling
 patchedDependencies:
   '@react-pdf/textkit@6.3.0': patches/@react-pdf__textkit@6.3.0.patch
+minimumReleaseAge: 0
 allowBuilds:
   bcrypt: true
   esbuild: true
@@ -12,39 +13,3 @@ allowBuilds:
   sharp: true
 overrides:
   postcss@<8.5.10: ^8.5.14
-minimumReleaseAgeExclude:
-  - '@ai-sdk/gateway@3.0.116'
-  - '@ai-sdk/react@3.0.187'
-  - '@aws-sdk/client-s3@3.1049.0'
-  - '@aws-sdk/core@3.974.12'
-  - '@aws-sdk/credential-provider-env@3.972.38'
-  - '@aws-sdk/credential-provider-http@3.972.40'
-  - '@aws-sdk/credential-provider-ini@3.972.42'
-  - '@aws-sdk/credential-provider-login@3.972.42'
-  - '@aws-sdk/credential-provider-node@3.972.43'
-  - '@aws-sdk/credential-provider-process@3.972.38'
-  - '@aws-sdk/credential-provider-sso@3.972.42'
-  - '@aws-sdk/credential-provider-web-identity@3.972.42'
-  - '@aws-sdk/middleware-bucket-endpoint@3.972.14'
-  - '@aws-sdk/middleware-flexible-checksums@3.974.20'
-  - '@aws-sdk/middleware-sdk-s3@3.972.41'
-  - '@aws-sdk/nested-clients@3.997.10'
-  - '@aws-sdk/token-providers@3.1049.0'
-  - '@react-email/ui@6.1.5'
-  - '@tanstack/query-core@5.100.11'
-  - '@tanstack/react-query@5.100.11'
-  - '@types/node@25.9.0'
-  - ai@6.0.185
-  - drizzle-kit@1.0.0-rc.3
-  - drizzle-orm@1.0.0-rc.3
-  - framer-motion@12.39.0
-  - motion-dom@12.39.0
-  - motion-utils@12.39.0
-  - motion@12.39.0
-  - pg-cloudflare@1.4.0
-  - pg-connection-string@2.13.0
-  - pg-pool@3.14.0
-  - pg-protocol@1.14.0
-  - pg@8.21.0
-  - react-email@6.1.5
-  - tsx@4.22.2

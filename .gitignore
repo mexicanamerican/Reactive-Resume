@@ -46,10 +46,12 @@ temp
 .codex
 .claude
 .cursor
+.codegraph
 .superpowers
 
 # Local Storage Data
 /data
 /apps/web/data
 
+# Git Hooks
 .vite-hooks/
