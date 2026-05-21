@@ -2,8 +2,8 @@ import type z from "zod";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { EyeIcon, EyeSlashIcon, TrashSimpleIcon, UploadSimpleIcon } from "@phosphor-icons/react";
-import { useMutation } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { pictureSchema } from "@reactive-resume/schema/resume/data";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -32,6 +32,306 @@ export function PictureSectionBuilder() {
 	);
 }
 
+function PicturePreviewControls({
+	fileInputRef,
+	form,
+	normalizedPictureUrl,
+	picture,
+	pictureSrc,
+	onAutoSave,
+	onDeletePicture,
+	onSelectPicture,
+	onUploadPicture,
+}: {
+	fileInputRef: React.RefObject<HTMLInputElement | null>;
+	form: PictureSettingsForm;
+	normalizedPictureUrl: string;
+	picture: PictureValues;
+	pictureSrc: string;
+	onAutoSave: () => void;
+	onDeletePicture: () => void;
+	onSelectPicture: () => void;
+	onUploadPicture: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}) {
+	return (
+		<div className="flex items-center gap-x-4">
+			<input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onUploadPicture} />
+
+			<button
+				type="button"
+				onClick={picture.url ? onDeletePicture : onSelectPicture}
+				aria-label={picture.url ? t`Delete picture` : t`Upload picture`}
+				className="group/picture relative size-18 cursor-pointer overflow-hidden rounded-md bg-secondary transition-colors hover:bg-secondary/50"
+			>
+				{(pictureSrc || normalizedPictureUrl) && (
+					<img
+						alt=""
+						src={pictureSrc || normalizedPictureUrl}
+						className="fade-in relative z-10 size-full animate-in rounded-md object-cover transition-opacity group-hover/picture:opacity-20"
+					/>
+				)}
+
+				<div className="absolute inset-0 z-0 flex size-full items-center justify-center">
+					{picture.url ? <TrashSimpleIcon className="size-6" /> : <UploadSimpleIcon className="size-6" />}
+				</div>
+			</button>
+
+			<form.Field name="url">
+				{(field) => (
+					<FormItem className="flex-1" hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+						<FormLabel>
+							<Trans>URL</Trans>
+						</FormLabel>
+						<div className="flex items-center gap-x-2">
+							<FormControl
+								render={
+									<Input
+										name={field.name}
+										value={field.state.value}
+										onBlur={field.handleBlur}
+										onChange={(event) => {
+											field.handleChange(event.target.value);
+											onAutoSave();
+										}}
+									/>
+								}
+							/>
+
+							<Button
+								size="icon"
+								variant="ghost"
+								onClick={() => {
+									form.setFieldValue("hidden", !picture.hidden);
+									onAutoSave();
+								}}
+							>
+								{picture.hidden ? <EyeSlashIcon /> : <EyeIcon />}
+							</Button>
+						</div>
+					</FormItem>
+				)}
+			</form.Field>
+		</div>
+	);
+}
+
+function PictureGeometryFields({ form, onAutoSave }: { form: PictureSettingsForm; onAutoSave: () => void }) {
+	return (
+		<>
+			<form.Field name="size">
+				{(field) => (
+					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+						<FormLabel>
+							<Trans>Size</Trans>
+						</FormLabel>
+						<InputGroup>
+							<InputGroupInput
+								name={field.name}
+								value={field.state.value}
+								type="number"
+								min={32}
+								max={512}
+								step={1}
+								onBlur={field.handleBlur}
+								onChange={(e) => {
+									const value = e.target.value;
+									if (value === "") field.handleChange("" as unknown as number);
+									else field.handleChange(Number(value));
+									onAutoSave();
+								}}
+							/>
+
+							<InputGroupAddon align="inline-end">
+								<InputGroupText>pt</InputGroupText>
+							</InputGroupAddon>
+						</InputGroup>
+						<FormMessage errors={field.state.meta.errors} />
+					</FormItem>
+				)}
+			</form.Field>
+
+			<form.Field name="rotation">
+				{(field) => (
+					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+						<FormLabel>
+							<Trans>Rotation</Trans>
+						</FormLabel>
+						<InputGroup>
+							<FormControl
+								render={
+									<InputGroupInput
+										name={field.name}
+										value={field.state.value}
+										type="number"
+										min={0}
+										max={360}
+										step={5}
+										onBlur={field.handleBlur}
+										onChange={(e) => {
+											const value = e.target.value;
+											if (value === "") field.handleChange("" as unknown as number);
+											else field.handleChange(Number(value));
+											onAutoSave();
+										}}
+									/>
+								}
+							/>
+							<InputGroupAddon align="inline-end">
+								<InputGroupText>°</InputGroupText>
+							</InputGroupAddon>
+						</InputGroup>
+					</FormItem>
+				)}
+			</form.Field>
+
+			<form.Field name="aspectRatio">
+				{(field) => (
+					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+						<FormLabel>
+							<Trans>Aspect Ratio</Trans>
+						</FormLabel>
+						<div className="flex items-center gap-x-2">
+							<FormControl
+								render={
+									<Input
+										name={field.name}
+										value={field.state.value}
+										type="number"
+										min={0.5}
+										max={2.5}
+										step={0.1}
+										onBlur={field.handleBlur}
+										onChange={(e) => {
+											const value = e.target.value;
+											if (value === "") field.handleChange("" as unknown as number);
+											else field.handleChange(Number(value));
+											onAutoSave();
+										}}
+									/>
+								}
+							/>
+
+							<ButtonGroup className="shrink-0">
+								<Button
+									size="icon"
+									variant="outline"
+									title={t({
+										comment: "Preset button for setting picture aspect ratio to square",
+										message: "Square",
+									})}
+									onClick={() => {
+										field.handleChange(1);
+										onAutoSave();
+									}}
+								>
+									<div className="aspect-square min-h-3 min-w-3 border border-primary" />
+								</Button>
+								<Button
+									size="icon"
+									variant="outline"
+									title={t({
+										comment: "Preset button for setting picture aspect ratio to landscape orientation",
+										message: "Landscape",
+									})}
+									onClick={() => {
+										field.handleChange(1.5);
+										onAutoSave();
+									}}
+								>
+									<div className="aspect-1.5/1 min-h-3 min-w-3 border border-primary" />
+								</Button>
+								<Button
+									size="icon"
+									variant="outline"
+									title={t({
+										comment: "Preset button for setting picture aspect ratio to portrait orientation",
+										message: "Portrait",
+									})}
+									onClick={() => {
+										field.handleChange(0.5);
+										onAutoSave();
+									}}
+								>
+									<div className="aspect-1/1.5 min-h-3 min-w-3 border border-primary" />
+								</Button>
+							</ButtonGroup>
+						</div>
+					</FormItem>
+				)}
+			</form.Field>
+
+			<form.Field name="borderRadius">
+				{(field) => (
+					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+						<FormLabel>
+							<Trans>Border Radius</Trans>
+						</FormLabel>
+						<div className="flex items-center gap-x-2">
+							<InputGroup>
+								<FormControl
+									render={
+										<InputGroupInput
+											name={field.name}
+											value={field.state.value}
+											type="number"
+											min={0}
+											max={100}
+											step={1}
+											onBlur={field.handleBlur}
+											onChange={(e) => {
+												const value = Number(e.target.value);
+												field.handleChange(value);
+												onAutoSave();
+											}}
+										/>
+									}
+								/>
+								<InputGroupAddon align="inline-end">pt</InputGroupAddon>
+							</InputGroup>
+
+							<ButtonGroup className="shrink-0">
+								<Button
+									size="icon"
+									variant="outline"
+									title="0pt"
+									onClick={() => {
+										field.handleChange(0);
+										onAutoSave();
+									}}
+								>
+									<div className="size-3 rounded-none border border-primary" />
+								</Button>
+								<Button
+									size="icon"
+									variant="outline"
+									title="10pt"
+									onClick={() => {
+										field.handleChange(10);
+										onAutoSave();
+									}}
+								>
+									<div className="size-3 rounded-[10%] border border-primary" />
+								</Button>
+								<Button
+									size="icon"
+									variant="outline"
+									title="100pt"
+									onClick={() => {
+										field.handleChange(100);
+										onAutoSave();
+									}}
+								>
+									<div className="size-3 rounded-full border border-primary" />
+								</Button>
+							</ButtonGroup>
+						</div>
+					</FormItem>
+				)}
+			</form.Field>
+		</>
+	);
+}
+
 type PictureValues = z.infer<typeof pictureSchema>;
 
 function normalizePictureUrl(url: string, origin: string): string {
@@ -48,6 +348,32 @@ function normalizePictureUrl(url: string, origin: string): string {
 	}
 }
 
+async function createPicturePreviewUrl(url: string, signal: AbortSignal) {
+	const response = await fetch(url, { signal });
+
+	if (!response.ok) {
+		throw new Error(`Failed to fetch image: ${response.status}`);
+	}
+
+	const blob = await response.blob();
+	return URL.createObjectURL(blob);
+}
+
+function usePictureSettingsForm(picture: PictureValues, persist: (data: PictureValues) => void) {
+	const form = useAppForm({
+		defaultValues: picture,
+		validators: { onChange: pictureSchema },
+		onSubmit: ({ value }) => {
+			persist(value);
+		},
+	});
+	useSyncFormValues(form, picture);
+
+	return form;
+}
+
+type PictureSettingsForm = ReturnType<typeof usePictureSettingsForm>;
+
 function PictureSectionForm() {
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const appOrigin = typeof window === "undefined" ? "" : window.location.origin;
@@ -55,7 +381,13 @@ function PictureSectionForm() {
 	const resume = useCurrentResume();
 	const picture = resume.data.picture;
 	const normalizedPictureUrl = normalizePictureUrl(picture.url, appOrigin);
-	const [pictureSrc, setPictureSrc] = useState("");
+	const picturePreviewQuery = useQuery({
+		queryKey: ["resume-picture-preview", normalizedPictureUrl],
+		queryFn: ({ signal }) => createPicturePreviewUrl(normalizedPictureUrl, signal),
+		enabled: Boolean(normalizedPictureUrl),
+		gcTime: 0,
+	});
+	const pictureSrc = picturePreviewQuery.data ?? normalizedPictureUrl;
 	const updateResumeData = useUpdateResumeData();
 
 	const { mutate: uploadFile } = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
@@ -67,14 +399,7 @@ function PictureSectionForm() {
 		});
 	};
 
-	const form = useAppForm({
-		defaultValues: picture,
-		validators: { onChange: pictureSchema },
-		onSubmit: ({ value }) => {
-			persist(value);
-		},
-	});
-	useSyncFormValues(form, picture);
+	const form = usePictureSettingsForm(picture, persist);
 
 	const handleAutoSave = () => {
 		persist(form.state.values);
@@ -106,7 +431,7 @@ function PictureSectionForm() {
 		const file = e.target.files?.[0];
 		if (!file) return;
 
-		const toastId = toast.loading(t`Uploading picture...`);
+		const toastId = toast.loading(t`Uploading picture…`);
 
 		uploadFile(file, {
 			onSuccess: ({ url }) => {
@@ -131,33 +456,12 @@ function PictureSectionForm() {
 	};
 
 	useEffect(() => {
-		if (!normalizedPictureUrl) {
-			setPictureSrc("");
-			return;
-		}
-
-		const controller = new AbortController();
-		let objectUrl = "";
-
-		void fetch(normalizedPictureUrl, { signal: controller.signal })
-			.then(async (response) => {
-				if (!response.ok) throw new Error(`Failed to fetch image: ${response.status}`);
-
-				const blob = await response.blob();
-				objectUrl = URL.createObjectURL(blob);
-				setPictureSrc(objectUrl);
-			})
-			.catch(() => {
-				if (controller.signal.aborted) return;
-
-				setPictureSrc(normalizedPictureUrl);
-			});
+		const objectUrl = picturePreviewQuery.data;
 
 		return () => {
-			controller.abort();
 			if (objectUrl) URL.revokeObjectURL(objectUrl);
 		};
-	}, [normalizedPictureUrl]);
+	}, [picturePreviewQuery.data]);
 
 	return (
 		<form
@@ -168,276 +472,20 @@ function PictureSectionForm() {
 				void form.handleSubmit();
 			}}
 		>
-			<div className="flex items-center gap-x-4">
-				<input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onUploadPicture} />
-
-				<button
-					type="button"
-					onClick={picture.url ? onDeletePicture : onSelectPicture}
-					aria-label={picture.url ? t`Delete picture` : t`Upload picture`}
-					className="group/picture relative size-18 cursor-pointer overflow-hidden rounded-md bg-secondary transition-colors hover:bg-secondary/50"
-				>
-					{(pictureSrc || normalizedPictureUrl) && (
-						<img
-							alt=""
-							src={pictureSrc || normalizedPictureUrl}
-							className="fade-in relative z-10 size-full animate-in rounded-md object-cover transition-opacity group-hover/picture:opacity-20"
-						/>
-					)}
-
-					<div className="absolute inset-0 z-0 flex size-full items-center justify-center">
-						{picture.url ? <TrashSimpleIcon className="size-6" /> : <UploadSimpleIcon className="size-6" />}
-					</div>
-				</button>
-
-				<form.Field name="url">
-					{(field) => (
-						<FormItem className="flex-1" hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-							<FormLabel>
-								<Trans>URL</Trans>
-							</FormLabel>
-							<div className="flex items-center gap-x-2">
-								<FormControl
-									render={
-										<Input
-											name={field.name}
-											value={field.state.value}
-											onBlur={field.handleBlur}
-											onChange={(event) => {
-												field.handleChange(event.target.value);
-												handleAutoSave();
-											}}
-										/>
-									}
-								/>
-
-								<Button
-									size="icon"
-									variant="ghost"
-									onClick={() => {
-										form.setFieldValue("hidden", !picture.hidden);
-										handleAutoSave();
-									}}
-								>
-									{picture.hidden ? <EyeSlashIcon /> : <EyeIcon />}
-								</Button>
-							</div>
-						</FormItem>
-					)}
-				</form.Field>
-			</div>
+			<PicturePreviewControls
+				fileInputRef={fileInputRef}
+				form={form}
+				normalizedPictureUrl={normalizedPictureUrl}
+				picture={picture}
+				pictureSrc={pictureSrc}
+				onAutoSave={handleAutoSave}
+				onDeletePicture={onDeletePicture}
+				onSelectPicture={onSelectPicture}
+				onUploadPicture={onUploadPicture}
+			/>
 
 			<div className="grid @md:grid-cols-2 grid-cols-1 gap-4">
-				<form.Field name="size">
-					{(field) => (
-						<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-							<FormLabel>
-								<Trans>Size</Trans>
-							</FormLabel>
-							<InputGroup>
-								<InputGroupInput
-									name={field.name}
-									value={field.state.value}
-									type="number"
-									min={32}
-									max={512}
-									step={1}
-									onBlur={field.handleBlur}
-									onChange={(e) => {
-										const value = e.target.value;
-										if (value === "") field.handleChange("" as unknown as number);
-										else field.handleChange(Number(value));
-										handleAutoSave();
-									}}
-								/>
-
-								<InputGroupAddon align="inline-end">
-									<InputGroupText>pt</InputGroupText>
-								</InputGroupAddon>
-							</InputGroup>
-							<FormMessage errors={field.state.meta.errors} />
-						</FormItem>
-					)}
-				</form.Field>
-
-				<form.Field name="rotation">
-					{(field) => (
-						<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-							<FormLabel>
-								<Trans>Rotation</Trans>
-							</FormLabel>
-							<InputGroup>
-								<FormControl
-									render={
-										<InputGroupInput
-											name={field.name}
-											value={field.state.value}
-											type="number"
-											min={0}
-											max={360}
-											step={5}
-											onBlur={field.handleBlur}
-											onChange={(e) => {
-												const value = e.target.value;
-												if (value === "") field.handleChange("" as unknown as number);
-												else field.handleChange(Number(value));
-												handleAutoSave();
-											}}
-										/>
-									}
-								/>
-								<InputGroupAddon align="inline-end">
-									<InputGroupText>°</InputGroupText>
-								</InputGroupAddon>
-							</InputGroup>
-						</FormItem>
-					)}
-				</form.Field>
-
-				<form.Field name="aspectRatio">
-					{(field) => (
-						<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-							<FormLabel>
-								<Trans>Aspect Ratio</Trans>
-							</FormLabel>
-							<div className="flex items-center gap-x-2">
-								<FormControl
-									render={
-										<Input
-											name={field.name}
-											value={field.state.value}
-											type="number"
-											min={0.5}
-											max={2.5}
-											step={0.1}
-											onBlur={field.handleBlur}
-											onChange={(e) => {
-												const value = e.target.value;
-												if (value === "") field.handleChange("" as unknown as number);
-												else field.handleChange(Number(value));
-												handleAutoSave();
-											}}
-										/>
-									}
-								/>
-
-								<ButtonGroup className="shrink-0">
-									<Button
-										size="icon"
-										variant="outline"
-										title={t({
-											comment: "Preset button for setting picture aspect ratio to square",
-											message: "Square",
-										})}
-										onClick={() => {
-											field.handleChange(1);
-											handleAutoSave();
-										}}
-									>
-										<div className="aspect-square min-h-3 min-w-3 border border-primary" />
-									</Button>
-									<Button
-										size="icon"
-										variant="outline"
-										title={t({
-											comment: "Preset button for setting picture aspect ratio to landscape orientation",
-											message: "Landscape",
-										})}
-										onClick={() => {
-											field.handleChange(1.5);
-											handleAutoSave();
-										}}
-									>
-										<div className="aspect-1.5/1 min-h-3 min-w-3 border border-primary" />
-									</Button>
-									<Button
-										size="icon"
-										variant="outline"
-										title={t({
-											comment: "Preset button for setting picture aspect ratio to portrait orientation",
-											message: "Portrait",
-										})}
-										onClick={() => {
-											field.handleChange(0.5);
-											handleAutoSave();
-										}}
-									>
-										<div className="aspect-1/1.5 min-h-3 min-w-3 border border-primary" />
-									</Button>
-								</ButtonGroup>
-							</div>
-						</FormItem>
-					)}
-				</form.Field>
-
-				<form.Field name="borderRadius">
-					{(field) => (
-						<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-							<FormLabel>
-								<Trans>Border Radius</Trans>
-							</FormLabel>
-							<div className="flex items-center gap-x-2">
-								<InputGroup>
-									<FormControl
-										render={
-											<InputGroupInput
-												name={field.name}
-												value={field.state.value}
-												type="number"
-												min={0}
-												max={100}
-												step={1}
-												onBlur={field.handleBlur}
-												onChange={(e) => {
-													const value = Number(e.target.value);
-													field.handleChange(value);
-													handleAutoSave();
-												}}
-											/>
-										}
-									/>
-									<InputGroupAddon align="inline-end">pt</InputGroupAddon>
-								</InputGroup>
-
-								<ButtonGroup className="shrink-0">
-									<Button
-										size="icon"
-										variant="outline"
-										title="0pt"
-										onClick={() => {
-											field.handleChange(0);
-											handleAutoSave();
-										}}
-									>
-										<div className="size-3 rounded-none border border-primary" />
-									</Button>
-									<Button
-										size="icon"
-										variant="outline"
-										title="10pt"
-										onClick={() => {
-											field.handleChange(10);
-											handleAutoSave();
-										}}
-									>
-										<div className="size-3 rounded-[10%] border border-primary" />
-									</Button>
-									<Button
-										size="icon"
-										variant="outline"
-										title="100pt"
-										onClick={() => {
-											field.handleChange(100);
-											handleAutoSave();
-										}}
-									>
-										<div className="size-3 rounded-full border border-primary" />
-									</Button>
-								</ButtonGroup>
-							</div>
-						</FormItem>
-					)}
-				</form.Field>
+				<PictureGeometryFields form={form} onAutoSave={handleAutoSave} />
 
 				<div className="flex items-end gap-x-3">
 					<form.Field name="borderColor">

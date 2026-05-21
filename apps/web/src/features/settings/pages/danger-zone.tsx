@@ -3,7 +3,7 @@ import { Trans } from "@lingui/react/macro";
 import { TrashSimpleIcon } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -62,7 +62,7 @@ export function DangerZoneSettingsPage() {
 	};
 
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.25, ease: "easeOut" }}
@@ -79,7 +79,7 @@ export function DangerZoneSettingsPage() {
 				placeholder={t`Type "${CONFIRMATION_TEXT}" to confirm`}
 			/>
 
-			<motion.div
+			<m.div
 				className="justify-self-end will-change-transform"
 				whileHover={!isConfirmationValid ? undefined : { y: -1, scale: 1.01 }}
 				whileTap={!isConfirmationValid ? undefined : { scale: 0.98 }}
@@ -89,7 +89,7 @@ export function DangerZoneSettingsPage() {
 					<TrashSimpleIcon />
 					<Trans>Delete Account</Trans>
 				</Button>
-			</motion.div>
-		</motion.div>
+			</m.div>
+		</m.div>
 	);
 }

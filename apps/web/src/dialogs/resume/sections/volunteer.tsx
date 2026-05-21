@@ -143,7 +143,7 @@ export function UpdateVolunteerDialog({ data }: DialogProps<"resume.sections.vol
 
 const VolunteerForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function VolunteerFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

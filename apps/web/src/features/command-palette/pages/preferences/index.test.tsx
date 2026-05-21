@@ -31,22 +31,22 @@ const renderGroup = () =>
 	);
 
 describe("PreferencesCommandGroup", () => {
-	it("renders 'Change theme to...' and 'Change language to...' at the root", () => {
+	it("renders 'Change theme to…' and 'Change language to…' at the root", () => {
 		renderGroup();
-		expect(screen.getByText("Change theme to...")).toBeInTheDocument();
-		expect(screen.getByText("Change language to...")).toBeInTheDocument();
+		expect(screen.getByText("Change theme to…")).toBeInTheDocument();
+		expect(screen.getByText("Change language to…")).toBeInTheDocument();
 	});
 
 	it("pushes 'theme' onto the page stack when the theme item is selected", () => {
 		renderGroup();
-		const item = screen.getByText("Change theme to...");
+		const item = screen.getByText("Change theme to…");
 		fireEvent.click(item);
 		expect(useCommandPaletteStore.getState().pages).toContain("theme");
 	});
 
 	it("pushes 'language' onto the page stack when the language item is selected", () => {
 		renderGroup();
-		fireEvent.click(screen.getByText("Change language to..."));
+		fireEvent.click(screen.getByText("Change language to…"));
 		expect(useCommandPaletteStore.getState().pages).toContain("language");
 	});
 });

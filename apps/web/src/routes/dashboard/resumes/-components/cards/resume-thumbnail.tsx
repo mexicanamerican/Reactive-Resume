@@ -3,7 +3,7 @@ import type { RouterOutput } from "@/libs/orpc/client";
 import { FileTextIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { useInView } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
@@ -15,71 +15,52 @@ type ResumeListItem = RouterOutput["resume"]["list"][number];
 
 type ThumbnailState = { status: "error" | "idle" | "loading" } | { status: "ready"; url: string };
 
-function useResumeThumbnail(data: ResumeData | undefined, cacheKey: string | undefined) {
-	const [thumbnail, setThumbnail] = useState<ThumbnailState>({ status: "idle" });
-	const currentUrlRef = useRef<string | null>(null);
+const throwIfAborted = (signal: AbortSignal) => {
+	if (signal.aborted) throw new DOMException("Thumbnail generation aborted.", "AbortError");
+};
 
-	const revokeCurrentThumbnail = useCallback(() => {
-		if (!currentUrlRef.current) return;
-		URL.revokeObjectURL(currentUrlRef.current);
-		currentUrlRef.current = null;
-	}, []);
+const createResumeThumbnailUrl = async (data: ResumeData, signal: AbortSignal) => {
+	const pdf = await createResumePdfBlob(data);
+	throwIfAborted(signal);
+
+	const url = await createPdfFirstPageImageUrl(pdf);
+
+	if (signal.aborted) {
+		URL.revokeObjectURL(url);
+		throwIfAborted(signal);
+	}
+
+	return url;
+};
+
+function useResumeThumbnail(data: ResumeData | undefined, cacheKey: string | undefined): ThumbnailState {
+	const thumbnailQuery = useQuery({
+		queryKey: ["resume-thumbnail", cacheKey],
+		queryFn: ({ signal }) => {
+			if (!data) throw new Error("Resume data is required to generate a thumbnail.");
+			return createResumeThumbnailUrl(data, signal);
+		},
+		enabled: Boolean(data && cacheKey),
+		gcTime: 0,
+	});
 
 	useEffect(() => {
-		return () => {
-			revokeCurrentThumbnail();
-		};
-	}, [revokeCurrentThumbnail]);
+		if (thumbnailQuery.error) console.error("Failed to generate resume thumbnail", thumbnailQuery.error);
+	}, [thumbnailQuery.error]);
 
 	useEffect(() => {
-		if (!data || !cacheKey) {
-			revokeCurrentThumbnail();
-			setThumbnail({ status: "idle" });
-			return;
-		}
-
-		let isCancelled = false;
-		let nextUrl: string | null = null;
-
-		setThumbnail({ status: "loading" });
-
-		const generateThumbnail = async () => {
-			try {
-				const pdf = await createResumePdfBlob(data);
-				if (isCancelled) return;
-
-				nextUrl = await createPdfFirstPageImageUrl(pdf);
-				if (isCancelled) {
-					URL.revokeObjectURL(nextUrl);
-					nextUrl = null;
-					return;
-				}
-
-				revokeCurrentThumbnail();
-				currentUrlRef.current = nextUrl;
-				setThumbnail({ status: "ready", url: nextUrl });
-				nextUrl = null;
-			} catch (error) {
-				if (isCancelled) return;
-
-				console.error("Failed to generate resume thumbnail", error);
-				revokeCurrentThumbnail();
-				setThumbnail({ status: "error" });
-			}
-		};
-
-		void generateThumbnail();
+		const url = thumbnailQuery.data;
 
 		return () => {
-			isCancelled = true;
-
-			if (nextUrl) {
-				URL.revokeObjectURL(nextUrl);
-			}
+			if (url) URL.revokeObjectURL(url);
 		};
-	}, [data, cacheKey, revokeCurrentThumbnail]);
+	}, [thumbnailQuery.data]);
 
-	return thumbnail;
+	if (!data || !cacheKey) return { status: "idle" };
+	if (thumbnailQuery.isError) return { status: "error" };
+	if (thumbnailQuery.data) return { status: "ready", url: thumbnailQuery.data };
+
+	return { status: "loading" };
 }
 
 export function ResumeThumbnail({ isLocked, resume }: { isLocked: boolean; resume: ResumeListItem }) {

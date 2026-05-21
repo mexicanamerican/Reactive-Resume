@@ -2,7 +2,7 @@ import type { IconProps } from "@phosphor-icons/react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { GithubLogoIcon, HeartIcon, RocketIcon, SparkleIcon, UsersIcon, WrenchIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { cn } from "@reactive-resume/utils/style";
 
@@ -13,7 +13,7 @@ type FloatingIconProps = {
 };
 
 const FloatingIcon = ({ icon: Icon, className, delay = 0 }: FloatingIconProps) => (
-	<motion.div
+	<m.div
 		className={cn("absolute text-primary/20", className)}
 		animate={{
 			y: [0, -12, 0],
@@ -28,11 +28,11 @@ const FloatingIcon = ({ icon: Icon, className, delay = 0 }: FloatingIconProps) =
 		}}
 	>
 		<Icon size={32} weight="duotone" />
-	</motion.div>
+	</m.div>
 );
 
 const PulsingHeart = () => (
-	<motion.div
+	<m.div
 		className="relative inline-flex items-center justify-center"
 		animate={{
 			scale: [1, 1.15, 1],
@@ -44,7 +44,7 @@ const PulsingHeart = () => (
 		}}
 	>
 		<HeartIcon size={48} weight="fill" className="text-rose-500" />
-		<motion.div
+		<m.div
 			className="absolute inset-0 flex items-center justify-center"
 			animate={{
 				scale: [1, 1.8],
@@ -57,8 +57,8 @@ const PulsingHeart = () => (
 			}}
 		>
 			<HeartIcon size={48} weight="fill" className="text-rose-500" />
-		</motion.div>
-	</motion.div>
+		</m.div>
+	</m.div>
 );
 
 type SparkleEffectProps = {
@@ -66,7 +66,7 @@ type SparkleEffectProps = {
 };
 
 const SparkleEffect = ({ className }: SparkleEffectProps) => (
-	<motion.div
+	<m.div
 		className={cn("absolute", className)}
 		animate={{
 			scale: [0, 1, 0],
@@ -80,7 +80,7 @@ const SparkleEffect = ({ className }: SparkleEffectProps) => (
 		}}
 	>
 		<SparkleIcon size={16} weight="fill" className="text-amber-400" />
-	</motion.div>
+	</m.div>
 );
 
 type FeatureCardProps = {
@@ -91,7 +91,7 @@ type FeatureCardProps = {
 };
 
 const FeatureCard = ({ icon: Icon, title, description, delay }: FeatureCardProps) => (
-	<motion.div
+	<m.div
 		className="group relative flex flex-col items-center gap-3 rounded-2xl border border-border/50 bg-card/50 p-6 text-center backdrop-blur-sm transition-colors hover:border-primary/30 hover:bg-card/80"
 		initial={{ opacity: 0, y: 20 }}
 		whileInView={{ opacity: 1, y: 0 }}
@@ -99,17 +99,17 @@ const FeatureCard = ({ icon: Icon, title, description, delay }: FeatureCardProps
 		transition={{ duration: 0.5, delay }}
 		whileHover={{ y: -4 }}
 	>
-		<motion.div
+		<m.div
 			aria-hidden="true"
 			className="flex size-12 items-center justify-center rounded-md bg-primary/10 text-primary transition-colors group-hover:bg-primary/20"
 			whileHover={{ rotate: [0, -10, 10, 0] }}
 			transition={{ duration: 0.4 }}
 		>
 			<Icon size={24} weight="light" />
-		</motion.div>
+		</m.div>
 		<h3 className="font-semibold tracking-tight">{title}</h3>
 		<p className="text-muted-foreground leading-relaxed">{description}</p>
-	</motion.div>
+	</m.div>
 );
 
 export const DonationBanner = () => (
@@ -130,7 +130,7 @@ export const DonationBanner = () => (
 
 		<div className="container relative px-8">
 			{/* Header */}
-			<motion.div
+			<m.div
 				className="flex flex-col items-center text-center"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ export const DonationBanner = () => (
 					<SparkleEffect className="-inset-s-3 bottom-0" />
 				</div>
 
-				<motion.h2
+				<m.h2
 					className="mb-6 font-semibold text-2xl tracking-tight md:text-4xl xl:text-5xl"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -151,9 +151,9 @@ export const DonationBanner = () => (
 					transition={{ duration: 0.6, delay: 0.1 }}
 				>
 					<Trans>Support Reactive Resume</Trans>
-				</motion.h2>
+				</m.h2>
 
-				<motion.p
+				<m.p
 					className="max-w-3xl text-base text-muted-foreground leading-relaxed"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -164,8 +164,8 @@ export const DonationBanner = () => (
 						Reactive Resume is a free and open-source project, built with love and maintained by me and a community of
 						contributors. Your donations help keep the lights on and the code flowing.
 					</Trans>
-				</motion.p>
-			</motion.div>
+				</m.p>
+			</m.div>
 
 			{/* Feature cards */}
 			<div className="mx-auto my-12 grid max-w-5xl gap-8 sm:grid-cols-3">
@@ -190,7 +190,7 @@ export const DonationBanner = () => (
 			</div>
 
 			{/* CTA Buttons */}
-			<motion.div
+			<m.div
 				className="flex flex-col items-center justify-center gap-4 sm:flex-row"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -222,10 +222,10 @@ export const DonationBanner = () => (
 						</a>
 					}
 				/>
-			</motion.div>
+			</m.div>
 
 			{/* Footer note */}
-			<motion.p
+			<m.p
 				className="mt-8 text-center text-muted-foreground leading-relaxed"
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
@@ -237,7 +237,7 @@ export const DonationBanner = () => (
 					<br />
 					Thank you for your support!
 				</Trans>
-			</motion.p>
+			</m.p>
 		</div>
 	</section>
 );

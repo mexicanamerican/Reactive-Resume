@@ -1,7 +1,7 @@
 import type z from "zod";
 import { Trans } from "@lingui/react/macro";
 import { useStore } from "@tanstack/react-form";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { colorDesignSchema, levelDesignSchema } from "@reactive-resume/schema/resume/data";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
@@ -231,15 +231,15 @@ function QuickColorCircle({ color, active, onSelect, className, ...props }: Quic
 
 			<AnimatePresence>
 				{active && (
-					<motion.div
-						initial={{ scale: 0 }}
-						animate={{ scale: 1 }}
-						exit={{ scale: 0 }}
+					<m.div
+						initial={{ scale: 0.95, opacity: 0 }}
+						animate={{ scale: 1, opacity: 1 }}
+						exit={{ scale: 0.95, opacity: 0 }}
 						transition={{ duration: 0.16, ease: "easeOut" }}
 						className="absolute inset-0 flex size-8 items-center justify-center will-change-transform"
 					>
 						<div className="size-4 rounded-md bg-foreground" />
-					</motion.div>
+					</m.div>
 				)}
 			</AnimatePresence>
 		</button>

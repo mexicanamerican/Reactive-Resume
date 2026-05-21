@@ -5,7 +5,7 @@ import { lingui, linguiTransformerBabelPreset } from "@lingui/vite-plugin";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 const rootPackageJsonPath = new URL("../../package.json", import.meta.url);
@@ -55,10 +55,12 @@ export default defineConfig({
 		tailwindcss(),
 		tanstackRouter({
 			target: "react",
+			semicolons: true,
+			quoteStyle: "double",
 			autoCodeSplitting: true,
 		}),
 		viteReact(),
 		lingui(),
-		babel({ presets: [linguiTransformerBabelPreset()] }),
+		babel({ presets: [reactCompilerPreset(), linguiTransformerBabelPreset()] }),
 	],
 });

@@ -1,5 +1,5 @@
 import { useInView, useMotionValue, useSpring } from "motion/react";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useEffectEvent, useRef } from "react";
 
 type CountUpProps = {
 	to: number;
@@ -75,26 +75,26 @@ export function CountUp({
 		[maxDecimals, separator],
 	);
 
+	const formatCurrentValue = useEffectEvent((latest: number) => formatValue(latest));
+	const notifyStart = useEffectEvent(() => onStart?.());
+	const notifyEnd = useEffectEvent(() => onEnd?.());
+
 	useEffect(() => {
 		if (ref.current) {
-			ref.current.textContent = formatValue(direction === "down" ? to : from);
+			ref.current.textContent = formatCurrentValue(direction === "down" ? to : from);
 		}
-	}, [from, to, direction, formatValue]);
+	}, [from, to, direction]);
 
 	useEffect(() => {
 		if (isInView && startWhen) {
-			if (typeof onStart === "function") {
-				onStart();
-			}
+			notifyStart();
 			const timeoutId = setTimeout(() => {
 				motionValue.set(direction === "down" ? from : to);
 			}, delay * 1000);
 
 			const durationTimeoutId = setTimeout(
 				() => {
-					if (typeof onEnd === "function") {
-						onEnd();
-					}
+					notifyEnd();
 				},
 				delay * 1000 + duration * 1000,
 			);
@@ -104,17 +104,17 @@ export function CountUp({
 				clearTimeout(durationTimeoutId);
 			};
 		}
-	}, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
+	}, [isInView, startWhen, motionValue, direction, from, to, delay, duration]);
 
 	useEffect(() => {
 		const unsubscribe = springValue.on("change", (latest: number) => {
 			if (ref.current) {
-				ref.current.textContent = formatValue(latest);
+				ref.current.textContent = formatCurrentValue(latest);
 			}
 		});
 
 		return () => unsubscribe();
-	}, [springValue, formatValue]);
+	}, [springValue]);
 
 	return (
 		<span

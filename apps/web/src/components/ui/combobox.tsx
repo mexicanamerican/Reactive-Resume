@@ -85,9 +85,10 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 		(v: TValue | TValue[] | null | undefined) => {
 			if (multiple) {
 				if (!v || !Array.isArray(v)) return [];
-				return (v as TValue[])
-					.map((item) => optionMap.get(String(item)) ?? null)
-					.filter(Boolean) as ComboboxOption<TValue>[];
+				return (v as TValue[]).flatMap((item) => {
+					const option = optionMap.get(String(item));
+					return option ? [option] : [];
+				});
 			}
 			if (v == null) return null;
 			return optionMap.get(String(v)) ?? null;

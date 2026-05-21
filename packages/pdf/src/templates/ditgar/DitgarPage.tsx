@@ -1,10 +1,10 @@
 import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateFeatures, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { parseColorString, rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { getFeaturedSummaryLayout } from "../shared/featured-summary";
@@ -75,8 +75,8 @@ export const DitgarPage = ({ page, pageIndex }: TemplatePageProps) => {
 
 						{!page.fullWidth && (
 							<View style={composeStyles(styles.sidebarContent, { rowGap: metrics.sectionGap })}>
-								{regularSidebarSections.map((section, index) => (
-									<Section key={index} section={section} placement="sidebar" />
+								{regularSidebarSections.map((section) => (
+									<Section key={section} section={section} placement="sidebar" />
 								))}
 							</View>
 						)}
@@ -91,8 +91,8 @@ export const DitgarPage = ({ page, pageIndex }: TemplatePageProps) => {
 					)}
 
 					<View style={composeStyles(styles.mainContent, { rowGap: metrics.sectionGap })}>
-						{regularMainSections.map((section, index) => (
-							<Section key={index} section={section} placement="main" />
+						{regularMainSections.map((section) => (
+							<Section key={section} section={section} placement="main" />
 						))}
 					</View>
 				</View>

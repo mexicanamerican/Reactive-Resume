@@ -19,6 +19,8 @@ const oauthAuthorizeSanitizedParams = [
 	"resource",
 ] as const;
 
+const oauthCallbackPassthroughExcludedParams = new Set(["exp", "sig"]);
+
 function sanitizeOAuthAuthorizeRequest(request: Request): Request {
 	if (request.method !== "GET") return request;
 
@@ -199,7 +201,7 @@ export async function handleOAuth(request: Request) {
 	const loginUrl = new URL("/auth/login", env.APP_URL);
 	const oauthParams = new URLSearchParams();
 	for (const [key, value] of url.searchParams) {
-		if (!["exp", "sig"].includes(key)) {
+		if (!oauthCallbackPassthroughExcludedParams.has(key)) {
 			oauthParams.set(key, value);
 		}
 	}

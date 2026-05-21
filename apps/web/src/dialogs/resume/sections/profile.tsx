@@ -153,7 +153,7 @@ export function UpdateProfileDialog({ data }: DialogProps<"resume.sections.profi
 
 const ProfileForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function ProfileFormRenderer({ form }) {
 		const networkMeta = useStore(form.store, (s) => s.fieldMeta?.network);
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 

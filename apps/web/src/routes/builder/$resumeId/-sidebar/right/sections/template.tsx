@@ -43,7 +43,7 @@ function TemplateSectionForm() {
 				</div>
 			</Button>
 
-			<div className="flex flex-1 flex-col space-y-4 @md:pt-1 @md:pb-3">
+			<div className="flex flex-1 flex-col gap-y-4 @md:pt-1 @md:pb-3">
 				<div className="space-y-1">
 					<h3 className="font-semibold text-2xl capitalize tracking-tight">{metadata.name}</h3>
 					<p className="text-muted-foreground text-sm">{i18n.t(metadata.description)}</p>

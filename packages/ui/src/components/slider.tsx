@@ -1,8 +1,16 @@
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
 import { cn } from "@reactive-resume/utils/style";
 
+const THUMB_POSITION_KEYS = ["single", "start", "end"] as const;
+
 function Slider({ className, defaultValue, value, min = 0, max = 100, ...props }: SliderPrimitive.Root.Props) {
 	const _values = Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min, max];
+	const thumbDescriptors = _values.map((thumbValue, position) => ({
+		key:
+			_values.length === 1
+				? THUMB_POSITION_KEYS[0]
+				: (THUMB_POSITION_KEYS[position + 1] ?? `thumb-${position}-${thumbValue}`),
+	}));
 
 	return (
 		<SliderPrimitive.Root
@@ -25,10 +33,10 @@ function Slider({ className, defaultValue, value, min = 0, max = 100, ...props }
 						className="select-none bg-primary data-horizontal:h-full data-vertical:w-full"
 					/>
 				</SliderPrimitive.Track>
-				{Array.from({ length: _values.length }, (_, index) => (
+				{thumbDescriptors.map((thumb) => (
 					<SliderPrimitive.Thumb
 						data-slot="slider-thumb"
-						key={index}
+						key={thumb.key}
 						className="relative block size-3 shrink-0 select-none rounded-full border border-ring bg-white ring-ring/50 transition-[color,box-shadow] after:absolute after:-inset-2 hover:ring-3 focus-visible:outline-hidden focus-visible:ring-3 active:ring-3 disabled:pointer-events-none disabled:opacity-50"
 					/>
 				))}

@@ -73,19 +73,18 @@ export function useCookie(
 
 	useEffect(() => {
 		const cookie = getCookie(name);
+		let nextValue: string | null;
 
 		if (cookie !== null) {
-			setValue(cookie);
-			return;
+			nextValue = cookie;
+		} else if (defaultValue === undefined) {
+			nextValue = null;
+		} else {
+			if (canUseCookies()) Cookie.set(name, defaultValue, resolveCookieOptions(defaultOptions));
+			nextValue = defaultValue;
 		}
 
-		if (defaultValue === undefined) {
-			setValue(null);
-			return;
-		}
-
-		if (canUseCookies()) Cookie.set(name, defaultValue, resolveCookieOptions(defaultOptions));
-		setValue(defaultValue);
+		setValue(nextValue);
 	}, [name, defaultValue, defaultOptions]);
 
 	const updateCookie = useCallback(

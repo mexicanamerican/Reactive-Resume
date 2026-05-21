@@ -1,10 +1,11 @@
 import type { Style } from "@react-pdf/types";
+import type { ReactNode } from "react";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
@@ -51,15 +52,15 @@ export const RhyhornPage = ({ page, pageIndex }: TemplatePageProps) => {
 				{showHeader && <Header styles={styles} />}
 
 				<View style={composeStyles(styles.sectionGroup, { rowGap: metrics.sectionGap })}>
-					{mainSections.map((section, index) => (
-						<Section key={index} section={section} placement="main" />
+					{mainSections.map((section) => (
+						<Section key={section} section={section} placement="main" />
 					))}
 				</View>
 
 				{!page.fullWidth && (
 					<View style={composeStyles(styles.sectionGroup, { rowGap: metrics.sectionGap })}>
-						{sidebarSections.map((section, index) => (
-							<Section key={index} section={section} placement="sidebar" />
+						{sidebarSections.map((section) => (
+							<Section key={section} section={section} placement="sidebar" />
 						))}
 					</View>
 				)}
@@ -71,32 +72,57 @@ export const RhyhornPage = ({ page, pageIndex }: TemplatePageProps) => {
 const Header = ({ styles }: { styles: RhyhornStyles }) => {
 	const { basics, picture } = useRender();
 	const hasPicture = hasTemplatePicture(picture);
-	const contactItems = [
-		basics.email && (
-			<Link src={`mailto:${basics.email}`} style={styles.contactItemContent}>
-				<Icon name="envelope" />
-				<Text>{basics.email}</Text>
-			</Link>
-		),
-		basics.phone && (
-			<Link src={`tel:${basics.phone}`} style={styles.contactItemContent}>
-				<Icon name="phone" />
-				<Text>{basics.phone}</Text>
-			</Link>
-		),
-		basics.location && (
-			<View style={styles.contactItemContent}>
-				<Icon name="map-pin" />
-				<Text>{basics.location}</Text>
-			</View>
-		),
-		basics.website.url && (
-			<WebsiteContactItem key="website" website={basics.website} style={styles.contactItemContent} />
-		),
-		...basics.customFields.map((field) => (
-			<CustomFieldContactItem key={field.id} field={field} style={styles.contactItemContent} />
-		)),
-	].filter(Boolean);
+	const contactItems: { id: string; content: ReactNode }[] = [];
+
+	if (basics.email) {
+		contactItems.push({
+			id: "email",
+			content: (
+				<Link src={`mailto:${basics.email}`} style={styles.contactItemContent}>
+					<Icon name="envelope" />
+					<Text>{basics.email}</Text>
+				</Link>
+			),
+		});
+	}
+
+	if (basics.phone) {
+		contactItems.push({
+			id: "phone",
+			content: (
+				<Link src={`tel:${basics.phone}`} style={styles.contactItemContent}>
+					<Icon name="phone" />
+					<Text>{basics.phone}</Text>
+				</Link>
+			),
+		});
+	}
+
+	if (basics.location) {
+		contactItems.push({
+			id: "location",
+			content: (
+				<View style={styles.contactItemContent}>
+					<Icon name="map-pin" />
+					<Text>{basics.location}</Text>
+				</View>
+			),
+		});
+	}
+
+	if (basics.website.url) {
+		contactItems.push({
+			id: "website",
+			content: <WebsiteContactItem website={basics.website} style={styles.contactItemContent} />,
+		});
+	}
+
+	contactItems.push(
+		...basics.customFields.map((field) => ({
+			id: `custom-${field.id}`,
+			content: <CustomFieldContactItem field={field} style={styles.contactItemContent} />,
+		})),
+	);
 
 	return (
 		<View style={styles.header}>
@@ -109,13 +135,13 @@ const Header = ({ styles }: { styles: RhyhornStyles }) => {
 				<View style={styles.contactList}>
 					{contactItems.map((item, index) => (
 						<View
-							key={index}
+							key={item.id}
 							style={composeStyles(
 								styles.contactItem,
 								index === contactItems.length - 1 ? styles.contactItemLast : undefined,
 							)}
 						>
-							{item}
+							{item.content}
 						</View>
 					))}
 				</View>

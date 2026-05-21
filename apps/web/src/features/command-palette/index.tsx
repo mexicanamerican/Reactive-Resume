@@ -77,7 +77,7 @@ export function CommandPalette() {
 				</DialogTitle>
 				<DialogDescription>
 					<Trans comment="Screen-reader dialog description instructing users how to use the command palette">
-						Type a command or search...
+						Type a command or search…
 					</Trans>
 				</DialogDescription>
 			</DialogHeader>
@@ -112,11 +112,11 @@ export function CommandPalette() {
 							isFirstPage
 								? t({
 										comment: "Placeholder in command palette input on root page",
-										message: "Type a command or search...",
+										message: "Type a command or search…",
 									})
 								: t({
 										comment: "Placeholder in command palette input on nested pages",
-										message: "Search...",
+										message: "Search…",
 									})
 						}
 						aria-label={t({

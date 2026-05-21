@@ -52,7 +52,7 @@ function DonationToastCard({ onDismiss, onDonate }: DonationToastCardProps) {
 	return (
 		<div className="w-sm rounded-md bg-popover p-4 shadow-xl">
 			<div className="flex items-start gap-3">
-				<div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-amber-300 text-zinc-950">
+				<div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-amber-300 text-amber-950">
 					<HandHeartIcon aria-hidden="true" />
 				</div>
 
@@ -70,7 +70,7 @@ function DonationToastCard({ onDismiss, onDonate }: DonationToastCardProps) {
 				<Button size="sm" variant="outline" onClick={onDismiss}>
 					<Trans>Dismiss</Trans>
 				</Button>
-				<Button size="sm" onClick={onDonate} className="bg-amber-300 text-zinc-950 hover:bg-amber-200">
+				<Button size="sm" onClick={onDonate} className="bg-amber-300 text-amber-950 hover:bg-amber-200">
 					<Trans>Donate</Trans>
 				</Button>
 			</div>

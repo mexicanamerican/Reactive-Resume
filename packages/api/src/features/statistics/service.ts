@@ -101,13 +101,11 @@ const fetchGitHubStarsOnce = async (): Promise<number | null> => {
 	}
 };
 
-const getGitHubStars = async (): Promise<number | null> => {
-	for (let attempt = 0; attempt < GITHUB_REQUEST_MAX_ATTEMPTS; attempt++) {
-		const stars = await fetchGitHubStarsOnce();
-		if (stars !== null) return stars;
-	}
+const getGitHubStars = async (attempt = 1): Promise<number | null> => {
+	if (attempt > GITHUB_REQUEST_MAX_ATTEMPTS) return null;
 
-	return null;
+	const stars = await fetchGitHubStarsOnce();
+	return stars ?? getGitHubStars(attempt + 1);
 };
 
 export const statisticsService = {

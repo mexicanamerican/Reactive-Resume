@@ -78,17 +78,17 @@ services:
         condition: service_healthy
 
   reactive_resume:
-    image: ghcr.io/amruthpillai/reactive-resume:latest
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
+    # image: ghcr.io/amruthpillai/reactive-resume:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     networks:
       - data_network
       - storage_network
     ports:
       - "3000:3000"
     env_file:
-      - path: .env
+      - path: .env.example
         required: false
     volumes:
       - ./data:/app/data

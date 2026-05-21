@@ -66,6 +66,10 @@ function cloneResumeData(data: ResumeData): ResumeData {
 	return structuredClone(data);
 }
 
+function createResumeUpdateEventIterator(resumeId: string) {
+	return streamClient.resume.updates.subscribe({ id: resumeId });
+}
+
 function setRuntimeBaseline(resume: Resume) {
 	const runtime = getRuntime(resume.id);
 	runtime.baselineData = cloneResumeData(resume.data);
@@ -340,7 +344,7 @@ export function useResumeUpdateSubscription() {
 
 		let didCancel = false;
 		let retryTimer: number | undefined;
-		const cancel = consumeEventIterator(streamClient.resume.updates.subscribe({ id: resumeId }), {
+		const cancel = consumeEventIterator(createResumeUpdateEventIterator(resumeId), {
 			onEvent: async () => {
 				try {
 					const resume = (await orpc.resume.getById.call({ id: resumeId })) as Resume;

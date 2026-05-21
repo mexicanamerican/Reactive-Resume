@@ -8,7 +8,7 @@ msgstr ""
 "Language: he\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "ניתוח קורות חיים"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "מנתח..."
+msgid "Analyzing…"
+msgstr "ניתוח…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "לא ניתן לבטל את הפעולה; קורות החיים השתנו מאז שהעריכה הזו הוחלה."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "לא ניתן לשחזר; קורות החיים השתנו מאז שהעריכה הזו הוחלה."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "שינוי שפה"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "שינוי השפה אל..."
+msgid "Change language to…"
+msgstr "שנה שפה ל-…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "שינוי ערכת עיצוב אל..."
+msgid "Change theme to…"
+msgstr "שנה את התבנית ל-…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "לא ניתן היה ליצור קשר עם ספק ה-AI. אנא נסה שוב."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "לא ניתן היה לבטל את התיקון הזה."
+msgid "Could not restore this patch."
+msgstr "לא ניתן היה לשחזר את התיקון הזה."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "הפעלת ההגנה באמצעות סיסמה..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "הגנה עם אימות דו־שלבי..."
+msgid "Enabling two-factor authentication…"
+msgstr "הפעלת אימות דו-שלבי…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "עבור למרכז השליטה בקורות החיים"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "מעבר אל..."
+msgid "Go to…"
+msgstr "עבור אל…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "מייבא את קורות החיים שלך..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "ייבוא..."
+msgid "Importing…"
+msgstr "ייבוא…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "שפה"
 msgid "Languages"
 msgstr "שפות"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "נבדק לאחרונה ב- {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "ניתוח אחרון בתאריך {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "ליטאית"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "טוען את סביבת העבודה של הסוכן..."
+msgid "Loading agent workspace…"
+msgstr "טוען את סביבת העבודה של הסוכן…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "טוען ספקי בינה מלאכותית. אנא נסה שוב בעו
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "טוען ספקים..."
+msgid "Loading providers…"
+msgstr "טוען ספקים…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "טוען קורות חיים..."
+msgid "Loading resumes…"
+msgstr "טוען קורות חיים…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "טוען שרשורים..."
+msgid "Loading threads…"
+msgstr "טוען שרשורים…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "טוען..."
+msgid "Loading…"
+msgstr "טוען…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,11 +2430,11 @@ msgid "Patch pending"
 msgstr "תיקון ממתין"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "התיקון בוטל"
+msgid "Patch rolled back"
+msgstr "התיקון מוחזר"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
+msgid "Patch rolled back."
 msgstr "התיקון בוטל."
 
 #. File format label in import source selector
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "אנא תמכו בפרויקט"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "נא להמתין בזמן שקובץ ה־PDF שלך נוצר..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "אנא המתן בזמן יצירת קובץ ה-PDF שלך…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "משאבים"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "לְשַׁחְזֵר"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "לשחזר את קורות החיים למצב שלפני תיקון זה? פעולה זו תחזיר את התיקון הזה וכל תיקון שהוחל לאחריו."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "קוֹרוֹת חַיִים"
 
@@ -2751,10 +2761,6 @@ msgstr "מסמכי קורות חיים"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "נסה שוב"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "לַחֲזוֹר"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "חיפוש סמל"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "חפש…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "חיפוש..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "חיפוש..."
+msgid "Search…"
+msgstr "חיפוש…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "הקלד \"{CONFIRMATION_TEXT}\" כדי לאשר"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "הקלד פקודה או חפש..."
+msgid "Type a command or search…"
+msgstr "הקלד פקודה או חפש…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "העלה תמונה"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "מעלה תמונה..."
+msgid "Uploading picture…"
+msgstr "מעלה תמונה…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "אימות עם קוד גיבוי"
 msgid "Verifying backup code..."
 msgstr "מאמת קוד גיבוי..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "מאמת את הקוד..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "מאמת קוד…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "עבודה ב-OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "עובד..."
+msgid "Working…"
+msgstr "עובד…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

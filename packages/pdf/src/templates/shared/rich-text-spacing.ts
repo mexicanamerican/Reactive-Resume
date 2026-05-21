@@ -83,13 +83,29 @@ const getRootElement = (element: RichTextSpacingElement): RichTextSpacingElement
 	return root;
 };
 
-const getTopLevelFlowElements = (root: RichTextSpacingElement): RichTextSpacingElement[] =>
-	(root.childNodes ?? []).filter(isElementNode).flatMap((child) => {
-		if (isRichTextTag(child, "p")) return [child];
-		if (!isRichTextTag(child, "ul", "ol")) return [];
+const getTopLevelFlowElements = (root: RichTextSpacingElement): RichTextSpacingElement[] => {
+	const flowElements: RichTextSpacingElement[] = [];
 
-		return (child.childNodes ?? []).filter(isElementNode).filter((listChild) => isRichTextTag(listChild, "li"));
-	});
+	for (const childNode of root.childNodes ?? []) {
+		if (!isElementNode(childNode)) continue;
+		const child = childNode;
+
+		if (isRichTextTag(child, "p")) {
+			flowElements.push(child);
+			continue;
+		}
+
+		if (!isRichTextTag(child, "ul", "ol")) continue;
+
+		for (const listChildNode of child.childNodes ?? []) {
+			if (isElementNode(listChildNode) && isRichTextTag(listChildNode, "li")) {
+				flowElements.push(listChildNode);
+			}
+		}
+	}
+
+	return flowElements;
+};
 
 export const createRichTextProseSpacing = (bodyLineHeight: number | undefined): RichTextProseSpacing => {
 	if (bodyLineHeight === undefined) return { paragraph: {}, listItem: {} };

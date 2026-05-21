@@ -8,7 +8,7 @@ msgstr ""
 "Language: bg\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Анализиране на автобиографията"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Анализ на..."
+msgid "Analyzing…"
+msgstr "Анализиране…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Отказ"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Не може да се върне; автобиографията се е променила, откакто е приложена тази редакция."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Не може да се възстанови; автобиографията се е променила, след като тази редакция е била приложена."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Промяна на езика"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Промяна на езика на..."
+msgid "Change language to…"
+msgstr "Промяна на езика на…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Промяна на темата на..."
+msgid "Change theme to…"
+msgstr "Промяна на темата на…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Не може да се свърже с доставчика на AI. Моля, опитайте отново."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Не можах да върна този пач."
+msgid "Could not restore this patch."
+msgstr "Не можа да се възстанови този пач."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Активиране на защита с парола..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Активиране на двуфакторно удостоверяване..."
+msgid "Enabling two-factor authentication…"
+msgstr "Активиране на двуфакторно удостоверяване…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Отидете на таблото с автобиографии"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Отидете на..."
+msgid "Go to…"
+msgstr "Отидете на…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Вашата автобиография се импортира..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Импортиране..."
+msgid "Importing…"
+msgstr "Импортиране…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Език"
 msgid "Languages"
 msgstr "Езици"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Последен анализ на {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Последен анализ на {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Литовски"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Зареждане на работното пространство на агента..."
+msgid "Loading agent workspace…"
+msgstr "Зареждане на работното пространство на агента…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Зареждане на доставчици на ИИ. Моля, опи
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Зареждане на доставчици..."
+msgid "Loading providers…"
+msgstr "Зареждане на доставчици…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Зареждане на автобиографии..."
+msgid "Loading resumes…"
+msgstr "Зареждане на автобиографии…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Зареждане на теми..."
+msgid "Loading threads…"
+msgstr "Зареждане на теми…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Зареждане..."
+msgid "Loading…"
+msgstr "Зареждане…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Чакаща се корекция"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Пачът е върнат"
+msgid "Patch rolled back"
+msgstr "Кръпката е върната назад"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Пачът е върнат."
+msgid "Patch rolled back."
+msgstr "Кръпката е отменена."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Моля, подкрепете проекта"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Моля, изчакайте, докато вашият PDF се генерира..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Моля, изчакайте, докато вашият PDF файл се генерира…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Ресурси"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Възстановяване"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Да се възстанови ли автобиографията до състоянието преди този пач? Това ще отмени този пач и всички пачове, приложени след него."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Автобиография"
 
@@ -2751,10 +2761,6 @@ msgstr "Автобиографии"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Опитай отново"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Връщане"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Търсене на икона"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
-msgstr "Търсене на..."
+msgid "Search for…"
+msgstr "Търсене за…"
 
-#. Placeholder in command palette input on nested pages
 #: src/components/ui/combobox.tsx
-#: src/features/command-palette/index.tsx
 msgid "Search..."
 msgstr "Търсене..."
+
+#. Placeholder in command palette input on nested pages
+#: src/features/command-palette/index.tsx
+msgid "Search…"
+msgstr "Търсене…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Въведете „{CONFIRMATION_TEXT}“, за да потвърдит
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Въведете команда или търсете..."
+msgid "Type a command or search…"
+msgstr "Въведете команда или потърсете…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Качване на снимка"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Качване на снимка..."
+msgid "Uploading picture…"
+msgstr "Качване на снимка…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Потвърждаване с резервен код"
 msgid "Verifying backup code..."
 msgstr "Потвърждаване на резервния код..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Потвърждаване на кода..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Код за проверка…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Работа с OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Работа..."
+msgid "Working…"
+msgstr "Работи…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

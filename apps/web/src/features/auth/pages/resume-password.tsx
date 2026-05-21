@@ -81,7 +81,7 @@ export function ResumePasswordPage({ redirectPath }: Props) {
 	return (
 		<>
 			<div className="space-y-4 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans>The resume you are trying to access is password protected</Trans>
 				</h1>
 

@@ -13,7 +13,7 @@ import {
 	WarningIcon,
 } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@reactive-resume/ui/components/avatar";
 import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import {
@@ -185,7 +185,7 @@ export function DashboardSidebar() {
 
 				<AnimatePresence>
 					{state === "expanded" && (
-						<motion.div
+						<m.div
 							key="copyright"
 							className="will-change-[transform,opacity]"
 							initial={{ y: 12, opacity: 0 }}
@@ -194,7 +194,7 @@ export function DashboardSidebar() {
 							transition={{ duration: 0.2, ease: "easeOut" }}
 						>
 							<Copyright className="wrap-break-word shrink-0 whitespace-normal p-2" />
-						</motion.div>
+						</m.div>
 					)}
 				</AnimatePresence>
 			</SidebarFooter>

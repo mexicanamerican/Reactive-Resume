@@ -3,7 +3,7 @@ import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { DotsThreeIcon, DownloadSimpleIcon, PlusIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useMemo } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { useDialogStore } from "@/dialogs/store";
@@ -28,7 +28,7 @@ export function ListView({ resumes }: Props) {
 
 	return (
 		<div className="flex flex-col gap-y-1">
-			<motion.div
+			<m.div
 				className="will-change-[transform,opacity]"
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -50,9 +50,9 @@ export function ListView({ resumes }: Props) {
 						<Trans>Start building your resume from scratch</Trans>
 					</p>
 				</Button>
-			</motion.div>
+			</m.div>
 
-			<motion.div
+			<m.div
 				className="will-change-[transform,opacity]"
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -75,11 +75,11 @@ export function ListView({ resumes }: Props) {
 						<Trans>Continue where you left off</Trans>
 					</p>
 				</Button>
-			</motion.div>
+			</m.div>
 
 			<AnimatePresence initial={false} mode="popLayout">
 				{resumes?.map((resume, index) => (
-					<motion.div
+					<m.div
 						layout
 						key={resume.id}
 						className="will-change-[transform,opacity]"
@@ -89,7 +89,7 @@ export function ListView({ resumes }: Props) {
 						transition={{ duration: 0.18, delay: Math.min(0.12, (index + 2) * 0.02), ease: "easeOut" }}
 					>
 						<ResumeListItem resume={resume} />
-					</motion.div>
+					</m.div>
 				))}
 			</AnimatePresence>
 		</div>

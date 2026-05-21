@@ -2,7 +2,7 @@ import type { Icon } from "@phosphor-icons/react";
 import { t } from "@lingui/core/macro";
 import { FileTextIcon, UsersIcon } from "@phosphor-icons/react";
 import { useQueries } from "@tanstack/react-query";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { CountUp } from "@/components/animation/count-up";
 import { orpc } from "@/libs/orpc/client";
 
@@ -37,7 +37,7 @@ function StatisticCard({ statistic, index }: StatisticCardProps) {
 	const Icon = statistic.icon;
 
 	return (
-		<motion.div
+		<m.div
 			className="group relative flex flex-col items-center justify-center gap-y-4 border-r border-b p-8 transition-colors last:border-e-0 hover:bg-secondary/30 sm:border-b-0 xl:py-12"
 			initial={{ opacity: 0, y: 20 }}
 			whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ function StatisticCard({ statistic, index }: StatisticCardProps) {
 		>
 			{/* Background decoration */}
 			<div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-				<motion.div
+				<m.div
 					className="absolute inset-s-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-primary/2"
 					initial={{ scale: 0.8, opacity: 0 }}
 					whileInView={{ scale: 1, opacity: 1 }}
@@ -54,18 +54,18 @@ function StatisticCard({ statistic, index }: StatisticCardProps) {
 					transition={{ duration: 0.8, delay: index * 0.1 + 0.2 }}
 				>
 					<Icon size={180} weight="thin" />
-				</motion.div>
+				</m.div>
 			</div>
 
 			{/* Icon */}
-			<motion.div
+			<m.div
 				aria-hidden="true"
 				className="relative rounded-full bg-primary/10 p-3 text-primary"
 				whileHover={{ scale: 1.05 }}
 				transition={{ type: "spring", stiffness: 400, damping: 20 }}
 			>
 				<Icon size={24} weight="thin" />
-			</motion.div>
+			</m.div>
 
 			{/* Value */}
 			<CountUp
@@ -78,7 +78,7 @@ function StatisticCard({ statistic, index }: StatisticCardProps) {
 
 			{/* Label */}
 			<p className="relative font-medium text-base text-muted-foreground tracking-tight">{statistic.label}</p>
-		</motion.div>
+		</m.div>
 	);
 }
 

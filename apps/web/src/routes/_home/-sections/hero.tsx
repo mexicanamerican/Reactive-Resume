@@ -2,7 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon, BookIcon, SparkleIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
 import { CometCard } from "@/components/animation/comet-card";
@@ -16,7 +16,7 @@ export function Hero() {
 		>
 			<Spotlight />
 
-			<motion.div
+			<m.div
 				className="will-change-[transform,opacity]"
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -28,8 +28,6 @@ export function Hero() {
 						muted
 						autoPlay
 						playsInline
-						// @ts-expect-error - typescript doesn't know about fetchPriority for video elements
-						fetchPriority="high"
 						src="/videos/timelapse.mp4"
 						aria-label={t`Timelapse demonstration of building a resume with Reactive Resume`}
 						className="pointer-events-none size-full rounded-md border object-cover"
@@ -40,11 +38,11 @@ export function Hero() {
 						className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-40% via-transparent to-background"
 					/>
 				</CometCard>
-			</motion.div>
+			</m.div>
 
 			<div className="relative z-10 flex max-w-2xl flex-col items-center gap-y-6 px-4 xs:px-0 text-center">
 				{/* Badge */}
-				<motion.a
+				<m.a
 					className="will-change-[transform,opacity]"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -59,10 +57,10 @@ export function Hero() {
 						<SparkleIcon aria-hidden="true" className="size-3.5" weight="fill" />
 						<Trans>What's new in the latest version?</Trans>
 					</Badge>
-				</motion.a>
+				</m.a>
 
 				{/* Headline */}
-				<motion.div
+				<m.div
 					className="will-change-[transform,opacity]"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -70,14 +68,14 @@ export function Hero() {
 				>
 					<Trans>
 						<p className="font-medium text-muted-foreground tracking-tight md:text-lg">Finally,</p>
-						<h1 className="mt-1 font-bold text-4xl tracking-tight md:text-5xl lg:text-6xl">
+						<h1 className="mt-1 font-semibold text-4xl tracking-tight md:text-5xl lg:text-6xl">
 							A free and open-source resume builder
 						</h1>
 					</Trans>
-				</motion.div>
+				</m.div>
 
 				{/* Description */}
-				<motion.p
+				<m.p
 					className="max-w-xl text-base text-muted-foreground leading-relaxed will-change-[transform,opacity] md:text-lg"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -87,10 +85,10 @@ export function Hero() {
 						Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating,
 						and sharing your resume.
 					</Trans>
-				</motion.p>
+				</m.p>
 
 				{/* CTA Buttons */}
-				<motion.div
+				<m.div
 					className="flex flex-col items-center gap-3 will-change-[transform,opacity] sm:flex-row sm:gap-4"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -128,11 +126,11 @@ export function Hero() {
 							</a>
 						}
 					/>
-				</motion.div>
+				</m.div>
 			</div>
 
 			{/* Scroll indicator - decorative */}
-			<motion.div
+			<m.div
 				aria-hidden="true"
 				role="presentation"
 				className="absolute inset-s-1/2 bottom-8 -translate-x-1/2"
@@ -140,14 +138,14 @@ export function Hero() {
 				animate={{ opacity: 1 }}
 				transition={{ delay: 1.25, duration: 0.7 }}
 			>
-				<motion.div
+				<m.div
 					className="flex h-8 w-5 items-start justify-center rounded-full border border-muted-foreground/30 p-1.5 will-change-transform"
 					animate={{ y: [0, 5, 0] }}
 					transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
 				>
-					<motion.div className="h-1.5 w-1 rounded-full bg-muted-foreground/50" />
-				</motion.div>
-			</motion.div>
+					<m.div className="h-1.5 w-1 rounded-full bg-muted-foreground/50" />
+				</m.div>
+			</m.div>
 		</section>
 	);
 }

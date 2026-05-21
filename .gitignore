@@ -44,6 +44,7 @@ temp
 
 # AI
 .codex
+.agents
 .claude
 .cursor
 .codegraph

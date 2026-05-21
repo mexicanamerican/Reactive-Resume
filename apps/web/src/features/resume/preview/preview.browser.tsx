@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { PreviewPageSize, ResolvedResumePreviewProps } from "./preview.shared";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
@@ -108,14 +108,15 @@ export function ResumePreviewClient({
 
 		const generatePdfPreview = async () => {
 			try {
+				if (cancelled || requestId !== requestIdRef.current) return;
 				const blob = await createResumePdfBlob(resumeData);
 
-				if (cancelled || requestId !== requestIdRef.current) return;
+				if (!cancelled && requestId === requestIdRef.current) {
+					const nextPdf = createPreviewPdf(blob, pdfIdRef.current++, hasPreviewRef.current);
 
-				const nextPdf = createPreviewPdf(blob, pdfIdRef.current++, hasPreviewRef.current);
-
-				hasPreviewRef.current = true;
-				setPreviewLayers((current) => addPreviewLayer(current, nextPdf));
+					hasPreviewRef.current = true;
+					setPreviewLayers((current) => addPreviewLayer(current, nextPdf));
+				}
 			} catch {}
 		};
 
@@ -151,7 +152,7 @@ export function ResumePreviewClient({
 		<div className={cn("grid", className)}>
 			<AnimatePresence initial={false}>
 				{previewLayers.map((visiblePdf) => (
-					<motion.div
+					<m.div
 						key={visiblePdf.id}
 						aria-hidden={visiblePdf.phase !== "active"}
 						style={{ "--resume-preview-page-gap": resolvedPageGap } as CSSProperties}
@@ -209,7 +210,7 @@ export function ResumePreviewClient({
 								</div>
 							)}
 						</PdfCanvasDocument>
-					</motion.div>
+					</m.div>
 				))}
 			</AnimatePresence>
 		</div>

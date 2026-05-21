@@ -51,7 +51,7 @@ export function ForgotPasswordPage() {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans>Forgot your password?</Trans>
 				</h1>
 
@@ -120,7 +120,7 @@ function PostForgotPasswordScreen() {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans>You've got mail!</Trans>
 				</h1>
 				<p className="text-muted-foreground">

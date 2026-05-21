@@ -9,13 +9,17 @@ const dialogRendererRegistries = [
 	resumeDialogRendererRegistry,
 ] as const;
 
+const dialogRendererByType = new Map(
+	dialogRendererRegistries.flatMap((registry) =>
+		registry.renderers.map((renderer) => [renderer.type, renderer] as const),
+	),
+);
+
 export const renderDialog = (dialog: DialogSchema | null) => {
 	if (!dialog) return null;
 
-	for (const registry of dialogRendererRegistries) {
-		const renderer = registry.renderers.find((entry) => entry.type === dialog.type);
-		if (renderer) return renderer.render(dialog as never);
-	}
+	const renderer = dialogRendererByType.get(dialog.type);
+	if (renderer) return renderer.render(dialog as never);
 
 	return null;
 };

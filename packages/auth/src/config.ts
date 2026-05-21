@@ -126,13 +126,19 @@ async function allocateUniqueUsername(email: string, preferredUsername?: string 
 
 	if (!(await isUsernameTaken(baseUsername))) return baseUsername;
 
-	for (let index = 1; index <= 999; index += 1) {
-		const candidate = appendUsernameSuffix(baseUsername, `-${index}`);
-		if (await isUsernameTaken(candidate)) continue;
-		return candidate;
-	}
+	const suffixedUsername = await findAvailableUsernameSuffix(baseUsername);
+	if (suffixedUsername) return suffixedUsername;
 
 	return appendUsernameSuffix(baseUsername, `-${generateId().slice(0, 8).toLowerCase()}`);
+}
+
+async function findAvailableUsernameSuffix(baseUsername: string, index = 1): Promise<string | null> {
+	if (index > 999) return null;
+
+	const candidate = appendUsernameSuffix(baseUsername, `-${index}`);
+	if (!(await isUsernameTaken(candidate))) return candidate;
+
+	return findAvailableUsernameSuffix(baseUsername, index + 1);
 }
 
 interface OAuthProfile {

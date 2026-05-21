@@ -300,9 +300,8 @@ class S3StorageService implements StorageService {
 	}
 
 	async delete(keyOrPrefix: string): Promise<boolean> {
-		const client = await this.getClient();
 		// Use list to find all matching keys (handles both single file and folder/prefix)
-		const keys = await this.list(keyOrPrefix);
+		const [client, keys] = await Promise.all([this.getClient(), this.list(keyOrPrefix)]);
 
 		if (keys.length === 0) return false;
 

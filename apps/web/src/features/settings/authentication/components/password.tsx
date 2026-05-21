@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/react/macro";
 import { PasswordIcon, PencilSimpleLineIcon } from "@phosphor-icons/react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useCallback, useMemo } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -24,7 +24,7 @@ export function PasswordSection() {
 	}, [hasPassword, navigate, openDialog]);
 
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.2, delay: 0.1, ease: "easeOut" }}
@@ -37,7 +37,7 @@ export function PasswordSection() {
 
 			{match(hasPassword)
 				.with(true, () => (
-					<motion.div
+					<m.div
 						className="will-change-transform"
 						whileHover={{ y: -1, scale: 1.01 }}
 						whileTap={{ scale: 0.99 }}
@@ -47,10 +47,10 @@ export function PasswordSection() {
 							<PencilSimpleLineIcon />
 							<Trans>Update Password</Trans>
 						</Button>
-					</motion.div>
+					</m.div>
 				))
 				.with(false, () => (
-					<motion.div
+					<m.div
 						className="will-change-transform"
 						whileHover={{ y: -1, scale: 1.01 }}
 						whileTap={{ scale: 0.99 }}
@@ -65,9 +65,9 @@ export function PasswordSection() {
 								</Link>
 							}
 						/>
-					</motion.div>
+					</m.div>
 				))
 				.exhaustive()}
-		</motion.div>
+		</m.div>
 	);
 }

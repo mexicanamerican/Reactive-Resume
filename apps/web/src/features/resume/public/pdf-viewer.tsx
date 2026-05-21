@@ -2,7 +2,7 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist/legacy/build/pdf.mjs";
 import { AnnotationMode, GlobalWorkerOptions, getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 import { EventBus, LinkTarget, PDFLinkService, PDFViewer } from "pdfjs-dist/legacy/web/pdf_viewer.mjs";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
@@ -20,35 +20,80 @@ type PdfViewerOptions = ConstructorParameters<typeof PDFViewer>[0] & {
 	abortSignal: AbortSignal;
 };
 
+type PdfViewerState = {
+	error: boolean;
+	fileVersion: number;
+	isReady: boolean;
+	viewerHeight: number | null;
+};
+
+type PdfViewerAction =
+	| { type: "error" }
+	| { type: "fileLoaded" }
+	| { type: "height"; height: number }
+	| { type: "ready" }
+	| { type: "resetForData" }
+	| { type: "viewerLoading" };
+
+const INITIAL_PDF_VIEWER_STATE: PdfViewerState = {
+	error: false,
+	fileVersion: 0,
+	isReady: false,
+	viewerHeight: null,
+};
+
 const clearPdfViewerDocument = (pdfViewer: PDFViewer) => {
 	(pdfViewer.setDocument as (document: PDFDocumentProxy | null) => void)(null);
 };
+
+function pdfViewerReducer(state: PdfViewerState, action: PdfViewerAction): PdfViewerState {
+	switch (action.type) {
+		case "resetForData":
+		case "fileLoaded":
+			return {
+				...INITIAL_PDF_VIEWER_STATE,
+				fileVersion: state.fileVersion + 1,
+			};
+		case "viewerLoading":
+			return { ...state, error: false, isReady: false, viewerHeight: null };
+		case "height":
+			return action.height > 0 && action.height !== state.viewerHeight
+				? { ...state, viewerHeight: action.height }
+				: state;
+		case "ready":
+			return { ...state, isReady: true };
+		case "error":
+			return { ...state, error: true, isReady: false };
+	}
+}
 
 export function PdfViewer({ className, data }: PdfViewerProps) {
 	const rootRef = useRef<HTMLDivElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const viewerRef = useRef<HTMLDivElement>(null);
-	const [file, setFile] = useState<Blob | null>(null);
-	const [error, setError] = useState(false);
-	const [isReady, setIsReady] = useState(false);
-	const [viewerHeight, setViewerHeight] = useState<number | null>(null);
+	const fileRef = useRef<Blob | null>(null);
+	const [{ error, fileVersion, isReady, viewerHeight }, dispatch] = useReducer(
+		pdfViewerReducer,
+		INITIAL_PDF_VIEWER_STATE,
+	);
 
 	useEffect(() => {
 		let isCancelled = false;
 
-		setError(false);
-		setFile(null);
-		setIsReady(false);
-		setViewerHeight(null);
+		fileRef.current = null;
+		dispatch({ type: "resetForData" });
 
 		void createResumePdfBlob(data)
 			.then((blob) => {
-				if (!isCancelled) setFile(blob);
+				if (isCancelled) return;
+
+				fileRef.current = blob;
+				dispatch({ type: "fileLoaded" });
 			})
 			.catch((error: unknown) => {
 				if (!isCancelled) {
 					console.error("Failed to generate public resume PDF", error);
-					setError(true);
+					dispatch({ type: "error" });
 				}
 			});
 
@@ -58,9 +103,12 @@ export function PdfViewer({ className, data }: PdfViewerProps) {
 	}, [data]);
 
 	useEffect(() => {
+		void fileVersion;
+
 		const root = rootRef.current;
 		const container = containerRef.current;
 		const viewer = viewerRef.current;
+		const file = fileRef.current;
 
 		if (!file || !root || !container || !viewer) return;
 
@@ -87,7 +135,7 @@ export function PdfViewer({ className, data }: PdfViewerProps) {
 				if (isCancelled) return;
 
 				const nextHeight = Math.ceil(viewer.scrollHeight);
-				if (nextHeight > 0) setViewerHeight(nextHeight);
+				dispatch({ type: "height", height: nextHeight });
 				pdfViewer?.update();
 			});
 		};
@@ -103,51 +151,51 @@ export function PdfViewer({ className, data }: PdfViewerProps) {
 		eventBus.on("pagesloaded", syncViewerHeight);
 		eventBus.on("pagerendered", syncViewerHeight);
 		viewer.replaceChildren();
-		setError(false);
-		setIsReady(false);
-		setViewerHeight(null);
+		dispatch({ type: "viewerLoading" });
 		resizeObserver = new ResizeObserver(syncViewerHeight);
 		resizeObserver.observe(viewer);
 
 		const loadDocument = async () => {
-			const arrayBuffer = await file.arrayBuffer();
 			if (isCancelled) return;
+			const arrayBuffer = await file.arrayBuffer();
 
-			loadingTask = getDocument({
-				data: new Uint8Array(arrayBuffer),
-				docBaseUrl: window.location.href,
-			});
+			if (!isCancelled) {
+				loadingTask = getDocument({
+					data: new Uint8Array(arrayBuffer),
+					docBaseUrl: window.location.href,
+				});
 
-			const nextDocument = await loadingTask.promise;
-			if (isCancelled) {
-				void nextDocument.destroy();
-				return;
+				const nextDocument = await loadingTask.promise;
+
+				if (isCancelled) {
+					void nextDocument.destroy();
+				} else {
+					pdfDocument = nextDocument;
+					const pdfViewerOptions = {
+						annotationMode: AnnotationMode.ENABLE_FORMS,
+						container,
+						eventBus,
+						linkService,
+						removePageBorders: true,
+						abortSignal: abortController.signal,
+						viewer,
+					} satisfies PdfViewerOptions;
+
+					pdfViewer = new PDFViewer(pdfViewerOptions);
+
+					linkService.setViewer(pdfViewer);
+					pdfViewer.setDocument(pdfDocument);
+					linkService.setDocument(pdfDocument);
+					syncViewerHeight();
+					dispatch({ type: "ready" });
+				}
 			}
-
-			pdfDocument = nextDocument;
-			const pdfViewerOptions = {
-				annotationMode: AnnotationMode.ENABLE_FORMS,
-				container,
-				eventBus,
-				linkService,
-				removePageBorders: true,
-				abortSignal: abortController.signal,
-				viewer,
-			} satisfies PdfViewerOptions;
-
-			pdfViewer = new PDFViewer(pdfViewerOptions);
-
-			linkService.setViewer(pdfViewer);
-			pdfViewer.setDocument(pdfDocument);
-			linkService.setDocument(pdfDocument);
-			syncViewerHeight();
-			setIsReady(true);
 		};
 
 		void loadDocument().catch((error: unknown) => {
 			if (!isCancelled) {
 				console.error("Failed to render public resume PDF with PDF.js", error);
-				setError(true);
+				dispatch({ type: "error" });
 			}
 		});
 
@@ -164,7 +212,7 @@ export function PdfViewer({ className, data }: PdfViewerProps) {
 			void loadingTask?.destroy();
 			viewer.replaceChildren();
 		};
-	}, [file]);
+	}, [fileVersion]);
 
 	return (
 		<div

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 type SpotlightProps = {
 	duration?: number;
@@ -24,13 +24,13 @@ export const Spotlight = ({
 	xOffset = 100,
 }: SpotlightProps) => {
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
 			className="pointer-events-none absolute inset-0 h-full w-full"
 		>
-			<motion.div
+			<m.div
 				animate={{ x: [0, xOffset, 0] }}
 				transition={{ duration, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", ease: "easeInOut" }}
 				className="pointer-events-none absolute inset-s-0 top-0 z-40 h-svh w-svw will-change-transform"
@@ -64,9 +64,9 @@ export const Spotlight = ({
 						transform: "rotate(-45deg) translate(-180%, -70%)",
 					}}
 				/>
-			</motion.div>
+			</m.div>
 
-			<motion.div
+			<m.div
 				animate={{ x: [0, -xOffset, 0] }}
 				transition={{ duration, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", repeatType: "reverse" }}
 				className="pointer-events-none absolute inset-e-0 top-0 z-40 h-svh w-svw will-change-transform"
@@ -100,7 +100,7 @@ export const Spotlight = ({
 						transform: "rotate(45deg) translate(180%, -70%)",
 					}}
 				/>
-			</motion.div>
-		</motion.div>
+			</m.div>
+		</m.div>
 	);
 };

@@ -55,10 +55,12 @@ export function PromptDialogProvider({ children }: { children: React.ReactNode }
 	React.useEffect(() => {
 		if (!state.open) return;
 
-		setTimeout(() => {
+		const timeoutId = window.setTimeout(() => {
 			if (!inputRef.current) return;
 			inputRef.current.focus();
 		}, 0);
+
+		return () => window.clearTimeout(timeoutId);
 	}, [state.open]);
 
 	const prompt = React.useCallback(async (title: string, options?: PromptOptions): Promise<string | null> => {
@@ -132,7 +134,7 @@ export function PromptDialogProvider({ children }: { children: React.ReactNode }
 }
 
 export function usePrompt() {
-	const context = React.useContext(PromptContext);
+	const context = React.use(PromptContext);
 
 	if (!context) {
 		throw new Error("usePrompt must be used within a <PromptDialogProvider />.");

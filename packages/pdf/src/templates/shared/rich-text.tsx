@@ -1,6 +1,6 @@
 import type { Style } from "@react-pdf/types";
-import { Text as PdfText, View } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
+import { Text as PdfText, View } from "../../renderer";
 import { useTemplateStyle } from "./context";
 import { safeTextStyle } from "./primitives";
 import { normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";

@@ -144,7 +144,7 @@ export function UpdateAwardDialog({ data }: DialogProps<"resume.sections.awards.
 
 const AwardForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function AwardFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

@@ -2,7 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { KeyIcon, PlusIcon, TrashIcon } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
@@ -113,7 +113,7 @@ export function PasskeysSection() {
 	};
 
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.2, delay: 0.3, ease: "easeOut" }}
@@ -167,6 +167,6 @@ export function PasskeysSection() {
 					</div>
 				)}
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }

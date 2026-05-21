@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "分析履歷"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "分析..."
+msgid "Analyzing…"
+msgstr "分析…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "取消"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "無法撤銷；履歷自此編輯應用程式後已發生變更。"
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "無法恢復；簡歷自此編輯後已發生更改。"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "變更語言"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "變更語言為…"
+msgid "Change language to…"
+msgstr "將語言改為…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "變更主題為…"
+msgid "Change theme to…"
+msgstr "改主題為…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "無法連絡 AI 提供者。請再試一次。"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "無法撤銷此補丁。"
+msgid "Could not restore this patch."
+msgstr "無法恢復此補丁。"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "正在啟用密碼保護…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "正在啟用雙因子驗證…"
+msgid "Enabling two-factor authentication…"
+msgstr "啟用雙重認證…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,7 +1633,7 @@ msgid "Go to resumes dashboard"
 msgstr "前往履歷儀表板"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
+msgid "Go to…"
 msgstr "前往…"
 
 #. Authentication provider display name in account settings
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "正在匯入您的履歷…"
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "正在匯入…"
+msgid "Importing…"
+msgstr "正在導入…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "語言"
 msgid "Languages"
 msgstr "語言"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "最後分析於 {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "最後分析於 {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "立陶宛語"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "正在載入代理工作區..."
+msgid "Loading agent workspace…"
+msgstr "正在載入代理工作區…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,20 +2069,20 @@ msgstr "正在加載人工智慧提供者。請稍後再試。"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "正在加載提供者..."
+msgid "Loading providers…"
+msgstr "正在載入提供者…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "正在載入履歷…"
+msgid "Loading resumes…"
+msgstr "正在恢復載入…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "正在加載線程..."
+msgid "Loading threads…"
+msgstr "正在載入線程…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
+msgid "Loading…"
 msgstr "載入中…"
 
 #: src/dialogs/resume/sections/education.tsx
@@ -2431,11 +2430,11 @@ msgid "Patch pending"
 msgstr "補丁待定"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "補丁已撤銷"
+msgid "Patch rolled back"
+msgstr "補丁已回滾"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
+msgid "Patch rolled back."
 msgstr "補丁已回滾。"
 
 #. File format label in import source selector
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "請支持這個項目"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "正在產生您的 PDF，請稍候…"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "請稍候，您的PDF檔案正在產生中…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "資源"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "恢復"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "恢復到此補丁之前的狀態？這將回滾此補丁以及其後套用的所有補丁。"
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "恢復"
 
@@ -2751,10 +2761,6 @@ msgstr "履歷"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "重試"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "恢復"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "搜尋圖示"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
-msgstr "搜尋履歷…"
+msgid "Search for…"
+msgstr "搜尋…"
 
-#. Placeholder in command palette input on nested pages
 #: src/components/ui/combobox.tsx
-#: src/features/command-palette/index.tsx
 msgid "Search..."
 msgstr "搜尋..."
+
+#. Placeholder in command palette input on nested pages
+#: src/features/command-palette/index.tsx
+msgid "Search…"
+msgstr "搜尋…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,7 +3567,7 @@ msgstr "輸入「{CONFIRMATION_TEXT}」以確認"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
+msgid "Type a command or search…"
 msgstr "輸入指令或搜尋…"
 
 #: src/libs/resume/section.tsx
@@ -3704,7 +3713,7 @@ msgid "Upload picture"
 msgstr "上傳圖片"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
+msgid "Uploading picture…"
 msgstr "正在上傳圖片…"
 
 #. Form field label for the generated public resume link in sharing settings
@@ -3763,10 +3772,13 @@ msgstr "使用備份代碼驗證"
 msgid "Verifying backup code..."
 msgstr "正在驗證備份代碼…"
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "正在驗證代碼…"
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "驗證碼…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "在職的..."
+msgid "Working…"
+msgstr "正在運作…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

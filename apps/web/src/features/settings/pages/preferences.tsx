@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Label } from "@reactive-resume/ui/components/label";
 import { LocaleCombobox } from "@/features/locale/combobox";
@@ -8,7 +8,7 @@ import { ThemeCombobox } from "@/features/theme/combobox";
 
 export function PreferencesSettingsPage() {
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.25, ease: "easeOut" }}
@@ -39,6 +39,6 @@ export function PreferencesSettingsPage() {
 					}
 				/>
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }

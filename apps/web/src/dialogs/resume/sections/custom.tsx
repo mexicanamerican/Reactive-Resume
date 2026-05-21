@@ -177,7 +177,7 @@ export function UpdateCustomSectionDialog({ data }: DialogProps<"resume.sections
 
 const CreateCustomSectionForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function CreateCustomSectionFormRenderer({ form }) {
 		const { i18n } = useLingui();
 
 		return (
@@ -242,7 +242,7 @@ const CreateCustomSectionForm = withForm({
 
 const UpdateCustomSectionForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function UpdateCustomSectionFormRenderer({ form }) {
 		const { i18n } = useLingui();
 
 		return (

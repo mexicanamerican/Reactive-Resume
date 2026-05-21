@@ -54,7 +54,7 @@ export function ResetPasswordPage({ token }: Props) {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans>Reset your password</Trans>
 				</h1>
 

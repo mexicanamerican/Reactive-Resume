@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analyser le CV"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Analyser..."
+msgid "Analyzing…"
+msgstr "Analyse de…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Impossible d'annuler la modification ; le CV a été modifié depuis."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Impossible de restaurer le CV ; il a été modifié depuis cette modification."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Changer la langue"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Changer la langue en..."
+msgid "Change language to…"
+msgstr "Changer la langue en…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Changez de thème pour..."
+msgid "Change theme to…"
+msgstr "Changer le thème en…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Impossible de joindre le fournisseur d'IA. Veuillez réessayer."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Impossible d'annuler ce correctif."
+msgid "Could not restore this patch."
+msgstr "Impossible de restaurer ce correctif."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Activation de la protection par mot de passe..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Activation de l'authentification à deux facteurs..."
+msgid "Enabling two-factor authentication…"
+msgstr "Activation de l'authentification à deux facteurs…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Accéder au tableau de bord des CV"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Aller vers..."
+msgid "Go to…"
+msgstr "Allez à…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Importation de votre CV en cours..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Importation en cours..."
+msgid "Importing…"
+msgstr "Importer…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Langue"
 msgid "Languages"
 msgstr "Langues"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Dernière analyse sur {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Dernière analyse le {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Lithuanien"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Chargement de l'espace de travail de l'agent..."
+msgid "Loading agent workspace…"
+msgstr "Chargement de l'espace de travail de l'agent…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Chargement des fournisseurs d'IA. Veuillez réessayer dans un instant."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Chargement des fournisseurs..."
+msgid "Loading providers…"
+msgstr "Chargement des fournisseurs…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Chargement des CV..."
+msgid "Loading resumes…"
+msgstr "Le chargement reprend…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Chargement des threads..."
+msgid "Loading threads…"
+msgstr "Chargement des threads…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Chargement..."
+msgid "Loading…"
+msgstr "Chargement…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Correctif en attente"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Correctif rétabli"
+msgid "Patch rolled back"
+msgstr "Patch annulé"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Correctif rétabli."
+msgid "Patch rolled back."
+msgstr "Patch annulé."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Veuillez soutenir le projet"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Veuillez patienter pendant que votre PDF est en cours de génération..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Veuillez patienter pendant la génération de votre PDF…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Ressources"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Restaurer"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Restaurer la reprise à un état antérieur à ce correctif ? Cette action annulera ce correctif ainsi que tous les correctifs appliqués ultérieurement."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "CV"
 
@@ -2751,10 +2761,6 @@ msgstr "CVs"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Réessayer"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Revenir"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Rechercher une icône"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "Rechercher…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Rechercher..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Rechercher..."
+msgid "Search…"
+msgstr "Rechercher…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Tapez \"{CONFIRMATION_TEXT}\" pour confirmer"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Tapez une commande ou recherchez..."
+msgid "Type a command or search…"
+msgstr "Saisissez une commande ou effectuez une recherche…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Télécharger l'image"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Téléchargement de la photo..."
+msgid "Uploading picture…"
+msgstr "Téléchargement de l'image…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Vérifier avec un code de secours"
 msgid "Verifying backup code..."
 msgstr "Vérification du code de secours..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Vérification du code..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Code de vérification…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Travaillez avec OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Fonctionnement..."
+msgid "Working…"
+msgstr "Travail…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

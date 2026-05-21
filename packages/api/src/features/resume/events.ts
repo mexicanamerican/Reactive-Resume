@@ -75,17 +75,28 @@ export async function* subscribeResumeUpdated({ resumeId, userId, signal }: Subs
 	try {
 		await client.query(`LISTEN ${RESUME_UPDATED_CHANNEL}`);
 
-		while (!done) {
+		const waitForNextEvent = async (): Promise<ResumeUpdatedEvent | null> => {
+			if (done) return null;
+
 			const event = queue.shift();
-			if (event) {
-				yield event;
-				continue;
-			}
+			if (event) return event;
 
 			await new Promise<void>((resolve) => {
 				wake = resolve;
 			});
+
+			return waitForNextEvent();
+		};
+
+		async function* streamEvents(): AsyncGenerator<ResumeUpdatedEvent> {
+			const event = await waitForNextEvent();
+			if (!event) return;
+
+			yield event;
+			yield* streamEvents();
 		}
+
+		yield* streamEvents();
 	} finally {
 		signal?.removeEventListener("abort", onAbort);
 		client.off("notification", onNotification);

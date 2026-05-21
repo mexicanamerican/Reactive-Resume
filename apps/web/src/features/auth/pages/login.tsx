@@ -102,7 +102,7 @@ export function LoginPage({ disableEmailAuth, disableSignups }: Props) {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans comment="Title on the login page">Sign in to your account</Trans>
 				</h1>
 

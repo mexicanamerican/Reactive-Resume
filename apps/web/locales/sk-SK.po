@@ -8,7 +8,7 @@ msgstr ""
 "Language: sk\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analyzovať životopis"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Analýza..."
+msgid "Analyzing…"
+msgstr "Analýza…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Nedá sa vrátiť späť; životopis sa od použitia tejto úpravy zmenil."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Nedá sa obnoviť; životopis sa od vykonania tejto úpravy zmenil."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Zmeniť jazyk"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Zmeniť jazyk na..."
+msgid "Change language to…"
+msgstr "Zmeniť jazyk na…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Zmeniť tému na..."
+msgid "Change theme to…"
+msgstr "Zmeniť tému na…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Nepodarilo sa spojiť s poskytovateľom AI. Skúste to prosím znova."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Túto opravu sa nepodarilo vrátiť späť."
+msgid "Could not restore this patch."
+msgstr "Túto záplatu sa nepodarilo obnoviť."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Zapínam ochranu heslom..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Zapínam dvojfaktorové overenie..."
+msgid "Enabling two-factor authentication…"
+msgstr "Povolenie dvojfaktorového overenia…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Prejsť na ovládací panel životopisov"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Prejsť na..."
+msgid "Go to…"
+msgstr "Prejsť na…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Importujem tvoj životopis..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Importujem..."
+msgid "Importing…"
+msgstr "Importuje sa…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Jazyk"
 msgid "Languages"
 msgstr "Jazyky"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Naposledy analyzované na {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Naposledy analyzované dňa {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Litovčina"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Načítava sa pracovný priestor agenta..."
+msgid "Loading agent workspace…"
+msgstr "Načítava sa pracovný priestor agenta…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Načítavajú sa poskytovatelia umelej inteligencie. Skúste to znova o 
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Načítavajú sa poskytovatelia..."
+msgid "Loading providers…"
+msgstr "Načítavajú sa poskytovatelia…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Načítavam životopisy..."
+msgid "Loading resumes…"
+msgstr "Načítavajú sa životopisy…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Načítavajú sa vlákna..."
+msgid "Loading threads…"
+msgstr "Načítavajú sa vlákna…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Načítava sa..."
+msgid "Loading…"
+msgstr "Načítava sa…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Čaká sa na opravu"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Oprava vrátená späť"
+msgid "Patch rolled back"
+msgstr "Záplata vrátená späť"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Oprava vrátená späť."
+msgid "Patch rolled back."
+msgstr "Záplata bola vrátená späť."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Prosím, podporte projekt"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Počkaj, prosím, kým sa tvoje PDF vygeneruje..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Počkajte, prosím, kým sa vygeneruje váš PDF súbor…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Zdroje"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Obnoviť"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Obnoviť životopis do stavu pred touto opravou? Táto akcia vráti späť túto opravu a všetky opravy použité po nej."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Životopis"
 
@@ -2751,10 +2761,6 @@ msgstr "Životopisy"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Skúsiť znova"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Vrátiť späť"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Hľadať ikonu"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "Hľadať…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Hľadať..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Hľadať..."
+msgid "Search…"
+msgstr "Hľadať…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Napíš \"{CONFIRMATION_TEXT}\" na potvrdenie"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Napíš príkaz alebo hľadaj..."
+msgid "Type a command or search…"
+msgstr "Zadajte príkaz alebo vyhľadajte…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Nahrať obrázok"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Nahrávam fotografiu..."
+msgid "Uploading picture…"
+msgstr "Nahráva sa obrázok…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Overiť pomocou záložného kódu"
 msgid "Verifying backup code..."
 msgstr "Overujem záložný kód..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Overujem kód..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Overovací kód…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Práca s OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Pracuje sa..."
+msgid "Working…"
+msgstr "Funguje…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

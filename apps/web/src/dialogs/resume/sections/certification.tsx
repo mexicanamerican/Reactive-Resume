@@ -143,7 +143,7 @@ export function UpdateCertificationDialog({ data }: DialogProps<"resume.sections
 
 const CertificationForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function CertificationFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

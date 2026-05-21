@@ -355,9 +355,8 @@ describe("agentService.messages.send", () => {
 		});
 		aiProvidersServiceMock.markUsed.mockResolvedValue(undefined);
 
-		const { convertToModelMessages, ToolLoopAgent } = await import("ai");
-		const { agentStreamLifecycle } = await import("./streams");
-		const { streamToEventIterator } = await import("@orpc/server");
+		const [{ convertToModelMessages, ToolLoopAgent }, { agentStreamLifecycle }, { streamToEventIterator }] =
+			await Promise.all([import("ai"), import("./streams"), import("@orpc/server")]);
 		vi.mocked(convertToModelMessages).mockResolvedValue([
 			{ role: "user", content: [{ type: "text", text: "Use this file" }] },
 		]);
@@ -435,10 +434,12 @@ describe("agentService.messages.send", () => {
 		});
 		aiProvidersServiceMock.markUsed.mockResolvedValue(undefined);
 
-		const { convertToModelMessages, ToolLoopAgent } = await import("ai");
-		const { agentStreamLifecycle } = await import("./streams");
-		const { buildAgentTools } = await import("./tools");
-		const { streamToEventIterator } = await import("@orpc/server");
+		const [
+			{ convertToModelMessages, ToolLoopAgent },
+			{ agentStreamLifecycle },
+			{ buildAgentTools },
+			{ streamToEventIterator },
+		] = await Promise.all([import("ai"), import("./streams"), import("./tools"), import("@orpc/server")]);
 		vi.mocked(convertToModelMessages).mockResolvedValue([
 			{ role: "user", content: [{ type: "text", text: "Add a custom field" }] },
 		]);
@@ -577,9 +578,8 @@ describe("agentService.messages.send", () => {
 		aiProvidersServiceMock.markUsed.mockResolvedValue(undefined);
 		storageServiceMock.read.mockResolvedValue({ data: new TextEncoder().encode("hello"), contentType: "text/plain" });
 
-		const { convertToModelMessages, ToolLoopAgent } = await import("ai");
-		const { agentStreamLifecycle } = await import("./streams");
-		const { streamToEventIterator } = await import("@orpc/server");
+		const [{ convertToModelMessages, ToolLoopAgent }, { agentStreamLifecycle }, { streamToEventIterator }] =
+			await Promise.all([import("ai"), import("./streams"), import("@orpc/server")]);
 		const streamMock = vi.fn(async () => ({
 			toUIMessageStream: vi.fn(() => new ReadableStream()),
 		}));
@@ -743,9 +743,8 @@ describe("agentService.messages.send", () => {
 		});
 		aiProvidersServiceMock.markUsed.mockResolvedValue(undefined);
 
-		const { convertToModelMessages, ToolLoopAgent } = await import("ai");
-		const { agentStreamLifecycle } = await import("./streams");
-		const { streamToEventIterator } = await import("@orpc/server");
+		const [{ convertToModelMessages, ToolLoopAgent }, { agentStreamLifecycle }, { streamToEventIterator }] =
+			await Promise.all([import("ai"), import("./streams"), import("@orpc/server")]);
 		vi.mocked(convertToModelMessages).mockResolvedValue([
 			{ role: "user", content: [{ type: "text", text: "Change the name" }] },
 			{
@@ -903,9 +902,8 @@ describe("agentService.messages.send", () => {
 		});
 		aiProvidersServiceMock.markUsed.mockResolvedValue(undefined);
 
-		const { convertToModelMessages, ToolLoopAgent } = await import("ai");
-		const { agentStreamLifecycle } = await import("./streams");
-		const { streamToEventIterator } = await import("@orpc/server");
+		const [{ convertToModelMessages, ToolLoopAgent }, { agentStreamLifecycle }, { streamToEventIterator }] =
+			await Promise.all([import("ai"), import("./streams"), import("@orpc/server")]);
 		vi.mocked(convertToModelMessages).mockResolvedValue([{ role: "user", content: [{ type: "text", text: "Retry" }] }]);
 		class MockToolLoopAgent {
 			stream = vi.fn(async () => ({ toUIMessageStream: vi.fn(() => new ReadableStream()) }));

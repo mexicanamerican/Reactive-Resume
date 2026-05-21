@@ -94,7 +94,7 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 
 	const prevTypeRef = useRef<string>("");
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [isImporting, setIsImporting] = useState<boolean>(false);
 
 	const { mutateAsync: importResume } = useMutation(orpc.resume.import.mutationOptions());
 	const { data: aiProviders, isLoading: isLoadingAiProviders } = useQuery(orpc.aiProviders.list.queryOptions());
@@ -109,7 +109,7 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 		onSubmit: async ({ value }) => {
 			if (value.type === "" || !value.file) return;
 
-			setIsLoading(true);
+			setIsImporting(true);
 
 			const toastId = toast.loading(t`Importing your resume...`, {
 				description: t`This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page.`,
@@ -200,7 +200,7 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 					{ id: toastId, description: null },
 				);
 			} finally {
-				setIsLoading(false);
+				setIsImporting(false);
 			}
 		},
 	});
@@ -351,9 +351,9 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 				</form.Field>
 
 				<DialogFooter>
-					<Button type="submit" disabled={!type || isLoading}>
-						{isLoading ? <Spinner /> : null}
-						{isLoading ? t`Importing...` : t`Import`}
+					<Button type="submit" disabled={!type || isImporting}>
+						{isImporting ? <Spinner /> : null}
+						{isImporting ? t`Importing…` : t`Import`}
 					</Button>
 				</DialogFooter>
 			</form>

@@ -13,9 +13,12 @@
 		"test:ci": "vitest run --coverage --reporter=default --reporter=github-actions --reporter=json --reporter=junit --outputFile.json=reports/vitest-results.json --outputFile.junit=reports/vitest-junit.xml --passWithNoTests",
 		"test:agent": "vitest run --reporter=agent --reporter=json --outputFile.json=reports/vitest-results.json --passWithNoTests"
 	},
+	"imports": {
+		"#react-pdf-renderer": "@react-pdf/renderer"
+	},
 	"dependencies": {
 		"@ai-sdk/anthropic": "^3.0.78",
-		"@ai-sdk/google": "^3.0.75",
+		"@ai-sdk/google": "^3.0.77",
 		"@ai-sdk/openai": "^3.0.64",
 		"@ai-sdk/openai-compatible": "^2.0.47",
 		"@aws-sdk/client-s3": "^3.1051.0",
@@ -43,7 +46,7 @@
 		"@sindresorhus/slugify": "^3.0.0",
 		"@t3-oss/env-core": "^0.13.11",
 		"@uiw/color-convert": "^2.10.1",
-		"ai": "^6.0.185",
+		"ai": "^6.0.187",
 		"bcrypt": "^6.0.0",
 		"better-auth": "1.6.11",
 		"cjk-regex": "^3.4.0",

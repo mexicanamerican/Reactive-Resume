@@ -1,7 +1,7 @@
 import type { AuthProvider } from "@reactive-resume/auth/types";
 import { Trans } from "@lingui/react/macro";
 import { LinkBreakIcon, LinkIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useCallback, useMemo } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -34,7 +34,7 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 	}, [account, unlink, provider]);
 
 	return (
-		<motion.div
+		<m.div
 			className="will-change-[transform,opacity]"
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 
 				{match(isConnected)
 					.with(true, () => (
-						<motion.div
+						<m.div
 							className="will-change-transform"
 							whileHover={{ y: -1, scale: 1.01 }}
 							whileTap={{ scale: 0.99 }}
@@ -62,10 +62,10 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 									Disconnect
 								</Trans>
 							</Button>
-						</motion.div>
+						</m.div>
 					))
 					.with(false, () => (
-						<motion.div
+						<m.div
 							className="will-change-transform"
 							whileHover={{ y: -1, scale: 1.01 }}
 							whileTap={{ scale: 0.99 }}
@@ -75,10 +75,10 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 								<LinkIcon />
 								<Trans comment="Authentication settings action to link a social login provider">Connect</Trans>
 							</Button>
-						</motion.div>
+						</m.div>
 					))
 					.exhaustive()}
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }

@@ -8,7 +8,7 @@ msgstr ""
 "Language: bn\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "রিজিউম বিশ্লেষণ করুন"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "বিশ্লেষণ করা হচ্ছে..."
+msgid "Analyzing…"
+msgstr "… বিশ্লেষণ করা হচ্ছে"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "বাতিল করুন"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "পূর্বাবস্থায় ফেরানো সম্ভব নয়; এই সম্পাদনাটি প্রয়োগ করার পর জীবনবৃত্তান্তটি পরিবর্তিত হয়ে গেছে।"
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "পুনরুদ্ধার করা সম্ভব নয়; এই সম্পাদনাটি প্রয়োগ করার পর জীবনবৃত্তান্তটি পরিবর্তিত হয়েছে।"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "ভাষা পরিবর্তন করুন"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "ভাষা পরিবর্তন করুন..."
+msgid "Change language to…"
+msgstr "ভাষা পরিবর্তন করুন…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "থিম পরিবর্তন করুন..."
+msgid "Change theme to…"
+msgstr "থিম পরিবর্তন করে… করুন"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "এআই প্রদানকারীর সাথে সংযোগ স্থাপন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "এই প্যাচটি পূর্বাবস্থায় ফেরানো সম্ভব হয়নি।"
+msgid "Could not restore this patch."
+msgstr "এই প্যাচটি পুনরুদ্ধার করা সম্ভব হয়নি।"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "পাসওয়ার্ড সুরক্ষা সক্রিয় করা হচ্ছে..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ সক্রিয় করা হচ্ছে..."
+msgid "Enabling two-factor authentication…"
+msgstr "দ্বি-স্তর প্রমাণীকরণ সক্রিয় করা হচ্ছে…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "রিজিউমে ড্যাশবোর্ডে যান"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "যান..."
+msgid "Go to…"
+msgstr "… এ যান"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "আপনার জীবনবৃত্তান্ত ইমপোর্ট করা হচ্ছে..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "ইমপোর্ট হচ্ছে..."
+msgid "Importing…"
+msgstr "… আমদানি করা হচ্ছে"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "ভাষা"
 msgid "Languages"
 msgstr "ভাষাসমূহ"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "শেষবার বিশ্লেষণ করা হয়েছে {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "সর্বশেষ বিশ্লেষণ করা হয়েছে {updatedAtLabel} তারিখে।"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "লিথুয়ানিয়ান"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "এজেন্ট ওয়ার্কস্পেস লোড হচ্ছে..."
+msgid "Loading agent workspace…"
+msgstr "এজেন্ট ওয়ার্কস্পেস লোড হচ্ছে…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "এআই প্রোভাইডার লোড করা হচ্�
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "প্রোভাইডার লোড হচ্ছে..."
+msgid "Loading providers…"
+msgstr "প্রোভাইডার লোড হচ্ছে…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "জীবনবৃত্তান্তগুলো লোড করা হচ্ছে..."
+msgid "Loading resumes…"
+msgstr "পুনরায় শুরু হচ্ছে…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "থ্রেড লোড হচ্ছে..."
+msgid "Loading threads…"
+msgstr "থ্রেড লোড হচ্ছে…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "লোড হচ্ছে..."
+msgid "Loading…"
+msgstr "লোড হচ্ছে…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "প্যাচ প্রক্রিয়াধীন"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "প্যাচটি পূর্বাবস্থায় ফেরানো হয়েছে"
+msgid "Patch rolled back"
+msgstr "প্যাচটি ফিরিয়ে নেওয়া হয়েছে"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "প্যাচটি পূর্বাবস্থায় ফিরিয়ে আনা হয়েছে।"
+msgid "Patch rolled back."
+msgstr "প্যাচটি ফিরিয়ে নেওয়া হয়েছে।"
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "প্রকল্পটি সমর্থন করুন।"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "অনুগ্রহ করে অপেক্ষা করুন, আপনার PDF তৈরি করা হচ্ছে..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "আপনার পিডিএফ তৈরি হওয়া পর্যন্ত অনুগ্রহ করে অপেক্ষা করুন…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "রিসোর্সসমূহ"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "পুনরুদ্ধার করুন"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "এই প্যাচের আগের অবস্থায় রেজিউমটি পুনরুদ্ধার করবেন? এটি এই প্যাচ এবং এর পরে প্রয়োগ করা যেকোনো প্যাচকে রোল ব্যাক করবে।"
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "জীবনবৃত্তান্ত"
 
@@ -2751,10 +2761,6 @@ msgstr "জীবনবৃত্তান্তসমূহ"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "পুনরায় চেষ্টা করুন"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "প্রত্যাবর্তন করুন"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "একটি আইকন খুঁজুন"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
-msgstr "খুঁজুন..."
+msgid "Search for…"
+msgstr "… অনুসন্ধান করুন"
 
-#. Placeholder in command palette input on nested pages
 #: src/components/ui/combobox.tsx
-#: src/features/command-palette/index.tsx
 msgid "Search..."
 msgstr "অনুসন্ধান..."
+
+#. Placeholder in command palette input on nested pages
+#: src/features/command-palette/index.tsx
+msgid "Search…"
+msgstr "অনুসন্ধান…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "নিশ্চিত করতে \"{CONFIRMATION_TEXT}\" টাইপ 
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "একটি কমান্ড টাইপ করুন বা অনুসন্ধান করুন..."
+msgid "Type a command or search…"
+msgstr "কমান্ড টাইপ করুন অথবা অনুসন্ধান করুন…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "ছবি আপলোড করুন"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "ছবি আপলোড করা হচ্ছে..."
+msgid "Uploading picture…"
+msgstr "ছবি আপলোড করা হচ্ছে…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "ব্যাকআপ কোড দিয়ে যাচাই কর�
 msgid "Verifying backup code..."
 msgstr "ব্যাকআপ কোড যাচাই করা হচ্ছে..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "কোড যাচাই করা হচ্ছে..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "কোড যাচাই করা হচ্ছে…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "ওপেনএআই-এর কাজ"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "কাজ চলছে..."
+msgid "Working…"
+msgstr "কাজ চলছে…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

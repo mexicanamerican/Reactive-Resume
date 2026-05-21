@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@reactive-resume/ui/components/accordion";
 import { buttonVariants } from "@reactive-resume/ui/components/button";
 import { cn } from "@reactive-resume/utils/style";
@@ -68,7 +68,7 @@ export function FAQ() {
 			id="frequently-asked-questions"
 			className="flex flex-col gap-x-16 gap-y-6 p-4 md:p-8 lg:flex-row lg:gap-x-18 xl:py-16"
 		>
-			<motion.h2
+			<m.h2
 				className={cn(
 					"flex-1 font-semibold text-2xl tracking-tight will-change-[transform,opacity] md:text-4xl xl:text-5xl",
 					"flex shrink-0 flex-wrap items-center gap-x-1.5 lg:flex-col lg:items-start",
@@ -83,9 +83,9 @@ export function FAQ() {
 					<span>Asked</span>
 					<span>Questions</span>
 				</Trans>
-			</motion.h2>
+			</m.h2>
 
-			<motion.div
+			<m.div
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -97,7 +97,7 @@ export function FAQ() {
 						<FAQItemComponent key={item.question} item={item} index={index} />
 					))}
 				</Accordion>
-			</motion.div>
+			</m.div>
 		</section>
 	);
 }
@@ -109,7 +109,7 @@ type FAQItemComponentProps = {
 
 function FAQItemComponent({ item, index }: FAQItemComponentProps) {
 	return (
-		<motion.div
+		<m.div
 			className="will-change-[transform,opacity] last:border-b"
 			initial={{ opacity: 0, y: 10 }}
 			whileInView={{ opacity: 1, y: 0 }}
@@ -120,6 +120,6 @@ function FAQItemComponent({ item, index }: FAQItemComponentProps) {
 				<AccordionTrigger className="py-5">{item.question}</AccordionTrigger>
 				<AccordionContent className="pb-5 text-muted-foreground leading-relaxed">{item.answer}</AccordionContent>
 			</AccordionItem>
-		</motion.div>
+		</m.div>
 	);
 }

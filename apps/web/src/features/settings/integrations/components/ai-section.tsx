@@ -408,7 +408,7 @@ export function AISettingsSection() {
 				{isLoading ? (
 					<div className="flex items-center gap-2 text-muted-foreground text-sm">
 						<Spinner />
-						<Trans>Loading providers...</Trans>
+						<Trans>Loading providers…</Trans>
 					</div>
 				) : null}
 

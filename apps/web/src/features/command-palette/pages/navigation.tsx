@@ -29,7 +29,7 @@ export function NavigationCommandGroup() {
 
 	return (
 		<>
-			<BaseCommandGroup heading={<Trans>Go to...</Trans>}>
+			<BaseCommandGroup heading={<Trans>Go to…</Trans>}>
 				<CommandItem keywords={[t`Home`]} value="navigation.home" onSelect={() => onNavigate("/")}>
 					<HouseSimpleIcon />
 					<Trans>Home</Trans>

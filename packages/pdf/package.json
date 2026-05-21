@@ -11,6 +11,9 @@
 		"./server": "./src/server.tsx",
 		"./templates": "./src/templates/index.ts"
 	},
+	"imports": {
+		"#react-pdf-renderer": "@react-pdf/renderer"
+	},
 	"scripts": {
 		"typecheck": "tsgo --noEmit",
 		"test": "vitest run --passWithNoTests",

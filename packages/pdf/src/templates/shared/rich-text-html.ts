@@ -29,12 +29,19 @@ const getTagName = (node: Node) => node.rawTagName.toLowerCase();
 const hasBlockDescendant = (node: Node): boolean =>
 	node.childNodes.some((child) => child.nodeType === NodeType.ELEMENT_NODE && !isInlineNode(child));
 
-const mergeClassNames = (...classNames: (string | undefined)[]): string =>
-	classNames
-		.flatMap((className) => className?.split(/\s+/) ?? [])
-		.filter(Boolean)
-		.filter((className, index, classNames) => classNames.indexOf(className) === index)
-		.join(" ");
+const mergeClassNames = (...classNames: (string | undefined)[]): string => {
+	const uniqueClassNames = new Set<string>();
+
+	for (const className of classNames) {
+		if (!className) continue;
+
+		for (const part of className.split(/\s+/)) {
+			if (part) uniqueClassNames.add(part);
+		}
+	}
+
+	return [...uniqueClassNames].join(" ");
+};
 
 const normalizeMarkElements = (root: ReturnType<typeof parse>) => {
 	for (const mark of root.querySelectorAll("mark")) {

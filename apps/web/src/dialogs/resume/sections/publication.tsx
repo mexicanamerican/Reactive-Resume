@@ -143,7 +143,7 @@ export function UpdatePublicationDialog({ data }: DialogProps<"resume.sections.p
 
 const PublicationForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function PublicationFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

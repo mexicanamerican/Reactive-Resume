@@ -99,7 +99,7 @@ function TemplateCard({ id, metadata, isActive, onSelect }: TemplateCardProps) {
 					sideOffset={-32}
 					align="start"
 					alignOffset={32}
-					className="pointer-events-none! flex w-80 flex-col justify-between space-y-6 rounded-md bg-background/80 p-4 pb-6"
+					className="pointer-events-none! flex w-80 flex-col justify-between gap-y-6 rounded-md bg-background/80 p-4 pb-6"
 				>
 					<div className="space-y-1">
 						<h3 className="font-semibold text-lg">{metadata.name}</h3>

@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { m } from "motion/react";
+import { useRef, useState } from "react";
 import { cn } from "@reactive-resume/utils/style";
 
 const textClassName = cn("fill-transparent font-bold text-3xl leading-none tracking-tight");
@@ -13,19 +13,8 @@ type TextMaskEffectProps = {
 
 export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": ariaHidden }: TextMaskEffectProps) => {
 	const svgRef = useRef<SVGSVGElement>(null);
-	const [cursor, setCursor] = useState({ x: 0, y: 0 });
 	const [hovered, setHovered] = useState(false);
 	const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
-
-	useEffect(() => {
-		if (svgRef.current && cursor.x !== null && cursor.y !== null) {
-			const svgRect = svgRef.current.getBoundingClientRect();
-			const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-			const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-
-			setMaskPosition({ cx: `${cxPercentage}%`, cy: `${cyPercentage}%` });
-		}
-	}, [cursor]);
 
 	return (
 		<svg
@@ -40,7 +29,12 @@ export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": a
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			onMouseMove={(e) => {
-				setCursor({ x: e.clientX, y: e.clientY });
+				if (!svgRef.current) return;
+				const svgRect = svgRef.current.getBoundingClientRect();
+				const cxPercentage = ((e.clientX - svgRect.left) / svgRect.width) * 100;
+				const cyPercentage = ((e.clientY - svgRect.top) / svgRect.height) * 100;
+
+				setMaskPosition({ cx: `${cxPercentage}%`, cy: `${cyPercentage}%` });
 			}}
 		>
 			<defs>
@@ -56,7 +50,7 @@ export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": a
 					)}
 				</linearGradient>
 
-				<motion.radialGradient
+				<m.radialGradient
 					r="20%"
 					id="revealMask"
 					animate={maskPosition}
@@ -66,7 +60,7 @@ export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": a
 				>
 					<stop offset="0%" stopColor="white" />
 					<stop offset="100%" stopColor="black" />
-				</motion.radialGradient>
+				</m.radialGradient>
 
 				<mask id="textMask">
 					<rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
@@ -85,7 +79,7 @@ export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": a
 				{text}
 			</text>
 
-			<motion.text
+			<m.text
 				x="50%"
 				y="50%"
 				strokeWidth="0.3"
@@ -97,7 +91,7 @@ export const TextMaskEffect = ({ text, duration = 6, className, "aria-hidden": a
 				className={cn(textClassName, "stroke-zinc-300 dark:stroke-zinc-700")}
 			>
 				{text}
-			</motion.text>
+			</m.text>
 
 			<text
 				x="50%"

@@ -1,8 +1,8 @@
 import type { Style } from "@react-pdf/types";
 import type { ComponentProps } from "react";
 import type { StyleInput } from "./styles";
-import { Link as PdfLink, Text as PdfText, View } from "@react-pdf/renderer";
 import { Icon as PhosphorIcon } from "phosphor-icons-react-pdf/dynamic";
+import { Link as PdfLink, Text as PdfText, View } from "../../renderer";
 import { useTemplateIconSlot, useTemplateStyle } from "./context";
 import { composeLinkStyles, composeStyles } from "./styles";
 

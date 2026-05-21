@@ -50,21 +50,22 @@ export function PdfCanvasDocument({ children, file, onLoadSuccess }: PdfCanvasDo
 
 		const loadDocument = async () => {
 			setDocument(null);
-
-			const arrayBuffer = await file.arrayBuffer();
 			if (isCancelled) return;
 
-			loadingTask = getDocument({ data: new Uint8Array(arrayBuffer) });
-			const pdfDocument = await loadingTask.promise;
+			const arrayBuffer = await file.arrayBuffer();
 
-			if (isCancelled) {
-				void pdfDocument.destroy();
-				return;
+			if (!isCancelled) {
+				loadingTask = getDocument({ data: new Uint8Array(arrayBuffer) });
+				const pdfDocument = await loadingTask.promise;
+
+				if (isCancelled) {
+					void pdfDocument.destroy();
+				} else {
+					loadedDocument = pdfDocument;
+					setDocument(pdfDocument);
+					onLoadSuccessRef.current(pdfDocument);
+				}
 			}
-
-			loadedDocument = pdfDocument;
-			setDocument(pdfDocument);
-			onLoadSuccessRef.current(pdfDocument);
 		};
 
 		void loadDocument().catch((error: unknown) => {
@@ -138,8 +139,7 @@ export function PdfCanvasPage({
 
 				if (!canvasContext) return;
 
-				canvas.style.width = `${width}px`;
-				canvas.style.height = `${height}px`;
+				canvas.style.cssText = `width: ${width}px; height: ${height}px;`;
 				canvas.width = Math.floor(width * renderScale);
 				canvas.height = Math.floor(height * renderScale);
 

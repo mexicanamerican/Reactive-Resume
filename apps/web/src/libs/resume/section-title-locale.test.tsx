@@ -36,8 +36,10 @@ describe("createSectionTitleResolverForLocale", () => {
 	it("caches resolvers per requested locale", async () => {
 		const { createSectionTitleResolverForLocale } = await import("./section-title-locale");
 
-		const a = await createSectionTitleResolverForLocale("en-US");
-		const b = await createSectionTitleResolverForLocale("en-US");
+		const [a, b] = await Promise.all([
+			createSectionTitleResolverForLocale("en-US"),
+			createSectionTitleResolverForLocale("en-US"),
+		]);
 
 		expect(a).toBe(b);
 	});

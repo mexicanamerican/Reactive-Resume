@@ -3,7 +3,7 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { LockSimpleIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useMemo } from "react";
 import { ResumeContextMenu } from "../menus/context-menu";
 import { BaseCard } from "./base-card";
@@ -23,7 +23,7 @@ export function ResumeCard({ resume }: ResumeCardProps) {
 	return (
 		<ResumeContextMenu resume={resume}>
 			<Link to="/builder/$resumeId" params={{ resumeId: resume.id }} className="cursor-default">
-				<motion.div
+				<m.div
 					className="will-change-transform"
 					whileHover={{ y: -2, scale: 1.005 }}
 					whileTap={{ scale: 0.998 }}
@@ -34,7 +34,7 @@ export function ResumeCard({ resume }: ResumeCardProps) {
 
 						<ResumeLockOverlay isLocked={resume.isLocked} />
 					</BaseCard>
-				</motion.div>
+				</m.div>
 			</Link>
 		</ResumeContextMenu>
 	);
@@ -44,7 +44,7 @@ function ResumeLockOverlay({ isLocked }: { isLocked: boolean }) {
 	return (
 		<AnimatePresence>
 			{isLocked && (
-				<motion.div
+				<m.div
 					key="resume-lock-overlay"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 0.6 }}
@@ -55,7 +55,7 @@ function ResumeLockOverlay({ isLocked }: { isLocked: boolean }) {
 					<div className="flex items-center justify-center rounded-full bg-popover p-6">
 						<LockSimpleIcon weight="thin" className="size-12 opacity-60" />
 					</div>
-				</motion.div>
+				</m.div>
 			)}
 		</AnimatePresence>
 	);

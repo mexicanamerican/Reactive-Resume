@@ -1,10 +1,10 @@
 import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
@@ -43,9 +43,18 @@ const getBronzorSections = ({
 }) => {
 	if (fullWidth) return mainSections;
 
-	return Array.from({ length: Math.max(mainSections.length, sidebarSections.length) }).flatMap((_, index) =>
-		[sidebarSections[index], mainSections[index]].filter((section): section is string => Boolean(section)),
-	);
+	const sections: string[] = [];
+	const sectionCount = Math.max(mainSections.length, sidebarSections.length);
+
+	for (let index = 0; index < sectionCount; index += 1) {
+		const sidebarSection = sidebarSections[index];
+		const mainSection = mainSections[index];
+
+		if (sidebarSection) sections.push(sidebarSection);
+		if (mainSection) sections.push(mainSection);
+	}
+
+	return sections;
 };
 
 export const BronzorPage = ({ page, pageIndex }: TemplatePageProps) => {

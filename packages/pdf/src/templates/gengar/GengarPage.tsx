@@ -1,10 +1,10 @@
 import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { Fragment, useMemo } from "react";
 import { parseColorString, rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { getFeaturedSummaryLayout } from "../shared/featured-summary";
@@ -70,8 +70,8 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 
 						{!page.fullWidth && (
 							<View style={styles.sidebarContent}>
-								{regularSidebarSections.map((section, index) => (
-									<Fragment key={index}>
+								{regularSidebarSections.map((section) => (
+									<Fragment key={section}>
 										<Section section={section} placement="sidebar" />
 									</Fragment>
 								))}
@@ -88,8 +88,8 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 					)}
 
 					<View style={composeStyles(styles.mainContent, { rowGap: metrics.sectionGap })}>
-						{regularMainSections.map((section, index) => (
-							<Section key={index} section={section} placement="main" />
+						{regularMainSections.map((section) => (
+							<Section key={section} section={section} placement="main" />
 						))}
 					</View>
 				</View>

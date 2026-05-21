@@ -8,7 +8,7 @@ msgstr ""
 "Language: az\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Azerbaijani\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Təcrübəni təhlil et"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Təhlil edilir..."
+msgid "Analyzing…"
+msgstr "… təhlil edilir"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Ləğv et"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Geri qaytarmaq mümkün deyil; bu düzəliş tətbiq edildikdən bəri CV dəyişib."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Bərpa etmək mümkün deyil; bu düzəliş tətbiq edildikdən bəri CV dəyişib."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Dili dəyiş"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Dili dəyiş..."
+msgid "Change language to…"
+msgstr "Dili… olaraq dəyişdirin"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Mövzunu dəyiş..."
+msgid "Change theme to…"
+msgstr "Temanı… olaraq dəyişdirin"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "AI provayderinə qoşula bilmədi. Zəhmət olmasa yenidən cəhd edin."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Bu yamağı geri qaytarmaq mümkün olmadı."
+msgid "Could not restore this patch."
+msgstr "Bu yamağı bərpa etmək mümkün olmadı."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Parol qorunması aktivləşdirilir..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "İki mərhələli autentifikasiyanı aktivləşdirmə prosesi gedir..."
+msgid "Enabling two-factor authentication…"
+msgstr "İki faktorlu identifikasiyanın aktivləşdirilməsi…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Təqdimatların idarəetmə panelinə keçin"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Keç..."
+msgid "Go to…"
+msgstr "… bölməsinə keçin"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Özgeçmişiniz idxal olunur..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "İdxal edilir..."
+msgid "Importing…"
+msgstr "… idxal edilir"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Dil"
 msgid "Languages"
 msgstr "Dillər"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Sonuncu dəfə təhlil edilib {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Sonuncu dəfə {updatedAtLabel} tarixində təhlil edilib"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Litva"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Agent iş sahəsi yüklənir..."
+msgid "Loading agent workspace…"
+msgstr "Agent iş sahəsi yüklənir…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Süni intellekt provayderləri yüklənir. Zəhmət olmasa, bir az sonra
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Provayderlər yüklənir..."
+msgid "Loading providers…"
+msgstr "Provayderlər yüklənir…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Özgeçmişlər yüklənir..."
+msgid "Loading resumes…"
+msgstr "CV-lər yüklənir…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Mövzular yüklənir..."
+msgid "Loading threads…"
+msgstr "Mövzular yüklənir…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Yüklənir..."
+msgid "Loading…"
+msgstr "… yüklənir"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Yamaq gözlənilir"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Yamaq geri qaytarıldı"
+msgid "Patch rolled back"
+msgstr "Yamaq geri çəkildi"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Yamaq geri qaytarıldı."
+msgid "Patch rolled back."
+msgstr "Yamaq geri çəkildi."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Layihəni dəstəkləyin"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "PDF‑iniz yaradılarkən, zəhmət olmasa, gözləyin..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "PDF faylınız yaradılana qədər gözləyin…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Resurslar"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Bərpa et"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "CV-ni bu yamadan əvvəlki vəziyyətinə bərpa etsinlər? Bu, bu yamanı və ondan sonra tətbiq olunan bütün yamaları geri qaytaracaq."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "CV"
 
@@ -2751,10 +2761,6 @@ msgstr "Özgeçmişlər"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Təkrar cəhd edin"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Geri qaytarın"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "İkon axtarın"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "… üçün axtarış"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Axtar..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Axtar..."
+msgid "Search…"
+msgstr "… axtarın"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Təsdiqləmək üçün \"{CONFIRMATION_TEXT}\" yazın"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Əmr yazın və ya axtarın..."
+msgid "Type a command or search…"
+msgstr "Əmr yazın və ya… axtarışını edin"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Şəkil yüklə"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Şəkil yüklənir..."
+msgid "Uploading picture…"
+msgstr "Şəkil yüklənir…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Ehtiyat Kod ilə Təsdiqlə"
 msgid "Verifying backup code..."
 msgstr "Ehtiyat kod yoxlanılır..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Kod yoxlanılır..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Kod təsdiqlənir…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "OpenAI ilə işləyin"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "İşləyir..."
+msgid "Working…"
+msgstr "… işləyir"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

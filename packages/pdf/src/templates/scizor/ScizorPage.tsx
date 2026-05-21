@@ -1,10 +1,10 @@
 import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";

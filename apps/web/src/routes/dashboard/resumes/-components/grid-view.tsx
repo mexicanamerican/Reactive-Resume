@@ -1,5 +1,5 @@
 import type { RouterOutput } from "@/libs/orpc/client";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { CreateResumeCard } from "./cards/create-card";
 import { ImportResumeCard } from "./cards/import-card";
 import { ResumeCard } from "./cards/resume-card";
@@ -13,7 +13,7 @@ type Props = {
 export function GridView({ resumes }: Props) {
 	return (
 		<div className="grid 3xl:grid-cols-6 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-			<motion.div
+			<m.div
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				exit={{ opacity: 0, y: -20 }}
@@ -21,9 +21,9 @@ export function GridView({ resumes }: Props) {
 				className="will-change-[transform,opacity]"
 			>
 				<CreateResumeCard />
-			</motion.div>
+			</m.div>
 
-			<motion.div
+			<m.div
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				exit={{ opacity: 0, y: -20 }}
@@ -31,11 +31,11 @@ export function GridView({ resumes }: Props) {
 				className="will-change-[transform,opacity]"
 			>
 				<ImportResumeCard />
-			</motion.div>
+			</m.div>
 
 			<AnimatePresence initial={false} mode="popLayout">
 				{resumes?.map((resume, index) => (
-					<motion.div
+					<m.div
 						layout
 						key={resume.id}
 						initial={{ opacity: 0, y: -20 }}
@@ -49,7 +49,7 @@ export function GridView({ resumes }: Props) {
 						className="will-change-[transform,opacity]"
 					>
 						<ResumeCard resume={resume} />
-					</motion.div>
+					</m.div>
 				))}
 			</AnimatePresence>
 		</div>

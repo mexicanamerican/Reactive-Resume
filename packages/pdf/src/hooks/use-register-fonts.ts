@@ -1,7 +1,6 @@
 import type { FontWeight } from "@reactive-resume/fonts";
 import type { ResumeData, Typography } from "@reactive-resume/schema/resume/data";
 import type { Locale } from "@reactive-resume/utils/locale";
-import { Font } from "@react-pdf/renderer";
 import { letters as cjkLetters } from "cjk-regex";
 import {
 	getFont,
@@ -12,6 +11,7 @@ import {
 	sortFontWeights,
 } from "@reactive-resume/fonts";
 import { isCJKLocale } from "@reactive-resume/utils/locale";
+import { Font } from "../renderer";
 
 type FontWeightRange = {
 	lowest: number;
@@ -30,7 +30,13 @@ export type PdfTypography = Omit<Typography, "body" | "heading"> & {
 };
 
 const getFontWeightRange = (fontWeights: string[]): FontWeightRange => {
-	const numericWeights = fontWeights.map(Number).filter((weight) => Number.isFinite(weight));
+	const numericWeights: number[] = [];
+
+	for (const fontWeight of fontWeights) {
+		const numericWeight = Number(fontWeight);
+		if (Number.isFinite(numericWeight)) numericWeights.push(numericWeight);
+	}
+
 	if (numericWeights.length === 0) return { lowest: 400, highest: 700 };
 
 	const lowest = Math.min(...numericWeights);

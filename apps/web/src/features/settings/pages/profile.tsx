@@ -4,7 +4,7 @@ import { Trans } from "@lingui/react/macro";
 import { CheckIcon, WarningIcon } from "@phosphor-icons/react";
 import { useStore } from "@tanstack/react-form";
 import { useRouter } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { toast } from "sonner";
 import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -129,7 +129,7 @@ export function ProfileSettingsPage({ session }: Props) {
 	};
 
 	return (
-		<motion.form
+		<m.form
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.25, ease: "easeOut" }}
@@ -246,7 +246,7 @@ export function ProfileSettingsPage({ session }: Props) {
 
 			<AnimatePresence initial={false} mode="popLayout">
 				{isDirty && (
-					<motion.div
+					<m.div
 						initial={{ opacity: 0, y: -8 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -8 }}
@@ -260,9 +260,9 @@ export function ProfileSettingsPage({ session }: Props) {
 						<Button type="submit">
 							<Trans>Save Changes</Trans>
 						</Button>
-					</motion.div>
+					</m.div>
 				)}
 			</AnimatePresence>
-		</motion.form>
+		</m.form>
 	);
 }

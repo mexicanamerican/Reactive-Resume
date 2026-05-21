@@ -142,7 +142,7 @@ export function UpdateProjectDialog({ data }: DialogProps<"resume.sections.proje
 
 const ProjectForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function ProjectFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

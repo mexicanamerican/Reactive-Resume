@@ -88,7 +88,7 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
 }
 
 export function useConfirm() {
-	const context = React.useContext(ConfirmContext);
+	const context = React.use(ConfirmContext);
 
 	if (!context) {
 		throw new Error("useConfirm must be used within a <ConfirmDialogProvider />.");

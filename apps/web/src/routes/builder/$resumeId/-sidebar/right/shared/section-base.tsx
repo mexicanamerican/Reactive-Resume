@@ -34,7 +34,7 @@ export function SectionBase({ type, className, ...props }: Props) {
 
 					<div className="flex flex-1 items-center gap-x-4">
 						{getSectionIcon(type)}
-						<h2 className="line-clamp-1 font-bold text-2xl tracking-tight">{getSectionTitle(type)}</h2>
+						<h2 className="line-clamp-1 font-semibold text-2xl tracking-tight">{getSectionTitle(type)}</h2>
 					</div>
 				</div>
 

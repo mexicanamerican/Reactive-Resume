@@ -42,7 +42,7 @@ export function ResumesCommandGroup() {
 
 	return (
 		<>
-			<BaseCommandGroup heading={<Trans>Search for...</Trans>}>
+			<BaseCommandGroup heading={<Trans>Search for…</Trans>}>
 				<CommandItem keywords={[t`Resumes`]} value="search.resumes" onSelect={() => pushPage("resumes")}>
 					<ReadCvLogoIcon />
 					<Trans>Resumes</Trans>
@@ -57,7 +57,7 @@ export function ResumesCommandGroup() {
 
 				{isLoading ? (
 					<CommandLoading>
-						<Trans>Loading resumes...</Trans>
+						<Trans>Loading resumes…</Trans>
 					</CommandLoading>
 				) : (
 					resumes?.map((resume) => (

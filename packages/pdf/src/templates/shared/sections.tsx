@@ -19,10 +19,10 @@ import type { IconName } from "phosphor-icons-react-pdf/dynamic";
 import type { ReactNode } from "react";
 import type { StyleInput, TemplatePlacement } from "./styles";
 import type { CustomItemSection, ItemSection } from "./types";
-import { View } from "@react-pdf/renderer";
-import { Children, createContext, useContext } from "react";
+import { Children, createContext, isValidElement, use } from "react";
 import { match } from "ts-pattern";
 import { useRender } from "../../context";
+import { View } from "../../renderer";
 import { getResumeSectionTitle } from "../../section-title";
 import { getSectionItemRows, getSectionItemsLayout, shouldUseSectionTimeline } from "./columns";
 import { getWebsiteDisplayText } from "./contact";
@@ -48,8 +48,25 @@ type SectionItemsContextValue = {
 };
 
 const SectionItemsContext = createContext<SectionItemsContextValue>({ itemStyle: undefined, useTimeline: false });
+const SECTION_ITEM_PLACEHOLDER_KEYS = [
+	"placeholder-1",
+	"placeholder-2",
+	"placeholder-3",
+	"placeholder-4",
+	"placeholder-5",
+	"placeholder-6",
+] as const;
 
-const useSectionItemsContext = () => useContext(SectionItemsContext);
+const useSectionItemsContext = () => use(SectionItemsContext);
+
+const getChildKey = (child: ReactNode, fallbackIndex: number) => {
+	return isValidElement(child) && child.key !== null ? String(child.key) : `child-${fallbackIndex}`;
+};
+
+const getRowKey = (row: ReactNode[], rowIndex: number) => {
+	const childKeys = row.map(getChildKey).join("|");
+	return childKeys || `row-${rowIndex}`;
+};
 
 const getVisibleItems = <T extends { hidden: boolean }>(section: ItemSection<T>, sectionType?: string): T[] => {
 	if (!hasVisibleItems(section, sectionType)) return [];
@@ -109,10 +126,10 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 				<SectionItemsContext.Provider value={context}>
 					<View style={composeStyles(layout.containerStyle, sectionItemsStyle)}>
 						{rows.map((row, rowIndex) => (
-							<View key={rowIndex} style={composeStyles(layout.rowStyle)}>
+							<View key={getRowKey(row, rowIndex)} style={composeStyles(layout.rowStyle)}>
 								{row}
-								{Array.from({ length: layout.columns - row.length }, (_, index) => (
-									<View key={`placeholder-${index}`} style={composeStyles(layout.itemStyle)} />
+								{SECTION_ITEM_PLACEHOLDER_KEYS.slice(0, layout.columns - row.length).map((placeholderKey) => (
+									<View key={placeholderKey} style={composeStyles(layout.itemStyle)} />
 								))}
 							</View>
 						))}

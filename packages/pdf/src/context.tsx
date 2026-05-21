@@ -1,7 +1,7 @@
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ReactNode } from "react";
 import type { SectionTitleResolver } from "./section-title";
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 type RenderContextValue = ResumeData & {
 	resolveSectionTitle?: SectionTitleResolver | undefined;
@@ -20,7 +20,7 @@ export const RenderProvider = ({ data, resolveSectionTitle, children }: RenderPr
 };
 
 export const useRender = (): RenderContextValue => {
-	const context = useContext(RenderContext);
+	const context = use(RenderContext);
 
 	if (!context) throw new Error("useRender must be called inside a <RenderProvider>.");
 

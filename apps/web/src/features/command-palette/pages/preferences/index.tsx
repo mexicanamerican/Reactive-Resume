@@ -14,12 +14,12 @@ export function PreferencesCommandGroup() {
 			<BaseCommandGroup heading={<Trans>Preferences</Trans>}>
 				<CommandItem onSelect={() => pushPage("theme")}>
 					<PaletteIcon />
-					<Trans>Change theme to...</Trans>
+					<Trans>Change theme to…</Trans>
 				</CommandItem>
 
 				<CommandItem onSelect={() => pushPage("language")}>
 					<TranslateIcon />
-					<Trans>Change language to...</Trans>
+					<Trans>Change language to…</Trans>
 				</CommandItem>
 			</BaseCommandGroup>
 

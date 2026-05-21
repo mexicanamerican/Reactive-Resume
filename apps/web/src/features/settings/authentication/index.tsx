@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useEnabledProviders } from "./components/hooks";
 import { PasskeysSection } from "./components/passkeys";
 import { PasswordSection } from "./components/password";
@@ -9,7 +9,7 @@ export function AuthenticationSettingsPage() {
 	const { enabledProviders } = useEnabledProviders();
 
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.25, ease: "easeOut" }}
@@ -30,6 +30,6 @@ export function AuthenticationSettingsPage() {
 			{"custom" in enabledProviders && (
 				<SocialProviderSection provider="custom" animationDelay={0.7} name={enabledProviders.custom} />
 			)}
-		</motion.div>
+		</m.div>
 	);
 }

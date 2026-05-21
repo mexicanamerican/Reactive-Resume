@@ -8,7 +8,7 @@ msgstr ""
 "Language: fi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analysoi ansioluettelo"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Analysoimalla..."
+msgid "Analyzing…"
+msgstr "Analysoidaan…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,7 +584,7 @@ msgid "Cancel"
 msgstr "Peruuta"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
+msgid "Cannot restore; the resume has changed since this edit was applied."
 msgstr "Ei voida palauttaa; ansioluettelo on muuttunut tämän muokkauksen jälkeen."
 
 #: src/libs/locale.ts
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Vaihda kieli"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Vaihda kieli..."
+msgid "Change language to…"
+msgstr "Vaihda kieli muotoon…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Vaihda teema..."
+msgid "Change theme to…"
+msgstr "Vaihda teema muotoon…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,7 +793,7 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Tekoälypalvelun tarjoajaa ei tavoitettu. Yritä uudelleen."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
+msgid "Could not restore this patch."
 msgstr "Tätä korjaustiedostoa ei voitu palauttaa."
 
 #: src/features/settings/integrations/components/ai-section.tsx
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Otetaan salasanasuojaus käyttöön..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Otetaan kaksivaiheista todennusta käyttöön..."
+msgid "Enabling two-factor authentication…"
+msgstr "Kaksivaiheisen todennuksen käyttöönotto…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Siirry ansioluetteloiden kojelautaan"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Siirry..."
+msgid "Go to…"
+msgstr "Siirry kohtaan…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Tuodaan ansioluetteloasi..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Tuodaan..."
+msgid "Importing…"
+msgstr "Tuodaan…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Kieli"
 msgid "Languages"
 msgstr "Kielet"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Viimeksi analysoitu osoitteessa {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Viimeksi analysoitu {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "liettua"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Ladataan agentin työtilaa..."
+msgid "Loading agent workspace…"
+msgstr "Ladataan agentin työtilaa…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Ladataan tekoälypalveluntarjoajia. Yritä uudelleen hetken kuluttua."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Ladataan palveluntarjoajia..."
+msgid "Loading providers…"
+msgstr "Ladataan palveluntarjoajia…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Ladataan ansioluetteloita..."
+msgid "Loading resumes…"
+msgstr "Ladataan ansioluetteloita…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Ladataan ketjuja..."
+msgid "Loading threads…"
+msgstr "Ladataan ketjuja…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Ladataan..."
+msgid "Loading…"
+msgstr "Ladataan…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Korjaus odottaa"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Korjaus palautettu"
+msgid "Patch rolled back"
+msgstr "Korjaustiedosto palautettu"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Korjaus peruttu."
+msgid "Patch rolled back."
+msgstr "Patch rullasi takaisin."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Tue projektia"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Odota, kunnes PDF-tiedosto on luotu..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Odota hetki, PDF-tiedostoasi luodaan…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Resurssit"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Palauttaa"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Palautetaanko ansioluettelo tätä korjausta edeltävään tilaan? Tämä palauttaa tämän korjauksen ja kaikki sen jälkeen asennetut korjaukset vanhaan tilaan."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Jatkaa"
 
@@ -2751,10 +2761,6 @@ msgstr "Ansioluettelot"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Yritä uudelleen"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Palauta"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Etsi ikonia"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "Hae…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Etsi..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Etsi..."
+msgid "Search…"
+msgstr "Hae…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Kirjoita \"{CONFIRMATION_TEXT}\" vahvistaaksesi"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Kirjoita komento tai hae..."
+msgid "Type a command or search…"
+msgstr "Kirjoita komento tai hae…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Lataa kuva"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Ladataan kuvaa..."
+msgid "Uploading picture…"
+msgstr "Kuvan lataaminen…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Vahvista varmuuskoodilla"
 msgid "Verifying backup code..."
 msgstr "Vahvistetaan varmuuskoodia..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Vahvistetaan koodia..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Vahvistuskoodi…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Työskentele OpenAI:lla"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Työskentely..."
+msgid "Working…"
+msgstr "Työskentely…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

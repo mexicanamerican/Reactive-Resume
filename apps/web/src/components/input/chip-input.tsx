@@ -13,7 +13,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { PencilSimpleIcon, XIcon } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import * as React from "react";
 import { createPortal } from "react-dom";
 import { Badge } from "@reactive-resume/ui/components/badge";
@@ -24,6 +24,7 @@ import { useControlledState } from "@/hooks/use-controlled-state";
 
 const RETURN_KEY = "Enter";
 const COMMA_KEY = ",";
+const EMPTY_CHIPS: string[] = [];
 
 type ChipItemProps = {
 	id: string;
@@ -65,7 +66,7 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
 	};
 
 	return (
-		<motion.div
+		<m.div
 			layout
 			initial={{ opacity: 0, scale: 0.92, y: -4 }}
 			animate={{ opacity: isDragging ? 0.62 : 1, scale: 1, y: 0 }}
@@ -86,7 +87,7 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
 				)}
 			>
 				<span className="max-w-32 truncate sm:max-w-44">{chip}</span>
-				<motion.div
+				<m.div
 					initial={false}
 					animate={isEditing ? { opacity: 1 } : { opacity: 0.66 }}
 					transition={{ duration: 0.12, ease: "easeOut" }}
@@ -124,9 +125,9 @@ function ChipItem({ id, chip, index, isEditing, onEdit, onRemove }: ChipItemProp
 					>
 						<XIcon className="size-3.5" />
 					</button>
-				</motion.div>
+				</m.div>
 			</Badge>
-		</motion.div>
+		</m.div>
 	);
 }
 
@@ -137,7 +138,14 @@ type Props = Omit<React.ComponentProps<"div">, "value" | "onChange"> & {
 	hideDescription?: boolean;
 };
 
-export function ChipInput({ value, defaultValue = [], onChange, className, hideDescription = false, ...props }: Props) {
+export function ChipInput({
+	value,
+	defaultValue = EMPTY_CHIPS,
+	onChange,
+	className,
+	hideDescription = false,
+	...props
+}: Props) {
 	const [chips, setChips] = useControlledState<string[]>({
 		value,
 		defaultValue,
@@ -154,7 +162,10 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 
 	const addChips = React.useCallback(
 		(values: string[]) => {
-			const nextValues = values.map((chip) => chip.trim()).filter(Boolean);
+			const nextValues = values.flatMap((chip) => {
+				const trimmed = chip.trim();
+				return trimmed ? [trimmed] : [];
+			});
 			if (nextValues.length === 0) return;
 
 			const newChips = Array.from(new Set([...chips, ...nextValues]));
@@ -195,7 +206,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 				setEditingIndex(null);
 				setInput("");
 			} else if (editingIndex !== null && editingIndex > index) {
-				setEditingIndex(editingIndex - 1);
+				setEditingIndex((current) => (current !== null && current > index ? current - 1 : current));
 			}
 		},
 		[chips, setChips, editingIndex],
@@ -328,7 +339,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 							className={cn("max-h-24 overflow-y-auto px-2 py-1.5", hasChips ? "border-border/70 border-b" : "hidden")}
 						>
 							<SortableContext items={chips} strategy={rectSortingStrategy}>
-								<motion.div layout className="flex flex-wrap gap-1">
+								<m.div layout className="flex flex-wrap gap-1">
 									<AnimatePresence initial={false} mode="popLayout">
 										{chips.map((chip, idx) => (
 											<ChipItem
@@ -342,7 +353,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 											/>
 										))}
 									</AnimatePresence>
-								</motion.div>
+								</m.div>
 							</SortableContext>
 						</div>
 						<div className={cn("flex items-center gap-1.5 px-2", hasChips ? "py-1.5" : "py-0")}>
@@ -355,11 +366,11 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 								placeholder={isEditingKeyword ? t`Editing keyword...` : t`Add a keyword...`}
 								onKeyDown={handleKeyDown}
 								onChange={handleInputChange}
-								className="h-9 flex-1 border-none px-0 py-0 focus-visible:border-none focus-visible:ring-0 dark:bg-transparent"
+								className="h-9 flex-1 border-none p-0 focus-visible:border-none focus-visible:ring-0 dark:bg-transparent"
 							/>
 							<AnimatePresence>
 								{chips.length > 0 && (
-									<motion.span
+									<m.span
 										layout
 										initial={{ opacity: 0, scale: 0.95 }}
 										animate={{
@@ -376,7 +387,7 @@ export function ChipInput({ value, defaultValue = [], onChange, className, hideD
 										)}
 									>
 										{isEditingKeyword ? <Trans>Edit</Trans> : chips.length}
-									</motion.span>
+									</m.span>
 								)}
 							</AnimatePresence>
 						</div>

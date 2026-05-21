@@ -1,5 +1,5 @@
 import type { DragEndEvent, DragStartEvent } from "@dnd-kit/core";
-import type { CSSProperties, HTMLAttributes } from "react";
+import type { CSSProperties, HTMLAttributes, Ref } from "react";
 import {
 	closestCorners,
 	DndContext,
@@ -14,7 +14,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { DotsSixVerticalIcon, PlusIcon, TrashIcon } from "@phosphor-icons/react";
-import { forwardRef, useCallback, useId, useState } from "react";
+import { useCallback, useId, useState } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Switch } from "@reactive-resume/ui/components/switch";
@@ -95,8 +95,10 @@ export function LayoutPages() {
 			// Search through all pages
 			for (let pageIndex = 0; pageIndex < layout.pages.length; pageIndex++) {
 				const page = layout.pages[pageIndex];
-				if (page.main.includes(id)) return { pageIndex, columnId: "main" };
-				if (page.sidebar.includes(id)) return { pageIndex, columnId: "sidebar" };
+				const mainSections = new Set(page.main);
+				const sidebarSections = new Set(page.sidebar);
+				if (mainSections.has(id)) return { pageIndex, columnId: "main" };
+				if (sidebarSections.has(id)) return { pageIndex, columnId: "sidebar" };
 			}
 
 			return null;
@@ -395,35 +397,32 @@ function SortableLayoutItem({ id }: SortableLayoutItemProps) {
 
 type LayoutItemContentProps = HTMLAttributes<HTMLDivElement> & {
 	id: string;
+	ref?: Ref<HTMLDivElement>;
 	isDragging?: boolean;
 	isOverlay?: boolean;
 };
 
-const LayoutItemContent = forwardRef<HTMLDivElement, LayoutItemContentProps>(
-	({ id, isDragging, isOverlay, className, style, ...rest }, ref) => {
-		const resume = useCurrentResume();
-		const title = resume ? resolveLayoutSectionTitle(resume.data, id) : id;
+function LayoutItemContent({ id, ref, isDragging, isOverlay, className, style, ...rest }: LayoutItemContentProps) {
+	const resume = useCurrentResume();
+	const title = resume ? resolveLayoutSectionTitle(resume.data, id) : id;
 
-		return (
-			<div
-				ref={ref}
-				style={style}
-				data-overlay={isOverlay ? "true" : undefined}
-				data-dragging={isDragging ? "true" : undefined}
-				className={cn(
-					"group/item flex cursor-grab touch-none select-none items-center gap-x-2 rounded-md border border-border bg-background px-2 py-1.5 font-medium text-sm transition-all duration-200 ease-out",
-					"hover:bg-secondary/40 active:cursor-grabbing active:border-primary/60 active:bg-secondary/40",
-					"data-[overlay=true]:cursor-grabbing data-[overlay=true]:border-primary/60 data-[overlay=true]:bg-background",
-					"data-[dragging=true]:cursor-grabbing data-[dragging=true]:border-primary/60 data-[dragging=true]:bg-background",
-					className,
-				)}
-				{...rest}
-			>
-				<DotsSixVerticalIcon className="opacity-40 transition-opacity group-hover/item:opacity-100" />
-				<span className="truncate">{title}</span>
-			</div>
-		);
-	},
-);
-
-LayoutItemContent.displayName = "LayoutItemContent";
+	return (
+		<div
+			ref={ref}
+			style={style}
+			data-overlay={isOverlay ? "true" : undefined}
+			data-dragging={isDragging ? "true" : undefined}
+			className={cn(
+				"group/item flex cursor-grab touch-none select-none items-center gap-x-2 rounded-md border border-border bg-background px-2 py-1.5 font-medium text-sm transition-all duration-200 ease-out",
+				"hover:bg-secondary/40 active:cursor-grabbing active:border-primary/60 active:bg-secondary/40",
+				"data-[overlay=true]:cursor-grabbing data-[overlay=true]:border-primary/60 data-[overlay=true]:bg-background",
+				"data-[dragging=true]:cursor-grabbing data-[dragging=true]:border-primary/60 data-[dragging=true]:bg-background",
+				className,
+			)}
+			{...rest}
+		>
+			<DotsSixVerticalIcon className="opacity-40 transition-opacity group-hover/item:opacity-100" />
+			<span className="truncate">{title}</span>
+		</div>
+	);
+}

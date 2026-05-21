@@ -8,7 +8,7 @@ msgstr ""
 "Language: lv\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analizēt CV"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Analizējot..."
+msgid "Analyzing…"
+msgstr "Analizējot…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Atcelt"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Nevar atsaukt; CV ir mainījies kopš šī labojuma piemērošanas."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Nevar atjaunot; CV ir mainījies kopš šī labojuma piemērošanas."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Mainīt valodu"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Mainīt valodu uz..."
+msgid "Change language to…"
+msgstr "Mainīt valodu uz…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Mainīt tēmu uz..."
+msgid "Change theme to…"
+msgstr "Mainīt tēmu uz…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,7 +793,7 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Nevarēja sazināties ar AI pakalpojumu sniedzēju. Lūdzu, mēģiniet vēlreiz."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
+msgid "Could not restore this patch."
 msgstr "Nevarēja atjaunot šo ielāpu."
 
 #: src/features/settings/integrations/components/ai-section.tsx
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Tiek ieslēgta paroles aizsardzība..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Tiek ieslēgta divu faktoru autentifikācija..."
+msgid "Enabling two-factor authentication…"
+msgstr "Divfaktoru autentifikācijas iespējošana…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Dodieties uz CV paneli"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Doties uz..."
+msgid "Go to…"
+msgstr "Dodieties uz…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Tiek importēts jūsu CV..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Notiek importēšana..."
+msgid "Importing…"
+msgstr "Importē…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Valoda"
 msgid "Languages"
 msgstr "Valodas"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Pēdējo reizi analizēts vietnē {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Pēdējo reizi analizēts {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Lietuviešu"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Notiek aģenta darba vietas ielāde..."
+msgid "Loading agent workspace…"
+msgstr "Notiek aģenta darbvietas ielāde…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Notiek mākslīgā intelekta pakalpojumu sniedzēju ielāde. Lūdzu, mē
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Notiek pakalpojumu sniedzēju ielāde..."
+msgid "Loading providers…"
+msgstr "Notiek pakalpojumu sniedzēju ielāde…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Ielādē CV..."
+msgid "Loading resumes…"
+msgstr "Notiek CV ielāde…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Notiek pavedienu ielāde..."
+msgid "Loading threads…"
+msgstr "Notiek pavedienu ielāde…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Ielādē..."
+msgid "Loading…"
+msgstr "Notiek ielāde…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Ielāps gaida"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Ielāps atsaukts"
+msgid "Patch rolled back"
+msgstr "Ielāps ir atsaukts"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Ielāps ir atsaukts."
+msgid "Patch rolled back."
+msgstr "Ielāps atritināts."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Lūdzu, atbalstiet projektu"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Lūdzu, uzgaidiet, kamēr tiek ģenerēts jūsu PDF..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Lūdzu, uzgaidiet, kamēr tiek ģenerēts jūsu PDF fails…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Resursi"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Atjaunot"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Vai atjaunot CV versiju pirms šī ielāpa? Tādējādi tiks atiestatīts gan šis ielāps, gan visi pēc tā lietotie ielāpi."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "CV"
 
@@ -2751,10 +2761,6 @@ msgstr "CV"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Mēģināt vēlreiz"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Atjaunot"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Meklēt ikonu"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "Meklēt…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Meklēt..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Meklēt..."
+msgid "Search…"
+msgstr "Meklēt…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Ierakstiet \"{CONFIRMATION_TEXT}\", lai apstiprinātu"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Ierakstiet komandu vai meklējiet..."
+msgid "Type a command or search…"
+msgstr "Ievadiet komandu vai meklējiet…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Augšupielādēt attēlu"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Augšupielādē attēlu..."
+msgid "Uploading picture…"
+msgstr "Augšupielādē attēlu…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Verificēt ar rezerves kodu"
 msgid "Verifying backup code..."
 msgstr "Verificē rezerves kodu..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Verificē kodu..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Pārbaudes kods…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Darbs OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Strādājam..."
+msgid "Working…"
+msgstr "Darbs…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

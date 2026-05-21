@@ -1,7 +1,7 @@
 import type { Style } from "@react-pdf/types";
 import type { CustomField } from "@reactive-resume/schema/resume/data";
 import type { IconName } from "phosphor-icons-react-pdf/dynamic";
-import { View } from "@react-pdf/renderer";
+import { View } from "../../renderer";
 import { getCustomFieldLinkUrl, getWebsiteDisplayText } from "./contact";
 import { Icon, Link, Text } from "./primitives";
 

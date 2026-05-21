@@ -196,7 +196,7 @@ export function RichInput({ value, onChange, style, className, editorClassName, 
 	);
 }
 
-function EditorToolbar({ editor, isFullscreen }: { editor: Editor; isFullscreen: boolean }) {
+function useEditorToolbarState(editor: Editor) {
 	const prompt = usePrompt();
 
 	const state = useEditorState({
@@ -367,6 +367,18 @@ function EditorToolbar({ editor, isFullscreen }: { editor: Editor; isFullscreen:
 		},
 	});
 
+	return state;
+}
+
+type EditorToolbarState = ReturnType<typeof useEditorToolbarState>;
+
+function EditorToolbar({ editor, isFullscreen }: { editor: Editor; isFullscreen: boolean }) {
+	const state = useEditorToolbarState(editor);
+
+	return renderEditorToolbar(state, isFullscreen);
+}
+
+function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 	return (
 		<div className="flex flex-wrap items-center gap-y-0.5 rounded-md rounded-b-none border border-b-0">
 			<Toggle

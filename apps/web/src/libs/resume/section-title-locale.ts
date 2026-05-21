@@ -1,6 +1,6 @@
 import type { SectionTitleResolver } from "@reactive-resume/pdf/section-title";
 import { setupI18n } from "@lingui/core";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { getLocaleMessages, resolveLocale } from "@/libs/locale";
 import { createSectionTitleResolver } from "./section-title";
 
@@ -25,19 +25,22 @@ export const createSectionTitleResolverForLocale = async (localeParam: string) =
 };
 
 export const useSectionTitleResolver = (locale?: string) => {
-	const [resolver, setResolver] = useState<SectionTitleResolver | null>(null);
+	const [resolver, dispatchResolver] = useReducer(
+		(_state: SectionTitleResolver | null, nextResolver: SectionTitleResolver | null) => nextResolver,
+		null,
+	);
 
 	useEffect(() => {
 		if (!locale) {
-			setResolver(null);
+			dispatchResolver(null);
 			return;
 		}
 
 		let cancelled = false;
 
-		setResolver(null);
+		dispatchResolver(null);
 		void createSectionTitleResolverForLocale(locale).then((nextResolver) => {
-			if (!cancelled) setResolver(() => nextResolver);
+			if (!cancelled) dispatchResolver(nextResolver);
 		});
 
 		return () => {

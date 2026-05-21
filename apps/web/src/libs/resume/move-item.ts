@@ -96,6 +96,7 @@ export function getCompatibleMoveTargets(
 	sourceSectionId: string | undefined,
 ): MoveTargetPage[] {
 	const { pages } = resumeData.metadata.layout;
+	const customSectionById = new Map(resumeData.customSections.map((section) => [section.id, section]));
 	const result: MoveTargetPage[] = [];
 
 	for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
@@ -120,7 +121,7 @@ export function getCompatibleMoveTargets(
 			}
 
 			// Check if it's a custom section with matching type
-			const customSection = resumeData.customSections.find((s) => s.id === sectionId);
+			const customSection = customSectionById.get(sectionId);
 			if (customSection && customSection.type === sourceType) {
 				compatibleSections.push({
 					sectionId: customSection.id,

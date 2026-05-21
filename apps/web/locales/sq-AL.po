@@ -8,7 +8,7 @@ msgstr ""
 "Language: sq\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Albanian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analizo CV-në"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Po analizon..."
+msgid "Analyzing…"
+msgstr "Duke analizuar…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,7 +584,7 @@ msgid "Cancel"
 msgstr "Anulo"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
+msgid "Cannot restore; the resume has changed since this edit was applied."
 msgstr "Nuk mund të rikthehet; CV-ja ka ndryshuar që kur është aplikuar ky ndryshim."
 
 #: src/libs/locale.ts
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Ndrysho gjuhën"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Ndrysho gjuhën në..."
+msgid "Change language to…"
+msgstr "Ndrysho gjuhën në…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Ndrysho temën në..."
+msgid "Change theme to…"
+msgstr "Ndrysho temën në…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Nuk mund të lidhemi me ofruesin e inteligjencës artificiale. Ju lutemi provoni përsëri."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Nuk mund ta riktheja këtë patch."
+msgid "Could not restore this patch."
+msgstr "Nuk mundi ta rikthente këtë patch."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Po aktivizohet mbrojtja me fjalëkalim..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Po aktivizohet vërtetimi me dy faktorë..."
+msgid "Enabling two-factor authentication…"
+msgstr "Aktivizimi i vërtetimit me dy faktorë…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Shko te paneli i rezumëve"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Shko te..."
+msgid "Go to…"
+msgstr "Shko te…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Po importohet CV-ja juaj..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Po importohet..."
+msgid "Importing…"
+msgstr "Duke importuar…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Gjuha"
 msgid "Languages"
 msgstr "Gjuhët"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Analizuar së fundmi më {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Analizuar për herë të fundit më {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Lituanisht"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Duke ngarkuar hapësirën e punës së agjentit..."
+msgid "Loading agent workspace…"
+msgstr "Duke ngarkuar hapësirën e punës së agjentit…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Duke ngarkuar ofruesit e inteligjencës artificiale. Ju lutemi provoni p
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Duke ngarkuar ofruesit..."
+msgid "Loading providers…"
+msgstr "Duke ngarkuar ofruesit…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Po ngarkohen CV-të..."
+msgid "Loading resumes…"
+msgstr "Duke ngarkuar CV-të…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Duke ngarkuar fijet..."
+msgid "Loading threads…"
+msgstr "Duke ngarkuar fijet…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Po ngarkohet..."
+msgid "Loading…"
+msgstr "Duke u ngarkuar…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,11 +2430,11 @@ msgid "Patch pending"
 msgstr "Patch në pritje"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Patch u rikthye"
+msgid "Patch rolled back"
+msgstr "Patch u hoq përsëri"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
+msgid "Patch rolled back."
 msgstr "Patch u rikthye."
 
 #. File format label in import source selector
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Ju lutemi mbështesni projektin"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Ju lutemi prisni ndërkohë që po gjenerohet PDF-ja juaj..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Ju lutemi prisni ndërsa PDF-ja juaj po gjenerohet…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Burime"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Rivendos"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Të rikthehet CV-ja në gjendjen para këtij përditësimi? Kjo do ta anulojë këtë përditësim dhe çdo përditësim të aplikuar pas tij."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Rezyme"
 
@@ -2751,10 +2761,6 @@ msgstr "CV-të"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Riprovo"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Rikthe"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Kërkoni një ikonë"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
-msgstr "Kërko për..."
+msgid "Search for…"
+msgstr "Kërko për…"
 
-#. Placeholder in command palette input on nested pages
 #: src/components/ui/combobox.tsx
-#: src/features/command-palette/index.tsx
 msgid "Search..."
 msgstr "Kërko..."
+
+#. Placeholder in command palette input on nested pages
+#: src/features/command-palette/index.tsx
+msgid "Search…"
+msgstr "Kërko…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Shkruani \"{CONFIRMATION_TEXT}\" për të konfirmuar"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Shkruani një komandë ose kërkoni..."
+msgid "Type a command or search…"
+msgstr "Shkruani një komandë ose kërkoni…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Ngarko foton"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Po ngarkohet foto..."
+msgid "Uploading picture…"
+msgstr "Duke ngarkuar foton…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Verifiko me një kod rezervë"
 msgid "Verifying backup code..."
 msgstr "Po verifikohet kodi rezervë..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Po verifikohet kodi..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Duke verifikuar kodin…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Punoni OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Duke punuar..."
+msgid "Working…"
+msgstr "Duke punuar…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/react/macro";
 import { QuotesIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useMemo } from "react";
 
 const email = "hello@amruthpillai.com";
@@ -35,7 +35,7 @@ type TestimonialCardProps = {
 
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
 	return (
-		<motion.div
+		<m.div
 			className="group relative flex w-full flex-col overflow-hidden text-pretty rounded-2xl border bg-card p-4 will-change-transform"
 			initial={{ scale: 1, boxShadow: "0 0 20px 0 rgba(0, 0, 0, 0)" }}
 			whileHover={{ scale: 1.2, zIndex: 100, boxShadow: "0 0 40px 0 rgba(0, 0, 0, 0.5)" }}
@@ -46,54 +46,62 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
 				className="absolute -right-2 -bottom-4 size-18 opacity-10 transition-[bottom] duration-200 group-hover:-bottom-16"
 			/>
 			<p className="flex-1 text-muted-foreground leading-relaxed">{testimonial}</p>
-		</motion.div>
+		</m.div>
 	);
 }
 
 type TestimonialColumnProps = {
-	columnId: string;
+	id: string;
 	testimonials: string[];
 };
 
-function TestimonialColumn({ columnId, testimonials }: TestimonialColumnProps) {
+function TestimonialColumn({ id, testimonials }: TestimonialColumnProps) {
 	return (
 		<div className="flex w-[320px] shrink-0 flex-col gap-y-4 sm:w-[360px] md:w-[400px]">
-			{testimonials.map((testimonial, index) => (
-				<TestimonialCard key={`${columnId}-${index}`} testimonial={testimonial} />
+			{testimonials.map((testimonial) => (
+				<TestimonialCard key={`${id}-${testimonial}`} testimonial={testimonial} />
 			))}
 		</div>
 	);
 }
 
+type TestimonialColumnData = {
+	id: string;
+	testimonials: string[];
+};
+
 type MarqueeMasonryProps = {
-	columns: string[][];
+	columns: TestimonialColumnData[];
 	direction: "left" | "right";
 	duration?: number;
 };
 
 function MarqueeMasonry({ columns, direction, duration = 30 }: MarqueeMasonryProps) {
 	const animateX = direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"];
-	const marqueeColumns = [...columns, ...columns];
+	const marqueeColumns = columns.flatMap((column) => [
+		{ ...column, id: `${column.id}-primary` },
+		{ ...column, id: `${column.id}-repeat` },
+	]);
 
 	return (
-		<motion.div
+		<m.div
 			className="flex items-start gap-x-4 will-change-transform"
 			animate={{ x: animateX }}
 			transition={{ x: { repeat: Number.POSITIVE_INFINITY, repeatType: "loop", duration, ease: "linear" } }}
 		>
-			{marqueeColumns.map((column, index) => (
-				<TestimonialColumn key={index} columnId={`column-${index}`} testimonials={column} />
+			{marqueeColumns.map((column) => (
+				<TestimonialColumn key={column.id} id={column.id} testimonials={column.testimonials} />
 			))}
-		</motion.div>
+		</m.div>
 	);
 }
 
 export function Testimonials() {
 	const columns = useMemo(() => {
-		const columns: string[][] = [];
+		const columns: TestimonialColumnData[] = [];
 
 		for (let index = 0; index < testimonials.length; index += 2) {
-			columns.push(testimonials.slice(index, index + 2));
+			columns.push({ id: `column-${index / 2}`, testimonials: testimonials.slice(index, index + 2) });
 		}
 
 		return columns;
@@ -101,8 +109,8 @@ export function Testimonials() {
 
 	return (
 		<section id="testimonials" className="overflow-hidden py-12 md:py-16 xl:py-20">
-			<motion.div
-				className="mb-10 flex flex-col items-center space-y-4 px-4 text-center md:px-8"
+			<m.div
+				className="mb-10 flex flex-col items-center gap-y-4 px-4 text-center md:px-8"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -128,7 +136,7 @@ export function Testimonials() {
 						.
 					</Trans>
 				</p>
-			</motion.div>
+			</m.div>
 
 			<div className="relative">
 				{/* Left fade */}

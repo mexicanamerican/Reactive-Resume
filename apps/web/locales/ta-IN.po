@@ -8,7 +8,7 @@ msgstr ""
 "Language: ta\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Tamil\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "வாழ்க்கை வரலாற்றைப் பகுப்பாய்வு செய்யுங்கள்"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "பகுப்பாய்வு..."
+msgid "Analyzing…"
+msgstr "பகுப்பாய்வு…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "ரத்து செய்"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "பழைய நிலைக்குத் திரும்ப முடியாது; இந்தத் திருத்தம் செய்யப்பட்டதிலிருந்து சுயவிவரம் மாறிவிட்டது."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "மீட்டெடுக்க முடியாது; இந்தத் திருத்தம் செய்யப்பட்டதிலிருந்து சுயவிவரம் மாறிவிட்டது."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "மொழியை மாற்று"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "மொழியை மாற்ற..."
+msgid "Change language to…"
+msgstr "மொழியை… க்கு மாற்றவும்"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "தீமையை மாற்ற..."
+msgid "Change theme to…"
+msgstr "தீம்மை… க்கு மாற்றவும்"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "AI வழங்குநரை அடைய முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "இந்தத் திருத்தத்தை மீளப்பெற முடியவில்லை."
+msgid "Could not restore this patch."
+msgstr "இந்தத் திருத்தத்தை மீட்டெடுக்க முடியவில்லை."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "கடவுச்சொல் பாதுகாப்பை இயக்கிக் கொண்டிருக்கிறது..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "இரண்டு நிலை அங்கீகாரத்தை இயக்கிக் கொண்டிருக்கிறது..."
+msgid "Enabling two-factor authentication…"
+msgstr "இரு காரணி அங்கீகாரத்தை இயக்குதல்…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "விண்ணப்பங்கள் டாஷ்போர்டுக்குச் செல்லவும்"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "இதற்கு செல்லவும்..."
+msgid "Go to…"
+msgstr "… க்குச் செல்லவும்"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "உங்கள் ரெஸ்யூமியை இறக்குமதி செய்து கொண்டிருக்கிறது..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "இறக்குமதி செய்து கொண்டிருக்கிறது..."
+msgid "Importing…"
+msgstr "… இறக்குமதி செய்கிறது"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "மொழி"
 msgid "Languages"
 msgstr "மொழிகள்"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "கடைசியாகப் பகுப்பாய்வு செய்யப்பட்ட நாள் {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "{updatedAtLabel} இல் கடைசியாகப் பகுப்பாய்வு செய்யப்பட்டது"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "லிதுவேனியன்"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "முகவர் பணித்தளம் ஏற்றப்படுகிறது..."
+msgid "Loading agent workspace…"
+msgstr "முகவர் பணிவெளி… ஏற்றப்படுகிறது"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "செயற்கை நுண்ணறிவு வழங்குந�
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "வழங்குநர்கள் ஏற்றப்படுகின்றனர்..."
+msgid "Loading providers…"
+msgstr "வழங்குநர்களை ஏற்றுகிறது…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "ரெஸ்யூமிகளை ஏற்றிக் கொண்டிருக்கிறது..."
+msgid "Loading resumes…"
+msgstr "ஏற்றுதல் மீண்டும் தொடங்குகிறது…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "இழைகள் ஏற்றப்படுகின்றன..."
+msgid "Loading threads…"
+msgstr "இழைகள் ஏற்றப்படுகின்றன…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "ஏற்றுகிறது..."
+msgid "Loading…"
+msgstr "ஏற்றப்படுகிறது…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "பேட்ச் நிலுவையில் உள்ளது"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "பேட்ச் மீட்கப்பட்டது"
+msgid "Patch rolled back"
+msgstr "பேட்ச் திரும்பப் பெறப்பட்டது"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "திருத்தம் மீட்கப்பட்டது."
+msgid "Patch rolled back."
+msgstr "பேட்ச் திரும்பப் பெறப்பட்டது."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "திட்டத்திற்கு ஆதரவளிக்கவும்"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "உங்கள் PDF உருவாக்கப்படும் வரை காத்திருக்கவும்..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "உங்கள் PDF உருவாக்கப்படும் வரை காத்திருக்கவும்…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "வளங்கள்"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "மீட்டெடு"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "இந்தப் பேட்ச்சிற்கு முந்தைய நிலைக்கு மீட்டமைப்பதா? இது இந்தப் பேட்ச்சையும், இதற்குப் பிறகு செயல்படுத்தப்பட்ட பேட்ச்கள் அனைத்தையும் பின்னோக்கிச் செலுத்தும்."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "சுயவிவரம்"
 
@@ -2751,10 +2761,6 @@ msgstr "ரெஸ்யூமிகள்"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "மீண்டும் முயற்சிக்கவும்"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "பழைய நிலைக்குத் திரும்பு"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "ஒரு ஐகானைத் தேடுங்கள்"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
-msgstr "தேடுங்கள்..."
+msgid "Search for…"
+msgstr "… ஐத் தேடு"
 
-#. Placeholder in command palette input on nested pages
 #: src/components/ui/combobox.tsx
-#: src/features/command-palette/index.tsx
 msgid "Search..."
 msgstr "தேடு..."
+
+#. Placeholder in command palette input on nested pages
+#: src/features/command-palette/index.tsx
+msgid "Search…"
+msgstr "தேடு…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "\"{CONFIRMATION_TEXT}\" என்று தட்டச்சு செ�
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "ஒரு கட்டளையை தட்டச்சு செய்யவும் அல்லது தேடவும்..."
+msgid "Type a command or search…"
+msgstr "ஒரு கட்டளையை உள்ளிடவும் அல்லது தேடவும்…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "படத்தைப் பதிவேற்றவும்"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "படத்தை பதிவேற்றிக் கொண்டிருக்கிறது..."
+msgid "Uploading picture…"
+msgstr "படம் பதிவேற்றப்படுகிறது…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "ஒரு காப்பு குறியீட்டால் சர
 msgid "Verifying backup code..."
 msgstr "காப்பு குறியீட்டை சரிபார்த்து கொண்டிருக்கிறது..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "குறியீட்டை சரிபார்த்து கொண்டிருக்கிறது..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "சரிபார்க்கும் குறியீடு…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "OpenAI வேலை"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "வேலை நடக்கிறது..."
+msgid "Working…"
+msgstr "இயங்குகிறது…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

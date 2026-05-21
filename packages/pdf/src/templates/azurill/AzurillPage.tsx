@@ -7,10 +7,10 @@ import type {
 	TemplateStyleContext,
 	TemplateStyleSlots,
 } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { Fragment, useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
@@ -69,16 +69,16 @@ export const AzurillPage = ({ page, pageIndex }: TemplatePageProps) => {
 							rowGap: metrics.sectionGap,
 						})}
 					>
-						{sidebarSections.map((section, index) => (
-							<Fragment key={index}>
+						{sidebarSections.map((section) => (
+							<Fragment key={section}>
 								<Section section={section} placement="sidebar" />
 							</Fragment>
 						))}
 					</View>
 
 					<View style={composeStyles(styles.mainColumn, { rowGap: metrics.sectionGap })}>
-						{mainSections.map((section, index) => (
-							<Section key={index} section={section} placement="main" />
+						{mainSections.map((section) => (
+							<Section key={section} section={section} placement="main" />
 						))}
 					</View>
 				</View>

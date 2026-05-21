@@ -17,17 +17,17 @@ vi.mock("drizzle-orm", () => ({
 	isNull: (value: unknown) => ({ type: "isNull", value }),
 }));
 
-async function readStream(stream: ReadableStream<string>) {
-	const reader = stream.getReader();
-	const chunks: string[] = [];
+async function readStreamChunks(reader: ReadableStreamDefaultReader<string>, chunks: string[]): Promise<string[]> {
+	const { done, value } = await reader.read();
 
-	while (true) {
-		const { done, value } = await reader.read();
-		if (done) break;
-		chunks.push(value);
-	}
+	if (done) return chunks;
 
-	return chunks;
+	chunks.push(value);
+	return readStreamChunks(reader, chunks);
+}
+
+function readStream(stream: ReadableStream<string>) {
+	return readStreamChunks(stream.getReader(), []);
 }
 
 function createRunStateDb(returningRows: unknown[] = []) {

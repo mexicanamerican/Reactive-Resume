@@ -149,7 +149,7 @@ export function UpdateSkillDialog({ data }: DialogProps<"resume.sections.skills.
 
 const SkillForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function SkillFormRenderer({ form }) {
 		const nameMeta = useStore(form.store, (s) => s.fieldMeta?.name);
 
 		const isNameInvalid = (nameMeta?.isTouched ?? false) && (nameMeta?.errors?.length ?? 0) > 0;

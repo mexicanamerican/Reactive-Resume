@@ -30,7 +30,7 @@ import {
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
@@ -176,10 +176,13 @@ function fileToBase64(file: File): Promise<string> {
 }
 
 function textFromMessage(message: UIMessage) {
-	return message.parts
-		.filter((part) => part.type === "text")
-		.map((part) => part.text)
-		.join("\n");
+	const textParts: string[] = [];
+
+	for (const part of message.parts) {
+		if (part.type === "text") textParts.push(part.text);
+	}
+
+	return textParts.join("\n");
 }
 
 function parseAgentSseStream(stream: ReadableStream<string>) {
@@ -218,7 +221,7 @@ function parseAgentSseStream(stream: ReadableStream<string>) {
 
 function promptPreview(prompt: string) {
 	const words = prompt.split(/\s+/).filter(Boolean);
-	return `${words.slice(0, 7).join(" ")}${words.length > 7 ? "..." : ""}`;
+	return `${words.slice(0, 7).join(" ")}${words.length > 7 ? "…" : ""}`;
 }
 
 function chunkPrompts(prompts: string[], columns: number) {
@@ -252,20 +255,24 @@ function StarterPromptMarquee({ onSelect }: { onSelect: (prompt: string) => void
 	return (
 		<div className="relative mx-auto grid w-full max-w-4xl gap-3 overflow-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
 			{promptRows.map((row, rowIndex) => {
-				const marqueePrompts = [...row, ...row, ...row];
+				const marqueePrompts = row.flatMap((prompt) => [
+					{ id: `${prompt}-primary`, prompt },
+					{ id: `${prompt}-repeat-a`, prompt },
+					{ id: `${prompt}-repeat-b`, prompt },
+				]);
 				const duration = 135 + rowIndex * 22;
 				const animate = rowIndex % 2 === 0 ? { x: ["0%", "-33.333%"] } : { x: ["-33.333%", "0%"] };
 
 				return (
-					<motion.div
-						key={`prompt-row-${rowIndex}`}
+					<m.div
+						key={`prompt-row-${row.join("|")}`}
 						className="flex w-max gap-3"
 						animate={animate}
 						transition={{ duration, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
 					>
-						{marqueePrompts.map((prompt, index) => (
+						{marqueePrompts.map(({ id, prompt }) => (
 							<Button
-								key={`${prompt}-${index}`}
+								key={id}
 								type="button"
 								variant="outline"
 								className="h-8 shrink-0 rounded-full bg-background/70 px-3 font-normal text-muted-foreground hover:text-foreground"
@@ -274,11 +281,19 @@ function StarterPromptMarquee({ onSelect }: { onSelect: (prompt: string) => void
 								{promptPreview(prompt)}
 							</Button>
 						))}
-					</motion.div>
+					</m.div>
 				);
 			})}
 		</div>
 	);
+}
+
+function getMessagePartKey(messageId: string, part: UIMessage["parts"][number]) {
+	if ("toolCallId" in part && typeof part.toolCallId === "string")
+		return `${messageId}-${part.type}-${part.toolCallId}`;
+	if (part.type === "text") return `${messageId}-text-${part.text}`;
+	if (part.type === "file") return `${messageId}-file-${part.url ?? part.filename}`;
+	return `${messageId}-${part.type}-${JSON.stringify(part)}`;
 }
 
 function AssistantMarkdown({ text }: { text: string }) {
@@ -436,9 +451,9 @@ function ChatMessage({
 						: "w-full max-w-full py-1 text-foreground",
 				)}
 			>
-				{message.parts.map((part, index) => (
+				{message.parts.map((part) => (
 					<MessagePart
-						key={`${message.id}-${index}`}
+						key={getMessagePartKey(message.id, part)}
 						part={part}
 						isUser={isUser}
 						onAnswer={onAnswer}
@@ -621,18 +636,19 @@ function AgentChat({
 
 		setIsUploading(true);
 		try {
-			for (const file of Array.from(files)) {
-				const attachment = await client.agent.attachments.create({
-					threadId,
-					filename: file.name,
-					mediaType: file.type || "application/octet-stream",
-					data: await fileToBase64(file),
-				});
-				setPendingAttachments((current) => [
-					...current,
-					{ id: attachment.id, filename: attachment.filename, mediaType: attachment.mediaType },
-				]);
-			}
+			const attachments = await Promise.all(
+				Array.from(files).map(async (file) => {
+					const attachment = await client.agent.attachments.create({
+						threadId,
+						filename: file.name,
+						mediaType: file.type || "application/octet-stream",
+						data: await fileToBase64(file),
+					});
+					return { id: attachment.id, filename: attachment.filename, mediaType: attachment.mediaType };
+				}),
+			);
+
+			setPendingAttachments((current) => [...current, ...attachments]);
 			toast.success(t`Attachment uploaded.`);
 		} catch (error) {
 			toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to upload attachment.` }));
@@ -669,245 +685,358 @@ function AgentChat({
 		toast.success(t`Conversation JSON copied.`);
 	};
 
+	const copyConversationText = () => {
+		void navigator.clipboard.writeText(messages.map(textFromMessage).join("\n\n"));
+		toast.success(t`Conversation copied.`);
+	};
+
+	const answerToolCall = (toolCallId: string, answer: string) => {
+		addToolOutput({ tool: "ask_user_question", toolCallId, output: answer });
+	};
+
+	const revertAction = (actionId: string) => {
+		const confirmation = window.confirm(
+			t`Restore the resume to before this patch? This will roll back this patch and any patches applied after it.`,
+		);
+		if (!confirmation) return;
+
+		revertMutation.mutate(
+			{ id: actionId },
+			{
+				onSuccess: (action) => {
+					if (action.status === "conflicted") {
+						toast.error(action.revertMessage ?? t`Cannot restore; the resume has changed since this edit was applied.`);
+					} else if (action.status === "rolled_back" || action.status === "reverted") {
+						toast.success(t`Patch rolled back.`);
+					}
+					void refreshThread();
+				},
+				onError: (error) => toast.error(getOrpcErrorMessage(error, { fallback: t`Could not restore this patch.` })),
+			},
+		);
+	};
+
+	const retryLastMessage = () => {
+		clearError();
+		void regenerate();
+	};
+
 	return (
 		<section className="flex h-full min-h-0 flex-col bg-background">
-			<div className="flex h-14 shrink-0 items-center justify-between border-b px-4">
-				<div className="flex min-w-0 items-center gap-2">
-					{onToggleThreads ? (
-						<Button size="icon-sm" variant="ghost" onClick={onToggleThreads}>
-							<SidebarSimpleIcon />
-							<span className="sr-only">
-								<Trans>Toggle threads</Trans>
-							</span>
-						</Button>
-					) : null}
+			<AgentChatHeader
+				isArchived={isArchived}
+				isArchivePending={archiveMutation.isPending}
+				isDeletePending={deleteMutation.isPending}
+				onArchive={handleArchive}
+				onCopyConversation={copyConversationText}
+				onCopyConversationJson={copyConversationJson}
+				onDelete={() => void handleDelete()}
+				onToggleResume={onToggleResume}
+				onToggleThreads={onToggleThreads}
+			/>
 
-					<div className="min-w-0 truncate font-semibold">
-						<Trans>Chat</Trans>
+			<AgentChatReadOnlyBanner isReadOnly={isReadOnly} readOnlyReason={readOnlyReason} />
+
+			<AgentChatMessages
+				actionsById={actionsById}
+				error={error}
+				isReadOnly={isReadOnly}
+				isReverting={revertMutation.isPending}
+				isStreaming={isStreaming}
+				messages={messages}
+				onAnswer={answerToolCall}
+				onRevert={revertAction}
+				onRetry={retryLastMessage}
+				onStarterSelect={setInput}
+			/>
+
+			<AgentChatComposer
+				fileInputRef={fileInputRef}
+				input={input}
+				isReadOnly={isReadOnly}
+				isStreaming={isStreaming}
+				isUploading={isUploading}
+				pendingAttachments={pendingAttachments}
+				onInputChange={setInput}
+				onSend={send}
+				onStopRun={() => void stopRun()}
+				onUploadFiles={(files) => void uploadFiles(files)}
+			/>
+		</section>
+	);
+}
+
+function AgentChatReadOnlyBanner({
+	isReadOnly,
+	readOnlyReason,
+}: {
+	isReadOnly: boolean;
+	readOnlyReason: "archived" | "missing" | null;
+}) {
+	if (!isReadOnly) return null;
+
+	return (
+		<div className="border-amber-300 border-b bg-amber-50 px-4 py-2 text-amber-950 text-sm dark:bg-amber-950/20 dark:text-amber-200">
+			{readOnlyReason === "archived" ? (
+				<Trans>This thread is archived. New messages cannot be sent.</Trans>
+			) : (
+				<Trans>This thread is read-only because the working resume or AI provider is unavailable.</Trans>
+			)}
+		</div>
+	);
+}
+
+function AgentChatMessages({
+	actionsById,
+	error,
+	isReadOnly,
+	isReverting,
+	isStreaming,
+	messages,
+	onAnswer,
+	onRevert,
+	onRetry,
+	onStarterSelect,
+}: {
+	actionsById: Map<string, AgentAction>;
+	error: Error | undefined;
+	isReadOnly: boolean;
+	isReverting: boolean;
+	isStreaming: boolean;
+	messages: UIMessage[];
+	onAnswer: (toolCallId: string, answer: string) => void;
+	onRevert: (actionId: string) => void;
+	onRetry: () => void;
+	onStarterSelect: (prompt: string) => void;
+}) {
+	return (
+		<ScrollArea className="min-h-0 flex-1">
+			<div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
+				{messages.length === 0 ? (
+					<div className="grid gap-6 py-12 text-center">
+						<SparkleIcon className="mx-auto size-8 text-muted-foreground" />
+						<h2 className="font-semibold text-2xl">
+							<Trans>What do you want to do?</Trans>
+						</h2>
+						<StarterPromptMarquee onSelect={onStarterSelect} />
 					</div>
-				</div>
-				<div className="flex items-center gap-1">
-					{onToggleResume ? (
-						<Button size="icon-sm" variant="ghost" onClick={onToggleResume}>
-							<SquaresFourIcon />
-							<span className="sr-only">
-								<Trans>Toggle resume preview</Trans>
-							</span>
-						</Button>
-					) : null}
-					<DropdownMenu>
-						<DropdownMenuTrigger
-							render={
-								<Button size="icon-sm" variant="ghost">
-									<DotsThreeVerticalIcon />
-									<span className="sr-only">
-										<Trans>Thread actions</Trans>
-									</span>
-								</Button>
-							}
-						/>
+				) : null}
 
-						<DropdownMenuContent align="end">
-							<DropdownMenuItem
-								onClick={() => {
-									void navigator.clipboard.writeText(messages.map(textFromMessage).join("\n\n"));
-									toast.success(t`Conversation copied.`);
-								}}
-							>
-								<CopyIcon />
-								<Trans>Copy</Trans>
-							</DropdownMenuItem>
-							<DropdownMenuItem onClick={copyConversationJson}>
-								<CopyIcon />
-								<Trans>Copy JSON</Trans>
-							</DropdownMenuItem>
+				{messages.map((message) => (
+					<ChatMessage
+						key={message.id}
+						message={message}
+						isReverting={isReverting}
+						actionsById={actionsById}
+						onAnswer={onAnswer}
+						onRevert={onRevert}
+					/>
+				))}
 
-							<DropdownMenuSeparator />
+				{isStreaming ? (
+					<div className="flex justify-start">
+						<div className="rounded-md bg-muted px-4 py-3 text-muted-foreground text-sm">
+							<Trans>Working…</Trans>
+						</div>
+					</div>
+				) : null}
 
-							{!isArchived ? (
-								<DropdownMenuItem disabled={archiveMutation.isPending} onClick={handleArchive}>
-									<ArchiveIcon />
-									<Trans>Archive</Trans>
-								</DropdownMenuItem>
-							) : null}
+				{error ? (
+					<div className="flex items-center justify-between gap-3 rounded-md border border-rose-300 bg-rose-50 p-3 text-rose-950 text-sm dark:bg-rose-950/20 dark:text-rose-200">
+						<span>{error.message}</span>
+						{!isReadOnly ? (
+							<Button size="sm" variant="outline" type="button" onClick={onRetry}>
+								<ArrowClockwiseIcon />
+								<Trans>Retry</Trans>
+							</Button>
+						) : null}
+					</div>
+				) : null}
+			</div>
+		</ScrollArea>
+	);
+}
 
-							<DropdownMenuItem
-								variant="destructive"
-								disabled={deleteMutation.isPending}
-								onClick={() => void handleDelete()}
-							>
-								<TrashIcon />
-								<Trans>Delete</Trans>
-							</DropdownMenuItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
+function AgentChatHeader({
+	isArchived,
+	isArchivePending,
+	isDeletePending,
+	onArchive,
+	onCopyConversation,
+	onCopyConversationJson,
+	onDelete,
+	onToggleResume,
+	onToggleThreads,
+}: {
+	isArchived: boolean;
+	isArchivePending: boolean;
+	isDeletePending: boolean;
+	onArchive: () => void;
+	onCopyConversation: () => void;
+	onCopyConversationJson: () => void;
+	onDelete: () => void;
+	onToggleResume?: () => void;
+	onToggleThreads?: () => void;
+}) {
+	return (
+		<div className="flex h-14 shrink-0 items-center justify-between border-b px-4">
+			<div className="flex min-w-0 items-center gap-2">
+				{onToggleThreads ? (
+					<Button size="icon-sm" variant="ghost" onClick={onToggleThreads}>
+						<SidebarSimpleIcon />
+						<span className="sr-only">
+							<Trans>Toggle threads</Trans>
+						</span>
+					</Button>
+				) : null}
+
+				<div className="min-w-0 truncate font-semibold">
+					<Trans>Chat</Trans>
 				</div>
 			</div>
+			<div className="flex items-center gap-1">
+				{onToggleResume ? (
+					<Button size="icon-sm" variant="ghost" onClick={onToggleResume}>
+						<SquaresFourIcon />
+						<span className="sr-only">
+							<Trans>Toggle resume preview</Trans>
+						</span>
+					</Button>
+				) : null}
+				<DropdownMenu>
+					<DropdownMenuTrigger
+						render={
+							<Button size="icon-sm" variant="ghost">
+								<DotsThreeVerticalIcon />
+								<span className="sr-only">
+									<Trans>Thread actions</Trans>
+								</span>
+							</Button>
+						}
+					/>
 
-			{isReadOnly ? (
-				<div className="border-amber-300 border-b bg-amber-50 px-4 py-2 text-amber-950 text-sm dark:bg-amber-950/20 dark:text-amber-200">
-					{readOnlyReason === "archived" ? (
-						<Trans>This thread is archived. New messages cannot be sent.</Trans>
+					<DropdownMenuContent align="end">
+						<DropdownMenuItem onClick={onCopyConversation}>
+							<CopyIcon />
+							<Trans>Copy</Trans>
+						</DropdownMenuItem>
+						<DropdownMenuItem onClick={onCopyConversationJson}>
+							<CopyIcon />
+							<Trans>Copy JSON</Trans>
+						</DropdownMenuItem>
+
+						<DropdownMenuSeparator />
+
+						{!isArchived ? (
+							<DropdownMenuItem disabled={isArchivePending} onClick={onArchive}>
+								<ArchiveIcon />
+								<Trans>Archive</Trans>
+							</DropdownMenuItem>
+						) : null}
+
+						<DropdownMenuItem variant="destructive" disabled={isDeletePending} onClick={onDelete}>
+							<TrashIcon />
+							<Trans>Delete</Trans>
+						</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			</div>
+		</div>
+	);
+}
+
+function AgentChatComposer({
+	fileInputRef,
+	input,
+	isReadOnly,
+	isStreaming,
+	isUploading,
+	pendingAttachments,
+	onInputChange,
+	onSend,
+	onStopRun,
+	onUploadFiles,
+}: {
+	fileInputRef: React.RefObject<HTMLInputElement | null>;
+	input: string;
+	isReadOnly: boolean;
+	isStreaming: boolean;
+	isUploading: boolean;
+	pendingAttachments: Array<Pick<AgentAttachment, "filename" | "id" | "mediaType">>;
+	onInputChange: (value: string) => void;
+	onSend: () => void;
+	onStopRun: () => void;
+	onUploadFiles: (files: FileList | null) => void;
+}) {
+	return (
+		<form
+			className="border-t p-3"
+			onSubmit={(event) => {
+				event.preventDefault();
+				onSend();
+			}}
+		>
+			<div className="mx-auto max-w-3xl space-y-2">
+				{pendingAttachments.length > 0 ? (
+					<div className="flex flex-wrap gap-2">
+						{pendingAttachments.map((attachment) => (
+							<Badge key={attachment.id} variant="secondary">
+								<FileIcon />
+								{attachment.filename}
+							</Badge>
+						))}
+					</div>
+				) : null}
+
+				<div className="flex items-end gap-1 rounded-md border bg-card p-1.5">
+					<input
+						ref={fileInputRef}
+						type="file"
+						multiple
+						className="hidden"
+						onChange={(event) => onUploadFiles(event.target.files)}
+					/>
+					<Button
+						type="button"
+						size="icon"
+						variant="ghost"
+						aria-label={t`Attach files`}
+						disabled={isReadOnly || isUploading}
+						onClick={() => fileInputRef.current?.click()}
+					>
+						{isUploading ? <ArrowClockwiseIcon className="animate-spin" /> : <PaperclipIcon />}
+					</Button>
+					<Textarea
+						value={input}
+						rows={1}
+						disabled={isReadOnly || isStreaming}
+						onChange={(event) => onInputChange(event.target.value)}
+						onKeyDown={(event) => {
+							if (event.nativeEvent.isComposing) return;
+							if (event.key !== "Enter" || event.shiftKey) return;
+							event.preventDefault();
+							onSend();
+						}}
+						placeholder={isReadOnly ? t`This thread is read-only` : t`Ask anything about this resume`}
+						className="max-h-40 min-h-9 resize-none border-0 bg-transparent p-2 leading-5 shadow-none focus-visible:ring-0"
+					/>
+					{isStreaming && !isReadOnly ? (
+						<Button type="button" size="icon" variant="outline" aria-label={t`Stop generation`} onClick={onStopRun}>
+							<StopIcon />
+						</Button>
 					) : (
-						<Trans>This thread is read-only because the working resume or AI provider is unavailable.</Trans>
+						<Button
+							type="submit"
+							size="icon"
+							aria-label={t`Send message`}
+							disabled={isReadOnly || isUploading || (!input.trim() && pendingAttachments.length === 0)}
+						>
+							<PaperPlaneRightIcon />
+						</Button>
 					)}
 				</div>
-			) : null}
-
-			<ScrollArea className="min-h-0 flex-1">
-				<div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
-					{messages.length === 0 ? (
-						<div className="grid gap-6 py-12 text-center">
-							<SparkleIcon className="mx-auto size-8 text-muted-foreground" />
-							<h2 className="font-semibold text-2xl">
-								<Trans>What do you want to do?</Trans>
-							</h2>
-							<StarterPromptMarquee onSelect={setInput} />
-						</div>
-					) : null}
-
-					{messages.map((message) => (
-						<ChatMessage
-							key={message.id}
-							message={message}
-							isReverting={revertMutation.isPending}
-							actionsById={actionsById}
-							onAnswer={(toolCallId, answer) => {
-								addToolOutput({ tool: "ask_user_question", toolCallId, output: answer });
-							}}
-							onRevert={(actionId) => {
-								const confirmation = window.confirm(
-									t`Restore the resume to before this patch? This will roll back this patch and any patches applied after it.`,
-								);
-								if (!confirmation) return;
-
-								revertMutation.mutate(
-									{ id: actionId },
-									{
-										onSuccess: (action) => {
-											if (action.status === "conflicted") {
-												toast.error(
-													action.revertMessage ??
-														t`Cannot restore; the resume has changed since this edit was applied.`,
-												);
-											} else if (action.status === "rolled_back" || action.status === "reverted") {
-												toast.success(t`Patch rolled back.`);
-											}
-											void refreshThread();
-										},
-										onError: (error) =>
-											toast.error(getOrpcErrorMessage(error, { fallback: t`Could not restore this patch.` })),
-									},
-								);
-							}}
-						/>
-					))}
-
-					{isStreaming ? (
-						<div className="flex justify-start">
-							<div className="rounded-md bg-muted px-4 py-3 text-muted-foreground text-sm">
-								<Trans>Working...</Trans>
-							</div>
-						</div>
-					) : null}
-
-					{error ? (
-						<div className="flex items-center justify-between gap-3 rounded-md border border-rose-300 bg-rose-50 p-3 text-rose-950 text-sm dark:bg-rose-950/20 dark:text-rose-200">
-							<span>{error.message}</span>
-							{!isReadOnly ? (
-								<Button
-									size="sm"
-									variant="outline"
-									type="button"
-									onClick={() => {
-										clearError();
-										void regenerate();
-									}}
-								>
-									<ArrowClockwiseIcon />
-									<Trans>Retry</Trans>
-								</Button>
-							) : null}
-						</div>
-					) : null}
-				</div>
-			</ScrollArea>
-
-			<form
-				className="border-t p-3"
-				onSubmit={(event) => {
-					event.preventDefault();
-					send();
-				}}
-			>
-				<div className="mx-auto max-w-3xl space-y-2">
-					{pendingAttachments.length > 0 ? (
-						<div className="flex flex-wrap gap-2">
-							{pendingAttachments.map((attachment) => (
-								<Badge key={attachment.id} variant="secondary">
-									<FileIcon />
-									{attachment.filename}
-								</Badge>
-							))}
-						</div>
-					) : null}
-
-					<div className="flex items-end gap-1 rounded-md border bg-card p-1.5">
-						<input
-							ref={fileInputRef}
-							type="file"
-							multiple
-							className="hidden"
-							onChange={(event) => void uploadFiles(event.target.files)}
-						/>
-						<Button
-							type="button"
-							size="icon"
-							variant="ghost"
-							aria-label={t`Attach files`}
-							disabled={isReadOnly || isUploading}
-							onClick={() => fileInputRef.current?.click()}
-						>
-							{isUploading ? <ArrowClockwiseIcon className="animate-spin" /> : <PaperclipIcon />}
-						</Button>
-						<Textarea
-							value={input}
-							rows={1}
-							disabled={isReadOnly || isStreaming}
-							onChange={(event) => setInput(event.target.value)}
-							onKeyDown={(event) => {
-								if (event.nativeEvent.isComposing) return;
-								if (event.key !== "Enter" || event.shiftKey) return;
-								event.preventDefault();
-								send();
-							}}
-							placeholder={isReadOnly ? t`This thread is read-only` : t`Ask anything about this resume`}
-							className="max-h-40 min-h-9 resize-none border-0 bg-transparent px-2 py-2 leading-5 shadow-none focus-visible:ring-0"
-						/>
-						{isStreaming && !isReadOnly ? (
-							<Button
-								type="button"
-								size="icon"
-								variant="outline"
-								aria-label={t`Stop generation`}
-								onClick={() => void stopRun()}
-							>
-								<StopIcon />
-							</Button>
-						) : (
-							<Button
-								type="submit"
-								size="icon"
-								aria-label={t`Send message`}
-								disabled={isReadOnly || isUploading || (!input.trim() && pendingAttachments.length === 0)}
-							>
-								<PaperPlaneRightIcon />
-							</Button>
-						)}
-					</div>
-				</div>
-			</form>
-		</section>
+			</div>
+		</form>
 	);
 }
 
@@ -974,7 +1103,7 @@ function ResumePane({ resume }: { resume: AgentThreadDetail["resume"] }) {
 		if (!resume) return;
 
 		const filename = generateFilename(resume.name || resume.data.basics.name || resume.id, "pdf");
-		const toastId = toast.loading(t`Please wait while your PDF is being generated...`);
+		const toastId = toast.loading(t`Please wait while your PDF is being generated…`);
 
 		setIsPrinting(true);
 
@@ -1117,7 +1246,7 @@ function RouteComponent() {
 	if (isLoading) {
 		return (
 			<div className="grid h-svh place-items-center bg-background text-muted-foreground">
-				<Trans>Loading agent workspace...</Trans>
+				<Trans>Loading agent workspace…</Trans>
 			</div>
 		);
 	}

@@ -1,10 +1,10 @@
 import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
-import { Image, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { useRender } from "../../context";
+import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
@@ -50,15 +50,15 @@ export const KakunaPage = ({ page, pageIndex }: TemplatePageProps) => {
 				{showHeader && <Header styles={styles} />}
 
 				<View style={composeStyles(styles.sectionGroup, { rowGap: metrics.sectionGap })}>
-					{mainSections.map((section, index) => (
-						<Section key={index} section={section} placement="main" />
+					{mainSections.map((section) => (
+						<Section key={section} section={section} placement="main" />
 					))}
 				</View>
 
 				{!page.fullWidth && (
 					<View style={composeStyles(styles.sectionGroup, { rowGap: metrics.sectionGap })}>
-						{sidebarSections.map((section, index) => (
-							<Section key={index} section={section} placement="sidebar" />
+						{sidebarSections.map((section) => (
+							<Section key={section} section={section} placement="sidebar" />
 						))}
 					</View>
 				)}

@@ -22,7 +22,7 @@ export function BaseCard({ title, description, tags, className, children, ...pro
 			>
 				{children}
 
-				<div className="absolute inset-x-0 bottom-0 flex w-full flex-col justify-end space-y-0.5 bg-background/40 px-4 py-3 backdrop-blur-xs">
+				<div className="absolute inset-x-0 bottom-0 flex w-full flex-col justify-end gap-y-0.5 bg-background/40 px-4 py-3 backdrop-blur-xs">
 					<h3 className="truncate font-medium tracking-tight">{title}</h3>
 					<p className="truncate text-xs opacity-80">{description}</p>
 

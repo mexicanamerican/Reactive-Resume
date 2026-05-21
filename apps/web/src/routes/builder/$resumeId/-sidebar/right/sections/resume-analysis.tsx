@@ -3,7 +3,7 @@ import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon, InfoIcon, LightningIcon, SparkleIcon } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { match } from "ts-pattern";
 import { Alert, AlertDescription } from "@reactive-resume/ui/components/alert";
@@ -90,7 +90,9 @@ export function ResumeAnalysisSectionBuilder() {
 
 	const analysis = analysisQuery.data;
 	const score = analysis?.overallScore ?? null;
-	const analyzeLabel = isPending ? t`Analyzing...` : t`Analyze Resume`;
+	const updatedAt = analysis?.updatedAt ?? null;
+	const [updatedAtLabel, setUpdatedAtLabel] = useState<string | null>(null);
+	const analyzeLabel = isPending ? t`Analyzing…` : t`Analyze Resume`;
 
 	const scoreTone = useMemo(() => {
 		if (score == null) return "bg-muted";
@@ -98,6 +100,10 @@ export function ResumeAnalysisSectionBuilder() {
 		if (score >= 60) return "bg-amber-600";
 		return "bg-rose-600";
 	}, [score]);
+
+	useEffect(() => {
+		setUpdatedAtLabel(updatedAt ? new Date(updatedAt).toLocaleString() : null);
+	}, [updatedAt]);
 
 	const onAnalyze = () => {
 		if (!resume) return;
@@ -153,11 +159,11 @@ export function ResumeAnalysisSectionBuilder() {
 										);
 									})}
 								</div>
-								{analysis?.updatedAt && (
+								{updatedAtLabel ? (
 									<p className="text-muted-foreground text-xs leading-none">
-										<Trans>Last analyzed on {new Date(analysis.updatedAt).toLocaleString()}</Trans>
+										<Trans>Last analyzed on {updatedAtLabel}</Trans>
 									</p>
-								)}
+								) : null}
 							</div>
 						</div>
 					</div>

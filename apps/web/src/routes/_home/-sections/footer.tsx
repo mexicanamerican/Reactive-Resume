@@ -2,7 +2,7 @@ import type { Icon } from "@phosphor-icons/react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { GithubLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useState } from "react";
 import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -46,7 +46,7 @@ const socialLinks: SocialLink[] = [
 
 export function Footer() {
 	return (
-		<motion.footer
+		<m.footer
 			id="footer"
 			className="p-4 pb-8 will-change-[opacity] md:p-8 md:pb-12"
 			initial={{ opacity: 0 }}
@@ -60,7 +60,7 @@ export function Footer() {
 					<BrandIcon variant="logo" className="size-10" />
 
 					<div className="space-y-2">
-						<h2 className="font-bold text-lg tracking-tight">Reactive Resume</h2>
+						<h2 className="font-semibold text-lg tracking-tight">Reactive Resume</h2>
 						<p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
 							<Trans>
 								A free and open-source resume builder that simplifies the process of creating, updating, and sharing
@@ -103,7 +103,7 @@ export function Footer() {
 					<Copyright />
 				</div>
 			</div>
-		</motion.footer>
+		</m.footer>
 	);
 }
 
@@ -140,7 +140,7 @@ function FooterLink({ url, label }: FooterLinkItem) {
 					<Trans>(opens in new tab)</Trans>
 				</span>
 
-				<motion.div
+				<m.div
 					aria-hidden="true"
 					initial={{ width: 0, opacity: 0 }}
 					animate={isHovered ? { width: "100%", opacity: 1 } : { width: 0, opacity: 0 }}

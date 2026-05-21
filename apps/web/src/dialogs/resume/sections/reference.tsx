@@ -143,7 +143,7 @@ export function UpdateReferenceDialog({ data }: DialogProps<"resume.sections.ref
 
 const ReferenceForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function ReferenceFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

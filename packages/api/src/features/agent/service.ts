@@ -187,7 +187,11 @@ type AgentToolPart = UIMessage["parts"][number] & {
 	toolCallId?: string;
 };
 
-function isAnsweredAskUserQuestionPart(part: UIMessage["parts"][number]): part is AgentToolPart {
+type AnsweredAskUserQuestionPart = AgentToolPart & {
+	toolCallId: string;
+};
+
+function isAnsweredAskUserQuestionPart(part: UIMessage["parts"][number]): part is AnsweredAskUserQuestionPart {
 	const toolPart = part as AgentToolPart;
 	return (
 		toolPart.type === "tool-ask_user_question" &&
@@ -197,9 +201,11 @@ function isAnsweredAskUserQuestionPart(part: UIMessage["parts"][number]): part i
 }
 
 function mergeAskUserQuestionOutputs(existingMessage: UIMessage, incomingMessage: UIMessage): UIMessage {
-	const answeredParts = new Map(
-		incomingMessage.parts.filter(isAnsweredAskUserQuestionPart).map((part) => [part.toolCallId, part] as const),
-	);
+	const answeredParts = new Map<string, AgentToolPart>();
+
+	for (const part of incomingMessage.parts) {
+		if (isAnsweredAskUserQuestionPart(part)) answeredParts.set(part.toolCallId, part);
+	}
 
 	let didMerge = false;
 	const parts = existingMessage.parts.map((part) => {
@@ -580,6 +586,7 @@ async function repairLegacyAskUserQuestionAnswers(
 	input: { threadId: string; userId: string },
 ) {
 	const nextRows = [...rows];
+	const updates: Promise<unknown>[] = [];
 
 	for (let index = 0; index < nextRows.length - 1; index++) {
 		const assistantRow = nextRows[index];
@@ -598,20 +605,24 @@ async function repairLegacyAskUserQuestionAnswers(
 			uiMessage: mergedMessage as unknown as AgentMessageRecord["uiMessage"],
 		};
 
-		await db
-			.update(schema.agentMessage)
-			.set({
-				status: "completed",
-				uiMessage: mergedMessage as unknown as Record<string, unknown>,
-			})
-			.where(
-				and(
-					eq(schema.agentMessage.id, assistantRow.id),
-					eq(schema.agentMessage.threadId, input.threadId),
-					eq(schema.agentMessage.userId, input.userId),
+		updates.push(
+			db
+				.update(schema.agentMessage)
+				.set({
+					status: "completed",
+					uiMessage: mergedMessage as unknown as Record<string, unknown>,
+				})
+				.where(
+					and(
+						eq(schema.agentMessage.id, assistantRow.id),
+						eq(schema.agentMessage.threadId, input.threadId),
+						eq(schema.agentMessage.userId, input.userId),
+					),
 				),
-			);
+		);
 	}
+
+	await Promise.all(updates);
 
 	return nextRows;
 }
@@ -635,11 +646,13 @@ async function cleanupActiveRun(input: {
 }
 
 function messageText(message: UIMessage) {
-	return message.parts
-		.filter((part) => part.type === "text")
-		.map((part) => part.text)
-		.join(" ")
-		.trim();
+	const textParts: string[] = [];
+
+	for (const part of message.parts) {
+		if (part.type === "text") textParts.push(part.text);
+	}
+
+	return textParts.join(" ").trim();
 }
 
 function buildThreadTitle(message: UIMessage, fallback: string) {
@@ -933,12 +946,14 @@ export const agentService = {
 
 			await getThread({ id: input.id, userId: input.userId });
 
-			await getStorageService().delete(`uploads/${input.userId}/agent/${input.id}`);
-			await db.delete(schema.agentAttachment).where(eq(schema.agentAttachment.threadId, input.id));
-			await db
-				.update(schema.agentThread)
-				.set({ status: "deleted", deletedAt: new Date() })
-				.where(and(eq(schema.agentThread.id, input.id), eq(schema.agentThread.userId, input.userId)));
+			await Promise.all([
+				getStorageService().delete(`uploads/${input.userId}/agent/${input.id}`),
+				db.delete(schema.agentAttachment).where(eq(schema.agentAttachment.threadId, input.id)),
+				db
+					.update(schema.agentThread)
+					.set({ status: "deleted", deletedAt: new Date() })
+					.where(and(eq(schema.agentThread.id, input.id), eq(schema.agentThread.userId, input.userId))),
+			]);
 		},
 	},
 
@@ -960,15 +975,17 @@ export const agentService = {
 				throw new ORPCError("BAD_REQUEST", { message: "Agent messages must be user messages or tool results." });
 			}
 
-			const runnableProvider = await aiProvidersService.getRunnableById({
-				id: thread.aiProviderId,
-				userId: input.userId,
-			});
-			const attachments = await getUnlinkedMessageAttachments({
-				ids: input.attachmentIds ?? [],
-				threadId: input.threadId,
-				userId: input.userId,
-			});
+			const [runnableProvider, attachments] = await Promise.all([
+				aiProvidersService.getRunnableById({
+					id: thread.aiProviderId,
+					userId: input.userId,
+				}),
+				getUnlinkedMessageAttachments({
+					ids: input.attachmentIds ?? [],
+					threadId: input.threadId,
+					userId: input.userId,
+				}),
+			]);
 			const runId = generateId();
 			const streamId = generateId();
 			const controller = new AbortController();
@@ -1156,19 +1173,20 @@ export const agentService = {
 			assertAgentEnvironment();
 			await getThread({ id: input.threadId, userId: input.userId });
 
-			const [aggregate] = await db
-				.select({ totalBytes: sql<number>`coalesce(sum(${schema.agentAttachment.size}), 0)` })
-				.from(schema.agentAttachment)
-				.where(
-					and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
-				);
-
-			const [attachmentCount] = await db
-				.select({ total: count() })
-				.from(schema.agentAttachment)
-				.where(
-					and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
-				);
+			const [[aggregate], [attachmentCount]] = await Promise.all([
+				db
+					.select({ totalBytes: sql<number>`coalesce(sum(${schema.agentAttachment.size}), 0)` })
+					.from(schema.agentAttachment)
+					.where(
+						and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
+					),
+				db
+					.select({ total: count() })
+					.from(schema.agentAttachment)
+					.where(
+						and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
+					),
+			]);
 
 			if ((attachmentCount?.total ?? 0) >= MAX_ATTACHMENTS_PER_MESSAGE) throw new ORPCError("BAD_REQUEST");
 			if (input.data.byteLength > MAX_ATTACHMENT_BYTES) throw new ORPCError("BAD_REQUEST");

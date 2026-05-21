@@ -10,7 +10,7 @@ import type {
 	TemplateStyleSlot,
 	TemplateStyleSlots,
 } from "./types";
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 type TemplateContextValue = {
 	styles: TemplateStyleSlots;
@@ -50,11 +50,14 @@ type TemplateStyleContextValue = {
 	colors: TemplateColorRoles;
 };
 
+const EMPTY_FEATURE_STYLES: TemplateFeatureStyleSlots = {};
+const EMPTY_FEATURES: TemplateFeatures = {};
+
 export const TemplateProvider = ({
 	styles,
-	featureStyles = {},
+	featureStyles = EMPTY_FEATURE_STYLES,
 	colors,
-	features = {},
+	features = EMPTY_FEATURES,
 	children,
 }: TemplateProviderProps) => {
 	return (
@@ -73,7 +76,7 @@ export const TemplatePlacementProvider = ({
 };
 
 const useTemplateContext = () => {
-	const context = useContext(TemplateContext);
+	const context = use(TemplateContext);
 
 	if (!context) throw new Error("useTemplateContext must be called inside a <TemplateProvider>.");
 
@@ -86,7 +89,7 @@ export const useTemplateFeature = (feature: keyof TemplateFeatures): boolean => 
 	return features[feature] ?? false;
 };
 
-export const useTemplatePlacement = () => useContext(TemplatePlacementContext);
+export const useTemplatePlacement = () => use(TemplatePlacementContext);
 
 const useTemplateStyleContext = (): TemplateStyleContextValue => {
 	const { colors } = useTemplateContext();

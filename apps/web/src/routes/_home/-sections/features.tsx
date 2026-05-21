@@ -19,7 +19,7 @@ import {
 	ShieldCheckIcon,
 	TranslateIcon,
 } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useMemo } from "react";
 import { cn } from "@reactive-resume/utils/style";
 
@@ -133,7 +133,7 @@ const getFeatures = (): Feature[] => [
 
 function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
 	return (
-		<motion.div
+		<m.div
 			className={cn(
 				"group relative flex min-h-48 flex-col gap-4 overflow-hidden border-b bg-background p-6 transition-[background-color] duration-300 will-change-[transform,opacity]",
 				"not-nth-[2n]:border-r xl:not-nth-[4n]:border-r",
@@ -162,7 +162,7 @@ function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
 				<h3 className="font-semibold text-base tracking-tight transition-colors group-hover:text-primary">{title}</h3>
 				<p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }
 
@@ -172,7 +172,7 @@ export function Features() {
 	return (
 		<section id="features">
 			{/* Header */}
-			<motion.div
+			<m.div
 				className="space-y-4 p-4 will-change-[transform,opacity] md:p-8 xl:py-16"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -189,7 +189,7 @@ export function Features() {
 						powered by open source, and completely free forever.
 					</Trans>
 				</p>
-			</motion.div>
+			</m.div>
 
 			{/* Features Grid */}
 			<div className="grid grid-cols-1 xs:grid-cols-2 border-t xl:grid-cols-4">

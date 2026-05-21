@@ -87,17 +87,9 @@ export function useBuilderSidebar<T = UseBuilderSidebarReturn>(selector?: (build
 	const isMobile = useIsMobile();
 	const { width } = useWindowSize();
 
-	const maxSidebarSize = useMemo((): string | number => {
-		if (!width) return 0;
-		return isMobile ? "95%" : "45%";
-	}, [width, isMobile]);
-
-	const collapsedSidebarSize = useMemo((): number => {
-		if (!width) return 0;
-		return isMobile ? 0 : 48;
-	}, [width, isMobile]);
-
-	const expandSize = useMemo(() => (isMobile ? "95%" : "30%"), [isMobile]);
+	const maxSidebarSize: string | number = !width ? 0 : isMobile ? "95%" : "45%";
+	const collapsedSidebarSize = !width ? 0 : isMobile ? 0 : 48;
+	const expandSize = isMobile ? "95%" : "30%";
 
 	const isCollapsed = useCallback((side: "left" | "right") => {
 		const sidebar =

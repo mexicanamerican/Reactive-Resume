@@ -1,11 +1,13 @@
 import type { Style } from "@react-pdf/types";
 import type { IconName } from "phosphor-icons-react-pdf/dynamic";
-import { View } from "@react-pdf/renderer";
 import { useRender } from "../../context";
+import { View } from "../../renderer";
 import { useTemplateIconSlot, useTemplateStyle } from "./context";
 import { getTemplateMetrics } from "./metrics";
 import { Icon } from "./primitives";
 import { composeStyles } from "./styles";
+
+const LEVEL_ITEM_KEYS = ["level-1", "level-2", "level-3", "level-4", "level-5"] as const;
 
 export const LevelDisplay = ({ level }: { level: number }) => {
 	const data = useRender();
@@ -40,13 +42,13 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 				levelContainerStyle,
 			)}
 		>
-			{Array.from({ length: 5 }).map((_, index) => {
+			{LEVEL_ITEM_KEYS.map((itemKey, index) => {
 				const isActive = index < level;
 
 				if (levelDesign.type === "icon") {
 					return (
 						<Icon
-							key={index}
+							key={itemKey}
 							size={iconSize + 4}
 							name={levelDesign.icon as IconName}
 							style={{ opacity: isActive ? 1 : 0.35 }}
@@ -57,7 +59,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 				if (levelDesign.type === "progress-bar") {
 					return (
 						<View
-							key={index}
+							key={itemKey}
 							style={composeStyles(
 								{
 									flex: 1,
@@ -92,7 +94,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 
 				return (
 					<View
-						key={index}
+						key={itemKey}
 						style={composeStyles(
 							{
 								width,

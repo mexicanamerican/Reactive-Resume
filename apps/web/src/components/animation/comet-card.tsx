@@ -1,5 +1,5 @@
 import type React from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "motion/react";
+import { m, useMotionTemplate, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
 import { cn } from "@reactive-resume/utils/style";
 
@@ -64,7 +64,7 @@ export const CometCard = ({
 
 	return (
 		<div className={cn("perspective-distant transform-3d", className)}>
-			<motion.div
+			<m.div
 				ref={ref}
 				initial={{ scale: 1, z: 0 }}
 				onMouseMove={handleMouseMove}
@@ -75,12 +75,12 @@ export const CometCard = ({
 			>
 				{children}
 
-				<motion.div
+				<m.div
 					transition={{ duration: 0.2 }}
 					style={{ background: glareBackground, opacity: glareOpacity }}
 					className="pointer-events-none absolute inset-0 z-50 h-full w-full rounded-md mix-blend-overlay will-change-[opacity]"
 				/>
-			</motion.div>
+			</m.div>
 		</div>
 	);
 };

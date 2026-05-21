@@ -1,9 +1,9 @@
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { Template } from "@reactive-resume/schema/templates";
 import type { SectionTitleResolver } from "./section-title";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { createElement } from "react";
 import { ResumeDocument } from "./document";
+import { renderToBuffer } from "./renderer";
 
 type CreateResumePdfFileOptions = {
 	data: ResumeData;

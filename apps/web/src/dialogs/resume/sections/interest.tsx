@@ -145,7 +145,7 @@ export function UpdateInterestDialog({ data }: DialogProps<"resume.sections.inte
 
 const InterestForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function InterestFormRenderer({ form }) {
 		const nameMeta = useStore(form.store, (s) => s.fieldMeta?.name);
 
 		const isNameInvalid = (nameMeta?.isTouched ?? false) && (nameMeta?.errors?.length ?? 0) > 0;

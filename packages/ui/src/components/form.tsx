@@ -11,7 +11,7 @@ type FormItemContextValue = {
 const FormItemContext = React.createContext<FormItemContextValue>({ id: "", hasError: false });
 
 function useFormItem() {
-	return React.useContext(FormItemContext);
+	return React.use(FormItemContext);
 }
 
 type FormItemProps = React.ComponentProps<"div"> & { hasError?: boolean };

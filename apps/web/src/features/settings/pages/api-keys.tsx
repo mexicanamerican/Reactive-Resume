@@ -2,7 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { BookOpenIcon, KeyIcon, LinkSimpleIcon, PlusIcon, TrashSimpleIcon } from "@phosphor-icons/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
@@ -66,7 +66,7 @@ export function ApiKeysSettingsPage() {
 	};
 
 	return (
-		<motion.div
+		<m.div
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.25, ease: "easeOut" }}
@@ -116,7 +116,7 @@ export function ApiKeysSettingsPage() {
 
 				<AnimatePresence initial={false} mode="popLayout">
 					{apiKeys.map((key, index) => (
-						<motion.div
+						<m.div
 							key={key.id}
 							className="flex items-center gap-x-4 py-4 will-change-[transform,opacity]"
 							initial={{ opacity: 0, y: -16 }}
@@ -133,7 +133,7 @@ export function ApiKeysSettingsPage() {
 								</div>
 							</div>
 
-							<motion.div
+							<m.div
 								className="will-change-transform"
 								whileHover={{ y: -1, scale: 1.03 }}
 								whileTap={{ scale: 0.96 }}
@@ -142,11 +142,11 @@ export function ApiKeysSettingsPage() {
 								<Button size="icon" variant="ghost" onClick={() => onDelete(key.id)}>
 									<TrashSimpleIcon />
 								</Button>
-							</motion.div>
-						</motion.div>
+							</m.div>
+						</m.div>
 					))}
 				</AnimatePresence>
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }

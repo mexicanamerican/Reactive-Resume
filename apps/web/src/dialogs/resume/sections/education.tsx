@@ -146,7 +146,7 @@ export function UpdateEducationDialog({ data }: DialogProps<"resume.sections.edu
 
 const EducationForm = withForm({
 	defaultValues,
-	render: ({ form }) => {
+	render: function EducationFormRenderer({ form }) {
 		const inlineLink = useStore(form.store, (s) => s.values.website.inlineLink);
 
 		return (

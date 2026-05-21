@@ -3,7 +3,7 @@ import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 
 export function AuthLayout() {
 	return (
-		<div className="mx-auto flex h-svh w-dvw max-w-sm flex-col justify-center space-y-6 px-4 xs:px-0">
+		<div className="mx-auto flex h-svh w-dvw max-w-sm flex-col justify-center gap-y-6 px-4 xs:px-0">
 			<BrandIcon className="mb-4 size-20 self-center" />
 
 			<Outlet />

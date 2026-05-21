@@ -11,7 +11,7 @@ import { IconContext } from "@phosphor-icons/react";
 import { HotkeysProvider } from "@tanstack/react-hotkeys";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { createRootRouteWithContext, HeadContent, Outlet } from "@tanstack/react-router";
-import { MotionConfig } from "motion/react";
+import { domAnimation, LazyMotion, MotionConfig } from "motion/react";
 import { useEffect, useMemo } from "react";
 import { DirectionProvider } from "@reactive-resume/ui/components/direction";
 import { Toaster } from "@reactive-resume/ui/components/sonner";
@@ -115,30 +115,32 @@ function RootComponent() {
 
 			<QueryClientProvider client={queryClient}>
 				<MotionConfig reducedMotion="user">
-					<I18nProvider i18n={i18n}>
-						<IconContext.Provider value={iconContextValue}>
-							<ThemeProvider theme={theme}>
-								<HotkeysProvider>
-									<DirectionProvider>
-										<TooltipProvider>
-											<ConfirmDialogProvider>
-												<PromptDialogProvider>
-													<Outlet />
+					<LazyMotion features={domAnimation}>
+						<I18nProvider i18n={i18n}>
+							<IconContext.Provider value={iconContextValue}>
+								<ThemeProvider theme={theme}>
+									<HotkeysProvider>
+										<DirectionProvider>
+											<TooltipProvider>
+												<ConfirmDialogProvider>
+													<PromptDialogProvider>
+														<Outlet />
 
-													<DonationToast />
-													<DialogManager />
-													<CommandPalette />
-													<Toaster richColors position="bottom-right" />
+														<DonationToast />
+														<DialogManager />
+														<CommandPalette />
+														<Toaster richColors position="bottom-right" />
 
-													{import.meta.env.DEV && <BreakpointIndicator />}
-												</PromptDialogProvider>
-											</ConfirmDialogProvider>
-										</TooltipProvider>
-									</DirectionProvider>
-								</HotkeysProvider>
-							</ThemeProvider>
-						</IconContext.Provider>
-					</I18nProvider>
+														{import.meta.env.DEV && <BreakpointIndicator />}
+													</PromptDialogProvider>
+												</ConfirmDialogProvider>
+											</TooltipProvider>
+										</DirectionProvider>
+									</HotkeysProvider>
+								</ThemeProvider>
+							</IconContext.Provider>
+						</I18nProvider>
+					</LazyMotion>
 				</MotionConfig>
 			</QueryClientProvider>
 		</>

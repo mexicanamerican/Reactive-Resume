@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type z from "zod";
 import { Trans } from "@lingui/react/macro";
 import { useStore } from "@tanstack/react-form";
@@ -66,13 +67,7 @@ function TypographySectionForm() {
 				void form.handleSubmit();
 			}}
 		>
-			<div className="col-span-full flex items-center gap-x-2">
-				<Separator className="basis-[16px]" />
-				<div className="shrink-0 font-medium text-base leading-none">
-					<Trans context="Body Text (paragraphs, lists, etc.)">Body</Trans>
-				</div>
-				<Separator className="flex-1" />
-			</div>
+			<TypographyFieldGroup label={<Trans context="Body Text (paragraphs, lists, etc.)">Body</Trans>} />
 
 			<form.Field name="body.fontFamily">
 				{(field) => (
@@ -198,13 +193,7 @@ function TypographySectionForm() {
 				)}
 			</form.Field>
 
-			<div className="col-span-full flex items-center gap-x-2">
-				<Separator className="basis-[16px]" />
-				<div className="shrink-0 font-medium text-base leading-none">
-					<Trans context="Headings or Titles (H1, H2, H3, H4, H5, H6)">Heading</Trans>
-				</div>
-				<Separator className="flex-1" />
-			</div>
+			<TypographyFieldGroup label={<Trans context="Headings or Titles (H1, H2, H3, H4, H5, H6)">Heading</Trans>} />
 
 			<form.Field name="heading.fontFamily">
 				{(field) => (
@@ -330,5 +319,15 @@ function TypographySectionForm() {
 				)}
 			</form.Field>
 		</form>
+	);
+}
+
+function TypographyFieldGroup({ label }: { label: ReactNode }) {
+	return (
+		<div className="col-span-full flex items-center gap-x-2">
+			<Separator className="basis-[16px]" />
+			<div className="shrink-0 font-medium text-base leading-none">{label}</div>
+			<Separator className="flex-1" />
+		</div>
 	);
 }

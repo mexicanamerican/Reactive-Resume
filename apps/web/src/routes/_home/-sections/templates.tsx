@@ -1,6 +1,6 @@
 import type { TemplateMetadata } from "@/dialogs/resume/template/data";
 import { Trans } from "@lingui/react/macro";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useMemo } from "react";
 import { templates } from "@/dialogs/resume/template/data";
 
@@ -8,9 +8,14 @@ type TemplateItemProps = {
 	metadata: TemplateMetadata;
 };
 
+type TemplateMarqueeItem = {
+	id: string;
+	metadata: TemplateMetadata;
+};
+
 function TemplateItem({ metadata }: TemplateItemProps) {
 	return (
-		<motion.div
+		<m.div
 			className="group relative shrink-0 will-change-transform"
 			initial={{ scale: 1, zIndex: 10 }}
 			whileHover={{ scale: 1.06, zIndex: 20 }}
@@ -31,22 +36,21 @@ function TemplateItem({ metadata }: TemplateItemProps) {
 				{/* Shine effect on hover */}
 				<div className="pointer-events-none absolute inset-0 -translate-x-full rotate-12 bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }
 
 type MarqueeRowProps = {
-	templates: Array<[string, TemplateMetadata]>;
-	rowId: string;
+	templates: TemplateMarqueeItem[];
 	direction: "left" | "right";
 	duration?: number;
 };
 
-function MarqueeRow({ templates, rowId, direction, duration = 40 }: MarqueeRowProps) {
+function MarqueeRow({ templates, direction, duration = 40 }: MarqueeRowProps) {
 	const animateX = direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"];
 
 	return (
-		<motion.div
+		<m.div
 			className="flex gap-x-4 will-change-transform sm:gap-x-6"
 			animate={{ x: animateX }}
 			transition={{
@@ -58,12 +62,18 @@ function MarqueeRow({ templates, rowId, direction, duration = 40 }: MarqueeRowPr
 				},
 			}}
 		>
-			{templates.map(([template, metadata], index) => (
-				<TemplateItem key={`${rowId}-${template}-${index}`} metadata={metadata} />
+			{templates.map(({ id, metadata }) => (
+				<TemplateItem key={id} metadata={metadata} />
 			))}
-		</motion.div>
+		</m.div>
 	);
 }
+
+const createMarqueeItems = (entries: Array<[string, TemplateMetadata]>, rowId: string): TemplateMarqueeItem[] =>
+	entries.flatMap(([template, metadata]) => [
+		{ id: `${rowId}-${template}-primary`, metadata },
+		{ id: `${rowId}-${template}-repeat`, metadata },
+	]);
 
 export function Templates() {
 	// Split templates into two rows and duplicate for seamless infinite scroll
@@ -75,14 +85,14 @@ export function Templates() {
 
 		// Duplicate each row for seamless scrolling
 		return {
-			row1: [...firstHalf, ...firstHalf],
-			row2: [...secondHalf, ...secondHalf],
+			row1: createMarqueeItems(firstHalf, "row1"),
+			row2: createMarqueeItems(secondHalf, "row2"),
 		};
 	}, []);
 
 	return (
 		<section id="templates" className="overflow-hidden border-t-0! p-4 md:p-8 xl:py-16">
-			<motion.div
+			<m.div
 				className="space-y-4 will-change-[transform,opacity]"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -99,16 +109,16 @@ export function Templates() {
 						personalities. Reactive Resume currently offers 12 templates, with more on the way.
 					</Trans>
 				</p>
-			</motion.div>
+			</m.div>
 
 			<div className="relative mt-8 -rotate-3 py-8 sm:-rotate-4 lg:mt-0 lg:-rotate-5">
 				{/* Marquee container with minimum height */}
 				<div className="flex min-h-[280px] flex-col gap-y-4 sm:min-h-[320px] sm:gap-y-6 md:min-h-[380px] lg:min-h-[420px]">
 					{/* First row - moves left to right */}
-					<MarqueeRow templates={row1} rowId="row1" direction="left" duration={45} />
+					<MarqueeRow templates={row1} direction="left" duration={45} />
 
 					{/* Second row - moves right to left (opposite direction) */}
-					<MarqueeRow templates={row2} rowId="row2" direction="right" duration={50} />
+					<MarqueeRow templates={row2} direction="right" duration={50} />
 				</div>
 			</div>
 		</section>

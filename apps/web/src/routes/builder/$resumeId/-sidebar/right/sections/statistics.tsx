@@ -67,7 +67,7 @@ type StatisticsItemProps = {
 function StatisticsItem({ label, value, timestamp }: StatisticsItemProps) {
 	return (
 		<div>
-			<h4 className="mb-1 font-bold font-mono text-4xl">{value}</h4>
+			<h4 className="mb-1 font-mono font-semibold text-4xl">{value}</h4>
 			<p className="font-medium text-muted-foreground leading-none">{label}</p>
 			{timestamp && <span className="text-muted-foreground text-xs">{timestamp}</span>}
 		</div>

@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/react/macro";
 import { KeyIcon, LockOpenIcon, ToggleLeftIcon, ToggleRightIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useCallback, useMemo } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -28,7 +28,7 @@ export function TwoFactorSection() {
 	if (!hasPassword) return null;
 
 	return (
-		<motion.div
+		<m.div
 			className="will-change-[transform,opacity]"
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export function TwoFactorSection() {
 
 				{match(hasTwoFactor)
 					.with(true, () => (
-						<motion.div
+						<m.div
 							className="will-change-transform"
 							whileHover={{ y: -1, scale: 1.01 }}
 							whileTap={{ scale: 0.99 }}
@@ -54,10 +54,10 @@ export function TwoFactorSection() {
 								<ToggleLeftIcon />
 								<Trans>Disable 2FA</Trans>
 							</Button>
-						</motion.div>
+						</m.div>
 					))
 					.with(false, () => (
-						<motion.div
+						<m.div
 							className="will-change-transform"
 							whileHover={{ y: -1, scale: 1.01 }}
 							whileTap={{ scale: 0.99 }}
@@ -67,10 +67,10 @@ export function TwoFactorSection() {
 								<ToggleRightIcon />
 								<Trans>Enable 2FA</Trans>
 							</Button>
-						</motion.div>
+						</m.div>
 					))
 					.exhaustive()}
 			</div>
-		</motion.div>
+		</m.div>
 	);
 }

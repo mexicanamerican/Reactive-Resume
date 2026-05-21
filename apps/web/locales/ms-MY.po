@@ -8,7 +8,7 @@ msgstr ""
 "Language: ms\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-19 11:15\n"
+"PO-Revision-Date: 2026-05-21 07:54\n"
 "Last-Translator: \n"
 "Language-Team: Malay\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -320,8 +320,8 @@ msgid "Analyze Resume"
 msgstr "Analisis Resume"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing..."
-msgstr "Menganalisis..."
+msgid "Analyzing…"
+msgstr "Menganalisis…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -584,8 +584,8 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Cannot revert; the resume has changed since this edit was applied."
-msgstr "Tidak boleh berbalik; resume telah berubah sejak suntingan ini digunakan."
+msgid "Cannot restore; the resume has changed since this edit was applied."
+msgstr "Tidak dapat memulihkan; resume telah berubah sejak suntingan ini digunakan."
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -610,12 +610,12 @@ msgid "Change language"
 msgstr "Tukar bahasa"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change language to..."
-msgstr "Tukar bahasa kepada..."
+msgid "Change language to…"
+msgstr "Tukar bahasa kepada…"
 
 #: src/features/command-palette/pages/preferences/index.tsx
-msgid "Change theme to..."
-msgstr "Tukar tema kepada..."
+msgid "Change theme to…"
+msgstr "Tukar tema kepada…"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
@@ -793,8 +793,8 @@ msgid "Could not reach the AI provider. Please try again."
 msgstr "Tidak dapat mencapai penyedia AI. Sila cuba lagi."
 
 #: src/routes/agent/$threadId.tsx
-msgid "Could not revert this patch."
-msgstr "Tidak dapat membalikkan tampalan ini."
+msgid "Could not restore this patch."
+msgstr "Tidak dapat memulihkan tampalan ini."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
@@ -1248,8 +1248,8 @@ msgid "Enabling password protection..."
 msgstr "Mengaktifkan perlindungan kata laluan..."
 
 #: src/dialogs/auth/enable-two-factor.tsx
-msgid "Enabling two-factor authentication..."
-msgstr "Mengaktifkan pengesahan dua faktor..."
+msgid "Enabling two-factor authentication…"
+msgstr "Mendayakan pengesahan dua faktor…"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -1633,8 +1633,8 @@ msgid "Go to resumes dashboard"
 msgstr "Pergi ke papan pemuka resume"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Go to..."
-msgstr "Pergi ke..."
+msgid "Go to…"
+msgstr "Pergi ke…"
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -1815,8 +1815,8 @@ msgid "Importing your resume..."
 msgstr "Mengimport resume anda..."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing..."
-msgstr "Mengimport..."
+msgid "Importing…"
+msgstr "Mengimport…"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -1963,10 +1963,9 @@ msgstr "Bahasa"
 msgid "Languages"
 msgstr "Bahasa"
 
-#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {0}"
-msgstr "Terakhir dianalisis pada {0}"
+msgid "Last analyzed on {updatedAtLabel}"
+msgstr "Analisis terakhir pada {updatedAtLabel}"
 
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
@@ -2061,8 +2060,8 @@ msgid "Lithuanian"
 msgstr "Lithuania"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace..."
-msgstr "Memuatkan ruang kerja ejen..."
+msgid "Loading agent workspace…"
+msgstr "Memuatkan ruang kerja ejen…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2070,21 +2069,21 @@ msgstr "Memuatkan penyedia AI. Sila cuba lagi sebentar lagi."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading providers..."
-msgstr "Memuatkan pembekal..."
+msgid "Loading providers…"
+msgstr "Memuatkan pembekal…"
 
 #: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
-msgid "Loading resumes..."
-msgstr "Memuatkan resume..."
+msgid "Loading resumes…"
+msgstr "Memuatkan resume…"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
-msgid "Loading threads..."
-msgstr "Memuatkan thread..."
+msgid "Loading threads…"
+msgstr "Memuatkan thread…"
 
 #: src/components/layout/loading-screen.tsx
-msgid "Loading..."
-msgstr "Memuatkan..."
+msgid "Loading…"
+msgstr "Memuatkan…"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -2431,12 +2430,12 @@ msgid "Patch pending"
 msgstr "Tampalan sedang menunggu"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted"
-msgstr "Tampalan dibalikkan"
+msgid "Patch rolled back"
+msgstr "Tampalan digulung ke belakang"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Patch reverted."
-msgstr "Tampalan dibalikkan."
+msgid "Patch rolled back."
+msgstr "Tampalan digulung ke belakang."
 
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
@@ -2484,11 +2483,14 @@ msgid "Please support the project"
 msgstr "Sila sokong projek ini"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Sila tunggu sementara PDF anda dijana..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Please wait while your PDF is being generated…"
+msgstr "Sila tunggu sementara PDF anda dijana…"
 
 #: src/libs/locale.ts
 msgid "Polish"
@@ -2725,6 +2727,14 @@ msgid "Resources"
 msgstr "Sumber"
 
 #: src/routes/agent/$threadId.tsx
+msgid "Restore"
+msgstr "Pulihkan"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgstr "Pulihkan resume ke tahap sebelum tampalan ini? Ini akan mengembalikan tampalan ini dan sebarang tampalan yang digunakan selepasnya."
+
+#: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Resume"
 
@@ -2751,10 +2761,6 @@ msgstr "Resume"
 #: src/routes/agent/$threadId.tsx
 msgid "Retry"
 msgstr "Cuba semula"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Revert"
-msgstr "Kembalikan"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
@@ -2845,14 +2851,17 @@ msgid "Search for an icon"
 msgstr "Cari ikon"
 
 #: src/features/command-palette/pages/resumes.tsx
-msgid "Search for..."
+msgid "Search for…"
+msgstr "Cari…"
+
+#: src/components/ui/combobox.tsx
+msgid "Search..."
 msgstr "Cari..."
 
 #. Placeholder in command palette input on nested pages
-#: src/components/ui/combobox.tsx
 #: src/features/command-palette/index.tsx
-msgid "Search..."
-msgstr "Cari..."
+msgid "Search…"
+msgstr "Cari…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -3558,8 +3567,8 @@ msgstr "Taip \"{CONFIRMATION_TEXT}\" untuk mengesahkan"
 #. Placeholder in command palette input on root page
 #. Screen-reader dialog description instructing users how to use the command palette
 #: src/features/command-palette/index.tsx
-msgid "Type a command or search..."
-msgstr "Taip perintah atau cari..."
+msgid "Type a command or search…"
+msgstr "Taip arahan atau cari…"
 
 #: src/libs/resume/section.tsx
 msgid "Typography"
@@ -3704,8 +3713,8 @@ msgid "Upload picture"
 msgstr "Muat naik gambar"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
-msgid "Uploading picture..."
-msgstr "Memuat naik gambar..."
+msgid "Uploading picture…"
+msgstr "Memuat naik gambar…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -3763,10 +3772,13 @@ msgstr "Sahkan dengan Kod Sandaran"
 msgid "Verifying backup code..."
 msgstr "Mengesahkan kod sandaran..."
 
-#: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying code..."
 msgstr "Mengesahkan kod..."
+
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Verifying code…"
+msgstr "Mengesahkan kod…"
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "Verifying password..."
@@ -3830,8 +3842,8 @@ msgid "Work OpenAI"
 msgstr "Kerja OpenAI"
 
 #: src/routes/agent/$threadId.tsx
-msgid "Working..."
-msgstr "Bekerja..."
+msgid "Working…"
+msgstr "Bekerja…"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"

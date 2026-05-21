@@ -81,9 +81,14 @@ const filterExperienceRoles = <T extends HiddenItem>(item: T, sectionType?: stri
 };
 
 export const filterItems = <T extends HiddenItem>(items: T[], sectionType?: string): T[] => {
-	return items
-		.filter((item) => !item.hidden && hasValidPrimaryTitle(item, sectionType))
-		.map((item) => filterExperienceRoles(item, sectionType));
+	const visibleItems: T[] = [];
+
+	for (const item of items) {
+		if (item.hidden || !hasValidPrimaryTitle(item, sectionType)) continue;
+		visibleItems.push(filterExperienceRoles(item, sectionType));
+	}
+
+	return visibleItems;
 };
 
 export const hasVisibleItems = (section: ItemSectionLike, sectionType?: string): boolean => {

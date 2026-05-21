@@ -48,7 +48,7 @@ export function VerifyTwoFactorBackupPage() {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="font-bold text-2xl tracking-tight">
+				<h1 className="font-semibold text-2xl tracking-tight">
 					<Trans>Verify with a Backup Code</Trans>
 				</h1>
 				<div className="text-muted-foreground">
