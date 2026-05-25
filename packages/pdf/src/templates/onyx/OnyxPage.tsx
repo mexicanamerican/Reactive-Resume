@@ -12,6 +12,7 @@ import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight } from "../shared/styles";
 
@@ -110,9 +111,10 @@ const Header = ({ styles }: { styles: OnyxStyles }) => {
 };
 
 const useOnyxTemplate = (): OnyxTemplate => {
-	const { picture, metadata } = useRender();
+	const { picture, metadata, rtl } = useRender();
 
 	return useMemo(() => {
+		const r = createRtlStyleHelpers(rtl);
 		const foreground = rgbaStringToHex(metadata.design.colors.text);
 		const background = rgbaStringToHex(metadata.design.colors.background);
 		const primary = rgbaStringToHex(metadata.design.colors.primary);
@@ -124,6 +126,7 @@ const useOnyxTemplate = (): OnyxTemplate => {
 			fontWeight: metadata.typography.body.fontWeights[0] ?? "400",
 			lineHeight: metadata.typography.body.lineHeight,
 			color: foreground,
+			...r.text,
 		} satisfies Style;
 
 		const baseStyles = StyleSheet.create({
@@ -136,6 +139,7 @@ const useOnyxTemplate = (): OnyxTemplate => {
 				fontFamily: metadata.typography.body.fontFamily,
 				fontSize: metadata.typography.body.fontSize,
 				lineHeight: metadata.typography.body.lineHeight,
+				direction: r.pageDirection,
 			},
 			text: bodyText,
 			heading: {
@@ -144,31 +148,32 @@ const useOnyxTemplate = (): OnyxTemplate => {
 				fontWeight: metadata.typography.heading.fontWeights.at(-1) ?? "600",
 				lineHeight: metadata.typography.heading.lineHeight,
 				color: foreground,
+				...r.text,
 			},
 			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
-			inline: { flexDirection: "row", alignItems: "center", columnGap: metrics.gapX(1 / 3) },
+			inline: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 3) },
 			link: { textDecoration: "none", color: foreground },
 			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
 			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600" },
 			richParagraph: { margin: 0, ...bodyText },
 			richListItemRow: { flexDirection: "row", columnGap: metrics.gapX(1 / 3), alignItems: "flex-start" },
-			richListItemMarker: { width: metadata.typography.body.fontSize, textAlign: "right", ...bodyText },
+			richListItemMarker: { ...bodyText, width: metadata.typography.body.fontSize, textAlign: r.listMarkerTextAlign },
 			richListItemContent: { flex: 1, ...bodyText },
 			splitRow: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				flexWrap: "wrap",
 				alignItems: "flex-start",
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignRight: { textAlign: "right", minWidth: 0, maxWidth: "100%", flexShrink: 1 },
+			alignEnd: { ...r.alignEnd },
 			section: { flexDirection: "column", rowGap: metrics.gapY(0.25) },
 			item: { rowGap: metrics.gapY(0.125) },
 			levelContainer: { width: "100%" },
 			levelItem: { borderColor: primary },
 			levelItemActive: { backgroundColor: primary },
 			header: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				alignItems: "center",
 				columnGap: metrics.gapX(1),
 				borderBottomWidth: 1,
@@ -188,15 +193,15 @@ const useOnyxTemplate = (): OnyxTemplate => {
 				transform: `rotate(${picture.rotation}deg)`,
 			},
 			headerTitle: { rowGap: metrics.gapY(0.5) },
-			headerIdentity: { textAlign: "left", alignItems: "flex-start", rowGap: metrics.gapY(0.35) },
+			headerIdentity: { ...r.headerIdentity, rowGap: metrics.gapY(0.35) },
 			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: headerNameLineHeight },
 			contactList: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				flexWrap: "wrap",
 				rowGap: metrics.gapY(0.125),
 				columnGap: metrics.gapX(0.75),
 			},
-			contactItem: { flexDirection: "row", alignItems: "center", columnGap: metrics.gapX(1 / 6) },
+			contactItem: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 6) },
 			sectionGroup: {},
 		});
 
@@ -215,5 +220,5 @@ const useOnyxTemplate = (): OnyxTemplate => {
 				}),
 			} satisfies OnyxStyles,
 		};
-	}, [picture, metadata]);
+	}, [picture, metadata, rtl]);
 };

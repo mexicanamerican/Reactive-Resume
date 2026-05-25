@@ -21,7 +21,6 @@ import type { StyleInput, TemplatePlacement } from "./styles";
 import type { CustomItemSection, ItemSection } from "./types";
 import { Children, createContext, isValidElement, use } from "react";
 import { match } from "ts-pattern";
-import { isRTL } from "@reactive-resume/utils/locale";
 import { useRender } from "../../context";
 import { View } from "../../renderer";
 import { getResumeSectionTitle } from "../../section-title";
@@ -39,6 +38,7 @@ import { LevelDisplay } from "./level-display";
 import { getTemplateMetrics } from "./metrics";
 import { Bold, Div, Heading, Icon, Link, Small, Text } from "./primitives";
 import { RichText } from "./rich-text";
+import { createRtlStyleHelpers } from "./rtl";
 import { getInlineItemWebsiteUrl, shouldRenderSeparateItemWebsite } from "./section-links";
 import { hasSplitRowText, promoteSplitRowRight } from "./split-row";
 import { composeStyles } from "./styles";
@@ -118,8 +118,7 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 		columns: layout.columns,
 	});
 	const context = { itemStyle: layout.itemStyle, useTimeline };
-	const rtl = isRTL(data.metadata.page.locale);
-	const rtlRowStyle = rtl ? { flexDirection: "row-reverse" as const } : undefined;
+	const rtlRowStyle = createRtlStyleHelpers(data.rtl).gridRowStyle;
 
 	if (!useTimeline) {
 		if (layout.isGrid) {
@@ -340,7 +339,7 @@ const ExperienceSection = ({
 	const experience = sectionData ?? data.sections.experience;
 	const items = getVisibleItems(experience, "experience");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
 
 	if (items.length === 0) return null;
@@ -368,7 +367,7 @@ const ExperienceSection = ({
 								) : null
 							}
 							middle={<ItemTitle website={item.website}>{item.company}</ItemTitle>}
-							trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
+							trailing={<Text style={composeStyles(alignEndStyle)}>{item.period}</Text>}
 						/>
 					);
 
@@ -376,15 +375,13 @@ const ExperienceSection = ({
 						<>
 							<View style={composeStyles(splitRowStyle)}>
 								<ItemTitle website={item.website}>{item.company}</ItemTitle>
-								{hasSplitRowText(headerLocation) && (
-									<Text style={composeStyles(alignRightStyle)}>{headerLocation}</Text>
-								)}
+								{hasSplitRowText(headerLocation) && <Text style={composeStyles(alignEndStyle)}>{headerLocation}</Text>}
 							</View>
 
 							{item.roles.length === 0 && (hasPosition || hasSplitRowText(headerPeriod)) && (
 								<View style={composeStyles(splitRowStyle)}>
 									{hasPosition && <Text>{item.position}</Text>}
-									{hasSplitRowText(headerPeriod) && <Text style={composeStyles(alignRightStyle)}>{headerPeriod}</Text>}
+									{hasSplitRowText(headerPeriod) && <Text style={composeStyles(alignEndStyle)}>{headerPeriod}</Text>}
 								</View>
 							)}
 						</>
@@ -400,7 +397,7 @@ const ExperienceSection = ({
 								<View key={role.id}>
 									<View style={composeStyles(splitRowStyle)}>
 										<Text>{role.position}</Text>
-										<Text style={composeStyles(alignRightStyle)}>{role.period}</Text>
+										<Text style={composeStyles(alignEndStyle)}>{role.period}</Text>
 									</View>
 									<RichText>{role.description}</RichText>
 								</View>
@@ -428,7 +425,7 @@ const EducationSection = ({
 	const education = sectionData ?? data.sections.education;
 	const items = getVisibleItems(education, "education");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
 
 	if (items.length === 0) return null;
@@ -460,7 +457,7 @@ const EducationSection = ({
 									) : null
 								}
 								middle={<ItemTitle website={item.website}>{item.school}</ItemTitle>}
-								trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
+								trailing={<Text style={composeStyles(alignEndStyle)}>{item.period}</Text>}
 							/>
 							{gradeAndLocation && <Text>{gradeAndLocation}</Text>}
 						</>
@@ -471,7 +468,7 @@ const EducationSection = ({
 							<View style={composeStyles(splitRowStyle)}>
 								<ItemTitle website={item.website}>{item.school}</ItemTitle>
 								{hasSplitRowText(headerDegreeAndGrade) && (
-									<Text style={composeStyles(alignRightStyle)}>{headerDegreeAndGrade}</Text>
+									<Text style={composeStyles(alignEndStyle)}>{headerDegreeAndGrade}</Text>
 								)}
 							</View>
 
@@ -479,7 +476,7 @@ const EducationSection = ({
 								<View style={composeStyles(splitRowStyle)}>
 									{hasArea && <Text>{item.area}</Text>}
 									{hasSplitRowText(headerLocationAndPeriod) && (
-										<Text style={composeStyles(alignRightStyle)}>{headerLocationAndPeriod}</Text>
+										<Text style={composeStyles(alignEndStyle)}>{headerLocationAndPeriod}</Text>
 									)}
 								</View>
 							)}
@@ -512,7 +509,7 @@ const ProjectsSection = ({
 	const projects = sectionData ?? data.sections.projects;
 	const items = getVisibleItems(projects, "projects");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 
 	if (items.length === 0) return null;
 
@@ -524,7 +521,7 @@ const ProjectsSection = ({
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle)}>
 								<ItemTitle website={item.website}>{item.name}</ItemTitle>
-								<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>
+								<Text style={composeStyles(alignEndStyle)}>{item.period}</Text>
 							</View>
 						</SectionItemHeader>
 
@@ -653,7 +650,7 @@ const AwardsSection = ({
 	const awards = sectionData ?? data.sections.awards;
 	const items = getVisibleItems(awards, "awards");
 	const splitRowStyle = useTemplateStyle("splitRow");
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 
 	if (items.length === 0) return null;
 
@@ -665,7 +662,7 @@ const AwardsSection = ({
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle, awardTitleDateRowStyle)}>
 								<ItemTitle website={item.website}>{item.title}</ItemTitle>
-								<Text style={composeStyles(alignRightStyle)}>{item.date}</Text>
+								<Text style={composeStyles(alignEndStyle)}>{item.date}</Text>
 							</View>
 							<Text>{item.awarder}</Text>
 						</SectionItemHeader>
@@ -690,7 +687,7 @@ const CertificationsSection = ({
 	const certifications = sectionData ?? data.sections.certifications;
 	const items = getVisibleItems(certifications, "certifications");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 
 	if (items.length === 0) return null;
 
@@ -702,7 +699,7 @@ const CertificationsSection = ({
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle)}>
 								<ItemTitle website={item.website}>{item.title}</ItemTitle>
-								<Text style={composeStyles(alignRightStyle)}>{item.date}</Text>
+								<Text style={composeStyles(alignEndStyle)}>{item.date}</Text>
 							</View>
 							<Text>{item.issuer}</Text>
 						</SectionItemHeader>
@@ -728,7 +725,7 @@ const PublicationsSection = ({
 	const publications = sectionData ?? data.sections.publications;
 	const items = getVisibleItems(publications, "publications");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 
 	if (items.length === 0) return null;
 
@@ -740,7 +737,7 @@ const PublicationsSection = ({
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle)}>
 								<ItemTitle website={item.website}>{item.title}</ItemTitle>
-								<Text style={composeStyles(alignRightStyle)}>{item.date}</Text>
+								<Text style={composeStyles(alignEndStyle)}>{item.date}</Text>
 							</View>
 
 							<Text>{item.publisher}</Text>
@@ -767,7 +764,7 @@ const VolunteerSection = ({
 	const volunteer = sectionData ?? data.sections.volunteer;
 	const items = getVisibleItems(volunteer, "volunteer");
 	const splitRowStyle = useSectionSplitRowStyle();
-	const alignRightStyle = useTemplateStyle("alignRight");
+	const alignEndStyle = useTemplateStyle("alignEnd");
 	const inlineItemHeader = useTemplateFeature("inlineItemHeader");
 
 	if (items.length === 0) return null;
@@ -783,15 +780,13 @@ const VolunteerSection = ({
 									<InlineItemHeader
 										leading={hasSplitRowText(item.location) ? <Text>{item.location}</Text> : null}
 										middle={<ItemTitle website={item.website}>{item.organization}</ItemTitle>}
-										trailing={<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>}
+										trailing={<Text style={composeStyles(alignEndStyle)}>{item.period}</Text>}
 									/>
 								) : (
 									<>
 										<View style={composeStyles(splitRowStyle)}>
 											<ItemTitle website={item.website}>{item.organization}</ItemTitle>
-											{hasSplitRowText(item.period) && (
-												<Text style={composeStyles(alignRightStyle)}>{item.period}</Text>
-											)}
+											{hasSplitRowText(item.period) && <Text style={composeStyles(alignEndStyle)}>{item.period}</Text>}
 										</View>
 
 										<Text>{item.location}</Text>

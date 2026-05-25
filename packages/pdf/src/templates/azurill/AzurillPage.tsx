@@ -18,6 +18,7 @@ import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight, resolvePlacementColor } from "../shared/styles";
 
@@ -131,9 +132,10 @@ const Header = ({ styles }: { styles: AzurillStyles }) => {
 };
 
 const useAzurillTemplate = (): AzurillTemplate => {
-	const { picture, metadata } = useRender();
+	const { picture, metadata, rtl } = useRender();
 
 	return useMemo(() => {
+		const r = createRtlStyleHelpers(rtl);
 		const foreground = rgbaStringToHex(metadata.design.colors.text);
 		const background = rgbaStringToHex(metadata.design.colors.background);
 		const primary = rgbaStringToHex(metadata.design.colors.primary);
@@ -146,6 +148,7 @@ const useAzurillTemplate = (): AzurillTemplate => {
 			fontWeight: metadata.typography.body.fontWeights[0] ?? "400",
 			lineHeight: metadata.typography.body.lineHeight,
 			color: foreground,
+			...r.text,
 		} satisfies Style;
 
 		const baseStyles = StyleSheet.create({
@@ -160,6 +163,7 @@ const useAzurillTemplate = (): AzurillTemplate => {
 				fontFamily: metadata.typography.body.fontFamily,
 				fontSize: metadata.typography.body.fontSize,
 				lineHeight: metadata.typography.body.lineHeight,
+				direction: r.pageDirection,
 			},
 			text: bodyText,
 			heading: {
@@ -168,13 +172,14 @@ const useAzurillTemplate = (): AzurillTemplate => {
 				fontWeight: metadata.typography.heading.fontWeights.at(-1) ?? "600",
 				lineHeight: metadata.typography.heading.lineHeight,
 				color: foreground,
+				...r.text,
 			},
 			div: {
 				rowGap: metrics.gapY(0.125),
 				columnGap: metrics.gapX(1 / 3),
 			},
 			inline: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				alignItems: "center",
 				columnGap: metrics.gapX(1 / 3),
 			},
@@ -198,32 +203,29 @@ const useAzurillTemplate = (): AzurillTemplate => {
 				alignItems: "flex-start",
 			},
 			richListItemMarker: {
-				width: metadata.typography.body.fontSize,
-				textAlign: "right",
 				...bodyText,
+				width: metadata.typography.body.fontSize,
+				textAlign: r.listMarkerTextAlign,
 			},
 			richListItemContent: {
 				flex: 1,
 				...bodyText,
 			},
 			splitRow: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				flexWrap: "wrap",
 				alignItems: "flex-start",
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignRight: {
-				textAlign: "right",
-				minWidth: 0,
-				maxWidth: "100%",
-				flexShrink: 1,
+			alignEnd: {
+				...r.alignEnd,
 			},
 			sectionHeading: {
 				color: primary,
 			},
 			contentRow: {
-				flexDirection: "row",
+				flexDirection: r.row,
 			},
 			sidebarColumn: {},
 			mainColumn: {
@@ -260,13 +262,13 @@ const useAzurillTemplate = (): AzurillTemplate => {
 			},
 			headerContactRow: {
 				justifyContent: "center",
-				flexDirection: "row",
+				flexDirection: r.row,
 				flexWrap: "wrap",
 				rowGap: metrics.gapY(0.125),
 				columnGap: metrics.gapX(0.5),
 			},
 			headerContactItem: {
-				flexDirection: "row",
+				flexDirection: r.row,
 				alignItems: "center",
 				columnGap: metrics.gapX(1 / 6),
 			},
@@ -355,5 +357,5 @@ const useAzurillTemplate = (): AzurillTemplate => {
 				}),
 			} satisfies AzurillStyles,
 		};
-	}, [picture, metadata]);
+	}, [picture, metadata, rtl]);
 };

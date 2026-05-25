@@ -84,6 +84,6 @@ const RTL_LANGUAGES = new Set([
 ]);
 
 export function isRTL(locale: string): boolean {
-	const language = locale.split("-")[0].toLowerCase();
+	const language = locale.split("-")[0]?.toLowerCase() ?? "";
 	return RTL_LANGUAGES.has(language);
 }

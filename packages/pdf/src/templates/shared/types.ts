@@ -58,7 +58,7 @@ export type TemplateStyleSlots = {
 	richListItemMarker?: TemplateStyleSlot;
 	richListItemContent?: TemplateStyleSlot;
 	splitRow?: TemplateStyleSlot;
-	alignRight?: TemplateStyleSlot;
+	alignEnd?: TemplateStyleSlot;
 	inlineItemHeader?: TemplateStyleSlot;
 	inlineItemHeaderLeading?: TemplateStyleSlot;
 	inlineItemHeaderMiddle?: TemplateStyleSlot;

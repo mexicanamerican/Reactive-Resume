@@ -2,16 +2,15 @@ import type { Style } from "@react-pdf/types";
 import type { ReactElement, ReactNode } from "react";
 import { cloneElement, isValidElement } from "react";
 import { Html } from "react-pdf-html";
-import { isRTL } from "@reactive-resume/utils/locale";
 import { useRender } from "../../context";
 import { Text as PdfText, View } from "../../renderer";
 import { useTemplateStyle } from "./context";
 import { safeTextStyle } from "./primitives";
 import { convertPseudoBulletParagraphs, normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";
+import { renderRichTextParagraph, toRichTextStyleArray } from "./rich-text-renderers";
 import {
 	createRichTextProseSpacing,
 	getRichTextEdgeTrimStyle,
-	isRichTextElementInsideListItem,
 	isRichTextElementInsideOrderedList,
 	resolveRichTextBodyLineHeight,
 	stripRichTextVerticalMargins,
@@ -25,13 +24,6 @@ const richListItemContentStackStyle = {
 const richMarkStyle = {
 	backgroundColor: "#ffff00",
 } satisfies Style;
-
-const toStyleArray = (style: Style | Style[] | undefined): Style[] => {
-	if (!style) return [];
-	if (Array.isArray(style)) return style.filter(Boolean);
-
-	return [style];
-};
 
 // react-pdf textkit reads BiDi base direction from each run's own `direction` attribute
 // (default "ltr"), and react-pdf-html buckets inline content into styleless inner <Text>
@@ -65,8 +57,7 @@ const applyRtlDirectionRecursively = (node: ReactNode): ReactNode => {
 };
 
 export const RichText = ({ children }: { children: string }) => {
-	const data = useRender();
-	const rtl = isRTL(data.metadata.page.locale);
+	const { rtl } = useRender();
 	const rtlTextWrapStyle: Style | undefined = rtl ? { direction: "rtl", textAlign: "right" } : undefined;
 	const boldStyle = useTemplateStyle("bold");
 	const linkStyle = useTemplateStyle("link");
@@ -95,25 +86,20 @@ export const RichText = ({ children }: { children: string }) => {
 			resetStyles
 			renderers={{
 				b: ({ children }) => <PdfText style={composeStyles(boldStyle, safeTextStyle)}>{children}</PdfText>,
-				p: ({ element, style, children }) => {
-					const paragraphStyles = isRichTextElementInsideListItem(element)
-						? toStyleArray(style).map(stripRichTextVerticalMargins)
-						: style;
+				p: (props) => {
+					const paragraphProps = {
+						...props,
+						rtl,
+						...(rtlTextWrapStyle ? { rtlTextWrapStyle } : {}),
+						...(rtl ? { applyRtlDirection: applyRtlDirectionRecursively } : {}),
+					};
 
-					if (rtl) {
-						return (
-							<PdfText style={composeStyles(paragraphStyles, getRichTextEdgeTrimStyle(element), rtlTextWrapStyle)}>
-								{applyRtlDirectionRecursively(children)}
-							</PdfText>
-						);
-					}
-
-					return <View style={composeStyles(paragraphStyles, getRichTextEdgeTrimStyle(element))}>{children}</View>;
+					return renderRichTextParagraph(paragraphProps);
 				},
 				li: ({ element, style, children }) => {
 					const isOrderedList = isRichTextElementInsideOrderedList(element);
 					const marker = isOrderedList ? `${element.indexOfType + 1}.` : "•";
-					const itemStyles = toStyleArray(style);
+					const itemStyles = toRichTextStyleArray(style);
 					const contentItemStyles = itemStyles.map(stripRichTextVerticalMargins);
 
 					const markerNode = (
