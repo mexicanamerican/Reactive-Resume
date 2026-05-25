@@ -46,9 +46,16 @@ describe("isRTL", () => {
 		["ar-SA", true],
 		["he-IL", true],
 		["fa-IR", true],
+		["ur-PK", true],
 		["en-US", false],
 		["en-GB", false],
 		["fr-FR", false],
+		["de-DE", false],
+		["zh-CN", false],
+		["xyz-XX", false],
+		["AR-SA", true],
+		["ar", true],
+		["en", false],
 	])("returns %s → %s", (locale, expected) => {
 		expect(isRTL(locale)).toBe(expected);
 	});
