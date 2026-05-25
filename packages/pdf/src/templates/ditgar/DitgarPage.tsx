@@ -212,15 +212,44 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				color: foreground,
 				...r.text,
 			},
-			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
-			inline: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 3) },
-			link: { textDecoration: "none", color: foreground },
-			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
-			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600" },
-			richParagraph: { margin: 0, ...bodyText },
-			richListItemRow: { flexDirection: "row", columnGap: metrics.gapX(1 / 3), alignItems: "flex-start" },
-			richListItemMarker: { ...bodyText, width: metadata.typography.body.fontSize, textAlign: r.listMarkerTextAlign },
-			richListItemContent: { flex: 1, ...bodyText },
+			div: {
+				rowGap: metrics.gapY(0.125),
+				columnGap: metrics.gapX(1 / 3),
+			},
+			inline: {
+				flexDirection: r.row,
+				alignItems: "center",
+				columnGap: metrics.gapX(1 / 3),
+			},
+			link: {
+				textDecoration: "none",
+				color: foreground,
+			},
+			small: {
+				fontSize: metadata.typography.body.fontSize * 0.875,
+			},
+			bold: {
+				fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600",
+			},
+			richParagraph: {
+				margin: 0,
+				...bodyText,
+			},
+			richListItemRow: {
+				flexDirection: "row",
+				columnGap: metrics.gapX(1 / 3),
+				alignItems: "flex-start",
+			},
+			richListItemMarker: {
+				...bodyText,
+				width: metadata.typography.body.fontSize,
+				textAlign: r.listMarkerTextAlign,
+			},
+			richListItemContent: {
+				...bodyText,
+				flex: 1,
+				lineHeight: metadata.typography.body.lineHeight * 0.5,
+			},
 			splitRow: {
 				flexDirection: r.row,
 				flexWrap: "wrap",
@@ -228,8 +257,13 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignEnd: { ...r.alignEnd },
-			section: { flexDirection: "column", rowGap: metrics.gapY(0.25) },
+			alignEnd: {
+				...r.alignEnd,
+			},
+			section: {
+				flexDirection: "column",
+				rowGap: metrics.gapY(0.25),
+			},
 			sectionHeading: {
 				fontSize: metadata.typography.heading.fontSize * 0.9,
 				color: primary,
@@ -237,10 +271,18 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				borderBottomColor: primary,
 				paddingBottom: metrics.gapY(0.125),
 			},
-			item: { rowGap: metrics.gapY(0.125) },
-			levelContainer: { width: "70%" },
-			levelItem: { borderColor: primary },
-			levelItemActive: { backgroundColor: primary },
+			item: {
+				rowGap: metrics.gapY(0.125),
+			},
+			levelContainer: {
+				width: "70%",
+			},
+			levelItem: {
+				borderColor: primary,
+			},
+			levelItemActive: {
+				backgroundColor: primary,
+			},
 			sidebarColumn: {
 				flexShrink: 0,
 				backgroundColor: primaryTint,
@@ -250,7 +292,9 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				paddingTop: metrics.page.paddingVertical,
 				paddingBottom: metrics.page.paddingVertical,
 			},
-			mainColumn: { flex: 1 },
+			mainColumn: {
+				flex: 1,
+			},
 			mainContent: {
 				paddingHorizontal: metrics.page.paddingHorizontal,
 				paddingTop: metrics.page.paddingVertical,
@@ -290,8 +334,12 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				lineHeight: headerNameLineHeight,
 				color: background,
 			},
-			headerText: { color: background },
-			contactList: { rowGap: metrics.gapY(0.125) },
+			headerText: {
+				color: background,
+			},
+			contactList: {
+				rowGap: metrics.gapY(0.125),
+			},
 			contactItem: {
 				flexDirection: r.row,
 				alignItems: "center",

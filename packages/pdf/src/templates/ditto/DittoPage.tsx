@@ -214,8 +214,9 @@ const useDittoTemplate = (): DittoTemplate => {
 				textAlign: r.listMarkerTextAlign,
 			},
 			richListItemContent: {
-				flex: 1,
 				...bodyText,
+				flex: 1,
+				lineHeight: metadata.typography.body.lineHeight * 0.5,
 			},
 			splitRow: {
 				flexDirection: r.row,

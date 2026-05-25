@@ -154,15 +154,44 @@ const useLaprasTemplate = (): LaprasTemplate => {
 				color: foreground,
 				...r.text,
 			},
-			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
-			inline: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 3) },
-			link: { textDecoration: "none", color: foreground },
-			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
-			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600" },
-			richParagraph: { margin: 0, ...bodyText },
-			richListItemRow: { flexDirection: "row", columnGap: metrics.gapX(1 / 3), alignItems: "flex-start" },
-			richListItemMarker: { ...bodyText, width: metadata.typography.body.fontSize, textAlign: r.listMarkerTextAlign },
-			richListItemContent: { flex: 1, ...bodyText },
+			div: {
+				rowGap: metrics.gapY(0.125),
+				columnGap: metrics.gapX(1 / 3),
+			},
+			inline: {
+				flexDirection: r.row,
+				alignItems: "center",
+				columnGap: metrics.gapX(1 / 3),
+			},
+			link: {
+				textDecoration: "none",
+				color: foreground,
+			},
+			small: {
+				fontSize: metadata.typography.body.fontSize * 0.875,
+			},
+			bold: {
+				fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600",
+			},
+			richParagraph: {
+				margin: 0,
+				...bodyText,
+			},
+			richListItemRow: {
+				flexDirection: "row",
+				columnGap: metrics.gapX(1 / 3),
+				alignItems: "flex-start",
+			},
+			richListItemMarker: {
+				...bodyText,
+				width: metadata.typography.body.fontSize,
+				textAlign: r.listMarkerTextAlign,
+			},
+			richListItemContent: {
+				...bodyText,
+				flex: 1,
+				lineHeight: metadata.typography.body.lineHeight * 0.5,
+			},
 			splitRow: {
 				flexDirection: r.row,
 				flexWrap: "wrap",
@@ -170,7 +199,9 @@ const useLaprasTemplate = (): LaprasTemplate => {
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignEnd: { ...r.alignEnd },
+			alignEnd: {
+				...r.alignEnd,
+			},
 			section: {
 				flexDirection: "column",
 				rowGap: metrics.gapY(0.25),
@@ -186,10 +217,18 @@ const useLaprasTemplate = (): LaprasTemplate => {
 				backgroundColor: background,
 				paddingHorizontal: metrics.gapX(1),
 			},
-			item: { rowGap: metrics.gapY(0.125) },
-			levelContainer: { width: "100%" },
-			levelItem: { borderColor: primary },
-			levelItemActive: { backgroundColor: primary },
+			item: {
+				rowGap: metrics.gapY(0.125),
+			},
+			levelContainer: {
+				width: "100%",
+			},
+			levelItem: {
+				borderColor: primary,
+			},
+			levelItemActive: {
+				backgroundColor: primary,
+			},
 			header: {
 				flexDirection: r.row,
 				alignItems: "center",
@@ -212,16 +251,28 @@ const useLaprasTemplate = (): LaprasTemplate => {
 				shadowWidth: picture.shadowWidth,
 				transform: `rotate(${picture.rotation}deg)`,
 			},
-			headerTitle: { rowGap: metrics.gapY(0.5) },
-			headerIdentity: { ...r.headerIdentity, rowGap: metrics.gapY(0.35) },
-			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: headerNameLineHeight },
+			headerTitle: {
+				rowGap: metrics.gapY(0.5),
+			},
+			headerIdentity: {
+				...r.headerIdentity,
+				rowGap: metrics.gapY(0.35),
+			},
+			headerName: {
+				fontSize: metadata.typography.heading.fontSize * 1.5,
+				lineHeight: headerNameLineHeight,
+			},
 			contactList: {
 				flexDirection: r.row,
 				flexWrap: "wrap",
 				rowGap: metrics.gapY(0.125),
 				columnGap: metrics.gapX(0.5),
 			},
-			contactItem: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 6) },
+			contactItem: {
+				flexDirection: r.row,
+				alignItems: "center",
+				columnGap: metrics.gapX(1 / 6),
+			},
 			sectionGroup: {},
 		});
 

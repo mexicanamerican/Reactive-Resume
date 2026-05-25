@@ -146,15 +146,45 @@ const useScizorTemplate = (): ScizorTemplate => {
 				color: foreground,
 				...r.text,
 			},
-			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
-			inline: { flexDirection: r.row, alignItems: "center", columnGap: metrics.gapX(1 / 3) },
-			link: { textDecoration: "none", color: foreground },
-			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
-			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "700", color: foreground },
-			richParagraph: { margin: 0, ...bodyText },
-			richListItemRow: { flexDirection: "row", columnGap: metrics.gapX(1 / 3), alignItems: "flex-start" },
-			richListItemMarker: { ...bodyText, width: metadata.typography.body.fontSize, textAlign: r.listMarkerTextAlign },
-			richListItemContent: { flex: 1, ...bodyText },
+			div: {
+				rowGap: metrics.gapY(0.125),
+				columnGap: metrics.gapX(1 / 3),
+			},
+			inline: {
+				flexDirection: r.row,
+				alignItems: "center",
+				columnGap: metrics.gapX(1 / 3),
+			},
+			link: {
+				textDecoration: "none",
+				color: foreground,
+			},
+			small: {
+				fontSize: metadata.typography.body.fontSize * 0.875,
+			},
+			bold: {
+				fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "700",
+				color: foreground,
+			},
+			richParagraph: {
+				margin: 0,
+				...bodyText,
+			},
+			richListItemRow: {
+				flexDirection: "row",
+				columnGap: metrics.gapX(1 / 3),
+				alignItems: "flex-start",
+			},
+			richListItemMarker: {
+				...bodyText,
+				width: metadata.typography.body.fontSize,
+				textAlign: r.listMarkerTextAlign,
+			},
+			richListItemContent: {
+				...bodyText,
+				flex: 1,
+				lineHeight: metadata.typography.body.lineHeight * 0.5,
+			},
 			splitRow: {
 				flexDirection: r.row,
 				flexWrap: "wrap",
@@ -162,7 +192,9 @@ const useScizorTemplate = (): ScizorTemplate => {
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignEnd: { ...r.alignEnd },
+			alignEnd: {
+				...r.alignEnd,
+			},
 			section: {
 				flexDirection: "column",
 				rowGap: metrics.gapY(0.25),
@@ -176,18 +208,32 @@ const useScizorTemplate = (): ScizorTemplate => {
 				fontWeight: metadata.typography.heading.fontWeights.at(-1) ?? "700",
 				textTransform: "uppercase",
 			},
-			sectionItems: { rowGap: metrics.itemGapY },
-			item: { rowGap: metrics.gapY(0.125) },
-			levelContainer: { width: "100%" },
-			levelItem: { borderColor: primary },
-			levelItemActive: { backgroundColor: primary },
+			sectionItems: {
+				rowGap: metrics.itemGapY,
+			},
+			item: {
+				rowGap: metrics.gapY(0.125),
+			},
+			levelContainer: {
+				width: "100%",
+			},
+			levelItem: {
+				borderColor: primary,
+			},
+			levelItemActive: {
+				backgroundColor: primary,
+			},
 			header: {
 				flexDirection: r.row,
 				alignItems: "flex-start",
 				columnGap: metrics.gapX(1),
 				paddingBottom: metrics.gapY(0.35),
 			},
-			headerIdentity: { flex: 1, ...r.headerIdentity, rowGap: metrics.gapY(0.45) },
+			headerIdentity: {
+				flex: 1,
+				...r.headerIdentity,
+				rowGap: metrics.gapY(0.45),
+			},
 			headerName: {
 				color: foreground,
 				fontSize: metadata.typography.heading.fontSize * 1.85,
@@ -198,7 +244,9 @@ const useScizorTemplate = (): ScizorTemplate => {
 				borderBottomWidth: 2,
 				borderBottomColor: divider,
 			},
-			headerHeadline: { color: foreground },
+			headerHeadline: {
+				color: foreground,
+			},
 			headerContactRow: {
 				flexDirection: r.row,
 				flexWrap: "wrap",
@@ -223,7 +271,9 @@ const useScizorTemplate = (): ScizorTemplate => {
 				shadowWidth: picture.shadowWidth,
 				transform: `rotate(${picture.rotation}deg)`,
 			},
-			sections: { flexDirection: "column" },
+			sections: {
+				flexDirection: "column",
+			},
 		});
 
 		const accentFor = ({ colors }: TemplateStyleContext) => colors.primary;
