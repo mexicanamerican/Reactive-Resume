@@ -57,6 +57,39 @@ const isInlineNode = (node: Node): boolean => {
 	return inlineTags.has(getTagName(node)) && !hasBlockDescendant(node);
 };
 
+// Allow optional leading whitespace + LRM/RLM marks before the bullet character.
+const PSEUDO_BULLET_LEAD = /^[\s‎‏]*[-•*]\s+/;
+
+const stripEmptyInlineWrappers = (html: string): string =>
+	html.replace(/<(strong|b|em|i|u|span)\b[^>]*>\s*<\/\1>/gi, "");
+
+// Treat a bare <br> or one wrapped in an inline tag (e.g. `<strong><br></strong>` from
+// the editor) as the segment separator.
+const splitByBreaks = (html: string): string[] =>
+	html.split(/(?:<(?:strong|b|em|i|u|span)\b[^>]*>\s*<br\b[^>]*\/?>\s*<\/(?:strong|b|em|i|u|span)>)|<br\b[^>]*\/?>/gi);
+
+const tryConvertPseudoBulletParagraph = (paragraphInnerHtml: string): string | null => {
+	const cleaned = stripEmptyInlineWrappers(paragraphInnerHtml);
+	if (!/<br\b/i.test(cleaned)) return null;
+
+	const segments = splitByBreaks(cleaned)
+		.map((segment) => segment.trim())
+		.filter((segment) => segment.length > 0);
+
+	if (segments.length < 2) return null;
+	if (!segments.every((segment) => PSEUDO_BULLET_LEAD.test(segment))) return null;
+
+	const items = segments.map((segment) => segment.replace(PSEUDO_BULLET_LEAD, ""));
+
+	return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+};
+
+export const convertPseudoBulletParagraphs = (html: string): string =>
+	html.replace(/<p\b([^>]*)>([\s\S]*?)<\/p>/gi, (full, _attrs, inner) => {
+		const converted = tryConvertPseudoBulletParagraph(inner);
+		return converted ?? full;
+	});
+
 export const normalizeRichTextHtml = (html: string): string => {
 	const root = parse(html.trim(), { comment: false });
 	const normalized: string[] = [];

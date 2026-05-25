@@ -21,6 +21,7 @@ import type { StyleInput, TemplatePlacement } from "./styles";
 import type { CustomItemSection, ItemSection } from "./types";
 import { Children, createContext, isValidElement, use } from "react";
 import { match } from "ts-pattern";
+import { isRTL } from "@reactive-resume/utils/locale";
 import { useRender } from "../../context";
 import { View } from "../../renderer";
 import { getResumeSectionTitle } from "../../section-title";
@@ -117,6 +118,8 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 		columns: layout.columns,
 	});
 	const context = { itemStyle: layout.itemStyle, useTimeline };
+	const rtl = isRTL(data.metadata.page.locale);
+	const rtlRowStyle = rtl ? { flexDirection: "row-reverse" as const } : undefined;
 
 	if (!useTimeline) {
 		if (layout.isGrid) {
@@ -126,7 +129,7 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 				<SectionItemsContext.Provider value={context}>
 					<View style={composeStyles(layout.containerStyle, sectionItemsStyle)}>
 						{rows.map((row, rowIndex) => (
-							<View key={getRowKey(row, rowIndex)} style={composeStyles(layout.rowStyle)}>
+							<View key={getRowKey(row, rowIndex)} style={composeStyles(layout.rowStyle, rtlRowStyle)}>
 								{row}
 								{SECTION_ITEM_PLACEHOLDER_KEYS.slice(0, layout.columns - row.length).map((placeholderKey) => (
 									<View key={placeholderKey} style={composeStyles(layout.itemStyle)} />

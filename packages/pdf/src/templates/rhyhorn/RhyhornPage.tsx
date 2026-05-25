@@ -4,6 +4,7 @@ import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
 import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
+import { isRTL } from "@reactive-resume/utils/locale";
 import { useRender } from "../../context";
 import { Image, Page, StyleSheet, View } from "../../renderer";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
@@ -161,6 +162,7 @@ const useRhyhornTemplate = (): RhyhornTemplate => {
 		const primary = rgbaStringToHex(metadata.design.colors.primary);
 		const colors: TemplateColorRoles = { foreground, background, primary };
 		const metrics = getTemplateMetrics(metadata.page);
+		const rtl = isRTL(metadata.page.locale);
 
 		const bodyText = {
 			fontFamily: metadata.typography.body.fontFamily,
@@ -168,6 +170,7 @@ const useRhyhornTemplate = (): RhyhornTemplate => {
 			fontWeight: metadata.typography.body.fontWeights[0] ?? "400",
 			lineHeight: metadata.typography.body.lineHeight,
 			color: foreground,
+			...(rtl ? { direction: "rtl" as const, textAlign: "right" as const } : {}),
 		} satisfies Style;
 
 		const baseStyles = StyleSheet.create({
@@ -180,6 +183,7 @@ const useRhyhornTemplate = (): RhyhornTemplate => {
 				fontFamily: metadata.typography.body.fontFamily,
 				fontSize: metadata.typography.body.fontSize,
 				lineHeight: metadata.typography.body.lineHeight,
+				direction: rtl ? "rtl" : "ltr",
 			},
 			text: bodyText,
 			heading: {
@@ -188,49 +192,80 @@ const useRhyhornTemplate = (): RhyhornTemplate => {
 				fontWeight: metadata.typography.heading.fontWeights.at(-1) ?? "600",
 				lineHeight: metadata.typography.heading.lineHeight,
 				color: foreground,
+				...(rtl ? { direction: "rtl" as const, textAlign: "right" as const } : {}),
 			},
 			div: { rowGap: metrics.gapY(0.125), columnGap: metrics.gapX(1 / 3) },
-			inline: { flexDirection: "row", alignItems: "center", columnGap: metrics.gapX(1 / 3) },
+			inline: { flexDirection: rtl ? "row-reverse" : "row", alignItems: "center", columnGap: metrics.gapX(1 / 3) },
 			link: { textDecoration: "none", color: foreground },
 			small: { fontSize: metadata.typography.body.fontSize * 0.875 },
 			bold: { fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600" },
 			richParagraph: { margin: 0, ...bodyText },
-			richListItemRow: { flexDirection: "row", columnGap: metrics.gapX(1 / 3), alignItems: "flex-start" },
-			richListItemMarker: { width: metadata.typography.body.fontSize, textAlign: "right", ...bodyText },
+			richListItemRow: {
+				// Stays `row` for both LTR and RTL; the <li> renderer swaps DOM order for RTL.
+				flexDirection: "row",
+				columnGap: metrics.gapX(1 / 3),
+				alignItems: "flex-start",
+			},
+			richListItemMarker: {
+				// bodyText spread first so `textAlign` below isn't clobbered by bodyText.textAlign.
+				...bodyText,
+				width: metadata.typography.body.fontSize,
+				textAlign: rtl ? "left" : "right",
+			},
 			richListItemContent: { flex: 1, ...bodyText },
 			splitRow: {
-				flexDirection: "row",
+				flexDirection: rtl ? "row-reverse" : "row",
 				flexWrap: "wrap",
 				alignItems: "flex-start",
 				justifyContent: "space-between",
 				columnGap: metrics.gapX(2 / 3),
 			},
-			alignRight: { textAlign: "right", minWidth: 0, maxWidth: "100%", flexShrink: 1 },
+			alignRight: { textAlign: rtl ? "left" : "right", minWidth: 0, maxWidth: "100%", flexShrink: 1 },
 			section: { flexDirection: "column", rowGap: metrics.gapY(0.25) },
-			sectionHeading: { color: primary, borderBottomWidth: 1, borderBottomColor: primary },
+			sectionHeading: {
+				color: primary,
+				borderBottomWidth: 1,
+				borderBottomColor: primary,
+				textAlign: rtl ? "right" : "left",
+			},
 			item: { rowGap: metrics.gapY(0.125) },
 			levelContainer: { width: "100%" },
 			levelItem: { borderColor: primary },
 			levelItemActive: { backgroundColor: primary },
-			header: { flexDirection: "row", alignItems: "center", columnGap: metrics.gapX(0.5) },
+			header: { flexDirection: rtl ? "row-reverse" : "row", alignItems: "center", columnGap: metrics.gapX(0.5) },
 			headerTitle: { flex: 1, rowGap: metrics.gapY(0.5) },
-			headerIdentity: { textAlign: "left", alignItems: "flex-start", rowGap: metrics.gapY(0.35) },
+			headerIdentity: {
+				textAlign: rtl ? "right" : "left",
+				alignItems: rtl ? "flex-end" : "flex-start",
+				rowGap: metrics.gapY(0.35),
+			},
 			headerName: { fontSize: metadata.typography.heading.fontSize * 1.5, lineHeight: headerNameLineHeight },
-			contactList: { flexDirection: "row", flexWrap: "wrap", rowGap: metrics.gapY(0.125) },
+			contactList: { flexDirection: rtl ? "row-reverse" : "row", flexWrap: "wrap", rowGap: metrics.gapY(0.125) },
 			contactItem: {
-				flexDirection: "row",
+				flexDirection: rtl ? "row-reverse" : "row",
 				alignItems: "center",
-				borderRightWidth: 1,
-				borderRightColor: primary,
-				paddingRight: metrics.gapX(0.5),
-				marginRight: metrics.gapX(0.5),
+				...(rtl
+					? {
+							borderLeftWidth: 1,
+							borderLeftColor: primary,
+							paddingLeft: metrics.gapX(0.5),
+							marginLeft: metrics.gapX(0.5),
+						}
+					: {
+							borderRightWidth: 1,
+							borderRightColor: primary,
+							paddingRight: metrics.gapX(0.5),
+							marginRight: metrics.gapX(0.5),
+						}),
 			},
 			contactItemContent: {
-				flexDirection: "row",
+				flexDirection: rtl ? "row-reverse" : "row",
 				alignItems: "center",
 				columnGap: metrics.gapX(1 / 6),
 			},
-			contactItemLast: { borderRightWidth: 0, paddingRight: 0, marginRight: 0 },
+			contactItemLast: rtl
+				? { borderLeftWidth: 0, paddingLeft: 0, marginLeft: 0 }
+				: { borderRightWidth: 0, paddingRight: 0, marginRight: 0 },
 			picture: {
 				width: picture.size,
 				height: picture.size,

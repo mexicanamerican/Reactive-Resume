@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { describe, expect, it } from "vitest";
 import { renderHtml } from "react-pdf-html";
 import { Text as PdfText } from "../../renderer";
-import { normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";
+import { convertPseudoBulletParagraphs, normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";
 
 type PdfElement = ReactElement<{ children?: unknown; element?: { tag: string } }>;
 
@@ -79,5 +79,56 @@ describe("normalizeRichTextHtml", () => {
 
 	it("does not double-wrap inline tags inside block elements", () => {
 		expect(normalizeRichTextHtml("<p><strong>x</strong></p>")).toBe("<p><strong>x</strong></p>");
+	});
+});
+
+describe("convertPseudoBulletParagraphs", () => {
+	it("converts a <p> of dash-prefixed lines into a <ul><li> list", () => {
+		expect(convertPseudoBulletParagraphs("<p>- a<br>- b<br>- c</p>")).toBe("<ul><li>a</li><li>b</li><li>c</li></ul>");
+	});
+
+	it("handles <br> wrapped in inline formatting tags (real editor output)", () => {
+		expect(convertPseudoBulletParagraphs("<p>- <strong></strong>foo.<strong><br></strong>- bar.</p>")).toBe(
+			"<ul><li>foo.</li><li>bar.</li></ul>",
+		);
+	});
+
+	it("accepts other bullet markers (• and *)", () => {
+		expect(convertPseudoBulletParagraphs("<p>• one<br>* two</p>")).toBe("<ul><li>one</li><li>two</li></ul>");
+	});
+
+	it("leaves a paragraph with a single inline <br> untouched", () => {
+		const input = "<p>Just a paragraph with a <br> line break.</p>";
+		expect(convertPseudoBulletParagraphs(input)).toBe(input);
+	});
+
+	it("leaves a single-line dash paragraph untouched (no <br>)", () => {
+		const input = "<p>- Just one line</p>";
+		expect(convertPseudoBulletParagraphs(input)).toBe(input);
+	});
+
+	it("does not convert when one segment lacks a leading bullet marker", () => {
+		const input = "<p>- foo<br>bar without dash</p>";
+		expect(convertPseudoBulletParagraphs(input)).toBe(input);
+	});
+
+	it("leaves a real <ul> alone", () => {
+		const input = "<ul><li>a</li><li>b</li></ul>";
+		expect(convertPseudoBulletParagraphs(input)).toBe(input);
+	});
+
+	it("only converts matching paragraphs in mixed input", () => {
+		const input = "<p>- a<br>- b</p><p>just a normal paragraph.</p>";
+		expect(convertPseudoBulletParagraphs(input)).toBe("<ul><li>a</li><li>b</li></ul><p>just a normal paragraph.</p>");
+	});
+
+	it("preserves non-empty inline formatting inside bullet text", () => {
+		expect(convertPseudoBulletParagraphs("<p>- foo <strong>bold</strong> bar<br>- baz</p>")).toBe(
+			"<ul><li>foo <strong>bold</strong> bar</li><li>baz</li></ul>",
+		);
+	});
+
+	it("tolerates BiDi marks (LRM/RLM) before the bullet character", () => {
+		expect(convertPseudoBulletParagraphs("<p>‏- א<br>‏- ב</p>")).toBe("<ul><li>א</li><li>ב</li></ul>");
 	});
 });
