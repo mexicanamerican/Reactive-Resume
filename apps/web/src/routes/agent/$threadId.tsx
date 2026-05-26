@@ -57,6 +57,7 @@ import { getOrpcErrorMessage } from "@/libs/error-message";
 import { client, orpc, streamClient } from "@/libs/orpc/client";
 import { AgentThreadSidebar } from "./-components/thread-sidebar";
 import { attachmentIdsFromTransportBody, buildAgentChatSubmission } from "./-helpers/chat-attachments";
+import { useAgentResumeUpdateSubscription } from "./-hooks/use-agent-resume-updates";
 
 type AgentThreadDetail = RouterOutput["agent"]["threads"]["get"];
 type AgentAction = AgentThreadDetail["actions"][number];
@@ -1218,6 +1219,7 @@ function RouteComponent() {
 	const [isThreadsCollapsed, setIsThreadsCollapsed] = useState(false);
 	const [isResumeCollapsed, setIsResumeCollapsed] = useState(false);
 	const { data, isLoading, error } = useQuery(orpc.agent.threads.get.queryOptions({ input: { id: threadId } }));
+	useAgentResumeUpdateSubscription({ resumeId: data?.resume?.id, threadId });
 
 	const toggleThreadsPanel = useCallback(() => {
 		const panel = threadsPanelRef.current;

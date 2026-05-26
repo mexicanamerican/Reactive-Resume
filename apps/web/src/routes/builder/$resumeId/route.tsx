@@ -8,11 +8,11 @@ import { useEffect, useRef } from "react";
 import { usePanelRef } from "react-resizable-panels";
 import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@reactive-resume/ui/components/resizable";
 import {
+	useBuilderResumeUpdateSubscription,
 	useInitializeResumeStore,
 	useMergeResumeMetadata,
 	useResumeCleanup,
 	useResumeStore,
-	useResumeUpdateSubscription,
 } from "@/features/resume/builder/draft";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { orpc } from "@/libs/orpc/client";
@@ -62,7 +62,7 @@ function RouteComponent() {
 	const isInitialized = isReady && initializedResumeId === resumeId;
 
 	useResumeCleanup();
-	useResumeUpdateSubscription();
+	useBuilderResumeUpdateSubscription();
 
 	useEffect(() => {
 		if (isInitialized) return;
