@@ -4,16 +4,10 @@ import type { StyleInput } from "./styles";
 import { Icon as PhosphorIcon } from "phosphor-icons-react-pdf/dynamic";
 import { Link as PdfLink, Text as PdfText, View } from "../../renderer";
 import { useTemplateIconSlot, useTemplateStyle } from "./context";
+import { safeTextStyle } from "./safe-text-style";
 import { composeLinkStyles, composeStyles } from "./styles";
 
 const asStyleInput = (style: unknown): StyleInput => style as StyleInput;
-
-export const safeTextStyle = {
-	minWidth: 0,
-	maxWidth: "100%",
-	flexShrink: 1,
-	overflow: "hidden",
-} satisfies Style;
 
 export const Div = ({ style, ...props }: ComponentProps<typeof View>) => {
 	const divStyle = useTemplateStyle("div");

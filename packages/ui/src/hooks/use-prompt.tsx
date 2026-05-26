@@ -96,8 +96,10 @@ export function PromptDialogProvider({ children }: { children: React.ReactNode }
 		[handleConfirm],
 	);
 
+	const contextValue = React.useMemo<PromptContextType>(() => ({ prompt }), [prompt]);
+
 	return (
-		<PromptContext.Provider value={{ prompt }}>
+		<PromptContext.Provider value={contextValue}>
 			{children}
 
 			<AlertDialog open={state.open} onOpenChange={(open) => !open && handleCancel()}>

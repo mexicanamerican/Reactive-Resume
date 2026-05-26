@@ -190,13 +190,8 @@ export function PdfCanvasPage({
 				</figcaption>
 			) : null}
 
-			<div
-				role="img"
-				aria-label={`Resume page ${pageNumber} of ${totalPages}`}
-				style={scaledPageSize}
-				className={cn("aspect-page overflow-hidden rounded-md", className)}
-			>
-				<canvas ref={canvasRef} />
+			<div style={scaledPageSize} className={cn("aspect-page overflow-hidden rounded-md", className)}>
+				<canvas ref={canvasRef} aria-label={`Resume page ${pageNumber} of ${totalPages}`} />
 			</div>
 		</figure>
 	);

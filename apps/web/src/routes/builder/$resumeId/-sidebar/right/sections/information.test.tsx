@@ -47,6 +47,6 @@ describe("InformationSectionBuilder", () => {
 		renderInfo();
 		const docs = screen.getByText("Documentation").closest("a") as HTMLAnchorElement;
 		expect(docs.getAttribute("target")).toBe("_blank");
-		expect(docs.getAttribute("rel")).toBe("noopener");
+		expect(docs.getAttribute("rel")).toBe("noopener noreferrer");
 	});
 });

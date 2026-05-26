@@ -55,7 +55,14 @@ function PicturePreviewControls({
 }) {
 	return (
 		<div className="flex items-center gap-x-4">
-			<input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onUploadPicture} />
+			<input
+				ref={fileInputRef}
+				type="file"
+				accept="image/*"
+				aria-label={t`Upload picture`}
+				className="hidden"
+				onChange={onUploadPicture}
+			/>
 
 			<button
 				type="button"

@@ -994,6 +994,7 @@ function AgentChatComposer({
 						ref={fileInputRef}
 						type="file"
 						multiple
+						aria-label={t`Upload attachments`}
 						className="hidden"
 						onChange={(event) => onUploadFiles(event.target.files)}
 					/>

@@ -5,7 +5,6 @@ import { Html } from "react-pdf-html";
 import { useRender } from "../../context";
 import { Text as PdfText, View } from "../../renderer";
 import { useTemplateStyle } from "./context";
-import { safeTextStyle } from "./primitives";
 import { convertPseudoBulletParagraphs, normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";
 import { renderRichTextParagraph, toRichTextStyleArray } from "./rich-text-renderers";
 import {
@@ -15,6 +14,7 @@ import {
 	resolveRichTextBodyLineHeight,
 	stripRichTextVerticalMargins,
 } from "./rich-text-spacing";
+import { safeTextStyle } from "./safe-text-style";
 import { composeStyles, mergeLinkStyles, mergeStyles } from "./styles";
 
 const richListItemContentStackStyle = {

@@ -72,9 +72,11 @@ const tryConvertPseudoBulletParagraph = (paragraphInnerHtml: string): string | n
 	const cleaned = stripEmptyInlineWrappers(paragraphInnerHtml);
 	if (!/<br\b/i.test(cleaned)) return null;
 
-	const segments = splitByBreaks(cleaned)
-		.map((segment) => segment.trim())
-		.filter((segment) => segment.length > 0);
+	const segments: string[] = [];
+	for (const segment of splitByBreaks(cleaned)) {
+		const trimmed = segment.trim();
+		if (trimmed.length > 0) segments.push(trimmed);
+	}
 
 	if (segments.length < 2) return null;
 	if (!segments.every((segment) => PSEUDO_BULLET_LEAD.test(segment))) return null;

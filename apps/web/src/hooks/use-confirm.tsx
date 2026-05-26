@@ -64,8 +64,10 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
 		setState((prev) => ({ ...prev, open: false, resolve: null }));
 	}, [state.resolve]);
 
+	const contextValue = React.useMemo<ConfirmContextType>(() => ({ confirm }), [confirm]);
+
 	return (
-		<ConfirmContext.Provider value={{ confirm }}>
+		<ConfirmContext.Provider value={contextValue}>
 			{children}
 
 			<AlertDialog open={state.open} onOpenChange={(open) => !open && handleCancel()}>

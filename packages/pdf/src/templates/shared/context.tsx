@@ -10,7 +10,7 @@ import type {
 	TemplateStyleSlot,
 	TemplateStyleSlots,
 } from "./types";
-import { createContext, use } from "react";
+import { createContext, use, useMemo } from "react";
 
 type TemplateContextValue = {
 	styles: TemplateStyleSlots;
@@ -60,9 +60,12 @@ export const TemplateProvider = ({
 	features = EMPTY_FEATURES,
 	children,
 }: TemplateProviderProps) => {
-	return (
-		<TemplateContext.Provider value={{ styles, featureStyles, colors, features }}>{children}</TemplateContext.Provider>
+	const contextValue = useMemo<TemplateContextValue>(
+		() => ({ styles, featureStyles, colors, features }),
+		[colors, featureStyles, features, styles],
 	);
+
+	return <TemplateContext.Provider value={contextValue}>{children}</TemplateContext.Provider>;
 };
 
 export const TemplatePlacementProvider = ({

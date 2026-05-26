@@ -15,6 +15,7 @@
 		"#react-pdf-renderer": "@react-pdf/renderer"
 	},
 	"scripts": {
+		"doctor": "react-doctor",
 		"typecheck": "tsgo --noEmit",
 		"test": "vitest run --passWithNoTests",
 		"test:coverage": "vitest run --coverage --passWithNoTests",
@@ -38,6 +39,7 @@
 		"@reactive-resume/config": "workspace:*",
 		"@types/react": "^19.2.15",
 		"@typescript/native-preview": "7.0.0-dev.20260526.1",
+		"react-doctor": "^0.2.6",
 		"typescript": "^6.0.3"
 	}
 }

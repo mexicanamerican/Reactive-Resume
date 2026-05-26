@@ -98,8 +98,8 @@
 			"inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/.env*"],
 			"outputs": ["dist/**", ".vercel/**"]
 		},
-		"lint": {
-			"dependsOn": ["^lint"]
+		"doctor": {
+			"dependsOn": ["^doctor"]
 		},
 		"typecheck": {
 			"dependsOn": ["source"]

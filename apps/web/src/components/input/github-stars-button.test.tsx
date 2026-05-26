@@ -35,12 +35,12 @@ const renderButton = () =>
 	);
 
 describe("GithubStarsButton", () => {
-	it("renders an anchor pointing at the project repo with rel=noopener and target=_blank", () => {
+	it("renders an anchor pointing at the project repo with rel=noopener noreferrer and target=_blank", () => {
 		renderButton();
 		const link = screen.getByRole("button") as HTMLAnchorElement;
 		expect(link.href).toBe("https://github.com/amruthpillai/reactive-resume");
 		expect(link.target).toBe("_blank");
-		expect(link.rel).toBe("noopener");
+		expect(link.rel).toBe("noopener noreferrer");
 	});
 
 	it("uses the no-count aria-label when star count hasn't loaded yet", () => {
