@@ -4,6 +4,38 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.1.6" description="26th May 2026">
+## Highlights
+
+- **Right-to-left PDF support across all templates.** Resumes in RTL locales now mirror layout, alignment, and rich text direction consistently across every PDF template, not just Rhyhorn. [24c882fa9](https://github.com/amruthpillai/reactive-resume/commit/24c882fa9), [266bc291e](https://github.com/amruthpillai/reactive-resume/commit/266bc291e)
+- **More reliable social login for upgraded accounts.** OAuth sign-in now reconciles existing email-based accounts with legacy GitHub-linked profiles, so migrated users can sign back in without creating duplicate accounts. [86fff7237](https://github.com/amruthpillai/reactive-resume/commit/86fff7237)
+
+## Resume Rendering & Exports
+
+- Added shared RTL layout helpers and a single `rtl` flag on the PDF render provider, then migrated every template page to mirrored layout styles. [24c882fa9](https://github.com/amruthpillai/reactive-resume/commit/24c882fa9)
+- Fixed plain rich text rendering in PDFs by routing paragraph content through dedicated `PdfText` renderers. [24c882fa9](https://github.com/amruthpillai/reactive-resume/commit/24c882fa9)
+- Mapped legacy `Times New Roman` font selections to the PDF-compatible `Times-Roman` family so older resumes keep rendering correctly. [24c882fa9](https://github.com/amruthpillai/reactive-resume/commit/24c882fa9)
+- Reduced the default vertical gap between list items in PDF templates for tighter, more readable bullet and numbered lists. [17cddbad6](https://github.com/amruthpillai/reactive-resume/commit/17cddbad6)
+- Fixed color parsing for 3-digit hex values such as `#abc`, which previously failed to convert correctly in the builder. [273e17c0d](https://github.com/amruthpillai/reactive-resume/commit/273e17c0d)
+
+## Authentication
+
+- Added OAuth profile reconciliation that matches returning users by normalized email and legacy GitHub username/display name before creating a new account. [86fff7237](https://github.com/amruthpillai/reactive-resume/commit/86fff7237)
+
+## AI & Agent Workflows
+
+- Fixed Agent thread deletion to remove attachments and mark the thread deleted before storage cleanup, preventing inconsistent database state when storage cleanup fails partway through. [7557ab13a](https://github.com/amruthpillai/reactive-resume/commit/7557ab13a)
+
+## Docs & Maintenance
+
+- Updated the Docker quick-start guide to use a shallow clone for faster setup. Thanks to [@umairkhurshid](https://github.com/umairkhurshid). [75e944613](https://github.com/amruthpillai/reactive-resume/commit/75e944613)
+- Centralized RTL locale detection in `@reactive-resume/utils/locale` and removed duplicate web-side helpers. [c66560ee1](https://github.com/amruthpillai/reactive-resume/commit/c66560ee1)
+- Ran React Doctor lint passes, refreshed translations, and added dynamic imports where appropriate. [39e88dd36](https://github.com/amruthpillai/reactive-resume/commit/39e88dd36)
+- Updated workspace dependencies. [3596102c6](https://github.com/amruthpillai/reactive-resume/commit/3596102c6), [6ec4da791](https://github.com/amruthpillai/reactive-resume/commit/6ec4da791), [7eea6675c](https://github.com/amruthpillai/reactive-resume/commit/7eea6675c)
+
+**Full Changelog**: [v5.1.5...v5.1.6](https://github.com/amruthpillai/reactive-resume/compare/v5.1.5...v5.1.6)
+</Update>
+
 <Update label="v5.1.5" description="19th May 2026">
 <Note>
   **Self-hosters, please review your environment before upgrading.** The production image now runs a dedicated Hono
