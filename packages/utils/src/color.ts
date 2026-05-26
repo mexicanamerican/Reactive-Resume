@@ -2,8 +2,15 @@ import type { ColorResult } from "@uiw/color-convert";
 import { hsvaToHex, rgbaStringToHsva } from "@uiw/color-convert";
 
 export function rgbaStringToHex(rgba: string): string {
+	const color = parseColorString(rgba);
+	if (color) return `#${toHexComponent(color.r)}${toHexComponent(color.g)}${toHexComponent(color.b)}`;
+
 	const hsva = rgbaStringToHsva(rgba);
 	return hsvaToHex(hsva);
+}
+
+function toHexComponent(value: number): string {
+	return Math.max(0, Math.min(255, value)).toString(16).padStart(2, "0");
 }
 
 export function parseColorString(value: string): ColorResult["rgba"] | null {

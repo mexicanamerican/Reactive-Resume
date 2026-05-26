@@ -21,6 +21,11 @@ describe("rgbaStringToHex", () => {
 	it("converts arbitrary mid-range color", () => {
 		expect(rgbaStringToHex("rgb(128, 64, 200)")).toBe("#8040c8");
 	});
+
+	it("preserves 6-digit hex colors", () => {
+		expect(rgbaStringToHex("#F1F5F9")).toBe("#f1f5f9");
+		expect(rgbaStringToHex("#0F172A")).toBe("#0f172a");
+	});
 });
 
 describe("parseColorString", () => {
