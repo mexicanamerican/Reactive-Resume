@@ -79,7 +79,7 @@
 		"@types/node": "^25.9.1",
 		"@types/pg": "^8.20.0",
 		"@types/react": "^19.2.15",
-		"@typescript/native-preview": "7.0.0-dev.20260525.1",
+		"@typescript/native-preview": "7.0.0-dev.20260526.1",
 		"tsdown": "^0.22.0",
 		"tsx": "^4.22.3",
 		"typescript": "^6.0.3",
