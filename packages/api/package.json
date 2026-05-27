@@ -19,11 +19,11 @@
 		"test:agent": "vitest run --reporter=agent --reporter=json --outputFile.json=reports/vitest-results.json --passWithNoTests"
 	},
 	"dependencies": {
-		"@ai-sdk/anthropic": "^3.0.79",
-		"@ai-sdk/google": "^3.0.79",
+		"@ai-sdk/anthropic": "^3.0.80",
+		"@ai-sdk/google": "^3.0.80",
 		"@ai-sdk/openai": "^3.0.65",
 		"@ai-sdk/openai-compatible": "^2.0.48",
-		"@aws-sdk/client-s3": "^3.1054.0",
+		"@aws-sdk/client-s3": "^3.1055.0",
 		"@orpc/client": "^1.14.3",
 		"@orpc/experimental-ratelimit": "^1.14.3",
 		"@orpc/server": "^1.14.3",

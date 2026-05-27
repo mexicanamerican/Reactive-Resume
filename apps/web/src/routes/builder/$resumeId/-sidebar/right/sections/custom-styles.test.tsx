@@ -1,13 +1,14 @@
 // @vitest-environment happy-dom
 
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import type { StyleRule } from "@reactive-resume/schema/resume/data";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { isValidElement } from "react";
 
 const updateResumeData = vi.hoisted(() => vi.fn());
-const styleRules = vi.hoisted(() => [
+const styleRules = vi.hoisted<StyleRule[]>(() => [
 	{
 		id: "style-global-heading",
 		label: "All sections: Section heading",
@@ -35,7 +36,7 @@ vi.mock("@/features/resume/builder/draft", () => ({
 	useUpdateResumeData: () => updateResumeData,
 }));
 
-const { StylesSectionBuilder } = await import("./styles");
+const { CustomStylesSectionBuilder } = await import("./custom-styles");
 const { getSectionIcon, getSectionTitle } = await import("@/libs/resume/section");
 
 beforeAll(() => {
@@ -46,14 +47,19 @@ beforeEach(() => {
 	updateResumeData.mockClear();
 });
 
-const renderStyles = () =>
+const renderCustomStyles = () =>
 	render(
 		<I18nProvider i18n={i18n}>
-			<StylesSectionBuilder />
+			<CustomStylesSectionBuilder />
 		</I18nProvider>,
 	);
 
-describe("StylesSectionBuilder", () => {
+const chooseComboboxOption = async (label: string, option: string) => {
+	fireEvent.click(screen.getByLabelText(label));
+	fireEvent.click(await screen.findByRole("option", { name: option }));
+};
+
+describe("CustomStylesSectionBuilder", () => {
 	beforeEach(() => {
 		styleRules.splice(0, styleRules.length);
 		styleRules.push({
@@ -65,8 +71,8 @@ describe("StylesSectionBuilder", () => {
 		});
 	});
 
-	it("renders structured style rule controls", () => {
-		renderStyles();
+	it("renders structured style rule controls", async () => {
+		renderCustomStyles();
 
 		expect(screen.getByLabelText("Target Scope")).toBeInTheDocument();
 		expect(screen.getByLabelText("Style Slot")).toBeInTheDocument();
@@ -91,18 +97,18 @@ describe("StylesSectionBuilder", () => {
 		expect(screen.getByLabelText("Row Gap")).toBeInTheDocument();
 		expect(screen.getByLabelText("Column Gap")).toBeInTheDocument();
 		expect(screen.getByLabelText("Border Style")).toBeInTheDocument();
-		expect(screen.getByRole("option", { name: "Section heading" })).toBeInTheDocument();
+		fireEvent.click(screen.getByLabelText("Style Slot"));
+		expect(await screen.findByRole("option", { name: "Section heading" })).toBeInTheDocument();
 		expect(screen.getByRole("option", { name: "List" })).toBeInTheDocument();
 		expect(screen.getByRole("option", { name: "List item content" })).toBeInTheDocument();
 		expect(screen.queryByRole("option", { name: "Bullet or number" })).not.toBeInTheDocument();
 	});
 
 	it("labels the empty font weight option as default", () => {
-		renderStyles();
+		renderCustomStyles();
 
-		const fontWeightSelect = screen.getByLabelText("Font Weight");
-		expect(within(fontWeightSelect).getByRole("option", { name: "Default" })).toBeInTheDocument();
-		expect(within(fontWeightSelect).queryByRole("option", { name: "Template default" })).not.toBeInTheDocument();
+		expect(screen.getByLabelText("Font Weight")).toHaveTextContent("Default");
+		expect(screen.queryByText("Template default")).not.toBeInTheDocument();
 	});
 
 	it("renames the sidebar entry and uses a distinct icon from design", () => {
@@ -117,7 +123,7 @@ describe("StylesSectionBuilder", () => {
 
 	it("upserts one style rule for the selected target and slot", () => {
 		styleRules.splice(0, styleRules.length);
-		renderStyles();
+		renderCustomStyles();
 
 		fireEvent.change(screen.getByLabelText("Text Color"), { target: { value: "rgba(220, 38, 38, 1)" } });
 
@@ -139,13 +145,16 @@ describe("StylesSectionBuilder", () => {
 
 	it("stores padding as per-side values", () => {
 		styleRules.splice(0, styleRules.length);
-		renderStyles();
+		renderCustomStyles();
 
 		expect(screen.queryByLabelText("Padding")).not.toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Top")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Right")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Bottom")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Left")).toBeInTheDocument();
+		expect(screen.getByLabelText("Padding Top").closest("div")?.parentElement).toHaveClass(
+			"grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+		);
 
 		fireEvent.change(screen.getByLabelText("Padding Top"), { target: { value: "12" } });
 
@@ -165,11 +174,11 @@ describe("StylesSectionBuilder", () => {
 		]);
 	});
 
-	it("stores text decoration intent", () => {
+	it("stores text decoration intent", async () => {
 		styleRules.splice(0, styleRules.length);
-		renderStyles();
+		renderCustomStyles();
 
-		fireEvent.change(screen.getByLabelText("Text Decoration"), { target: { value: "underline" } });
+		await chooseComboboxOption("Text Decoration", "Underline");
 
 		expect(updateResumeData).toHaveBeenCalledTimes(1);
 		const recipe = updateResumeData.mock.calls[0]?.[0] as (draft: { metadata: { styleRules: unknown[] } }) => void;
@@ -189,7 +198,7 @@ describe("StylesSectionBuilder", () => {
 
 	it("stores margin and gap intent", () => {
 		styleRules.splice(0, styleRules.length);
-		renderStyles();
+		renderCustomStyles();
 
 		expect(screen.getByLabelText("Margin Bottom")).toHaveAttribute("min", "-72");
 		expect(screen.getByLabelText("Row Gap")).toHaveAttribute("min", "-72");
@@ -230,11 +239,11 @@ describe("StylesSectionBuilder", () => {
 		]);
 	});
 
-	it("stores list slot rules for rich text lists", () => {
+	it("stores list slot rules for rich text lists", async () => {
 		styleRules.splice(0, styleRules.length);
-		renderStyles();
+		renderCustomStyles();
 
-		fireEvent.change(screen.getByLabelText("Style Slot"), { target: { value: "richList" } });
+		await chooseComboboxOption("Style Slot", "List");
 		fireEvent.change(screen.getByLabelText("Row Gap"), { target: { value: "8" } });
 
 		expect(updateResumeData).toHaveBeenCalledTimes(1);
@@ -254,7 +263,7 @@ describe("StylesSectionBuilder", () => {
 	});
 
 	it("can reset the selected style rule", () => {
-		renderStyles();
+		renderCustomStyles();
 
 		fireEvent.click(screen.getByRole("button", { name: "Reset Style" }));
 
@@ -288,12 +297,25 @@ describe("StylesSectionBuilder", () => {
 	});
 
 	it("lists applied style rules and toggles individual rules", () => {
-		renderStyles();
+		styleRules.push({
+			id: "style-global-section",
+			label: "All sections: Section container",
+			enabled: false,
+			target: { scope: "global" },
+			slots: { section: { paddingTop: 4 } },
+		});
+		renderCustomStyles();
 
 		expect(screen.getByText("Applied Rules")).toBeInTheDocument();
-		expect(screen.getByText("All sections: Section heading")).toBeInTheDocument();
+		expect(screen.queryByRole("button", { name: "Manage Rules" })).not.toBeInTheDocument();
+		expect(screen.queryByText("All sections: Section heading")).not.toBeInTheDocument();
+		expect(screen.queryByText("Off")).not.toBeInTheDocument();
+		expect(screen.getAllByText("All sections").length).toBeGreaterThan(0);
+		expect(screen.getAllByText("Section heading").length).toBeGreaterThan(0);
+		expect(screen.queryByRole("switch")).not.toBeInTheDocument();
+		expect(screen.getByRole("button", { name: "Enable All sections: Section container" })).toBeInTheDocument();
 
-		fireEvent.click(screen.getByLabelText("Toggle All sections: Section heading"));
+		fireEvent.click(screen.getByRole("button", { name: "Disable All sections: Section heading" }));
 
 		expect(updateResumeData).toHaveBeenCalledTimes(1);
 		const recipe = updateResumeData.mock.calls[0]?.[0] as (draft: {
@@ -305,18 +327,21 @@ describe("StylesSectionBuilder", () => {
 		expect(draft.metadata.styleRules[0]?.enabled).toBe(false);
 	});
 
-	it("opens a manage rules dialog with editable rule fields", () => {
-		renderStyles();
+	it("loads a selected applied rule into the editor form", () => {
+		styleRules.push({
+			id: "style-section-type-experience-richListItemContent",
+			label: "Experience: List item content",
+			enabled: true,
+			target: { scope: "sectionType", sectionType: "experience" },
+			slots: { richListItemContent: { lineHeight: 1.4 } },
+		});
+		renderCustomStyles();
 
-		fireEvent.click(screen.getByRole("button", { name: "Manage Rules" }));
+		fireEvent.click(screen.getByRole("button", { name: "Edit Experience: List item content" }));
 
-		expect(screen.getByRole("dialog")).toBeInTheDocument();
-		expect(screen.getByText("Manage Style Rules")).toBeInTheDocument();
-		expect(screen.getByLabelText("Rule Label")).toHaveValue("All sections: Section heading");
-		expect(screen.getByLabelText("Dialog Text Color")).toHaveValue("rgba(220, 38, 38, 1)");
-		expect(screen.getByLabelText("Dialog Padding Top")).toBeInTheDocument();
-		expect(screen.getByLabelText("Dialog Padding Right")).toBeInTheDocument();
-		expect(screen.getByLabelText("Dialog Padding Bottom")).toBeInTheDocument();
-		expect(screen.getByLabelText("Dialog Padding Left")).toBeInTheDocument();
+		expect(screen.getByLabelText("Target Scope")).toHaveTextContent("Section type");
+		expect(screen.getByLabelText("Section Type")).toHaveTextContent("Experience");
+		expect(screen.getByLabelText("Style Slot")).toHaveTextContent("List item content");
+		expect(screen.getByLabelText("Line Height")).toHaveValue(1.4);
 	});
 });

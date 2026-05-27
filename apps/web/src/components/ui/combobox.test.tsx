@@ -32,6 +32,14 @@ describe("Combobox", () => {
 		expect(screen.getAllByText("Beta").length).toBeGreaterThan(0);
 	});
 
+	it("places the clear action inside the trigger footprint", () => {
+		const { container } = wrap(<Combobox options={[...options]} value="beta" showClear />);
+
+		expect(screen.getByRole("button", { name: "Clear selection" })).toHaveClass("absolute", "end-7");
+		expect(screen.getByRole("combobox")).not.toHaveClass("pe-14");
+		expect(container.querySelector("[data-slot='combobox-trigger'] > span")).toHaveClass("pe-7");
+	});
+
 	it("renders all option labels for the multi-select default values", () => {
 		wrap(<Combobox multiple options={[...options]} defaultValue={["alpha", "gamma"]} />);
 		expect(screen.getAllByText(/Alpha/).length).toBeGreaterThan(0);

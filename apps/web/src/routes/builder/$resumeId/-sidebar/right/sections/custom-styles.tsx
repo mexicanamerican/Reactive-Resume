@@ -5,26 +5,19 @@ import type {
 	StyleRuleTarget,
 	StyleSlot,
 } from "@reactive-resume/schema/resume/data";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
+import type { ComboboxOption } from "@/components/ui/combobox";
 import { Trans } from "@lingui/react/macro";
-import { SlidersHorizontalIcon, TrashSimpleIcon } from "@phosphor-icons/react";
+import { EyeIcon, EyeSlashIcon, PencilSimpleIcon, TrashSimpleIcon } from "@phosphor-icons/react";
 import { useMemo, useState } from "react";
 import { sectionTypeSchema } from "@reactive-resume/schema/resume/data";
-import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogHeader,
-	DialogTitle,
-} from "@reactive-resume/ui/components/dialog";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Separator } from "@reactive-resume/ui/components/separator";
-import { Switch } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
 import { ColorPicker } from "@/components/input/color-picker";
+import { Combobox } from "@/components/ui/combobox";
 import { useCurrentResume, useUpdateResumeData } from "@/features/resume/builder/draft";
 import { getSectionTitle } from "@/libs/resume/section";
 import { SectionBase } from "../shared/section-base";
@@ -36,6 +29,12 @@ type StyleSlotOption = {
 	label: string;
 	group: "Section" | "Rich text";
 };
+
+const targetScopeOptions: ComboboxOption<TargetScope>[] = [
+	{ value: "global", label: "All sections" },
+	{ value: "sectionType", label: "Section type" },
+	{ value: "sectionId", label: "Specific section" },
+];
 
 const styleSlotOptions: StyleSlotOption[] = [
 	{ value: "section", label: "Section container", group: "Section" },
@@ -55,10 +54,11 @@ const styleSlotOptions: StyleSlotOption[] = [
 	{ value: "richMark", label: "Highlight", group: "Rich text" },
 ];
 
-const groupedStyleSlotOptions: [StyleSlotOption["group"], StyleSlotOption[]][] = [
-	["Section", styleSlotOptions.filter((option) => option.group === "Section")],
-	["Rich text", styleSlotOptions.filter((option) => option.group === "Rich text")],
-];
+const styleSlotComboboxOptions: ComboboxOption<StyleSlot>[] = styleSlotOptions.map((option) => ({
+	value: option.value,
+	label: option.label,
+	keywords: [option.group],
+}));
 
 const fontWeightOptions = ["100", "200", "300", "400", "500", "600", "700", "800", "900"] as const;
 const fontStyleOptions = [
@@ -93,26 +93,32 @@ const borderStyleOptions = [
 	{ value: "dotted", label: "Dotted" },
 ] as const satisfies readonly { value: NonNullable<StyleIntent["borderStyle"]>; label: string }[];
 
-export function StylesSectionBuilder() {
+const controlGridClassName = "grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-3";
+const compactControlGridClassName = "grid grid-cols-[repeat(auto-fit,minmax(7rem,1fr))] gap-3";
+
+export function CustomStylesSectionBuilder() {
 	return (
 		<SectionBase type="styles" className="space-y-4">
-			<StylesSectionForm />
+			<CustomStylesSectionForm />
 		</SectionBase>
 	);
 }
 
-function StylesSectionForm() {
+function CustomStylesSectionForm() {
 	const resume = useCurrentResume();
 	const data = resume.data;
 	const updateResumeData = useUpdateResumeData();
-	const sectionOptions = useMemo(() => getSectionIdOptions(data), [data]);
+	const sectionOptions = useMemo<ComboboxOption<string>[]>(() => getSectionIdOptions(data), [data]);
+	const sectionTypeOptions = useMemo<ComboboxOption<string>[]>(
+		() => sectionTypeSchema.options.map((type) => ({ value: type, label: getSectionTitle(type) })),
+		[],
+	);
 	const styleRules = data.metadata.styleRules ?? [];
 
 	const [targetScope, setTargetScope] = useState<TargetScope>("global");
 	const [sectionType, setSectionType] = useState("summary");
 	const [sectionId, setSectionId] = useState("summary");
 	const [slot, setSlot] = useState<StyleSlot>("heading");
-	const [isManageDialogOpen, setManageDialogOpen] = useState(false);
 
 	const target = createTarget({ targetScope, sectionType, sectionId });
 	const ruleId = getStyleRuleId(target, slot);
@@ -161,26 +167,14 @@ function StylesSectionForm() {
 		});
 	};
 
-	const updateRuleLabel = (ruleId: string, label: string) => {
-		updateResumeData((draft) => {
-			const rule = (draft.metadata.styleRules ?? []).find((rule) => rule.id === ruleId);
-			if (rule) rule.label = label;
-		});
-	};
+	const editRule = (rule: StyleRule) => {
+		const nextSlot = getConfiguredSlots(rule)[0];
+		if (!nextSlot) return;
 
-	const updateRuleIntent = (ruleId: string, slot: StyleSlot, patch: Partial<StyleIntent>) => {
-		updateResumeData((draft) => {
-			const rules = draft.metadata.styleRules ?? [];
-			const ruleIndex = rules.findIndex((rule) => rule.id === ruleId);
-			const rule = rules[ruleIndex];
-			if (!rule) return;
-
-			const nextIntent = compactIntent({ ...(rule.slots[slot] ?? {}), ...patch });
-			if (Object.keys(nextIntent).length === 0) delete rule.slots[slot];
-			else rule.slots[slot] = nextIntent;
-
-			if (getConfiguredSlots(rule).length === 0) rules.splice(ruleIndex, 1);
-		});
+		setTargetScope(rule.target.scope);
+		if (rule.target.scope === "sectionType") setSectionType(rule.target.sectionType);
+		if (rule.target.scope === "sectionId") setSectionId(rule.target.sectionId);
+		setSlot(nextSlot);
 	};
 
 	const deleteRule = (ruleId: string) => {
@@ -191,59 +185,65 @@ function StylesSectionForm() {
 
 	return (
 		<div className="space-y-4">
-			<div className="grid @md:grid-cols-2 grid-cols-1 gap-3">
+			<div className={controlGridClassName}>
 				<Field label="Target Scope" id="style-target-scope">
-					<Select
+					<Combobox
 						id="style-target-scope"
+						options={targetScopeOptions}
 						value={targetScope}
-						onChange={(event) => setTargetScope(event.target.value as TargetScope)}
-					>
-						<option value="global">All sections</option>
-						<option value="sectionType">Section type</option>
-						<option value="sectionId">Specific section</option>
-					</Select>
+						onValueChange={(value) => {
+							if (value) setTargetScope(value);
+						}}
+						className="w-full"
+						placeholder="Target scope"
+						searchPlaceholder="Search scopes..."
+					/>
 				</Field>
 
 				{targetScope === "sectionType" && (
 					<Field label="Section Type" id="style-section-type">
-						<Select
+						<Combobox
 							id="style-section-type"
+							options={sectionTypeOptions}
 							value={sectionType}
-							onChange={(event) => setSectionType(event.target.value)}
-						>
-							{sectionTypeSchema.options.map((type) => (
-								<option key={type} value={type}>
-									{getSectionTitle(type)}
-								</option>
-							))}
-						</Select>
+							onValueChange={(value) => {
+								if (value) setSectionType(value);
+							}}
+							className="w-full"
+							placeholder="Section type"
+							searchPlaceholder="Search section types..."
+						/>
 					</Field>
 				)}
 
 				{targetScope === "sectionId" && (
 					<Field label="Section" id="style-section-id">
-						<Select id="style-section-id" value={sectionId} onChange={(event) => setSectionId(event.target.value)}>
-							{sectionOptions.map((option) => (
-								<option key={option.value} value={option.value}>
-									{option.label}
-								</option>
-							))}
-						</Select>
+						<Combobox
+							id="style-section-id"
+							options={sectionOptions}
+							value={sectionId}
+							onValueChange={(value) => {
+								if (value) setSectionId(value);
+							}}
+							className="w-full"
+							placeholder="Section"
+							searchPlaceholder="Search sections..."
+						/>
 					</Field>
 				)}
 
 				<Field label="Style Slot" id="style-slot">
-					<Select id="style-slot" value={slot} onChange={(event) => setSlot(event.target.value as StyleSlot)}>
-						{groupedStyleSlotOptions.map(([group, options]) => (
-							<optgroup key={group} label={group}>
-								{options.map((option) => (
-									<option key={option.value} value={option.value}>
-										{option.label}
-									</option>
-								))}
-							</optgroup>
-						))}
-					</Select>
+					<Combobox
+						id="style-slot"
+						options={styleSlotComboboxOptions}
+						value={slot}
+						onValueChange={(value) => {
+							if (value) setSlot(value);
+						}}
+						className="w-full"
+						placeholder="Style slot"
+						searchPlaceholder="Search style slots..."
+					/>
 				</Field>
 			</div>
 
@@ -263,18 +263,7 @@ function StylesSectionForm() {
 				data={data}
 				rules={styleRules}
 				onToggleRule={updateRuleEnabled}
-				onDeleteRule={deleteRule}
-				onManageRules={() => setManageDialogOpen(true)}
-			/>
-
-			<ManageStyleRulesDialog
-				data={data}
-				rules={styleRules}
-				open={isManageDialogOpen}
-				onOpenChange={setManageDialogOpen}
-				onToggleRule={updateRuleEnabled}
-				onUpdateRuleLabel={updateRuleLabel}
-				onUpdateRuleIntent={updateRuleIntent}
+				onEditRule={editRule}
 				onDeleteRule={deleteRule}
 			/>
 		</div>
@@ -283,23 +272,12 @@ function StylesSectionForm() {
 
 function Field({ label, id, children }: { label: string; id: string; children: ReactNode }) {
 	return (
-		<div className="space-y-2">
-			<Label htmlFor={id}>{label}</Label>
+		<div className="min-w-0 space-y-2">
+			<Label htmlFor={id} className="block min-w-0 text-pretty leading-snug">
+				{label}
+			</Label>
 			{children}
 		</div>
-	);
-}
-
-function Select({ className, ...props }: ComponentProps<"select">) {
-	return (
-		<select
-			className={cn(
-				"flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs outline-none transition-[color,box-shadow]",
-				"focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
-				className,
-			)}
-			{...props}
-		/>
 	);
 }
 
@@ -320,10 +298,11 @@ function ColorField({
 }) {
 	return (
 		<Field label={label} id={id}>
-			<div className="flex items-center gap-3">
+			<div className="flex min-w-0 items-center gap-2">
 				<ColorPicker value={value ?? fallback} defaultValue={fallback} onChange={(color) => onChange(color)} />
 				<Input
 					id={id}
+					className="min-w-0"
 					value={value ?? ""}
 					placeholder={placeholder}
 					onChange={(event) => onChange(event.target.value.trim() || undefined)}
@@ -356,6 +335,7 @@ function NumberInput({
 		<Field label={label} id={inputId}>
 			<Input
 				id={inputId}
+				className="tabular-nums"
 				value={value ?? ""}
 				type="number"
 				min={min}
@@ -374,31 +354,24 @@ function AppliedRulesList({
 	data,
 	rules,
 	onToggleRule,
+	onEditRule,
 	onDeleteRule,
-	onManageRules,
 }: {
 	data: ResumeData;
 	rules: StyleRule[];
 	onToggleRule: (ruleId: string, enabled: boolean) => void;
+	onEditRule: (rule: StyleRule) => void;
 	onDeleteRule: (ruleId: string) => void;
-	onManageRules: () => void;
 }) {
 	return (
 		<section className="space-y-3">
-			<div className="flex items-center justify-between gap-3">
-				<div className="space-y-0.5">
-					<h3 className="font-medium text-sm">
-						<Trans>Applied Rules</Trans>
-					</h3>
-					<p className="text-muted-foreground text-xs tabular-nums">
-						{rules.length} {rules.length === 1 ? <Trans>rule</Trans> : <Trans>rules</Trans>}
-					</p>
-				</div>
-
-				<Button type="button" variant="ghost" size="sm" onClick={onManageRules}>
-					<SlidersHorizontalIcon data-icon="inline-start" />
-					<Trans>Manage Rules</Trans>
-				</Button>
+			<div className="space-y-0.5">
+				<h3 className="font-medium text-sm">
+					<Trans>Applied Rules</Trans>
+				</h3>
+				<p className="text-muted-foreground text-xs tabular-nums">
+					{rules.length} {rules.length === 1 ? <Trans>rule</Trans> : <Trans>rules</Trans>}
+				</p>
 			</div>
 
 			{rules.length === 0 ? (
@@ -413,6 +386,7 @@ function AppliedRulesList({
 							data={data}
 							rule={rule}
 							onToggleRule={onToggleRule}
+							onEditRule={onEditRule}
 							onDeleteRule={onDeleteRule}
 						/>
 					))}
@@ -426,54 +400,58 @@ function AppliedRuleCard({
 	data,
 	rule,
 	onToggleRule,
+	onEditRule,
 	onDeleteRule,
 }: {
 	data: ResumeData;
 	rule: StyleRule;
 	onToggleRule: (ruleId: string, enabled: boolean) => void;
+	onEditRule: (rule: StyleRule) => void;
 	onDeleteRule: (ruleId: string) => void;
 }) {
 	const slots = getConfiguredSlots(rule);
 	const primaryIntent = slots[0] ? rule.slots[slots[0]] : undefined;
 	const fallbackLabel = getRuleFallbackLabel(data, rule);
+	const ruleLabel = rule.label || fallbackLabel;
+	const targetLabel = getTargetLabel(data, rule.target);
+	const slotLabel = slots.length > 0 ? slots.map(getSlotLabel).join(", ") : "No slot";
 
 	return (
 		<div className={cn("rounded-lg border bg-background/70 p-3 transition-opacity", !rule.enabled && "opacity-60")}>
 			<div className="flex items-start gap-3">
 				<div className="min-w-0 flex-1 space-y-2">
-					<div className="flex min-w-0 items-center gap-2">
-						<span className="min-w-0 truncate font-medium text-sm">{rule.label || fallbackLabel}</span>
-						{!rule.enabled && (
-							<Badge variant="outline" className="text-muted-foreground">
-								<Trans>Off</Trans>
-							</Badge>
-						)}
-					</div>
-
-					<div className="flex flex-wrap gap-1.5">
-						<Badge variant="secondary">{getTargetLabel(data, rule.target)}</Badge>
-						{slots.map((slot) => (
-							<Badge key={slot} variant="outline">
-								{getSlotLabel(slot)}
-							</Badge>
-						))}
+					<div className="flex min-w-0 flex-wrap items-center gap-2">
+						<RuleScopePill target={targetLabel} slot={slotLabel} />
 					</div>
 
 					{primaryIntent && <RulePropertySummary intent={primaryIntent} />}
 				</div>
 
 				<div className="flex shrink-0 items-center gap-1">
-					<Switch
-						size="sm"
-						checked={rule.enabled}
-						aria-label={`Toggle ${rule.label || fallbackLabel}`}
-						onCheckedChange={(checked) => onToggleRule(rule.id, checked)}
-					/>
 					<Button
 						type="button"
 						variant="ghost"
 						size="icon-xs"
-						aria-label={`Delete ${rule.label || fallbackLabel}`}
+						aria-label={`${rule.enabled ? "Disable" : "Enable"} ${ruleLabel}`}
+						aria-pressed={rule.enabled}
+						onClick={() => onToggleRule(rule.id, !rule.enabled)}
+					>
+						{rule.enabled ? <EyeIcon /> : <EyeSlashIcon />}
+					</Button>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon-xs"
+						aria-label={`Edit ${ruleLabel}`}
+						onClick={() => onEditRule(rule)}
+					>
+						<PencilSimpleIcon />
+					</Button>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon-xs"
+						aria-label={`Delete ${ruleLabel}`}
 						onClick={() => onDeleteRule(rule.id)}
 					>
 						<TrashSimpleIcon />
@@ -484,130 +462,13 @@ function AppliedRuleCard({
 	);
 }
 
-function ManageStyleRulesDialog({
-	data,
-	rules,
-	open,
-	onOpenChange,
-	onToggleRule,
-	onUpdateRuleLabel,
-	onUpdateRuleIntent,
-	onDeleteRule,
-}: {
-	data: ResumeData;
-	rules: StyleRule[];
-	open: boolean;
-	onOpenChange: (open: boolean) => void;
-	onToggleRule: (ruleId: string, enabled: boolean) => void;
-	onUpdateRuleLabel: (ruleId: string, label: string) => void;
-	onUpdateRuleIntent: (ruleId: string, slot: StyleSlot, patch: Partial<StyleIntent>) => void;
-	onDeleteRule: (ruleId: string) => void;
-}) {
+function RuleScopePill({ target, slot }: { target: string; slot: string }) {
 	return (
-		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="max-h-[min(760px,calc(100svh-2rem))] gap-4 sm:max-w-2xl">
-				<DialogHeader>
-					<DialogTitle>
-						<Trans>Manage Style Rules</Trans>
-					</DialogTitle>
-					<DialogDescription>
-						<Trans>Review and edit the style rules saved on this resume.</Trans>
-					</DialogDescription>
-				</DialogHeader>
-
-				{rules.length === 0 ? (
-					<div className="rounded-lg border border-dashed bg-muted/20 px-3 py-5 text-muted-foreground text-sm">
-						<Trans>No style rules yet.</Trans>
-					</div>
-				) : (
-					<div className="space-y-3">
-						{rules.map((rule) => (
-							<ManagedRuleCard
-								key={rule.id}
-								data={data}
-								rule={rule}
-								onToggleRule={onToggleRule}
-								onUpdateRuleLabel={onUpdateRuleLabel}
-								onUpdateRuleIntent={onUpdateRuleIntent}
-								onDeleteRule={onDeleteRule}
-							/>
-						))}
-					</div>
-				)}
-			</DialogContent>
-		</Dialog>
-	);
-}
-
-function ManagedRuleCard({
-	data,
-	rule,
-	onToggleRule,
-	onUpdateRuleLabel,
-	onUpdateRuleIntent,
-	onDeleteRule,
-}: {
-	data: ResumeData;
-	rule: StyleRule;
-	onToggleRule: (ruleId: string, enabled: boolean) => void;
-	onUpdateRuleLabel: (ruleId: string, label: string) => void;
-	onUpdateRuleIntent: (ruleId: string, slot: StyleSlot, patch: Partial<StyleIntent>) => void;
-	onDeleteRule: (ruleId: string) => void;
-}) {
-	const slots = getConfiguredSlots(rule);
-	const fallbackLabel = getRuleFallbackLabel(data, rule);
-	const labelId = `style-dialog-${slugify(rule.id)}-label`;
-
-	return (
-		<div className="space-y-3 rounded-lg border bg-background/70 p-3">
-			<div className="flex items-start gap-3">
-				<div className="min-w-0 flex-1 space-y-2">
-					<Field label="Rule Label" id={labelId}>
-						<Input
-							id={labelId}
-							value={rule.label}
-							onChange={(event) => onUpdateRuleLabel(rule.id, event.target.value)}
-						/>
-					</Field>
-
-					<div className="flex flex-wrap gap-1.5">
-						<Badge variant="secondary">{getTargetLabel(data, rule.target)}</Badge>
-						{slots.map((slot) => (
-							<Badge key={slot} variant="outline">
-								{getSlotLabel(slot)}
-							</Badge>
-						))}
-					</div>
-				</div>
-
-				<div className="flex shrink-0 items-center gap-1 pt-7">
-					<Switch
-						size="sm"
-						checked={rule.enabled}
-						aria-label={`Toggle ${rule.label || fallbackLabel}`}
-						onCheckedChange={(checked) => onToggleRule(rule.id, checked)}
-					/>
-					<Button
-						type="button"
-						variant="ghost"
-						size="icon-sm"
-						aria-label={`Delete ${rule.label || fallbackLabel}`}
-						onClick={() => onDeleteRule(rule.id)}
-					>
-						<TrashSimpleIcon />
-					</Button>
-				</div>
-			</div>
-
-			{slots.map((slot) => (
-				<RuleIntentEditor
-					key={slot}
-					idPrefix={`style-dialog-${slugify(rule.id)}-${slot}`}
-					intent={rule.slots[slot] ?? {}}
-					labelPrefix="Dialog"
-					onChange={(patch) => onUpdateRuleIntent(rule.id, slot, patch)}
-				/>
-			))}
+		<div className="inline-flex max-w-full overflow-hidden rounded-sm border border-border/80 bg-background text-xs shadow-xs">
+			<span className="min-w-0 max-w-32 truncate bg-secondary px-2.5 py-1 font-medium text-secondary-foreground">
+				{target}
+			</span>
+			<span className="min-w-0 max-w-40 truncate px-2.5 py-1 font-medium text-foreground">{slot}</span>
 		</div>
 	);
 }
@@ -628,7 +489,7 @@ function RuleIntentEditor({
 	return (
 		<div className="space-y-3">
 			<ControlPanel title="Color">
-				<div className="grid @md:grid-cols-2 grid-cols-1 gap-3">
+				<div className={controlGridClassName}>
 					<ColorField
 						label={`${labelStart}Text Color`}
 						id={`${idPrefix}-color`}
@@ -666,7 +527,7 @@ function RuleIntentEditor({
 			</ControlPanel>
 
 			<ControlPanel title="Text">
-				<div className="grid @md:grid-cols-2 grid-cols-1 gap-3">
+				<div className={controlGridClassName}>
 					<NumberInput
 						label={`${labelStart}Font Size`}
 						id={`${idPrefix}-font-size`}
@@ -746,7 +607,7 @@ function RuleIntentEditor({
 						<MarginSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
 					</ControlSubsection>
 					<ControlSubsection title="Gap">
-						<div className="grid @md:grid-cols-2 grid-cols-1 gap-3">
+						<div className={controlGridClassName}>
 							<NumberInput
 								label={`${labelStart}Row Gap`}
 								id={`${idPrefix}-row-gap`}
@@ -769,7 +630,7 @@ function RuleIntentEditor({
 			</ControlPanel>
 
 			<ControlPanel title="Border">
-				<div className="grid @md:grid-cols-3 grid-cols-1 gap-3">
+				<div className={controlGridClassName}>
 					<IntentSelectField
 						label={`${labelStart}Border Style`}
 						id={`${idPrefix}-border-style`}
@@ -835,23 +696,21 @@ function IntentSelectField<TValue extends string>({
 	label: string;
 	id: string;
 	value: TValue | undefined;
-	options: readonly { value: TValue; label: string }[];
+	options: readonly ComboboxOption<TValue>[];
 	onChange: (value: TValue | undefined) => void;
 }) {
 	return (
 		<Field label={label} id={id}>
-			<Select
+			<Combobox
 				id={id}
-				value={value ?? ""}
-				onChange={(event) => onChange((event.target.value || undefined) as TValue | undefined)}
-			>
-				<option value="">Default</option>
-				{options.map((option) => (
-					<option key={option.value} value={option.value}>
-						{option.label}
-					</option>
-				))}
-			</Select>
+				options={[...options]}
+				value={value ?? null}
+				onValueChange={(nextValue) => onChange(nextValue ?? undefined)}
+				className="w-full"
+				showClear
+				placeholder="Default"
+				searchPlaceholder={`Search ${label.toLowerCase()}...`}
+			/>
 		</Field>
 	);
 }
@@ -867,20 +726,23 @@ function FontWeightField({
 	value: StyleIntent["fontWeight"] | undefined;
 	onChange: (value: StyleIntent["fontWeight"] | undefined) => void;
 }) {
+	const options: ComboboxOption<NonNullable<StyleIntent["fontWeight"]>>[] = fontWeightOptions.map((weight) => ({
+		value: weight,
+		label: weight,
+	}));
+
 	return (
 		<Field label={label} id={id}>
-			<Select
+			<Combobox
 				id={id}
-				value={value ?? ""}
-				onChange={(event) => onChange((event.target.value || undefined) as StyleIntent["fontWeight"] | undefined)}
-			>
-				<option value="">Default</option>
-				{fontWeightOptions.map((weight) => (
-					<option key={weight} value={weight}>
-						{weight}
-					</option>
-				))}
-			</Select>
+				options={options}
+				value={value ?? null}
+				onValueChange={(nextValue) => onChange(nextValue ?? undefined)}
+				className="w-full"
+				showClear
+				placeholder="Default"
+				searchPlaceholder="Search font weights..."
+			/>
 		</Field>
 	);
 }
@@ -917,7 +779,7 @@ function PaddingSideInputs({
 	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
 
 	return (
-		<div className="grid @lg:grid-cols-4 grid-cols-2 gap-3">
+		<div className={compactControlGridClassName}>
 			{paddingSideOptions.map((side) => (
 				<NumberInput
 					key={side.property}
@@ -947,7 +809,7 @@ function MarginSideInputs({
 	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
 
 	return (
-		<div className="grid @lg:grid-cols-4 grid-cols-2 gap-3">
+		<div className={compactControlGridClassName}>
 			{marginSideOptions.map((side) => (
 				<NumberInput
 					key={side.property}

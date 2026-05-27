@@ -8,6 +8,7 @@ import { Copyright } from "@/components/ui/copyright";
 import { getSectionIcon, getSectionTitle, rightSidebarSections } from "@/libs/resume/section";
 import { BuilderSidebarEdge } from "../../-components/edge";
 import { useBuilderSidebar } from "../../-store/sidebar";
+import { CustomStylesSectionBuilder } from "./sections/custom-styles";
 import { DesignSectionBuilder } from "./sections/design";
 import { ExportSectionBuilder } from "./sections/export";
 import { InformationSectionBuilder } from "./sections/information";
@@ -17,7 +18,6 @@ import { PageSectionBuilder } from "./sections/page";
 import { ResumeAnalysisSectionBuilder } from "./sections/resume-analysis";
 import { SharingSectionBuilder } from "./sections/sharing";
 import { StatisticsSectionBuilder } from "./sections/statistics";
-import { StylesSectionBuilder } from "./sections/styles";
 import { TemplateSectionBuilder } from "./sections/template";
 import { TypographySectionBuilder } from "./sections/typography";
 
@@ -27,7 +27,7 @@ function getSectionComponent(type: RightSidebarSection) {
 		.with("layout", () => <LayoutSectionBuilder />)
 		.with("typography", () => <TypographySectionBuilder />)
 		.with("design", () => <DesignSectionBuilder />)
-		.with("styles", () => <StylesSectionBuilder />)
+		.with("styles", () => <CustomStylesSectionBuilder />)
 		.with("page", () => <PageSectionBuilder />)
 		.with("notes", () => <NotesSectionBuilder />)
 		.with("sharing", () => <SharingSectionBuilder />)

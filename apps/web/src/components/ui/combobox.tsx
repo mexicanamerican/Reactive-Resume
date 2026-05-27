@@ -147,6 +147,10 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 		[contains],
 	);
 
+	const hasSelectedValue = multiple
+		? Array.isArray(selectedValue) && selectedValue.length > 0
+		: selectedValue !== null && selectedValue !== undefined;
+
 	const listContent = (item: ComboboxOption<TValue>) => (
 		<ComboboxItem key={String(item.value)} value={item} disabled={item.disabled}>
 			{item.label}
@@ -166,7 +170,7 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 				)
 			}
 		>
-			<span className="min-w-0 flex-1 truncate text-left">
+			<span className={cn("min-w-0 flex-1 truncate text-left", showClear && hasSelectedValue && "pe-7")}>
 				<ComboboxValue placeholder={placeholder ?? t`Select...`} />
 			</span>
 		</ComboboxTrigger>
@@ -185,9 +189,15 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 			{...(multiple ? { multiple: true } : {})}
 		>
 			{showClear ? (
-				<div className="flex items-center gap-1">
+				<div className="relative w-full min-w-0">
 					{triggerNode}
-					<ComboboxClear disabled={disabled} />
+					{hasSelectedValue && (
+						<ComboboxClear
+							aria-label={t`Clear selection`}
+							disabled={disabled}
+							className="absolute end-7 top-1/2 z-10 -translate-y-1/2 text-muted-foreground opacity-70 hover:opacity-100 focus-visible:opacity-100"
+						/>
+					)}
 				</div>
 			) : (
 				triggerNode
