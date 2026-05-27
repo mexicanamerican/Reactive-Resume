@@ -580,5 +580,6 @@ export const sampleResumeData: ResumeData = {
 			},
 		},
 		notes: "",
+		styleRules: [],
 	},
 };

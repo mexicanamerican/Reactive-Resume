@@ -4,8 +4,8 @@ import { cloneElement, isValidElement } from "react";
 import { Html } from "react-pdf-html";
 import { useRender } from "../../context";
 import { Text as PdfText, View } from "../../renderer";
-import { useTemplateStyle } from "./context";
-import { convertPseudoBulletParagraphs, normalizeRichTextHtml, richTextMarkClassName } from "./rich-text-html";
+import { useSectionStyleRule, useTemplateStyle } from "./context";
+import { convertPseudoBulletParagraphs, normalizeRichTextHtml } from "./rich-text-html";
 import { renderRichTextParagraph, toRichTextStyleArray } from "./rich-text-renderers";
 import {
 	createRichTextProseSpacing,
@@ -14,15 +14,12 @@ import {
 	resolveRichTextBodyLineHeight,
 	stripRichTextVerticalMargins,
 } from "./rich-text-spacing";
+import { createRichTextStylesheet } from "./rich-text-stylesheet";
 import { safeTextStyle } from "./safe-text-style";
-import { composeStyles, mergeLinkStyles, mergeStyles } from "./styles";
+import { composeStyles } from "./styles";
 
 const richListItemContentStackStyle = {
 	flexDirection: "column",
-} satisfies Style;
-
-const richMarkStyle = {
-	backgroundColor: "#ffff00",
 } satisfies Style;
 
 // react-pdf textkit reads BiDi base direction from each run's own `direction` attribute
@@ -65,7 +62,19 @@ export const RichText = ({ children }: { children: string }) => {
 	const richListItemRowStyle = useTemplateStyle("richListItemRow");
 	const richListItemMarkerStyle = useTemplateStyle("richListItemMarker");
 	const richListItemContentStyle = useTemplateStyle("richListItemContent");
-	const bodyLineHeight = resolveRichTextBodyLineHeight(richParagraphStyle, richListItemContentStyle);
+	const richParagraphRuleStyle = useSectionStyleRule("richParagraph");
+	const richListRuleStyle = useSectionStyleRule("richList");
+	const richListItemRowRuleStyle = useSectionStyleRule("richListItemRow");
+	const richListItemContentRuleStyle = useSectionStyleRule("richListItemContent");
+	const richLinkRuleStyle = useSectionStyleRule("richLink");
+	const richBoldRuleStyle = useSectionStyleRule("richBold");
+	const richMarkRuleStyle = useSectionStyleRule("richMark");
+	const bodyLineHeight = resolveRichTextBodyLineHeight(
+		richParagraphStyle,
+		richParagraphRuleStyle,
+		richListItemContentStyle,
+		richListItemContentRuleStyle,
+	);
 	const proseSpacing = createRichTextProseSpacing(bodyLineHeight);
 
 	const normalized = normalizeRichTextHtml(children);
@@ -85,7 +94,9 @@ export const RichText = ({ children }: { children: string }) => {
 		<Html
 			resetStyles
 			renderers={{
-				b: ({ children }) => <PdfText style={composeStyles(boldStyle, safeTextStyle)}>{children}</PdfText>,
+				b: ({ children }) => (
+					<PdfText style={composeStyles(boldStyle, richBoldRuleStyle, safeTextStyle)}>{children}</PdfText>
+				),
 				p: (props) => {
 					const paragraphProps = {
 						...props,
@@ -111,7 +122,13 @@ export const RichText = ({ children }: { children: string }) => {
 					const contentNode = rtl ? (
 						<PdfText
 							key="content"
-							style={composeStyles(richListItemContentStyle, contentItemStyles, safeTextStyle, rtlTextWrapStyle)}
+							style={composeStyles(
+								richListItemContentStyle,
+								richListItemContentRuleStyle,
+								contentItemStyles,
+								safeTextStyle,
+								rtlTextWrapStyle,
+							)}
 						>
 							{applyRtlDirectionRecursively(children)}
 						</PdfText>
@@ -120,6 +137,7 @@ export const RichText = ({ children }: { children: string }) => {
 							key="content"
 							style={composeStyles(
 								richListItemContentStyle,
+								richListItemContentRuleStyle,
 								contentItemStyles,
 								richListItemContentStackStyle,
 								safeTextStyle,
@@ -132,20 +150,30 @@ export const RichText = ({ children }: { children: string }) => {
 					// Yoga ignores `flexDirection`/`direction` on rows inside react-pdf-html's <ul>
 					// (works fine for split-row/contact-list). Swap DOM order to position the marker.
 					return (
-						<View style={composeStyles(richListItemRowStyle, itemStyles, getRichTextEdgeTrimStyle(element))}>
+						<View
+							style={composeStyles(
+								richListItemRowStyle,
+								richListItemRowRuleStyle,
+								itemStyles,
+								getRichTextEdgeTrimStyle(element),
+							)}
+						>
 							{rtl ? [contentNode, markerNode] : [markerNode, contentNode]}
 						</View>
 					);
 				},
 			}}
-			stylesheet={{
-				b: mergeStyles(boldStyle, safeTextStyle),
-				strong: mergeStyles(boldStyle, safeTextStyle),
-				li: mergeStyles(proseSpacing.listItem),
-				[`.${richTextMarkClassName}`]: mergeStyles(richMarkStyle, safeTextStyle),
-				p: mergeStyles(richParagraphStyle, safeTextStyle, proseSpacing.paragraph),
-				a: mergeLinkStyles(linkStyle, safeTextStyle),
-			}}
+			stylesheet={createRichTextStylesheet({
+				boldStyle,
+				linkStyle,
+				richParagraphStyle,
+				richParagraphRuleStyle,
+				richListRuleStyle,
+				richBoldRuleStyle,
+				richLinkRuleStyle,
+				richMarkRuleStyle,
+				proseSpacing,
+			})}
 		>
 			{html}
 		</Html>

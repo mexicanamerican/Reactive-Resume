@@ -8,6 +8,8 @@ import {
 	pictureSchema,
 	resumeDataSchema,
 	skillItemSchema,
+	styleRuleSchema,
+	styleRulesSchema,
 	websiteSchema,
 } from "./data";
 import { defaultResumeData } from "./default";
@@ -268,5 +270,110 @@ describe("pageSchema", () => {
 			const valid = { ...defaultResumeData.metadata.page, format };
 			expect(pageSchema.safeParse(valid).success).toBe(true);
 		}
+	});
+});
+
+describe("styleRulesSchema", () => {
+	it("defaults to an empty rule list on default resume metadata", () => {
+		expect(defaultResumeData.metadata.styleRules).toEqual([]);
+		expect(styleRulesSchema.safeParse(defaultResumeData.metadata.styleRules).success).toBe(true);
+	});
+
+	it("accepts global, section-type, and section-id targets", () => {
+		const rules = [
+			{
+				id: "global-headings",
+				label: "Global headings",
+				enabled: true,
+				target: { scope: "global" },
+				slots: {
+					heading: {
+						color: "rgba(220, 38, 38, 1)",
+						fontWeight: "700",
+						fontStyle: "italic",
+						lineHeight: 1.35,
+						letterSpacing: -0.5,
+						textDecoration: "underline",
+						textDecorationColor: "rgba(220, 38, 38, 1)",
+						textDecorationStyle: "dotted",
+						textAlign: "center",
+						textTransform: "uppercase",
+						opacity: 0.85,
+					},
+				},
+			},
+			{
+				id: "experience-items",
+				label: "Experience items",
+				enabled: true,
+				target: { scope: "sectionType", sectionType: "experience" },
+				slots: {
+					item: {
+						backgroundColor: "rgba(245, 245, 245, 1)",
+						padding: -6,
+						marginBottom: -4,
+						rowGap: -2,
+						borderStyle: "dashed",
+					},
+				},
+			},
+			{
+				id: "custom-section",
+				label: "Custom section",
+				enabled: true,
+				target: { scope: "sectionId", sectionId: "94ddf90f-46ef-4b0a-9a99-2ed118af52dd" },
+				slots: { richList: { rowGap: 6 } },
+			},
+		];
+
+		expect(styleRulesSchema.safeParse(rules).success).toBe(true);
+	});
+
+	it("rejects section-item targets for v1", () => {
+		expect(
+			styleRuleSchema.safeParse({
+				id: "item-style",
+				label: "Item Style",
+				enabled: true,
+				target: { scope: "sectionItem", sectionId: "experience", itemId: "item-1" },
+				slots: { item: { color: "rgba(0, 0, 0, 1)" } },
+			}).success,
+		).toBe(false);
+	});
+
+	it("rejects unsupported raw layout properties", () => {
+		expect(
+			styleRuleSchema.safeParse({
+				id: "unsafe",
+				label: "Unsafe",
+				enabled: true,
+				target: { scope: "global" },
+				slots: { section: { position: "absolute" } },
+			}).success,
+		).toBe(false);
+	});
+
+	it("rejects the removed rich-text marker slot", () => {
+		expect(
+			styleRuleSchema.safeParse({
+				id: "marker",
+				label: "Marker",
+				enabled: true,
+				target: { scope: "global" },
+				slots: { richListItemMarker: { color: "rgba(21, 93, 252, 1)" } },
+			}).success,
+		).toBe(false);
+	});
+
+	it("rejects unsafe visible style values outside the v1 ranges", () => {
+		expect(
+			styleRuleSchema.safeParse({
+				id: "unsafe-visible",
+				label: "Unsafe Visible",
+				enabled: true,
+				target: { scope: "global" },
+				slots: { heading: { opacity: 2, lineHeight: 10, letterSpacing: -17 } },
+			}).success,
+		).toBe(false);
 	});
 });

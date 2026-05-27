@@ -18,7 +18,7 @@
 	"dependencies": {
 		"@better-auth/api-key": "^1.6.11",
 		"@better-auth/drizzle-adapter": "^1.6.11",
-		"@better-auth/infra": "^0.2.8",
+		"@better-auth/infra": "^0.2.10",
 		"@better-auth/oauth-provider": "^1.6.11",
 		"@better-auth/passkey": "^1.6.11",
 		"@reactive-resume/db": "workspace:*",
@@ -36,7 +36,7 @@
 		"@reactive-resume/config": "workspace:*",
 		"@types/bcrypt": "^6.0.0",
 		"@types/react": "^19.2.15",
-		"@typescript/native-preview": "7.0.0-dev.20260526.1",
+		"@typescript/native-preview": "7.0.0-dev.20260527.1",
 		"typescript": "^6.0.3"
 	}
 }

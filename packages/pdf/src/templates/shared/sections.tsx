@@ -27,7 +27,9 @@ import { getResumeSectionTitle } from "../../section-title";
 import { getSectionItemRows, getSectionItemsLayout, shouldUseSectionTimeline } from "./columns";
 import { getWebsiteDisplayText } from "./contact";
 import {
+	SectionStyleProvider,
 	TemplatePlacementProvider,
+	useSectionStyleRule,
 	useTemplateFeature,
 	useTemplateFeatureStyle,
 	useTemplatePlacement,
@@ -41,6 +43,7 @@ import { RichText } from "./rich-text";
 import { createRtlStyleHelpers } from "./rtl";
 import { getInlineItemWebsiteUrl, shouldRenderSeparateItemWebsite } from "./section-links";
 import { hasSplitRowText, promoteSplitRowRight } from "./split-row";
+import { getSectionStyleRuleContext } from "./style-rules";
 import { composeStyles } from "./styles";
 
 type SectionItemsContextValue = {
@@ -88,12 +91,16 @@ const SectionShell = ({
 }) => {
 	const data = useRender();
 	const sectionStyle = useTemplateStyle("section");
+	const sectionRuleStyle = useSectionStyleRule("section");
 	const sectionHeadingStyle = useTemplateStyle("sectionHeading");
+	const sectionHeadingRuleStyle = useSectionStyleRule("heading");
 	const sectionTitle = getResumeSectionTitle(data, sectionId, title);
 
 	return (
-		<View style={composeStyles(sectionStyle)}>
-			{showHeading && <Heading style={composeStyles(sectionHeadingStyle)}>{sectionTitle}</Heading>}
+		<View style={composeStyles(sectionStyle, sectionRuleStyle)}>
+			{showHeading && (
+				<Heading style={composeStyles(sectionHeadingStyle, sectionHeadingRuleStyle)}>{sectionTitle}</Heading>
+			)}
 			{children}
 		</View>
 	);
@@ -160,13 +167,14 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 const SectionItem = ({ children, style }: { children: ReactNode; style?: StyleInput }) => {
 	const { itemStyle: sectionItemStyle, useTimeline } = useSectionItemsContext();
 	const itemStyle = useTemplateStyle("item");
+	const itemRuleStyle = useSectionStyleRule("item");
 	const timelineItemStyle = useTemplateFeatureStyle("sectionTimeline", "item");
 	const timelineMarkerStyle = useTemplateFeatureStyle("sectionTimeline", "marker");
 	const timelineDotStyle = useTemplateFeatureStyle("sectionTimeline", "dot");
 	const timelineContentStyle = useTemplateFeatureStyle("sectionTimeline", "content");
 
 	if (!useTimeline) {
-		return <Div style={composeStyles(itemStyle, sectionItemStyle, style)}>{children}</Div>;
+		return <Div style={composeStyles(itemStyle, itemRuleStyle, sectionItemStyle, style)}>{children}</Div>;
 	}
 
 	return (
@@ -174,7 +182,7 @@ const SectionItem = ({ children, style }: { children: ReactNode; style?: StyleIn
 			<View style={composeStyles(timelineMarkerStyle)}>
 				<View style={composeStyles(timelineDotStyle)} />
 			</View>
-			<Div style={composeStyles(itemStyle, timelineContentStyle, style)}>{children}</Div>
+			<Div style={composeStyles(itemStyle, itemRuleStyle, timelineContentStyle, style)}>{children}</Div>
 		</View>
 	);
 };
@@ -924,23 +932,25 @@ export const Section = ({
 
 	return (
 		<TemplatePlacementProvider placement={placement}>
-			{match(section)
-				.with("summary", () => <SummarySection showHeading={showHeading} />)
-				.with("profiles", () => <ProfileSection />)
-				.with("experience", () => <ExperienceSection />)
-				.with("education", () => <EducationSection />)
-				.with("projects", () => <ProjectsSection />)
-				.with("skills", () => <SkillsSection />)
-				.with("languages", () => <LanguagesSection />)
-				.with("interests", () => <InterestsSection />)
-				.with("awards", () => <AwardsSection />)
-				.with("certifications", () => <CertificationsSection />)
-				.with("publications", () => <PublicationsSection />)
-				.with("volunteer", () => <VolunteerSection />)
-				.with("references", () => <ReferencesSection />)
-				.otherwise(() => (
-					<CustomSection sectionId={section} showHeading={showHeading} />
-				))}
+			<SectionStyleProvider context={getSectionStyleRuleContext(data, section)}>
+				{match(section)
+					.with("summary", () => <SummarySection showHeading={showHeading} />)
+					.with("profiles", () => <ProfileSection />)
+					.with("experience", () => <ExperienceSection />)
+					.with("education", () => <EducationSection />)
+					.with("projects", () => <ProjectsSection />)
+					.with("skills", () => <SkillsSection />)
+					.with("languages", () => <LanguagesSection />)
+					.with("interests", () => <InterestsSection />)
+					.with("awards", () => <AwardsSection />)
+					.with("certifications", () => <CertificationsSection />)
+					.with("publications", () => <PublicationsSection />)
+					.with("volunteer", () => <VolunteerSection />)
+					.with("references", () => <ReferencesSection />)
+					.otherwise(() => (
+						<CustomSection sectionId={section} showHeading={showHeading} />
+					))}
+			</SectionStyleProvider>
 		</TemplatePlacementProvider>
 	);
 };

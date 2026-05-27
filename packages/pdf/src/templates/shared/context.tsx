@@ -1,4 +1,6 @@
+import type { StyleSlot } from "@reactive-resume/schema/resume/data";
 import type { ReactNode } from "react";
+import type { SectionStyleRuleContext } from "./style-rules";
 import type { StyleInput, TemplatePlacement } from "./styles";
 import type {
 	SectionTimelineStyleSlots,
@@ -11,6 +13,8 @@ import type {
 	TemplateStyleSlots,
 } from "./types";
 import { createContext, use, useMemo } from "react";
+import { useRender } from "../../context";
+import { resolveStyleRuleSlot } from "./style-rules";
 
 type TemplateContextValue = {
 	styles: TemplateStyleSlots;
@@ -27,6 +31,7 @@ type TemplateProviderProps = Omit<TemplateContextValue, "featureStyles" | "featu
 
 const TemplateContext = createContext<TemplateContextValue | null>(null);
 const TemplatePlacementContext = createContext<TemplatePlacement>("main");
+const SectionStyleContext = createContext<SectionStyleRuleContext | null>(null);
 
 const resolveStyleSlot = (slot: TemplateStyleSlot | undefined, context: TemplateStyleContextValue): StyleInput => {
 	if (!slot) return undefined;
@@ -78,6 +83,16 @@ export const TemplatePlacementProvider = ({
 	return <TemplatePlacementContext.Provider value={placement}>{children}</TemplatePlacementContext.Provider>;
 };
 
+export const SectionStyleProvider = ({
+	context,
+	children,
+}: {
+	context: SectionStyleRuleContext;
+	children: ReactNode;
+}) => {
+	return <SectionStyleContext.Provider value={context}>{children}</SectionStyleContext.Provider>;
+};
+
 const useTemplateContext = () => {
 	const context = use(TemplateContext);
 
@@ -106,6 +121,15 @@ export const useTemplateStyle = (slot: keyof TemplateStyleSlots): StyleInput => 
 	const context = useTemplateStyleContext();
 
 	return resolveStyleSlot(styles[slot] as TemplateStyleSlot | undefined, context);
+};
+
+export const useSectionStyleRule = (slot: StyleSlot): StyleInput => {
+	const data = useRender();
+	const context = use(SectionStyleContext);
+
+	if (!context) return undefined;
+
+	return resolveStyleRuleSlot(data, { ...context, slot });
 };
 
 export const useTemplateFeatureStyle = (

@@ -150,5 +150,6 @@ export const defaultResumeData: ResumeData = {
 			},
 		},
 		notes: "",
+		styleRules: [],
 	},
 };

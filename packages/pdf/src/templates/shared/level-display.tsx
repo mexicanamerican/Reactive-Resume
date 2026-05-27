@@ -2,7 +2,7 @@ import type { Style } from "@react-pdf/types";
 import type { IconName } from "phosphor-icons-react-pdf/dynamic";
 import { useRender } from "../../context";
 import { View } from "../../renderer";
-import { useTemplateIconSlot, useTemplateStyle } from "./context";
+import { useSectionStyleRule, useTemplateIconSlot, useTemplateStyle } from "./context";
 import { getTemplateMetrics } from "./metrics";
 import { Icon } from "./primitives";
 import { composeStyles } from "./styles";
@@ -19,6 +19,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 	const levelItemStyle = useTemplateStyle("levelItem");
 	const levelItemActiveStyle = useTemplateStyle("levelItemActive");
 	const levelItemInactiveStyle = useTemplateStyle("levelItemInactive");
+	const levelRuleStyle = useSectionStyleRule("level");
 	const color = typeof iconProps.color === "string" ? iconProps.color : "#000000";
 
 	if (level === 0) return null;
@@ -40,6 +41,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 			style={composeStyles(
 				{ flexDirection: "row", alignItems: "center", marginTop: 2, columnGap: gap },
 				levelContainerStyle,
+				levelRuleStyle,
 			)}
 		>
 			{LEVEL_ITEM_KEYS.map((itemKey, index) => {

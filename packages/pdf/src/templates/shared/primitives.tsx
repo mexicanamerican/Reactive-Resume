@@ -3,7 +3,7 @@ import type { ComponentProps } from "react";
 import type { StyleInput } from "./styles";
 import { Icon as PhosphorIcon } from "phosphor-icons-react-pdf/dynamic";
 import { Link as PdfLink, Text as PdfText, View } from "../../renderer";
-import { useTemplateIconSlot, useTemplateStyle } from "./context";
+import { useSectionStyleRule, useTemplateIconSlot, useTemplateStyle } from "./context";
 import { safeTextStyle } from "./safe-text-style";
 import { composeLinkStyles, composeStyles } from "./styles";
 
@@ -17,40 +17,64 @@ export const Div = ({ style, ...props }: ComponentProps<typeof View>) => {
 
 export const Text = ({ style, ...props }: ComponentProps<typeof PdfText>) => {
 	const textStyle = useTemplateStyle("text");
+	const textRuleStyle = useSectionStyleRule("text");
 
-	return <PdfText style={composeStyles(textStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return <PdfText style={composeStyles(textStyle, textRuleStyle, asStyleInput(style), safeTextStyle)} {...props} />;
 };
 
 export const Heading = ({ style, ...props }: ComponentProps<typeof PdfText>) => {
 	const headingStyle = useTemplateStyle("heading");
+	const headingRuleStyle = useSectionStyleRule("heading");
 
-	return <PdfText style={composeStyles(headingStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return (
+		<PdfText style={composeStyles(headingStyle, headingRuleStyle, asStyleInput(style), safeTextStyle)} {...props} />
+	);
 };
 
 export const Link = ({ style, ...props }: ComponentProps<typeof PdfLink>) => {
 	const linkStyle = useTemplateStyle("link");
+	const linkRuleStyle = useSectionStyleRule("link");
 
-	return <PdfLink style={composeLinkStyles(linkStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return <PdfLink style={composeLinkStyles(linkStyle, linkRuleStyle, asStyleInput(style), safeTextStyle)} {...props} />;
 };
 
 export const Small = ({ style, ...props }: ComponentProps<typeof PdfText>) => {
 	const textStyle = useTemplateStyle("text");
 	const smallStyle = useTemplateStyle("small");
+	const secondaryTextRuleStyle = useSectionStyleRule("secondaryText");
 
-	return <PdfText style={composeStyles(textStyle, smallStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return (
+		<PdfText
+			style={composeStyles(textStyle, smallStyle, secondaryTextRuleStyle, asStyleInput(style), safeTextStyle)}
+			{...props}
+		/>
+	);
 };
 
 export const Bold = ({ style, ...props }: ComponentProps<typeof PdfText>) => {
 	const textStyle = useTemplateStyle("text");
 	const boldStyle = useTemplateStyle("bold");
+	const textRuleStyle = useSectionStyleRule("text");
 
-	return <PdfText style={composeStyles(textStyle, boldStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return (
+		<PdfText
+			style={composeStyles(textStyle, textRuleStyle, boldStyle, asStyleInput(style), safeTextStyle)}
+			{...props}
+		/>
+	);
 };
 
 export const Icon = ({ style, ...props }: ComponentProps<typeof PhosphorIcon>) => {
 	const { style: iconStyle, ...iconProps } = useTemplateIconSlot("icon");
+	const iconRuleStyle = useSectionStyleRule("icon");
 
 	if (iconProps.display === "none") return null;
 
-	return <PhosphorIcon {...iconProps} {...props} style={composeStyles(asStyleInput(iconStyle), asStyleInput(style))} />;
+	return (
+		<PhosphorIcon
+			{...iconProps}
+			{...props}
+			style={composeStyles(asStyleInput(iconStyle), iconRuleStyle, asStyleInput(style))}
+		/>
+	);
 };

@@ -1,4 +1,4 @@
-import type { Node } from "node-html-parser";
+import type { HTMLElement, Node } from "node-html-parser";
 import { NodeType, parse } from "node-html-parser";
 
 export const richTextMarkClassName = "rr-pdf-mark";
@@ -50,6 +50,23 @@ const normalizeMarkElements = (root: ReturnType<typeof parse>) => {
 	}
 };
 
+const isMeaningfulNode = (node: Node): boolean =>
+	node.nodeType !== NodeType.TEXT_NODE || node.toString().trim().length > 0;
+
+const isElement = (node: Node): node is HTMLElement => node.nodeType === NodeType.ELEMENT_NODE;
+
+const unwrapSingleParagraphListItems = (root: ReturnType<typeof parse>) => {
+	for (const listItem of root.querySelectorAll("li")) {
+		const meaningfulChildren = listItem.childNodes.filter(isMeaningfulNode);
+		if (meaningfulChildren.length !== 1) continue;
+
+		const child = meaningfulChildren[0];
+		if (!child || !isElement(child) || getTagName(child) !== "p") continue;
+
+		listItem.innerHTML = child.innerHTML;
+	}
+};
+
 const isInlineNode = (node: Node): boolean => {
 	if (node.nodeType === NodeType.TEXT_NODE || node.nodeType === NodeType.COMMENT_NODE) return true;
 	if (node.nodeType !== NodeType.ELEMENT_NODE) return false;
@@ -98,6 +115,7 @@ export const normalizeRichTextHtml = (html: string): string => {
 	let inlineNodes: string[] = [];
 
 	normalizeMarkElements(root);
+	unwrapSingleParagraphListItems(root);
 
 	const flushInlineNodes = () => {
 		const inlineHtml = inlineNodes.join("").trim();
