@@ -11,7 +11,6 @@
 	},
 	"scripts": {
 		"shadcn": "shadcn",
-		"doctor": "react-doctor",
 		"typecheck": "tsgo --noEmit",
 		"test": "vitest run --passWithNoTests",
 		"test:coverage": "vitest run --coverage --passWithNoTests",
@@ -44,7 +43,6 @@
 		"@types/react-dom": "^19.2.3",
 		"@typescript/native-preview": "7.0.0-dev.20260527.1",
 		"postcss": "^8.5.15",
-		"react-doctor": "^0.2.9",
 		"tailwindcss": "^4.3.0",
 		"typescript": "^6.0.3"
 	}

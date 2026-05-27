@@ -41,6 +41,8 @@ vi.mock("pdfjs-dist", () => {
 
 vi.mock("pdfjs-dist/legacy/build/pdf.mjs", () => pdfjsMock.legacyModule);
 
+const pdfCanvasModule = import("./pdf-canvas");
+
 describe("PDF.js browser entrypoints", () => {
 	beforeEach(() => {
 		pdfjsMock.legacyModule.GlobalWorkerOptions.workerSrc = undefined;
@@ -59,7 +61,7 @@ describe("PDF.js browser entrypoints", () => {
 	});
 
 	it("loads the canvas preview renderer from the legacy PDF.js runtime", async () => {
-		await expect(import("./pdf-canvas")).resolves.toEqual(
+		await expect(pdfCanvasModule).resolves.toEqual(
 			expect.objectContaining({
 				PdfCanvasDocument: expect.any(Function),
 				PdfCanvasPage: expect.any(Function),
