@@ -373,6 +373,10 @@ msgstr "Aplicație"
 msgid "Application Statistics"
 msgstr "Statistici aplicație"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabă"
@@ -671,6 +675,10 @@ msgstr "Cerc"
 msgid "Clear"
 msgstr "Clar"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Faceți clic aici pentru a selecta un fișier de importat"
@@ -952,6 +960,10 @@ msgstr "OAuth personalizat"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Secțiuni personalizate"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Nicio cheie de acces înregistrată încă."
 msgid "No results found."
 msgstr "Nu s-a găsit niciun rezultat."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Niciun furnizor testat"
@@ -2714,6 +2730,10 @@ msgstr "Resetează"
 msgid "Reset Password"
 msgstr "Resetați parola"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Resetați-vă parola"
@@ -2789,6 +2809,14 @@ msgstr "Română"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotire"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Se actualizează parola..."
 msgid "Updating your resume..."
 msgstr "Se actualizează CV-ul..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Încărcați imaginea"
@@ -3959,4 +3991,3 @@ msgstr "Micșorează"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -22,6 +22,10 @@ const richListItemContentStackStyle = {
 	flexDirection: "column",
 } satisfies Style;
 
+type RichTextProps = {
+	children: string;
+};
+
 // react-pdf textkit reads BiDi base direction from each run's own `direction` attribute
 // (default "ltr"), and react-pdf-html buckets inline content into styleless inner <Text>
 // frames — so the rtl style has to be injected onto every descendant, not just a wrapper.
@@ -53,7 +57,7 @@ const applyRtlDirectionRecursively = (node: ReactNode): ReactNode => {
 	return cloneElement(element, { style: nextStyle }, nextChildren);
 };
 
-export const RichText = ({ children }: { children: string }) => {
+export const RichText = ({ children }: RichTextProps) => {
 	const { rtl } = useRender();
 	const rtlTextWrapStyle: Style | undefined = rtl ? { direction: "rtl", textAlign: "right" } : undefined;
 	const boldStyle = useTemplateStyle("bold");

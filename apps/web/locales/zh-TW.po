@@ -373,6 +373,10 @@ msgstr "應用程式"
 msgid "Application Statistics"
 msgstr "應用程式統計資料"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "阿拉伯文"
@@ -671,6 +675,10 @@ msgstr "圓形"
 msgid "Clear"
 msgstr "清除"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "按這裡選擇要匯入的檔案"
@@ -952,6 +960,10 @@ msgstr "自訂 OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "自訂段落"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "尚未註冊通行鑰匙。"
 msgid "No results found."
 msgstr "找不到相符的結果。"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "沒有經過測試的提供者"
@@ -2714,6 +2730,10 @@ msgstr "重置"
 msgid "Reset Password"
 msgstr "重設密碼"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "重設您的密碼"
@@ -2789,6 +2809,14 @@ msgstr "羅馬尼亞語"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "旋轉"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "正在更新您的密碼…"
 msgid "Updating your resume..."
 msgstr "正在更新您的履歷…"
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "上傳圖片"
@@ -3959,4 +3991,3 @@ msgstr "縮小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

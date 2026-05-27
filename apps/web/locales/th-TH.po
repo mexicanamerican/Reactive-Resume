@@ -373,6 +373,10 @@ msgstr "แอป"
 msgid "Application Statistics"
 msgstr "สถิติของแอปพลิเคชัน"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "อารบิก"
@@ -671,6 +675,10 @@ msgstr "วงกลม"
 msgid "Clear"
 msgstr "ชัดเจน"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "คลิกที่นี่เพื่อเลือกไฟล์ที่จะนำเข้า"
@@ -952,6 +960,10 @@ msgstr "OAuth แบบกำหนดเอง"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "ส่วนที่กำหนดเอง"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "ยังไม่มีพาสคีย์ที่ลงทะเบ
 msgid "No results found."
 msgstr "ไม่พบผลลัพธ์"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "ไม่มีผู้ให้บริการที่ผ่านการทดสอบ"
@@ -2714,6 +2730,10 @@ msgstr "รีเซ็ต"
 msgid "Reset Password"
 msgstr "รีเซ็ตรหัสผ่าน"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "รีเซ็ตรหัสผ่านของคุณ"
@@ -2789,6 +2809,14 @@ msgstr "โรมาเนีย"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "การหมุน"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "กำลังอัปเดตรหัสผ่านของคุ
 msgid "Updating your resume..."
 msgstr "กำลังอัปเดตประวัติย่อของคุณ..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "อัปโหลดรูปภาพ"
@@ -3959,4 +3991,3 @@ msgstr "ซูมออก"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ซูลู"
-

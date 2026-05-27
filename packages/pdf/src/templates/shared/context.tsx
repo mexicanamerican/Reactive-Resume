@@ -29,6 +29,16 @@ type TemplateProviderProps = Omit<TemplateContextValue, "featureStyles" | "featu
 	children: ReactNode;
 };
 
+type TemplatePlacementProviderProps = {
+	placement: TemplatePlacement;
+	children: ReactNode;
+};
+
+type SectionStyleProviderProps = {
+	context: SectionStyleRuleContext;
+	children: ReactNode;
+};
+
 const TemplateContext = createContext<TemplateContextValue | null>(null);
 const TemplatePlacementContext = createContext<TemplatePlacement>("main");
 const SectionStyleContext = createContext<SectionStyleRuleContext | null>(null);
@@ -73,23 +83,11 @@ export const TemplateProvider = ({
 	return <TemplateContext.Provider value={contextValue}>{children}</TemplateContext.Provider>;
 };
 
-export const TemplatePlacementProvider = ({
-	placement,
-	children,
-}: {
-	placement: TemplatePlacement;
-	children: ReactNode;
-}) => {
+export const TemplatePlacementProvider = ({ placement, children }: TemplatePlacementProviderProps) => {
 	return <TemplatePlacementContext.Provider value={placement}>{children}</TemplatePlacementContext.Provider>;
 };
 
-export const SectionStyleProvider = ({
-	context,
-	children,
-}: {
-	context: SectionStyleRuleContext;
-	children: ReactNode;
-}) => {
+export const SectionStyleProvider = ({ context, children }: SectionStyleProviderProps) => {
 	return <SectionStyleContext.Provider value={context}>{children}</SectionStyleContext.Provider>;
 };
 

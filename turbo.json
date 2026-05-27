@@ -1,6 +1,6 @@
 {
 	"$schema": "https://turbo.build/schema.json",
-	"ui": "stream-with-experimental-timestamps",
+	"ui": "tui",
 	"boundaries": {
 		"dependencies": {
 			"deny": ["web", "server"]

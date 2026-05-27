@@ -9,7 +9,11 @@ import { composeStyles } from "./styles";
 
 const LEVEL_ITEM_KEYS = ["level-1", "level-2", "level-3", "level-4", "level-5"] as const;
 
-export const LevelDisplay = ({ level }: { level: number }) => {
+type LevelDisplayProps = {
+	level: number;
+};
+
+export const LevelDisplay = ({ level }: LevelDisplayProps) => {
 	const data = useRender();
 	const levelDesign = data.metadata.design.level;
 	const iconSize = data.metadata.typography.body.fontSize - 2;

@@ -373,6 +373,10 @@ msgstr "Ilova"
 msgid "Application Statistics"
 msgstr "Ilova statistikasi"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arab tili"
@@ -671,6 +675,10 @@ msgstr "Doira"
 msgid "Clear"
 msgstr "Tiniq"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Import qilish uchun faylni tanlash uchun shu yerni bosing"
@@ -952,6 +960,10 @@ msgstr "Moslashtirilgan OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Maxsus boʻlimlar"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Hali hech qanday kirish kalitlari ro'yxatdan o'tmagan."
 msgid "No results found."
 msgstr "Hech qanday natija topilmadi."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Sinovdan o'tgan provayder yo'q"
@@ -2714,6 +2730,10 @@ msgstr "Tiklash"
 msgid "Reset Password"
 msgstr "Parolni tiklash"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Parolingizni tiklang"
@@ -2789,6 +2809,14 @@ msgstr "Rumin tili"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Aylantirish"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Parolingiz yangilanmoqda..."
 msgid "Updating your resume..."
 msgstr "Rezyume yangilanmoqda..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Rasmni yuklang"
@@ -3959,4 +3991,3 @@ msgstr "Kichraytirish"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -373,6 +373,10 @@ msgstr "Aplicació"
 msgid "Application Statistics"
 msgstr "Estadístiques de l’aplicació"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Àrab"
@@ -671,6 +675,10 @@ msgstr "Cercle"
 msgid "Clear"
 msgstr "Clar"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Fes clic aquí per seleccionar un fitxer per importar"
@@ -952,6 +960,10 @@ msgstr "OAuth personalitzat"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Seccions personalitzades"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Encara no s'han registrat cap clau d'accés."
 msgid "No results found."
 msgstr "No s’han trobat resultats."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Cap proveïdor provat"
@@ -2714,6 +2730,10 @@ msgstr "Restableix"
 msgid "Reset Password"
 msgstr "Restableix la contrasenya"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Restableix la contrasenya"
@@ -2789,6 +2809,14 @@ msgstr "Romanès"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotació"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "S’està actualitzant la contrasenya..."
 msgid "Updating your resume..."
 msgstr "S’està actualitzant el currículum..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Pujar foto"
@@ -3959,4 +3991,3 @@ msgstr "Allunya"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulú"
-

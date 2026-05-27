@@ -373,6 +373,10 @@ msgstr "Aplikacija"
 msgid "Application Statistics"
 msgstr "Statistika aplikacije"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabščina"
@@ -671,6 +675,10 @@ msgstr "Krog"
 msgid "Clear"
 msgstr "Jasno"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Kliknite tukaj za izbiro datoteke za uvoz"
@@ -952,6 +960,10 @@ msgstr "OAuth po meri"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Poljubni razdelki"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Registriranih še ni nobenih ključev pasov."
 msgid "No results found."
 msgstr "Ni rezultatov."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Ni preizkušenega ponudnika"
@@ -2714,6 +2730,10 @@ msgstr "Ponastavi"
 msgid "Reset Password"
 msgstr "Ponastavi geslo"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Ponastavite svoje geslo"
@@ -2789,6 +2809,14 @@ msgstr "romunščina"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotacija"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Posodabljanje vašega gesla..."
 msgid "Updating your resume..."
 msgstr "Posodabljanje vašega življenjepisa..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Naloži sliko"
@@ -3959,4 +3991,3 @@ msgstr "Oddalji"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
-

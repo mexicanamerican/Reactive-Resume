@@ -373,6 +373,10 @@ msgstr "Toep"
 msgid "Application Statistics"
 msgstr "Toepassingstatistiek"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabies"
@@ -671,6 +675,10 @@ msgstr "Sirkel"
 msgid "Clear"
 msgstr "Klaar"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Klik hier om 'n lêer te kies om in te voer"
@@ -952,6 +960,10 @@ msgstr "Pasgemaakte OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Pasgemaakte afdelings"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Nog geen paswoorde geregistreer nie."
 msgid "No results found."
 msgstr "Geen resultate gevind nie."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Geen getoetste verskaffer nie"
@@ -2714,6 +2730,10 @@ msgstr "Herstel"
 msgid "Reset Password"
 msgstr "Herstel wagwoord"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Herstel jou wagwoord"
@@ -2789,6 +2809,14 @@ msgstr "Roemeens"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotasie"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Besig om jou wagwoord by te werk..."
 msgid "Updating your resume..."
 msgstr "Besig om jou CV by te werk..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Laai prent op"
@@ -3959,4 +3991,3 @@ msgstr "Zoem uit"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zoeloe"
-

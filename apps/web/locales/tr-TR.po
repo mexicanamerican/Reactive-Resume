@@ -373,6 +373,10 @@ msgstr "Uygulama"
 msgid "Application Statistics"
 msgstr "Uygulama İstatistikleri"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arapça"
@@ -671,6 +675,10 @@ msgstr "Daire"
 msgid "Clear"
 msgstr "Temiz"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "İçe aktarmak için bir dosya seçmek üzere buraya tıklayın"
@@ -952,6 +960,10 @@ msgstr "Özel OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Özel Bölümler"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Henüz kayıtlı geçiş anahtarı yok."
 msgid "No results found."
 msgstr "Hiçbir sonuç bulunamadı."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Test edilmiş sağlayıcı yok."
@@ -2714,6 +2730,10 @@ msgstr "Sıfırla"
 msgid "Reset Password"
 msgstr "Şifreyi Sıfırla"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Şifrenizi sıfırlayın"
@@ -2789,6 +2809,14 @@ msgstr "Rumence"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Döndürme"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Şifreniz güncelleniyor..."
 msgid "Updating your resume..."
 msgstr "Özgeçmişiniz güncelleniyor..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Resim yükle"
@@ -3959,4 +3991,3 @@ msgstr "Uzaklaştır"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

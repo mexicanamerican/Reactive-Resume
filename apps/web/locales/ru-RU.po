@@ -373,6 +373,10 @@ msgstr "Приложение"
 msgid "Application Statistics"
 msgstr "Статистика приложения"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Арабский"
@@ -671,6 +675,10 @@ msgstr "Круг"
 msgid "Clear"
 msgstr "Clear"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Нажмите здесь, чтобы выбрать файл для импорта"
@@ -952,6 +960,10 @@ msgstr "Пользовательский OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Пользовательские разделы"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Паски пока не зарегистрированы."
 msgid "No results found."
 msgstr "Результатов не найдено."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Нет проверенного поставщика"
@@ -2714,6 +2730,10 @@ msgstr "Сброс"
 msgid "Reset Password"
 msgstr "Сбросить пароль"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Сбросить пароль"
@@ -2789,6 +2809,14 @@ msgstr "Румынский"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Поворот"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Обновление пароля..."
 msgid "Updating your resume..."
 msgstr "Обновление вашего резюме..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Загрузите картинку"
@@ -3959,4 +3991,3 @@ msgstr "Уменьшить"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-

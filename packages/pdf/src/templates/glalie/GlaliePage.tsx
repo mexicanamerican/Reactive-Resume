@@ -38,6 +38,10 @@ type GlalieTemplate = {
 	styles: GlalieStyles;
 };
 
+type GlalieHeaderProps = {
+	styles: GlalieStyles;
+};
+
 const glalieFeatures = {
 	stackSidebarItemHeader: true,
 } satisfies TemplateFeatures;
@@ -91,7 +95,7 @@ export const GlaliePage = ({ page, pageIndex }: TemplatePageProps) => {
 	);
 };
 
-const Header = ({ styles }: { styles: GlalieStyles }) => {
+const Header = ({ styles }: GlalieHeaderProps) => {
 	const { basics, picture } = useRender();
 	const hasPicture = hasTemplatePicture(picture);
 

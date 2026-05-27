@@ -373,6 +373,10 @@ msgstr "Apl"
 msgid "Application Statistics"
 msgstr "Statistik Aplikasi"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Bahasa Arab"
@@ -671,6 +675,10 @@ msgstr "Bulatan"
 msgid "Clear"
 msgstr "Jelas"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Klik di sini untuk memilih fail untuk diimport"
@@ -952,6 +960,10 @@ msgstr "OAuth Tersuai"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Seksyen Tersuai"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Tiada kunci laluan yang didaftarkan lagi."
 msgid "No results found."
 msgstr "Tiada keputusan dijumpai."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Tiada pembekal yang diuji"
@@ -2714,6 +2730,10 @@ msgstr "Tetapkan Semula"
 msgid "Reset Password"
 msgstr "Tetapkan Semula Kata Laluan"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Tetapkan semula kata laluan anda"
@@ -2789,6 +2809,14 @@ msgstr "Rom"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Putaran"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Mengemas kini kata laluan anda..."
 msgid "Updating your resume..."
 msgstr "Mengemas kini resume anda..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Muat naik gambar"
@@ -3959,4 +3991,3 @@ msgstr "Zum keluar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

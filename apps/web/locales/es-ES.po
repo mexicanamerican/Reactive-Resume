@@ -373,6 +373,10 @@ msgstr "Aplicación"
 msgid "Application Statistics"
 msgstr "Estadísticas de la aplicación"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Árabe"
@@ -671,6 +675,10 @@ msgstr "Círculo"
 msgid "Clear"
 msgstr "Claro"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Haz clic aquí para seleccionar un archivo para importar"
@@ -952,6 +960,10 @@ msgstr "OAuth personalizado"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Secciones personalizadas"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Aún no se ha registrado ninguna llave de paso."
 msgid "No results found."
 msgstr "No se han encontrado resultados."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "No hay ningún proveedor probado"
@@ -2714,6 +2730,10 @@ msgstr "Restablecer"
 msgid "Reset Password"
 msgstr "Restablecer contraseña"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Restablecer tu contraseña"
@@ -2789,6 +2809,14 @@ msgstr "Rumano"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotación"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Actualizando tu contraseña..."
 msgid "Updating your resume..."
 msgstr "Actualizando tu currículum..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Subir foto"
@@ -3959,4 +3991,3 @@ msgstr "Alejar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulú"
-

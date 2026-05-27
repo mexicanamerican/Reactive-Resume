@@ -373,6 +373,10 @@ msgstr "앱"
 msgid "Application Statistics"
 msgstr "애플리케이션 통계"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "아랍어"
@@ -671,6 +675,10 @@ msgstr "원"
 msgid "Clear"
 msgstr "지우기"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "가져올 파일을 선택하려면 여기를 클릭하세요"
@@ -952,6 +960,10 @@ msgstr "사용자 지정 OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "사용자 지정 섹션"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "아직 등록된 패스키가 없습니다."
 msgid "No results found."
 msgstr "결과가 없습니다."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "검증되지 않은 제공업체"
@@ -2714,6 +2730,10 @@ msgstr "초기화"
 msgid "Reset Password"
 msgstr "비밀번호 재설정"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "비밀번호 재설정"
@@ -2789,6 +2809,14 @@ msgstr "루마니아어"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "회전"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "비밀번호를 업데이트하는 중입니다..."
 msgid "Updating your resume..."
 msgstr "이력서를 업데이트하는 중입니다..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "사진 업로드"
@@ -3959,4 +3991,3 @@ msgstr "축소"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

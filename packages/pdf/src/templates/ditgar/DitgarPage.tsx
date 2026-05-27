@@ -39,6 +39,11 @@ type DitgarTemplate = {
 	styles: DitgarStyles;
 };
 
+type DitgarHeaderProps = {
+	styles: DitgarStyles;
+	colors: TemplateColorRoles;
+};
+
 const ditgarFeatures = {
 	stackSidebarItemHeader: true,
 	mainItemHeaderBorder: true,
@@ -102,7 +107,7 @@ export const DitgarPage = ({ page, pageIndex }: TemplatePageProps) => {
 	);
 };
 
-const Header = ({ styles, colors }: { styles: DitgarStyles; colors: TemplateColorRoles }) => {
+const Header = ({ styles, colors }: DitgarHeaderProps) => {
 	const { basics, picture } = useRender();
 	const hasPicture = hasTemplatePicture(picture);
 

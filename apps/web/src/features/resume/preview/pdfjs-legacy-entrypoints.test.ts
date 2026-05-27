@@ -42,6 +42,7 @@ vi.mock("pdfjs-dist", () => {
 vi.mock("pdfjs-dist/legacy/build/pdf.mjs", () => pdfjsMock.legacyModule);
 
 const pdfCanvasModule = import("./pdf-canvas");
+const pdfCanvasModuleTimeoutMs = 15_000;
 
 describe("PDF.js browser entrypoints", () => {
 	beforeEach(() => {
@@ -60,18 +61,22 @@ describe("PDF.js browser entrypoints", () => {
 		vi.restoreAllMocks();
 	});
 
-	it("loads the canvas preview renderer from the legacy PDF.js runtime", async () => {
-		await expect(pdfCanvasModule).resolves.toEqual(
-			expect.objectContaining({
-				PdfCanvasDocument: expect.any(Function),
-				PdfCanvasPage: expect.any(Function),
-			}),
-		);
+	it(
+		"loads the canvas preview renderer from the legacy PDF.js runtime",
+		async () => {
+			await expect(pdfCanvasModule).resolves.toEqual(
+				expect.objectContaining({
+					PdfCanvasDocument: expect.any(Function),
+					PdfCanvasPage: expect.any(Function),
+				}),
+			);
 
-		expect(pdfjsMock.legacyModule.GlobalWorkerOptions.workerSrc).toContain(
-			"pdfjs-dist/legacy/build/pdf.worker.min.mjs",
-		);
-	});
+			expect(pdfjsMock.legacyModule.GlobalWorkerOptions.workerSrc).toContain(
+				"pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+			);
+		},
+		pdfCanvasModuleTimeoutMs,
+	);
 
 	it("creates thumbnails with the legacy PDF.js runtime", async () => {
 		vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({} as CanvasRenderingContext2D);

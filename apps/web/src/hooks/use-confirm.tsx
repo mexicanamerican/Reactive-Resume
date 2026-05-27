@@ -27,9 +27,13 @@ type ConfirmContextType = {
 	confirm: (title: string, options?: ConfirmOptions) => Promise<boolean>;
 };
 
+type ConfirmDialogProviderProps = {
+	children: React.ReactNode;
+};
+
 const ConfirmContext = React.createContext<ConfirmContextType | null>(null);
 
-export function ConfirmDialogProvider({ children }: { children: React.ReactNode }) {
+export function ConfirmDialogProvider({ children }: ConfirmDialogProviderProps) {
 	const [state, setState] = React.useState<ConfirmState>({
 		open: false,
 		resolve: null,

@@ -373,6 +373,10 @@ msgstr "יישום"
 msgid "Application Statistics"
 msgstr "סטטיסטיקת היישום"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "ערבית"
@@ -671,6 +675,10 @@ msgstr "עיגול"
 msgid "Clear"
 msgstr "נקה"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "לחץ כאן כדי לבחור קובץ לייבוא"
@@ -952,6 +960,10 @@ msgstr "OAuth מותאם אישית"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "סעיפים מותאמים אישית"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "עדיין לא נרשמו מפתחות גישה."
 msgid "No results found."
 msgstr "לא נמצאו תוצאות."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "אין ספק שנבדק"
@@ -2714,6 +2730,10 @@ msgstr "איפוס"
 msgid "Reset Password"
 msgstr "איפוס סיסמה"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "איפוס הסיסמה שלך"
@@ -2789,6 +2809,14 @@ msgstr "רומנית"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "סיבוב"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "מעדכן את הסיסמה שלך..."
 msgid "Updating your resume..."
 msgstr "מעדכן את קורות החיים שלך..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "העלה תמונה"
@@ -3959,4 +3991,3 @@ msgstr "התרחקות"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "זולו"
-

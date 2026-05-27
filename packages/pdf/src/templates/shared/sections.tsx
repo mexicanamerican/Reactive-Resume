@@ -51,6 +51,77 @@ type SectionItemsContextValue = {
 	useTimeline: boolean;
 };
 
+type SectionShellProps = {
+	sectionId: string;
+	title: string;
+	showHeading?: boolean;
+	children: ReactNode;
+};
+
+type SectionItemsProps = {
+	children: ReactNode;
+	columns?: number;
+};
+
+type SectionItemProps = {
+	children: ReactNode;
+	style?: StyleInput;
+};
+
+type InlineItemHeaderProps = {
+	leading?: ReactNode;
+	middle?: ReactNode;
+	trailing?: ReactNode;
+};
+
+type SectionItemHeaderProps = {
+	children: ReactNode;
+};
+
+type ItemWebsite = {
+	url: string;
+	label: string;
+	inlineLink?: boolean | undefined;
+};
+
+type ItemTitleProps = {
+	children: ReactNode;
+	website: ItemWebsite;
+};
+
+type ItemWebsiteLinkProps = {
+	website: ItemWebsite;
+};
+
+type SummarySectionProps = {
+	showHeading?: boolean;
+};
+
+type CustomSummarySectionProps = {
+	section: CustomItemSection<SummaryItem>;
+	showHeading?: boolean;
+};
+
+type ItemSectionProps<T> = {
+	sectionId?: string;
+	sectionData?: ItemSection<T>;
+};
+
+type CoverLetterSectionProps = {
+	section: CustomItemSection<CoverLetterItem>;
+};
+
+type CustomSectionProps = {
+	sectionId: string;
+	showHeading?: boolean;
+};
+
+type SectionProps = {
+	section: string;
+	placement: TemplatePlacement;
+	showHeading?: boolean;
+};
+
 const SectionItemsContext = createContext<SectionItemsContextValue>({ itemStyle: undefined, useTimeline: false });
 const SECTION_ITEM_PLACEHOLDER_KEYS = [
 	"placeholder-1",
@@ -78,17 +149,7 @@ const getVisibleItems = <T extends { hidden: boolean }>(section: ItemSection<T>,
 	return filterItems(section.items, sectionType);
 };
 
-const SectionShell = ({
-	sectionId,
-	title,
-	showHeading = true,
-	children,
-}: {
-	sectionId: string;
-	title: string;
-	showHeading?: boolean;
-	children: ReactNode;
-}) => {
+const SectionShell = ({ sectionId, title, showHeading = true, children }: SectionShellProps) => {
 	const data = useRender();
 	const sectionStyle = useTemplateStyle("section");
 	const sectionRuleStyle = useSectionStyleRule("section");
@@ -106,7 +167,7 @@ const SectionShell = ({
 	);
 };
 
-const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?: number }) => {
+const SectionItems = ({ children, columns = 1 }: SectionItemsProps) => {
 	const data = useRender();
 	const placement = useTemplatePlacement();
 	const sectionTimeline = useTemplateFeature("sectionTimeline");
@@ -164,7 +225,7 @@ const SectionItems = ({ children, columns = 1 }: { children: ReactNode; columns?
 	);
 };
 
-const SectionItem = ({ children, style }: { children: ReactNode; style?: StyleInput }) => {
+const SectionItem = ({ children, style }: SectionItemProps) => {
 	const { itemStyle: sectionItemStyle, useTimeline } = useSectionItemsContext();
 	const itemStyle = useTemplateStyle("item");
 	const itemRuleStyle = useSectionStyleRule("item");
@@ -187,15 +248,7 @@ const SectionItem = ({ children, style }: { children: ReactNode; style?: StyleIn
 	);
 };
 
-const InlineItemHeader = ({
-	leading,
-	middle,
-	trailing,
-}: {
-	leading?: ReactNode;
-	middle?: ReactNode;
-	trailing?: ReactNode;
-}) => {
+const InlineItemHeader = ({ leading, middle, trailing }: InlineItemHeaderProps) => {
 	const inlineItemHeaderStyle = useTemplateStyle("inlineItemHeader");
 	const leadingStyle = useTemplateStyle("inlineItemHeaderLeading");
 	const middleStyle = useTemplateStyle("inlineItemHeaderMiddle");
@@ -232,7 +285,7 @@ const useSectionSplitRowStyle = () => {
 	);
 };
 
-const SectionItemHeader = ({ children }: { children: ReactNode }) => {
+const SectionItemHeader = ({ children }: SectionItemHeaderProps) => {
 	const mainItemHeaderBorder = useTemplateFeature("mainItemHeaderBorder");
 	const sectionItemHeaderStyle = useTemplateStyle("sectionItemHeader");
 
@@ -241,13 +294,7 @@ const SectionItemHeader = ({ children }: { children: ReactNode }) => {
 	return <View style={composeStyles(sectionItemHeaderStyle)}>{children}</View>;
 };
 
-type ItemWebsite = {
-	url: string;
-	label: string;
-	inlineLink?: boolean | undefined;
-};
-
-const ItemTitle = ({ children, website }: { children: ReactNode; website: ItemWebsite }) => {
+const ItemTitle = ({ children, website }: ItemTitleProps) => {
 	const inlineWebsiteUrl = getInlineItemWebsiteUrl(website);
 	const title = <Bold>{children}</Bold>;
 
@@ -256,13 +303,13 @@ const ItemTitle = ({ children, website }: { children: ReactNode; website: ItemWe
 	return <Link src={inlineWebsiteUrl}>{title}</Link>;
 };
 
-const ItemWebsiteLink = ({ website }: { website: ItemWebsite }) => {
+const ItemWebsiteLink = ({ website }: ItemWebsiteLinkProps) => {
 	if (!shouldRenderSeparateItemWebsite(website)) return null;
 
 	return <Link src={website.url}>{getWebsiteDisplayText(website)}</Link>;
 };
 
-const SummarySection = ({ showHeading = true }: { showHeading?: boolean } = {}) => {
+const SummarySection = ({ showHeading = true }: SummarySectionProps = {}) => {
 	const data = useRender();
 	const { summary } = data;
 
@@ -279,13 +326,7 @@ const SummarySection = ({ showHeading = true }: { showHeading?: boolean } = {}) 
 	);
 };
 
-const CustomSummarySection = ({
-	section,
-	showHeading = true,
-}: {
-	section: CustomItemSection<SummaryItem>;
-	showHeading?: boolean;
-}) => {
+const CustomSummarySection = ({ section, showHeading = true }: CustomSummarySectionProps) => {
 	const items = getVisibleItems(section);
 
 	if (items.length === 0) return null;
@@ -303,13 +344,7 @@ const CustomSummarySection = ({
 	);
 };
 
-const ProfileSection = ({
-	sectionId = "profiles",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<ProfileItem>;
-} = {}) => {
+const ProfileSection = ({ sectionId = "profiles", sectionData }: ItemSectionProps<ProfileItem> = {}) => {
 	const data = useRender();
 	const profiles = sectionData ?? data.sections.profiles;
 	const items = getVisibleItems(profiles, "profiles");
@@ -336,13 +371,7 @@ const ProfileSection = ({
 	);
 };
 
-const ExperienceSection = ({
-	sectionId = "experience",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<ExperienceItem>;
-} = {}) => {
+const ExperienceSection = ({ sectionId = "experience", sectionData }: ItemSectionProps<ExperienceItem> = {}) => {
 	const data = useRender();
 	const experience = sectionData ?? data.sections.experience;
 	const items = getVisibleItems(experience, "experience");
@@ -422,13 +451,7 @@ const ExperienceSection = ({
 	);
 };
 
-const EducationSection = ({
-	sectionId = "education",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<EducationItem>;
-} = {}) => {
+const EducationSection = ({ sectionId = "education", sectionData }: ItemSectionProps<EducationItem> = {}) => {
 	const data = useRender();
 	const education = sectionData ?? data.sections.education;
 	const items = getVisibleItems(education, "education");
@@ -506,13 +529,7 @@ const EducationSection = ({
 	);
 };
 
-const ProjectsSection = ({
-	sectionId = "projects",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<ProjectItem>;
-} = {}) => {
+const ProjectsSection = ({ sectionId = "projects", sectionData }: ItemSectionProps<ProjectItem> = {}) => {
 	const data = useRender();
 	const projects = sectionData ?? data.sections.projects;
 	const items = getVisibleItems(projects, "projects");
@@ -543,13 +560,7 @@ const ProjectsSection = ({
 	);
 };
 
-const SkillsSection = ({
-	sectionId = "skills",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<SkillItem>;
-} = {}) => {
+const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<SkillItem> = {}) => {
 	const data = useRender();
 	const skills = sectionData ?? data.sections.skills;
 	const items = getVisibleItems(skills, "skills");
@@ -583,13 +594,7 @@ const SkillsSection = ({
 	);
 };
 
-const LanguagesSection = ({
-	sectionId = "languages",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<LanguageItem>;
-} = {}) => {
+const LanguagesSection = ({ sectionId = "languages", sectionData }: ItemSectionProps<LanguageItem> = {}) => {
 	const data = useRender();
 	const languages = sectionData ?? data.sections.languages;
 	const items = getVisibleItems(languages, "languages");
@@ -613,13 +618,7 @@ const LanguagesSection = ({
 	);
 };
 
-const InterestsSection = ({
-	sectionId = "interests",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<InterestItem>;
-} = {}) => {
+const InterestsSection = ({ sectionId = "interests", sectionData }: ItemSectionProps<InterestItem> = {}) => {
 	const data = useRender();
 	const interests = sectionData ?? data.sections.interests;
 	const items = getVisibleItems(interests, "interests");
@@ -647,13 +646,7 @@ const InterestsSection = ({
 	);
 };
 
-const AwardsSection = ({
-	sectionId = "awards",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<AwardItem>;
-} = {}) => {
+const AwardsSection = ({ sectionId = "awards", sectionData }: ItemSectionProps<AwardItem> = {}) => {
 	const data = useRender();
 	const awards = sectionData ?? data.sections.awards;
 	const items = getVisibleItems(awards, "awards");
@@ -687,10 +680,7 @@ const AwardsSection = ({
 const CertificationsSection = ({
 	sectionId = "certifications",
 	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<CertificationItem>;
-} = {}) => {
+}: ItemSectionProps<CertificationItem> = {}) => {
 	const data = useRender();
 	const certifications = sectionData ?? data.sections.certifications;
 	const items = getVisibleItems(certifications, "certifications");
@@ -722,13 +712,7 @@ const CertificationsSection = ({
 	);
 };
 
-const PublicationsSection = ({
-	sectionId = "publications",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<PublicationItem>;
-} = {}) => {
+const PublicationsSection = ({ sectionId = "publications", sectionData }: ItemSectionProps<PublicationItem> = {}) => {
 	const data = useRender();
 	const publications = sectionData ?? data.sections.publications;
 	const items = getVisibleItems(publications, "publications");
@@ -761,13 +745,7 @@ const PublicationsSection = ({
 	);
 };
 
-const VolunteerSection = ({
-	sectionId = "volunteer",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<VolunteerItem>;
-} = {}) => {
+const VolunteerSection = ({ sectionId = "volunteer", sectionData }: ItemSectionProps<VolunteerItem> = {}) => {
 	const data = useRender();
 	const volunteer = sectionData ?? data.sections.volunteer;
 	const items = getVisibleItems(volunteer, "volunteer");
@@ -812,13 +790,7 @@ const VolunteerSection = ({
 	);
 };
 
-const ReferencesSection = ({
-	sectionId = "references",
-	sectionData,
-}: {
-	sectionId?: string;
-	sectionData?: ItemSection<ReferenceItem>;
-} = {}) => {
+const ReferencesSection = ({ sectionId = "references", sectionData }: ItemSectionProps<ReferenceItem> = {}) => {
 	const data = useRender();
 	const references = sectionData ?? data.sections.references;
 	const items = getVisibleItems(references, "references");
@@ -845,7 +817,7 @@ const ReferencesSection = ({
 	);
 };
 
-const CoverLetterSection = ({ section }: { section: CustomItemSection<CoverLetterItem> }) => {
+const CoverLetterSection = ({ section }: CoverLetterSectionProps) => {
 	const items = getVisibleItems(section);
 
 	if (items.length === 0) return null;
@@ -864,7 +836,7 @@ const CoverLetterSection = ({ section }: { section: CustomItemSection<CoverLette
 	);
 };
 
-const CustomSection = ({ sectionId, showHeading = true }: { sectionId: string; showHeading?: boolean }) => {
+const CustomSection = ({ sectionId, showHeading = true }: CustomSectionProps) => {
 	const data = useRender();
 	const customSection = data.customSections.find((section) => section.id === sectionId);
 
@@ -917,15 +889,7 @@ const CustomSection = ({ sectionId, showHeading = true }: { sectionId: string; s
 		.exhaustive();
 };
 
-export const Section = ({
-	section,
-	placement,
-	showHeading = true,
-}: {
-	section: string;
-	placement: TemplatePlacement;
-	showHeading?: boolean;
-}) => {
+export const Section = ({ section, placement, showHeading = true }: SectionProps) => {
 	const data = useRender();
 
 	if (!isSectionVisible(section, data)) return null;

@@ -373,6 +373,10 @@ msgstr "اپ"
 msgid "Application Statistics"
 msgstr "آمار اپلیکیشن"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "عربی"
@@ -671,6 +675,10 @@ msgstr "دایره"
 msgid "Clear"
 msgstr "شفاف"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "برای انتخاب فایل برای وارد کردن، اینجا کلیک کنید"
@@ -952,6 +960,10 @@ msgstr "OAuth سفارشی"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "بخش‌های سفارشی"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "هنوز هیچ کلید عبوری ثبت نشده است."
 msgid "No results found."
 msgstr "موردی یافت نشد."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "هیچ ارائه دهنده آزمایش شده ای وجود ندارد"
@@ -2714,6 +2730,10 @@ msgstr "ریست"
 msgid "Reset Password"
 msgstr "تنظیم مجدد گذرواژه"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "تنظیم مجدد گذرواژهٔ شما"
@@ -2789,6 +2809,14 @@ msgstr "رومانیایی"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "چرخش"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "در حال به‌روزرسانی گذرواژه شما..."
 msgid "Updating your resume..."
 msgstr "در حال به‌روزرسانی رزومه شما..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "بارگذاری تصویر"
@@ -3959,4 +3991,3 @@ msgstr "کوچک‌نمایی"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "زولو"
-

@@ -7,6 +7,10 @@ import { I18nProvider } from "@lingui/react";
 
 const queryResult = vi.hoisted(() => ({ data: undefined as number | undefined }));
 
+type CountUpProps = {
+	to: number;
+};
+
 vi.mock("@tanstack/react-query", () => ({
 	useQuery: () => queryResult,
 }));
@@ -14,7 +18,7 @@ vi.mock("@/libs/orpc/client", () => ({
 	orpc: { statistics: { github: { getStarCount: { queryOptions: () => ({}) } } } },
 }));
 vi.mock("../animation/count-up", () => ({
-	CountUp: ({ to }: { to: number }) => <span data-testid="count-up">{to.toLocaleString()}</span>,
+	CountUp: ({ to }: CountUpProps) => <span data-testid="count-up">{to.toLocaleString()}</span>,
 }));
 
 const { GithubStarsButton } = await import("./github-stars-button");

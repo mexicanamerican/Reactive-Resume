@@ -5,10 +5,13 @@ import React from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
 	ComboboxClear,
+	ComboboxCollection,
 	ComboboxContent,
 	ComboboxEmpty,
+	ComboboxGroup,
 	ComboboxInput,
 	ComboboxItem,
+	ComboboxLabel,
 	ComboboxList,
 	ComboboxRoot,
 	ComboboxTrigger,
@@ -22,8 +25,19 @@ import { useControlledState } from "@/hooks/use-controlled-state";
 type ComboboxOption<TValue extends string | number = string> = {
 	value: TValue;
 	label: React.ReactNode;
+	group?: string | ComboboxOptionGroup;
 	keywords?: string[];
 	disabled?: boolean;
+};
+
+type ComboboxOptionGroup = {
+	value: string;
+	label: React.ReactNode;
+};
+
+type GroupedComboboxOption<TValue extends string | number = string> = ComboboxOptionGroup & {
+	key: string;
+	items: ComboboxOption<TValue>[];
 };
 
 type SingleComboboxProps<TValue extends string | number = string> = {
@@ -80,6 +94,40 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 	const { contains } = useFilter();
 
 	const optionMap = React.useMemo(() => new Map(options.map((opt) => [String(opt.value), opt])), [options]);
+
+	const optionGroups = React.useMemo(() => {
+		const groups: GroupedComboboxOption<TValue>[] = [];
+		const groupMap = new Map<string, GroupedComboboxOption<TValue>>();
+		let ungroupedGroup: GroupedComboboxOption<TValue> | null = null;
+		let hasGroupedOptions = false;
+
+		for (const option of options) {
+			if (option.group === undefined) {
+				if (!ungroupedGroup) {
+					ungroupedGroup = { key: "ungrouped", value: "", label: null, items: [] };
+					groups.push(ungroupedGroup);
+				}
+
+				ungroupedGroup.items.push(option);
+				continue;
+			}
+
+			hasGroupedOptions = true;
+
+			const group = typeof option.group === "string" ? { value: option.group, label: option.group } : option.group;
+			let optionGroup = groupMap.get(group.value);
+
+			if (!optionGroup) {
+				optionGroup = { ...group, key: `group:${group.value}`, items: [] };
+				groupMap.set(group.value, optionGroup);
+				groups.push(optionGroup);
+			}
+
+			optionGroup.items.push(option);
+		}
+
+		return hasGroupedOptions ? groups : null;
+	}, [options]);
 
 	const findOption = React.useCallback(
 		(v: TValue | TValue[] | null | undefined) => {
@@ -157,6 +205,13 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 		</ComboboxItem>
 	);
 
+	const groupedListContent = (group: GroupedComboboxOption<TValue>) => (
+		<ComboboxGroup key={group.key} items={group.items}>
+			{group.label !== null && group.label !== undefined ? <ComboboxLabel>{group.label}</ComboboxLabel> : null}
+			<ComboboxCollection>{listContent}</ComboboxCollection>
+		</ComboboxGroup>
+	);
+
 	const triggerNode = (
 		<ComboboxTrigger
 			id={id}
@@ -179,7 +234,7 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 	return (
 		<ComboboxRoot
 			name={name}
-			items={options}
+			items={optionGroups ?? options}
 			filter={filter}
 			disabled={disabled}
 			value={selectedValue as ComboboxOption<TValue>[] & ComboboxOption<TValue>}
@@ -210,7 +265,7 @@ function Combobox<TValue extends string | number = string>(props: ComboboxProps<
 					render={<Input disabled={disabled} className="border-none focus-visible:border-none focus-visible:ring-0" />}
 				/>
 				<ComboboxEmpty>{emptyMessage ?? t`No results found.`}</ComboboxEmpty>
-				<ComboboxList>{listContent}</ComboboxList>
+				<ComboboxList>{optionGroups ? groupedListContent : listContent}</ComboboxList>
 			</ComboboxContent>
 		</ComboboxRoot>
 	);

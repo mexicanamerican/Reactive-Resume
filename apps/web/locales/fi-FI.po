@@ -373,6 +373,10 @@ msgstr "Sovellus"
 msgid "Application Statistics"
 msgstr "Sovelluksen tilastot"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "arabia"
@@ -671,6 +675,10 @@ msgstr "Ympyrä"
 msgid "Clear"
 msgstr "Kirkas"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Napsauta tästä valitaksesi tuotavan tiedoston"
@@ -952,6 +960,10 @@ msgstr "Mukautettu OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Mukautetut osiot"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Ei vielä rekisteröityjä kulkulupia."
 msgid "No results found."
 msgstr "Tuloksia ei löytynyt."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Ei testattua tarjoajaa"
@@ -2714,6 +2730,10 @@ msgstr "Palauta"
 msgid "Reset Password"
 msgstr "Palauta salasana"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Palauta salasanasi"
@@ -2789,6 +2809,14 @@ msgstr "romania"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Kierrätys"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Päivitetään salasanaasi..."
 msgid "Updating your resume..."
 msgstr "Päivitetään ansioluetteloasi..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Lataa kuva"
@@ -3959,4 +3991,3 @@ msgstr "Loitonna"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -64,21 +64,106 @@ type AgentAction = AgentThreadDetail["actions"][number];
 type AgentAttachment = AgentThreadDetail["attachments"][number];
 type PatchOperation = AgentAction["operations"][number];
 
-function toRecord(value: unknown) {
-	return typeof value === "object" && value !== null ? (value as Record<string, unknown>) : null;
-}
-
-function PatchToolCard({
-	part,
-	action,
-	onRevert,
-	isReverting,
-}: {
+type PatchToolCardProps = {
 	part: UIMessage["parts"][number];
 	action: AgentAction | undefined;
 	onRevert: (actionId: string) => void;
 	isReverting: boolean;
-}) {
+};
+
+type StarterPromptMarqueeProps = {
+	onSelect: (prompt: string) => void;
+};
+
+type AssistantMarkdownProps = {
+	text: string;
+};
+
+type MessagePartProps = {
+	part: UIMessage["parts"][number];
+	isUser: boolean;
+	onAnswer: (toolCallId: string, answer: string) => void;
+	onRevert: (actionId: string) => void;
+	isReverting: boolean;
+	actionsById: Map<string, AgentAction>;
+};
+
+type ChatMessageProps = {
+	message: UIMessage;
+	onAnswer: (toolCallId: string, answer: string) => void;
+	onRevert: (actionId: string) => void;
+	isReverting: boolean;
+	actionsById: Map<string, AgentAction>;
+};
+
+type AgentChatProps = {
+	threadId: string;
+	initialMessages: UIMessage[];
+	isReadOnly: boolean;
+	readOnlyReason: "archived" | "missing" | null;
+	threadStatus: string;
+	activeRunId: string | null;
+	actions: AgentAction[];
+	onToggleThreads?: () => void;
+	onToggleResume?: () => void;
+};
+
+type AgentChatReadOnlyBannerProps = {
+	isReadOnly: boolean;
+	readOnlyReason: "archived" | "missing" | null;
+};
+
+type AgentChatMessagesProps = {
+	actionsById: Map<string, AgentAction>;
+	error: Error | undefined;
+	isReadOnly: boolean;
+	isReverting: boolean;
+	isStreaming: boolean;
+	messages: UIMessage[];
+	onAnswer: (toolCallId: string, answer: string) => void;
+	onRevert: (actionId: string) => void;
+	onRetry: () => void;
+	onStarterSelect: (prompt: string) => void;
+};
+
+type AgentChatHeaderProps = {
+	isArchived: boolean;
+	isArchivePending: boolean;
+	isDeletePending: boolean;
+	onArchive: () => void;
+	onCopyConversation: () => void;
+	onCopyConversationJson: () => void;
+	onDelete: () => void;
+	onToggleResume?: () => void;
+	onToggleThreads?: () => void;
+};
+
+type AgentChatComposerProps = {
+	fileInputRef: React.RefObject<HTMLInputElement | null>;
+	input: string;
+	isReadOnly: boolean;
+	isStreaming: boolean;
+	isUploading: boolean;
+	pendingAttachments: Array<Pick<AgentAttachment, "filename" | "id" | "mediaType">>;
+	onInputChange: (value: string) => void;
+	onSend: () => void;
+	onStopRun: () => void;
+	onUploadFiles: (files: FileList | null) => void;
+};
+
+type ToolbarButtonProps = React.ComponentProps<typeof Button> & {
+	label: string;
+};
+
+type ResumePaneProps = {
+	resume: AgentThreadDetail["resume"];
+};
+
+function toRecord(value: unknown) {
+	return typeof value === "object" && value !== null ? (value as Record<string, unknown>) : null;
+}
+
+function PatchToolCard({ part, action, onRevert, isReverting }: PatchToolCardProps) {
 	const partRecord = part as Record<string, unknown>;
 	const state = typeof partRecord.state === "string" ? partRecord.state : null;
 	const input = toRecord(partRecord.input);
@@ -235,7 +320,7 @@ function chunkPrompts(prompts: string[], columns: number) {
 	);
 }
 
-function StarterPromptMarquee({ onSelect }: { onSelect: (prompt: string) => void }) {
+function StarterPromptMarquee({ onSelect }: StarterPromptMarqueeProps) {
 	const prompts = [
 		t`Tailor this resume to a product manager job description and emphasize roadmap ownership, stakeholder communication, and measurable launch outcomes.`,
 		t`Compare this resume against this role URL and update keywords while keeping the voice concise and credible.`,
@@ -297,7 +382,7 @@ function getMessagePartKey(messageId: string, part: UIMessage["parts"][number]) 
 	return `${messageId}-${part.type}-${JSON.stringify(part)}`;
 }
 
-function AssistantMarkdown({ text }: { text: string }) {
+function AssistantMarkdown({ text }: AssistantMarkdownProps) {
 	return (
 		<ReactMarkdown
 			skipHtml
@@ -331,21 +416,7 @@ function AssistantMarkdown({ text }: { text: string }) {
 	);
 }
 
-function MessagePart({
-	part,
-	isUser,
-	onAnswer,
-	onRevert,
-	isReverting,
-	actionsById,
-}: {
-	part: UIMessage["parts"][number];
-	isUser: boolean;
-	onAnswer: (toolCallId: string, answer: string) => void;
-	onRevert: (actionId: string) => void;
-	isReverting: boolean;
-	actionsById: Map<string, AgentAction>;
-}) {
+function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsById }: MessagePartProps) {
 	if (part.type === "text") {
 		return isUser ? (
 			<div className="whitespace-pre-wrap leading-relaxed">{part.text}</div>
@@ -427,19 +498,7 @@ function MessagePart({
 	return null;
 }
 
-function ChatMessage({
-	message,
-	onAnswer,
-	onRevert,
-	isReverting,
-	actionsById,
-}: {
-	message: UIMessage;
-	onAnswer: (toolCallId: string, answer: string) => void;
-	onRevert: (actionId: string) => void;
-	isReverting: boolean;
-	actionsById: Map<string, AgentAction>;
-}) {
+function ChatMessage({ message, onAnswer, onRevert, isReverting, actionsById }: ChatMessageProps) {
 	const isUser = message.role === "user";
 
 	return (
@@ -478,17 +537,7 @@ function AgentChat({
 	actions,
 	onToggleThreads,
 	onToggleResume,
-}: {
-	threadId: string;
-	initialMessages: UIMessage[];
-	isReadOnly: boolean;
-	readOnlyReason: "archived" | "missing" | null;
-	threadStatus: string;
-	activeRunId: string | null;
-	actions: AgentAction[];
-	onToggleThreads?: () => void;
-	onToggleResume?: () => void;
-}) {
+}: AgentChatProps) {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const confirm = useConfirm();
@@ -767,13 +816,7 @@ function AgentChat({
 	);
 }
 
-function AgentChatReadOnlyBanner({
-	isReadOnly,
-	readOnlyReason,
-}: {
-	isReadOnly: boolean;
-	readOnlyReason: "archived" | "missing" | null;
-}) {
+function AgentChatReadOnlyBanner({ isReadOnly, readOnlyReason }: AgentChatReadOnlyBannerProps) {
 	if (!isReadOnly) return null;
 
 	return (
@@ -798,18 +841,7 @@ function AgentChatMessages({
 	onRevert,
 	onRetry,
 	onStarterSelect,
-}: {
-	actionsById: Map<string, AgentAction>;
-	error: Error | undefined;
-	isReadOnly: boolean;
-	isReverting: boolean;
-	isStreaming: boolean;
-	messages: UIMessage[];
-	onAnswer: (toolCallId: string, answer: string) => void;
-	onRevert: (actionId: string) => void;
-	onRetry: () => void;
-	onStarterSelect: (prompt: string) => void;
-}) {
+}: AgentChatMessagesProps) {
 	return (
 		<ScrollArea className="min-h-0 flex-1">
 			<div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
@@ -868,17 +900,7 @@ function AgentChatHeader({
 	onDelete,
 	onToggleResume,
 	onToggleThreads,
-}: {
-	isArchived: boolean;
-	isArchivePending: boolean;
-	isDeletePending: boolean;
-	onArchive: () => void;
-	onCopyConversation: () => void;
-	onCopyConversationJson: () => void;
-	onDelete: () => void;
-	onToggleResume?: () => void;
-	onToggleThreads?: () => void;
-}) {
+}: AgentChatHeaderProps) {
 	return (
 		<div className="flex h-14 shrink-0 items-center justify-between border-b px-4">
 			<div className="flex min-w-0 items-center gap-2">
@@ -957,18 +979,7 @@ function AgentChatComposer({
 	onSend,
 	onStopRun,
 	onUploadFiles,
-}: {
-	fileInputRef: React.RefObject<HTMLInputElement | null>;
-	input: string;
-	isReadOnly: boolean;
-	isStreaming: boolean;
-	isUploading: boolean;
-	pendingAttachments: Array<Pick<AgentAttachment, "filename" | "id" | "mediaType">>;
-	onInputChange: (value: string) => void;
-	onSend: () => void;
-	onStopRun: () => void;
-	onUploadFiles: (files: FileList | null) => void;
-}) {
+}: AgentChatComposerProps) {
 	return (
 		<form
 			className="border-t p-3"
@@ -1066,13 +1077,7 @@ function getInitialPreviewZoom() {
 	return Number.isFinite(stored) ? clampPreviewZoom(stored) : DEFAULT_PREVIEW_ZOOM;
 }
 
-function ToolbarButton({
-	label,
-	children,
-	...props
-}: React.ComponentProps<typeof Button> & {
-	label: string;
-}) {
+function ToolbarButton({ label, children, ...props }: ToolbarButtonProps) {
 	return (
 		<Tooltip>
 			<TooltipTrigger
@@ -1089,7 +1094,7 @@ function ToolbarButton({
 	);
 }
 
-function ResumePane({ resume }: { resume: AgentThreadDetail["resume"] }) {
+function ResumePane({ resume }: ResumePaneProps) {
 	const [zoom, setZoom] = useState(getInitialPreviewZoom);
 	const [isPrinting, setIsPrinting] = useState(false);
 

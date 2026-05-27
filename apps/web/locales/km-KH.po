@@ -373,6 +373,10 @@ msgstr "កម្មវិធី"
 msgid "Application Statistics"
 msgstr "ស្ថិតិ​កម្មវិធី"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabic"
@@ -671,6 +675,10 @@ msgstr "រង្វង់"
 msgid "Clear"
 msgstr "សម្អាត"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ចុច​ទីនេះ​ដើម្បី​ជ្រើស​ឯកសារ​មួយ​ដើម្បី​នាំចូល"
@@ -952,6 +960,10 @@ msgstr "OAuth ផ្ទាល់ខ្លួន"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "ផ្នែក​ផ្ទាល់ខ្លួន"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "មិនទាន់មាន passkey បានចុះឈ្មោះ
 msgid "No results found."
 msgstr "រក​មិន​ឃើញ​លទ្ធផល។"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "គ្មានអ្នកផ្តល់សេវាដែលបានធ្វើតេស្តទេ"
@@ -2714,6 +2730,10 @@ msgstr "កំណត់​ឡើងវិញ"
 msgid "Reset Password"
 msgstr "កំណត់​ពាក្យសម្ងាត់​ឡើងវិញ"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "កំណត់​ពាក្យសម្ងាត់​របស់​អ្នក​ឡើងវិញ"
@@ -2789,6 +2809,14 @@ msgstr "Romanian"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "មុំ​បង្វែរ"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "កំពុង​បច្ចុប្បន្នភាព​ពាក
 msgid "Updating your resume..."
 msgstr "កំពុង​បច្ចុប្បន្នភាព​ប្រវត្តិរូប​របស់​អ្នក..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "អាប់ឡូដរូបភាព"
@@ -3959,4 +3991,3 @@ msgstr "បង្រួម"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

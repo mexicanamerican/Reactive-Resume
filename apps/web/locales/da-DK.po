@@ -373,6 +373,10 @@ msgstr "App"
 msgid "Application Statistics"
 msgstr "Applikationsstatistik"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabisk"
@@ -671,6 +675,10 @@ msgstr "Cirkel"
 msgid "Clear"
 msgstr "Klar"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Klik her for at vælge en fil, der skal importeres"
@@ -952,6 +960,10 @@ msgstr "Brugerdefineret OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Brugerdefinerede afsnit"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Ingen nøgler registreret endnu."
 msgid "No results found."
 msgstr "Ingen resultater fundet."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Ingen testet udbyder"
@@ -2714,6 +2730,10 @@ msgstr "Nulstil"
 msgid "Reset Password"
 msgstr "Nulstil adgangskode"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Nulstil din adgangskode"
@@ -2789,6 +2809,14 @@ msgstr "Rumænsk"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Rotation"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Opdaterer din adgangskode..."
 msgid "Updating your resume..."
 msgstr "Opdaterer dit CV..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Upload billede"
@@ -3959,4 +3991,3 @@ msgstr "Zoom ud"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

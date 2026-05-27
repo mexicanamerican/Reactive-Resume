@@ -57,6 +57,7 @@ const styleSlotOptions: StyleSlotOption[] = [
 const styleSlotComboboxOptions: ComboboxOption<StyleSlot>[] = styleSlotOptions.map((option) => ({
 	value: option.value,
 	label: option.label,
+	group: option.group,
 	keywords: [option.group],
 }));
 
@@ -94,7 +95,9 @@ const borderStyleOptions = [
 ] as const satisfies readonly { value: NonNullable<StyleIntent["borderStyle"]>; label: string }[];
 
 const controlGridClassName = "grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-3";
-const compactControlGridClassName = "grid grid-cols-[repeat(auto-fit,minmax(7rem,1fr))] gap-3";
+const exactFourControlGridClassName = "grid grid-cols-1 gap-3 @min-[20rem]:grid-cols-2 @min-[35rem]:grid-cols-4";
+const compactSpacingInputClassName =
+	"h-8 w-18 max-w-18 min-w-0 px-1.5 text-center text-xs tabular-nums placeholder:text-[0.68rem] placeholder:uppercase placeholder:tracking-wide";
 
 export function CustomStylesSectionBuilder() {
 	return (
@@ -270,7 +273,13 @@ function CustomStylesSectionForm() {
 	);
 }
 
-function Field({ label, id, children }: { label: string; id: string; children: ReactNode }) {
+type FieldProps = {
+	label: string;
+	id: string;
+	children: ReactNode;
+};
+
+function Field({ label, id, children }: FieldProps) {
 	return (
 		<div className="min-w-0 space-y-2">
 			<Label htmlFor={id} className="block min-w-0 text-pretty leading-snug">
@@ -281,24 +290,19 @@ function Field({ label, id, children }: { label: string; id: string; children: R
 	);
 }
 
-function ColorField({
-	label,
-	id,
-	value,
-	placeholder,
-	fallback,
-	onChange,
-}: {
+type ColorFieldProps = {
 	label: string;
 	id: string;
 	value: string | undefined;
 	placeholder?: string;
 	fallback: string;
 	onChange: (value: string | undefined) => void;
-}) {
+};
+
+function ColorField({ label, id, value, placeholder, fallback, onChange }: ColorFieldProps) {
 	return (
 		<Field label={label} id={id}>
-			<div className="flex min-w-0 items-center gap-2">
+			<div className="flex min-w-0 items-center gap-3">
 				<ColorPicker value={value ?? fallback} defaultValue={fallback} onChange={(color) => onChange(color)} />
 				<Input
 					id={id}
@@ -312,15 +316,7 @@ function ColorField({
 	);
 }
 
-function NumberInput({
-	label,
-	id,
-	value,
-	min,
-	max,
-	step = 1,
-	onChange,
-}: {
+type NumberInputProps = {
 	label: string;
 	id?: string;
 	value: number | undefined;
@@ -328,7 +324,9 @@ function NumberInput({
 	max: number;
 	step?: number;
 	onChange: (value: number | undefined) => void;
-}) {
+};
+
+function NumberInput({ label, id, value, min, max, step = 1, onChange }: NumberInputProps) {
 	const inputId = id ?? `style-${label.toLowerCase().replaceAll(" ", "-")}`;
 
 	return (
@@ -350,19 +348,15 @@ function NumberInput({
 	);
 }
 
-function AppliedRulesList({
-	data,
-	rules,
-	onToggleRule,
-	onEditRule,
-	onDeleteRule,
-}: {
+type AppliedRulesListProps = {
 	data: ResumeData;
 	rules: StyleRule[];
 	onToggleRule: (ruleId: string, enabled: boolean) => void;
 	onEditRule: (rule: StyleRule) => void;
 	onDeleteRule: (ruleId: string) => void;
-}) {
+};
+
+function AppliedRulesList({ data, rules, onToggleRule, onEditRule, onDeleteRule }: AppliedRulesListProps) {
 	return (
 		<section className="space-y-3">
 			<div className="space-y-0.5">
@@ -396,19 +390,15 @@ function AppliedRulesList({
 	);
 }
 
-function AppliedRuleCard({
-	data,
-	rule,
-	onToggleRule,
-	onEditRule,
-	onDeleteRule,
-}: {
+type AppliedRuleCardProps = {
 	data: ResumeData;
 	rule: StyleRule;
 	onToggleRule: (ruleId: string, enabled: boolean) => void;
 	onEditRule: (rule: StyleRule) => void;
 	onDeleteRule: (ruleId: string) => void;
-}) {
+};
+
+function AppliedRuleCard({ data, rule, onToggleRule, onEditRule, onDeleteRule }: AppliedRuleCardProps) {
 	const slots = getConfiguredSlots(rule);
 	const primaryIntent = slots[0] ? rule.slots[slots[0]] : undefined;
 	const fallbackLabel = getRuleFallbackLabel(data, rule);
@@ -462,7 +452,12 @@ function AppliedRuleCard({
 	);
 }
 
-function RuleScopePill({ target, slot }: { target: string; slot: string }) {
+type RuleScopePillProps = {
+	target: string;
+	slot: string;
+};
+
+function RuleScopePill({ target, slot }: RuleScopePillProps) {
 	return (
 		<div className="inline-flex max-w-full overflow-hidden rounded-sm border border-border/80 bg-background text-xs shadow-xs">
 			<span className="min-w-0 max-w-32 truncate bg-secondary px-2.5 py-1 font-medium text-secondary-foreground">
@@ -473,23 +468,20 @@ function RuleScopePill({ target, slot }: { target: string; slot: string }) {
 	);
 }
 
-function RuleIntentEditor({
-	idPrefix,
-	intent,
-	labelPrefix,
-	onChange,
-}: {
+type RuleIntentEditorProps = {
 	idPrefix: string;
 	intent: StyleIntent;
 	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
-}) {
+};
+
+function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleIntentEditorProps) {
 	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
 
 	return (
 		<div className="space-y-3">
 			<ControlPanel title="Color">
-				<div className={controlGridClassName}>
+				<div className={exactFourControlGridClassName}>
 					<ColorField
 						label={`${labelStart}Text Color`}
 						id={`${idPrefix}-color`}
@@ -599,38 +591,34 @@ function RuleIntentEditor({
 			</ControlPanel>
 
 			<ControlPanel title="Spacing">
-				<div className="space-y-4">
-					<ControlSubsection title="Padding">
-						<PaddingSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
-					</ControlSubsection>
-					<ControlSubsection title="Margin">
-						<MarginSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
-					</ControlSubsection>
-					<ControlSubsection title="Gap">
-						<div className={controlGridClassName}>
-							<NumberInput
-								label={`${labelStart}Row Gap`}
-								id={`${idPrefix}-row-gap`}
-								value={intent.rowGap}
-								min={-72}
-								max={72}
-								onChange={(rowGap) => onChange({ rowGap })}
-							/>
-							<NumberInput
-								label={`${labelStart}Column Gap`}
-								id={`${idPrefix}-column-gap`}
-								value={intent.columnGap}
-								min={-72}
-								max={72}
-								onChange={(columnGap) => onChange({ columnGap })}
-							/>
-						</div>
-					</ControlSubsection>
+				<div className="space-y-3">
+					<PaddingSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
+					<MarginSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
+					<SpacingInputGroup label="Gap">
+						<CompactNumberInput
+							ariaLabel={`${labelStart}Row Gap`}
+							id={`${idPrefix}-row-gap`}
+							placeholder="row"
+							value={intent.rowGap}
+							min={-72}
+							max={72}
+							onChange={(rowGap) => onChange({ rowGap })}
+						/>
+						<CompactNumberInput
+							ariaLabel={`${labelStart}Column Gap`}
+							id={`${idPrefix}-column-gap`}
+							placeholder="column"
+							value={intent.columnGap}
+							min={-72}
+							max={72}
+							onChange={(columnGap) => onChange({ columnGap })}
+						/>
+					</SpacingInputGroup>
 				</div>
 			</ControlPanel>
 
 			<ControlPanel title="Border">
-				<div className={controlGridClassName}>
+				<div className={exactFourControlGridClassName}>
 					<IntentSelectField
 						label={`${labelStart}Border Style`}
 						id={`${idPrefix}-border-style`}
@@ -668,23 +656,27 @@ function RuleIntentEditor({
 	);
 }
 
-function ControlPanel({ title, children }: { title: string; children: ReactNode }) {
+type ControlPanelProps = {
+	title: string;
+	children: ReactNode;
+};
+
+function ControlPanel({ title, children }: ControlPanelProps) {
 	return (
-		<section className="space-y-3 rounded-lg border bg-muted/10 p-3">
+		<section className="@container space-y-3 rounded-lg border bg-muted/10 p-3">
 			<h3 className="font-medium text-muted-foreground text-xs uppercase tracking-wide">{title}</h3>
 			{children}
 		</section>
 	);
 }
 
-function ControlSubsection({ title, children }: { title: string; children: ReactNode }) {
-	return (
-		<div className="space-y-2">
-			<div className="font-medium text-muted-foreground text-xs">{title}</div>
-			{children}
-		</div>
-	);
-}
+type IntentSelectFieldProps<TValue extends string> = {
+	label: string;
+	id: string;
+	value: TValue | undefined;
+	options: readonly ComboboxOption<TValue>[];
+	onChange: (value: TValue | undefined) => void;
+};
 
 function IntentSelectField<TValue extends string>({
 	label,
@@ -692,13 +684,7 @@ function IntentSelectField<TValue extends string>({
 	value,
 	options,
 	onChange,
-}: {
-	label: string;
-	id: string;
-	value: TValue | undefined;
-	options: readonly ComboboxOption<TValue>[];
-	onChange: (value: TValue | undefined) => void;
-}) {
+}: IntentSelectFieldProps<TValue>) {
 	return (
 		<Field label={label} id={id}>
 			<Combobox
@@ -715,17 +701,14 @@ function IntentSelectField<TValue extends string>({
 	);
 }
 
-function FontWeightField({
-	label,
-	id,
-	value,
-	onChange,
-}: {
+type FontWeightFieldProps = {
 	label: string;
 	id: string;
 	value: StyleIntent["fontWeight"] | undefined;
 	onChange: (value: StyleIntent["fontWeight"] | undefined) => void;
-}) {
+};
+
+function FontWeightField({ label, id, value, onChange }: FontWeightFieldProps) {
 	const options: ComboboxOption<NonNullable<StyleIntent["fontWeight"]>>[] = fontWeightOptions.map((weight) => ({
 		value: weight,
 		label: weight,
@@ -765,63 +748,113 @@ const marginSideOptions = [
 
 type MarginSideProperty = (typeof marginSideOptions)[number]["property"];
 
-function PaddingSideInputs({
-	idPrefix,
-	intent,
-	labelPrefix,
-	onChange,
-}: {
+type PaddingSideInputsProps = {
 	idPrefix: string;
 	intent: StyleIntent;
 	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
-}) {
+};
+
+function PaddingSideInputs({ idPrefix, intent, labelPrefix, onChange }: PaddingSideInputsProps) {
 	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
 
 	return (
-		<div className={compactControlGridClassName}>
+		<SpacingInputGroup label="Padding">
 			{paddingSideOptions.map((side) => (
-				<NumberInput
+				<CompactNumberInput
 					key={side.property}
-					label={`${labelStart}Padding ${side.label}`}
+					ariaLabel={`${labelStart}Padding ${side.label}`}
 					id={`${idPrefix}-${side.property}`}
+					placeholder={side.label.toLowerCase()}
 					value={getPaddingSideValue(intent, side.property)}
 					min={-72}
 					max={72}
 					onChange={(value) => onChange(createPaddingSidePatch(intent, side.property, value))}
 				/>
 			))}
-		</div>
+		</SpacingInputGroup>
 	);
 }
 
-function MarginSideInputs({
-	idPrefix,
-	intent,
-	labelPrefix,
-	onChange,
-}: {
+type MarginSideInputsProps = {
 	idPrefix: string;
 	intent: StyleIntent;
 	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
-}) {
+};
+
+function MarginSideInputs({ idPrefix, intent, labelPrefix, onChange }: MarginSideInputsProps) {
 	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
 
 	return (
-		<div className={compactControlGridClassName}>
+		<SpacingInputGroup label="Margin">
 			{marginSideOptions.map((side) => (
-				<NumberInput
+				<CompactNumberInput
 					key={side.property}
-					label={`${labelStart}Margin ${side.label}`}
+					ariaLabel={`${labelStart}Margin ${side.label}`}
 					id={`${idPrefix}-${side.property}`}
+					placeholder={side.label.toLowerCase()}
 					value={intent[side.property]}
 					min={-72}
 					max={72}
 					onChange={(value) => onChange(createMarginSidePatch(side.property, value))}
 				/>
 			))}
+		</SpacingInputGroup>
+	);
+}
+
+type SpacingInputGroupProps = {
+	label: string;
+	children: ReactNode;
+};
+
+function SpacingInputGroup({ label, children }: SpacingInputGroupProps) {
+	return (
+		<div className="flex min-w-0 items-center gap-4">
+			<div className="w-20 shrink-0 font-medium text-muted-foreground text-xs">{label}</div>
+			<div className="flex min-w-0 flex-1 flex-wrap gap-2">{children}</div>
 		</div>
+	);
+}
+
+type CompactNumberInputProps = {
+	ariaLabel: string;
+	id: string;
+	placeholder: string;
+	value: number | undefined;
+	min: number;
+	max: number;
+	step?: number;
+	onChange: (value: number | undefined) => void;
+};
+
+function CompactNumberInput({
+	ariaLabel,
+	id,
+	placeholder,
+	value,
+	min,
+	max,
+	step = 1,
+	onChange,
+}: CompactNumberInputProps) {
+	return (
+		<Input
+			id={id}
+			aria-label={ariaLabel}
+			className={compactSpacingInputClassName}
+			value={value ?? ""}
+			placeholder={placeholder}
+			type="number"
+			min={min}
+			max={max}
+			step={step}
+			onChange={(event) => {
+				const value = event.target.value;
+				onChange(value === "" ? undefined : Number(value));
+			}}
+		/>
 	);
 }
 
@@ -851,7 +884,11 @@ function createMarginSidePatch(property: MarginSideProperty, value: number | und
 	return { [property]: value };
 }
 
-function RulePropertySummary({ intent }: { intent: StyleIntent }) {
+type RulePropertySummaryProps = {
+	intent: StyleIntent;
+};
+
+function RulePropertySummary({ intent }: RulePropertySummaryProps) {
 	const properties = [
 		intent.color && { label: "Text", value: intent.color, color: intent.color },
 		intent.backgroundColor && { label: "Background", value: intent.backgroundColor, color: intent.backgroundColor },
@@ -935,15 +972,13 @@ function getGapSummary(intent: StyleIntent) {
 	return values.length > 0 ? values.join(" / ") : undefined;
 }
 
-function createTarget({
-	targetScope,
-	sectionType,
-	sectionId,
-}: {
+type CreateTargetParams = {
 	targetScope: TargetScope;
 	sectionType: string;
 	sectionId: string;
-}): StyleRuleTarget {
+};
+
+function createTarget({ targetScope, sectionType, sectionId }: CreateTargetParams): StyleRuleTarget {
 	if (targetScope === "sectionType") {
 		return {
 			scope: "sectionType",

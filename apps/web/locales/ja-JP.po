@@ -373,6 +373,10 @@ msgstr "アプリ"
 msgid "Application Statistics"
 msgstr "アプリケーション統計"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "アラビア語"
@@ -671,6 +675,10 @@ msgstr "円"
 msgid "Clear"
 msgstr "クリア"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ここをクリックしてインポートするファイルを選択"
@@ -952,6 +960,10 @@ msgstr "カスタムOAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "カスタムセクション"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "パスキーはまだ登録されていない。"
 msgid "No results found."
 msgstr "結果が見つかりません。"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "テスト済みのプロバイダーはありません"
@@ -2714,6 +2730,10 @@ msgstr "リセット"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "パスワードをリセット"
@@ -2789,6 +2809,14 @@ msgstr "ルーマニア語"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "回転"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "パスワードを更新しています..."
 msgid "Updating your resume..."
 msgstr "履歴書を更新しています..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "画像のアップロード"
@@ -3959,4 +3991,3 @@ msgstr "ズームアウト"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

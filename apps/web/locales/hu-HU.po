@@ -373,6 +373,10 @@ msgstr "Alkalmazás"
 msgid "Application Statistics"
 msgstr "Alkalmazásstatisztikák"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "arab"
@@ -671,6 +675,10 @@ msgstr "Kör"
 msgid "Clear"
 msgstr "Tiszta"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Kattints ide az importálandó fájl kiválasztásához"
@@ -952,6 +960,10 @@ msgstr "Egyéni OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Egyéni szekciók"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Még nincsenek regisztrált kulcsok."
 msgid "No results found."
 msgstr "Nincs találat."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Nincs tesztelt szolgáltató"
@@ -2714,6 +2730,10 @@ msgstr "Visszaállítás"
 msgid "Reset Password"
 msgstr "Jelszó visszaállítása"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Jelszó visszaállítása"
@@ -2789,6 +2809,14 @@ msgstr "Román"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Forgatás"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Jelszó frissítése..."
 msgid "Updating your resume..."
 msgstr "Önéletrajz frissítése..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Kép feltöltése"
@@ -3959,4 +3991,3 @@ msgstr "Kicsinyítés"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

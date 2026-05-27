@@ -373,6 +373,10 @@ msgstr "应用"
 msgid "Application Statistics"
 msgstr "应用统计数据"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "阿拉伯语"
@@ -671,6 +675,10 @@ msgstr "圆形"
 msgid "Clear"
 msgstr "清晰"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "点击此处选择要导入的文件"
@@ -952,6 +960,10 @@ msgstr "自定义 OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "自定义章节"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "尚未登记通行钥匙。"
 msgid "No results found."
 msgstr "没找到结果。"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "没有经过测试的提供商"
@@ -2714,6 +2730,10 @@ msgstr "重置"
 msgid "Reset Password"
 msgstr "重置密码"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "重置密码"
@@ -2789,6 +2809,14 @@ msgstr "罗马尼亚语"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "旋转"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "正在更新你的密码…"
 msgid "Updating your resume..."
 msgstr "正在更新你的简历…"
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "上传图片"
@@ -3959,4 +3991,3 @@ msgstr "缩小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
-

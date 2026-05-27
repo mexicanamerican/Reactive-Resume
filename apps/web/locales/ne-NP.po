@@ -373,6 +373,10 @@ msgstr "एप"
 msgid "Application Statistics"
 msgstr "अनुप्रयोग तथ्याङ्क"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "अरबी"
@@ -671,6 +675,10 @@ msgstr "वृत्त"
 msgid "Clear"
 msgstr "स्पष्ट"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "आयात गर्न फाइल छान्न यहाँ क्लिक गर्नुहोस्"
@@ -952,6 +960,10 @@ msgstr "अनुकूलित OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "अनुकूल (Custom) खण्डहरू"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "अहिलेसम्म कुनै पासकी दर्ता
 msgid "No results found."
 msgstr "कुनै परिणाम फेला परेन।"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "परीक्षण गरिएको कुनै प्रदायक छैन"
@@ -2714,6 +2730,10 @@ msgstr "रिसेट गर्नुहोस्"
 msgid "Reset Password"
 msgstr "पासवर्ड रिसेट गर्नुहोस्"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "तपाईंको पासवर्ड रिसेट गर्नुहोस्"
@@ -2789,6 +2809,14 @@ msgstr "रुमानियन"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "घुमाउने कोण (Rotation)"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "तपाईंको पासवर्ड अद्यावधिक 
 msgid "Updating your resume..."
 msgstr "तपाईंको बायोडाटा अद्यावधिक हुँदैछ..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "तस्बिर अपलोड गर्नुहोस्"
@@ -3959,4 +3991,3 @@ msgstr "जूम आउट"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "जुलु"
-

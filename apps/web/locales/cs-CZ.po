@@ -373,6 +373,10 @@ msgstr "Aplikace"
 msgid "Application Statistics"
 msgstr "Statistiky aplikace"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabština"
@@ -671,6 +675,10 @@ msgstr "Kruh"
 msgid "Clear"
 msgstr "Přehledně"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Kliknutím zde vyberte soubor k importu"
@@ -952,6 +960,10 @@ msgstr "Vlastní OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Vlastní sekce"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Zatím nebyly zaregistrovány žádné pasové klíče."
 msgid "No results found."
 msgstr "Nebyly nalezeny žádné výsledky."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Žádný ověřený poskytovatel"
@@ -2714,6 +2730,10 @@ msgstr "Resetovat"
 msgid "Reset Password"
 msgstr "Obnovit heslo"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Obnovte své heslo"
@@ -2789,6 +2809,14 @@ msgstr "Rumunština"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Otočení"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Aktualizace hesla…"
 msgid "Updating your resume..."
 msgstr "Aktualizace životopisu…"
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Nahrát obrázek"
@@ -3959,4 +3991,3 @@ msgstr "Oddálit"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

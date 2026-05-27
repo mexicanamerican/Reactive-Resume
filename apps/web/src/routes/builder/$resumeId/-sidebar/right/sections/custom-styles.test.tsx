@@ -18,8 +18,12 @@ const styleRules = vi.hoisted<StyleRule[]>(() => [
 	},
 ]);
 
+type SectionBaseProps = {
+	children: React.ReactNode;
+};
+
 vi.mock("../shared/section-base", () => ({
-	SectionBase: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+	SectionBase: ({ children }: SectionBaseProps) => <div>{children}</div>,
 }));
 
 vi.mock("@/features/resume/builder/draft", () => ({
@@ -77,6 +81,15 @@ describe("CustomStylesSectionBuilder", () => {
 		expect(screen.getByLabelText("Target Scope")).toBeInTheDocument();
 		expect(screen.getByLabelText("Style Slot")).toBeInTheDocument();
 		expect(screen.getByLabelText("Text Color")).toBeInTheDocument();
+		expect(screen.getByLabelText("Text Color").parentElement).toHaveClass("gap-3");
+		expect(screen.getByLabelText("Text Color").parentElement?.parentElement?.parentElement).toHaveClass(
+			"grid-cols-1",
+			"@min-[20rem]:grid-cols-2",
+			"@min-[35rem]:grid-cols-4",
+		);
+		expect(screen.getByLabelText("Text Color").parentElement?.parentElement?.parentElement).not.toHaveClass(
+			"grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]",
+		);
 		expect(screen.getByLabelText("Text Decoration Color")).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: "Color" })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: "Text" })).toBeInTheDocument();
@@ -90,6 +103,7 @@ describe("CustomStylesSectionBuilder", () => {
 		expect(screen.getByLabelText("Text Align")).toBeInTheDocument();
 		expect(screen.getByLabelText("Text Transform")).toBeInTheDocument();
 		expect(screen.getByLabelText("Opacity")).toBeInTheDocument();
+		expect(screen.getByText("Padding")).toBeInTheDocument();
 		expect(screen.getByLabelText("Margin Top")).toBeInTheDocument();
 		expect(screen.getByLabelText("Margin Right")).toBeInTheDocument();
 		expect(screen.getByLabelText("Margin Bottom")).toBeInTheDocument();
@@ -97,7 +111,14 @@ describe("CustomStylesSectionBuilder", () => {
 		expect(screen.getByLabelText("Row Gap")).toBeInTheDocument();
 		expect(screen.getByLabelText("Column Gap")).toBeInTheDocument();
 		expect(screen.getByLabelText("Border Style")).toBeInTheDocument();
+		expect(screen.getByLabelText("Border Width").parentElement?.parentElement).toHaveClass(
+			"grid-cols-1",
+			"@min-[20rem]:grid-cols-2",
+			"@min-[35rem]:grid-cols-4",
+		);
 		fireEvent.click(screen.getByLabelText("Style Slot"));
+		expect(await screen.findByText("Section")).toBeInTheDocument();
+		expect(screen.getByText("Rich text")).toBeInTheDocument();
 		expect(await screen.findByRole("option", { name: "Section heading" })).toBeInTheDocument();
 		expect(screen.getByRole("option", { name: "List" })).toBeInTheDocument();
 		expect(screen.getByRole("option", { name: "List item content" })).toBeInTheDocument();
@@ -147,14 +168,16 @@ describe("CustomStylesSectionBuilder", () => {
 		styleRules.splice(0, styleRules.length);
 		renderCustomStyles();
 
-		expect(screen.queryByLabelText("Padding")).not.toBeInTheDocument();
+		expect(screen.getByText("Padding")).toBeInTheDocument();
+		expect(screen.getByText("Padding")).toHaveClass("shrink-0");
+		expect(screen.getByText("Padding").parentElement).toHaveClass("flex");
+		expect(screen.queryByText("Padding Top")).not.toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Top")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Right")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Bottom")).toBeInTheDocument();
 		expect(screen.getByLabelText("Padding Left")).toBeInTheDocument();
-		expect(screen.getByLabelText("Padding Top").closest("div")?.parentElement).toHaveClass(
-			"grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
-		);
+		expect(screen.getByLabelText("Padding Top")).toHaveAttribute("placeholder", "top");
+		expect(screen.getByLabelText("Padding Right")).toHaveClass("text-center", "tabular-nums");
 
 		fireEvent.change(screen.getByLabelText("Padding Top"), { target: { value: "12" } });
 
@@ -200,8 +223,15 @@ describe("CustomStylesSectionBuilder", () => {
 		styleRules.splice(0, styleRules.length);
 		renderCustomStyles();
 
+		expect(screen.getByText("Margin")).toBeInTheDocument();
+		expect(screen.getByText("Margin")).toHaveClass("shrink-0");
+		expect(screen.queryByText("Margin Bottom")).not.toBeInTheDocument();
 		expect(screen.getByLabelText("Margin Bottom")).toHaveAttribute("min", "-72");
+		expect(screen.getByLabelText("Margin Bottom")).toHaveAttribute("placeholder", "bottom");
+		expect(screen.getByText("Gap")).toBeInTheDocument();
+		expect(screen.queryByText("Row Gap")).not.toBeInTheDocument();
 		expect(screen.getByLabelText("Row Gap")).toHaveAttribute("min", "-72");
+		expect(screen.getByLabelText("Row Gap")).toHaveAttribute("placeholder", "row");
 
 		fireEvent.change(screen.getByLabelText("Margin Bottom"), { target: { value: "-10" } });
 		fireEvent.change(screen.getByLabelText("Row Gap"), { target: { value: "-6" } });

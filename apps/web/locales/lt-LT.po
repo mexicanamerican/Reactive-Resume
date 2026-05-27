@@ -373,6 +373,10 @@ msgstr "Programa"
 msgid "Application Statistics"
 msgstr "Programos statistika"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabų"
@@ -671,6 +675,10 @@ msgstr "Apskritimas"
 msgid "Clear"
 msgstr "Skaidrus"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr ""
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Spustelėkite čia, kad pasirinktumėte importuojamą failą"
@@ -952,6 +960,10 @@ msgstr "Pasirinktinis OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Pasirinktiniai skyriai"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Kol kas neužregistruota jokių passkeys."
 msgid "No results found."
 msgstr "Rezultatų nerasta."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Nėra patikrinto tiekėjo"
@@ -2714,6 +2730,10 @@ msgstr "Nustatyti iš naujo"
 msgid "Reset Password"
 msgstr "Atkurti slaptažodį"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Atkurkite slaptažodį"
@@ -2789,6 +2809,14 @@ msgstr "Rumunų"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Sukimas"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3708,6 +3736,10 @@ msgstr "Atnaujinamas jūsų slaptažodis..."
 msgid "Updating your resume..."
 msgstr "Atnaujinamas jūsų gyvenimo aprašymas..."
 
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
 msgstr "Įkelti nuotrauką"
@@ -3959,4 +3991,3 @@ msgstr "Tolinti"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

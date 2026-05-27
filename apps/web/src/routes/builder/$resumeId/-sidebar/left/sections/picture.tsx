@@ -32,6 +32,18 @@ export function PictureSectionBuilder() {
 	);
 }
 
+type PicturePreviewControlsProps = {
+	fileInputRef: React.RefObject<HTMLInputElement | null>;
+	form: PictureSettingsForm;
+	normalizedPictureUrl: string;
+	picture: PictureValues;
+	pictureSrc: string;
+	onAutoSave: () => void;
+	onDeletePicture: () => void;
+	onSelectPicture: () => void;
+	onUploadPicture: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
 function PicturePreviewControls({
 	fileInputRef,
 	form,
@@ -42,17 +54,7 @@ function PicturePreviewControls({
 	onDeletePicture,
 	onSelectPicture,
 	onUploadPicture,
-}: {
-	fileInputRef: React.RefObject<HTMLInputElement | null>;
-	form: PictureSettingsForm;
-	normalizedPictureUrl: string;
-	picture: PictureValues;
-	pictureSrc: string;
-	onAutoSave: () => void;
-	onDeletePicture: () => void;
-	onSelectPicture: () => void;
-	onUploadPicture: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}) {
+}: PicturePreviewControlsProps) {
 	return (
 		<div className="flex items-center gap-x-4">
 			<input
@@ -122,7 +124,12 @@ function PicturePreviewControls({
 	);
 }
 
-function PictureGeometryFields({ form, onAutoSave }: { form: PictureSettingsForm; onAutoSave: () => void }) {
+type PictureGeometryFieldsProps = {
+	form: PictureSettingsForm;
+	onAutoSave: () => void;
+};
+
+function PictureGeometryFields({ form, onAutoSave }: PictureGeometryFieldsProps) {
 	return (
 		<>
 			<form.Field name="size">
