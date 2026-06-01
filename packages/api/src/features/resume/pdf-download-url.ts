@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { env } from "@reactive-resume/env/server";
 
-const MAX_PDF_DOWNLOAD_URL_TTL_SECONDS = 10 * 60;
+export const MAX_PDF_DOWNLOAD_URL_TTL_SECONDS = 10 * 60;
 
 type PdfDownloadTokenPayload = {
 	v: 1;

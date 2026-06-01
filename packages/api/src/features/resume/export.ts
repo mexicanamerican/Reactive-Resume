@@ -9,7 +9,6 @@ import { resumeService } from "./service";
 export {
 	createResumePdfDownloadUrl,
 	MAX_PDF_DOWNLOAD_URL_TTL_SECONDS,
-	PDF_DOWNLOAD_URL_EXPIRES_IN_SECONDS,
 	verifyResumePdfDownloadToken,
 } from "./pdf-download-url";
 

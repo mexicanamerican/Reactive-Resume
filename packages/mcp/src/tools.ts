@@ -7,7 +7,7 @@ import { resumePatchOperationsSchema } from "@reactive-resume/ai/tools/resume-to
 import { resolveUserFromRequestHeaders } from "@reactive-resume/api/context";
 import {
 	createResumePdfDownloadUrl,
-	PDF_DOWNLOAD_URL_EXPIRES_IN_SECONDS,
+	MAX_PDF_DOWNLOAD_URL_TTL_SECONDS,
 } from "@reactive-resume/api/features/resume/export";
 import { env } from "@reactive-resume/env/server";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
@@ -206,7 +206,7 @@ export function registerTools(server: McpServer, client: RouterClient<typeof rou
 			title: "Download Resume PDF",
 			description: [
 				"Create a short-lived authenticated URL for downloading a resume as a PDF.",
-				`The URL expires in ${PDF_DOWNLOAD_URL_EXPIRES_IN_SECONDS / 60} minutes and should be used immediately.`,
+				`The URL expires in ${MAX_PDF_DOWNLOAD_URL_TTL_SECONDS / 60} minutes and should be used immediately.`,
 				"Returns JSON containing: resumeId, name, downloadUrl, expiresAt, expiresInSeconds, contentType.",
 				`Use \`${T.listResumes}\` first to find valid IDs.`,
 			].join("\n"),
