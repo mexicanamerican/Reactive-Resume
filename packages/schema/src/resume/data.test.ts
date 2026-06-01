@@ -280,6 +280,13 @@ describe("pageSchema", () => {
 		expect(result.success).toBe(true);
 		if (result.success) expect(result.data.hideSectionIcons).toBe(true);
 	});
+
+	it("defaults hideLinkUnderline to false when missing", () => {
+		const { hideLinkUnderline: _, ...pageWithout } = defaultResumeData.metadata.page;
+		const result = pageSchema.safeParse(pageWithout);
+		expect(result.success).toBe(true);
+		if (result.success) expect(result.data.hideLinkUnderline).toBe(false);
+	});
 });
 
 describe("baseSectionSchema", () => {

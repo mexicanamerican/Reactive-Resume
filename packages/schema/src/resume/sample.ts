@@ -567,6 +567,7 @@ export const sampleResumeData: ResumeData = {
 			marginY: 16,
 			format: "a4",
 			locale: "en-US",
+			hideLinkUnderline: false,
 			hideIcons: false,
 			hideSectionIcons: false,
 		},

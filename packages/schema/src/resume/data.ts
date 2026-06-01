@@ -469,6 +469,7 @@ export const pageSchema = z.object({
 		.string()
 		.describe("The locale of the page. Used for displaying pre-translated section headings, if not overridden.")
 		.catch("en-US"),
+	hideLinkUnderline: z.boolean().describe("Whether to hide the underlines of the links.").catch(false),
 	hideIcons: z.boolean().describe("Whether to hide the item-level icons (skills, profiles, interests).").catch(false),
 	hideSectionIcons: z
 		.boolean()

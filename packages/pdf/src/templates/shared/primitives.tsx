@@ -34,10 +34,22 @@ export const Heading = ({ style, ...props }: ComponentProps<typeof PdfText>) => 
 };
 
 export const Link = ({ style, ...props }: ComponentProps<typeof PdfLink>) => {
+	const { metadata } = useRender();
 	const linkStyle = useTemplateStyle("link");
 	const linkRuleStyle = useSectionStyleRule("link");
 
-	return <PdfLink style={composeLinkStyles(linkStyle, linkRuleStyle, asStyleInput(style), safeTextStyle)} {...props} />;
+	return (
+		<PdfLink
+			style={composeLinkStyles(
+				{ hideUnderline: metadata.page.hideLinkUnderline },
+				linkStyle,
+				linkRuleStyle,
+				asStyleInput(style),
+				safeTextStyle,
+			)}
+			{...props}
+		/>
+	);
 };
 
 export const Small = ({ style, ...props }: ComponentProps<typeof PdfText>) => {

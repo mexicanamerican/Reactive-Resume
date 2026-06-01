@@ -58,7 +58,7 @@ const applyRtlDirectionRecursively = (node: ReactNode): ReactNode => {
 };
 
 export const RichText = ({ children }: RichTextProps) => {
-	const { rtl } = useRender();
+	const { metadata, rtl } = useRender();
 	const rtlTextWrapStyle: Style | undefined = rtl ? { direction: "rtl", textAlign: "right" } : undefined;
 	const boldStyle = useTemplateStyle("bold");
 	const linkStyle = useTemplateStyle("link");
@@ -169,6 +169,7 @@ export const RichText = ({ children }: RichTextProps) => {
 			}}
 			stylesheet={createRichTextStylesheet({
 				boldStyle,
+				hideLinkUnderline: metadata.page.hideLinkUnderline,
 				linkStyle,
 				richParagraphStyle,
 				richParagraphRuleStyle,

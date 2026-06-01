@@ -258,6 +258,30 @@ function PageSectionForm() {
 				)}
 			</form.Field>
 
+			<form.Field name="hideLinkUnderline">
+				{(field) => (
+					<FormItem
+						className="col-span-full flex items-center gap-x-3 py-1"
+						hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}
+					>
+						<FormControl
+							render={
+								<Switch
+									checked={field.state.value}
+									onCheckedChange={(checked) => {
+										field.handleChange(checked);
+										handleAutoSave("hideLinkUnderline", checked);
+									}}
+								/>
+							}
+						/>
+						<FormLabel>
+							<Trans>Hide Link Underline</Trans>
+						</FormLabel>
+					</FormItem>
+				)}
+			</form.Field>
+
 			<form.Field name="hideIcons">
 				{(field) => (
 					<FormItem

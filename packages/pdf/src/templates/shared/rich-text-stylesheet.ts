@@ -11,6 +11,7 @@ type RichTextProseSpacing = {
 
 type CreateRichTextStylesheetOptions = {
 	boldStyle?: StyleInput;
+	hideLinkUnderline?: boolean;
 	linkStyle?: StyleInput;
 	richParagraphStyle?: StyleInput;
 	richParagraphRuleStyle?: StyleInput;
@@ -32,6 +33,7 @@ const emptyProseSpacing: RichTextProseSpacing = {
 
 export const createRichTextStylesheet = ({
 	boldStyle,
+	hideLinkUnderline,
 	linkStyle,
 	richParagraphStyle,
 	richParagraphRuleStyle,
@@ -48,5 +50,5 @@ export const createRichTextStylesheet = ({
 	li: mergeStyles(proseSpacing.listItem),
 	[`.${richTextMarkClassName}`]: mergeStyles(richMarkStyle, richMarkRuleStyle, safeTextStyle),
 	p: mergeStyles(richParagraphStyle, richParagraphRuleStyle, safeTextStyle, proseSpacing.paragraph),
-	a: mergeLinkStyles(linkStyle, richLinkRuleStyle, safeTextStyle),
+	a: mergeLinkStyles({ hideUnderline: hideLinkUnderline === true }, linkStyle, richLinkRuleStyle, safeTextStyle),
 });

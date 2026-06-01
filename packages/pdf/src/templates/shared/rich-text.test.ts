@@ -66,4 +66,13 @@ describe("createRichTextStylesheet", () => {
 		expect(stylesheet.ol).toEqual({ rowGap: 8 });
 		expect(stylesheet.li).toEqual({ marginTop: 2, marginBottom: 2 });
 	});
+
+	it("can force rich text links to render without underlines", () => {
+		const stylesheet = createRichTextStylesheet({
+			hideLinkUnderline: true,
+			richLinkRuleStyle: { textDecoration: "underline", textDecorationStyle: "dotted" },
+		});
+
+		expect(stylesheet.a).toMatchObject({ textDecoration: "none", textDecorationStyle: "dotted" });
+	});
 });

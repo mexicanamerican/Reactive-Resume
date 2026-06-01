@@ -744,6 +744,7 @@ export class ReactiveResumeV4JSONImporter {
 						marginY: nonNegative(v4Data.metadata.page?.margin ?? 14),
 						format: v4Data.metadata.page?.format ?? "a4",
 						locale: "en-US",
+						hideLinkUnderline: v4Data.metadata.typography?.underlineLinks === false,
 						hideIcons: v4Data.metadata.typography?.hideIcons ?? false,
 						hideSectionIcons: true,
 					},
