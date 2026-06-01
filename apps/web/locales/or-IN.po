@@ -1750,6 +1750,10 @@ msgstr "ଲୁଚାନ୍ତୁ"
 msgid "Hide Icons"
 msgstr "ଚିତ୍ରସଂକେତଗୁଡିକୁ ଲୁଚାନ୍ତୁ"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr ""
+
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
 #. Accessible label for button that hides password on protected resume screen
@@ -4001,4 +4005,3 @@ msgstr "ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ଜୁଲୁ"
-

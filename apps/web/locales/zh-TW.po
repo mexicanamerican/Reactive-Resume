@@ -1750,6 +1750,10 @@ msgstr "隱藏"
 msgid "Hide Icons"
 msgstr "隱藏圖示"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr ""
+
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
 #. Accessible label for button that hides password on protected resume screen
@@ -4001,4 +4005,3 @@ msgstr "縮小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

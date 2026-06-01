@@ -1745,6 +1745,10 @@ msgstr "Hide"
 msgid "Hide Icons"
 msgstr "Hide Icons"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Hide Link Underline"
+
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
 #. Accessible label for button that hides password on protected resume screen
