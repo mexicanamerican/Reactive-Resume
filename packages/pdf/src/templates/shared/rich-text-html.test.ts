@@ -50,6 +50,29 @@ describe("normalizeRichTextHtml", () => {
 		);
 	});
 
+	it("preserves data-color as inline background-color on multicolor <mark>", () => {
+		const result = normalizeRichTextHtml(
+			'<mark data-color="rgba(204, 255, 204, 1)" style="background-color: rgba(204, 255, 204, 1)">green</mark>',
+		);
+		// data-color is kept, class is added, background-color is set from data-color
+		expect(result).toContain("rr-pdf-mark");
+		expect(result).toContain("background-color: rgba(204, 255, 204, 1)");
+		expect(result).toContain(">green</span>");
+	});
+
+	it("keeps generated dark-highlight contrast after existing Tiptap mark styles", () => {
+		const result = normalizeRichTextHtml(
+			'<mark data-color="rgba(0, 0, 0, 1)" style="background-color: rgba(0, 0, 0, 1); color: inherit">dark</mark>',
+		);
+
+		expect(result.indexOf("color: inherit")).toBeLessThan(result.lastIndexOf("color: #ffffff"));
+	});
+
+	it("does not add inline style to legacy <mark> without data-color", () => {
+		const result = normalizeRichTextHtml("<mark>yellow</mark>");
+		expect(result).toBe('<p><span class="rr-pdf-mark">yellow</span></p>');
+	});
+
 	it("keeps highlighted text in the same react-pdf-html inline text bucket", () => {
 		const root = renderHtml(normalizeRichTextHtml("before <mark>highlighted</mark> after"), {
 			resetStyles: true,
