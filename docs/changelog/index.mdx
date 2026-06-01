@@ -4,6 +4,38 @@ description: "List of all notable changes and updates to Reactive Resume"
 rss: true
 ---
 
+<Update label="v5.1.8" description="1st June 2026">
+## Highlights
+
+- **Section heading icons for PDF templates.** Resume section titles can now show customizable Phosphor icons in PDF output. Pick icons from the builder, hide individual section icons, or use the new page setting to hide heading icons separately from item-level icons. [b932711f0](https://github.com/amruthpillai/reactive-resume/commit/b932711f0)
+- **Multicolor text highlights.** The rich text editor now includes a highlight color picker with presets and custom colors. Dark highlights automatically switch marked text to white for readability, and highlight colors carry through PDF and DOCX exports. [e96a51f31](https://github.com/amruthpillai/reactive-resume/commit/e96a51f31)
+- **MCP PDF downloads.** MCP clients can now create short-lived authenticated PDF download URLs for resumes, making agent workflows able to retrieve generated PDF exports directly. [0df7f2113](https://github.com/amruthpillai/reactive-resume/commit/0df7f2113)
+
+## Resume Builder & Editing
+
+- Added per-section icon pickers for summary, built-in sections, and custom section dialogs, with sensible default icons for existing resumes and a `"none"` option for hiding a specific section icon. [b932711f0](https://github.com/amruthpillai/reactive-resume/commit/b932711f0)
+- Added a **Hide Section Icons** page option and clarified the existing **Hide Icons** setting so section heading icons and item-level icons can be controlled independently. [b932711f0](https://github.com/amruthpillai/reactive-resume/commit/b932711f0)
+- Replaced the single-color rich text highlight toggle with a full highlight color picker, including preset colors, custom colors, and a clear action. [e96a51f31](https://github.com/amruthpillai/reactive-resume/commit/e96a51f31)
+- Synced new builder, section icon, and rich text editor labels across locale catalogs. [b932711f0](https://github.com/amruthpillai/reactive-resume/commit/b932711f0), [1507d869c](https://github.com/amruthpillai/reactive-resume/commit/1507d869c), [e96a51f31](https://github.com/amruthpillai/reactive-resume/commit/e96a51f31)
+
+## Resume Rendering & Exports
+
+- Added section heading icon rendering to shared PDF templates, including heading-size scaling, default icon fallbacks for legacy resume data, and support for custom sections. [b932711f0](https://github.com/amruthpillai/reactive-resume/commit/b932711f0)
+- Preserved custom highlight colors in PDF and DOCX exports, including automatic white text on dark highlight colors. [e96a51f31](https://github.com/amruthpillai/reactive-resume/commit/e96a51f31)
+- Fixed experience entries with role progression so the main position and period still render in the header without repeating the period below it. [9ce5bacd2](https://github.com/amruthpillai/reactive-resume/commit/9ce5bacd2)
+- Fixed Custom Styles font size rules for resume icons and level indicators so those values affect actual icon dimensions in PDFs and builder previews. [1414fecad](https://github.com/amruthpillai/reactive-resume/commit/1414fecad), [e00ff8cec](https://github.com/amruthpillai/reactive-resume/commit/e00ff8cec)
+- Fixed the Glalie template contact-list border so it stays square instead of inheriting the picture border radius. [c1d11236a](https://github.com/amruthpillai/reactive-resume/commit/c1d11236a)
+
+## MCP, API & Maintenance
+
+- Added the `download_resume_pdf` MCP tool, returning a signed PDF download URL that expires after 10 minutes. [0df7f2113](https://github.com/amruthpillai/reactive-resume/commit/0df7f2113)
+- Added the authenticated `/api/resumes/:id/pdf` download route used by MCP PDF downloads, with no-store caching, token validation, ownership checks, and safer PDF generation errors. [0df7f2113](https://github.com/amruthpillai/reactive-resume/commit/0df7f2113), [a8c70d784](https://github.com/amruthpillai/reactive-resume/commit/a8c70d784), [152279473](https://github.com/amruthpillai/reactive-resume/commit/152279473)
+- Made MCP server cards, OpenAPI output, schema JSON, and server metadata use runtime-safe app version handling in development. [d09ad2cdc](https://github.com/amruthpillai/reactive-resume/commit/d09ad2cdc)
+- Updated the release Docker workflow to purge Cloudflare cache after publishing a release image, so cached release artifacts refresh after deployment. [6852f586e](https://github.com/amruthpillai/reactive-resume/commit/6852f586e)
+
+**Full Changelog**: [v5.1.7...v5.1.8](https://github.com/amruthpillai/reactive-resume/compare/v5.1.7...v5.1.8)
+</Update>
+
 <Update label="v5.1.7" description="27th May 2026">
 ## Highlights
 
