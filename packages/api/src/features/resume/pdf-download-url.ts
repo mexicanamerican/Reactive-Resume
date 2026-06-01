@@ -1,8 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { env } from "@reactive-resume/env/server";
 
-export const MAX_PDF_DOWNLOAD_URL_TTL_SECONDS = 10 * 60;
-export const PDF_DOWNLOAD_URL_EXPIRES_IN_SECONDS = MAX_PDF_DOWNLOAD_URL_TTL_SECONDS;
+const MAX_PDF_DOWNLOAD_URL_TTL_SECONDS = 10 * 60;
 
 type PdfDownloadTokenPayload = {
 	v: 1;
@@ -38,7 +37,7 @@ type VerifyResumePdfDownloadTokenResult =
 	  };
 
 function resolveTtlSeconds(ttlSeconds: number | undefined) {
-	if (ttlSeconds === undefined || !Number.isFinite(ttlSeconds)) return PDF_DOWNLOAD_URL_EXPIRES_IN_SECONDS;
+	if (ttlSeconds === undefined || !Number.isFinite(ttlSeconds)) return MAX_PDF_DOWNLOAD_URL_TTL_SECONDS;
 	return Math.min(Math.max(Math.floor(ttlSeconds), 1), MAX_PDF_DOWNLOAD_URL_TTL_SECONDS);
 }
 

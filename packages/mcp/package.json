@@ -31,6 +31,6 @@
 		"@reactive-resume/config": "workspace:*",
 		"@typescript/native-preview": "7.0.0-dev.20260527.2",
 		"typescript": "^6.0.3",
-		"vitest": "^4.1.7"
+		"vitest": "^4.1.8"
 	}
 }
