@@ -442,6 +442,10 @@ msgstr "Haz cualquier pregunta sobre este currículum."
 msgid "Aspect Ratio"
 msgstr "Relación de aspecto"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+msgstr "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+
 #: src/routes/agent/$threadId.tsx
 msgid "Attach files"
 msgstr "Adjuntar archivos"
@@ -2653,6 +2657,10 @@ msgstr "Reactive Resume es gratuito y de código abierto. Si te ha sido útil, c
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
 msgstr "Reactive Resume es de código abierto, centrado en la privacidad y completamente gratuito. A diferencia de otros creadores de currículums, no muestra anuncios, no rastrea tus datos ni limita tus funciones tras un muro de pago."
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+msgstr "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v{__APP_VERSION__}"
@@ -3318,6 +3326,10 @@ msgstr "Color del texto"
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tailandés"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Thank you to our sponsors"
+msgstr "Thank you to our sponsors"
 
 #: src/routes/agent/$threadId.tsx
 msgid "The agent needs your input."
@@ -4005,4 +4017,3 @@ msgstr "Alejar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulú"
-

@@ -442,6 +442,10 @@ msgstr "यो बायोडाटा बारे केहि सोध्�
 msgid "Aspect Ratio"
 msgstr "आकार अनुपात (Aspect Ratio)"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+msgstr "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+
 #: src/routes/agent/$threadId.tsx
 msgid "Attach files"
 msgstr "फाइलहरू संलग्न गर्नुहोस्"
@@ -2653,6 +2657,10 @@ msgstr "प्रतिक्रियाशील रिजुमे नि:श
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
 msgstr "Reactive Resume खुला-स्रोत, गोपनीयता-केन्द्रित र पूर्ण रूपमा निःशुल्क छ। अन्य बायोडाटा निर्माण गर्ने साधनहरूको विपरीत, यसले विज्ञापन देखाउँदैन, तपाईंको डाटा ट्र्याक गर्दैन, वा सुविधालाई भुक्तानी पछाडि थुन्न्दैन।"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+msgstr "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v{__APP_VERSION__}"
@@ -3318,6 +3326,10 @@ msgstr "पाठ रङ"
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "थाइ"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Thank you to our sponsors"
+msgstr "Thank you to our sponsors"
 
 #: src/routes/agent/$threadId.tsx
 msgid "The agent needs your input."
@@ -4005,4 +4017,3 @@ msgstr "जूम आउट"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "जुलु"
-

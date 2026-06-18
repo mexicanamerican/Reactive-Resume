@@ -442,6 +442,10 @@ msgstr "Bu CV haqqında hər hansı bir sual verin"
 msgid "Aspect Ratio"
 msgstr "Propor­siya"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+msgstr "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+
 #: src/routes/agent/$threadId.tsx
 msgid "Attach files"
 msgstr "Faylları əlavə edin"
@@ -2653,6 +2657,10 @@ msgstr "Reactive Resume pulsuz və açıq mənbəlidir. Əgər sizə kömək edi
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
 msgstr "Reactive Resume açıq mənbəlidir, məxfilik yönümlüdür və tamamilə pulsuzdur. Digər özgeçmiş qurucularından fərqli olaraq, o reklamlara yer vermir, məlumatınızı izləmir və funksiyaları ödəniş divarının arxasında məhdudlaşdırmır."
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+msgstr "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v{__APP_VERSION__}"
@@ -3318,6 +3326,10 @@ msgstr "Mətn Rəngi"
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tay"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Thank you to our sponsors"
+msgstr "Thank you to our sponsors"
 
 #: src/routes/agent/$threadId.tsx
 msgid "The agent needs your input."
@@ -4005,4 +4017,3 @@ msgstr "Uzaqlaşdır"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

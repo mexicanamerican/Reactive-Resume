@@ -442,6 +442,10 @@ msgstr "Pergunte qualquer coisa sobre este currículo."
 msgid "Aspect Ratio"
 msgstr "Proporção da imagem"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+msgstr "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+
 #: src/routes/agent/$threadId.tsx
 msgid "Attach files"
 msgstr "Anexar arquivos"
@@ -2653,6 +2657,10 @@ msgstr "O Reactive Resume é gratuito e de código aberto. Se ele lhe foi útil,
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
 msgstr "O Reactive Resume é de código aberto, focado em privacidade e completamente gratuito. Ao contrário de outros criadores de currículos, ele não exibe anúncios, não rastreia seus dados e não limita recursos atrás de um paywall."
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+msgstr "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v{__APP_VERSION__}"
@@ -3318,6 +3326,10 @@ msgstr "Cor do texto"
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tailandês"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Thank you to our sponsors"
+msgstr "Thank you to our sponsors"
 
 #: src/routes/agent/$threadId.tsx
 msgid "The agent needs your input."
@@ -4005,4 +4017,3 @@ msgstr "Diminuir zoom"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
