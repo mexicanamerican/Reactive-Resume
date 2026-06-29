@@ -63,7 +63,7 @@ export const RichText = ({ children }: RichTextProps) => {
 
 	const richListItemMarkerMargin: Style = {
 		marginLeft: rtl ? 4 : 0,
-		marginRight: rtl ? 0 : 4
+		marginRight: rtl ? 0 : 4,
 	};
 	const boldStyle = useTemplateStyle("bold");
 	const linkStyle = useTemplateStyle("link");
