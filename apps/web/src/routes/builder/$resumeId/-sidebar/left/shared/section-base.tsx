@@ -86,13 +86,7 @@ export function SectionBase({ type, className, ...props }: Props) {
 					)}
 				</div>
 
-				<AccordionContent
-					className={cn(
-						"p-0 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
-						className,
-					)}
-					{...props}
-				/>
+				<AccordionContent className={cn("p-0", className)} {...props} />
 			</AccordionItem>
 		</Accordion>
 	);

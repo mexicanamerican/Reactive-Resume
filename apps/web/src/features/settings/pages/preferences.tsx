@@ -30,7 +30,7 @@ export function PreferencesSettingsPage() {
 					size="sm"
 					variant="link"
 					nativeButton={false}
-					className="h-5 justify-start text-muted-foreground text-xs active:scale-100"
+					className="h-5 justify-start text-muted-foreground text-xs"
 					render={
 						<a href="https://crowdin.com/project/reactive-resume" target="_blank" rel="noopener noreferrer">
 							<Trans>Help translate the app to your language</Trans>

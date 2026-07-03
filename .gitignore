@@ -51,6 +51,7 @@ temp
 .cursor
 .codegraph
 .superpowers
+.migration
 
 # Local Storage Data
 /data
