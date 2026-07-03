@@ -27,3 +27,11 @@ export async function openSidebarSection(page: Page, title: string) {
 	await page.getByTitle(title, { exact: true }).click();
 	await expect(page.getByRole("heading", { name: title, exact: true })).toBeVisible();
 }
+
+export async function openResumeCardMenu(page: Page, resumeName: string) {
+	await page.goto("/dashboard/resumes");
+	const resumeLink = page.getByRole("link", { name: new RegExp(resumeName) });
+	await expect(resumeLink).toBeVisible();
+	await resumeLink.click({ button: "right" });
+	await expect(page.getByRole("menuitem", { name: "Open" })).toBeVisible();
+}
