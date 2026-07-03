@@ -128,14 +128,12 @@ export const RichText = ({ children }: RichTextProps) => {
 						</PdfText>
 					);
 
-          let hasNestedList = false;
-          if (Array.isArray(children)) {
-            hasNestedList = children.some(
-              (child) =>
-                child?.props?.element?.rawTagName === "ul" ||
-                child?.props?.element?.rawTagName === "ol",
-            );
-          }
+					let hasNestedList = false;
+					if (Array.isArray(children)) {
+						hasNestedList = children.some(
+							(child) => child?.props?.element?.rawTagName === "ul" || child?.props?.element?.rawTagName === "ol",
+						);
+					}
 
 					// Same BiDi-injection trick as the <p> renderer — see applyRtlDirectionRecursively.
 					const contentNode = rtl ? (
@@ -164,7 +162,7 @@ export const RichText = ({ children }: RichTextProps) => {
 						>
 							<View style={{ flexDirection: "row", alignItems: "flex-start" }}>
 								{markerNode}
-                <View style={hasNestedList ? { flex: 1 } : {}}>{children}</View>
+								<View style={hasNestedList ? { flex: 1 } : {}}>{children}</View>
 							</View>
 						</View>
 					);
