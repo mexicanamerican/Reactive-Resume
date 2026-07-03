@@ -6,6 +6,7 @@ import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import Cookies from "js-cookie";
 import { useEffect, useRef } from "react";
 import { usePanelRef } from "react-resizable-panels";
+import { useMediaQuery } from "usehooks-ts";
 import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@reactive-resume/ui/components/resizable";
 import {
 	useBuilderResumeUpdateSubscription,
@@ -14,7 +15,6 @@ import {
 	useResumeCleanup,
 	useResumeStore,
 } from "@/features/resume/builder/draft";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { orpc } from "@/libs/orpc/client";
 import { createNoindexFollowMeta } from "@/libs/seo";
 import { BuilderHeader } from "./-components/header";
@@ -94,7 +94,7 @@ type BuilderLayoutShellProps = React.ComponentProps<"div"> & {
 };
 
 function BuilderLayoutShell({ initialLayout }: BuilderLayoutShellProps) {
-	const isMobile = useIsMobile();
+	const isMobile = useMediaQuery("(max-width: 767px)", { initializeWithValue: false });
 	const canPersistLayoutRef = useRef(false);
 
 	const leftSidebarRef = usePanelRef();

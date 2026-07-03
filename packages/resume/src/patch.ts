@@ -20,10 +20,6 @@ export const jsonPatchOperationSchema = z.discriminatedUnion("op", [
 
 export type JsonPatchOperation = z.infer<typeof jsonPatchOperationSchema>;
 
-export function createResumePatches(previous: ResumeData, next: ResumeData): JsonPatchOperation[] {
-	return z.array(jsonPatchOperationSchema).parse(jsonpatch.compare(previous, next));
-}
-
 /**
  * A structured error thrown when a JSON Patch operation fails.
  * Contains only the relevant details -- never the full document tree.

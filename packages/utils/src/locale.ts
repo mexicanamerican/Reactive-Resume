@@ -80,7 +80,7 @@ export type Script = "hangul" | "kana" | "han-traditional" | "han-simplified" | 
 // The CJK subset of `Script`. CJK needs extra per-character line breaking that
 // must NOT be applied to Arabic (cursive, joined letters) or Thai (combining
 // marks), so callers gate line-breaking on this rather than on `Script`.
-export const cjkScripts: readonly Script[] = ["hangul", "kana", "han-traditional", "han-simplified"];
+const cjkScripts: readonly Script[] = ["hangul", "kana", "han-traditional", "han-simplified"];
 
 export function isCjkScript(script: Script): boolean {
 	return cjkScripts.includes(script);

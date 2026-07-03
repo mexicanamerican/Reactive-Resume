@@ -7,7 +7,6 @@
 		"./types": "./src/types.ts",
 		"./prompts": "./src/prompts.ts",
 		"./tools/resume-tool-contracts": "./src/tools/resume-tool-contracts.ts",
-		"./tools/patch-resume": "./src/tools/patch-resume.ts",
 		"./tools/patch-proposal": "./src/tools/patch-proposal.ts",
 		"./resume/extraction-template": "./src/resume/extraction-template.ts",
 		"./resume/sanitize": "./src/resume/sanitize.ts"
@@ -29,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@reactive-resume/config": "workspace:*",
-		"@typescript/native-preview": "7.0.0-dev.20260628.1",
+		"@typescript/native-preview": "7.0.0-dev.20260703.1",
 		"typescript": "^6.0.3"
 	}
 }

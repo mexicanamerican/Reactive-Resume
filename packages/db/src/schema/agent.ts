@@ -4,7 +4,7 @@ import { generateId } from "@reactive-resume/utils/string";
 import { user } from "./auth";
 import { resume } from "./resume";
 
-export type AgentUiMessage = Record<string, unknown>;
+type AgentUiMessage = Record<string, unknown>;
 type StoredJsonPatchOperation =
 	| { op: "add"; path: string; value: unknown }
 	| { op: "remove"; path: string }

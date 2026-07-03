@@ -11,7 +11,7 @@ type RenderContextValue = ResumeData & {
 
 const RenderContext = createContext<RenderContextValue | null>(null);
 
-export type RenderProviderProps = {
+type RenderProviderProps = {
 	data: ResumeData;
 	resolveSectionTitle?: SectionTitleResolver | undefined;
 	children: ReactNode;

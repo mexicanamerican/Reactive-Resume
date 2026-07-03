@@ -1,13 +1,13 @@
 import z from "zod";
 import { templateSchema } from "../templates";
 
-export const iconSchema = z
+const iconSchema = z
 	.string()
 	.describe(
 		"The icon to display for the custom field. Must be a valid icon name from @phosphor-icons/web icon set, or an empty string to hide. Default to '' (empty string) when unsure which icons are available.",
 	);
 
-export const iconColorSchema = z
+const iconColorSchema = z
 	.string()
 	.catch("")
 	.describe(
@@ -19,7 +19,7 @@ export const websiteSchema = z.object({
 	label: z.string().describe("The label to display for the URL. Leave blank to display the URL as-is."),
 });
 
-export const itemWebsiteSchema = websiteSchema
+const itemWebsiteSchema = websiteSchema
 	.extend({
 		inlineLink: z
 			.boolean()
@@ -105,7 +105,7 @@ export const summarySchema = z.object({
 	content: z.string().describe("The content of the summary of the resume. This should be a HTML-formatted string."),
 });
 
-export const baseItemSchema = z.object({
+const baseItemSchema = z.object({
 	id: z.string().describe("The unique identifier for the item. Usually generated as a UUID."),
 	hidden: z.boolean().describe("Whether to hide the item from the resume."),
 });
@@ -143,7 +143,7 @@ export const educationItemSchema = baseItemSchema.extend({
 	description: z.string().describe("The description of the education. This should be a HTML-formatted string."),
 });
 
-export const roleItemSchema = z.object({
+const roleItemSchema = z.object({
 	id: z.string().describe("The unique identifier for the role. Usually generated as a UUID."),
 	position: z.string().describe("The position or job title for this role."),
 	period: z.string().describe("The period of time this role was held."),
@@ -287,55 +287,55 @@ export const baseSectionSchema = z.object({
 	hidden: z.boolean().describe("Whether to hide the section from the resume."),
 });
 
-export const awardsSectionSchema = baseSectionSchema.extend({
+const awardsSectionSchema = baseSectionSchema.extend({
 	items: z.array(awardItemSchema).describe("The items to display in the awards section."),
 });
 
-export const certificationsSectionSchema = baseSectionSchema.extend({
+const certificationsSectionSchema = baseSectionSchema.extend({
 	items: z.array(certificationItemSchema).describe("The items to display in the certifications section."),
 });
 
-export const educationSectionSchema = baseSectionSchema.extend({
+const educationSectionSchema = baseSectionSchema.extend({
 	items: z.array(educationItemSchema).describe("The items to display in the education section."),
 });
 
-export const experienceSectionSchema = baseSectionSchema.extend({
+const experienceSectionSchema = baseSectionSchema.extend({
 	items: z.array(experienceItemSchema).describe("The items to display in the experience section."),
 });
 
-export const interestsSectionSchema = baseSectionSchema.extend({
+const interestsSectionSchema = baseSectionSchema.extend({
 	items: z.array(interestItemSchema).describe("The items to display in the interests section."),
 });
 
-export const languagesSectionSchema = baseSectionSchema.extend({
+const languagesSectionSchema = baseSectionSchema.extend({
 	items: z.array(languageItemSchema).describe("The items to display in the languages section."),
 });
 
-export const profilesSectionSchema = baseSectionSchema.extend({
+const profilesSectionSchema = baseSectionSchema.extend({
 	items: z.array(profileItemSchema).describe("The items to display in the profiles section."),
 });
 
-export const projectsSectionSchema = baseSectionSchema.extend({
+const projectsSectionSchema = baseSectionSchema.extend({
 	items: z.array(projectItemSchema).describe("The items to display in the projects section."),
 });
 
-export const publicationsSectionSchema = baseSectionSchema.extend({
+const publicationsSectionSchema = baseSectionSchema.extend({
 	items: z.array(publicationItemSchema).describe("The items to display in the publications section."),
 });
 
-export const referencesSectionSchema = baseSectionSchema.extend({
+const referencesSectionSchema = baseSectionSchema.extend({
 	items: z.array(referenceItemSchema).describe("The items to display in the references section."),
 });
 
-export const skillsSectionSchema = baseSectionSchema.extend({
+const skillsSectionSchema = baseSectionSchema.extend({
 	items: z.array(skillItemSchema).describe("The items to display in the skills section."),
 });
 
-export const volunteerSectionSchema = baseSectionSchema.extend({
+const volunteerSectionSchema = baseSectionSchema.extend({
 	items: z.array(volunteerItemSchema).describe("The items to display in the volunteer section."),
 });
 
-export const sectionsSchema = z.object({
+const sectionsSchema = z.object({
 	profiles: profilesSectionSchema.describe("The section to display the profiles of the author."),
 	experience: experienceSectionSchema.describe("The section to display the experience of the author."),
 	education: educationSectionSchema.describe("The section to display the education of the author."),
@@ -351,7 +351,7 @@ export const sectionsSchema = z.object({
 });
 
 export type SectionType = keyof z.infer<typeof sectionsSchema>;
-export type SectionData<T extends SectionType = SectionType> = z.infer<typeof sectionsSchema>[T];
+type SectionData<T extends SectionType = SectionType> = z.infer<typeof sectionsSchema>[T];
 export type SectionItem<T extends SectionType = SectionType> = SectionData<T>["items"][number];
 
 export const sectionTypeSchema = z.enum([
@@ -373,7 +373,7 @@ export const sectionTypeSchema = z.enum([
 
 export type CustomSectionType = z.infer<typeof sectionTypeSchema>;
 
-export const customSectionItemSchema = z.union([
+const customSectionItemSchema = z.union([
 	// coverLetterItemSchema must come before summaryItemSchema because both have 'content',
 	// but coverLetterItemSchema also requires 'recipient'. If summaryItemSchema is first,
 	// cover letter items will match it and lose the 'recipient' field.
@@ -407,11 +407,11 @@ export const customSectionSchema = baseSectionSchema.extend({
 
 export type CustomSection = z.infer<typeof customSectionSchema>;
 
-export const customSectionsSchema = z.array(customSectionSchema);
+const customSectionsSchema = z.array(customSectionSchema);
 
-export const fontWeightSchema = z.enum(["100", "200", "300", "400", "500", "600", "700", "800", "900"]);
+const fontWeightSchema = z.enum(["100", "200", "300", "400", "500", "600", "700", "800", "900"]);
 
-export const typographyItemSchema = z.object({
+const typographyItemSchema = z.object({
 	fontFamily: z.string().describe("The family of the font to use. Must be a supported resume font."),
 	fontWeights: z
 		.array(fontWeightSchema)
@@ -428,7 +428,7 @@ export const typographyItemSchema = z.object({
 		.describe("The line height of the font to use, defined as a multiplier of the font size (e.g. 1.5 for 1.5x)."),
 });
 
-export const pageLayoutSchema = z.object({
+const pageLayoutSchema = z.object({
 	fullWidth: z
 		.boolean()
 		.describe(
@@ -498,7 +498,7 @@ export const colorDesignSchema = z.object({
 		),
 });
 
-export const designSchema = z.object({
+const designSchema = z.object({
 	level: levelDesignSchema,
 	colors: colorDesignSchema,
 });
@@ -508,7 +508,7 @@ export const typographySchema = z.object({
 	heading: typographyItemSchema.describe("The typography for the headings of the resume."),
 });
 
-export const styleSlotSchema = z.enum([
+const styleSlotSchema = z.enum([
 	"section",
 	"heading",
 	"item",
@@ -528,7 +528,7 @@ export const styleSlotSchema = z.enum([
 
 export type StyleSlot = z.infer<typeof styleSlotSchema>;
 
-export const styleIntentSchema = z
+const styleIntentSchema = z
 	.strictObject({
 		color: z.string().optional(),
 		backgroundColor: z.string().optional(),
@@ -563,7 +563,7 @@ export const styleIntentSchema = z
 
 export type StyleIntent = z.infer<typeof styleIntentSchema>;
 
-export const styleRuleSlotsSchema = z
+const styleRuleSlotsSchema = z
 	.strictObject({
 		section: styleIntentSchema.optional(),
 		heading: styleIntentSchema.optional(),
@@ -585,7 +585,7 @@ export const styleRuleSlotsSchema = z
 		message: "At least one style slot must be configured.",
 	});
 
-export const styleRuleTargetSchema = z.discriminatedUnion("scope", [
+const styleRuleTargetSchema = z.discriminatedUnion("scope", [
 	z.strictObject({ scope: z.literal("global") }),
 	z.strictObject({ scope: z.literal("sectionType"), sectionType: sectionTypeSchema }),
 	z.strictObject({ scope: z.literal("sectionId"), sectionId: z.string().min(1) }),
@@ -646,7 +646,6 @@ export const resumeDataSchema = z.looseObject({
 });
 
 export type ResumeData = z.infer<typeof resumeDataSchema>;
-export type Metadata = z.infer<typeof metadataSchema>;
 export type LayoutPage = z.infer<typeof pageLayoutSchema>;
 export type Typography = z.infer<typeof typographySchema>;
 export type Design = z.infer<typeof designSchema>;
@@ -672,7 +671,6 @@ export type EducationSection = z.infer<typeof educationSectionSchema>;
 export type ExperienceSection = z.infer<typeof experienceSectionSchema>;
 export type InterestsSection = z.infer<typeof interestsSectionSchema>;
 export type LanguagesSection = z.infer<typeof languagesSectionSchema>;
-export type ProfilesSection = z.infer<typeof profilesSectionSchema>;
 export type ProjectsSection = z.infer<typeof projectsSectionSchema>;
 export type PublicationsSection = z.infer<typeof publicationsSectionSchema>;
 export type ReferencesSection = z.infer<typeof referencesSectionSchema>;

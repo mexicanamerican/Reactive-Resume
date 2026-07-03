@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/react/macro";
 import { KeyIcon, LockOpenIcon, ToggleLeftIcon, ToggleRightIcon } from "@phosphor-icons/react";
 import { m } from "motion/react";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
@@ -14,8 +14,8 @@ export function TwoFactorSection() {
 	const { hasAccount } = useAuthAccounts();
 	const { data: session } = authClient.useSession();
 
-	const hasPassword = useMemo(() => hasAccount("credential"), [hasAccount]);
-	const hasTwoFactor = useMemo(() => session?.user.twoFactorEnabled ?? false, [session]);
+	const hasPassword = hasAccount("credential");
+	const hasTwoFactor = session?.user.twoFactorEnabled ?? false;
 
 	const handleTwoFactorAction = useCallback(() => {
 		if (hasTwoFactor) {

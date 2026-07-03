@@ -2,7 +2,7 @@ import type { AuthProvider } from "@reactive-resume/auth/types";
 import { Trans } from "@lingui/react/macro";
 import { LinkBreakIcon, LinkIcon } from "@phosphor-icons/react";
 import { m } from "motion/react";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
@@ -18,11 +18,11 @@ export function SocialProviderSection({ provider, name, animationDelay = 0 }: So
 	const { link, unlink } = useAuthProviderActions();
 	const { hasAccount, getAccountByProviderId } = useAuthAccounts();
 
-	const providerName = useMemo(() => name ?? getProviderName(provider), [name, provider]);
-	const providerIcon = useMemo(() => getProviderIcon(provider), [provider]);
+	const providerName = name ?? getProviderName(provider);
+	const providerIcon = getProviderIcon(provider);
 
-	const account = useMemo(() => getAccountByProviderId(provider), [getAccountByProviderId, provider]);
-	const isConnected = useMemo(() => hasAccount(provider), [hasAccount, provider]);
+	const account = getAccountByProviderId(provider);
+	const isConnected = hasAccount(provider);
 
 	const handleLink = useCallback(async () => {
 		await link(provider);

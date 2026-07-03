@@ -4,9 +4,9 @@ import type { Locale } from "@reactive-resume/utils/locale";
 import type { ComponentType } from "react";
 import type { SectionTitleResolver } from "./section-title";
 import { useMemo } from "react";
+import { Document } from "#react-pdf-renderer";
 import { RenderProvider } from "./context";
 import { registerFonts, resumeContentContainsCJK, resumeContentScripts } from "./hooks/use-register-fonts";
-import { Document } from "./renderer";
 import { getTemplatePage } from "./templates";
 
 export type TemplatePageProps = {
@@ -16,7 +16,7 @@ export type TemplatePageProps = {
 
 export type TemplatePage = ComponentType<TemplatePageProps>;
 
-export type ResumeDocumentProps = {
+type ResumeDocumentProps = {
 	data: ResumeData;
 	template: Template;
 	resolveSectionTitle?: SectionTitleResolver | undefined;

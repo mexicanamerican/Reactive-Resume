@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
-import { applyResumePatches, createResumePatches, jsonPatchOperationSchema, ResumePatchError } from "./patch";
+import { applyResumePatches, jsonPatchOperationSchema, ResumePatchError } from "./patch";
 
 describe("jsonPatchOperationSchema", () => {
 	it("validates add op", () => {
@@ -51,30 +51,6 @@ describe("jsonPatchOperationSchema", () => {
 	it("permits any value type for add (unknown)", () => {
 		const result = jsonPatchOperationSchema.safeParse({ op: "add", path: "/x", value: { nested: { array: [1] } } });
 		expect(result.success).toBe(true);
-	});
-});
-
-describe("createResumePatches", () => {
-	it("returns empty array when documents are equal", () => {
-		const patches = createResumePatches(defaultResumeData, defaultResumeData);
-		expect(patches).toEqual([]);
-	});
-
-	it("emits a replace op when a scalar field changes", () => {
-		const next = { ...defaultResumeData, basics: { ...defaultResumeData.basics, name: "Alice" } };
-		const patches = createResumePatches(defaultResumeData, next);
-
-		expect(patches.some((p) => p.op === "replace" && p.path === "/basics/name")).toBe(true);
-	});
-
-	it("captures multiple changes in distinct operations", () => {
-		const next = {
-			...defaultResumeData,
-			basics: { ...defaultResumeData.basics, name: "Alice", email: "alice@example.com" },
-		};
-		const patches = createResumePatches(defaultResumeData, next);
-
-		expect(patches.length).toBeGreaterThanOrEqual(2);
 	});
 });
 

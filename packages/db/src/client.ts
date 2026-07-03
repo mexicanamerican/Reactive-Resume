@@ -20,7 +20,7 @@ function makeDrizzleClient() {
 	return drizzle({ client: getPool(), relations });
 }
 
-export function createDatabase() {
+function createDatabase() {
 	if (!globalThis.__drizzle) {
 		globalThis.__drizzle = makeDrizzleClient();
 	}

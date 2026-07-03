@@ -1,7 +1,12 @@
-import type { FeatureFlags } from "./service";
 import z from "zod";
+import { env } from "@reactive-resume/env/server";
 import { publicProcedure } from "../../context";
-import { flagsService } from "./service";
+
+export type FeatureFlags = {
+	disableSignups: boolean;
+	disableEmailAuth: boolean;
+	showSponsors: boolean;
+};
 
 export const flagsRouter = {
 	get: publicProcedure
@@ -22,5 +27,11 @@ export const flagsRouter = {
 				showSponsors: z.boolean().describe("Whether sponsor placements are shown on this instance."),
 			}),
 		)
-		.handler((): FeatureFlags => flagsService.getFlags()),
+		.handler(
+			(): FeatureFlags => ({
+				disableSignups: env.FLAG_DISABLE_SIGNUPS,
+				disableEmailAuth: env.FLAG_DISABLE_EMAIL_AUTH,
+				showSponsors: env.FLAG_SHOW_SPONSORS,
+			}),
+		),
 };

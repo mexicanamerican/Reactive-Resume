@@ -2,9 +2,10 @@ import type { Style } from "@react-pdf/types";
 import type { TemplatePageProps } from "../../document";
 import type { TemplateColorRoles, TemplateStyleContext, TemplateStyleSlots } from "../shared/types";
 import { useMemo } from "react";
-import { parseColorString, rgbaStringToHex } from "@reactive-resume/utils/color";
+import { rgbaStringToHex } from "@reactive-resume/utils/color";
+import { Image, Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
-import { Image, Page, StyleSheet, View } from "../../renderer";
+import { getPrimaryTint as getPrimaryAlpha } from "../shared/color-helpers";
 import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
@@ -132,16 +133,6 @@ const Header = ({ styles }: LeafishHeaderProps) => {
 			</View>
 		</View>
 	);
-};
-
-const getPrimaryAlpha = (primaryColor: string, opacity: number): string => {
-	const primary = parseColorString(primaryColor);
-
-	if (!primary) return rgbaStringToHex(primaryColor);
-
-	const alpha = Math.max(0, Math.min(1, primary.a * opacity));
-
-	return `rgba(${primary.r}, ${primary.g}, ${primary.b}, ${alpha})`;
 };
 
 const useLeafishTemplate = (): LeafishTemplate => {

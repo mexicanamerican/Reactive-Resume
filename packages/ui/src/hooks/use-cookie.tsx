@@ -11,10 +11,10 @@ type SharedCookieOptions = {
 	secure?: CookieAttributes["secure"];
 };
 
-export type UseCookieOptions = SharedCookieOptions & {
+type UseCookieOptions = SharedCookieOptions & {
 	expires?: CookieAttributes["expires"];
 };
-export type UseCookieRemoveOptions = SharedCookieOptions;
+type UseCookieRemoveOptions = SharedCookieOptions;
 
 export const DEFAULT_COOKIE_ATTRIBUTES = {
 	path: "/",

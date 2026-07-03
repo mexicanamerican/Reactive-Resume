@@ -1,8 +1,7 @@
 import type { Layout, usePanelRef } from "react-resizable-panels";
 import { useCallback, useMemo } from "react";
-import { useWindowSize } from "usehooks-ts";
+import { useMediaQuery, useWindowSize } from "usehooks-ts";
 import { create } from "zustand/react";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 type PanelImperativeHandle = ReturnType<typeof usePanelRef>;
 
@@ -102,7 +101,7 @@ type UseBuilderSidebarReturn = {
 };
 
 export function useBuilderSidebar<T = UseBuilderSidebarReturn>(selector?: (builder: UseBuilderSidebarReturn) => T): T {
-	const isMobile = useIsMobile();
+	const isMobile = useMediaQuery("(max-width: 767px)", { initializeWithValue: false });
 	const { width } = useWindowSize();
 
 	const { maxSidebarSize, minSidebarSize, collapsedSidebarSize, expandSize, groupResizeBehavior } =
