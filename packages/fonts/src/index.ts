@@ -1,6 +1,9 @@
 import type { Locale, Script } from "@reactive-resume/utils/locale";
-import { unique } from "@reactive-resume/utils/field";
 import { getLocaleScript, isCjkScript } from "@reactive-resume/utils/locale";
+
+// ponytail: inlined from @reactive-resume/utils/field (sole consumer)
+const unique = <T>(items: T[]): T[] => [...new Set(items)];
+
 import webFontListJSON from "./webfontlist.json";
 
 type FontCategory = "display" | "handwriting" | "monospace" | "serif" | "sans-serif";

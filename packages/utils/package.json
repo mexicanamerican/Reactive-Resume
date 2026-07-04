@@ -5,11 +5,7 @@
 	"private": true,
 	"exports": {
 		"./color": "./src/color.ts",
-		"./date": "./src/date.ts",
-		"./field": "./src/field.ts",
 		"./file": "./src/file.ts",
-		"./html": "./src/html.ts",
-		"./level": "./src/level.ts",
 		"./locale": "./src/locale.ts",
 		"./monorepo.node": "./src/monorepo.node.ts",
 		"./rate-limit": "./src/rate-limit.ts",
