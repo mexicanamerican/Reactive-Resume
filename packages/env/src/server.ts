@@ -83,11 +83,6 @@ export const env = createEnv({
 		FLAG_SHOW_SPONSORS: z.stringbool().default(false),
 		FLAG_ALLOW_UNSAFE_AI_BASE_URL: z.stringbool().default(false),
 		FLAG_ALLOW_UNSAFE_OAUTH_REDIRECT_URI: z.stringbool().default(false),
-
-		// Crowdin (optional, for translation tooling)
-		CROWDIN_PROJECT_ID: z.string().optional(),
-		CROWDIN_API_TOKEN: z.string().optional(),
-		GOOGLE_CLOUD_API_KEY: z.string().optional(),
 	},
 	runtimeEnv: process.env,
 	emptyStringAsUndefined: true,
