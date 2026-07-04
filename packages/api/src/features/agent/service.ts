@@ -310,17 +310,6 @@ export function buildAttachmentModelParts(input: AttachmentModelInput[]): Array<
 	});
 }
 
-function appendUserModelParts(message: ModelMessage, parts: Array<TextPart | ImagePart | FilePart>): ModelMessage {
-	if (parts.length === 0 || message.role !== "user") return message;
-
-	const content =
-		typeof message.content === "string" ? [{ type: "text" as const, text: message.content }] : message.content;
-	return {
-		...message,
-		content: [...content, ...parts],
-	};
-}
-
 function uniqueAttachmentIds(ids: unknown) {
 	if (ids === undefined) return [];
 	if (!Array.isArray(ids)) {
@@ -438,20 +427,13 @@ function attachModelPartsToLatestUserMessage(
 	parts: Array<TextPart | ImagePart | FilePart>,
 ): ModelMessage[] {
 	if (parts.length === 0) return messages;
-
-	let index = -1;
-	for (let messageIndex = messages.length - 1; messageIndex >= 0; messageIndex--) {
-		if (messages[messageIndex]?.role === "user") {
-			index = messageIndex;
-			break;
-		}
-	}
-
+	const index = messages.findLastIndex((m) => m.role === "user");
 	if (index === -1) return messages;
-
-	return messages.map((message, messageIndex) =>
-		messageIndex === index ? appendUserModelParts(message, parts) : message,
-	);
+	// biome-ignore lint/style/noNonNullAssertion: index is valid; findLastIndex returned != -1
+	const msg = messages[index]!;
+	if (msg.role !== "user") return messages; // ponytail: redundant at runtime; keeps TS narrowed to user-message content type
+	const content = typeof msg.content === "string" ? [{ type: "text" as const, text: msg.content }] : msg.content;
+	return messages.with(index, { ...msg, content: [...content, ...parts] });
 }
 
 async function getExistingResumeSlugs(userId: string) {
@@ -838,6 +820,27 @@ const threadSummarySelection = {
 	providerLabel: schema.aiProvider.label,
 };
 
+// ponytail: shared select used at first-look and at race-fallback in getOrCreateForResume
+async function findActiveThreadForResume(input: { userId: string; resumeId: string }) {
+	const [thread] = await db
+		.select(threadSummarySelection)
+		.from(schema.agentThread)
+		.leftJoin(schema.resume, eq(schema.agentThread.workingResumeId, schema.resume.id))
+		.leftJoin(schema.aiProvider, eq(schema.agentThread.aiProviderId, schema.aiProvider.id))
+		.where(
+			and(
+				eq(schema.agentThread.userId, input.userId),
+				eq(schema.agentThread.workingResumeId, input.resumeId),
+				eq(schema.agentThread.sourceResumeId, input.resumeId),
+				eq(schema.agentThread.status, "active"),
+				isNull(schema.agentThread.deletedAt),
+			),
+		)
+		.orderBy(desc(schema.agentThread.lastMessageAt))
+		.limit(1);
+	return thread;
+}
+
 export const agentService = {
 	threads: {
 		list: async (input: { userId: string }) => {
@@ -890,23 +893,7 @@ export const agentService = {
 		getOrCreateForResume: async (input: { userId: string; resumeId: string; aiProviderId?: string }) => {
 			assertAgentEnvironment();
 
-			const [existing] = await db
-				.select(threadSummarySelection)
-				.from(schema.agentThread)
-				.leftJoin(schema.resume, eq(schema.agentThread.workingResumeId, schema.resume.id))
-				.leftJoin(schema.aiProvider, eq(schema.agentThread.aiProviderId, schema.aiProvider.id))
-				.where(
-					and(
-						eq(schema.agentThread.userId, input.userId),
-						eq(schema.agentThread.workingResumeId, input.resumeId),
-						eq(schema.agentThread.sourceResumeId, input.resumeId),
-						eq(schema.agentThread.status, "active"),
-						isNull(schema.agentThread.deletedAt),
-					),
-				)
-				.orderBy(desc(schema.agentThread.lastMessageAt))
-				.limit(1);
-
+			const existing = await findActiveThreadForResume(input);
 			if (existing) return toThreadSummary(existing);
 
 			const selectedProvider = input.aiProviderId
@@ -932,23 +919,7 @@ export const agentService = {
 
 			// A concurrent call won the unique partial index race; return its thread instead.
 			if (!thread) {
-				const [raced] = await db
-					.select(threadSummarySelection)
-					.from(schema.agentThread)
-					.leftJoin(schema.resume, eq(schema.agentThread.workingResumeId, schema.resume.id))
-					.leftJoin(schema.aiProvider, eq(schema.agentThread.aiProviderId, schema.aiProvider.id))
-					.where(
-						and(
-							eq(schema.agentThread.userId, input.userId),
-							eq(schema.agentThread.workingResumeId, input.resumeId),
-							eq(schema.agentThread.sourceResumeId, input.resumeId),
-							eq(schema.agentThread.status, "active"),
-							isNull(schema.agentThread.deletedAt),
-						),
-					)
-					.orderBy(desc(schema.agentThread.lastMessageAt))
-					.limit(1);
-
+				const raced = await findActiveThreadForResume(input);
 				if (!raced) throw new Error("AGENT_THREAD_CREATE_FAILED");
 				return toThreadSummary(raced);
 			}
@@ -1261,24 +1232,19 @@ export const agentService = {
 			assertAgentEnvironment();
 			await getThread({ id: input.threadId, userId: input.userId });
 
-			const [[aggregate], [attachmentCount]] = await Promise.all([
-				db
-					.select({ totalBytes: sql<number>`coalesce(sum(${schema.agentAttachment.size}), 0)` })
-					.from(schema.agentAttachment)
-					.where(
-						and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
-					),
-				db
-					.select({ total: count() })
-					.from(schema.agentAttachment)
-					.where(
-						and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
-					),
-			]);
+			const [stats] = await db
+				.select({
+					totalBytes: sql<number>`coalesce(sum(${schema.agentAttachment.size}), 0)`,
+					total: count(),
+				})
+				.from(schema.agentAttachment)
+				.where(
+					and(eq(schema.agentAttachment.threadId, input.threadId), eq(schema.agentAttachment.userId, input.userId)),
+				);
 
-			if ((attachmentCount?.total ?? 0) >= MAX_ATTACHMENTS_PER_MESSAGE) throw new ORPCError("BAD_REQUEST");
+			if ((stats?.total ?? 0) >= MAX_ATTACHMENTS_PER_MESSAGE) throw new ORPCError("BAD_REQUEST");
 			if (input.data.byteLength > MAX_ATTACHMENT_BYTES) throw new ORPCError("BAD_REQUEST");
-			if ((aggregate?.totalBytes ?? 0) + input.data.byteLength > MAX_THREAD_ATTACHMENT_BYTES) {
+			if ((stats?.totalBytes ?? 0) + input.data.byteLength > MAX_THREAD_ATTACHMENT_BYTES) {
 				throw new ORPCError("BAD_REQUEST");
 			}
 
