@@ -101,12 +101,13 @@ function RouteComponent() {
 
 			<Separator />
 
-			<div className="flex items-center gap-x-4">
-				<div className="flex gap-2">
-					<Label>
+			<div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+				<div className="grid min-w-0 gap-1.5 sm:flex sm:items-center sm:gap-2">
+					<Label className="text-muted-foreground text-xs sm:text-sm">
 						<Trans>Sort by</Trans>
 					</Label>
 					<Combobox
+						className="w-full sm:w-44"
 						value={sort}
 						options={sortOptions}
 						placeholder={t`Sort by`}
@@ -117,12 +118,15 @@ function RouteComponent() {
 					/>
 				</div>
 
-				<div className={cn("flex gap-2", { hidden: tagOptions.length === 0 })}>
-					<Label>
+				<div
+					className={cn("grid min-w-0 gap-1.5 sm:flex sm:items-center sm:gap-2", { hidden: tagOptions.length === 0 })}
+				>
+					<Label className="text-muted-foreground text-xs sm:text-sm">
 						<Trans>Filter by</Trans>
 					</Label>
 					<Combobox
 						multiple
+						className="w-full sm:w-44"
 						value={tags}
 						options={tagOptions}
 						placeholder={t`Filter by`}
@@ -133,7 +137,7 @@ function RouteComponent() {
 				</div>
 
 				{(resumes?.length ?? 0) > 5 && (
-					<InputGroup className="w-56">
+					<InputGroup className="w-full sm:w-56 lg:w-64">
 						<InputGroupAddon align="inline-start">
 							<MagnifyingGlassIcon />
 						</InputGroupAddon>
@@ -148,8 +152,8 @@ function RouteComponent() {
 					</InputGroup>
 				)}
 
-				<Tabs className="ltr:ms-auto rtl:me-auto" value={view}>
-					<TabsList>
+				<Tabs className="w-full sm:w-auto ltr:sm:ms-auto rtl:sm:me-auto" value={view}>
+					<TabsList className="grid w-full grid-cols-2 sm:inline-flex sm:w-fit">
 						<TabsTrigger
 							value="grid"
 							nativeButton={false}

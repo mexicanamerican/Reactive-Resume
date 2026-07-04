@@ -262,7 +262,7 @@ function RouteComponent() {
 		: null;
 
 	return (
-		<div className="h-svh bg-background">
+		<div className="h-svh min-w-0 overflow-hidden bg-background">
 			<div className="hidden h-full lg:block">
 				<ResizableGroup orientation="horizontal" className="h-full">
 					<ResizablePanel
@@ -309,8 +309,8 @@ function RouteComponent() {
 				</ResizableGroup>
 			</div>
 
-			<div className="flex h-full flex-col lg:hidden">
-				<div className="border-b p-2">
+			<div className="flex h-full min-w-0 flex-col lg:hidden">
+				<div className="shrink-0 border-b p-2">
 					<Tabs value={mobileTab} onValueChange={setMobileTab}>
 						<TabsList className="grid w-full grid-cols-3">
 							<TabsTrigger value="threads">
@@ -328,11 +328,11 @@ function RouteComponent() {
 						</TabsList>
 					</Tabs>
 				</div>
-				<div className="min-h-0 flex-1">
-					<div className={cn("h-full", mobileTab !== "threads" && "hidden")}>
-						<AgentThreadSidebar activeThreadId={threadId} />
+				<div className="min-h-0 min-w-0 flex-1 overflow-hidden">
+					<div className={cn("h-full min-w-0", mobileTab !== "threads" && "hidden")}>
+						<AgentThreadSidebar activeThreadId={threadId} className="border-e-0" />
 					</div>
-					<div className={cn("h-full", mobileTab !== "chat" && "hidden")}>
+					<div className={cn("h-full min-w-0", mobileTab !== "chat" && "hidden")}>
 						<AgentChat
 							threadId={threadId}
 							initialMessages={data.messages}
@@ -343,7 +343,7 @@ function RouteComponent() {
 							actions={data.actions}
 						/>
 					</div>
-					<div className={cn("h-full", mobileTab !== "resume" && "hidden")}>
+					<div className={cn("h-full min-w-0", mobileTab !== "resume" && "hidden")}>
 						<ResumePane resume={data.resume} />
 					</div>
 				</div>

@@ -56,11 +56,11 @@ export function ListView({ resumes, hasResumes }: ListViewProps) {
 						onClick={handleCreateResume}
 					>
 						<PlusIcon />
-						<div className="min-w-80 truncate">
+						<div className="min-w-0 flex-1 truncate">
 							<Trans>Create a new resume</Trans>
 						</div>
 
-						<p className="text-xs opacity-60">
+						<p className="hidden text-xs opacity-60 sm:block">
 							<Trans>Start building your resume from scratch</Trans>
 						</p>
 					</Button>
@@ -81,11 +81,11 @@ export function ListView({ resumes, hasResumes }: ListViewProps) {
 					>
 						<DownloadSimpleIcon />
 
-						<div className="min-w-80 truncate">
+						<div className="min-w-0 flex-1 truncate">
 							<Trans>Import an existing resume</Trans>
 						</div>
 
-						<p className="text-xs opacity-60">
+						<p className="hidden text-xs opacity-60 sm:block">
 							<Trans>Continue where you left off</Trans>
 						</p>
 					</Button>
@@ -132,9 +132,9 @@ function ResumeListItem({ resume }: ResumeListItemProps) {
 				render={
 					<Link to="/builder/$resumeId" params={{ resumeId: resume.id }}>
 						<div className="size-3" />
-						<div className="min-w-80 truncate">{resume.name}</div>
+						<div className="min-w-0 flex-1 truncate">{resume.name}</div>
 
-						<p className="text-xs opacity-60">
+						<p className="hidden text-xs opacity-60 sm:block">
 							<Trans>Last updated on {updatedAt}</Trans>
 						</p>
 					</Link>

@@ -48,8 +48,8 @@ export function BuilderHeader() {
 	// Equal-width flex-1 side groups keep the center title group truly centered regardless of the
 	// wider Download button on the right.
 	return (
-		<div className="absolute inset-x-0 top-0 z-50 flex h-14 items-center gap-x-2 border-b bg-popover px-1.5">
-			<div className="flex flex-1 items-center justify-start">
+		<div className="absolute inset-x-0 top-0 z-50 flex h-14 min-w-0 items-center gap-x-2 border-b bg-popover px-1.5">
+			<div className="flex min-w-0 flex-1 items-center justify-start">
 				{/* Hidden below `md`: on mobile the sidebar panels never mount, so `toggleSidebar` no-ops — the bottom tab bar handles this. */}
 				<Button size="icon" variant="ghost" className="hidden md:flex" onClick={() => toggleSidebar("left")}>
 					<SidebarSimpleIcon />
@@ -85,7 +85,7 @@ export function BuilderHeader() {
 				<BuilderHeaderDropdown />
 			</div>
 
-			<div className="flex flex-1 items-center justify-end gap-x-1">
+			<div className="flex min-w-0 flex-1 items-center justify-end gap-x-1">
 				<ResumeDownloadButton />
 
 				<Button size="icon" variant="ghost" className="hidden md:flex" onClick={() => toggleSidebar("right")}>
@@ -107,9 +107,24 @@ function ResumeDownloadButton() {
 
 	return (
 		<div className="flex items-center">
-			<Button size="sm" className="rounded-e-none" disabled={isExporting} onClick={onDownloadPDF}>
-				{isExporting ? <CircleNotchIcon className="me-1.5 animate-spin" /> : <DownloadSimpleIcon className="me-1.5" />}
-				<Trans comment="Primary action in the builder header to download the resume as a PDF">Download PDF</Trans>
+			<Button
+				size="sm"
+				aria-label={t({
+					comment: "Primary action in the builder header to download the resume as a PDF",
+					message: "Download PDF",
+				})}
+				className="rounded-e-none px-2 sm:px-2.5"
+				disabled={isExporting}
+				onClick={onDownloadPDF}
+			>
+				{isExporting ? (
+					<CircleNotchIcon className="animate-spin sm:me-1.5" />
+				) : (
+					<DownloadSimpleIcon className="sm:me-1.5" />
+				)}
+				<span className="hidden sm:inline">
+					<Trans comment="Primary action in the builder header to download the resume as a PDF">Download PDF</Trans>
+				</span>
 			</Button>
 
 			<DropdownMenu>
