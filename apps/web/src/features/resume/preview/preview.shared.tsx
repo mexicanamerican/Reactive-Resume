@@ -38,19 +38,7 @@ export const DEFAULT_PDF_PAGE_SIZE: PreviewPageSize = {
 	width: 595.28,
 };
 
-export const normalizeResumePreviewProps = ({
-	pageGap = 16,
-	pageLayout = "horizontal",
-	pageScale = 1,
-	showPageNumbers = false,
-	...props
-}: ResumePreviewProps): ResolvedResumePreviewProps => ({
-	...props,
-	pageGap,
-	pageLayout,
-	pageScale,
-	showPageNumbers,
-});
+// ponytail: normalizeResumePreviewProps deleted — defaults now live in ResumePreview destructuring
 
 export const getPreviewCanvasScale = (width: number, height: number) => {
 	const devicePixelRatio = typeof window === "undefined" ? 1 : window.devicePixelRatio || 1;
