@@ -135,23 +135,17 @@ type ParsePdfInput = z.infer<typeof aiCredentialsSchema> & {
 };
 
 type BuildResumeParsingMessagesInput = {
-	systemPrompt: string;
 	userPrompt: string;
 	file: z.infer<typeof fileInputSchema>;
 	mediaType: string;
 };
 
-function buildResumeParsingMessages({
-	systemPrompt,
-	userPrompt,
-	file,
-	mediaType,
-}: BuildResumeParsingMessagesInput): ModelMessage[] {
+function buildResumeParsingSystemPrompt(systemPrompt: string): string {
+	return `${systemPrompt}\n\nIMPORTANT: You must return ONLY raw valid JSON. Do not return markdown, do not return explanations. Just the JSON object. Use the following JSON as a template and fill in the extracted values. For arrays, you MUST use the exact key names shown in the template (e.g. use 'description' instead of 'summary', 'website' instead of 'url'):\n\n${JSON.stringify(aiExtractionTemplate, null, 2)}`;
+}
+
+function buildResumeParsingMessages({ userPrompt, file, mediaType }: BuildResumeParsingMessagesInput): ModelMessage[] {
 	return [
-		{
-			role: "system",
-			content: `${systemPrompt}\n\nIMPORTANT: You must return ONLY raw valid JSON. Do not return markdown, do not return explanations. Just the JSON object. Use the following JSON as a template and fill in the extracted values. For arrays, you MUST use the exact key names shown in the template (e.g. use 'description' instead of 'summary', 'website' instead of 'url'):\n\n${JSON.stringify(aiExtractionTemplate, null, 2)}`,
-		},
 		{
 			role: "user",
 			content: [
@@ -167,8 +161,8 @@ async function parsePdf(input: ParsePdfInput): Promise<ResumeData> {
 
 	const result = await generateText({
 		model,
+		system: buildResumeParsingSystemPrompt(pdfParserSystemPrompt),
 		messages: buildResumeParsingMessages({
-			systemPrompt: pdfParserSystemPrompt,
 			userPrompt: pdfParserUserPrompt,
 			file: input.file,
 			mediaType: "application/pdf",
@@ -188,8 +182,8 @@ async function parseDocx(input: ParseDocxInput): Promise<ResumeData> {
 
 	const result = await generateText({
 		model,
+		system: buildResumeParsingSystemPrompt(docxParserSystemPrompt),
 		messages: buildResumeParsingMessages({
-			systemPrompt: docxParserSystemPrompt,
 			userPrompt: docxParserUserPrompt,
 			file: input.file,
 			mediaType: input.mediaType,
@@ -255,8 +249,8 @@ async function analyzeResume(input: AnalyzeResumeInput): Promise<ResumeAnalysis>
 
 	const result = await generateText({
 		model,
+		system: systemPrompt,
 		messages: [
-			{ role: "system", content: systemPrompt },
 			{
 				role: "user",
 				content:
