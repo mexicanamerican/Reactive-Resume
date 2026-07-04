@@ -27,6 +27,7 @@ import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import {
 	Attachment,
@@ -380,10 +381,11 @@ function getMessagePartKey(messageId: string, part: UIMessage["parts"][number]) 
 	return `${messageId}-${part.type}-${JSON.stringify(part)}`;
 }
 
-function AssistantMarkdown({ text }: AssistantMarkdownProps) {
+export function AssistantMarkdown({ text }: AssistantMarkdownProps) {
 	return (
 		<ReactMarkdown
 			skipHtml
+			remarkPlugins={[remarkGfm]}
 			components={{
 				p: ({ children }) => <p className="my-2 leading-relaxed first:mt-0 last:mb-0">{children}</p>,
 				ul: ({ children }) => <ul className="my-2 ms-5 list-disc space-y-1">{children}</ul>,
@@ -407,6 +409,13 @@ function AssistantMarkdown({ text }: AssistantMarkdownProps) {
 				blockquote: ({ children }) => (
 					<blockquote className="my-3 border-l-2 ps-3 text-muted-foreground">{children}</blockquote>
 				),
+				table: ({ children }) => (
+					<div className="my-3 max-w-full overflow-x-auto">
+						<table className="w-full min-w-max border-collapse text-left text-sm">{children}</table>
+					</div>
+				),
+				th: ({ children }) => <th className="border px-3 py-2 font-semibold">{children}</th>,
+				td: ({ children }) => <td className="border px-3 py-2 align-top">{children}</td>,
 			}}
 		>
 			{text}

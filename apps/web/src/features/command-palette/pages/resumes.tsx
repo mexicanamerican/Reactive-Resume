@@ -24,6 +24,7 @@ export function ResumesCommandGroup() {
 	const { data: resumes, isLoading } = useQuery(
 		orpc.resume.list.queryOptions({
 			enabled: !!session && isResumesPage,
+			input: { sort: "lastUpdatedAt", tags: [] },
 		}),
 	);
 
