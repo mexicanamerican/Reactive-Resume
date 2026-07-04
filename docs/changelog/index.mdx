@@ -29,6 +29,8 @@ rss: true
 
 - **Embedded AI assistant panel** in the builder, scoped to the open resume and reusing the full agent chat, so edits apply to the resume in front of you. Requires a configured AI provider. [a1562aaa](https://github.com/amruthpillai/reactive-resume/commit/a1562aaa)
 - **Simpler AI provider setup.** Provider settings now use a staged form — provider and API key first, advanced options collapsed — and test the connection automatically when you save. [454ccc59](https://github.com/amruthpillai/reactive-resume/commit/454ccc59)
+- **Richer assistant replies.** Agent chat now renders GitHub-flavored Markdown, so tables in the assistant's responses display as real tables instead of raw text. [82d96124](https://github.com/amruthpillai/reactive-resume/commit/82d96124)
+- **More reliable agent edits to sections.** The agent now targets built-in sections (`/sections/...`) and custom sections (`/customSections/...`) with the correct paths, and section-shortcut paths are normalized before a patch is applied, so edits to experience, education, and custom sections land where you expect. [82d96124](https://github.com/amruthpillai/reactive-resume/commit/82d96124)
 
 ## Dashboard & Navigation
 
@@ -36,6 +38,7 @@ rss: true
 - **Search your resumes** from the dashboard once you have more than a few. [fa4ca06e](https://github.com/amruthpillai/reactive-resume/commit/fa4ca06e)
 - **Command palette discoverability**: a Search button with a `⌘K` hint in the dashboard sidebar. [d10a7e5f](https://github.com/amruthpillai/reactive-resume/commit/d10a7e5f)
 - The Create and Import cards collapse into compact header buttons once you have resumes. [fa4ca06e](https://github.com/amruthpillai/reactive-resume/commit/fa4ca06e)
+- Fixed the command palette resume list so it reliably shows your resumes, sorted by most recently updated. [82d96124](https://github.com/amruthpillai/reactive-resume/commit/82d96124)
 
 ## Statistics
 
@@ -66,6 +69,7 @@ rss: true
 - Fixed a live-preview memory leak (image blobs weren't released) and serialized preview renders so they don't stack up. [f005be78](https://github.com/amruthpillai/reactive-resume/commit/f005be78)
 - Public link previews now show your name instead of a generic "Resume" placeholder. [4da7a2e0](https://github.com/amruthpillai/reactive-resume/commit/4da7a2e0)
 - Fixed the first-paint loading shell so the app reliably mounts. [47465fbb](https://github.com/amruthpillai/reactive-resume/commit/47465fbb)
+- Used the compact brand icon on the first-paint and loading screens for a cleaner startup. [82d96124](https://github.com/amruthpillai/reactive-resume/commit/82d96124)
 - **PDF list rendering fixes**: bullet alignment and margins, nested list layout, page breaks that keep the marker with its item, and text that continues after a line break. [#3202](https://github.com/amruthpillai/reactive-resume/pull/3202), [#3198](https://github.com/amruthpillai/reactive-resume/pull/3198), [#3178](https://github.com/amruthpillai/reactive-resume/pull/3178), [#3186](https://github.com/amruthpillai/reactive-resume/pull/3186)
 - Kept the server running through transient Postgres disconnects (for example, idle drops from serverless Postgres providers like Neon) by handling database pool errors and reconnecting on the next query. Thanks to [@helder-mattos](https://github.com/helder-mattos). [#3172](https://github.com/amruthpillai/reactive-resume/pull/3172)
 - Fixed the Atlas Cloud sponsor logo so the whole logo reliably opens the sponsor site in a new tab. [#3170](https://github.com/amruthpillai/reactive-resume/pull/3170)
