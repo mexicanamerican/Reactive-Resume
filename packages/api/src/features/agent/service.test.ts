@@ -113,6 +113,7 @@ vi.mock("../storage/service", () => ({
 vi.mock("./resume", () => ({
 	buildAgentDraftResumeName: vi.fn(),
 	buildUniqueAgentDraftSlug: vi.fn(),
+	normalizeAgentResumePatchOperations: vi.fn((_data, operations) => operations),
 }));
 vi.mock("./runs", () => ({
 	claimActiveAgentRun: claimActiveAgentRunMock,
