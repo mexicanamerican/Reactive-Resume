@@ -1,6 +1,6 @@
 import z from "zod";
 import { protectedProcedure } from "../../context";
-import { isAgentEnvironmentUnavailable, throwUnavailable } from "./routing";
+import { mapAgentEnvironmentError } from "./routing";
 import { agentService } from "./service";
 
 export const threadsRouter = {
@@ -12,13 +12,9 @@ export const threadsRouter = {
 			operationId: "listAgentThreads",
 			summary: "List agent threads",
 		})
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context }) => {
-			try {
-				return await agentService.threads.list({ userId: context.user.id });
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			return await agentService.threads.list({ userId: context.user.id });
 		}),
 
 	create: protectedProcedure
@@ -30,18 +26,14 @@ export const threadsRouter = {
 			summary: "Create agent thread",
 		})
 		.input(z.object({ aiProviderId: z.string().optional(), sourceResumeId: z.string().optional() }))
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context, input }) => {
-			try {
-				return await agentService.threads.create({
-					userId: context.user.id,
-					locale: context.locale,
-					...(input.aiProviderId ? { aiProviderId: input.aiProviderId } : {}),
-					...(input.sourceResumeId ? { sourceResumeId: input.sourceResumeId } : {}),
-				});
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			return await agentService.threads.create({
+				userId: context.user.id,
+				locale: context.locale,
+				...(input.aiProviderId ? { aiProviderId: input.aiProviderId } : {}),
+				...(input.sourceResumeId ? { sourceResumeId: input.sourceResumeId } : {}),
+			});
 		}),
 
 	getOrCreateForResume: protectedProcedure
@@ -53,17 +45,13 @@ export const threadsRouter = {
 			summary: "Get or create an in-resume agent thread",
 		})
 		.input(z.object({ resumeId: z.string(), aiProviderId: z.string().optional() }))
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context, input }) => {
-			try {
-				return await agentService.threads.getOrCreateForResume({
-					userId: context.user.id,
-					resumeId: input.resumeId,
-					...(input.aiProviderId ? { aiProviderId: input.aiProviderId } : {}),
-				});
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			return await agentService.threads.getOrCreateForResume({
+				userId: context.user.id,
+				resumeId: input.resumeId,
+				...(input.aiProviderId ? { aiProviderId: input.aiProviderId } : {}),
+			});
 		}),
 
 	get: protectedProcedure
@@ -75,13 +63,9 @@ export const threadsRouter = {
 			summary: "Get agent thread",
 		})
 		.input(z.object({ id: z.string() }))
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context, input }) => {
-			try {
-				return await agentService.threads.get({ id: input.id, userId: context.user.id });
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			return await agentService.threads.get({ id: input.id, userId: context.user.id });
 		}),
 
 	archive: protectedProcedure
@@ -94,13 +78,9 @@ export const threadsRouter = {
 		})
 		.input(z.object({ id: z.string() }))
 		.output(z.void())
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context, input }) => {
-			try {
-				await agentService.threads.archive({ id: input.id, userId: context.user.id });
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			await agentService.threads.archive({ id: input.id, userId: context.user.id });
 		}),
 
 	delete: protectedProcedure
@@ -113,12 +93,8 @@ export const threadsRouter = {
 		})
 		.input(z.object({ id: z.string() }))
 		.output(z.void())
+		.use(mapAgentEnvironmentError)
 		.handler(async ({ context, input }) => {
-			try {
-				await agentService.threads.delete({ id: input.id, userId: context.user.id });
-			} catch (error) {
-				if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
-				throw error;
-			}
+			await agentService.threads.delete({ id: input.id, userId: context.user.id });
 		}),
 };

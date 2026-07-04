@@ -1,3 +1,4 @@
+import type { AnyMiddleware } from "@orpc/server";
 import type { UIMessage } from "ai";
 import { ORPCError } from "@orpc/client";
 
@@ -21,3 +22,13 @@ export function isUiMessage(value: unknown): value is UIMessage {
 		Array.isArray(message.parts)
 	);
 }
+
+// ponytail: single middleware replaces 12 near-identical try/catch blocks across agent route handlers
+export const mapAgentEnvironmentError: AnyMiddleware = async ({ next }) => {
+	try {
+		return await next();
+	} catch (error) {
+		if (isAgentEnvironmentUnavailable(error)) throwUnavailable();
+		throw error;
+	}
+};
