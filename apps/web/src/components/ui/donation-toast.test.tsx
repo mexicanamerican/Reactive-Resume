@@ -114,6 +114,9 @@ describe("DonationToast", () => {
 		fireEvent.click(screen.getByRole("button", { name: "Dismiss" }));
 
 		expect(cookieMock.set).toHaveBeenCalledWith("donation-toast-dismissed", "true", {
+			path: "/",
+			secure: true,
+			sameSite: "lax",
 			expires: new Date("2026-06-10T12:05:00.000Z"),
 		});
 		expect(toastMock.toast.dismiss).toHaveBeenCalledWith("donation-toast");
@@ -130,6 +133,9 @@ describe("DonationToast", () => {
 		fireEvent.click(screen.getByRole("button", { name: "Donate" }));
 
 		expect(cookieMock.set).toHaveBeenCalledWith("donation-toast-dismissed", "true", {
+			path: "/",
+			secure: true,
+			sameSite: "lax",
 			expires: new Date("2026-06-10T12:05:00.000Z"),
 		});
 		expect(window.open).toHaveBeenCalledWith(
