@@ -15,7 +15,7 @@ vi.mock("@hono/node-server/serve-static", () => ({
 	serveStatic: vi.fn(() => vi.fn()),
 }));
 
-const { handleWebApp, handleWebAppHead } = await import("./web");
+const { handleWebApp } = await import("./web");
 
 describe("web app fallback classification", () => {
 	beforeEach(() => {
@@ -90,8 +90,10 @@ describe("web app fallback classification", () => {
 	});
 
 	it("mirrors fallback status and headers for HEAD without a body", async () => {
-		const knownResponse = handleWebAppHead(new Request("https://example.com/dashboard"));
-		const unknownResponse = handleWebAppHead(new Request("https://example.com/unknown/extra/path"));
+		const knownResponse = await handleWebApp(new Request("https://example.com/dashboard", { method: "HEAD" }));
+		const unknownResponse = await handleWebApp(
+			new Request("https://example.com/unknown/extra/path", { method: "HEAD" }),
+		);
 
 		expect(knownResponse.status).toBe(200);
 		expect(knownResponse.headers.get("Content-Type")).toBe("text/html; charset=UTF-8");

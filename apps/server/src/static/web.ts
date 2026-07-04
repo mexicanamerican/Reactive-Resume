@@ -74,23 +74,20 @@ function notFoundResponse(options: { head?: boolean; noindex?: boolean } = {}) {
 	});
 }
 
+// ponytail: GET and HEAD share the same routing logic; method determines body presence
 export async function handleWebApp(request: Request) {
+	const isHead = request.method === "HEAD";
 	const pathname = new URL(request.url).pathname;
-	if (!isNoindexShellPath(pathname) && isAssetPath(pathname)) return new Response("Not Found", { status: 404 });
+
+	if (!isNoindexShellPath(pathname) && isAssetPath(pathname)) {
+		return new Response(isHead ? null : "Not Found", { status: 404 });
+	}
 
 	const headers = getFallbackResponseHeaders(pathname);
-	if (!headers) return notFoundResponse({ noindex: true });
+	if (!headers) return notFoundResponse({ head: isHead, noindex: true });
+
+	if (isHead) return new Response(null, { status: 200, headers });
 
 	const html = await fs.readFile(indexHtmlPath, "utf-8");
 	return new Response(html, { headers });
-}
-
-export function handleWebAppHead(request: Request) {
-	const pathname = new URL(request.url).pathname;
-	if (!isNoindexShellPath(pathname) && isAssetPath(pathname)) return new Response(null, { status: 404 });
-
-	const headers = getFallbackResponseHeaders(pathname);
-	if (!headers) return notFoundResponse({ head: true, noindex: true });
-
-	return new Response(null, { status: 200, headers });
 }
