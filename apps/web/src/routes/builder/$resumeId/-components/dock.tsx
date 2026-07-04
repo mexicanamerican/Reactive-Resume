@@ -1,32 +1,41 @@
 import type { Icon } from "@phosphor-icons/react";
 import type { BuilderPreviewPageLayout } from "./page-layout";
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
 	AlignCenterHorizontalIcon,
 	AlignTopIcon,
+	ArrowUUpLeftIcon,
+	ArrowUUpRightIcon,
 	ChatCircleDotsIcon,
-	CircleNotchIcon,
-	CubeFocusIcon,
-	FileDocIcon,
-	FileJsIcon,
-	FilePdfIcon,
 	LinkSimpleIcon,
 	MagnifyingGlassMinusIcon,
 	MagnifyingGlassPlusIcon,
 } from "@phosphor-icons/react";
+import { useHotkey } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
 import { m } from "motion/react";
-import { useCallback, useMemo, useState } from "react";
-import { useControls } from "react-zoom-pan-pinch";
+import { useCallback, useMemo } from "react";
+import { useControls, useTransformComponent } from "react-zoom-pan-pinch";
 import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
-import { buildDocx } from "@reactive-resume/docx";
 import { Button } from "@reactive-resume/ui/components/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@reactive-resume/ui/components/dropdown-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
-import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
-import { useCurrentResume } from "@/features/resume/builder/draft";
-import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
+import {
+	isEditableElementFocused,
+	useCanRedo,
+	useCanUndo,
+	useCurrentResume,
+	useRedoResume,
+	useUndoResume,
+} from "@/features/resume/builder/draft";
 import { authClient } from "@/libs/auth/client";
 
 type BuilderDockProps = {
@@ -40,9 +49,29 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 	const navigate = useNavigate();
 
 	const [_, copyToClipboard] = useCopyToClipboard();
-	const { zoomIn, zoomOut, centerView } = useControls();
+	const { zoomIn, zoomOut, resetTransform } = useControls();
 
-	const [isPrinting, setIsPrinting] = useState(false);
+	const canUndo = useCanUndo();
+	const canRedo = useCanRedo();
+	const undo = useUndoResume();
+	const redo = useRedoResume();
+
+	useHotkey("Mod+0", () => resetTransform());
+	// App-level undo/redo of resume state, scoped to the builder. Mod maps to Cmd (mac) / Ctrl (win/linux).
+	// Inside a focused text field, defer to the browser's native input undo; the dock buttons remain
+	// available for resume-level history while editing a field.
+	useHotkey("Mod+Z", () => {
+		if (isEditableElementFocused()) return;
+		undo();
+	});
+	useHotkey("Mod+Shift+Z", () => {
+		if (isEditableElementFocused()) return;
+		redo();
+	});
+	useHotkey("Control+Y", () => {
+		if (isEditableElementFocused()) return;
+		redo();
+	});
 
 	const publicUrl = useMemo(() => {
 		if (!session?.user.username || !resume?.slug) return "";
@@ -54,48 +83,8 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 		toast.success(t`A link to your resume has been copied to clipboard.`);
 	}, [publicUrl, copyToClipboard]);
 
-	const onDownloadJSON = useCallback(async () => {
-		if (!resume) return;
-		const filename = generateFilename(resume.name, "json");
-		const jsonString = JSON.stringify(resume.data, null, 2);
-		const blob = new Blob([jsonString], { type: "application/json" });
-
-		downloadWithAnchor(blob, filename);
-	}, [resume]);
-
-	const onDownloadDOCX = useCallback(async () => {
-		if (!resume) return;
-		const filename = generateFilename(resume.name, "docx");
-
-		try {
-			const blob = await buildDocx(resume.data);
-			downloadWithAnchor(blob, filename);
-		} catch {
-			toast.error(t`There was a problem while generating the DOCX, please try again.`);
-		}
-	}, [resume]);
-
-	const onDownloadPDF = useCallback(async () => {
-		if (!resume) return;
-
-		const filename = generateFilename(resume.name, "pdf");
-		const toastId = toast.loading(t`Please wait while your PDF is being generated...`);
-
-		setIsPrinting(true);
-
-		try {
-			const blob = await createResumePdfBlob(resume.data);
-			downloadWithAnchor(blob, filename);
-		} catch {
-			toast.error(t`There was a problem while generating the PDF, please try again.`);
-		} finally {
-			setIsPrinting(false);
-			toast.dismiss(toastId);
-		}
-	}, [resume]);
-
 	return (
-		<div className="fixed inset-x-0 bottom-4 flex items-center justify-center">
+		<div className="fixed inset-x-0 bottom-20 flex items-center justify-center md:bottom-4">
 			<m.div
 				initial={{ opacity: 0, y: -18 }}
 				animate={{ opacity: 0.6, y: 0 }}
@@ -103,9 +92,12 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 				transition={{ duration: 0.2, ease: "easeOut" }}
 				className="flex items-center rounded-r-full rounded-l-full bg-popover px-2 shadow-xl will-change-[transform,opacity]"
 			>
-				<DockIcon icon={MagnifyingGlassPlusIcon} title={t`Zoom in`} onClick={() => zoomIn(0.1)} />
-				<DockIcon icon={MagnifyingGlassMinusIcon} title={t`Zoom out`} onClick={() => zoomOut(0.1)} />
-				<DockIcon icon={CubeFocusIcon} title={t`Center view`} onClick={() => centerView()} />
+				<DockIcon icon={ArrowUUpLeftIcon} title={t`Undo`} disabled={!canUndo} onClick={() => undo()} />
+				<DockIcon icon={ArrowUUpRightIcon} title={t`Redo`} disabled={!canRedo} onClick={() => redo()} />
+				<div className="mx-1 h-8 w-px bg-border" />
+				<DockIcon icon={MagnifyingGlassMinusIcon} title={t`Zoom out`} onClick={() => zoomOut(0.15)} />
+				<ZoomMenu />
+				<DockIcon icon={MagnifyingGlassPlusIcon} title={t`Zoom in`} onClick={() => zoomIn(0.15)} />
 				<DockIcon
 					icon={pageLayout === "horizontal" ? AlignTopIcon : AlignCenterHorizontalIcon}
 					title={t`Toggle page stacking`}
@@ -121,17 +113,39 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 				/>
 				<div className="mx-1 h-8 w-px bg-border" />
 				<DockIcon icon={LinkSimpleIcon} title={t`Copy URL`} onClick={() => onCopyUrl()} />
-				<DockIcon icon={FileJsIcon} title={t`Download JSON`} onClick={() => onDownloadJSON()} />
-				<DockIcon icon={FileDocIcon} title={t`Download DOCX`} onClick={() => onDownloadDOCX()} />
-				<DockIcon
-					title={t`Download PDF`}
-					disabled={isPrinting}
-					onClick={() => onDownloadPDF()}
-					icon={isPrinting ? CircleNotchIcon : FilePdfIcon}
-					iconClassName={cn(isPrinting && "animate-spin")}
-				/>
 			</m.div>
 		</div>
+	);
+}
+
+function ZoomMenu() {
+	const scale = useTransformComponent((ctx) => ctx.state.scale);
+	const { centerView, resetTransform } = useControls();
+
+	return (
+		<DropdownMenu>
+			<DropdownMenuTrigger
+				render={
+					<Button
+						size="sm"
+						variant="ghost"
+						aria-label={t`Zoom level`}
+						className="h-8 min-w-14 px-2 font-medium text-xs tabular-nums"
+					>
+						{Math.round(scale * 100)}%
+					</Button>
+				}
+			/>
+
+			<DropdownMenuContent side="top" align="center">
+				<DropdownMenuItem onClick={() => centerView(1)}>
+					<Trans>Actual size (100%)</Trans>
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => resetTransform()}>
+					<Trans>Fit to view</Trans>
+				</DropdownMenuItem>
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 }
 

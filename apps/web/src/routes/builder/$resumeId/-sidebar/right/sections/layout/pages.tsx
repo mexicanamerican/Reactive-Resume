@@ -1,4 +1,5 @@
 import type { DragEndEvent, DragStartEvent } from "@dnd-kit/core";
+import type { ResumeData, SectionType } from "@reactive-resume/schema/resume/data";
 import type { CSSProperties, HTMLAttributes, Ref } from "react";
 import {
 	closestCorners,
@@ -13,10 +14,29 @@ import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } 
 import { CSS } from "@dnd-kit/utilities";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { DotsSixVerticalIcon, PlusIcon, TrashIcon } from "@phosphor-icons/react";
+import {
+	ArrowBendUpRightIcon,
+	DotsSixVerticalIcon,
+	DotsThreeVerticalIcon,
+	FileIcon,
+	PlusCircleIcon,
+	PlusIcon,
+	TrashIcon,
+} from "@phosphor-icons/react";
 import { useCallback, useId, useState } from "react";
 import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
+import {
+	DropdownMenu,
+	DropdownMenuCheckboxItem,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+	DropdownMenuSub,
+	DropdownMenuSubContent,
+	DropdownMenuSubTrigger,
+	DropdownMenuTrigger,
+} from "@reactive-resume/ui/components/dropdown-menu";
 import { Switch } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
 import { templates } from "@/dialogs/resume/template/data";
@@ -385,24 +405,202 @@ type SortableLayoutItemProps = {
 	columnId: ColumnId;
 };
 
-function SortableLayoutItem({ id }: SortableLayoutItemProps) {
+function SortableLayoutItem({ id, pageIndex, columnId }: SortableLayoutItemProps) {
 	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
 	const style: CSSProperties = { transform: CSS.Transform.toString(transform), transition };
 
 	return (
-		<LayoutItemContent ref={setNodeRef} id={id} style={style} isDragging={isDragging} {...attributes} {...listeners} />
+		<LayoutItemContent
+			ref={setNodeRef}
+			id={id}
+			pageIndex={pageIndex}
+			columnId={columnId}
+			style={style}
+			isDragging={isDragging}
+			{...attributes}
+			{...listeners}
+		/>
+	);
+}
+
+type MoveToSubmenuProps = {
+	id: string;
+	pageIndex: number;
+	columnId: ColumnId;
+};
+
+/**
+ * "Move to" submenu that mirrors the left-panel item menu but works at the
+ * section level: it splices the section out of its current page/column and
+ * pushes it onto the chosen target (or a brand new page).
+ */
+function MoveToSubmenu({ id, pageIndex, columnId }: MoveToSubmenuProps) {
+	const resume = useCurrentResume();
+	const updateResumeData = useUpdateResumeData();
+
+	const pages = resume.data.metadata.layout.pages;
+	// When the template collapses the sidebar, no page has a usable sidebar column.
+	const sidebarCollapsed = templates[resume.data.metadata.template].sidebarPosition === "none";
+
+	const moveTo = (targetPageIndex: number, targetColumnId: ColumnId) => {
+		updateResumeData((draft) => {
+			const from = draft.metadata.layout.pages[pageIndex][columnId];
+			const index = from.indexOf(id);
+			if (index === -1) return;
+			from.splice(index, 1);
+			draft.metadata.layout.pages[targetPageIndex][targetColumnId].push(id);
+		});
+	};
+
+	const moveToNewPage = () => {
+		updateResumeData((draft) => {
+			const from = draft.metadata.layout.pages[pageIndex][columnId];
+			const index = from.indexOf(id);
+			if (index === -1) return;
+			from.splice(index, 1);
+			draft.metadata.layout.pages.push({ fullWidth: false, main: [id], sidebar: [] });
+		});
+	};
+
+	return (
+		<DropdownMenuSub>
+			<DropdownMenuSubTrigger>
+				<ArrowBendUpRightIcon />
+				<Trans>Move to</Trans>
+			</DropdownMenuSubTrigger>
+
+			<DropdownMenuSubContent>
+				{pages.map((page, targetPageIndex) => {
+					// Full-width pages hide their sidebar, so never offer it as a target.
+					const sidebarHidden = sidebarCollapsed || page.fullWidth;
+
+					return (
+						<DropdownMenuSub key={`page-${targetPageIndex}`}>
+							<DropdownMenuSubTrigger>
+								<FileIcon />
+								<Trans>Page {targetPageIndex + 1}</Trans>
+							</DropdownMenuSubTrigger>
+
+							<DropdownMenuSubContent>
+								<DropdownMenuItem
+									disabled={targetPageIndex === pageIndex && columnId === "main"}
+									onClick={() => moveTo(targetPageIndex, "main")}
+								>
+									{getColumnLabel("main")}
+								</DropdownMenuItem>
+
+								{!sidebarHidden && (
+									<DropdownMenuItem
+										disabled={targetPageIndex === pageIndex && columnId === "sidebar"}
+										onClick={() => moveTo(targetPageIndex, "sidebar")}
+									>
+										{getColumnLabel("sidebar")}
+									</DropdownMenuItem>
+								)}
+							</DropdownMenuSubContent>
+						</DropdownMenuSub>
+					);
+				})}
+
+				<DropdownMenuSeparator />
+
+				<DropdownMenuItem onClick={moveToNewPage}>
+					<PlusCircleIcon />
+					<Trans>New Page</Trans>
+				</DropdownMenuItem>
+			</DropdownMenuSubContent>
+		</DropdownMenuSub>
+	);
+}
+
+type SectionBreakField = "keepTogether" | "startOnNewPage";
+
+const readSectionBreak = (data: ResumeData, id: string, field: SectionBreakField): boolean => {
+	if (id === "summary") return data.summary[field];
+	if (id in data.sections) return data.sections[id as SectionType][field];
+	return data.customSections.find((section) => section.id === id)?.[field] ?? false;
+};
+
+type SectionBreakItemsProps = {
+	id: string;
+};
+
+/**
+ * Per-section page-break controls. These write the declarative `keepTogether` /
+ * `startOnNewPage` flags onto the section metadata (summary, standard, or custom),
+ * which the PDF renderer applies as `wrap` / `break` on the section container.
+ */
+function SectionBreakItems({ id }: SectionBreakItemsProps) {
+	const resume = useCurrentResume();
+	const updateResumeData = useUpdateResumeData();
+
+	const keepTogether = readSectionBreak(resume.data, id, "keepTogether");
+	const startOnNewPage = readSectionBreak(resume.data, id, "startOnNewPage");
+
+	const toggle = (field: SectionBreakField) => {
+		updateResumeData((draft) => {
+			if (id === "summary") {
+				draft.summary[field] = !draft.summary[field];
+				return;
+			}
+			if (id in draft.sections) {
+				const section = draft.sections[id as SectionType];
+				section[field] = !section[field];
+				return;
+			}
+			const custom = draft.customSections.find((section) => section.id === id);
+			if (custom) custom[field] = !custom[field];
+		});
+	};
+
+	return (
+		<>
+			<DropdownMenuCheckboxItem
+				checked={keepTogether}
+				onSelect={(event) => event.preventDefault()}
+				onCheckedChange={() => toggle("keepTogether")}
+			>
+				<Trans comment="Layout editor toggle that prevents a section from splitting across pages">Keep together</Trans>
+			</DropdownMenuCheckboxItem>
+
+			<p className="px-2 pb-1 text-muted-foreground text-xs">
+				<Trans comment="Helper note explaining the keep-together limitation">
+					Only applies when the section fits on a single page.
+				</Trans>
+			</p>
+
+			<DropdownMenuCheckboxItem
+				checked={startOnNewPage}
+				onSelect={(event) => event.preventDefault()}
+				onCheckedChange={() => toggle("startOnNewPage")}
+			>
+				<Trans comment="Layout editor toggle that forces a section to begin on a new page">Start on new page</Trans>
+			</DropdownMenuCheckboxItem>
+		</>
 	);
 }
 
 type LayoutItemContentProps = HTMLAttributes<HTMLDivElement> & {
 	id: string;
 	ref?: Ref<HTMLDivElement>;
+	pageIndex?: number;
+	columnId?: ColumnId;
 	isDragging?: boolean;
 	isOverlay?: boolean;
 };
 
-function LayoutItemContent({ id, ref, isDragging, isOverlay, className, style, ...rest }: LayoutItemContentProps) {
+function LayoutItemContent({
+	id,
+	ref,
+	pageIndex,
+	columnId,
+	isDragging,
+	isOverlay,
+	className,
+	style,
+	...rest
+}: LayoutItemContentProps) {
 	const resume = useCurrentResume();
 	const title = resume ? resolveLayoutSectionTitle(resume.data, id) : id;
 
@@ -422,7 +620,26 @@ function LayoutItemContent({ id, ref, isDragging, isOverlay, className, style, .
 			{...rest}
 		>
 			<DotsSixVerticalIcon className="opacity-40 transition-opacity group-hover/item:opacity-100" />
-			<span className="truncate">{title}</span>
+			<span className="min-w-0 flex-1 truncate">{title}</span>
+
+			{/* The drag overlay renders without a location; only real rows get the menu. */}
+			{!isOverlay && pageIndex !== undefined && columnId !== undefined && (
+				<DropdownMenu>
+					<DropdownMenuTrigger
+						aria-label={t`Move section to another column or page`}
+						onPointerDown={(event) => event.stopPropagation()}
+						className="flex cursor-context-menu items-center rounded p-0.5 opacity-40 transition-opacity hover:bg-secondary/40 focus:outline-none focus-visible:ring-1 group-hover/item:opacity-100"
+					>
+						<DotsThreeVerticalIcon />
+					</DropdownMenuTrigger>
+
+					<DropdownMenuContent align="end">
+						<MoveToSubmenu id={id} pageIndex={pageIndex} columnId={columnId} />
+						<DropdownMenuSeparator />
+						<SectionBreakItems id={id} />
+					</DropdownMenuContent>
+				</DropdownMenu>
+			)}
 		</div>
 	);
 }

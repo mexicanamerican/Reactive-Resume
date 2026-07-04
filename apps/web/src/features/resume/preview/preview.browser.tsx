@@ -2,11 +2,13 @@ import type { CSSProperties } from "react";
 import type { PreviewPageSize, ResolvedResumePreviewProps } from "./preview.shared";
 import { AnimatePresence, m } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { isRTL } from "@reactive-resume/utils/locale";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
-import { useResumeData } from "../builder/draft";
+import { usePreviewPausedStore, useResumeData } from "../builder/draft";
 import { PdfCanvasDocument, PdfCanvasPage } from "./pdf-canvas";
 import { getResumePreviewGapValue, getResumePreviewPageCount, ResumePreviewLoader } from "./preview.shared";
+import { ResumeAccessibleText } from "./resume-accessible-text";
 
 type PreviewPdf = {
 	file: Blob;
@@ -92,6 +94,7 @@ export function ResumePreviewClient({
 }: ResolvedResumePreviewProps) {
 	const builderResumeData = useResumeData();
 	const resumeData = data ?? builderResumeData;
+	const paused = usePreviewPausedStore((state) => state.paused);
 
 	const [previewLayers, setPreviewLayers] = useState<PreviewPdf[]>([]);
 
@@ -101,6 +104,8 @@ export function ResumePreviewClient({
 
 	useEffect(() => {
 		if (!resumeData) return;
+		// Mobile hides the preview behind the Edit/Design overlay; skip re-rendering and keep the last PDF shown.
+		if (paused) return;
 
 		let cancelled = false;
 		const requestId = ++requestIdRef.current;
@@ -128,7 +133,7 @@ export function ResumePreviewClient({
 			cancelled = true;
 			window.clearTimeout(timeoutId);
 		};
-	}, [resumeData]);
+	}, [resumeData, paused]);
 
 	if (!resumeData) return null;
 
@@ -137,19 +142,23 @@ export function ResumePreviewClient({
 
 	if (!visiblePdf) {
 		return (
-			<ResumePreviewLoader
-				pageCount={getResumePreviewPageCount(resumeData)}
-				pageClassName={pageClassName}
-				pageGap={pageGap}
-				pageLayout={pageLayout}
-				pageScale={pageScale}
-				showPageNumbers={showPageNumbers}
-			/>
+			<>
+				<ResumeAccessibleText data={resumeData} />
+				<ResumePreviewLoader
+					pageCount={getResumePreviewPageCount(resumeData)}
+					pageClassName={pageClassName}
+					pageGap={pageGap}
+					pageLayout={pageLayout}
+					pageScale={pageScale}
+					showPageNumbers={showPageNumbers}
+				/>
+			</>
 		);
 	}
 
 	return (
 		<div className={cn("grid", className)}>
+			<ResumeAccessibleText data={resumeData} />
 			<AnimatePresence initial={false}>
 				{previewLayers.map((visiblePdf) => (
 					<m.div
@@ -174,6 +183,7 @@ export function ResumePreviewClient({
 						>
 							{(document) => (
 								<div
+									dir={isRTL(resumeData.metadata.page.locale) ? "rtl" : "ltr"}
 									className={cn(
 										"flex justify-start gap-(--resume-preview-page-gap)",
 										pageLayout === "horizontal" ? "flex-row items-start" : "flex-col items-center",

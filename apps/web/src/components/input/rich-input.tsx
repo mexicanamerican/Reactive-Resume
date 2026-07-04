@@ -5,10 +5,7 @@ import { Trans } from "@lingui/react/macro";
 import {
 	ArrowsInSimpleIcon,
 	ArrowsOutSimpleIcon,
-	CodeBlockIcon,
 	CodeSimpleIcon,
-	ColumnsPlusLeftIcon,
-	ColumnsPlusRightIcon,
 	HighlighterCircleIcon,
 	KeyReturnIcon,
 	LinkBreakIcon,
@@ -17,10 +14,6 @@ import {
 	ListNumbersIcon,
 	MinusIcon,
 	ParagraphIcon,
-	PlusIcon,
-	RowsPlusBottomIcon,
-	RowsPlusTopIcon,
-	TableIcon,
 	TextAlignCenterIcon,
 	TextAlignJustifyIcon,
 	TextAlignLeftIcon,
@@ -37,11 +30,9 @@ import {
 	TextOutdentIcon,
 	TextStrikethroughIcon,
 	TextUnderlineIcon,
-	TrashSimpleIcon,
 } from "@phosphor-icons/react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
-import { TableKit } from "@tiptap/extension-table";
 import TextAlign from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { EditorContent, EditorContext, useEditor, useEditorState } from "@tiptap/react";
@@ -56,7 +47,6 @@ import {
 	DropdownMenu,
 	DropdownMenuCheckboxItem,
 	DropdownMenuContent,
-	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
@@ -76,9 +66,7 @@ const extensions = [
 		heading: {
 			levels: [1, 2, 3, 4, 5, 6],
 		},
-		codeBlock: {
-			enableTabIndentation: true,
-		},
+		codeBlock: false,
 		link: {
 			openOnClick: false,
 			enableClickSelection: true,
@@ -98,7 +86,6 @@ const extensions = [
 		},
 	}),
 	TextAlign.configure({ types: ["heading", "paragraph", "listItem"] }),
-	TableKit.configure(),
 ];
 
 type Props = UseEditorOptions & {
@@ -347,28 +334,8 @@ function useEditorToolbarState(editor: Editor) {
 				canInlineCode: ctx.editor.can().chain().toggleCode().run() ?? false,
 				toggleInlineCode: () => ctx.editor.chain().focus().toggleCode().run(),
 
-				// Code Block
-				isCodeBlock: ctx.editor.isActive("codeBlock") ?? false,
-				canCodeBlock: ctx.editor.can().chain().toggleCodeBlock().run() ?? false,
-				toggleCodeBlock: () => ctx.editor.chain().focus().toggleCodeBlock().run(),
-
-				// Table
-				insertTable: () => ctx.editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run(),
-				canInsertTable: ctx.editor.can().chain().insertTable().run() ?? false,
-				addColumnBefore: () => ctx.editor.chain().focus().addColumnBefore().run(),
-				canAddColumnBefore: ctx.editor.can().chain().addColumnBefore().run() ?? false,
-				addColumnAfter: () => ctx.editor.chain().focus().addColumnAfter().run(),
-				canAddColumnAfter: ctx.editor.can().chain().addColumnAfter().run() ?? false,
-				addRowBefore: () => ctx.editor.chain().focus().addRowBefore().run(),
-				canAddRowBefore: ctx.editor.can().chain().addRowBefore().run() ?? false,
-				addRowAfter: () => ctx.editor.chain().focus().addRowAfter().run(),
-				canAddRowAfter: ctx.editor.can().chain().addRowAfter().run() ?? false,
-				deleteColumn: () => ctx.editor.chain().focus().deleteColumn().run(),
-				canDeleteColumn: ctx.editor.can().chain().deleteColumn().run() ?? false,
-				deleteRow: () => ctx.editor.chain().focus().deleteRow().run(),
-				canDeleteRow: ctx.editor.can().chain().deleteRow().run() ?? false,
-				deleteTable: () => ctx.editor.chain().focus().deleteTable().run(),
-				canDeleteTable: ctx.editor.can().chain().deleteTable().run() ?? false,
+				// Character Count
+				characterCount: ctx.editor.getText().length,
 
 				// Hard Break
 				setHardBreak: () => ctx.editor.chain().focus().setHardBreak().run(),
@@ -582,7 +549,13 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 			<DropdownMenu>
 				<DropdownMenuTrigger
 					render={
-						<Button size={isFullscreen ? "lg" : "sm"} tabIndex={-1} variant="ghost" className="rounded-none">
+						<Button
+							size={isFullscreen ? "lg" : "sm"}
+							tabIndex={-1}
+							variant="ghost"
+							aria-label={t`Paragraph and heading style`}
+							className="rounded-none"
+						>
 							{match(state)
 								.with({ isParagraph: true }, () => <ParagraphIcon className="size-3.5" />)
 								.with({ isHeading1: true }, () => <TextHOneIcon className="size-3.5" />)
@@ -655,7 +628,13 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 			<DropdownMenu>
 				<DropdownMenuTrigger
 					render={
-						<Button size={isFullscreen ? "lg" : "sm"} tabIndex={-1} variant="ghost" className="rounded-none">
+						<Button
+							size={isFullscreen ? "lg" : "sm"}
+							tabIndex={-1}
+							variant="ghost"
+							aria-label={t`Text alignment`}
+							className="rounded-none"
+						>
 							{match(state)
 								.with({ isLeftAlign: true }, () => <TextAlignLeftIcon className="size-3.5" />)
 								.with({ isCenterAlign: true }, () => <TextAlignCenterIcon className="size-3.5" />)
@@ -731,6 +710,7 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 				tabIndex={-1}
 				variant="ghost"
 				className="rounded-none"
+				title={t`Decrease indent`}
 				disabled={!state.canLiftListItem}
 				onClick={state.liftListItem}
 			>
@@ -742,6 +722,7 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 				tabIndex={-1}
 				variant="ghost"
 				className="rounded-none"
+				title={t`Increase indent`}
 				disabled={!state.canSinkListItem}
 				onClick={state.sinkListItem}
 			>
@@ -756,6 +737,7 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 					tabIndex={-1}
 					variant="ghost"
 					className="rounded-none"
+					title={t`Remove link`}
 					onClick={state.unsetLink}
 				>
 					<LinkBreakIcon className="size-3.5" />
@@ -766,6 +748,7 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 					tabIndex={-1}
 					variant="ghost"
 					className="rounded-none"
+					title={t`Add link`}
 					onClick={state.setLink}
 				>
 					<LinkIcon className="size-3.5" />
@@ -783,73 +766,6 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 			>
 				<CodeSimpleIcon className="size-3.5" />
 			</Toggle>
-
-			<Toggle
-				size={isFullscreen ? "lg" : "sm"}
-				tabIndex={-1}
-				className="rounded-none"
-				title={t`Code Block`}
-				pressed={state.isCodeBlock}
-				disabled={!state.canCodeBlock}
-				onPressedChange={state.toggleCodeBlock}
-			>
-				<CodeBlockIcon className="size-3.5" />
-			</Toggle>
-
-			<DropdownMenu>
-				<DropdownMenuTrigger
-					render={
-						<Button
-							size={isFullscreen ? "lg" : "sm"}
-							tabIndex={-1}
-							variant="ghost"
-							className="rounded-none"
-							title={t`Table`}
-						>
-							<TableIcon className="size-3.5" />
-						</Button>
-					}
-				/>
-
-				<DropdownMenuContent>
-					<DropdownMenuItem disabled={!state.canInsertTable} onClick={state.insertTable}>
-						<PlusIcon />
-						<Trans>Insert Table</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem disabled={!state.canAddColumnBefore} onClick={state.addColumnBefore}>
-						<ColumnsPlusLeftIcon />
-						<Trans>Add Column Before</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuItem disabled={!state.canAddColumnAfter} onClick={state.addColumnAfter}>
-						<ColumnsPlusRightIcon />
-						<Trans>Add Column After</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem disabled={!state.canAddRowBefore} onClick={state.addRowBefore}>
-						<RowsPlusTopIcon />
-						<Trans>Add Row Before</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuItem disabled={!state.canAddRowAfter} onClick={state.addRowAfter}>
-						<RowsPlusBottomIcon />
-						<Trans>Add Row After</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem disabled={!state.canDeleteColumn} onClick={state.deleteColumn}>
-						<TrashSimpleIcon />
-						<Trans>Delete Column</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuItem disabled={!state.canDeleteRow} onClick={state.deleteRow}>
-						<TrashSimpleIcon />
-						<Trans>Delete Row</Trans>
-					</DropdownMenuItem>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem variant="destructive" disabled={!state.canDeleteTable} onClick={state.deleteTable}>
-						<TrashSimpleIcon />
-						<Trans>Delete Table</Trans>
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
 
 			<Button
 				size={isFullscreen ? "lg" : "sm"}
@@ -872,6 +788,10 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 			>
 				<MinusIcon className="size-3.5" />
 			</Button>
+
+			<span className="ml-auto px-2 text-muted-foreground text-xs tabular-nums" aria-live="polite">
+				<Trans comment="Character count readout for the rich-text editor">{state.characterCount} characters</Trans>
+			</span>
 		</div>
 	);
 }
