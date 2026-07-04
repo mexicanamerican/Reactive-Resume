@@ -297,53 +297,28 @@ export const baseSectionSchema = z.object({
 	startOnNewPage: z.boolean().catch(false).describe("If true, the section always begins on a new page."),
 });
 
-const awardsSectionSchema = baseSectionSchema.extend({
-	items: z.array(awardItemSchema).describe("The items to display in the awards section."),
-});
+// ponytail: 12 identical baseSectionSchema.extend({ items }) blocks collapsed to a factory
+const itemSection = <T extends z.ZodTypeAny>(itemSchema: T, description: string) =>
+	baseSectionSchema.extend({ items: z.array(itemSchema).describe(description) });
 
-const certificationsSectionSchema = baseSectionSchema.extend({
-	items: z.array(certificationItemSchema).describe("The items to display in the certifications section."),
-});
-
-const educationSectionSchema = baseSectionSchema.extend({
-	items: z.array(educationItemSchema).describe("The items to display in the education section."),
-});
-
-const experienceSectionSchema = baseSectionSchema.extend({
-	items: z.array(experienceItemSchema).describe("The items to display in the experience section."),
-});
-
-const interestsSectionSchema = baseSectionSchema.extend({
-	items: z.array(interestItemSchema).describe("The items to display in the interests section."),
-});
-
-const languagesSectionSchema = baseSectionSchema.extend({
-	items: z.array(languageItemSchema).describe("The items to display in the languages section."),
-});
-
-const profilesSectionSchema = baseSectionSchema.extend({
-	items: z.array(profileItemSchema).describe("The items to display in the profiles section."),
-});
-
-const projectsSectionSchema = baseSectionSchema.extend({
-	items: z.array(projectItemSchema).describe("The items to display in the projects section."),
-});
-
-const publicationsSectionSchema = baseSectionSchema.extend({
-	items: z.array(publicationItemSchema).describe("The items to display in the publications section."),
-});
-
-const referencesSectionSchema = baseSectionSchema.extend({
-	items: z.array(referenceItemSchema).describe("The items to display in the references section."),
-});
-
-const skillsSectionSchema = baseSectionSchema.extend({
-	items: z.array(skillItemSchema).describe("The items to display in the skills section."),
-});
-
-const volunteerSectionSchema = baseSectionSchema.extend({
-	items: z.array(volunteerItemSchema).describe("The items to display in the volunteer section."),
-});
+const awardsSectionSchema = itemSection(awardItemSchema, "The items to display in the awards section.");
+const certificationsSectionSchema = itemSection(
+	certificationItemSchema,
+	"The items to display in the certifications section.",
+);
+const educationSectionSchema = itemSection(educationItemSchema, "The items to display in the education section.");
+const experienceSectionSchema = itemSection(experienceItemSchema, "The items to display in the experience section.");
+const interestsSectionSchema = itemSection(interestItemSchema, "The items to display in the interests section.");
+const languagesSectionSchema = itemSection(languageItemSchema, "The items to display in the languages section.");
+const profilesSectionSchema = itemSection(profileItemSchema, "The items to display in the profiles section.");
+const projectsSectionSchema = itemSection(projectItemSchema, "The items to display in the projects section.");
+const publicationsSectionSchema = itemSection(
+	publicationItemSchema,
+	"The items to display in the publications section.",
+);
+const referencesSectionSchema = itemSection(referenceItemSchema, "The items to display in the references section.");
+const skillsSectionSchema = itemSection(skillItemSchema, "The items to display in the skills section.");
+const volunteerSectionSchema = itemSection(volunteerItemSchema, "The items to display in the volunteer section.");
 
 const sectionsSchema = z.object({
 	profiles: profilesSectionSchema.describe("The section to display the profiles of the author."),
@@ -573,24 +548,9 @@ const styleIntentSchema = z
 
 export type StyleIntent = z.infer<typeof styleIntentSchema>;
 
+// ponytail: 15 hand-listed optional slots collapsed to partialRecord; unknown keys still rejected
 const styleRuleSlotsSchema = z
-	.strictObject({
-		section: styleIntentSchema.optional(),
-		heading: styleIntentSchema.optional(),
-		item: styleIntentSchema.optional(),
-		text: styleIntentSchema.optional(),
-		secondaryText: styleIntentSchema.optional(),
-		link: styleIntentSchema.optional(),
-		icon: styleIntentSchema.optional(),
-		level: styleIntentSchema.optional(),
-		richParagraph: styleIntentSchema.optional(),
-		richList: styleIntentSchema.optional(),
-		richListItemRow: styleIntentSchema.optional(),
-		richListItemContent: styleIntentSchema.optional(),
-		richLink: styleIntentSchema.optional(),
-		richBold: styleIntentSchema.optional(),
-		richMark: styleIntentSchema.optional(),
-	})
+	.partialRecord(styleSlotSchema, styleIntentSchema)
 	.refine((slots) => Object.values(slots).some(Boolean), {
 		message: "At least one style slot must be configured.",
 	});
