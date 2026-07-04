@@ -15,7 +15,7 @@ import { getAgentModel } from "../ai/service";
 import { aiProvidersService } from "../ai-providers/service";
 import { resumeService } from "../resume/service";
 import { getStorageService, inferContentType } from "../storage/service";
-import { buildAgentDraftResumeName, buildUniqueAgentDraftSlug } from "./resume";
+import { buildAgentDraftResumeName, buildUniqueAgentDraftSlug, normalizeAgentResumePatchOperations } from "./resume";
 import { claimActiveAgentRun, clearActiveAgentRunIfCurrent } from "./runs";
 import { agentStreamLifecycle } from "./streams";
 import { buildAgentInstructions, buildAgentTools } from "./tools";
@@ -717,12 +717,13 @@ async function applyResumePatch(input: {
 }) {
 	const before = await resumeService.getById({ id: input.resumeId, userId: input.userId });
 	const snapshotData = cloneResumeData(before.data);
+	const operations = normalizeAgentResumePatchOperations(before.data, input.operations);
 
 	const { action, patched } = await db.transaction(async (tx) => {
 		const patched = await resumeService.patchInTransaction(tx, {
 			id: input.resumeId,
 			userId: input.userId,
-			operations: input.operations,
+			operations,
 		});
 
 		const [action] = await tx
@@ -735,7 +736,7 @@ async function applyResumePatch(input: {
 				status: "applied",
 				title: input.title,
 				...(input.summary !== undefined ? { summary: input.summary } : {}),
-				operations: input.operations,
+				operations,
 				snapshotData,
 				baseUpdatedAt: before.updatedAt,
 				appliedUpdatedAt: patched.updatedAt,
@@ -787,10 +788,14 @@ function createAgent(input: {
 					patchRoot: "data",
 					patchPathExamples: {
 						visibleName: "/basics/name",
+						standardExperienceDescription: "/sections/experience/items/0/description",
+						customSectionDescription: "/customSections/0/items/0/description",
 					},
 					patchNotes: [
 						"apply_resume_patch paths are rooted at the `data` object below.",
 						"Do not prefix paths with `/data`.",
+						"Built-in sections live under `/sections/<sectionId>`, for example `/sections/experience/items/0/description`.",
+						"Custom sections live under `/customSections/<index>`, even when their `type` is `experience`, `education`, or another built-in section type.",
 						"The resume file/title `name` metadata is read-only for apply_resume_patch.",
 					],
 					data: resume.data,
