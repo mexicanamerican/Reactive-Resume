@@ -28,8 +28,7 @@
 		"better-auth": "1.6.23",
 		"drizzle-orm": "1.0.0-rc.4",
 		"jose": "^6.2.3",
-		"react": "^19.2.7",
-		"zod": "^4.4.3"
+		"react": "^19.2.7"
 	},
 	"devDependencies": {
 		"@reactive-resume/config": "workspace:*",
