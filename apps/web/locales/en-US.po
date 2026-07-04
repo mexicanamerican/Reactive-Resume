@@ -437,6 +437,10 @@ msgid "Attach files"
 msgstr "Attach files"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Attachment"
+msgstr "Attachment"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Attachment uploaded."
 msgstr "Attachment uploaded."
 
@@ -555,21 +559,8 @@ msgstr "Can I export my resume to PDF?"
 #. Profile settings form action to discard unsaved edits
 #. Secondary action button to close two-factor setup dialog
 #: src/dialogs/auth/enable-two-factor.tsx
-#: src/dialogs/resume/sections/award.tsx
-#: src/dialogs/resume/sections/certification.tsx
-#: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/custom.tsx
-#: src/dialogs/resume/sections/education.tsx
-#: src/dialogs/resume/sections/experience.tsx
-#: src/dialogs/resume/sections/interest.tsx
-#: src/dialogs/resume/sections/language.tsx
-#: src/dialogs/resume/sections/profile.tsx
-#: src/dialogs/resume/sections/project.tsx
-#: src/dialogs/resume/sections/publication.tsx
-#: src/dialogs/resume/sections/reference.tsx
-#: src/dialogs/resume/sections/skill.tsx
-#: src/dialogs/resume/sections/summary-item.tsx
-#: src/dialogs/resume/sections/volunteer.tsx
+#: src/dialogs/resume/sections/section-item-dialog.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1506,10 +1497,8 @@ msgstr "Failed to send password reset email. Please try again."
 msgid "Failed to setup two-factor authentication."
 msgstr "Failed to setup two-factor authentication."
 
-#. Fallback toast when custom OAuth sign-in fails without a provider error message
-#. Fallback toast when passkey sign-in fails without an error message
 #. Fallback toast when sign-in fails and no server error message is available
-#. Fallback toast when social sign-in fails without a provider error message
+#. Fallback toast when sign-in fails without an error message
 #: src/features/auth/components/social-auth.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Failed to sign in. Please try again."
@@ -2179,14 +2168,9 @@ msgid "Lithuanian"
 msgstr "Lithuanian"
 
 #. placeholder {0}: metadata.name
-#: src/dialogs/resume/template/gallery.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/template.tsx
 msgid "Live preview of your resume in the {0} template"
 msgstr "Live preview of your resume in the {0} template"
-
-#: src/routes/agent/$threadId.tsx
-msgid "Loading agent workspace…"
-msgstr "Loading agent workspace…"
 
 #: src/dialogs/resume/import.tsx
 msgid "Loading AI providers. Please try again in a moment."
@@ -2206,7 +2190,6 @@ msgstr "Loading resumes…"
 msgid "Loading threads…"
 msgstr "Loading threads…"
 
-#: src/components/layout/loading-screen.tsx
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Loading…"
 msgstr "Loading…"
@@ -2665,7 +2648,6 @@ msgid "Please support the project"
 msgstr "Please support the project"
 
 #: src/features/resume/export/use-resume-export.ts
-#: src/features/resume/public/public-resume.tsx
 msgid "Please wait while your PDF is being generated..."
 msgstr "Please wait while your PDF is being generated..."
 
@@ -3642,7 +3624,6 @@ msgid "There was a problem while generating the DOCX, please try again."
 msgstr "There was a problem while generating the DOCX, please try again."
 
 #: src/features/resume/export/use-resume-export.ts
-#: src/features/resume/public/public-resume.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "There was a problem while generating the PDF, please try again."
 msgstr "There was a problem while generating the PDF, please try again."
