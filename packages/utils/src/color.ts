@@ -1,19 +1,17 @@
-import type { ColorResult } from "@uiw/color-convert";
-import { hsvaToHex, rgbaStringToHsva } from "@uiw/color-convert";
+type ParsedColor = { r: number; g: number; b: number; a: number };
 
 export function rgbaStringToHex(rgba: string): string {
 	const color = parseColorString(rgba);
 	if (color) return `#${toHexComponent(color.r)}${toHexComponent(color.g)}${toHexComponent(color.b)}`;
-
-	const hsva = rgbaStringToHsva(rgba);
-	return hsvaToHex(hsva);
+	// ponytail: unrecognized format → black; same result the prior @uiw/color-convert fallback produced
+	return "#000000";
 }
 
 function toHexComponent(value: number): string {
 	return Math.max(0, Math.min(255, value)).toString(16).padStart(2, "0");
 }
 
-export function parseColorString(value: string): ColorResult["rgba"] | null {
+export function parseColorString(value: string): ParsedColor | null {
 	const trimmed = value.trim();
 
 	// Parse rgb/rgba colors

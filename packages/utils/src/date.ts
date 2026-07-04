@@ -1,17 +1,11 @@
-const MONTH_NAMES = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
+// ponytail: Intl replaces the 12-line MONTH_NAMES array; pinned to en-US so output is stable
+const fmt = new Intl.DateTimeFormat("en-US", { month: "long" });
+
+function getMonthName(month: string | undefined): string {
+	const index = Number.parseInt(month ?? "1", 10) - 1;
+	if (index < 0 || index > 11) return "undefined";
+	return fmt.format(new Date(2000, index, 1));
+}
 
 /**
  * Formats a partial ISO 8601 date string (YYYY, YYYY-MM, or YYYY-MM-DD)
@@ -22,7 +16,7 @@ export function formatDate(date: string, includeDay = false): string {
 
 	if (parts.length >= 2) {
 		const [year, month] = parts;
-		const monthName = MONTH_NAMES[Number.parseInt(month ?? "1", 10) - 1];
+		const monthName = getMonthName(month);
 
 		if (parts.length === 3 && includeDay) {
 			return `${monthName} ${parts[2]}, ${year}`;

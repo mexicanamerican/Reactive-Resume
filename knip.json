@@ -28,7 +28,6 @@
 				"@orpc/experimental-ratelimit",
 				"@sindresorhus/slugify",
 				"@t3-oss/env-core",
-				"@uiw/color-convert",
 				"ai",
 				"bcrypt",
 				"cjk-regex",

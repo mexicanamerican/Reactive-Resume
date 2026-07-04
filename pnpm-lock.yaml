@@ -165,9 +165,6 @@ importers:
       '@t3-oss/env-core':
         specifier: ^0.13.11
         version: 0.13.11(typescript@6.0.3)(zod@4.4.3)
-      '@uiw/color-convert':
-        specifier: ^2.10.3
-        version: 2.10.3(@babel/runtime@7.29.7)
       ai:
         specifier: ^7.0.15
         version: 7.0.15(zod@4.4.3)
@@ -1092,9 +1089,6 @@ importers:
       '@sindresorhus/slugify':
         specifier: ^3.0.0
         version: 3.0.0
-      '@uiw/color-convert':
-        specifier: ^2.10.3
-        version: 2.10.3(@babel/runtime@7.29.7)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
