@@ -1,10 +1,10 @@
 import { Trans } from "@lingui/react/macro";
 import { HandHeartIcon } from "@phosphor-icons/react";
-import { useCallback } from "react";
+import Cookies from "js-cookie";
+import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { useTimeout } from "usehooks-ts";
 import { Button } from "@reactive-resume/ui/components/button";
-import { useCookie } from "@reactive-resume/ui/hooks/use-cookie";
 
 const TOAST_ID = "donation-toast";
 const SHOW_TOAST_DELAY_MS = 5 * 60 * 1000; // 5 minutes
@@ -14,7 +14,13 @@ const DISMISSED_COOKIE_EXPIRES_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 const getDismissedCookieExpiresAt = () => new Date(Date.now() + DISMISSED_COOKIE_EXPIRES_MS);
 
 export function DonationToast() {
-	const [dismissed, setDismissed] = useCookie(DISMISSED_COOKIE_NAME);
+	// ponytail: inlined from @reactive-resume/ui/hooks/use-cookie — only consumer, one read + one set-with-expiry
+	const [dismissed, setDismissedState] = useState<string | null>(() => Cookies.get(DISMISSED_COOKIE_NAME) ?? null);
+
+	const setDismissed = useCallback((value: string, options?: { expires?: Date }) => {
+		Cookies.set(DISMISSED_COOKIE_NAME, value, options);
+		setDismissedState(value);
+	}, []);
 
 	const showToast = useCallback(() => {
 		if (dismissed === "true") return;

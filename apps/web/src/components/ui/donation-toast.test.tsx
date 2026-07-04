@@ -14,9 +14,9 @@ type ToastOptions = {
 	unstyled: boolean;
 };
 
-const useCookieMock = vi.hoisted(() => ({
-	setDismissed: vi.fn(),
+const cookieMock = vi.hoisted(() => ({
 	value: null as string | null,
+	set: vi.fn(),
 }));
 
 const toastMock = vi.hoisted(() => ({
@@ -26,8 +26,11 @@ const toastMock = vi.hoisted(() => ({
 	},
 }));
 
-vi.mock("@reactive-resume/ui/hooks/use-cookie", () => ({
-	useCookie: vi.fn(() => [useCookieMock.value, useCookieMock.setDismissed, vi.fn()] as const),
+vi.mock("js-cookie", () => ({
+	default: {
+		get: vi.fn(() => cookieMock.value ?? undefined),
+		set: cookieMock.set,
+	},
 }));
 
 vi.mock("sonner", () => ({
@@ -51,8 +54,8 @@ describe("DonationToast", () => {
 		vi.useFakeTimers();
 		vi.setSystemTime(new Date("2026-05-11T12:00:00.000Z"));
 		i18n.loadAndActivate({ locale: "en-US", messages: {} });
-		useCookieMock.value = null;
-		useCookieMock.setDismissed.mockClear();
+		cookieMock.value = null;
+		cookieMock.set.mockClear();
 		toastMock.toast.custom.mockClear();
 		toastMock.toast.dismiss.mockClear();
 		vi.spyOn(window, "open").mockReturnValue(null);
@@ -89,7 +92,7 @@ describe("DonationToast", () => {
 	});
 
 	it("does not show the toast after it has been dismissed", () => {
-		useCookieMock.value = "true";
+		cookieMock.value = "true";
 
 		render(<DonationToast />);
 
@@ -110,7 +113,7 @@ describe("DonationToast", () => {
 
 		fireEvent.click(screen.getByRole("button", { name: "Dismiss" }));
 
-		expect(useCookieMock.setDismissed).toHaveBeenCalledWith("true", {
+		expect(cookieMock.set).toHaveBeenCalledWith("donation-toast-dismissed", "true", {
 			expires: new Date("2026-06-10T12:05:00.000Z"),
 		});
 		expect(toastMock.toast.dismiss).toHaveBeenCalledWith("donation-toast");
@@ -126,7 +129,7 @@ describe("DonationToast", () => {
 
 		fireEvent.click(screen.getByRole("button", { name: "Donate" }));
 
-		expect(useCookieMock.setDismissed).toHaveBeenCalledWith("true", {
+		expect(cookieMock.set).toHaveBeenCalledWith("donation-toast-dismissed", "true", {
 			expires: new Date("2026-06-10T12:05:00.000Z"),
 		});
 		expect(window.open).toHaveBeenCalledWith(

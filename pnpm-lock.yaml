@@ -63,9 +63,6 @@ importers:
       lefthook:
         specifier: ^2.1.9
         version: 2.1.9
-      npm-check-updates:
-        specifier: ^22.2.9
-        version: 22.2.9
       pg:
         specifier: ^8.22.0
         version: 8.22.0
@@ -1028,9 +1025,6 @@ importers:
       cmdk:
         specifier: ^1.1.1
         version: 1.1.1(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      js-cookie:
-        specifier: ^3.0.8
-        version: 3.0.8
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -1062,9 +1056,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.20
         version: 0.5.20(tailwindcss@4.3.2)
-      '@types/js-cookie':
-        specifier: ^3.0.6
-        version: 3.0.6
       '@types/react':
         specifier: ^19.2.17
         version: 19.2.17
@@ -6241,11 +6232,6 @@ packages:
 
   normalize-wheel@1.0.1:
     resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
-
-  npm-check-updates@22.2.9:
-    resolution: {integrity: sha512-DVeZ0KirHfliSsHuR2o7cHE+tW439sVHfJjF6cGWeDiY0Wyl3BI/jS4zV0eixtcMOquFbcF1Su/FsxOvk5MoYA==}
-    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: '>=10.0.0'}
-    hasBin: true
 
   npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
@@ -12791,8 +12777,6 @@ snapshots:
       svg-arc-to-cubic-bezier: 3.2.0
 
   normalize-wheel@1.0.1: {}
-
-  npm-check-updates@22.2.9: {}
 
   npm-run-path@4.0.1:
     dependencies:
