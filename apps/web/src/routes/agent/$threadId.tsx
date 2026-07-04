@@ -23,6 +23,7 @@ import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
+import { LoadingScreen } from "@/components/layout/loading-screen";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
 import { ResumePreview } from "@/features/resume/preview/preview";
 import { orpc } from "@/libs/orpc/client";
@@ -242,13 +243,7 @@ function RouteComponent() {
 		}
 	}, []);
 
-	if (isLoading) {
-		return (
-			<div className="grid h-svh place-items-center bg-background text-muted-foreground">
-				<Trans>Loading agent workspace…</Trans>
-			</div>
-		);
-	}
+	if (isLoading) return <LoadingScreen />;
 
 	if (error || !data) {
 		return (

@@ -28,7 +28,14 @@ import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
-import { Badge } from "@reactive-resume/ui/components/badge";
+import {
+	Attachment,
+	AttachmentContent,
+	AttachmentGroup,
+	AttachmentMedia,
+	AttachmentTitle,
+} from "@reactive-resume/ui/components/attachment";
+import { Bubble, BubbleContent } from "@reactive-resume/ui/components/bubble";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
 	DropdownMenu,
@@ -37,7 +44,16 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
-import { ScrollArea } from "@reactive-resume/ui/components/scroll-area";
+import { Marker, MarkerContent, MarkerIcon } from "@reactive-resume/ui/components/marker";
+import { Message, MessageContent } from "@reactive-resume/ui/components/message";
+import {
+	MessageScroller,
+	MessageScrollerButton,
+	MessageScrollerContent,
+	MessageScrollerItem,
+	MessageScrollerProvider,
+	MessageScrollerViewport,
+} from "@reactive-resume/ui/components/message-scroller";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { cn } from "@reactive-resume/utils/style";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -63,6 +79,12 @@ type StarterPromptMarqueeProps = {
 
 type AssistantMarkdownProps = {
 	text: string;
+};
+
+type FileAttachmentProps = {
+	filename?: string | null;
+	mediaType?: string | null;
+	state?: "idle" | "uploading" | "processing" | "error" | "done";
 };
 
 type MessagePartProps = {
@@ -392,23 +414,47 @@ function AssistantMarkdown({ text }: AssistantMarkdownProps) {
 	);
 }
 
+function FileAttachment({ filename, mediaType, state = "done" }: FileAttachmentProps) {
+	return (
+		<Attachment size="sm" state={state}>
+			<AttachmentMedia>
+				<FileIcon />
+			</AttachmentMedia>
+			<AttachmentContent>
+				<AttachmentTitle>{filename || t`Attachment`}</AttachmentTitle>
+				{mediaType ? <span className="sr-only">{mediaType}</span> : null}
+			</AttachmentContent>
+		</Attachment>
+	);
+}
+
 function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsById }: MessagePartProps) {
 	if (part.type === "text") {
-		return isUser ? (
-			<div className="whitespace-pre-wrap leading-relaxed">{part.text}</div>
-		) : (
-			<AssistantMarkdown text={part.text} />
+		return (
+			<Bubble variant={isUser ? "default" : "ghost"} align={isUser ? "end" : "start"}>
+				<BubbleContent>
+					{isUser ? (
+						<div className="whitespace-pre-wrap leading-relaxed">{part.text}</div>
+					) : (
+						<AssistantMarkdown text={part.text} />
+					)}
+				</BubbleContent>
+			</Bubble>
 		);
 	}
 
 	if (part.type === "reasoning") {
 		return (
-			<details className="rounded-md border bg-muted/40 px-3 py-2 text-sm">
-				<summary className="cursor-pointer text-muted-foreground">
-					<Trans>Thinking</Trans>
-				</summary>
-				<div className="mt-2 whitespace-pre-wrap">{part.text}</div>
-			</details>
+			<Bubble variant="outline" className="max-w-full">
+				<BubbleContent className="w-full">
+					<details className="text-sm">
+						<summary className="cursor-pointer text-muted-foreground">
+							<Trans>Thinking</Trans>
+						</summary>
+						<div className="mt-2 whitespace-pre-wrap">{part.text}</div>
+					</details>
+				</BubbleContent>
+			</Bubble>
 		);
 	}
 
@@ -421,16 +467,20 @@ function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsByI
 		const question = typeof input.question === "string" ? input.question : t`The agent needs your input.`;
 
 		return (
-			<div className="space-y-3 rounded-md border bg-card p-3">
-				<div className="font-medium">{question}</div>
-				<div className="flex flex-wrap gap-2">
-					{choices.map((choice) => (
-						<Button key={choice} size="sm" variant="outline" onClick={() => onAnswer(part.toolCallId, choice)}>
-							{choice}
-						</Button>
-					))}
-				</div>
-			</div>
+			<Bubble variant="outline" className="max-w-full">
+				<BubbleContent className="w-full">
+					<div className="space-y-3">
+						<div className="font-medium">{question}</div>
+						<div className="flex flex-wrap gap-2">
+							{choices.map((choice) => (
+								<Button key={choice} size="sm" variant="outline" onClick={() => onAnswer(part.toolCallId, choice)}>
+									{choice}
+								</Button>
+							))}
+						</div>
+					</div>
+				</BubbleContent>
+			</Bubble>
 		);
 	}
 
@@ -442,33 +492,38 @@ function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsByI
 		const actionId = typeof output?.actionId === "string" ? output.actionId : null;
 		const action = actionId ? actionsById.get(actionId) : undefined;
 
-		return <PatchToolCard part={part} action={action} onRevert={onRevert} isReverting={isReverting} />;
+		return (
+			<Bubble variant="outline" className="max-w-full">
+				<BubbleContent className="w-full">
+					<PatchToolCard part={part} action={action} onRevert={onRevert} isReverting={isReverting} />
+				</BubbleContent>
+			</Bubble>
+		);
 	}
 
 	if (part.type === "source-url") {
 		const title = part.title?.trim() || null;
 
 		return (
-			<a className="block text-primary text-sm underline" href={part.url} target="_blank" rel="noreferrer">
-				{title ? (
-					<>
-						<span className="block truncate">{title}</span>
-						<span className="block truncate text-muted-foreground">{part.url}</span>
-					</>
-				) : (
-					<span className="block truncate">{part.url}</span>
-				)}
-			</a>
+			<Bubble variant="ghost" className="max-w-full">
+				<BubbleContent className="w-full">
+					<a className="block text-primary text-sm underline" href={part.url} target="_blank" rel="noreferrer">
+						{title ? (
+							<>
+								<span className="block truncate">{title}</span>
+								<span className="block truncate text-muted-foreground">{part.url}</span>
+							</>
+						) : (
+							<span className="block truncate">{part.url}</span>
+						)}
+					</a>
+				</BubbleContent>
+			</Bubble>
 		);
 	}
 
 	if (part.type === "file") {
-		return (
-			<div className="flex max-w-full items-center gap-2 rounded-md border bg-background/20 px-2 py-1 text-sm">
-				<FileIcon className="shrink-0" />
-				<span className="truncate">{part.filename ?? part.url}</span>
-			</div>
-		);
+		return <FileAttachment filename={part.filename ?? part.url} mediaType={part.mediaType} />;
 	}
 
 	return null;
@@ -478,15 +533,8 @@ function ChatMessage({ message, onAnswer, onRevert, isReverting, actionsById }: 
 	const isUser = message.role === "user";
 
 	return (
-		<div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
-			<div
-				className={cn(
-					"space-y-3 text-sm",
-					isUser
-						? "max-w-[86%] rounded-md bg-primary px-4 py-3 text-primary-foreground"
-						: "w-full max-w-full py-1 text-foreground",
-				)}
-			>
+		<Message align={isUser ? "end" : "start"}>
+			<MessageContent className={cn(isUser ? "items-end" : "items-start")}>
 				{message.parts.map((part) => (
 					<MessagePart
 						key={getMessagePartKey(message.id, part)}
@@ -498,8 +546,8 @@ function ChatMessage({ message, onAnswer, onRevert, isReverting, actionsById }: 
 						actionsById={actionsById}
 					/>
 				))}
-			</div>
-		</div>
+			</MessageContent>
+		</Message>
 	);
 }
 
@@ -822,50 +870,63 @@ function AgentChatMessages({
 	onStarterSelect,
 }: AgentChatMessagesProps) {
 	return (
-		<ScrollArea className="min-h-0 flex-1">
-			<div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
-				{messages.length === 0 ? (
-					<div className="grid gap-6 py-12 text-center">
-						<SparkleIcon className="mx-auto size-8 text-muted-foreground" />
-						<h2 className="font-semibold text-2xl">
-							<Trans>What do you want to do?</Trans>
-						</h2>
-						<StarterPromptMarquee onSelect={onStarterSelect} />
-					</div>
-				) : null}
-
-				{messages.map((message) => (
-					<ChatMessage
-						key={message.id}
-						message={message}
-						isReverting={isReverting}
-						actionsById={actionsById}
-						onAnswer={onAnswer}
-						onRevert={onRevert}
-					/>
-				))}
-
-				{isStreaming ? (
-					<div className="flex justify-start">
-						<div className="rounded-md bg-muted px-4 py-3 text-muted-foreground text-sm">
-							<Trans>Working…</Trans>
-						</div>
-					</div>
-				) : null}
-
-				{error ? (
-					<div className="flex items-center justify-between gap-3 rounded-md border border-rose-300 bg-rose-50 p-3 text-rose-950 text-sm dark:bg-rose-950/20 dark:text-rose-200">
-						<span>{error.message}</span>
-						{!isReadOnly ? (
-							<Button size="sm" variant="outline" type="button" onClick={onRetry}>
-								<ArrowClockwiseIcon />
-								<Trans>Retry</Trans>
-							</Button>
+		<MessageScrollerProvider autoScroll defaultScrollPosition="end">
+			<MessageScroller className="min-h-0 flex-1">
+				<MessageScrollerViewport>
+					<MessageScrollerContent className="mx-auto flex w-full max-w-3xl flex-col gap-4 p-4">
+						{messages.length === 0 ? (
+							<div className="grid gap-6 py-12 text-center">
+								<SparkleIcon className="mx-auto size-8 text-muted-foreground" />
+								<h2 className="font-semibold text-2xl">
+									<Trans>What do you want to do?</Trans>
+								</h2>
+								<StarterPromptMarquee onSelect={onStarterSelect} />
+							</div>
 						) : null}
-					</div>
-				) : null}
-			</div>
-		</ScrollArea>
+
+						{messages.map((message) => (
+							<MessageScrollerItem key={message.id} messageId={message.id} scrollAnchor={message.role === "user"}>
+								<ChatMessage
+									message={message}
+									isReverting={isReverting}
+									actionsById={actionsById}
+									onAnswer={onAnswer}
+									onRevert={onRevert}
+								/>
+							</MessageScrollerItem>
+						))}
+
+						{isStreaming ? (
+							<MessageScrollerItem>
+								<Marker className="w-fit rounded-md bg-muted px-4 py-3">
+									<MarkerIcon>
+										<SparkleIcon />
+									</MarkerIcon>
+									<MarkerContent>
+										<Trans>Working…</Trans>
+									</MarkerContent>
+								</Marker>
+							</MessageScrollerItem>
+						) : null}
+
+						{error ? (
+							<MessageScrollerItem>
+								<Marker className="items-center justify-between gap-3 rounded-md border border-rose-300 bg-rose-50 p-3 text-rose-950 dark:bg-rose-950/20 dark:text-rose-200">
+									<MarkerContent>{error.message}</MarkerContent>
+									{!isReadOnly ? (
+										<Button size="sm" variant="outline" type="button" onClick={onRetry}>
+											<ArrowClockwiseIcon />
+											<Trans>Retry</Trans>
+										</Button>
+									) : null}
+								</Marker>
+							</MessageScrollerItem>
+						) : null}
+					</MessageScrollerContent>
+				</MessageScrollerViewport>
+				<MessageScrollerButton />
+			</MessageScroller>
+		</MessageScrollerProvider>
 	);
 }
 
@@ -977,16 +1038,18 @@ function AgentChatComposer({
 				onSend();
 			}}
 		>
-			<div className="mx-auto max-w-3xl space-y-2">
+			<div className="mx-auto flex max-w-3xl flex-col gap-2">
 				{pendingAttachments.length > 0 ? (
-					<div className="flex flex-wrap gap-2">
+					<AttachmentGroup className="flex-wrap gap-2 overflow-visible py-0">
 						{pendingAttachments.map((attachment) => (
-							<Badge key={attachment.id} variant="secondary">
-								<FileIcon />
-								{attachment.filename}
-							</Badge>
+							<FileAttachment
+								key={attachment.id}
+								filename={attachment.filename}
+								mediaType={attachment.mediaType}
+								state={isUploading ? "uploading" : "done"}
+							/>
 						))}
-					</div>
+					</AttachmentGroup>
 				) : null}
 
 				<div className="flex items-end gap-1 rounded-md border bg-card p-1.5">

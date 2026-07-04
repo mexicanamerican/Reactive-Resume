@@ -1,32 +1,19 @@
 // @vitest-environment happy-dom
 
 import { render, screen } from "@testing-library/react";
-import { beforeAll, describe, expect, it } from "vitest";
-import { i18n } from "@lingui/core";
-import { I18nProvider } from "@lingui/react";
+import { describe, expect, it } from "vitest";
 import { LoadingScreen } from "./loading-screen";
 
-beforeAll(() => {
-	i18n.loadAndActivate({ locale: "en", messages: {} });
-});
-
 describe("LoadingScreen", () => {
-	it("renders a spinner and the loading text", () => {
-		render(
-			<I18nProvider i18n={i18n}>
-				<LoadingScreen />
-			</I18nProvider>,
-		);
+	it("renders the Reactive Resume logo and spinner", () => {
+		render(<LoadingScreen />);
 
-		expect(screen.getByText("Loading…")).toBeInTheDocument();
+		expect(screen.getAllByAltText("Reactive Resume")).toHaveLength(2);
+		expect(screen.getByLabelText("Loading")).toBeInTheDocument();
 	});
 
 	it("fills the viewport (fixed inset-0)", () => {
-		const { container } = render(
-			<I18nProvider i18n={i18n}>
-				<LoadingScreen />
-			</I18nProvider>,
-		);
+		const { container } = render(<LoadingScreen />);
 
 		const wrapper = container.firstChild as HTMLElement;
 		expect(wrapper.className).toContain("fixed");

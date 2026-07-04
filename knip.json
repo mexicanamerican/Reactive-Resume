@@ -33,8 +33,6 @@
 				"bcrypt",
 				"cjk-regex",
 				"deepmerge-ts",
-				"dompurify",
-				"dotenv",
 				"drizzle-zod",
 				"es-toolkit",
 				"fast-json-patch",
