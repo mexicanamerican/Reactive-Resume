@@ -2,11 +2,11 @@ import type { AnyMiddleware } from "@orpc/server";
 import type { UIMessage } from "ai";
 import { ORPCError } from "@orpc/client";
 
-export function isAgentEnvironmentUnavailable(error: unknown) {
+function isAgentEnvironmentUnavailable(error: unknown) {
 	return error instanceof Error && error.message === "AGENT_ENVIRONMENT_UNAVAILABLE";
 }
 
-export function throwUnavailable(): never {
+function throwUnavailable(): never {
 	throw new ORPCError("PRECONDITION_FAILED", {
 		message: "AI agent workspace is unavailable because REDIS_URL or ENCRYPTION_SECRET is not configured.",
 	});

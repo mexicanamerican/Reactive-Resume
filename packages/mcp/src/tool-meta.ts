@@ -8,7 +8,7 @@ import { MCP_TOOL_NAME as T } from "./mcp-tool-names";
 import { TOOL_ANNOTATIONS } from "./tool-annotations";
 
 // ponytail: shared schema fragment; exported so server-card can re-use without re-importing
-export const resumeIdSchema = z.string().min(1).describe(`Resume ID. Use \`${T.listResumes}\` to find valid IDs.`);
+const resumeIdSchema = z.string().min(1).describe(`Resume ID. Use \`${T.listResumes}\` to find valid IDs.`);
 
 export const TOOL_META = {
 	[T.listResumes]: {

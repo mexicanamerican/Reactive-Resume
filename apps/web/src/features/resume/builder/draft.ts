@@ -28,7 +28,7 @@ export type Resume = {
 type ResumeUpdateMutation = "sync" | "create" | "update" | "patch" | "lock" | "password" | "delete";
 type ResumeUpdateEvent = { mutation: ResumeUpdateMutation };
 
-export type SaveStatus = "idle" | "saving" | "saved" | "error";
+type SaveStatus = "idle" | "saving" | "saved" | "error";
 
 type ResumeStoreState = {
 	resume: Resume | null;

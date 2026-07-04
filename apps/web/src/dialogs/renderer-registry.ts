@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { DialogSchema, DialogType } from "./schemas";
 
 // ponytail: defineDialogRenderer/defineDialogRendererRegistry were identity fns; inlined
-export type DialogRendererEntry<T extends DialogType = DialogType> = {
+type DialogRendererEntry<T extends DialogType = DialogType> = {
 	type: T;
 	render: (dialog: Extract<DialogSchema, { type: T }>) => ReactNode;
 };
