@@ -8,7 +8,7 @@ msgstr ""
 "Language: he\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-18 16:58\n"
+"PO-Revision-Date: 2026-07-04 12:58\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -37,7 +37,7 @@ msgstr "{0, plural, one {# תפקיד} other {# תפקידים}}"
 #. placeholder {0}: state.characterCount
 #: src/components/input/rich-input.tsx
 msgid "{0} characters"
-msgstr ""
+msgstr "{0} תווים"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -46,7 +46,7 @@ msgstr "{column, plural, one {# עמודה} two {# עמודות} many {# עמו�
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
-msgstr ""
+msgstr "{label} ב-30 הימים האחרונים"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -120,11 +120,11 @@ msgstr "גש לקורות החיים ולנתונים שלך באופן תכנו
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
-msgstr ""
+msgstr "תפריט חשבון"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Actual size (100%)"
-msgstr ""
+msgstr "גודל בפועל (100%)"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add a custom field"
@@ -207,7 +207,7 @@ msgstr "הוסף מילת מפתח"
 #: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add link"
-msgstr ""
+msgstr "הוסף קישור"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
@@ -231,7 +231,7 @@ msgstr "התאם את קורות החיים לתפקיד מרחוק, המערי�
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Advanced"
-msgstr ""
+msgstr "מתקדם"
 
 #: src/libs/locale.ts
 msgid "Afrikaans"
@@ -263,7 +263,7 @@ msgstr "הגדרת סוכן בינה מלאכותית אינה זמינה עד �
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "AI assistant"
-msgstr ""
+msgstr "עוזר AI"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "AI provider management is unavailable until REDIS_URL and ENCRYPTION_SECRET are configured."
@@ -299,7 +299,7 @@ msgstr "אמהרית"
 
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
-msgstr ""
+msgstr "שגיאה בלתי צפויה עצרה את טעינת הדף. ניתן לנסות שוב או לחזור."
 
 #. Fallback toast when importing a resume fails for an unknown reason
 #: src/dialogs/resume/import.tsx
@@ -526,7 +526,7 @@ msgstr "רוחב מסגרת"
 
 #: src/features/resume/public/public-resume.tsx
 msgid "Build your own resume"
-msgstr ""
+msgstr "בנה קורות חיים משלך"
 
 #. Screen-reader dialog title for the command palette in the resume builder
 #: src/features/command-palette/index.tsx
@@ -684,7 +684,7 @@ msgstr "לחץ כאן כדי לבחור קובץ לייבוא"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Close AI assistant"
-msgstr ""
+msgstr "סגור עוזר AI"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -734,15 +734,15 @@ msgstr "חיבור"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connected"
-msgstr ""
+msgstr "מחובר"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
-msgstr ""
+msgstr "החיבור נכשל"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
-msgstr ""
+msgstr "החיבור אומת — הספק מוכן לשימוש."
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
@@ -822,11 +822,11 @@ msgstr "לא ניתן היה לאמת את חיבור הספק."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify the connection. Check the API key, model, and base URL."
-msgstr ""
+msgstr "לא ניתן לאמת את החיבור. בדוק את מפתח ה-API, המודל וכתובת ה-URL הבסיסית."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Couldn't save"
-msgstr ""
+msgstr "לא ניתן לשמור"
 
 #. Fallback title for a custom cover letter item in resume builder when recipient is empty
 #. Fallback title for a custom cover letter item in resume builder when recipient is unavailable
@@ -959,7 +959,7 @@ msgstr "יצירת קורות חיים עם אפשרויות"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Created"
-msgstr ""
+msgstr "תאריך יצירה"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
@@ -971,7 +971,7 @@ msgstr "יוצר את קורות החיים שלך..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Crop picture"
-msgstr ""
+msgstr "חיתוך תמונה"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -1020,7 +1020,7 @@ msgstr "ערכת עיצוב כהה"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Dashboard"
-msgstr ""
+msgstr "לוח בקרה"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Data Security"
@@ -1034,7 +1034,7 @@ msgstr "תאריך"
 
 #: src/components/input/rich-input.tsx
 msgid "Decrease indent"
-msgstr ""
+msgstr "הקטנת כניסה"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Decrease zoom"
@@ -1164,7 +1164,7 @@ msgstr "הורדה"
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
-msgstr ""
+msgstr "הורד עותק של כל הנתונים שלך, כולל הפרופיל שלך וכל קורות החיים, כקובץ JSON."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume as a Word document. Use this file to further customize your resume in Microsoft Word or Google Docs."
@@ -1203,7 +1203,7 @@ msgstr "גרור ושחרר סעיפים כאן כדי להעביר אותם ב�
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Drag to reposition and use the slider to zoom before uploading."
-msgstr ""
+msgstr "גרור לשינוי מיקום ושתמש בגלשן לזום לפני העלאה."
 
 #. Resume card context menu action to create a copy
 #. Resume card dropdown action to create a copy
@@ -1238,7 +1238,7 @@ msgstr "הולנדית"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Earlier versions are kept; the builder's undo history is reset."
-msgstr ""
+msgstr "גרסאות קודמות נשמרות; היסטוריית הביטול של הבונה מתאפסת."
 
 #: src/components/input/chip-input.tsx
 #: src/routes/builder/$resumeId/route.tsx
@@ -1261,7 +1261,7 @@ msgstr "ערוך תוכן במצב מסך מלא"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 msgid "Edit details"
-msgstr ""
+msgstr "ערוך פרטים"
 
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
@@ -1269,7 +1269,7 @@ msgstr "ערוך מילת מפתח"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Editing is disabled until you unlock it."
-msgstr ""
+msgstr "העריכה מושבתת עד לביטול הנעילה."
 
 #: src/components/input/chip-input.tsx
 msgid "Editing keyword..."
@@ -1297,7 +1297,7 @@ msgstr "כתובת דוא\"ל"
 
 #: src/features/settings/pages/profile.tsx
 msgid "Email delivery isn't configured on this instance, so verification is disabled."
-msgstr ""
+msgstr "שליחת דוא\"ל אינה מוגדרת בנסיון זה, לכן האימות מושבת."
 
 #: src/features/settings/authentication/components/two-factor.tsx
 msgid "Enable 2FA"
@@ -1305,7 +1305,7 @@ msgstr "הפעלת אימות דו־שלבי"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Enable editing"
-msgstr ""
+msgstr "הפעל עריכה"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enable Two-Factor Authentication"
@@ -1404,7 +1404,7 @@ msgstr "ייצוא"
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Export my data"
-msgstr ""
+msgstr "ייצוא הנתונים שלי"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Export your resume to PDF instantly, without any waiting or delays."
@@ -1466,7 +1466,7 @@ msgstr "לא הצלחנו להפעיל את האימות הדו-שלבי. אנא
 #. Fallback toast when data export fails
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Failed to export your data. Please try again."
-msgstr ""
+msgstr "ייצוא הנתונים שלך נכשל. אנא נסה שוב."
 
 #. Fallback toast when linking a social authentication provider fails
 #: src/features/settings/authentication/components/hooks.tsx
@@ -1531,7 +1531,7 @@ msgstr "נכשלה ההתחלת שרשור הסוכן."
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Failed to start the AI assistant."
-msgstr ""
+msgstr "הפעלת עוזר ה-AI נכשלה."
 
 #. Fallback toast when unlinking a social authentication provider fails
 #: src/features/settings/authentication/components/hooks.tsx
@@ -1584,7 +1584,7 @@ msgstr "יכולות"
 
 #: src/dialogs/resume/import.tsx
 msgid "File"
-msgstr ""
+msgstr "קובץ"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
@@ -1600,7 +1600,7 @@ msgstr "פינית"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Fit to view"
-msgstr ""
+msgstr "התאמה לתצוגה"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Flexibility"
@@ -1713,7 +1713,7 @@ msgstr "חזרה"
 
 #: src/components/layout/not-found-screen.tsx
 msgid "Go home"
-msgstr ""
+msgstr "חזרה לדף הבית"
 
 #: src/components/layout/error-screen.tsx
 #: src/components/layout/not-found-screen.tsx
@@ -1854,7 +1854,7 @@ msgstr "הסתר סיסמה"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Hide picture"
-msgstr ""
+msgstr "הסתרת תמונה"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Hide Section Icons"
@@ -1923,7 +1923,7 @@ msgstr "ייבוא קורות חיים קיימים"
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing from PDF or Word requires a connected AI provider."
-msgstr ""
+msgstr "ייבוא מ-PDF או Word מחייב ספק AI מחובר."
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing your resume..."
@@ -1935,7 +1935,7 @@ msgstr "ייבוא…"
 
 #: src/components/input/rich-input.tsx
 msgid "Increase indent"
-msgstr ""
+msgstr "הגדלת כניסה"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -2038,7 +2038,7 @@ msgstr "קנאדה"
 #. Layout editor toggle that prevents a section from splitting across pages
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Keep together"
-msgstr ""
+msgstr "שמור יחד"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Key"
@@ -2094,7 +2094,7 @@ msgstr "הורדה אחרונה בתאריך {0}"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
-msgstr ""
+msgstr "תאריך עדכון אחרון"
 
 #: src/routes/dashboard/resumes/-components/cards/resume-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
@@ -2187,7 +2187,7 @@ msgstr "ליטאית"
 #: src/dialogs/resume/template/gallery.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/template.tsx
 msgid "Live preview of your resume in the {0} template"
-msgstr ""
+msgstr "תצוגה מקדימה חיה של קורות החיים שלך בתבנית {0}"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Loading agent workspace…"
@@ -2304,11 +2304,11 @@ msgstr "מודל"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "More download options"
-msgstr ""
+msgstr "אפשרויות הורדה נוספות"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move section to another column or page"
-msgstr ""
+msgstr "העבר סעיף לעמודה או עמוד אחר"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -2388,7 +2388,7 @@ msgstr "עדיין לא נרשמו מפתחות גישה."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "No prior data"
-msgstr ""
+msgstr "אין נתונים קודמים"
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -2397,11 +2397,11 @@ msgstr "לא נמצאו תוצאות."
 #: src/routes/dashboard/resumes/-components/grid-view.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "No resumes match your search."
-msgstr ""
+msgstr "לא נמצאו קורות חיים התואמים לחיפוש שלך."
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "No saved versions yet."
-msgstr ""
+msgstr "אין גרסאות שמורות עדיין."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
 msgid "No style rules yet."
@@ -2421,7 +2421,7 @@ msgstr "נורווגית"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Not connected"
-msgstr ""
+msgstr "לא מחובר"
 
 #: src/libs/resume/section.tsx
 msgid "Notes"
@@ -2446,7 +2446,7 @@ msgstr "תחזוקה מתמשכת"
 #. Helper note explaining the keep-together limitation
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
-msgstr ""
+msgstr "חל רק כאשר הסעיף מתאים לעמוד אחד."
 
 #. Resume card context menu action to open the resume editor
 #. Resume card dropdown action to open the resume editor
@@ -2461,7 +2461,7 @@ msgstr "סוכן בינה מלאכותית פתוח"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Open AI assistant"
-msgstr ""
+msgstr "פתח עוזר AI"
 
 #. Button label to open the user's default email app
 #: src/features/auth/pages/forgot-password.tsx
@@ -2503,7 +2503,7 @@ msgstr "רשותך להגדיר סיסמה כך שרק מי שמכיר אותה 
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Options for {title}"
-msgstr ""
+msgstr "אפשרויות עבור {title}"
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -2540,7 +2540,7 @@ msgstr "פסקה"
 
 #: src/components/input/rich-input.tsx
 msgid "Paragraph and heading style"
-msgstr ""
+msgstr "סגנון פסקה וכותרת"
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -2647,7 +2647,7 @@ msgstr "טלפון"
 
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
-msgstr ""
+msgstr "בחר סמל"
 
 #: src/libs/resume/section.tsx
 msgid "Picture"
@@ -2713,7 +2713,7 @@ msgstr "הכן תיקון שמרני שישפר את הבהירות מבלי ל�
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
-msgstr ""
+msgstr "מכין את קורות החיים שלך להדפסה..."
 
 #: src/components/input/color-picker.tsx
 msgid "Presets"
@@ -2730,7 +2730,7 @@ msgstr "לחץ על <0>Enter</0> כדי לפתוח"
 
 #: src/routes/builder/$resumeId/route.tsx
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -2738,7 +2738,7 @@ msgstr "צבע עיקרי"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Print"
-msgstr ""
+msgstr "הדפסה"
 
 #: src/dialogs/resume/sections/skill.tsx
 msgid "Proficiency"
@@ -2828,7 +2828,7 @@ msgstr "Reactive Resume נשאר חינמי, קוד פתוח ועצמאי מכי
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr ""
+msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -2849,7 +2849,7 @@ msgstr "מלבן (רוחב מלא)"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Redo"
-msgstr ""
+msgstr "בצע שוב"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
@@ -2876,11 +2876,11 @@ msgstr "הסר את {chip}"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Remove custom field"
-msgstr ""
+msgstr "הסר שדה מותאם אישית"
 
 #: src/components/input/rich-input.tsx
 msgid "Remove link"
-msgstr ""
+msgstr "הסר קישור"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -2900,7 +2900,7 @@ msgstr "סידור מחדש"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Reorder custom field"
-msgstr ""
+msgstr "סדר מחדש שדה מותאם אישית"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2954,7 +2954,7 @@ msgstr "לשחזר את קורות החיים למצב שלפני תיקון ז�
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
-msgstr ""
+msgstr "לשחזר גרסה זו?"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Resume"
@@ -2970,11 +2970,11 @@ msgstr "ניתוח קורות החיים הושלם."
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
-msgstr ""
+msgstr "תוכן קורות החיים"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Resume options"
-msgstr ""
+msgstr "אפשרויות קורות חיים"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Resume patch"
@@ -3043,11 +3043,11 @@ msgstr "שמור"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Save & Test Provider"
-msgstr ""
+msgstr "שמור ובדוק ספק"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Save & Upload"
-msgstr ""
+msgstr "שמור והעלה"
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
@@ -3071,11 +3071,11 @@ msgstr "שמירת שינויים"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
-msgstr ""
+msgstr "נשמר"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saving…"
-msgstr ""
+msgstr "שומר…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -3091,7 +3091,7 @@ msgstr "כרטיס ביצועים"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
 #. Accessible label for command palette search input
 #: src/features/command-palette/index.tsx
@@ -3110,7 +3110,7 @@ msgstr "חפש…"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Search resumes..."
-msgstr ""
+msgstr "חפש קורות חיים..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
@@ -3128,7 +3128,7 @@ msgstr "הסוד הועתק ללוח הגזירים."
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Section options"
-msgstr ""
+msgstr "אפשרויות סעיף"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Section Type"
@@ -3148,7 +3148,7 @@ msgstr "בחר מודל סוכן"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Select an AI provider"
-msgstr ""
+msgstr "בחר ספק AI"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -3186,23 +3186,23 @@ msgstr "הגדרת סיסמה"
 
 #: src/dialogs/resume/import.tsx
 msgid "Set up a provider"
-msgstr ""
+msgstr "הגדר ספק"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Set up an AI provider"
-msgstr ""
+msgstr "הגדר ספק AI"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Set up an AI provider before starting a thread."
-msgstr ""
+msgstr "הגדר ספק AI לפני פתיחת שרשור."
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Set up an AI provider to chat about this resume and apply edits automatically."
-msgstr ""
+msgstr "הגדר ספק AI כדי לשוחח על קורות חיים אלה וליישם עריכות אוטומטית."
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Set up an AI provider to get started."
-msgstr ""
+msgstr "הגדר ספק AI כדי להתחיל."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
@@ -3268,7 +3268,7 @@ msgstr "הצג סיסמה"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Show picture"
-msgstr ""
+msgstr "הצג תמונה"
 
 #. Layout editor column label for the secondary sidebar area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -3372,7 +3372,7 @@ msgstr "שם ייצוגי"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
-msgstr ""
+msgstr "משהו השתבש"
 
 #. Fallback error description when resume analysis request fails
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
@@ -3451,7 +3451,7 @@ msgstr "התחל שרשור חדש"
 #. Layout editor toggle that forces a section to begin on a new page
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Start on new page"
-msgstr ""
+msgstr "התחל בעמוד חדש"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Start Thread"
@@ -3517,11 +3517,11 @@ msgstr "מעבר לערכת עיצוב בהירה"
 #. placeholder {0}: templates[template].name
 #: src/dialogs/resume/template/gallery.tsx
 msgid "Switched to the {0} template."
-msgstr ""
+msgstr "עבר לתבנית {0}."
 
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
-msgstr ""
+msgstr "שינויים שבוצעו בלשונית אחרת סונכרנו."
 
 #: src/dialogs/resume/index.tsx
 msgid "Tags"
@@ -3565,11 +3565,11 @@ msgstr "המלצות"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
-msgstr ""
+msgstr "בודק…"
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
-msgstr ""
+msgstr "יישור טקסט"
 
 #: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -3613,7 +3613,7 @@ msgstr "לא ניתן היה לנתח את הקובץ המיובא לכדי קו
 
 #: src/components/layout/not-found-screen.tsx
 msgid "The page you're looking for may have been moved or no longer exists."
-msgstr ""
+msgstr "הדף שאתה מחפש ייתכן שהועבר או שכבר לא קיים."
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "The password you entered is incorrect"
@@ -3654,7 +3654,7 @@ msgstr "אירעה בעיה בעת יצירת קובץ ה-PDF, אנא נסה ש�
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "There was a problem while preparing your resume for printing, please try again."
-msgstr ""
+msgstr "הייתה בעיה בהכנת קורות החיים שלך להדפסה, אנא נסה שוב."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Thinking"
@@ -3672,7 +3672,7 @@ msgstr "לא ניתן לבטל פעולה זו. כל הנתונים שלך יי�
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "This action cannot be undone. Conversation messages and uploaded attachments will be removed. The working resume remains in your dashboard and can be deleted separately."
-msgstr ""
+msgstr "לא ניתן לבטל פעולה זו. הודעות השיחה והקבצים המצורפים שהועלו יוסרו. קורות החיים שבעבודה נשארים בלוח הבקרה שלך וניתן למחוק אותם בנפרד."
 
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "This action cannot be undone. Messages and thread attachments will be removed."
@@ -3684,11 +3684,11 @@ msgstr "לא ניתן היה לפתוח את שרשור הסוכן הזה."
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
-msgstr ""
+msgstr "לא ניתן לפתוח עוזר זה."
 
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
-msgstr ""
+msgstr "תכונה זו דורשת ספק AI מחובר. אנא הגדר אחד בהגדרות."
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3700,7 +3700,7 @@ msgstr "זה עלול לקחת כמה דקות, בהתאם לזמן התגובה
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "This resume is locked"
-msgstr ""
+msgstr "קורות חיים אלה נעולים"
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
@@ -3708,11 +3708,11 @@ msgstr "קורות חיים אלה נעולים ולא ניתן לעדכן או�
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume was updated by an AI agent."
-msgstr ""
+msgstr "קורות חיים אלה עודכנו על ידי סוכן AI."
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
-msgstr ""
+msgstr "הגדרות השיתוף של קורות חיים אלה השתנו במקום אחר."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "This section is reserved for your personal notes specific to this resume. The content here remains private and is not shared with anyone else."
@@ -3794,7 +3794,7 @@ msgstr "כדי למחוק את החשבון שלך, עליך להזין את ט�
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-base.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/shared/section-base.tsx
 msgid "Toggle {sectionTitle} section"
-msgstr ""
+msgstr "החלף מצב סעיף {sectionTitle}"
 
 #. Screen-reader label for opening or closing the left sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3829,7 +3829,7 @@ msgstr "תרגומים"
 
 #: src/components/layout/error-screen.tsx
 msgid "Try again"
-msgstr ""
+msgstr "נסה שוב"
 
 #: src/libs/locale.ts
 msgid "Turkish"
@@ -3923,7 +3923,7 @@ msgstr "קו תחתון"
 #: src/dialogs/resume/template/gallery.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Undo"
-msgstr ""
+msgstr "בטל"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -4129,7 +4129,7 @@ msgstr "אימות הדוא\"ל שלך נדרש בעת איפוס הסיסמה."
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Version history"
-msgstr ""
+msgstr "היסטוריית גרסאות"
 
 #: src/libs/locale.ts
 msgid "Vietnamese"
@@ -4147,15 +4147,15 @@ msgstr "התנדבות"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "vs previous 30 days"
-msgstr ""
+msgstr "לעומת 30 הימים הקודמים"
 
 #: src/dialogs/resume/import.tsx
 msgid "We couldn't detect the format automatically — please choose it above."
-msgstr ""
+msgstr "לא הצלחנו לזהות את הפורמט אוטומטית — אנא בחר אותו למעלה."
 
 #: src/components/layout/not-found-screen.tsx
 msgid "We couldn't find that page"
-msgstr ""
+msgstr "לא מצאנו את הדף הזה"
 
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -4247,7 +4247,7 @@ msgstr "השינויים שלך נשמרים אוטומטית."
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Your data has been exported successfully."
-msgstr ""
+msgstr "הנתונים שלך יוצאו בהצלחה."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Your data is secure, and never shared or sold to anyone."
@@ -4293,7 +4293,7 @@ msgstr "קורות החיים שלך יובאו בהצלחה."
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Your resume has been restored to the selected version."
-msgstr ""
+msgstr "קורות החיים שלך שוחזרו לגרסה שנבחרה."
 
 #: src/dialogs/resume/index.tsx
 msgid "Your resume has been updated successfully."
@@ -4309,7 +4309,7 @@ msgstr "התמיכה שלך מבטיחה שהמיזם יישאר חינמי ונ
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Zoom"
-msgstr ""
+msgstr "זום"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Zoom in"

@@ -8,7 +8,7 @@ msgstr ""
 "Language: fa\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-18 16:58\n"
+"PO-Revision-Date: 2026-07-04 12:58\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -37,7 +37,7 @@ msgstr "{0, plural, one {# نقش} other {# نقش}}"
 #. placeholder {0}: state.characterCount
 #: src/components/input/rich-input.tsx
 msgid "{0} characters"
-msgstr ""
+msgstr "{0} کاراکتر"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -46,7 +46,7 @@ msgstr "{column, plural, one {# ستون} other {# ستون}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
-msgstr ""
+msgstr "{label} در ۳۰ روز گذشته"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -120,11 +120,11 @@ msgstr "به رزومه‌ها و داده‌های خود از طریق API و 
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
-msgstr ""
+msgstr "منوی حساب کاربری"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Actual size (100%)"
-msgstr ""
+msgstr "اندازه واقعی (۱۰۰٪)"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add a custom field"
@@ -207,7 +207,7 @@ msgstr "کلمه کلیدی اضافه کنید"
 #: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add link"
-msgstr ""
+msgstr "افزودن لینک"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
@@ -231,7 +231,7 @@ msgstr "رزومه را برای نقشی که اولویت آن دورکاری 
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Advanced"
-msgstr ""
+msgstr "پیشرفته"
 
 #: src/libs/locale.ts
 msgid "Afrikaans"
@@ -263,7 +263,7 @@ msgstr "راه‌اندازی عامل هوش مصنوعی تا زمانی که 
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "AI assistant"
-msgstr ""
+msgstr "دستیار هوش مصنوعی"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "AI provider management is unavailable until REDIS_URL and ENCRYPTION_SECRET are configured."
@@ -299,7 +299,7 @@ msgstr "امهری"
 
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
-msgstr ""
+msgstr "یک خطای غیرمنتظره از بارگذاری این صفحه جلوگیری کرد. می‌توانید دوباره تلاش کنید یا بازگردید."
 
 #. Fallback toast when importing a resume fails for an unknown reason
 #: src/dialogs/resume/import.tsx
@@ -526,7 +526,7 @@ msgstr "عرض حاشیه"
 
 #: src/features/resume/public/public-resume.tsx
 msgid "Build your own resume"
-msgstr ""
+msgstr "رزومه خود را بسازید"
 
 #. Screen-reader dialog title for the command palette in the resume builder
 #: src/features/command-palette/index.tsx
@@ -684,7 +684,7 @@ msgstr "برای انتخاب فایل برای وارد کردن، اینجا �
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Close AI assistant"
-msgstr ""
+msgstr "بستن دستیار هوش مصنوعی"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -734,15 +734,15 @@ msgstr "اتصال"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connected"
-msgstr ""
+msgstr "متصل"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
-msgstr ""
+msgstr "اتصال ناموفق بود"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
-msgstr ""
+msgstr "اتصال تأیید شد — ارائه‌دهنده آماده استفاده است."
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
@@ -822,11 +822,11 @@ msgstr "اتصال ارائه دهنده تأیید نشد."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify the connection. Check the API key, model, and base URL."
-msgstr ""
+msgstr "اتصال تأیید نشد. کلید API، مدل و آدرس پایه را بررسی کنید."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Couldn't save"
-msgstr ""
+msgstr "ذخیره ناموفق بود"
 
 #. Fallback title for a custom cover letter item in resume builder when recipient is empty
 #. Fallback title for a custom cover letter item in resume builder when recipient is unavailable
@@ -959,7 +959,7 @@ msgstr "ایجاد رزومه با گزینه‌ها"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Created"
-msgstr ""
+msgstr "ایجاد شده"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
@@ -971,7 +971,7 @@ msgstr "در حال ایجاد رزومه شما..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Crop picture"
-msgstr ""
+msgstr "برش تصویر"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -1020,7 +1020,7 @@ msgstr "تم تیره"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Dashboard"
-msgstr ""
+msgstr "داشبورد"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Data Security"
@@ -1034,7 +1034,7 @@ msgstr "تاریخ"
 
 #: src/components/input/rich-input.tsx
 msgid "Decrease indent"
-msgstr ""
+msgstr "کاهش تورفتگی"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Decrease zoom"
@@ -1164,7 +1164,7 @@ msgstr "دانلود"
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
-msgstr ""
+msgstr "یک نسخه از تمام داده‌های خود، از جمله پروفایل و تمام رزومه‌هایتان را به عنوان فایل JSON دانلود کنید."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume as a Word document. Use this file to further customize your resume in Microsoft Word or Google Docs."
@@ -1203,7 +1203,7 @@ msgstr "برای جابه‌جا کردن بخش‌ها بین ستون‌ها،
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Drag to reposition and use the slider to zoom before uploading."
-msgstr ""
+msgstr "برای تغییر موقعیت بکشید و قبل از آپلود از اسلایدر برای زوم استفاده کنید."
 
 #. Resume card context menu action to create a copy
 #. Resume card dropdown action to create a copy
@@ -1238,7 +1238,7 @@ msgstr "هلندی"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Earlier versions are kept; the builder's undo history is reset."
-msgstr ""
+msgstr "نسخه‌های قبلی نگه داشته می‌شوند؛ تاریخچه لغو سازنده بازنشانی می‌شود."
 
 #: src/components/input/chip-input.tsx
 #: src/routes/builder/$resumeId/route.tsx
@@ -1261,7 +1261,7 @@ msgstr "ویرایش محتوا در حالت تمام‌صفحه"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 msgid "Edit details"
-msgstr ""
+msgstr "ویرایش جزئیات"
 
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
@@ -1269,7 +1269,7 @@ msgstr "ویرایش کلمهٔ کلیدی"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Editing is disabled until you unlock it."
-msgstr ""
+msgstr "ویرایش غیرفعال است تا زمانی که آن را باز کنید."
 
 #: src/components/input/chip-input.tsx
 msgid "Editing keyword..."
@@ -1297,7 +1297,7 @@ msgstr "آدرس ایمیل"
 
 #: src/features/settings/pages/profile.tsx
 msgid "Email delivery isn't configured on this instance, so verification is disabled."
-msgstr ""
+msgstr "ارسال ایمیل در این نمونه پیکربندی نشده است، بنابراین تأیید غیرفعال است."
 
 #: src/features/settings/authentication/components/two-factor.tsx
 msgid "Enable 2FA"
@@ -1305,7 +1305,7 @@ msgstr "فعالسازی ورود دو مرحله‌ای"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Enable editing"
-msgstr ""
+msgstr "فعال‌سازی ویرایش"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enable Two-Factor Authentication"
@@ -1404,7 +1404,7 @@ msgstr "خروجی گرفتن"
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Export my data"
-msgstr ""
+msgstr "خروجی گرفتن از داده‌هایم"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Export your resume to PDF instantly, without any waiting or delays."
@@ -1466,7 +1466,7 @@ msgstr "فعال‌سازی احراز هویت دو مرحله‌ای نامو�
 #. Fallback toast when data export fails
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Failed to export your data. Please try again."
-msgstr ""
+msgstr "خروجی گرفتن از داده‌های شما ناموفق بود. لطفاً دوباره تلاش کنید."
 
 #. Fallback toast when linking a social authentication provider fails
 #: src/features/settings/authentication/components/hooks.tsx
@@ -1531,7 +1531,7 @@ msgstr "شروع تاپیک مربوط به نماینده ناموفق بود."
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Failed to start the AI assistant."
-msgstr ""
+msgstr "شروع دستیار هوش مصنوعی ناموفق بود."
 
 #. Fallback toast when unlinking a social authentication provider fails
 #: src/features/settings/authentication/components/hooks.tsx
@@ -1584,7 +1584,7 @@ msgstr "امکانات"
 
 #: src/dialogs/resume/import.tsx
 msgid "File"
-msgstr ""
+msgstr "فایل"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
@@ -1600,7 +1600,7 @@ msgstr "فنلاندی"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Fit to view"
-msgstr ""
+msgstr "متناسب با نمایش"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Flexibility"
@@ -1713,7 +1713,7 @@ msgstr "بازگشت"
 
 #: src/components/layout/not-found-screen.tsx
 msgid "Go home"
-msgstr ""
+msgstr "رفتن به صفحه اصلی"
 
 #: src/components/layout/error-screen.tsx
 #: src/components/layout/not-found-screen.tsx
@@ -1854,7 +1854,7 @@ msgstr "پنهان کردن رمز عبور"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Hide picture"
-msgstr ""
+msgstr "مخفی کردن تصویر"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Hide Section Icons"
@@ -1923,7 +1923,7 @@ msgstr "وارد کردن یک رزومهٔ موجود"
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing from PDF or Word requires a connected AI provider."
-msgstr ""
+msgstr "وارد کردن از PDF یا Word نیاز به یک ارائه‌دهنده هوش مصنوعی متصل دارد."
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing your resume..."
@@ -1935,7 +1935,7 @@ msgstr "در حال وارد کردن…"
 
 #: src/components/input/rich-input.tsx
 msgid "Increase indent"
-msgstr ""
+msgstr "افزایش تورفتگی"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Increase zoom"
@@ -2038,7 +2038,7 @@ msgstr "کانادا"
 #. Layout editor toggle that prevents a section from splitting across pages
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Keep together"
-msgstr ""
+msgstr "با هم نگه دار"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Key"
@@ -2094,7 +2094,7 @@ msgstr "آخرین‌بار در {0} دانلود شد"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
-msgstr ""
+msgstr "آخرین به‌روزرسانی"
 
 #: src/routes/dashboard/resumes/-components/cards/resume-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
@@ -2187,7 +2187,7 @@ msgstr "لیتوانیایی"
 #: src/dialogs/resume/template/gallery.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/template.tsx
 msgid "Live preview of your resume in the {0} template"
-msgstr ""
+msgstr "پیش‌نمایش زنده رزومه شما در قالب {0}"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Loading agent workspace…"
@@ -2304,11 +2304,11 @@ msgstr "مدل"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "More download options"
-msgstr ""
+msgstr "گزینه‌های بیشتر برای دانلود"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move section to another column or page"
-msgstr ""
+msgstr "انتقال بخش به ستون یا صفحه دیگر"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -2388,7 +2388,7 @@ msgstr "هنوز هیچ کلید عبوری ثبت نشده است."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "No prior data"
-msgstr ""
+msgstr "داده‌ای از قبل وجود ندارد"
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -2397,11 +2397,11 @@ msgstr "موردی یافت نشد."
 #: src/routes/dashboard/resumes/-components/grid-view.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "No resumes match your search."
-msgstr ""
+msgstr "هیچ رزومه‌ای با جستجوی شما مطابقت ندارد."
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "No saved versions yet."
-msgstr ""
+msgstr "هنوز هیچ نسخه ذخیره‌شده‌ای وجود ندارد."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
 msgid "No style rules yet."
@@ -2421,7 +2421,7 @@ msgstr "نروژی"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Not connected"
-msgstr ""
+msgstr "متصل نیست"
 
 #: src/libs/resume/section.tsx
 msgid "Notes"
@@ -2446,7 +2446,7 @@ msgstr "نگه‌داری مداوم"
 #. Helper note explaining the keep-together limitation
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
-msgstr ""
+msgstr "فقط وقتی بخش در یک صفحه جا می‌شود اعمال می‌شود."
 
 #. Resume card context menu action to open the resume editor
 #. Resume card dropdown action to open the resume editor
@@ -2461,7 +2461,7 @@ msgstr "عامل هوش مصنوعی باز"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Open AI assistant"
-msgstr ""
+msgstr "باز کردن دستیار هوش مصنوعی"
 
 #. Button label to open the user's default email app
 #: src/features/auth/pages/forgot-password.tsx
@@ -2503,7 +2503,7 @@ msgstr "در صورت تمایل می‌توانید گذرواژه‌ای تن�
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Options for {title}"
-msgstr ""
+msgstr "گزینه‌ها برای {title}"
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -2540,7 +2540,7 @@ msgstr "پاراگراف"
 
 #: src/components/input/rich-input.tsx
 msgid "Paragraph and heading style"
-msgstr ""
+msgstr "سبک پاراگراف و سرتیتر"
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -2647,7 +2647,7 @@ msgstr "تلفن"
 
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
-msgstr ""
+msgstr "یک آیکون انتخاب کنید"
 
 #: src/libs/resume/section.tsx
 msgid "Picture"
@@ -2713,7 +2713,7 @@ msgstr "یک وصله محافظه‌کارانه آماده کنید که بد�
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
-msgstr ""
+msgstr "در حال آماده‌سازی رزومه شما برای چاپ..."
 
 #: src/components/input/color-picker.tsx
 msgid "Presets"
@@ -2730,7 +2730,7 @@ msgstr "برای باز کردن <0>Enter را</0> فشار دهید"
 
 #: src/routes/builder/$resumeId/route.tsx
 msgid "Preview"
-msgstr ""
+msgstr "پیش‌نمایش"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -2738,7 +2738,7 @@ msgstr "رنگ اصلی"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Print"
-msgstr ""
+msgstr "چاپ"
 
 #: src/dialogs/resume/sections/skill.tsx
 msgid "Proficiency"
@@ -2828,7 +2828,7 @@ msgstr "رزومه واکنشی رایگان، متن‌باز و مستقل ب�
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr ""
+msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -2849,7 +2849,7 @@ msgstr "مستطیل (تمام‌عرض)"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Redo"
-msgstr ""
+msgstr "تکرار"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
@@ -2876,11 +2876,11 @@ msgstr "حذف {chip}"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Remove custom field"
-msgstr ""
+msgstr "حذف فیلد سفارشی"
 
 #: src/components/input/rich-input.tsx
 msgid "Remove link"
-msgstr ""
+msgstr "حذف لینک"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
@@ -2900,7 +2900,7 @@ msgstr "مرتب‌سازی مجدد"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Reorder custom field"
-msgstr ""
+msgstr "تغییر ترتیب فیلد سفارشی"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2954,7 +2954,7 @@ msgstr "بازگرداندن از سرگیری به قبل از این وصله�
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
-msgstr ""
+msgstr "این نسخه بازیابی شود؟"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Resume"
@@ -2970,11 +2970,11 @@ msgstr "تحلیل رزومه کامل شد."
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
-msgstr ""
+msgstr "محتوای رزومه"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Resume options"
-msgstr ""
+msgstr "گزینه‌های رزومه"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Resume patch"
@@ -3043,11 +3043,11 @@ msgstr "ذخیره"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Save & Test Provider"
-msgstr ""
+msgstr "ذخیره و آزمایش ارائه‌دهنده"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Save & Upload"
-msgstr ""
+msgstr "ذخیره و آپلود"
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
@@ -3071,11 +3071,11 @@ msgstr "ذخیرهٔ تغییرات"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
-msgstr ""
+msgstr "ذخیره شد"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saving…"
-msgstr ""
+msgstr "در حال ذخیره‌سازی…"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -3091,7 +3091,7 @@ msgstr "کارت نمره‌دهی"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Search"
-msgstr ""
+msgstr "جستجو"
 
 #. Accessible label for command palette search input
 #: src/features/command-palette/index.tsx
@@ -3110,7 +3110,7 @@ msgstr "جستجو برای…"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Search resumes..."
-msgstr ""
+msgstr "جستجو در رزومه‌ها..."
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
@@ -3128,7 +3128,7 @@ msgstr "کلید مخفی در کلیپ‌بورد کپی شد."
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Section options"
-msgstr ""
+msgstr "گزینه‌های بخش"
 
 #: src/dialogs/resume/sections/custom.tsx
 msgid "Section Type"
@@ -3148,7 +3148,7 @@ msgstr "یک مدل عامل انتخاب کنید"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Select an AI provider"
-msgstr ""
+msgstr "یک ارائه‌دهنده هوش مصنوعی انتخاب کنید"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -3186,23 +3186,23 @@ msgstr "تنظیم گذرواژه"
 
 #: src/dialogs/resume/import.tsx
 msgid "Set up a provider"
-msgstr ""
+msgstr "راه‌اندازی یک ارائه‌دهنده"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Set up an AI provider"
-msgstr ""
+msgstr "راه‌اندازی یک ارائه‌دهنده هوش مصنوعی"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Set up an AI provider before starting a thread."
-msgstr ""
+msgstr "قبل از شروع یک رشته مکالمه، یک ارائه‌دهنده هوش مصنوعی راه‌اندازی کنید."
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "Set up an AI provider to chat about this resume and apply edits automatically."
-msgstr ""
+msgstr "یک ارائه‌دهنده هوش مصنوعی راه‌اندازی کنید تا درباره این رزومه صحبت کنید و ویرایش‌ها را به‌طور خودکار اعمال کنید."
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Set up an AI provider to get started."
-msgstr ""
+msgstr "برای شروع یک ارائه‌دهنده هوش مصنوعی راه‌اندازی کنید."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
@@ -3268,7 +3268,7 @@ msgstr "نمایش رمز عبور"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Show picture"
-msgstr ""
+msgstr "نمایش تصویر"
 
 #. Layout editor column label for the secondary sidebar area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -3372,7 +3372,7 @@ msgstr "نام یکتا"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
-msgstr ""
+msgstr "چیزی اشتباه پیش رفت"
 
 #. Fallback error description when resume analysis request fails
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
@@ -3451,7 +3451,7 @@ msgstr "شروع تاپیک جدید"
 #. Layout editor toggle that forces a section to begin on a new page
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Start on new page"
-msgstr ""
+msgstr "شروع در صفحه جدید"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Start Thread"
@@ -3517,11 +3517,11 @@ msgstr "تغییر به تم روشن"
 #. placeholder {0}: templates[template].name
 #: src/dialogs/resume/template/gallery.tsx
 msgid "Switched to the {0} template."
-msgstr ""
+msgstr "به قالب {0} تغییر یافت."
 
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
-msgstr ""
+msgstr "تغییرات ایجادشده در زبانه دیگری همگام‌سازی شدند."
 
 #: src/dialogs/resume/index.tsx
 msgid "Tags"
@@ -3565,11 +3565,11 @@ msgstr "نظرات کاربران"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
-msgstr ""
+msgstr "در حال آزمایش…"
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
-msgstr ""
+msgstr "تراز بندی متن"
 
 #: src/components/input/rich-input.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -3613,7 +3613,7 @@ msgstr "فایل واردشده نتوانست به یک رزومه معتبر �
 
 #: src/components/layout/not-found-screen.tsx
 msgid "The page you're looking for may have been moved or no longer exists."
-msgstr ""
+msgstr "صفحه‌ای که دنبالش می‌گردید ممکن است منتقل شده باشد یا دیگر وجود نداشته باشد."
 
 #: src/features/auth/pages/resume-password.tsx
 msgid "The password you entered is incorrect"
@@ -3654,7 +3654,7 @@ msgstr "هنگام ایجاد فایل PDF مشکلی پیش آمد، لطفاً
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "There was a problem while preparing your resume for printing, please try again."
-msgstr ""
+msgstr "مشکلی در هنگام آماده‌سازی رزومه شما برای چاپ پیش آمد، لطفاً دوباره امتحان کنید."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Thinking"
@@ -3672,7 +3672,7 @@ msgstr "این عمل قابل بازگشت نیست. تمام داده‌های
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "This action cannot be undone. Conversation messages and uploaded attachments will be removed. The working resume remains in your dashboard and can be deleted separately."
-msgstr ""
+msgstr "این عمل قابل لغو نیست. پیام‌های مکالمه و پیوست‌های آپلود شده حذف خواهند شد. رزومه در حال کار در داشبورد شما باقی می‌ماند و می‌توان آن را جداگانه حذف کرد."
 
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "This action cannot be undone. Messages and thread attachments will be removed."
@@ -3684,11 +3684,11 @@ msgstr "این تاپیک مربوط به نماینده قابل باز شدن 
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
-msgstr ""
+msgstr "این دستیار قابل باز شدن نبود."
 
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
-msgstr ""
+msgstr "این ویژگی به یک ارائه‌دهنده هوش مصنوعی متصل نیاز دارد. لطفاً در تنظیمات یکی را راه‌اندازی کنید."
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
@@ -3700,7 +3700,7 @@ msgstr "این کار ممکن است چند دقیقه طول بکشد، بست
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "This resume is locked"
-msgstr ""
+msgstr "این رزومه قفل شده است"
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
@@ -3708,11 +3708,11 @@ msgstr "این رزومه قفل شده و قابل به‌روزرسانی نی
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume was updated by an AI agent."
-msgstr ""
+msgstr "این رزومه توسط یک عامل هوش مصنوعی به‌روزرسانی شد."
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
-msgstr ""
+msgstr "تنظیمات اشتراک‌گذاری این رزومه در جای دیگری تغییر کرد."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "This section is reserved for your personal notes specific to this resume. The content here remains private and is not shared with anyone else."
@@ -3794,7 +3794,7 @@ msgstr "برای حذف حساب خود، باید متن تأیید را وار
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-base.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/shared/section-base.tsx
 msgid "Toggle {sectionTitle} section"
-msgstr ""
+msgstr "تغییر حالت بخش {sectionTitle}"
 
 #. Screen-reader label for opening or closing the left sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3829,7 +3829,7 @@ msgstr "ترجمه‌ها"
 
 #: src/components/layout/error-screen.tsx
 msgid "Try again"
-msgstr ""
+msgstr "دوباره تلاش کنید"
 
 #: src/libs/locale.ts
 msgid "Turkish"
@@ -3923,7 +3923,7 @@ msgstr "زیرخط"
 #: src/dialogs/resume/template/gallery.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Undo"
-msgstr ""
+msgstr "لغو"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -4129,7 +4129,7 @@ msgstr "برای تنظیم مجدد گذرواژه، تأیید ایمیل ال
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Version history"
-msgstr ""
+msgstr "تاریخچه نسخه"
 
 #: src/libs/locale.ts
 msgid "Vietnamese"
@@ -4147,15 +4147,15 @@ msgstr "داوطلبانه"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "vs previous 30 days"
-msgstr ""
+msgstr "در مقابل ۳۰ روز قبل"
 
 #: src/dialogs/resume/import.tsx
 msgid "We couldn't detect the format automatically — please choose it above."
-msgstr ""
+msgstr "فرمت به طور خودکار شناسایی نشد — لطفاً آن را در بالا انتخاب کنید."
 
 #: src/components/layout/not-found-screen.tsx
 msgid "We couldn't find that page"
-msgstr ""
+msgstr "آن صفحه پیدا نشد"
 
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -4247,7 +4247,7 @@ msgstr "تغییرات شما به‌صورت خودکار ذخیره می‌ش�
 
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Your data has been exported successfully."
-msgstr ""
+msgstr "داده‌های شما با موفقیت صادر شدند."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Your data is secure, and never shared or sold to anyone."
@@ -4293,7 +4293,7 @@ msgstr "رزومه شما با موفقیت وارد شد."
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Your resume has been restored to the selected version."
-msgstr ""
+msgstr "رزومه شما به نسخه انتخاب‌شده بازیابی شد."
 
 #: src/dialogs/resume/index.tsx
 msgid "Your resume has been updated successfully."
@@ -4309,7 +4309,7 @@ msgstr "حمایت شما تضمین می‌کند این پروژه اکنون 
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Zoom"
-msgstr ""
+msgstr "زوم"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Zoom in"
