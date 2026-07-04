@@ -30,15 +30,6 @@ export function getPool() {
 	return globalThis.__pool;
 }
 
-function makeDrizzleClient() {
-	return drizzle({ client: getPool(), relations });
-}
-
-function createDatabase() {
-	if (!globalThis.__drizzle) {
-		globalThis.__drizzle = makeDrizzleClient();
-	}
-	return globalThis.__drizzle;
-}
-
-export const db = createDatabase();
+// ponytail: two private fns collapsed; getPool() is already a singleton, global cache preserved
+globalThis.__drizzle ??= drizzle({ client: getPool(), relations });
+export const db = globalThis.__drizzle;
