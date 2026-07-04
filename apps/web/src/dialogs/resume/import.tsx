@@ -9,9 +9,9 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import z from "zod";
-import { JSONResumeImporter } from "@reactive-resume/import/json-resume";
-import { ReactiveResumeJSONImporter } from "@reactive-resume/import/reactive-resume-json";
-import { ReactiveResumeV4JSONImporter } from "@reactive-resume/import/reactive-resume-v4-json";
+import { parseJSONResume } from "@reactive-resume/import/json-resume";
+import { parseReactiveResumeJSON } from "@reactive-resume/import/reactive-resume-json";
+import { parseReactiveResumeV4JSON } from "@reactive-resume/import/reactive-resume-v4-json";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
@@ -167,21 +167,15 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 				let data: ResumeData | undefined;
 
 				if (value.type === "json-resume-json") {
-					const json = await value.file.text();
-					const importer = new JSONResumeImporter();
-					data = importer.parse(json);
+					data = parseJSONResume(await value.file.text());
 				}
 
 				if (value.type === "reactive-resume-json") {
-					const json = await value.file.text();
-					const importer = new ReactiveResumeJSONImporter();
-					data = importer.parse(json);
+					data = parseReactiveResumeJSON(await value.file.text());
 				}
 
 				if (value.type === "reactive-resume-v4-json") {
-					const json = await value.file.text();
-					const importer = new ReactiveResumeV4JSONImporter();
-					data = importer.parse(json);
+					data = parseReactiveResumeV4JSON(await value.file.text());
 				}
 
 				if (value.type === "pdf") {
