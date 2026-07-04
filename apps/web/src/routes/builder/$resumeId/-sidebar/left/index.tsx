@@ -123,7 +123,7 @@ function LockBanner() {
 }
 
 function SidebarEdge() {
-	const toggleSidebar = useBuilderSidebar((state) => state.toggleSidebar);
+	const { toggleSidebar } = useBuilderSidebar();
 
 	const scrollToSection = useCallback(
 		(section: LeftSidebarSection) => {

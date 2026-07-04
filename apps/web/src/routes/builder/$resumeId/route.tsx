@@ -15,8 +15,6 @@ import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@reactive-re
 import { cn } from "@reactive-resume/utils/style";
 import {
 	useBuilderResumeUpdateSubscription,
-	useInitializeResumeStore,
-	useMergeResumeMetadata,
 	usePreviewPausedStore,
 	useResumeCleanup,
 	useResumeStore,
@@ -61,8 +59,8 @@ function RouteComponent() {
 
 	const { resumeId } = Route.useParams();
 	const { data: resume } = useSuspenseQuery(orpc.resume.getById.queryOptions({ input: { id: resumeId } }));
-	const initializeResumeStore = useInitializeResumeStore();
-	const mergeResumeMetadata = useMergeResumeMetadata();
+	const initializeResumeStore = useResumeStore((state) => state.initialize);
+	const mergeResumeMetadata = useResumeStore((state) => state.mergeResumeMetadata);
 	const isReady = useResumeStore((state) => state.isReady);
 	const initializedResumeId = useResumeStore((state) => state.resumeId);
 	const isInitialized = isReady && initializedResumeId === resumeId;
@@ -118,12 +116,7 @@ function DesktopBuilderShell({ initialLayout }: BuilderLayoutShellProps) {
 	const setRightSidebar = useBuilderSidebarStore((state) => state.setRightSidebar);
 	const setLayout = useBuilderSidebarStore((state) => state.setLayout);
 
-	const { maxSidebarSize, minSidebarSize, collapsedSidebarSize, groupResizeBehavior } = useBuilderSidebar((state) => ({
-		maxSidebarSize: state.maxSidebarSize,
-		minSidebarSize: state.minSidebarSize,
-		collapsedSidebarSize: state.collapsedSidebarSize,
-		groupResizeBehavior: state.groupResizeBehavior,
-	}));
+	const { maxSidebarSize, minSidebarSize, collapsedSidebarSize, groupResizeBehavior } = useBuilderSidebar();
 
 	useEffect(() => {
 		setLayout(initialLayout);

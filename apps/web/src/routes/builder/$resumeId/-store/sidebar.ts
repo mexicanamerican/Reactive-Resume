@@ -100,7 +100,7 @@ type UseBuilderSidebarReturn = {
 	toggleSidebar: (side: "left" | "right", forceState?: boolean) => void;
 };
 
-export function useBuilderSidebar<T = UseBuilderSidebarReturn>(selector?: (builder: UseBuilderSidebarReturn) => T): T {
+export function useBuilderSidebar(): UseBuilderSidebarReturn {
 	const isMobile = useMediaQuery("(max-width: 767px)", { initializeWithValue: false });
 	const { width } = useWindowSize();
 
@@ -134,7 +134,8 @@ export function useBuilderSidebar<T = UseBuilderSidebarReturn>(selector?: (build
 		[expandSize],
 	);
 
-	const state = useMemo(() => {
+	// ponytail: memoized but callers destructure; selector removed (state rebuilt every render, zero benefit)
+	return useMemo(() => {
 		return {
 			maxSidebarSize,
 			minSidebarSize,
@@ -144,6 +145,4 @@ export function useBuilderSidebar<T = UseBuilderSidebarReturn>(selector?: (build
 			toggleSidebar,
 		};
 	}, [maxSidebarSize, minSidebarSize, collapsedSidebarSize, groupResizeBehavior, isCollapsed, toggleSidebar]);
-
-	return selector ? selector(state) : (state as T);
 }

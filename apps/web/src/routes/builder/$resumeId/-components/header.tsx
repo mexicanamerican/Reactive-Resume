@@ -30,7 +30,7 @@ import {
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { useDialogStore } from "@/dialogs/store";
-import { useCurrentResume, usePatchResume, useSaveStatus } from "@/features/resume/builder/draft";
+import { useCurrentResume, usePatchResume, useResumeStore } from "@/features/resume/builder/draft";
 import { useResumeExport } from "@/features/resume/export/use-resume-export";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getResumeErrorMessage } from "@/libs/error-message";
@@ -43,7 +43,7 @@ export function BuilderHeader() {
 	const resume = useCurrentResume();
 	const name = resume.name;
 	const isLocked = resume.isLocked;
-	const toggleSidebar = useBuilderSidebar((state) => state.toggleSidebar);
+	const { toggleSidebar } = useBuilderSidebar();
 
 	// Equal-width flex-1 side groups keep the center title group truly centered regardless of the
 	// wider Download button on the right.
@@ -149,7 +149,7 @@ function ResumeDownloadButton() {
 }
 
 function SaveStatusIndicator() {
-	const status = useSaveStatus();
+	const status = useResumeStore((state) => state.saveStatus);
 	if (status === "idle") return null;
 
 	const { icon, label } = match(status)

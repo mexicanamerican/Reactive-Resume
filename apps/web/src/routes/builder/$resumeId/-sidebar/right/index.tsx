@@ -66,7 +66,7 @@ export function BuilderSidebarRight() {
 }
 
 function SidebarEdge() {
-	const toggleSidebar = useBuilderSidebar((state) => state.toggleSidebar);
+	const { toggleSidebar } = useBuilderSidebar();
 
 	const scrollToSection = useCallback(
 		(section: RightSidebarSection) => {
