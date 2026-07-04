@@ -3,7 +3,9 @@ type ParsedColor = { r: number; g: number; b: number; a: number };
 export function rgbaStringToHex(rgba: string): string {
 	const color = parseColorString(rgba);
 	if (color) return `#${toHexComponent(color.r)}${toHexComponent(color.g)}${toHexComponent(color.b)}`;
-	// ponytail: unrecognized format → black; same result the prior @uiw/color-convert fallback produced
+	// ponytail: unrecognized format → black. Callers only pass builder-picker output (hex/rgba),
+	// which parseColorString handles; named-color/hsl inputs never reach here. If a caller ever needs
+	// those, restore a real converter (e.g. @uiw/color-convert) instead of this black fallback.
 	return "#000000";
 }
 
