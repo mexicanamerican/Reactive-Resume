@@ -5,13 +5,19 @@ import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { Image, Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
-import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
+import {
+	CustomFieldContactItem,
+	EmailContactItem,
+	LocationContactItem,
+	PhoneContactItem,
+	WebsiteContactItem,
+} from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
-import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight } from "../shared/styles";
@@ -105,24 +111,9 @@ const Header = ({ styles }: BronzorHeaderProps) => {
 			</View>
 
 			<View style={styles.headerContactRow}>
-				{basics.email && (
-					<Link src={`mailto:${basics.email}`} style={styles.headerContactItem}>
-						<Icon name="envelope" />
-						<Text>{basics.email}</Text>
-					</Link>
-				)}
-				{basics.phone && (
-					<Link src={`tel:${basics.phone}`} style={styles.headerContactItem}>
-						<Icon name="phone" />
-						<Text>{basics.phone}</Text>
-					</Link>
-				)}
-				{basics.location && (
-					<View style={styles.headerContactItem}>
-						<Icon name="map-pin" />
-						<Text>{basics.location}</Text>
-					</View>
-				)}
+				<EmailContactItem email={basics.email} style={styles.headerContactItem} />
+				<PhoneContactItem phone={basics.phone} style={styles.headerContactItem} />
+				<LocationContactItem location={basics.location} style={styles.headerContactItem} />
 				<WebsiteContactItem website={basics.website} style={styles.headerContactItem} />
 				{basics.customFields.map((field) => (
 					<CustomFieldContactItem key={field.id} field={field} style={styles.headerContactItem} />

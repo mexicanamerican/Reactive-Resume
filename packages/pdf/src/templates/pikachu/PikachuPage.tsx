@@ -5,13 +5,19 @@ import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { Image, Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
-import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
+import {
+	CustomFieldContactItem,
+	EmailContactItem,
+	LocationContactItem,
+	PhoneContactItem,
+	WebsiteContactItem,
+} from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
-import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight, resolvePlacementColor } from "../shared/styles";
@@ -114,24 +120,24 @@ const Header = ({ styles, colors }: PikachuHeaderProps) => {
 			</View>
 
 			<View style={styles.contactList}>
-				{basics.email && (
-					<Link src={`mailto:${basics.email}`} style={styles.contactItem}>
-						<Icon name="envelope" color={colors.background} />
-						<Text style={styles.headerText}>{basics.email}</Text>
-					</Link>
-				)}
-				{basics.phone && (
-					<Link src={`tel:${basics.phone}`} style={styles.contactItem}>
-						<Icon name="phone" color={colors.background} />
-						<Text style={styles.headerText}>{basics.phone}</Text>
-					</Link>
-				)}
-				{basics.location && (
-					<View style={styles.contactItem}>
-						<Icon name="map-pin" color={colors.background} />
-						<Text style={styles.headerText}>{basics.location}</Text>
-					</View>
-				)}
+				<EmailContactItem
+					email={basics.email}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+				/>
+				<PhoneContactItem
+					phone={basics.phone}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+				/>
+				<LocationContactItem
+					location={basics.location}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+				/>
 				<WebsiteContactItem
 					website={basics.website}
 					style={styles.contactItem}

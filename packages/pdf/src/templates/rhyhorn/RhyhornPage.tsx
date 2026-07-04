@@ -6,13 +6,19 @@ import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { Image, Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
-import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
+import {
+	CustomFieldContactItem,
+	EmailContactItem,
+	LocationContactItem,
+	PhoneContactItem,
+	WebsiteContactItem,
+} from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
-import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight } from "../shared/styles";
@@ -85,36 +91,19 @@ const Header = ({ styles }: RhyhornHeaderProps) => {
 	if (basics.email) {
 		contactItems.push({
 			id: "email",
-			content: (
-				<Link src={`mailto:${basics.email}`} style={styles.contactItemContent}>
-					<Icon name="envelope" />
-					<Text>{basics.email}</Text>
-				</Link>
-			),
+			content: <EmailContactItem email={basics.email} style={styles.contactItemContent} />,
 		});
 	}
-
 	if (basics.phone) {
 		contactItems.push({
 			id: "phone",
-			content: (
-				<Link src={`tel:${basics.phone}`} style={styles.contactItemContent}>
-					<Icon name="phone" />
-					<Text>{basics.phone}</Text>
-				</Link>
-			),
+			content: <PhoneContactItem phone={basics.phone} style={styles.contactItemContent} />,
 		});
 	}
-
 	if (basics.location) {
 		contactItems.push({
 			id: "location",
-			content: (
-				<View style={styles.contactItemContent}>
-					<Icon name="map-pin" />
-					<Text>{basics.location}</Text>
-				</View>
-			),
+			content: <LocationContactItem location={basics.location} style={styles.contactItemContent} />,
 		});
 	}
 
