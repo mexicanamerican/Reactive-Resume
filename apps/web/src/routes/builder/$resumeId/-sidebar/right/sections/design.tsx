@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type z from "zod";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
@@ -31,6 +32,20 @@ export function DesignSectionBuilder() {
 
 type ColorValues = z.infer<typeof colorDesignSchema>;
 
+function useColorSectionForm(colors: ColorValues, persist: (data: ColorValues) => void) {
+	const form = useAppForm({
+		defaultValues: colors,
+		validators: { onChange: colorDesignSchema },
+		onSubmit: ({ value }) => {
+			persist(value);
+		},
+	});
+	useSyncFormValues(form, colors);
+	return form;
+}
+
+type ColorSectionForm = ReturnType<typeof useColorSectionForm>;
+
 function ColorSectionForm() {
 	const resume = useCurrentResume();
 	const colors = resume.data.metadata.design.colors;
@@ -42,14 +57,7 @@ function ColorSectionForm() {
 		});
 	};
 
-	const form = useAppForm({
-		defaultValues: colors,
-		validators: { onChange: colorDesignSchema },
-		onSubmit: ({ value }) => {
-			persist(value);
-		},
-	});
-	useSyncFormValues(form, colors);
+	const form = useColorSectionForm(colors, persist);
 
 	const handleAutoSave = () => {
 		persist(form.state.values);
@@ -85,105 +93,64 @@ function ColorSectionForm() {
 				)}
 			</form.Field>
 
-			<form.Field name="primary">
-				{(field) => (
-					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-						<FormLabel>
-							<Trans>Primary Color</Trans>
-						</FormLabel>
-						<div className="flex items-center gap-3">
-							<ColorPicker
-								value={field.state.value}
-								onChange={(color) => {
-									field.handleChange(color);
-									handleAutoSave();
-								}}
-							/>
-							<FormControl
-								render={
-									<Input
-										name={field.name}
-										value={field.state.value}
-										onBlur={field.handleBlur}
-										onChange={(e) => {
-											field.handleChange(e.target.value);
-											handleAutoSave();
-										}}
-									/>
-								}
-							/>
-						</div>
-						<FormMessage errors={field.state.meta.errors} />
-					</FormItem>
-				)}
-			</form.Field>
-
-			<form.Field name="text">
-				{(field) => (
-					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-						<FormLabel>
-							<Trans>Text Color</Trans>
-						</FormLabel>
-						<div className="flex items-center gap-3">
-							<ColorPicker
-								defaultValue={field.state.value}
-								onChange={(color) => {
-									field.handleChange(color);
-									handleAutoSave();
-								}}
-							/>
-							<FormControl
-								render={
-									<Input
-										name={field.name}
-										value={field.state.value}
-										onBlur={field.handleBlur}
-										onChange={(e) => {
-											field.handleChange(e.target.value);
-											handleAutoSave();
-										}}
-									/>
-								}
-							/>
-						</div>
-						<FormMessage errors={field.state.meta.errors} />
-					</FormItem>
-				)}
-			</form.Field>
-
-			<form.Field name="background">
-				{(field) => (
-					<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-						<FormLabel>
-							<Trans>Background Color</Trans>
-						</FormLabel>
-						<div className="flex items-center gap-3">
-							<ColorPicker
-								defaultValue={field.state.value}
-								onChange={(color) => {
-									field.handleChange(color);
-									handleAutoSave();
-								}}
-							/>
-							<FormControl
-								render={
-									<Input
-										name={field.name}
-										value={field.state.value}
-										onBlur={field.handleBlur}
-										onChange={(e) => {
-											field.handleChange(e.target.value);
-											handleAutoSave();
-										}}
-									/>
-								}
-							/>
-						</div>
-						<FormMessage errors={field.state.meta.errors} />
-					</FormItem>
-				)}
-			</form.Field>
+			<ColorFormField
+				form={form}
+				name="primary"
+				label={<Trans>Primary Color</Trans>}
+				controlled
+				handleAutoSave={handleAutoSave}
+			/>
+			<ColorFormField form={form} name="text" label={<Trans>Text Color</Trans>} handleAutoSave={handleAutoSave} />
+			<ColorFormField
+				form={form}
+				name="background"
+				label={<Trans>Background Color</Trans>}
+				handleAutoSave={handleAutoSave}
+			/>
 		</form>
+	);
+}
+
+type ColorFormFieldProps = {
+	form: ColorSectionForm;
+	name: keyof ColorValues;
+	label: ReactNode;
+	controlled?: boolean;
+	handleAutoSave: () => void;
+};
+
+function ColorFormField({ form, name, label, controlled, handleAutoSave }: ColorFormFieldProps) {
+	return (
+		<form.Field name={name}>
+			{(field) => (
+				<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+					<FormLabel>{label}</FormLabel>
+					<div className="flex items-center gap-3">
+						<ColorPicker
+							{...(controlled ? { value: field.state.value } : { defaultValue: field.state.value })}
+							onChange={(color) => {
+								field.handleChange(color);
+								handleAutoSave();
+							}}
+						/>
+						<FormControl
+							render={
+								<Input
+									name={field.name}
+									value={field.state.value}
+									onBlur={field.handleBlur}
+									onChange={(e) => {
+										field.handleChange(e.target.value);
+										handleAutoSave();
+									}}
+								/>
+							}
+						/>
+					</div>
+					<FormMessage errors={field.state.meta.errors} />
+				</FormItem>
+			)}
+		</form.Field>
 	);
 }
 

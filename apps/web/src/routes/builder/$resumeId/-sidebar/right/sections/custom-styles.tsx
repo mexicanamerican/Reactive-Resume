@@ -15,6 +15,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Separator } from "@reactive-resume/ui/components/separator";
+import { slugify } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { ColorPicker } from "@/components/input/color-picker";
 import { Combobox } from "@/components/ui/combobox";
@@ -471,19 +472,16 @@ function RuleScopePill({ target, slot }: RuleScopePillProps) {
 type RuleIntentEditorProps = {
 	idPrefix: string;
 	intent: StyleIntent;
-	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
 };
 
-function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleIntentEditorProps) {
-	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
-
+function RuleIntentEditor({ idPrefix, intent, onChange }: RuleIntentEditorProps) {
 	return (
 		<div className="space-y-3">
 			<ControlPanel title="Color">
 				<div className={exactFourControlGridClassName}>
 					<ColorField
-						label={`${labelStart}Text Color`}
+						label={"Text Color"}
 						id={`${idPrefix}-color`}
 						value={intent.color}
 						placeholder="rgba(0, 0, 0, 1)"
@@ -491,7 +489,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(color) => onChange({ color })}
 					/>
 					<ColorField
-						label={`${labelStart}Background`}
+						label={"Background"}
 						id={`${idPrefix}-background`}
 						value={intent.backgroundColor}
 						placeholder="rgba(255, 255, 255, 1)"
@@ -499,7 +497,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(backgroundColor) => onChange({ backgroundColor })}
 					/>
 					<ColorField
-						label={`${labelStart}Text Decoration Color`}
+						label={"Text Decoration Color"}
 						id={`${idPrefix}-text-decoration-color`}
 						value={intent.textDecorationColor}
 						placeholder="rgba(0, 0, 0, 1)"
@@ -507,7 +505,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(textDecorationColor) => onChange({ textDecorationColor })}
 					/>
 					<NumberInput
-						label={`${labelStart}Opacity`}
+						label={"Opacity"}
 						id={`${idPrefix}-opacity`}
 						value={intent.opacity}
 						min={0}
@@ -521,7 +519,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 			<ControlPanel title="Text">
 				<div className={controlGridClassName}>
 					<NumberInput
-						label={`${labelStart}Font Size`}
+						label={"Font Size"}
 						id={`${idPrefix}-font-size`}
 						value={intent.fontSize}
 						min={6}
@@ -529,20 +527,20 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(fontSize) => onChange({ fontSize })}
 					/>
 					<FontWeightField
-						label={`${labelStart}Font Weight`}
+						label={"Font Weight"}
 						id={`${idPrefix}-font-weight`}
 						value={intent.fontWeight}
 						onChange={(fontWeight) => onChange({ fontWeight })}
 					/>
 					<IntentSelectField
-						label={`${labelStart}Font Style`}
+						label={"Font Style"}
 						id={`${idPrefix}-font-style`}
 						value={intent.fontStyle}
 						options={fontStyleOptions}
 						onChange={(fontStyle) => onChange({ fontStyle })}
 					/>
 					<NumberInput
-						label={`${labelStart}Line Height`}
+						label={"Line Height"}
 						id={`${idPrefix}-line-height`}
 						value={intent.lineHeight}
 						min={0.5}
@@ -551,7 +549,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(lineHeight) => onChange({ lineHeight })}
 					/>
 					<NumberInput
-						label={`${labelStart}Letter Spacing`}
+						label={"Letter Spacing"}
 						id={`${idPrefix}-letter-spacing`}
 						value={intent.letterSpacing}
 						min={-16}
@@ -560,28 +558,28 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(letterSpacing) => onChange({ letterSpacing })}
 					/>
 					<IntentSelectField
-						label={`${labelStart}Text Decoration`}
+						label={"Text Decoration"}
 						id={`${idPrefix}-text-decoration`}
 						value={intent.textDecoration}
 						options={textDecorationOptions}
 						onChange={(textDecoration) => onChange({ textDecoration })}
 					/>
 					<IntentSelectField
-						label={`${labelStart}Decoration Style`}
+						label={"Decoration Style"}
 						id={`${idPrefix}-text-decoration-style`}
 						value={intent.textDecorationStyle}
 						options={textDecorationStyleOptions}
 						onChange={(textDecorationStyle) => onChange({ textDecorationStyle })}
 					/>
 					<IntentSelectField
-						label={`${labelStart}Text Align`}
+						label={"Text Align"}
 						id={`${idPrefix}-text-align`}
 						value={intent.textAlign}
 						options={textAlignOptions}
 						onChange={(textAlign) => onChange({ textAlign })}
 					/>
 					<IntentSelectField
-						label={`${labelStart}Text Transform`}
+						label={"Text Transform"}
 						id={`${idPrefix}-text-transform`}
 						value={intent.textTransform}
 						options={textTransformOptions}
@@ -592,11 +590,11 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 
 			<ControlPanel title="Spacing">
 				<div className="space-y-3">
-					<PaddingSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
-					<MarginSideInputs idPrefix={idPrefix} intent={intent} labelPrefix={labelPrefix} onChange={onChange} />
+					<PaddingSideInputs idPrefix={idPrefix} intent={intent} onChange={onChange} />
+					<MarginSideInputs idPrefix={idPrefix} intent={intent} onChange={onChange} />
 					<SpacingInputGroup label="Gap">
 						<CompactNumberInput
-							ariaLabel={`${labelStart}Row Gap`}
+							ariaLabel={"Row Gap"}
 							id={`${idPrefix}-row-gap`}
 							placeholder="row"
 							value={intent.rowGap}
@@ -605,7 +603,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 							onChange={(rowGap) => onChange({ rowGap })}
 						/>
 						<CompactNumberInput
-							ariaLabel={`${labelStart}Column Gap`}
+							ariaLabel={"Column Gap"}
 							id={`${idPrefix}-column-gap`}
 							placeholder="column"
 							value={intent.columnGap}
@@ -620,14 +618,14 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 			<ControlPanel title="Border">
 				<div className={exactFourControlGridClassName}>
 					<IntentSelectField
-						label={`${labelStart}Border Style`}
+						label={"Border Style"}
 						id={`${idPrefix}-border-style`}
 						value={intent.borderStyle}
 						options={borderStyleOptions}
 						onChange={(borderStyle) => onChange({ borderStyle })}
 					/>
 					<NumberInput
-						label={`${labelStart}Border Width`}
+						label={"Border Width"}
 						id={`${idPrefix}-border-width`}
 						value={intent.borderWidth}
 						min={0}
@@ -635,7 +633,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(borderWidth) => onChange({ borderWidth })}
 					/>
 					<NumberInput
-						label={`${labelStart}Border Radius`}
+						label={"Border Radius"}
 						id={`${idPrefix}-border-radius`}
 						value={intent.borderRadius}
 						min={0}
@@ -643,7 +641,7 @@ function RuleIntentEditor({ idPrefix, intent, labelPrefix, onChange }: RuleInten
 						onChange={(borderRadius) => onChange({ borderRadius })}
 					/>
 					<ColorField
-						label={`${labelStart}Border Color`}
+						label={"Border Color"}
 						id={`${idPrefix}-border-color`}
 						value={intent.borderColor}
 						placeholder="rgba(0, 0, 0, 1)"
@@ -751,19 +749,16 @@ type MarginSideProperty = (typeof marginSideOptions)[number]["property"];
 type PaddingSideInputsProps = {
 	idPrefix: string;
 	intent: StyleIntent;
-	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
 };
 
-function PaddingSideInputs({ idPrefix, intent, labelPrefix, onChange }: PaddingSideInputsProps) {
-	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
-
+function PaddingSideInputs({ idPrefix, intent, onChange }: PaddingSideInputsProps) {
 	return (
 		<SpacingInputGroup label="Padding">
 			{paddingSideOptions.map((side) => (
 				<CompactNumberInput
 					key={side.property}
-					ariaLabel={`${labelStart}Padding ${side.label}`}
+					ariaLabel={`Padding ${side.label}`}
 					id={`${idPrefix}-${side.property}`}
 					placeholder={side.label.toLowerCase()}
 					value={getPaddingSideValue(intent, side.property)}
@@ -779,19 +774,16 @@ function PaddingSideInputs({ idPrefix, intent, labelPrefix, onChange }: PaddingS
 type MarginSideInputsProps = {
 	idPrefix: string;
 	intent: StyleIntent;
-	labelPrefix?: string;
 	onChange: (patch: Partial<StyleIntent>) => void;
 };
 
-function MarginSideInputs({ idPrefix, intent, labelPrefix, onChange }: MarginSideInputsProps) {
-	const labelStart = labelPrefix ? `${labelPrefix} ` : "";
-
+function MarginSideInputs({ idPrefix, intent, onChange }: MarginSideInputsProps) {
 	return (
 		<SpacingInputGroup label="Margin">
 			{marginSideOptions.map((side) => (
 				<CompactNumberInput
 					key={side.property}
-					ariaLabel={`${labelStart}Margin ${side.label}`}
+					ariaLabel={`Margin ${side.label}`}
 					id={`${idPrefix}-${side.property}`}
 					placeholder={side.label.toLowerCase()}
 					value={intent[side.property]}
@@ -1046,11 +1038,4 @@ function compactIntent(intent: Partial<StyleIntent>): StyleIntent {
 
 function hasIntent(intent: StyleIntent | undefined) {
 	return Boolean(intent && Object.keys(intent).length > 0);
-}
-
-function slugify(value: string) {
-	return value
-		.replace(/[^a-zA-Z0-9]+/g, "-")
-		.replace(/(^-|-$)/g, "")
-		.toLowerCase();
 }
