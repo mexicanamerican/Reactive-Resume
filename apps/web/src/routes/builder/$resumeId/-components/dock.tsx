@@ -28,14 +28,7 @@ import {
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { cn } from "@reactive-resume/utils/style";
-import {
-	isEditableElementFocused,
-	useCanRedo,
-	useCanUndo,
-	useCurrentResume,
-	useRedoResume,
-	useUndoResume,
-} from "@/features/resume/builder/draft";
+import { isEditableElementFocused, useCurrentResume, useResumeStore } from "@/features/resume/builder/draft";
 import { authClient } from "@/libs/auth/client";
 
 type BuilderDockProps = {
@@ -51,10 +44,10 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 	const [_, copyToClipboard] = useCopyToClipboard();
 	const { zoomIn, zoomOut, resetTransform } = useControls();
 
-	const canUndo = useCanUndo();
-	const canRedo = useCanRedo();
-	const undo = useUndoResume();
-	const redo = useRedoResume();
+	const canUndo = useResumeStore((state) => state.canUndo);
+	const canRedo = useResumeStore((state) => state.canRedo);
+	const undo = useResumeStore((state) => state.undo);
+	const redo = useResumeStore((state) => state.redo);
 
 	useHotkey("Mod+0", () => resetTransform());
 	// App-level undo/redo of resume state, scoped to the builder. Mod maps to Cmd (mac) / Ctrl (win/linux).
