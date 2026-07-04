@@ -1,4 +1,4 @@
-import type { Resume } from "@/features/resume/builder/draft";
+import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { t } from "@lingui/core/macro";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
@@ -6,24 +6,33 @@ import { buildDocx } from "@reactive-resume/docx";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { createResumePdfBlob } from "./pdf-document";
 
+// ponytail: loosened from Resume to Pick so public-resume (where name may be "" for non-owners) can reuse
+type ExportableResume = {
+	name: string;
+	slug: string;
+	data: ResumeData;
+};
+
+const getExportName = (resume: ExportableResume) => resume.name || resume.data.basics.name || resume.slug;
+
 /**
  * Single source of truth for resume export (PDF / DOCX / JSON / Print). Previously duplicated verbatim
  * between the builder dock and the right-panel Export section (#17).
  */
-export function useResumeExport(resume: Resume | undefined) {
+export function useResumeExport(resume: ExportableResume | undefined) {
 	const [isExporting, setIsExporting] = useState(false);
 
 	const onDownloadJSON = useCallback(() => {
 		if (!resume) return;
 		const blob = new Blob([JSON.stringify(resume.data, null, 2)], { type: "application/json" });
-		downloadWithAnchor(blob, generateFilename(resume.name, "json"));
+		downloadWithAnchor(blob, generateFilename(getExportName(resume), "json"));
 	}, [resume]);
 
 	const onDownloadDOCX = useCallback(async () => {
 		if (!resume) return;
 		try {
 			const blob = await buildDocx(resume.data);
-			downloadWithAnchor(blob, generateFilename(resume.name, "docx"));
+			downloadWithAnchor(blob, generateFilename(getExportName(resume), "docx"));
 		} catch {
 			toast.error(t`There was a problem while generating the DOCX, please try again.`);
 		}
@@ -35,7 +44,7 @@ export function useResumeExport(resume: Resume | undefined) {
 		setIsExporting(true);
 		try {
 			const blob = await createResumePdfBlob(resume.data);
-			downloadWithAnchor(blob, generateFilename(resume.name, "pdf"));
+			downloadWithAnchor(blob, generateFilename(getExportName(resume), "pdf"));
 		} catch {
 			toast.error(t`There was a problem while generating the PDF, please try again.`);
 		} finally {
