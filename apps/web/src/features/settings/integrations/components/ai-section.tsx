@@ -122,6 +122,13 @@ function providerLabel(provider: AIProvider) {
 	return providerOptions.find((option) => option.value === provider)?.label ?? provider;
 }
 
+function upsertProvider(providers: SavedProvider[] | undefined, provider: SavedProvider) {
+	if (!providers) return [provider];
+	if (!providers.some((entry) => entry.id === provider.id)) return [...providers, provider];
+
+	return providers.map((entry) => (entry.id === provider.id ? provider : entry));
+}
+
 function isAiProviderConfigError(error: unknown) {
 	if (error instanceof ORPCError && error.code === "PRECONDITION_FAILED") return true;
 
@@ -247,11 +254,18 @@ function CreateProviderForm() {
 		[form.provider],
 	);
 	const invalidate = () => queryClient.invalidateQueries({ queryKey: orpc.aiProviders.list.queryKey() });
+	const setProviderInCache = (provider: SavedProvider) =>
+		queryClient.setQueryData(orpc.aiProviders.list.queryKey(), (providers: SavedProvider[] | undefined) =>
+			upsertProvider(providers, provider),
+		);
 
-	const { mutateAsync: createProvider, isPending: isCreating } = useMutation(orpc.aiProviders.create.mutationOptions());
-	const { mutateAsync: testProvider, isPending: isTesting } = useMutation(orpc.aiProviders.test.mutationOptions());
-	const { mutateAsync: enableProvider, isPending: isEnabling } = useMutation(orpc.aiProviders.update.mutationOptions());
-	const isSaving = isCreating || isTesting || isEnabling;
+	const { mutateAsync: createProvider, isPending: isCreating } = useMutation(
+		orpc.aiProviders.create.mutationOptions({ meta: { noInvalidate: true } }),
+	);
+	const { mutateAsync: testProvider, isPending: isTesting } = useMutation(
+		orpc.aiProviders.test.mutationOptions({ meta: { noInvalidate: true } }),
+	);
+	const isSaving = isCreating || isTesting;
 
 	// Model/label are prefilled from provider defaults, so step 1 (Provider + API Key) is enough to save.
 	const model = form.model.trim();
@@ -271,8 +285,9 @@ function CreateProviderForm() {
 
 			// Test on save: verify the connection immediately instead of leaving it to a manual step.
 			const tested = await testProvider({ id: created.id });
+			setProviderInCache(tested);
+
 			if (tested.testStatus === "success") {
-				await enableProvider({ id: created.id, enabled: true });
 				setForm(emptyForm);
 				setResult({ ok: true, message: t`Connection verified — provider is ready to use.` });
 			} else {
