@@ -947,9 +947,6 @@ importers:
       react-pdf-html:
         specifier: ^2.1.5
         version: 2.1.5(@react-pdf/renderer@4.5.1(react@19.2.7))(react@19.2.7)
-      ts-pattern:
-        specifier: ^5.9.0
-        version: 5.9.0
     devDependencies:
       '@react-pdf/types':
         specifier: ^2.11.1

@@ -3,6 +3,7 @@ import type {
 	AwardItem,
 	CertificationItem,
 	CoverLetterItem,
+	CustomSectionType,
 	EducationItem,
 	ExperienceItem,
 	InterestItem,
@@ -22,7 +23,6 @@ import type { ReactNode } from "react";
 import type { StyleInput, TemplatePlacement } from "./styles";
 import type { CustomItemSection, ItemSection } from "./types";
 import { Children, createContext, isValidElement, use } from "react";
-import { match } from "ts-pattern";
 import { View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
 import { getResumeSectionIcon } from "../../section-icon";
@@ -929,51 +929,50 @@ const CustomSection = ({ sectionId, showHeading = true }: CustomSectionProps) =>
 
 	if (!customSection) return null;
 
-	return match(customSection.type)
-		.with("summary", () => (
+	// ponytail: satisfies Record<CustomSectionType,...> gives compile-time exhaustiveness without ts-pattern
+	const customSectionMap = {
+		summary: () => (
 			<CustomSummarySection section={customSection as CustomItemSection<SummaryItem>} showHeading={showHeading} />
-		))
-		.with("profiles", () => (
+		),
+		profiles: () => (
 			<ProfileSection sectionId={sectionId} sectionData={customSection as CustomItemSection<ProfileItem>} />
-		))
-		.with("experience", () => (
+		),
+		experience: () => (
 			<ExperienceSection sectionId={sectionId} sectionData={customSection as CustomItemSection<ExperienceItem>} />
-		))
-		.with("education", () => (
+		),
+		education: () => (
 			<EducationSection sectionId={sectionId} sectionData={customSection as CustomItemSection<EducationItem>} />
-		))
-		.with("projects", () => (
+		),
+		projects: () => (
 			<ProjectsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<ProjectItem>} />
-		))
-		.with("skills", () => (
-			<SkillsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<SkillItem>} />
-		))
-		.with("languages", () => (
+		),
+		skills: () => <SkillsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<SkillItem>} />,
+		languages: () => (
 			<LanguagesSection sectionId={sectionId} sectionData={customSection as CustomItemSection<LanguageItem>} />
-		))
-		.with("interests", () => (
+		),
+		interests: () => (
 			<InterestsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<InterestItem>} />
-		))
-		.with("awards", () => (
-			<AwardsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<AwardItem>} />
-		))
-		.with("certifications", () => (
+		),
+		awards: () => <AwardsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<AwardItem>} />,
+		certifications: () => (
 			<CertificationsSection
 				sectionId={sectionId}
 				sectionData={customSection as CustomItemSection<CertificationItem>}
 			/>
-		))
-		.with("publications", () => (
+		),
+		publications: () => (
 			<PublicationsSection sectionId={sectionId} sectionData={customSection as CustomItemSection<PublicationItem>} />
-		))
-		.with("volunteer", () => (
+		),
+		volunteer: () => (
 			<VolunteerSection sectionId={sectionId} sectionData={customSection as CustomItemSection<VolunteerItem>} />
-		))
-		.with("references", () => (
+		),
+		references: () => (
 			<ReferencesSection sectionId={sectionId} sectionData={customSection as CustomItemSection<ReferenceItem>} />
-		))
-		.with("cover-letter", () => <CoverLetterSection section={customSection as CustomItemSection<CoverLetterItem>} />)
-		.exhaustive();
+		),
+		"cover-letter": () => <CoverLetterSection section={customSection as CustomItemSection<CoverLetterItem>} />,
+	} satisfies Record<CustomSectionType, () => ReactNode>;
+
+	return customSectionMap[customSection.type]();
 };
 
 export const Section = ({ section, placement, showHeading = true }: SectionProps) => {
@@ -981,26 +980,29 @@ export const Section = ({ section, placement, showHeading = true }: SectionProps
 
 	if (!isSectionVisible(section, data)) return null;
 
+	// ponytail: satisfies exhaustiveness over built-in types; custom IDs fall through to CustomSection
+	const builtInSectionMap = {
+		summary: () => <SummarySection showHeading={showHeading} />,
+		profiles: () => <ProfileSection />,
+		experience: () => <ExperienceSection />,
+		education: () => <EducationSection />,
+		projects: () => <ProjectsSection />,
+		skills: () => <SkillsSection />,
+		languages: () => <LanguagesSection />,
+		interests: () => <InterestsSection />,
+		awards: () => <AwardsSection />,
+		certifications: () => <CertificationsSection />,
+		publications: () => <PublicationsSection />,
+		volunteer: () => <VolunteerSection />,
+		references: () => <ReferencesSection />,
+	} satisfies Record<Exclude<CustomSectionType, "cover-letter">, () => ReactNode>;
+
+	const render = (builtInSectionMap as Record<string, (() => ReactNode) | undefined>)[section];
+
 	return (
 		<TemplatePlacementProvider placement={placement}>
 			<SectionStyleProvider context={getSectionStyleRuleContext(data, section)}>
-				{match(section)
-					.with("summary", () => <SummarySection showHeading={showHeading} />)
-					.with("profiles", () => <ProfileSection />)
-					.with("experience", () => <ExperienceSection />)
-					.with("education", () => <EducationSection />)
-					.with("projects", () => <ProjectsSection />)
-					.with("skills", () => <SkillsSection />)
-					.with("languages", () => <LanguagesSection />)
-					.with("interests", () => <InterestsSection />)
-					.with("awards", () => <AwardsSection />)
-					.with("certifications", () => <CertificationsSection />)
-					.with("publications", () => <PublicationsSection />)
-					.with("volunteer", () => <VolunteerSection />)
-					.with("references", () => <ReferencesSection />)
-					.otherwise(() => (
-						<CustomSection sectionId={section} showHeading={showHeading} />
-					))}
+				{render ? render() : <CustomSection sectionId={section} showHeading={showHeading} />}
 			</SectionStyleProvider>
 		</TemplatePlacementProvider>
 	);
