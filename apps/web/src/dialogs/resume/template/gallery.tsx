@@ -109,12 +109,7 @@ function TemplateCard({ id, data, metadata, isActive, onSelect }: TemplateCardPr
 				)}
 			>
 				<Suspense fallback={<img src={metadata.imageUrl} alt={metadata.name} className="size-full object-cover" />}>
-					<TemplateLivePreview
-						data={data}
-						template={id}
-						fallbackSrc={metadata.imageUrl}
-						alt={t`Live preview of your resume in the ${metadata.name} template`}
-					/>
+					<TemplateLivePreview data={data} template={id} fallbackSrc={metadata.imageUrl} alt={metadata.name} />
 				</Suspense>
 			</button>
 
