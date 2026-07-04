@@ -56,7 +56,6 @@
 		"happy-dom": "^20.10.6",
 		"knip": "^6.24.0",
 		"lefthook": "^2.1.9",
-		"npm-check-updates": "^22.2.9",
 		"pg": "^8.22.0",
 		"turbo": "^2.10.3",
 		"typescript": "^6.0.3",
