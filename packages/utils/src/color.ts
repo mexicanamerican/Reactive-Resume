@@ -1,12 +1,14 @@
+import { hsvaToHex, rgbaStringToHsva } from "@uiw/color-convert";
+
 type ParsedColor = { r: number; g: number; b: number; a: number };
 
 export function rgbaStringToHex(rgba: string): string {
 	const color = parseColorString(rgba);
 	if (color) return `#${toHexComponent(color.r)}${toHexComponent(color.g)}${toHexComponent(color.b)}`;
-	// ponytail: unrecognized format → black. Callers only pass builder-picker output (hex/rgba),
-	// which parseColorString handles; named-color/hsl inputs never reach here. If a caller ever needs
-	// those, restore a real converter (e.g. @uiw/color-convert) instead of this black fallback.
-	return "#000000";
+	// Fallback: the local parser is integer-only, so percentage-notation rgb() (e.g. "rgb(100%,0%,0%)")
+	// reaches here — @uiw converts it. Everything @uiw can't parse (named colors, hsl, transparent)
+	// yields black, same as it always has. Custom style-rule colors are arbitrary strings, so keep this.
+	return hsvaToHex(rgbaStringToHsva(rgba));
 }
 
 function toHexComponent(value: number): string {

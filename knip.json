@@ -53,5 +53,5 @@
 			"ignoreDependencies": ["ioredis"]
 		}
 	},
-	"ignoreDependencies": ["@reactive-resume/config", "npm-check-updates"]
+	"ignoreDependencies": ["@reactive-resume/config"]
 }

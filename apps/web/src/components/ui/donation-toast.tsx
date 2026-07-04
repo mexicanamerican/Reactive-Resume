@@ -18,7 +18,8 @@ export function DonationToast() {
 	const [dismissed, setDismissedState] = useState<string | null>(() => Cookies.get(DISMISSED_COOKIE_NAME) ?? null);
 
 	const setDismissed = useCallback((value: string, options?: { expires?: Date }) => {
-		Cookies.set(DISMISSED_COOKIE_NAME, value, options);
+		// Attributes match the former useCookie DEFAULT_COOKIE_ATTRIBUTES; options (expiry) override.
+		Cookies.set(DISMISSED_COOKIE_NAME, value, { path: "/", secure: true, sameSite: "lax", ...options });
 		setDismissedState(value);
 	}, []);
 
