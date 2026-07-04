@@ -1,6 +1,6 @@
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { Template } from "@reactive-resume/schema/templates";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
@@ -8,8 +8,8 @@ import { createPdfFirstPageImageUrl } from "./pdf-thumbnail";
 
 // Bounded FIFO cache of generated object URLs keyed by (data, template) reference. Evicted entries are
 // revoked so blobs don't leak; stale-data entries (a new `data` object after an edit) age out via the cap.
-// ponytail: cap-8 linear scan — trivial for a hover preview; only one card renders at a time.
-const PREVIEW_CACHE_LIMIT = 8;
+// ponytail: cap-24 linear scan — gallery can show ~20 templates at once.
+const PREVIEW_CACHE_LIMIT = 24;
 type PreviewCacheEntry = { data: ResumeData; template: Template; url: string };
 const previewCache: PreviewCacheEntry[] = [];
 
@@ -24,10 +24,10 @@ const setCachedPreview = (data: ResumeData, template: Template, url: string) => 
 	}
 };
 
-// Single-flight render pipeline shared across every mounted instance: renders run one-at-a-time on the
-// main thread (serialized through `renderQueue`), and only the latest requested render commits its result
-// (`latestRenderRequestId`), so rapid hovers between templates discard superseded work instead of stacking.
-let latestRenderRequestId = 0;
+// Serial render pipeline shared across all instances: PDFs generate one-at-a-time on the main thread
+// (serialized through `renderQueue`) so the gallery doesn't spike CPU/memory when all tiles mount at once.
+// Per-instance `latestRenderRequestId` ref (not global) ensures that if a component re-renders with new
+// props it discards its own superseded work without cancelling renders for other tiles.
 let renderQueue: Promise<void> = Promise.resolve();
 
 type TemplateLivePreviewProps = {
@@ -47,6 +47,8 @@ type TemplateLivePreviewProps = {
 export function TemplateLivePreview({ alt, className, data, fallbackSrc, template }: TemplateLivePreviewProps) {
 	const [imageUrl, setImageUrl] = useState<string | null>(() => getCachedPreview(data, template) ?? null);
 	const [hasError, setHasError] = useState(false);
+	// Per-instance counter: only the latest render request for THIS tile commits its result.
+	const latestRequestId = useRef(0);
 
 	useEffect(() => {
 		const cached = getCachedPreview(data, template);
@@ -56,10 +58,10 @@ export function TemplateLivePreview({ alt, className, data, fallbackSrc, templat
 		}
 
 		let cancelled = false;
-		const requestId = ++latestRenderRequestId;
+		const requestId = ++latestRequestId.current;
 
 		renderQueue = renderQueue.then(async () => {
-			if (cancelled || requestId !== latestRenderRequestId) return;
+			if (cancelled || requestId !== latestRequestId.current) return;
 
 			// Another instance may have cached this exact preview while we were queued.
 			const existing = getCachedPreview(data, template);
@@ -72,7 +74,7 @@ export function TemplateLivePreview({ alt, className, data, fallbackSrc, templat
 				const blob = await createResumePdfBlob(data, template);
 				const url = await createPdfFirstPageImageUrl(blob);
 
-				if (cancelled || requestId !== latestRenderRequestId) {
+				if (cancelled || requestId !== latestRequestId.current) {
 					URL.revokeObjectURL(url);
 					return;
 				}
