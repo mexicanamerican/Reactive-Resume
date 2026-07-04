@@ -10,8 +10,8 @@ import {
 	TrashSimpleIcon,
 	UploadSimpleIcon,
 } from "@phosphor-icons/react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useRef, useState } from "react";
 import Cropper from "react-easy-crop";
 import { toast } from "sonner";
 import { pictureSchema } from "@reactive-resume/schema/resume/data";
@@ -56,7 +56,6 @@ type PicturePreviewControlsProps = {
 	form: PictureSettingsForm;
 	normalizedPictureUrl: string;
 	picture: PictureValues;
-	pictureSrc: string;
 	onAutoSave: () => void;
 	onDeletePicture: () => void;
 	onSelectPicture: () => void;
@@ -68,7 +67,6 @@ function PicturePreviewControls({
 	form,
 	normalizedPictureUrl,
 	picture,
-	pictureSrc,
 	onAutoSave,
 	onDeletePicture,
 	onSelectPicture,
@@ -91,10 +89,10 @@ function PicturePreviewControls({
 				aria-label={picture.url ? t`Delete picture` : t`Upload picture`}
 				className="group/picture relative size-18 cursor-pointer overflow-hidden rounded-md bg-secondary transition-colors hover:bg-secondary/50"
 			>
-				{(pictureSrc || normalizedPictureUrl) && (
+				{normalizedPictureUrl && (
 					<img
 						alt=""
-						src={pictureSrc || normalizedPictureUrl}
+						src={normalizedPictureUrl}
 						className="fade-in relative z-10 size-full animate-in rounded-md object-cover transition-opacity group-hover/picture:opacity-20"
 					/>
 				)}
@@ -420,17 +418,6 @@ async function getCroppedImageBlob(imageSrc: string, pixelCrop: Area): Promise<B
 	});
 }
 
-async function createPicturePreviewUrl(url: string, signal: AbortSignal) {
-	const response = await fetch(url, { signal });
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch image: ${response.status}`);
-	}
-
-	const blob = await response.blob();
-	return URL.createObjectURL(blob);
-}
-
 function usePictureSettingsForm(picture: PictureValues, persist: (data: PictureValues) => void) {
 	const form = useAppForm({
 		defaultValues: picture,
@@ -463,13 +450,6 @@ function PictureSectionForm() {
 	const resume = useCurrentResume();
 	const picture = resume.data.picture;
 	const normalizedPictureUrl = normalizePictureUrl(picture.url, appOrigin);
-	const picturePreviewQuery = useQuery({
-		queryKey: ["resume-picture-preview", normalizedPictureUrl],
-		queryFn: ({ signal }) => createPicturePreviewUrl(normalizedPictureUrl, signal),
-		enabled: Boolean(normalizedPictureUrl),
-		gcTime: 0,
-	});
-	const pictureSrc = picturePreviewQuery.data ?? normalizedPictureUrl;
 	const updateResumeData = useUpdateResumeData();
 
 	const { mutate: uploadFile } = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
@@ -569,14 +549,6 @@ function PictureSectionForm() {
 		closeCropDialog();
 	};
 
-	useEffect(() => {
-		const objectUrl = picturePreviewQuery.data;
-
-		return () => {
-			if (objectUrl) URL.revokeObjectURL(objectUrl);
-		};
-	}, [picturePreviewQuery.data]);
-
 	const cropAspect = Number(form.state.values.aspectRatio) || 1;
 
 	return (
@@ -665,7 +637,6 @@ function PictureSectionForm() {
 					form={form}
 					normalizedPictureUrl={normalizedPictureUrl}
 					picture={picture}
-					pictureSrc={pictureSrc}
 					onAutoSave={handleAutoSave}
 					onDeletePicture={onDeletePicture}
 					onSelectPicture={onSelectPicture}
