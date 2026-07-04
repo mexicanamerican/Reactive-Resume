@@ -46,7 +46,6 @@ export const Route = createFileRoute("/agent/$threadId")({
 });
 
 const AGENT_PREVIEW_ZOOM_STORAGE_KEY = "reactive-resume:agent-preview-zoom:v3";
-const AGENT_PREVIEW_ZOOM_MIGRATION_KEY = `${AGENT_PREVIEW_ZOOM_STORAGE_KEY}:initialized`;
 const MIN_PREVIEW_ZOOM = 0.4;
 const MAX_PREVIEW_ZOOM = 1.5;
 const PREVIEW_ZOOM_STEP = 0.05;
@@ -58,14 +57,10 @@ function clampPreviewZoom(value: number) {
 
 function getInitialPreviewZoom() {
 	if (typeof window === "undefined") return DEFAULT_PREVIEW_ZOOM;
-
-	if (!window.localStorage.getItem(AGENT_PREVIEW_ZOOM_MIGRATION_KEY)) {
-		window.localStorage.setItem(AGENT_PREVIEW_ZOOM_STORAGE_KEY, String(DEFAULT_PREVIEW_ZOOM));
-		window.localStorage.setItem(AGENT_PREVIEW_ZOOM_MIGRATION_KEY, "true");
-		return DEFAULT_PREVIEW_ZOOM;
-	}
-
-	const stored = Number(window.localStorage.getItem(AGENT_PREVIEW_ZOOM_STORAGE_KEY));
+	// ponytail: Number(null) === 0, so guard with a null-check before parsing
+	const raw = window.localStorage.getItem(AGENT_PREVIEW_ZOOM_STORAGE_KEY);
+	if (raw === null) return DEFAULT_PREVIEW_ZOOM;
+	const stored = Number(raw);
 	return Number.isFinite(stored) ? clampPreviewZoom(stored) : DEFAULT_PREVIEW_ZOOM;
 }
 
