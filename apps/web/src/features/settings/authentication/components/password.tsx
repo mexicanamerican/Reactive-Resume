@@ -3,10 +3,23 @@ import { PasswordIcon, PencilSimpleLineIcon } from "@phosphor-icons/react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { m } from "motion/react";
 import { useCallback } from "react";
-import { match } from "ts-pattern";
 import { Button } from "@reactive-resume/ui/components/button";
 import { useDialogStore } from "@/dialogs/store";
 import { useAuthAccounts } from "./hooks";
+
+// ponytail: m.div wrapper is identical for both branches — extracted, match(boolean) removed
+function ActionButton({ children }: { children: React.ReactNode }) {
+	return (
+		<m.div
+			className="will-change-transform"
+			whileHover={{ y: -1, scale: 1.01 }}
+			whileTap={{ scale: 0.99 }}
+			transition={{ duration: 0.14, ease: "easeOut" }}
+		>
+			{children}
+		</m.div>
+	);
+}
 
 export function PasswordSection() {
 	const navigate = useNavigate();
@@ -35,39 +48,24 @@ export function PasswordSection() {
 				<Trans>Password</Trans>
 			</h2>
 
-			{match(hasPassword)
-				.with(true, () => (
-					<m.div
-						className="will-change-transform"
-						whileHover={{ y: -1, scale: 1.01 }}
-						whileTap={{ scale: 0.99 }}
-						transition={{ duration: 0.14, ease: "easeOut" }}
-					>
-						<Button variant="outline" onClick={handleUpdatePassword}>
-							<PencilSimpleLineIcon />
-							<Trans>Update Password</Trans>
-						</Button>
-					</m.div>
-				))
-				.with(false, () => (
-					<m.div
-						className="will-change-transform"
-						whileHover={{ y: -1, scale: 1.01 }}
-						whileTap={{ scale: 0.99 }}
-						transition={{ duration: 0.14, ease: "easeOut" }}
-					>
-						<Button
-							variant="outline"
-							nativeButton={false}
-							render={
-								<Link to="/auth/forgot-password">
-									<Trans>Set Password</Trans>
-								</Link>
-							}
-						/>
-					</m.div>
-				))
-				.exhaustive()}
+			<ActionButton>
+				{hasPassword ? (
+					<Button variant="outline" onClick={handleUpdatePassword}>
+						<PencilSimpleLineIcon />
+						<Trans>Update Password</Trans>
+					</Button>
+				) : (
+					<Button
+						variant="outline"
+						nativeButton={false}
+						render={
+							<Link to="/auth/forgot-password">
+								<Trans>Set Password</Trans>
+							</Link>
+						}
+					/>
+				)}
+			</ActionButton>
 		</m.div>
 	);
 }
