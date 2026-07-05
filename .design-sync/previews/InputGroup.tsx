@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { CopyIcon, GlobeIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
 import {
 	InputGroup,

@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 
 // The component builds its src from /logo|/icon static paths that the preview

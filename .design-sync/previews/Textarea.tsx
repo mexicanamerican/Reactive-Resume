@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 

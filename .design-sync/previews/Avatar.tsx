@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { CheckIcon } from "@phosphor-icons/react";
 import {
 	Avatar,

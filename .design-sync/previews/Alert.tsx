@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { InfoIcon, WarningIcon } from "@phosphor-icons/react";
 import { Alert, AlertAction, AlertDescription, AlertTitle } from "@reactive-resume/ui/components/alert";
 import { Button } from "@reactive-resume/ui/components/button";

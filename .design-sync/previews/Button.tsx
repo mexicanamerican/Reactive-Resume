@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { ArrowRightIcon, PlusIcon, TrashIcon } from "@phosphor-icons/react";
 import { Button } from "@reactive-resume/ui/components/button";
 

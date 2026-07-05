@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { DownloadSimpleIcon, FileDocIcon, FilePdfIcon, TrashIcon, WarningIcon } from "@phosphor-icons/react";
 import {
 	Attachment,

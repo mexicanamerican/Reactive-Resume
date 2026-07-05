@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@reactive-resume/ui/components/accordion";
 
 const wrap: React.CSSProperties = { width: 420, padding: 16 };
@@ -32,7 +33,7 @@ export const Sections = () => (
 
 export const MultipleOpen = () => (
 	<div style={wrap}>
-		<Accordion openMultiple defaultValue={["summary", "certifications"]}>
+		<Accordion multiple defaultValue={["summary", "certifications"]}>
 			<AccordionItem value="summary">
 				<AccordionTrigger>Professional Summary</AccordionTrigger>
 				<AccordionContent>

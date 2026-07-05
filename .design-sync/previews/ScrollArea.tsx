@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { ScrollArea } from "@reactive-resume/ui/components/scroll-area";
 
 const templates = [

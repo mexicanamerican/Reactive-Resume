@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 
 const pad: React.CSSProperties = { padding: 20 };

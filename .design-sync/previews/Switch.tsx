@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Switch } from "@reactive-resume/ui/components/switch";
 

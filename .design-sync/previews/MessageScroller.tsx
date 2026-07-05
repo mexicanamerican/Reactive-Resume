@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { SparkleIcon, UserIcon } from "@phosphor-icons/react";
 import { Bubble, BubbleContent } from "@reactive-resume/ui/components/bubble";
 import { Message, MessageAvatar, MessageContent } from "@reactive-resume/ui/components/message";

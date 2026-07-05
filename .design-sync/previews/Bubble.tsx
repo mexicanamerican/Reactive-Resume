@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from "@reactive-resume/ui/components/bubble";
 
 const wrap: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 8, padding: 16, width: 420 };

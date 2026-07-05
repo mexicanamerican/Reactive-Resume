@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { BriefcaseIcon, GraduationCapIcon, SparkleIcon } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
 

@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Kbd, KbdGroup } from "@reactive-resume/ui/components/kbd";
 
 const row: React.CSSProperties = { display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, padding: 20 };

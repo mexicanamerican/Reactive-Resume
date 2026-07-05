@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
 

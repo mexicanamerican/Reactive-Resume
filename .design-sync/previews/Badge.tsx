@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { CheckCircleIcon, PencilSimpleIcon, SparkleIcon } from "@phosphor-icons/react";
 import { Badge } from "@reactive-resume/ui/components/badge";
 

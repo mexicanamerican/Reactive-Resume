@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { CheckCircleIcon, SparkleIcon, WarningCircleIcon } from "@phosphor-icons/react";
 import { Marker, MarkerContent, MarkerIcon } from "@reactive-resume/ui/components/marker";
 

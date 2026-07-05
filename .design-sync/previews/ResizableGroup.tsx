@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@reactive-resume/ui/components/resizable";
 
 const panelStyle: React.CSSProperties = { height: "100%", padding: 16, fontSize: 14, lineHeight: 1.6 };

@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Separator } from "@reactive-resume/ui/components/separator";
 
 const block: React.CSSProperties = {

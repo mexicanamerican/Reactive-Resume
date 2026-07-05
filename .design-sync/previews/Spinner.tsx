@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 
 const row: React.CSSProperties = { display: "flex", alignItems: "center", gap: 20, padding: 24 };
