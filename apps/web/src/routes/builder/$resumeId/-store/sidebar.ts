@@ -1,11 +1,12 @@
 import type { Layout, usePanelRef } from "react-resizable-panels";
+import Cookies from "js-cookie";
 import { useCallback, useMemo } from "react";
 import { useMediaQuery, useWindowSize } from "usehooks-ts";
 import { create } from "zustand/react";
 
 type PanelImperativeHandle = ReturnType<typeof usePanelRef>;
 
-export const BUILDER_LAYOUT_COOKIE_NAME = "builder_layout";
+const BUILDER_LAYOUT_COOKIE_NAME = "builder_layout";
 
 export type BuilderLayout = {
 	left: number;
@@ -146,3 +147,14 @@ export function useBuilderSidebar(): UseBuilderSidebarReturn {
 		};
 	}, [maxSidebarSize, minSidebarSize, collapsedSidebarSize, groupResizeBehavior, isCollapsed, toggleSidebar]);
 }
+
+export const setBuilderLayout = (data: BuilderLayout) => {
+	const layout = parseBuilderLayoutCookie(JSON.stringify(data));
+	Cookies.set(BUILDER_LAYOUT_COOKIE_NAME, JSON.stringify(layout), { path: "/" });
+};
+
+export const getBuilderLayout = (): BuilderLayout => {
+	const layout = Cookies.get(BUILDER_LAYOUT_COOKIE_NAME);
+	if (!layout) return DEFAULT_BUILDER_LAYOUT;
+	return parseBuilderLayoutCookie(layout);
+};

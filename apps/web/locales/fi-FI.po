@@ -18,6 +18,15 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#. placeholder {0}: application.role
+#. placeholder {0}: current.role
+#. placeholder {1}: application.company
+#. placeholder {1}: current.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "\"{0} · {1}\" and its full timeline will be permanently deleted. This can't be undone."
+msgstr "\"{0} · {1}\" ja sen koko aikajana poistetaan pysyvästi. Tätä ei voi kumota."
+
 #: src/routes/_home/-sections/footer.tsx
 #: src/routes/_home/-sections/hero.tsx
 msgid "(opens in new tab)"
@@ -33,11 +42,31 @@ msgstr "{0, plural, one {# kohde} other {# kohdetta}}"
 msgid "{0, plural, one {# role} other {# roles}}"
 msgstr "{0, plural, one {# rooli} other {# roolia}}"
 
+#. placeholder {0}: insights.total
+#: src/features/applications/components/insights-view.tsx
+msgid "{0} applications tracked"
+msgstr "{0} hakemusta seurannassa"
+
 #. Character count readout for the rich-text editor
 #. placeholder {0}: state.characterCount
 #: src/components/input/rich-input.tsx
 msgid "{0} characters"
 msgstr "{0} merkkiä"
+
+#. placeholder {0}: importable.length
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "{0} ready to import"
+msgstr "{0} valmiina tuotavaksi"
+
+#. placeholder {0}: insights.rejected
+#: src/features/applications/components/insights-view.tsx
+msgid "{0} rejected"
+msgstr "{0} hylätty"
+
+#. placeholder {0}: parsed.skipped
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "{0} skipped (missing company/role)"
+msgstr "{0} ohitettu (yritys/rooli puuttuu)"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -89,6 +118,10 @@ msgstr "Vahvistuslinkki on lähetetty nykyiseen sähköpostiosoitteeseesi. Tarki
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr "Ilmainen ja avoimen lähdekoodin ansioluettelon laatija, joka helpottaa ansioluettelon laatimista, päivittämistä ja jakamista."
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "A friendly nudge for the recruiter"
+msgstr "Ystävällinen muistutus rekrytoijalle"
+
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "A link to your resume has been copied to clipboard."
@@ -106,6 +139,10 @@ msgstr "Uusi vahvistuslinkki on lähetetty sähköpostiosoitteeseesi. Tarkista p
 msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Rakkaudella tehty projekti, jonka on luonut <0>Amruth Pillai</0>."
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "A stretch"
+msgstr "Haastava tavoite"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "A4"
 msgstr "A4"
@@ -122,13 +159,26 @@ msgstr "Käytä ansioluetteloitasi ja tietojasi ohjelmallisesti rajapinnan (API:
 msgid "Account menu"
 msgstr "Tilivalikko"
 
+#: src/features/applications/components/table-view.tsx
+msgid "Actions"
+msgstr "Toiminnot"
+
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Actual size (100%)"
 msgstr "Todellinen koko (100 %)"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/table-view.tsx
+msgid "Add"
+msgstr "Lisää"
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Add a custom field"
 msgstr "Lisää mukautettu kenttä"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Add a job you're applying to, link the resume you sent, and move it through your pipeline as things progress."
+msgstr "Lisää työpaikka, johon haet, linkitä lähettämäsi ansioluettelo ja siirrä sitä putkessa tilanteen edetessä."
 
 #: src/components/input/chip-input.tsx
 msgid "Add a keyword..."
@@ -196,9 +246,26 @@ msgstr "Lisää uusi taito"
 msgid "Add a new volunteer experience"
 msgstr "Lisää uusi vapaaehtoistyökokemus"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Add a note or log activity…"
+msgstr "Lisää muistiinpano tai kirjaa toiminta…"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Add a tag and press Enter…"
+msgstr "Lisää tunniste ja paina Enter…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Add and test a provider before starting an agent thread."
 msgstr "Lisää ja testaa toimittaja ennen agenttiketjun aloittamista."
+
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/routes/dashboard/applications/index.tsx
+msgid "Add application"
+msgstr "Lisää hakemus"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Add contact"
+msgstr "Lisää yhteyshenkilö"
 
 #: src/components/input/chip-input.tsx
 msgid "Add keyword"
@@ -224,6 +291,14 @@ msgstr "Lisää palveluntarjoaja"
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add Role"
 msgstr "Lisää rooli"
+
+#: src/features/applications/components/table-view.tsx
+msgid "Add tag"
+msgstr "Lisää tunniste"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Add to pipeline"
+msgstr "Lisää putkeen"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Adjust the resume for a remote-first role that values async communication and ownership."
@@ -322,6 +397,10 @@ msgstr "Ja paljon muuta..."
 msgid "Anthropic Claude"
 msgstr "Antrooppinen Claude"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Any tag"
+msgstr "Mikä tahansa tunniste"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone visiting the resume's public URL must enter this password to access it."
 msgstr "Kuka tahansa, joka vierailee ansioluettelon julkisessa osoitteessa, joutuu syöttämään tämän salasanan saadakseen siihen pääsyn."
@@ -360,9 +439,51 @@ msgstr "API-viite"
 msgid "App"
 msgstr "Sovellus"
 
+#: src/features/applications/components/application-actions-menu.tsx
+msgid "Application actions"
+msgstr "Hakemuksen toiminnot"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Application added to your pipeline."
+msgstr "Hakemus lisättiin putkeesi."
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Application Copilot"
+msgstr "Hakemusavustaja"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Application deleted."
+msgstr "Hakemus poistettu."
+
 #: src/routes/_home/-sections/statistics.tsx
 msgid "Application Statistics"
 msgstr "Sovelluksen tilastot"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Application updated."
+msgstr "Hakemus päivitetty."
+
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/applications/index.tsx
+msgid "Applications"
+msgstr "Hakemukset"
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Applications over time"
+msgstr "Hakemukset ajan kuluessa"
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Applications sent per week (last 8 weeks)"
+msgstr "Lähetetyt hakemukset viikoittain (viimeiset 8 viikkoa)"
+
+#: src/features/applications/components/table-view.tsx
+msgid "Applied"
+msgstr "Haettu"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Applied on"
+msgstr "Haettu"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
 msgid "Applied Rules"
@@ -372,10 +493,17 @@ msgstr "Sovelletut säännöt"
 msgid "Arabic"
 msgstr "arabia"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/table-view.tsx
 #: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Archive"
 msgstr "Arkisto"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Archived"
+msgstr "Arkistoitu"
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -437,6 +565,15 @@ msgstr "Kuvasuhde"
 msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
 msgstr "Atlas Cloud tukee Reactive Resumea projektin sponsorina. Jos yrityksesi haluaa sponsoroida projektia, lähetä sähköpostia osoitteeseen <0>{sponsorshipEmail}</0> ."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Attach a cover letter (PDF)"
+msgstr "Liitä saatekirje (PDF)"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Attach a resume file (PDF)"
+msgstr "Liitä ansioluettelotiedosto (PDF)"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Attach files"
 msgstr "Liitä tiedostoja"
@@ -454,6 +591,14 @@ msgstr "Liite ladattu."
 #: src/routes/dashboard/settings/authentication/index.tsx
 msgid "Authentication"
 msgstr "Todennus"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Auto-fill"
+msgstr "Automaattinen täyttö"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Auto-fill failed. Paste the description instead."
+msgstr "Automaattinen täyttö epäonnistui. Liitä kuvaus sen sijaan."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -515,6 +660,10 @@ msgstr "Paras sovelluksiin, jakamiseen ja tulostamiseen."
 msgid "Blank draft"
 msgstr "Tyhjä luonnos"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Board"
+msgstr "Taulu"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgctxt "Body Text (paragraphs, lists, etc.)"
 msgid "Body"
@@ -545,6 +694,14 @@ msgstr "Rakentajan komentopaletti"
 msgid "Bulgarian"
 msgstr "bulgaria"
 
+#: src/features/applications/components/table-view.tsx
+msgid "Bulk delete failed. Please try again."
+msgstr "Joukkopoisto epäonnistui. Yritä uudelleen."
+
+#: src/features/applications/components/table-view.tsx
+msgid "Bulk update failed. Please try again."
+msgstr "Joukkopäivitys epäonnistui. Yritä uudelleen."
+
 #: src/components/input/rich-input.tsx
 msgid "Bullet List"
 msgstr "Luettelomerkkilista"
@@ -570,6 +727,9 @@ msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/dialogs/resume/sections/custom.tsx
 #: src/dialogs/resume/sections/section-item-dialog.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -660,8 +820,8 @@ msgid "Choose an existing conversation from the sidebar, or start a new draft-fo
 msgstr "Valitse olemassa oleva keskustelu sivupalkista tai aloita uusi luonnostyyppinen ketju."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
-msgid "Choose PDF, DOCX, or JSON. Export your resume and cover letter separately when available."
-msgstr "Valitse PDF, DOCX tai JSON. Vie ansioluettelosi ja saatekirjeesi erikseen, jos mahdollista."
+msgid "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
+msgstr "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -670,8 +830,13 @@ msgstr "Ympyrä"
 #. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
+#: src/features/applications/components/table-view.tsx
 msgid "Clear"
 msgstr "Kirkas"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Clear filters"
+msgstr "Tyhjennä suodattimet"
 
 #: src/components/ui/combobox.tsx
 msgid "Clear selection"
@@ -706,8 +871,17 @@ msgid "Community"
 msgstr "Yhteisö"
 
 #: src/dialogs/resume/sections/experience.tsx
+#: src/features/applications/components/application-form-sheet.tsx
 msgid "Company"
 msgstr "Yritys"
+
+#: src/features/applications/components/table-view.tsx
+msgid "Company / Role"
+msgstr "Yritys / rooli"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Company A–Z"
+msgstr "Yritys A–Z"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Compare this resume against this role URL and update keywords while keeping the voice concise and credible."
@@ -743,6 +917,10 @@ msgstr "Yhteys epäonnistui"
 msgid "Connection verified — provider is ready to use."
 msgstr "Yhteys vahvistettu — palveluntarjoaja on käyttövalmis."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
 #: src/dialogs/resume/sections/cover-letter.tsx
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Content"
@@ -777,8 +955,13 @@ msgstr "Keskustelu kopioitu."
 msgid "Conversation JSON copied."
 msgstr "Keskustelun JSON-tiedosto kopioitu."
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Copied to clipboard."
+msgstr "Kopioitu leikepöydälle."
+
 #. Action button to copy two-factor backup codes to clipboard
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/features/applications/components/application-ai-copilot.tsx
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Copy"
 msgstr "Kopioi"
@@ -823,13 +1006,44 @@ msgstr "Palveluntarjoajan yhteyden vahvistaminen epäonnistui."
 msgid "Could not verify the connection. Check the API key, model, and base URL."
 msgstr "Yhteyden vahvistaminen epäonnistui. Tarkista API-avain, malli ja perus-URL-osoite."
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Couldn't add the application. Please try again."
+msgstr "Hakemusta ei voitu lisätä. Yritä uudelleen."
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the application."
+msgstr "Hakemusta ei voitu poistaa."
+
+#: src/features/applications/components/board.tsx
+msgid "Couldn't move the application. Please try again."
+msgstr "Hakemusta ei voitu siirtää. Yritä uudelleen."
+
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Couldn't save"
 msgstr "Tallentaminen epäonnistui"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't save the note."
+msgstr "Muistiinpanoa ei voitu tallentaa."
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Couldn't save your changes. Please try again."
+msgstr "Muutoksia ei voitu tallentaa. Yritä uudelleen."
+
+#: src/features/applications/components/file-attachment-field.tsx
+msgid "Couldn't upload the file. Please try again."
+msgstr "Tiedostoa ei voitu ladata. Yritä uudelleen."
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Count by source"
+msgstr "Määrä lähteen mukaan"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/application-form-sheet.tsx
 #: src/features/resume/export/download-dialog.tsx
 msgid "Cover letter"
-msgstr ""
+msgstr "Saatekirje"
 
 #. Fallback title for a custom cover letter item in resume builder when recipient is empty
 #. Fallback title for a custom cover letter item in resume builder when recipient is unavailable
@@ -839,6 +1053,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "Cover Letter"
 msgstr "Saatekirje"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Cover letter draft"
+msgstr "Saatekirjeluonnos"
 
 #. Create API key dialog submit action
 #: src/dialogs/api-key/create.tsx
@@ -861,6 +1079,10 @@ msgstr "Saatekirje"
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Create"
 msgstr "Luo"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Create a copy tuned to this job"
+msgstr "Luo tähän työpaikkaan mukautettu kopio"
 
 #: src/features/auth/pages/register.tsx
 msgid "Create a new account"
@@ -964,6 +1186,11 @@ msgstr "Luo ansioluettelo vaihtoehdoilla"
 msgid "Created"
 msgstr "Luotu"
 
+#. placeholder {0}: result.name
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Created \"{0}\" and linked it to this application."
+msgstr "\"{0}\" luotiin ja linkitettiin tähän hakemukseen."
+
 #: src/dialogs/api-key/create.tsx
 msgid "Creating your API key..."
 msgstr "Luodaan API-avaintasi..."
@@ -975,6 +1202,10 @@ msgstr "Luodaan ansioluetteloasi..."
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Crop picture"
 msgstr "Rajaa kuvaa"
+
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "CSV data"
+msgstr "CSV-tiedot"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -1035,11 +1266,15 @@ msgstr "Tietoturva"
 msgid "Date"
 msgstr "Päivämäärä"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Date applied"
+msgstr "Hakupäivä"
+
 #: src/components/input/rich-input.tsx
 msgid "Decrease indent"
 msgstr "Pienennä sisennystä"
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Decrease zoom"
 msgstr "Pienennä zoomausta"
 
@@ -1053,6 +1288,9 @@ msgstr "Tutkinto"
 #. Passkey row action to remove the selected passkey
 #. Resume card context menu destructive action to remove a resume
 #. Resume card dropdown destructive action to remove a resume
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/table-view.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/routes/agent/-components/agent-chat.tsx
@@ -1086,6 +1324,16 @@ msgstr "Poista palveluntarjoaja"
 msgid "Delete this agent thread?"
 msgstr "Poistetaanko tämä agenttiketju?"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this application?"
+msgstr "Poistetaanko tämä hakemus?"
+
+#. placeholder {0}: result.deleted
+#: src/features/applications/components/table-view.tsx
+msgid "Deleted {0} application(s)."
+msgstr "Poistettiin {0} hakemus(ta)."
+
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Deleting your account..."
 msgstr "Poistetaan tiliäsi..."
@@ -1112,7 +1360,7 @@ msgid "Description"
 msgstr "Kuvaus"
 
 #: src/libs/resume/section.tsx
-#: src/routes/builder/$resumeId/route.tsx
+#: src/routes/builder/$resumeId/-components/mobile-builder-shell.tsx
 msgid "Design"
 msgstr "Ulkoasu"
 
@@ -1140,6 +1388,7 @@ msgid "Discord"
 msgstr "Discord"
 
 #: src/components/ui/donation-toast.tsx
+#: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Hylkää"
 
@@ -1147,6 +1396,10 @@ msgstr "Hylkää"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Documentation"
 msgstr "Dokumentaatio"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Documents sent"
+msgstr "Lähetetyt asiakirjat"
 
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
@@ -1176,16 +1429,28 @@ msgstr "Lataa kopio kaikista tiedoistasi, mukaan lukien profiilisi ja jokainen a
 #. Primary action in the builder header to open resume download options
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Download options"
-msgstr ""
+msgstr "Latausvaihtoehdot"
 
 #: src/features/resume/public/public-resume.tsx
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Download PDF"
 msgstr "Lataa PDF"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Downloads"
 msgstr "Lataukset"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Draft a cover letter"
+msgstr "Laadi saatekirje"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Draft a follow-up"
+msgstr "Laadi seurantaviesti"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Drafting failed."
+msgstr "Luonnostelu epäonnistui."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Drag and drop sections here to move them between columns"
@@ -1231,7 +1496,9 @@ msgid "Earlier versions are kept; the builder's undo history is reset."
 msgstr "Aiemmat versiot säilytetään; rakentajan kumoamishistoria nollataan."
 
 #: src/components/input/chip-input.tsx
-#: src/routes/builder/$resumeId/route.tsx
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/routes/builder/$resumeId/-components/mobile-builder-shell.tsx
 msgid "Edit"
 msgstr "Muokata"
 
@@ -1239,6 +1506,10 @@ msgstr "Muokata"
 #: src/components/input/chip-input.tsx
 msgid "Edit {chip}"
 msgstr "Muokkaa {chip}"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Edit application"
+msgstr "Muokkaa hakemusta"
 
 #. Screen reader description for the fullscreen rich-text editor dialog
 #: src/components/input/rich-input.tsx
@@ -1259,7 +1530,7 @@ msgstr "Muokkaa avainsanaa"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
-msgstr ""
+msgstr "Muokattavissa Wordissa, Google Docsissa ja Pagesissa."
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Editing is disabled until you unlock it."
@@ -1400,13 +1671,21 @@ msgstr "Vienti"
 msgid "Export my data"
 msgstr "Vie tietoni"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Export PNG"
+msgstr "Vie PNG"
+
 #: src/features/resume/export/download-dialog.tsx
 msgid "Export your resume or cover letter in the format you need."
-msgstr ""
+msgstr "Vie ansioluettelo tai saatekirje tarvitsemassasi muodossa."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Export your resume to PDF instantly, without any waiting or delays."
 msgstr "Vie ansioluettelosi PDF-muotoon välittömästi, ilman odottelua tai viivytyksiä."
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Exported pipeline-flow.png"
+msgstr "pipeline-flow.png viety"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
@@ -1582,9 +1861,17 @@ msgstr "Ominaisuudet"
 msgid "File"
 msgstr "Tiedosto"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Filled in what we could from the posting."
+msgstr "Täytimme ilmoituksesta sen, minkä pystyimme."
+
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "Suodata"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Filter by tags"
+msgstr "Suodata tunnisteiden mukaan"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Find weak bullets and rewrite them with stronger outcomes, numbers, scope, and sharper verbs."
@@ -1605,6 +1892,22 @@ msgstr "Joustavuus"
 #: src/dialogs/resume/sections/language.tsx
 msgid "Fluency"
 msgstr "Sujuvuus"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Follow-up"
+msgstr "Seuranta"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Follow-up date"
+msgstr "Seurantapäivä"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Follow-up draft"
+msgstr "Seurantaluonnos"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Follow-up note"
+msgstr "Seurantamuistiinpano"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Family"
@@ -1660,9 +1963,13 @@ msgstr "Vapaamuotoinen"
 msgid "French"
 msgstr "ranska"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "From your resume and the posting"
+msgstr "Ansioluettelostasi ja ilmoituksesta"
+
 #: src/features/resume/export/download-dialog.tsx
 msgid "Full resume data for backup or import."
-msgstr ""
+msgstr "Täydet ansioluettelotiedot varmuuskopiointia tai tuontia varten."
 
 #. Layout editor toggle label that makes a page single-column
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -1677,6 +1984,10 @@ msgstr "Koko näyttö"
 #: src/components/input/rich-input.tsx
 msgid "Fullscreen Editor"
 msgstr "Koko ruudun editori"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Gaps:"
+msgstr "Puutteet:"
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -1915,11 +2226,34 @@ msgstr "Tunnista hakijoiden seurantajärjestelmän puutteet ja käytä vain luot
 msgid "Import"
 msgstr "Tuo"
 
+#. placeholder {0}: importable.length
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Import {0}"
+msgstr "Tuo {0}"
+
 #: src/dialogs/resume/import.tsx
 #: src/routes/dashboard/resumes/-components/cards/import-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "Import an existing resume"
 msgstr "Tuo olemassa oleva ansioluettelo"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Import CSV"
+msgstr "Tuo CSV"
+
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Import failed. Check the CSV and try again."
+msgstr "Tuonti epäonnistui. Tarkista CSV ja yritä uudelleen."
+
+#: src/features/applications/components/import-applications-sheet.tsx
+#: src/routes/dashboard/applications/index.tsx
+msgid "Import from CSV"
+msgstr "Tuo CSV:stä"
+
+#. placeholder {0}: result.imported
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Imported {0} application(s)."
+msgstr "Tuotiin {0} hakemus(ta)."
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing from PDF or Word requires a connected AI provider."
@@ -1937,7 +2271,7 @@ msgstr "Tuodaan…"
 msgid "Increase indent"
 msgstr "Suurenna sisennystä"
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Increase zoom"
 msgstr "Lisää zoomausta"
 
@@ -1952,6 +2286,10 @@ msgstr "Tiedot"
 #: src/components/input/rich-input.tsx
 msgid "Inline Code"
 msgstr "Rivikoodaus"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Insights"
+msgstr "Näkymät"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Instant Generation"
@@ -1996,6 +2334,18 @@ msgstr "Kursiivi"
 #: src/libs/locale.ts
 msgid "Japanese"
 msgstr "japani"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job description"
+msgstr "Työnkuvaus"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Job posting"
+msgstr "Työpaikkailmoitus"
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Job search pipeline"
+msgstr "Työnhaun eteneminen"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2059,6 +2409,7 @@ msgstr "korea"
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Label"
 msgstr "Selite"
@@ -2091,6 +2442,10 @@ msgstr "Viimeksi analysoitu {updatedAtLabel}"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Last downloaded on {0}"
 msgstr "Viimeksi ladattu {0}"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Last updated"
+msgstr "Viimeksi päivitetty"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Last Updated"
@@ -2130,6 +2485,10 @@ msgstr "Jätä tyhjäksi palauttaaksesi otsikon alkuperäiseksi."
 msgid "Left Align"
 msgstr "Tasaa vasemmalle"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Let AI read the posting and fill the fields below."
+msgstr "Anna AI:n lukea ilmoitus ja täyttää alla olevat kentät."
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2163,6 +2522,18 @@ msgstr "Vaalea teema"
 msgid "Line Height"
 msgstr "Riviväli"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link a Reactive Resume (recommended)"
+msgstr "Linkitä Reactive Resume (suositus)"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
+msgstr "Linkitä ansioluettelo ja lisää työnkuvaus (Muokkaa), jotta sopivuutesi voidaan pisteyttää ja kopio mukauttaa."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Linked Reactive Resume"
+msgstr "Linkitetty Reactive Resume"
+
 #. Authentication provider display name in account settings
 #. Brand name label for LinkedIn social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -2170,6 +2541,14 @@ msgstr "Riviväli"
 #: src/routes/_home/-sections/footer.tsx
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "LinkedIn, Referral…"
+msgstr "LinkedIn, suosittelu…"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Linking a Reactive Resume enables AI match scoring and tailoring."
+msgstr "Reactive Resumen linkittäminen ottaa käyttöön tekoälyn vastaavuuspisteytyksen ja räätälöinnin."
 
 #: src/features/settings/authentication/components/hooks.tsx
 msgid "Linking your {providerName} account..."
@@ -2213,6 +2592,8 @@ msgstr "Ladataan…"
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/table-view.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Location"
 msgstr "Sijainti"
@@ -2277,6 +2658,14 @@ msgstr "Marginaali (vaaka)"
 msgid "Margin (Vertical)"
 msgstr "Marginaali (pysty)"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Mark rejected"
+msgstr "Merkitse hylätyksi"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Match scoring failed."
+msgstr "Sopivuuden pisteytys epäonnistui."
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Medium"
@@ -2288,7 +2677,7 @@ msgstr "Medium"
 msgid "Microsoft Word"
 msgstr "Microsoft Word"
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Missing working resume"
 msgstr "Puuttuva työansioluettelo"
 
@@ -2300,6 +2689,12 @@ msgstr "Malli"
 msgid "Move section to another column or page"
 msgstr "Siirrä osio toiselle sarakkeelle tai sivulle"
 
+#: src/features/applications/components/table-view.tsx
+msgid "Move stage"
+msgstr "Siirrä vaihetta"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
@@ -2321,6 +2716,7 @@ msgstr "Aloitettava osoitteesta https://"
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/auth/pages/register.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
@@ -2359,6 +2755,10 @@ msgstr "Uusi salasana"
 msgid "New Section"
 msgstr "Uusi osio"
 
+#: src/features/applications/components/table-view.tsx
+msgid "New tag…"
+msgstr "Uusi tunniste…"
+
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
 msgstr "Uusi viestiketju"
@@ -2366,6 +2766,14 @@ msgstr "Uusi viestiketju"
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
 msgstr "Ei mainoksia, ei seurantaa"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "No applications match your filters."
+msgstr "Mikään hakemus ei vastaa suodattimiasi."
+
+#: src/features/applications/components/insights-view.tsx
+msgid "No applications yet — add a few to see your funnel and reply rates."
+msgstr "Ei vielä hakemuksia — lisää muutama nähdäksesi suppilon ja vastausprosentit."
 
 #. Error shown when AI import endpoint returns no parsed resume data
 #: src/dialogs/resume/import.tsx
@@ -2384,14 +2792,26 @@ msgstr "Ei aiempia tietoja"
 msgid "No results found."
 msgstr "Tuloksia ei löytynyt."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "No resume linked."
+msgstr "Ansioluetteloa ei ole linkitetty."
+
 #: src/routes/dashboard/resumes/-components/grid-view.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "No resumes match your search."
 msgstr "Hakuasi vastaavia ansioluetteloita ei löytynyt."
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "No resumes yet."
+msgstr "Ei vielä ansioluetteloita."
+
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "No saved versions yet."
 msgstr "Ei vielä tallennettuja versioita."
+
+#: src/features/applications/components/insights-view.tsx
+msgid "No source data yet."
+msgstr "Lähdetietoja ei vielä ole."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
 msgid "No style rules yet."
@@ -2413,6 +2833,7 @@ msgstr "norja"
 msgid "Not connected"
 msgstr "Ei yhdistetty"
 
+#: src/features/applications/components/application-form-sheet.tsx
 #: src/libs/resume/section.tsx
 msgid "Notes"
 msgstr "Muistiinpanot"
@@ -2438,6 +2859,10 @@ msgstr "Jatkuva ylläpito"
 msgid "Only applies when the section fits on a single page."
 msgstr "Koskee vain tilanteita, joissa osio mahtuu yhdelle sivulle."
 
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Only the first {MAX_IMPORT} rows import at once — {overflow} left out. Split the file to import the rest."
+msgstr "Vain ensimmäiset {MAX_IMPORT} riviä tuodaan kerralla — {overflow} jätettiin pois. Jaa tiedosto tuodaksesi loput."
+
 #. Resume card context menu action to open the resume editor
 #. Resume card dropdown action to open the resume editor
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
@@ -2458,7 +2883,7 @@ msgstr "Avoin tekoälyavustaja"
 msgid "Open Email Client"
 msgstr "Avaa sähköpostiohjelma"
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Open in builder"
 msgstr "Avaa rakentajassa"
 
@@ -2499,6 +2924,10 @@ msgstr "Vaihtoehdot kohteelle {title}"
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
 msgid "or continue with"
 msgstr "tai jatka käyttäen"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Or upload a resume PDF"
+msgstr "Tai lataa ansioluettelo PDF:nä"
 
 #: src/components/input/rich-input.tsx
 msgid "Ordered List"
@@ -2585,6 +3014,18 @@ msgstr "Salasanasuojaus on poistettu käytöstä."
 msgid "Password protection has been enabled."
 msgstr "Salasanasuojaus on otettu käyttöön."
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Paste a job posting URL"
+msgstr "Liitä työpaikkailmoituksen URL"
+
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
+msgstr "Liitä rivejä tai lataa .csv. Yhdistämme sarakkeet kuten Yritys, Rooli, Vaihe, Palkka, Lähde ja Tunnisteet."
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Paste the posting — powers AI match scoring and tailoring."
+msgstr "Liitä ilmoitus — se mahdollistaa AI-sopivuuspisteytyksen ja mukauttamisen."
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
 msgstr "Korjaus lisätty"
@@ -2643,9 +3084,17 @@ msgstr "Valitse kuvake"
 msgid "Picture"
 msgstr "Kuva"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Pipeline flow"
+msgstr "Putken kulku"
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Pipeline health across all applications"
+msgstr "Putken tila kaikissa hakemuksissa"
+
 #: src/features/resume/export/download-dialog.tsx
 msgid "Plain text, ideal for AI tools and quick edits."
-msgstr ""
+msgstr "Pelkkä teksti, ihanteellinen AI-työkaluille ja nopeisiin muokkauksiin."
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Please enter a new password for your account"
@@ -2663,11 +3112,15 @@ msgstr "Syötä linkitettävä URL-osoite:"
 msgid "Please support the project"
 msgstr "Tue projektia"
 
+#: src/features/applications/components/file-attachment-field.tsx
+msgid "Please upload a PDF file."
+msgstr "Lataa PDF-tiedosto."
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Please wait while your PDF is being generated..."
 msgstr "Odota, kunnes PDF-tiedosto on luotu..."
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "Please wait while your PDF is being generated…"
 msgstr "Odota hetki, PDF-tiedostoasi luodaan…"
 
@@ -2721,7 +3174,7 @@ msgstr "Paina <0>{RETURN_KEY}</0> tai <1>{COMMA_KEY}</1> lisätäksesi tai talle
 msgid "Press <0>Enter</0> to open"
 msgstr "Paina <0>Enter</0> avataksesi"
 
-#: src/routes/builder/$resumeId/route.tsx
+#: src/routes/builder/$resumeId/-components/mobile-builder-shell.tsx
 msgid "Preview"
 msgstr "Esikatselu"
 
@@ -2781,6 +3234,10 @@ msgstr "Julkaisut"
 msgid "Publisher"
 msgstr "Julkaisija"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Re-score"
+msgstr "Pisteytä uudelleen"
+
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume – Siirry etusivulle"
@@ -2824,6 +3281,10 @@ msgstr "Reaktiivinen ansioluettelo v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktiivinen ansioluettelo v4 (JSON)"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Reading…"
+msgstr "Luetaan…"
+
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Recipient"
 msgstr "Vastaanottaja"
@@ -2846,6 +3307,10 @@ msgstr "Tee uudelleen"
 msgid "References"
 msgstr "Suosittelijat"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Referred by…, things to emphasize, etc."
+msgstr "Suosittelija…, korostettavat asiat jne."
+
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Register New Device"
 msgstr "Rekisteröi uusi laite"
@@ -2853,6 +3318,10 @@ msgstr "Rekisteröi uusi laite"
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Remember your password? <0/>"
 msgstr "Muistatko salasanasi? <0/>"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Remote, Hybrid, a city…"
+msgstr "Etä, hybridi, kaupunki…"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
@@ -2863,9 +3332,17 @@ msgstr "Poista"
 msgid "Remove {chip}"
 msgstr "Poista {chip}"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Remove contact"
+msgstr "Poista yhteyshenkilö"
+
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Remove custom field"
 msgstr "Poista mukautettu kenttä"
+
+#: src/features/applications/components/file-attachment-field.tsx
+msgid "Remove file"
+msgstr "Poista tiedosto"
 
 #: src/components/input/rich-input.tsx
 msgid "Remove link"
@@ -2874,6 +3351,10 @@ msgstr "Poista linkki"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
 msgstr "Poista salasana"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Remove tag"
+msgstr "Poista tunniste"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
@@ -2945,7 +3426,9 @@ msgstr "Palautetaanko ansioluettelo tätä korjausta edeltävään tilaan? Täm�
 msgid "Restore this version?"
 msgstr "Palautetaanko tämä versio?"
 
+#: src/features/applications/components/application-form-sheet.tsx
 #: src/features/resume/export/download-dialog.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "Jatkaa"
@@ -2961,6 +3444,14 @@ msgstr "Ansioluettelon analyysi valmis."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Ansioluettelon sisältö"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Resume file"
+msgstr "Ansioluettelotiedosto"
+
+#: src/features/applications/components/application-card.tsx
+msgid "Resume linked"
+msgstr "Ansioluettelo linkitetty"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Resume options"
@@ -2998,6 +3489,18 @@ msgstr "Kirjoita tämä ansioluettelo uudelleen startup-yrityksen perustajasta t
 msgid "Right Align"
 msgstr "Tasaa oikealle"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Role (optional)"
+msgstr "Rooli (valinnainen)"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Role / title"
+msgstr "Rooli / titteli"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Role A–Z"
+msgstr "Rooli A–Z"
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Role Progression"
 msgstr "Roolin eteneminen"
@@ -3026,6 +3529,15 @@ msgstr "Suorita ensimmäinen analyysi, jotta saat tuloskortin, vahvuudet ja prio
 msgid "Russian"
 msgstr "venäjä"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/table-view.tsx
+msgid "Salary"
+msgstr "Palkka"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Salary range"
+msgstr "Palkkahaarukka"
+
 #. Passkey rename prompt confirm action in authentication settings
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
@@ -3038,6 +3550,10 @@ msgstr "Tallenna ja testaa -palveluntarjoaja"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Save & Upload"
 msgstr "Tallenna ja lataa"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Save changes"
+msgstr "Tallenna muutokset"
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
@@ -3075,13 +3591,25 @@ msgstr "Skannaa alla oleva QR-koodi haluamallasi todennussovelluksella. Voit my�
 msgid "School"
 msgstr "Oppilaitos"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Score my fit"
+msgstr "Pisteytä sopivuuteni"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Scorecard"
 msgstr "Tuloskortti"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Scoring your fit…"
+msgstr "Sopivuuttasi pisteytetään…"
+
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Search"
 msgstr "Haku"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Search applications…"
+msgstr "Hae hakemuksia…"
 
 #. Accessible label for command palette search input
 #: src/features/command-palette/index.tsx
@@ -3124,6 +3652,15 @@ msgstr "Osion asetukset"
 msgid "Section Type"
 msgstr "Osion tyyppi"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "See how this resume matches the posting"
+msgstr "Katso, miten tämä ansioluettelo vastaa ilmoitusta"
+
+#. placeholder {0}: app.company
+#: src/features/applications/components/table-view.tsx
+msgid "Select {0}"
+msgstr "Valitse {0}"
+
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Select a resume"
 msgstr "Valitse ansioluettelo"
@@ -3131,6 +3668,10 @@ msgstr "Valitse ansioluettelo"
 #: src/routes/agent/index.tsx
 msgid "Select a thread"
 msgstr "Valitse ketju"
+
+#: src/features/applications/components/table-view.tsx
+msgid "Select all"
+msgstr "Valitse kaikki"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Select an agent model"
@@ -3143,6 +3684,10 @@ msgstr "Valitse tekoälypalveluntarjoaja"
 #: src/components/ui/combobox.tsx
 msgid "Select..."
 msgstr "Valitse..."
+
+#: src/features/applications/components/table-view.tsx
+msgid "selected"
+msgstr "valittu"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Self-Host with Docker"
@@ -3226,6 +3771,11 @@ msgstr "Jakaminen"
 msgid "Show"
 msgstr "Näytä"
 
+#. placeholder {0}: Math.min(remaining, COLUMN_PAGE_SIZE)
+#: src/features/applications/components/board.tsx
+msgid "Show {0} more"
+msgstr "Näytä {0} lisää"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -3259,6 +3809,12 @@ msgstr "Näytä salasana"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Show picture"
 msgstr "Näytä kuva"
+
+#. placeholder {0}: rows.length
+#. placeholder {1}: applications.length
+#: src/features/applications/components/table-view.tsx
+msgid "Showing {0} of {1}"
+msgstr "Näytetään {0}/{1}"
 
 #. Layout editor column label for the secondary sidebar area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -3343,7 +3899,8 @@ msgid "Skills"
 msgstr "Taidot"
 
 #: src/routes/_home/route.tsx
-#: src/routes/builder/$resumeId/route.tsx
+#: src/routes/builder/$resumeId/-components/desktop-builder-shell.tsx
+#: src/routes/builder/$resumeId/-components/mobile-builder-shell.tsx
 #: src/routes/dashboard/route.tsx
 msgid "Skip to main content"
 msgstr "Siirry suoraan pääsisältöön"
@@ -3369,13 +3926,26 @@ msgstr "Jokin meni pieleen"
 msgid "Something went wrong while analyzing your resume."
 msgstr "Jokin meni pieleen ansioluetteloasi analysoitaessa."
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Jokin meni pieleen. Yritä uudelleen."
 
+#: src/routes/dashboard/applications/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "Lajittele"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Sort by…"
+msgstr "Lajittele…"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/table-view.tsx
+msgid "Source"
+msgstr "Lähde"
 
 #: src/routes/_home/-sections/footer.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
@@ -3407,6 +3977,11 @@ msgstr "Sponsorisopimukset"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Square"
 msgstr "Neliö"
+
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/table-view.tsx
+msgid "Stage"
+msgstr "Vaihe"
 
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
@@ -3467,6 +4042,10 @@ msgstr "Vahvuudet"
 msgid "Strike"
 msgstr "Yliviivaus"
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Strong fit"
+msgstr "Vahva sopivuus"
+
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
 msgstr "Subreddit"
@@ -3513,7 +4092,13 @@ msgstr "Vaihdettiin {0} -mallipohjaan."
 msgid "Synced changes made in another tab."
 msgstr "Toisella välilehdellä tehdyt muutokset synkronoitu."
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Table"
+msgstr "Taulukko"
+
 #: src/dialogs/resume/index.tsx
+#: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/table-view.tsx
 msgid "Tags"
 msgstr "Tunnisteet"
 
@@ -3521,9 +4106,17 @@ msgstr "Tunnisteet"
 msgid "Tags can be used to categorize your resume by keywords."
 msgstr "Tunnisteilla voit luokitella ansioluettelosi avainsanojen mukaan."
 
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Tailor my resume"
+msgstr "Mukauta ansioluetteloni"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Tailor this resume to a product manager job description and emphasize roadmap ownership, stakeholder communication, and measurable launch outcomes."
 msgstr "Räätälöi tämä ansioluettelo tuotepäällikön työtehtävän kuvauksen mukaisesti ja korosta tiekartan omistajuutta, sidosryhmäviestintää ja mitattavia lanseerauksen tuloksia."
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Tailoring failed."
+msgstr "Mukauttaminen epäonnistui."
 
 #: src/libs/locale.ts
 msgid "Tamil"
@@ -3617,7 +4210,7 @@ msgstr "Ansioluettelo, johon yrität päästä, on salasanalla suojattu"
 msgid "The URL you entered is not valid."
 msgstr "Antamasi URL-osoite ei ole kelvollinen."
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "The working resume was deleted. This thread is read-only."
 msgstr "Työansioluettelo poistettiin. Tämä ketju on vain luku -tilassa."
 
@@ -3637,7 +4230,7 @@ msgid "There was a problem while generating the DOCX, please try again."
 msgstr "DOCX-tiedoston luomisessa ilmeni ongelma, yritä uudelleen."
 
 #: src/features/resume/export/use-resume-export.ts
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 msgid "There was a problem while generating the PDF, please try again."
 msgstr "PDF-tiedoston luomisessa tapahtui virhe. Yritä uudelleen."
 
@@ -3761,6 +4354,10 @@ msgstr "Tiukentaa taito-osiota niin, että se tukee kohderoolia sen sijaan, ett�
 msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Aikajananäytös ansioluettelon laatimisesta Reactive Resumella"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Timeline & activity"
+msgstr "Aikajana ja toiminta"
+
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
 msgstr "Vinkki: Anna API-avaimellesi nimi, joka vastaa sen käyttötarkoitusta, jotta tunnistat sen myöhemmin."
@@ -3806,6 +4403,14 @@ msgstr "Oikean sivupalkin vaihtaminen"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Näytä/piilota ketjut"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Track a job you're applying to and link the resume you sent."
+msgstr "Seuraa työpaikkaa, johon haet, ja linkitä lähettämäsi ansioluettelo."
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Track your first application"
+msgstr "Seuraa ensimmäistä hakemustasi"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Track your resume's views and downloads"
@@ -3904,6 +4509,11 @@ msgstr "Typografia"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "ukraina"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Unarchive"
+msgstr "Palauta arkistosta"
 
 #: src/components/input/rich-input.tsx
 msgid "Underline"
@@ -4019,6 +4629,10 @@ msgstr "Päivitä projektin luettelomerkkejä osoittaaksesi johtajuuden, rajoitt
 msgid "Update Resume"
 msgstr "Päivitä ansioluettelo"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Update this application's details."
+msgstr "Päivitä tämän hakemuksen tiedot."
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "Päivitä salasanasi"
@@ -4031,6 +4645,10 @@ msgstr "Päivitetään salasanaasi..."
 msgid "Updating your resume..."
 msgstr "Päivitetään ansioluetteloasi..."
 
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Upload .csv"
+msgstr "Lataa .csv"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Upload attachments"
 msgstr "Lähetä liitteitä"
@@ -4042,6 +4660,10 @@ msgstr "Lataa kuva"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Uploading picture…"
 msgstr "Kuvan lataaminen…"
+
+#: src/features/applications/components/file-attachment-field.tsx
+msgid "Uploading…"
+msgstr "Ladataan…"
 
 #. Form field label for the generated public resume link in sharing settings
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
@@ -4057,6 +4679,10 @@ msgstr "Käyttää"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Use color {color}"
 msgstr "Käytä väriä {color}"
+
+#: src/features/applications/components/import-applications-sheet.tsx
+msgid "Use sample"
+msgstr "Käytä esimerkkiä"
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx
@@ -4181,6 +4807,14 @@ msgstr "Mikä on uutta uusimmassa versiossa?"
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Kun se on lukittu, ansioluetteloa ei voi päivittää tai poistaa."
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Where applications come from"
+msgstr "Mistä hakemukset tulevat"
+
+#: src/features/applications/components/insights-view.tsx
+msgid "Where your applications went"
+msgstr "Mihin hakemuksesi päätyivät"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Work OpenAI"
 msgstr "Työskentele OpenAI:lla"
@@ -4188,6 +4822,10 @@ msgstr "Työskentele OpenAI:lla"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Working…"
 msgstr "Työskentely…"
+
+#: src/features/applications/components/application-ai-copilot.tsx
+msgid "Worth a shot"
+msgstr "Kannattaa kokeilla"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"
@@ -4304,7 +4942,7 @@ msgstr "Zoomaus"
 msgid "Zoom in"
 msgstr "Lähennä"
 
-#: src/routes/agent/$threadId.tsx
+#: src/routes/agent/-components/resume-pane.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Zoom level"
 msgstr "Zoomaustaso"
@@ -4316,4 +4954,3 @@ msgstr "Loitonna"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
