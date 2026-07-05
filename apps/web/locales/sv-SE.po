@@ -260,6 +260,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Lägg till och testa en leverantör innan du startar en agenttråd."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Lägg till applikation"
@@ -314,6 +315,7 @@ msgid "Afrikaans"
 msgstr "Afrikanska"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Ombud"
 
@@ -465,6 +467,8 @@ msgstr "Applikationsstatistik"
 msgid "Application updated."
 msgstr "Applikationen uppdaterad."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2336,6 +2340,10 @@ msgstr "Kursiv"
 msgid "Japanese"
 msgstr "Japanska"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Jobb"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Arbetsbeskrivning"
@@ -2347,6 +2355,10 @@ msgstr "Arbetsförmedling"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Jobbsökningsflöde"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Jobb"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2572,6 +2584,10 @@ msgstr "Förhandsvisning av ditt CV i realtid i mallen {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Laddar AI-leverantörer. Försök igen om en stund."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Läser in ansökningar…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2582,6 +2598,7 @@ msgstr "Laddar leverantörer…"
 msgid "Loading resumes…"
 msgstr "Läser in CV…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Laddar trådar…"
@@ -2733,6 +2750,11 @@ msgstr "Nepalesiska"
 msgid "Network"
 msgstr "Nätverk"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Lägg till applikation"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Nya funktioner läggs ständigt till och förbättras, så kom gärna tillbaka ofta."
@@ -2760,8 +2782,14 @@ msgstr "Nytt avsnitt"
 msgid "New tag…"
 msgstr "Ny tag..."
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Ny tråd"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Ny tråd"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4342,6 +4370,8 @@ msgstr "Tråden arkiverad."
 msgid "Thread deleted."
 msgstr "Tråden raderad."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

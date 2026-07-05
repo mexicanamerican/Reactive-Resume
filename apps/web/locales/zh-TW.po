@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "在啟動代理線程之前，請新增並測試提供者。"
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "新增應徵紀錄"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "南非荷蘭語"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "代理人"
 
@@ -464,6 +466,8 @@ msgstr "應用程式統計資料"
 msgid "Application updated."
 msgstr "應徵紀錄已更新。"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "斜體"
 msgid "Japanese"
 msgstr "日文"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "職缺"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "職缺描述"
@@ -2346,6 +2354,10 @@ msgstr "職缺公告"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "求職流程"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "職缺"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "在 {0} 範本中即時預覽您的履歷"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "正在加載人工智慧提供者。請稍後再試。"
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "正在載入應徵紀錄…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "正在載入提供者…"
 msgid "Loading resumes…"
 msgstr "正在恢復載入…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "正在載入線程…"
@@ -2732,6 +2749,11 @@ msgstr "尼泊爾語"
 msgid "Network"
 msgstr "網路"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "新增應徵紀錄"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "我們會持續新增與改進新功能，請記得常回來看看。"
@@ -2759,8 +2781,14 @@ msgstr "新段落"
 msgid "New tag…"
 msgstr "新標籤…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "新帖"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "新帖"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "貼文已存檔。"
 msgid "Thread deleted."
 msgstr "帖子已刪除。"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

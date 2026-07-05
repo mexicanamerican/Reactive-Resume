@@ -15,7 +15,7 @@ import {
 } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, stripSearchParams, useNavigate } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@reactive-resume/ui/components/input-group";
@@ -49,9 +49,11 @@ const searchSchema = z.object({
 	tags: z.array(z.string()).default([]),
 	sort: z.enum(["updated", "applied", "company", "role"]).default("updated"),
 	archived: z.boolean().default(false),
+	create: z.boolean().default(false),
+	applicationId: z.string().optional(),
 });
 type Search = z.output<typeof searchSchema>;
-const defaultSearch: Search = { search: "", view: "board", tags: [], sort: "updated", archived: false };
+const defaultSearch: Search = { search: "", view: "board", tags: [], sort: "updated", archived: false, create: false };
 
 export const Route = createFileRoute("/dashboard/applications/")({
 	component: RouteComponent,
@@ -61,7 +63,7 @@ export const Route = createFileRoute("/dashboard/applications/")({
 
 function RouteComponent() {
 	const { i18n } = useLingui();
-	const { search, view, tags, sort, archived } = Route.useSearch();
+	const { search, view, tags, sort, archived, create, applicationId } = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
 
 	const [addOpen, setAddOpen] = useState(false);
@@ -75,8 +77,22 @@ function RouteComponent() {
 		setEditing(application);
 	};
 
+	useEffect(() => {
+		if (!create) return;
+
+		setAddOpen(true);
+		void navigate({ replace: true, search: (prev: Search) => ({ ...prev, create: false }) });
+	}, [create, navigate]);
+
 	const { data: applications } = useQuery(applicationsListQueryOptions());
 	const { data: allTags } = useQuery(orpc.applications.tags.queryOptions());
+
+	useEffect(() => {
+		if (!applicationId || !applications) return;
+
+		setSelected(applications.find((application) => application.id === applicationId) ?? null);
+		void navigate({ replace: true, search: (prev: Search) => ({ ...prev, applicationId: undefined }) });
+	}, [applicationId, applications, navigate]);
 
 	// Board & table hide archived; tag/search filters + sort are applied client-side.
 	const filtered = useMemo(() => {

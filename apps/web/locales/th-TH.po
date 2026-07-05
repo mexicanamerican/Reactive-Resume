@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "เพิ่มและทดสอบผู้ให้บริการก่อนเริ่มเธรดเอเจนต์"
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "เพิ่มใบสมัคร"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "อาฟรีกานส์"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "ตัวแทน"
 
@@ -464,6 +466,8 @@ msgstr "สถิติของแอปพลิเคชัน"
 msgid "Application updated."
 msgstr "อัปเดตใบสมัครแล้ว"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "ตัวเอียง"
 msgid "Japanese"
 msgstr "ญี่ปุ่น"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "งาน"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "คำอธิบายงาน"
@@ -2346,6 +2354,10 @@ msgstr "ประกาศงาน"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "ไปป์ไลน์ค้นหางาน"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "งาน"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "ดูตัวอย่างประวัติย่อของค
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "กำลังโหลดผู้ให้บริการ AI โปรดลองอีกครั้งในภายหลัง"
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "กำลังโหลดใบสมัคร…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "กำลังโหลดผู้ให้บริการ…"
 msgid "Loading resumes…"
 msgstr "กำลังโหลดต่อ…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "กำลังโหลดเธรด…"
@@ -2732,6 +2749,11 @@ msgstr "เนปาลี"
 msgid "Network"
 msgstr "ชื่อเว็บไซต์"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "เพิ่มใบสมัคร"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "มีการเพิ่มและปรับปรุงฟีเจอร์ใหม่ ๆ อย่างต่อเนื่อง อย่าลืมกลับมาตรวจสอบบ่อย ๆ"
@@ -2759,8 +2781,14 @@ msgstr "เซกชั่นใหม่"
 msgid "New tag…"
 msgstr "แท็กใหม่…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "กระทู้ใหม่"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "กระทู้ใหม่"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "กระทู้ถูกเก็บถาวรแล้ว"
 msgid "Thread deleted."
 msgstr "กระทู้ถูกลบแล้ว"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "에이전트 스레드를 시작하기 전에 공급자를 추가하고 테스트하십시오."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "지원 추가"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "아프리칸스어"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "대리인"
 
@@ -464,6 +466,8 @@ msgstr "애플리케이션 통계"
 msgid "Application updated."
 msgstr "지원이 업데이트되었습니다."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "기울임"
 msgid "Japanese"
 msgstr "일본어"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "직무"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "직무 설명"
@@ -2346,6 +2354,10 @@ msgstr "채용 공고"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "구직 파이프라인"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "직무"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "{0} 템플릿에서 이력서를 실시간으로 미리 보세요."
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "AI 제공업체를 불러오는 중입니다. 잠시 후 다시 시도해 주세요."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "지원서 불러오는 중…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "공급자 로딩 중…"
 msgid "Loading resumes…"
 msgstr "이력서 로딩 중…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "스레드 로딩 중…"
@@ -2732,6 +2749,11 @@ msgstr "네팔어"
 msgid "Network"
 msgstr "네트워크"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "지원 추가"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "새로운 기능이 지속적으로 추가·개선되고 있으니, 자주 돌아와 확인해 보세요."
@@ -2759,8 +2781,14 @@ msgstr "새 섹션"
 msgid "New tag…"
 msgstr "새 태그…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "새 스레드"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "새 스레드"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "해당 게시글이 보관되었습니다."
 msgid "Thread deleted."
 msgstr "게시글이 삭제되었습니다."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

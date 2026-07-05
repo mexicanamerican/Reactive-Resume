@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Tambahkan dan uji penyedia sebelum memulai thread agen."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Tambah lamaran"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agen"
 
@@ -464,6 +466,8 @@ msgstr "Statistik Aplikasi"
 msgid "Application updated."
 msgstr "Lamaran diperbarui."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "Miring"
 msgid "Japanese"
 msgstr "Jepang"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Pekerjaan"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Deskripsi pekerjaan"
@@ -2346,6 +2354,10 @@ msgstr "Lowongan kerja"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Alur pencarian kerja"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Pekerjaan"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Pratinjau langsung resume Anda di templat {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Sedang memuat penyedia AI. Silakan coba lagi sebentar lagi."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Memuat lamaran…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "Memuat penyedia…"
 msgid "Loading resumes…"
 msgstr "Proses pemuatan dilanjutkan…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Memuat thread…"
@@ -2732,6 +2749,11 @@ msgstr "Nepali"
 msgid "Network"
 msgstr "Jaringan"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Tambah lamaran"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Fitur baru terus ditambahkan dan ditingkatkan, jadi pastikan untuk sering kembali."
@@ -2759,8 +2781,14 @@ msgstr "Bagian Baru"
 msgid "New tag…"
 msgstr "Tag baru…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Utas baru"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Utas baru"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "Diskusi telah diarsipkan."
 msgid "Thread deleted."
 msgstr "Utas dihapus."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

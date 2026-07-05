@@ -260,6 +260,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Adicione e teste um fornecedor antes de iniciar um thread do agente."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Adicionar aplicação"
@@ -314,6 +315,7 @@ msgid "Afrikaans"
 msgstr "Africâner"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agente"
 
@@ -465,6 +467,8 @@ msgstr "Estatísticas da aplicação"
 msgid "Application updated."
 msgstr "Aplicativo atualizado."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2336,6 +2340,10 @@ msgstr "Itálico"
 msgid "Japanese"
 msgstr "Japonês"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Vaga"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Descrição do trabalho"
@@ -2347,6 +2355,10 @@ msgstr "Anúncio de emprego"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Fluxo de procura de emprego"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Vagas"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2572,6 +2584,10 @@ msgstr "Pré-visualização em tempo real do seu currículo no modelo {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Carregando fornecedores de IA. Tente novamente dentro de instantes."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "A carregar candidaturas…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2582,6 +2598,7 @@ msgstr "Carregando fornecedores…"
 msgid "Loading resumes…"
 msgstr "A carregar retomas…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "A carregar threads…"
@@ -2733,6 +2750,11 @@ msgstr "Nepalês"
 msgid "Network"
 msgstr "Rede social"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Adicionar aplicação"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Novas funcionalidades estão constantemente a ser adicionadas e melhoradas, por isso volte frequentemente."
@@ -2760,8 +2782,14 @@ msgstr "Nova secção"
 msgid "New tag…"
 msgstr "Nova etiqueta…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Novo tópico"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Novo tópico"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4342,6 +4370,8 @@ msgstr "Tópico arquivado."
 msgid "Thread deleted."
 msgstr "Tópico eliminado."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

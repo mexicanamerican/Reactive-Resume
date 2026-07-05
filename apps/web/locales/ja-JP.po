@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "エージェントスレッドを開始する前に、プロバイダーを追加してテストしてください。"
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "応募を追加"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "アフリカーンス語"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "エージェント"
 
@@ -464,6 +466,8 @@ msgstr "アプリケーション統計"
 msgid "Application updated."
 msgstr "応募を更新しました。"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "斜体"
 msgid "Japanese"
 msgstr "日本語"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "求人"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "職務内容"
@@ -2346,6 +2354,10 @@ msgstr "求人情報"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "求人応募パイプライン"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "求人"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "{0} テンプレートでの履歴書のライブプレビュー"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "AIプロバイダーを読み込んでいます。しばらくしてからもう一度お試しください。"
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "応募を読み込み中…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "プロバイダーを読み込んでいます…"
 msgid "Loading resumes…"
 msgstr "履歴書を読み込み中…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "スレッドを読み込んでいます…"
@@ -2732,6 +2749,11 @@ msgstr "ネパール語"
 msgid "Network"
 msgstr "ネットワーク"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "応募を追加"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "新しい機能が継続的に追加・改善されているため、定期的にチェックしてみてください。"
@@ -2759,8 +2781,14 @@ msgstr "新しいセクション"
 msgid "New tag…"
 msgstr "新しいタグ…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "新しいスレッド"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "新しいスレッド"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "スレッドはアーカイブされました。"
 msgid "Thread deleted."
 msgstr "スレッドは削除されました。"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

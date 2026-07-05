@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Před spuštěním vlákna agenta přidejte a otestujte poskytovatele."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Add application"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikánština"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Činidlo"
 
@@ -464,6 +466,8 @@ msgstr "Statistiky aplikace"
 msgid "Application updated."
 msgstr "Application updated."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "Kurzíva"
 msgid "Japanese"
 msgstr "Japonština"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Práce"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Job description"
@@ -2346,6 +2354,10 @@ msgstr "Job posting"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Proces hledání práce"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Práce"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Živý náhled vašeho životopisu v šabloně {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Načítání poskytovatelů umělé inteligence. Zkuste to prosím znovu za chvíli."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Načítání žádostí…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "Načítání poskytovatelů…"
 msgid "Loading resumes…"
 msgstr "Načítání životopisů…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Načítání vláken…"
@@ -2732,6 +2749,11 @@ msgstr "Nepálština"
 msgid "Network"
 msgstr "Síť"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Add application"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Pravidelně přidáváme a vylepšujeme nové funkce, proto se sem pravidelně vracejte."
@@ -2759,8 +2781,14 @@ msgstr "Nová sekce"
 msgid "New tag…"
 msgstr "New tag…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Nové vlákno"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Nové vlákno"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "Vlákno archivováno."
 msgid "Thread deleted."
 msgstr "Vlákno smazáno."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

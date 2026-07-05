@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Prieš pradėdami agento giją, pridėkite ir išbandykite teikėją."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Pridėti paraišką"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikanso"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agentas"
 
@@ -464,6 +466,8 @@ msgstr "Programos statistika"
 msgid "Application updated."
 msgstr "Paraiška atnaujinta."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "Kursyvas"
 msgid "Japanese"
 msgstr "Japonų"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Darbas"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Darbo aprašymas"
@@ -2346,6 +2354,10 @@ msgstr "Darbo skelbimas"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Darbo paieškos eiga"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Darbai"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Tiesioginė jūsų gyvenimo aprašymo peržiūra šablone {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Įkeliami dirbtinio intelekto teikėjai. Bandykite dar kartą po akimirkos."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Įkeliamos paraiškos…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "Įkeliami paslaugų teikėjai…"
 msgid "Loading resumes…"
 msgstr "Kraunami gyvenimo aprašymai…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Įkeliamos gijos…"
@@ -2732,6 +2749,11 @@ msgstr "Nepalų"
 msgid "Network"
 msgstr "Tinklas"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Pridėti paraišką"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Nuolat pridedamos ir tobulinamos naujos funkcijos, todėl dažnai tikrinkite iš naujo."
@@ -2759,8 +2781,14 @@ msgstr "Naujas skyrius"
 msgid "New tag…"
 msgstr "Nauja žyma…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Nauja tema"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Nauja tema"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "Gija archyvuota."
 msgid "Thread deleted."
 msgstr "Gija ištrinta."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

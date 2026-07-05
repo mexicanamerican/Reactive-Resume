@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "הוסף ובדוק ספק לפני פתיחת שרשור של סוכן."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "הוסף מועמדות"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "אפריקאנס"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "סוֹכֵן"
 
@@ -464,6 +466,8 @@ msgstr "סטטיסטיקת היישום"
 msgid "Application updated."
 msgstr "המועמדות עודכנה."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "נטוי"
 msgid "Japanese"
 msgstr "יפנית"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "משרה"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "תיאור משרה"
@@ -2346,6 +2354,10 @@ msgstr "מודעת דרושים"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "תהליך חיפוש עבודה"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "משרות"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "תצוגה מקדימה חיה של קורות החיים שלך בתב�
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "טוען ספקי בינה מלאכותית. אנא נסה שוב בעוד רגע."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "טוען מועמדויות…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "טוען ספקים…"
 msgid "Loading resumes…"
 msgstr "טוען קורות חיים…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "טוען שרשורים…"
@@ -2732,6 +2749,11 @@ msgstr "נפאלית"
 msgid "Network"
 msgstr "רשת"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "הוסף מועמדות"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "תמיד נוספים ומשתפרים פיצ׳רים חדשים, אז שווה לחזור ולבדוק מדי פעם."
@@ -2759,8 +2781,14 @@ msgstr "סעיף חדש"
 msgid "New tag…"
 msgstr "תגית חדשה…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "שרשור חדש"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "שרשור חדש"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "השרשור הועבר לארכיון."
 msgid "Thread deleted."
 msgstr "השרשור נמחק."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

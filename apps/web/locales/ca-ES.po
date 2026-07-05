@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Afegiu i proveu un proveïdor abans d'iniciar un fil d'agent."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Add application"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agent"
 
@@ -464,6 +466,8 @@ msgstr "Estadístiques de l’aplicació"
 msgid "Application updated."
 msgstr "Application updated."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "Cursiva"
 msgid "Japanese"
 msgstr "Japonès"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Feina"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Job description"
@@ -2346,6 +2354,10 @@ msgstr "Job posting"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Procés de cerca de feina"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Feines"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Vista prèvia en directe del vostre currículum a la plantilla {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "S'estan carregant els proveïdors d'IA. Si us plau, torneu-ho a provar d'aquí a un moment."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "S'estan carregant les candidatures…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "S'estan carregant els proveïdors…"
 msgid "Loading resumes…"
 msgstr "Carregant currículums…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "S'estan carregant els fils…"
@@ -2732,6 +2749,11 @@ msgstr "Nepalès"
 msgid "Network"
 msgstr "Xarxa"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Add application"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "S’afegeixen i milloren funcions noves constantment, així que torna de tant en tant."
@@ -2759,8 +2781,14 @@ msgstr "Secció nova"
 msgid "New tag…"
 msgstr "New tag…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Nou fil"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Nou fil"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "Fil arxivat."
 msgid "Thread deleted."
 msgstr "Fil suprimit."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

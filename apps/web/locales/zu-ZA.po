@@ -254,6 +254,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr ""
@@ -308,6 +309,7 @@ msgid "Afrikaans"
 msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr ""
 
@@ -459,6 +461,8 @@ msgstr ""
 msgid "Application updated."
 msgstr ""
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2330,6 +2334,10 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr ""
@@ -2340,6 +2348,10 @@ msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
 msgstr ""
 
 #. Example full name placeholder on profile settings form
@@ -2566,6 +2578,10 @@ msgstr ""
 msgid "Loading AI providers. Please try again in a moment."
 msgstr ""
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2576,6 +2592,7 @@ msgstr ""
 msgid "Loading resumes…"
 msgstr ""
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr ""
@@ -2727,6 +2744,11 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr ""
@@ -2754,8 +2776,14 @@ msgstr ""
 msgid "New tag…"
 msgstr ""
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
@@ -4336,6 +4364,8 @@ msgstr ""
 msgid "Thread deleted."
 msgstr ""
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

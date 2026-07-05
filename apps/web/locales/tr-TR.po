@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Aracı iş parçacığını başlatmadan önce bir sağlayıcı ekleyin ve test edin."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Başvuru ekle"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Ajan"
 
@@ -464,6 +466,8 @@ msgstr "Uygulama İstatistikleri"
 msgid "Application updated."
 msgstr "Başvuru güncellendi."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "İtalik"
 msgid "Japanese"
 msgstr "Japonca"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "İş"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "İş tanımı"
@@ -2346,6 +2354,10 @@ msgstr "İş ilanı"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "İş arama hattı"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "İşler"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Özgeçmişinizin canlı önizlemesi {0} şablonunda"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Yapay zeka sağlayıcıları yükleniyor. Lütfen bir süre sonra tekrar deneyin."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Başvurular yükleniyor…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "Sağlayıcılar yükleniyor…"
 msgid "Loading resumes…"
 msgstr "Özgeçmişler yükleniyor…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "İş parçacıkları yükleniyor…"
@@ -2732,6 +2749,11 @@ msgstr "Nepalce"
 msgid "Network"
 msgstr "Sosyal Ağ"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Başvuru ekle"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Yeni özellikler sürekli olarak ekleniyor ve geliştiriliyor, bu yüzden sık sık yeniden kontrol ettiğinizden emin olun."
@@ -2759,8 +2781,14 @@ msgstr "Yeni Bölüm"
 msgid "New tag…"
 msgstr "Yeni etiket…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Yeni konu"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Yeni konu"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "Konu arşivlendi."
 msgid "Thread deleted."
 msgstr "Konu silindi."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

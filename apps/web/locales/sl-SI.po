@@ -260,6 +260,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Preden začnete nit agenta, dodajte in preizkusite ponudnika."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Dodaj aplikacijo"
@@ -314,6 +315,7 @@ msgid "Afrikaans"
 msgstr "Afriščina"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agent"
 
@@ -465,6 +467,8 @@ msgstr "Statistika aplikacije"
 msgid "Application updated."
 msgstr "Aplikacija posodobljena."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2336,6 +2340,10 @@ msgstr "Ležeče"
 msgid "Japanese"
 msgstr "Japonščina"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Zaposlitev"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Opis delovnega mesta"
@@ -2347,6 +2355,10 @@ msgstr "Oglas za delo"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Potek iskanja zaposlitve"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Zaposlitve"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2572,6 +2584,10 @@ msgstr "Predogled vašega življenjepisa v živo v predlogi {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Nalaganje ponudnikov umetne inteligence. Poskusite znova čez trenutek."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Nalaganje prijav…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2582,6 +2598,7 @@ msgstr "Nalaganje ponudnikov…"
 msgid "Loading resumes…"
 msgstr "Nalaganje življenjepisov…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Nalaganje niti…"
@@ -2733,6 +2750,11 @@ msgstr "nepalščina"
 msgid "Network"
 msgstr "Omrežje"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Dodaj aplikacijo"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Stalno se dodajajo in izboljšujejo nove funkcije, zato redno preverjajte novosti."
@@ -2760,8 +2782,14 @@ msgstr "Nov razdelek"
 msgid "New tag…"
 msgstr "Nova oznaka …"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Nova nit"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Nova nit"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4342,6 +4370,8 @@ msgstr "Nit arhivirana."
 msgid "Thread deleted."
 msgstr "Nit izbrisana."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

@@ -260,6 +260,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Shtoni dhe testoni një ofrues përpara se të filloni një fije diskutimi agjentësh."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Shto aplikacion"
@@ -314,6 +315,7 @@ msgid "Afrikaans"
 msgstr "Afrikanisht"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agjent"
 
@@ -465,6 +467,8 @@ msgstr "Statistikat e aplikacionit"
 msgid "Application updated."
 msgstr "Aplikacioni u përditësua."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2336,6 +2340,10 @@ msgstr "Të pjerrëta"
 msgid "Japanese"
 msgstr "Japonisht"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "Punë"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Përshkrimi i punës"
@@ -2347,6 +2355,10 @@ msgstr "shpallje pune"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Procesi i kërkimit të punës"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "Punë"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2572,6 +2584,10 @@ msgstr "Pamje paraprake e drejtpërdrejtë e CV-së suaj në shabllonin {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Duke ngarkuar ofruesit e inteligjencës artificiale. Ju lutemi provoni përsëri pas pak."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "Duke ngarkuar aplikimet…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2582,6 +2598,7 @@ msgstr "Duke ngarkuar ofruesit…"
 msgid "Loading resumes…"
 msgstr "Duke ngarkuar CV-të…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Duke ngarkuar fijet…"
@@ -2733,6 +2750,11 @@ msgstr "Nepalisht"
 msgid "Network"
 msgstr "Rrjeti"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Shto aplikacion"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Veçori të reja po shtohen dhe përmirësohen vazhdimisht, ndaj kontrolloni shpesh."
@@ -2760,8 +2782,14 @@ msgstr "Seksion i ri"
 msgid "New tag…"
 msgstr "Etiketa e re…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "Fije e re"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "Fije e re"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4342,6 +4370,8 @@ msgstr "Tema u arkivua."
 msgid "Thread deleted."
 msgstr "Tema u fshi."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

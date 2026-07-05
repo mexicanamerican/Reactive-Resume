@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "এজেন্ট থ্রেড শুরু করার আগে একটি প্রোভাইডার যোগ করুন এবং পরীক্ষা করে নিন।"
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Add application"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "আফ্রিকান্স"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "এজেন্ট"
 
@@ -464,6 +466,8 @@ msgstr "অ্যাপ্লিকেশন পরিসংখ্যান"
 msgid "Application updated."
 msgstr "Application updated."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "ইটালিক"
 msgid "Japanese"
 msgstr "জাপানি"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "চাকরি"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Job description"
@@ -2346,6 +2354,10 @@ msgstr "Job posting"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "চাকরি খোঁজার পাইপলাইন"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "চাকরিসমূহ"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "{0} টেমপ্লেটে আপনার জীবনবৃত্
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "এআই প্রোভাইডার লোড করা হচ্ছে। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "আবেদন লোড হচ্ছে…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "প্রোভাইডার লোড হচ্ছে…"
 msgid "Loading resumes…"
 msgstr "পুনরায় শুরু হচ্ছে…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "থ্রেড লোড হচ্ছে…"
@@ -2732,6 +2749,11 @@ msgstr "নেপালি"
 msgid "Network"
 msgstr "নেটওয়ার্ক"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Add application"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "নতুন নতুন ফিচার নিয়মিত যোগ ও উন্নত করা হচ্ছে, তাই নিয়মিত ফিরে এসে দেখে নিন।"
@@ -2759,8 +2781,14 @@ msgstr "নতুন বিভাগ"
 msgid "New tag…"
 msgstr "New tag…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "নতুন থ্রেড"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "নতুন থ্রেড"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "থ্রেডটি আর্কাইভ করা হয়েছে
 msgid "Thread deleted."
 msgstr "থ্রেডটি মুছে ফেলা হয়েছে।"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

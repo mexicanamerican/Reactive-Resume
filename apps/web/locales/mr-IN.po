@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "एजंट थ्रेड सुरू करण्यापूर्वी प्रोव्हायडर जोडा आणि त्याची चाचणी घ्या."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "अर्ज जोडा"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "आफ्रिकान्स"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "एजंट"
 
@@ -464,6 +466,8 @@ msgstr "अ‍ॅप्लिकेशन आकडेवारी"
 msgid "Application updated."
 msgstr "अर्ज अपडेट केला."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "तिरपे (Italic)"
 msgid "Japanese"
 msgstr "जपानी"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "नोकरी"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "नोकरीचे वर्णन"
@@ -2346,6 +2354,10 @@ msgstr "जॉब पोस्टिंग"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "नोकरी शोध पाइपलाइन"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "नोकऱ्या"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "{0} टेम्पलेटमध्ये तुमच्या रि
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "एआय प्रोव्हायडर्स लोड होत आहेत. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "अर्ज लोड होत आहेत…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "प्रदाते लोड होत आहेत…"
 msgid "Loading resumes…"
 msgstr "पुन्हा सुरू होत आहे…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "थ्रेड्स लोड होत आहेत…"
@@ -2732,6 +2749,11 @@ msgstr "नेपाळी"
 msgid "Network"
 msgstr "नेटवर्क"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "अर्ज जोडा"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "नवीन वैशिष्ट्ये सतत जोडली आणि सुधारली जात आहेत, त्यामुळे वारंवार परत येऊन पाहत रहा."
@@ -2759,8 +2781,14 @@ msgstr "नवीन विभाग"
 msgid "New tag…"
 msgstr "नवीन टॅग…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "नवीन धागा"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "नवीन धागा"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "चर्चा संग्रहित केली आहे."
 msgid "Thread deleted."
 msgstr "धागा हटवला."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"

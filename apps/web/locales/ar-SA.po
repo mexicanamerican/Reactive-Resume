@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "أضف موفر الخدمة واختبره قبل بدء سلسلة عمليات الوكيل."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Add application"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "الأفريقانس"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "عامل"
 
@@ -464,6 +466,8 @@ msgstr "إحصاءات التطبيق"
 msgid "Application updated."
 msgstr "Application updated."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2335,6 +2339,10 @@ msgstr "مائل"
 msgid "Japanese"
 msgstr "اليابانية"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr "وظيفة"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Job description"
@@ -2346,6 +2354,10 @@ msgstr "Job posting"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "مسار البحث عن وظيفة"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr "وظائف"
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "معاينة مباشرة لسيرتك الذاتية في قالب {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "جارٍ تحميل مزودي خدمات الذكاء الاصطناعي. يرجى المحاولة مرة أخرى بعد قليل."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr "جارٍ تحميل الطلبات…"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "جارٍ تحميل مزودي الخدمة…"
 msgid "Loading resumes…"
 msgstr "استئناف التحميل…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "جارٍ تحميل الخيوط…"
@@ -2732,6 +2749,11 @@ msgstr "النيبالية"
 msgid "Network"
 msgstr "الشبكة"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr "Add application"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "تتم إضافة ميزات جديدة وتحسينها باستمرار، لذا احرص على العودة كثيرًا."
@@ -2759,8 +2781,14 @@ msgstr "قسم جديد"
 msgid "New tag…"
 msgstr "New tag…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
+msgstr "موضوع جديد"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
 msgstr "موضوع جديد"
 
 #: src/routes/_home/-sections/features.tsx
@@ -4341,6 +4369,8 @@ msgstr "تمت أرشفة الموضوع."
 msgid "Thread deleted."
 msgstr "تم حذف الموضوع."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"
