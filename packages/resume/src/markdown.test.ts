@@ -50,4 +50,13 @@ describe("buildMarkdown", () => {
 		expect(cover.length).toBeGreaterThan(0);
 		expect(cover).not.toBe(md);
 	});
+
+	it("renders the cover-letter scope without resume header or section heading", () => {
+		const cover = buildMarkdown(getResumeExportData(sampleResumeData, "cover-letter"));
+
+		expect(cover).toContain("Dear Hiring Manager");
+		expect(cover).not.toContain(`# ${sampleResumeData.basics.name}`);
+		expect(cover).not.toContain(`_${sampleResumeData.basics.headline}_`);
+		expect(cover).not.toContain("## Cover Letter");
+	});
 });

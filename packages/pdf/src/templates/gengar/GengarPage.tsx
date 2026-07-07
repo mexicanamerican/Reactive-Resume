@@ -15,6 +15,7 @@ import {
 	WebsiteContactItem,
 } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
+import { shouldShowResumeHeader } from "../shared/cover-letter";
 import { getFeaturedSummaryLayout } from "../shared/featured-summary";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
@@ -59,7 +60,7 @@ export const GengarPage = ({ page, pageIndex }: TemplatePageProps) => {
 	const metrics = getTemplateMetrics(metadata.page);
 	const pageSize = getTemplatePageSize(metadata.page.format);
 	const pageMinHeightStyle = getTemplatePageMinHeightStyle(metadata.page.format);
-	const showHeader = pageIndex === 0;
+	const showHeader = shouldShowResumeHeader(data, pageIndex);
 	const showSidebar = !page.fullWidth || showHeader;
 	const sidebarSections = filterSections(page.sidebar, data);
 	const mainSections = filterSections(page.main, data);

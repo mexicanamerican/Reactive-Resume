@@ -150,6 +150,7 @@ describe("renderCustomSection", () => {
 		const section: CustomSection = {
 			...baseCustom,
 			type: "cover-letter",
+			title: "Cover Letter",
 			items: [
 				{
 					id: "x",
@@ -160,8 +161,7 @@ describe("renderCustomSection", () => {
 			],
 		};
 		const paragraphs = renderCustomSection(section, HEX);
-		// 1 heading + at least two paragraphs (recipient + body)
-		expect(paragraphs.length).toBeGreaterThanOrEqual(3);
+		expect(paragraphs).toHaveLength(2);
 	});
 });
 

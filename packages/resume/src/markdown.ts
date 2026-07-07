@@ -9,13 +9,24 @@ type Sections = ResumeData["sections"];
  */
 export type SectionTitleResolver = (sectionId: string) => string | undefined;
 
+function isCoverLetterSection(data: ResumeData, sectionId: string): boolean {
+	const section = data.customSections.find((customSection) => customSection.id === sectionId);
+	return section?.type === "cover-letter" && visibleItems(section).length > 0;
+}
+
+function isCoverLetterOnlyDocument(data: ResumeData): boolean {
+	const sectionIds = data.metadata.layout.pages.flatMap((page) => [...page.main, ...page.sidebar]);
+
+	return sectionIds.length > 0 && sectionIds.every((sectionId) => isCoverLetterSection(data, sectionId));
+}
+
 /**
  * Serializes resume data to Markdown — a compact, readable format well suited for feeding
  * into AI agents. Scope the input first with `getResumeExportData(data, target)` to emit only
  * the resume or the cover letter.
  */
 export function buildMarkdown(data: ResumeData, resolveTitle?: SectionTitleResolver): string {
-	const blocks: string[] = [...renderHeader(data.basics)];
+	const blocks: string[] = isCoverLetterOnlyDocument(data) ? [] : [...renderHeader(data.basics)];
 
 	for (const page of data.metadata.layout.pages) {
 		for (const sectionId of [...page.main, ...page.sidebar]) {
@@ -274,7 +285,7 @@ function renderCustomSection(section: CustomSection): string[] {
 	}
 
 	if (sectionType === "cover-letter") {
-		const blocks = [heading(section.title)];
+		const blocks: string[] = [];
 		for (const item of items) {
 			if ("recipient" in item && item.recipient) blocks.push(htmlToMarkdown(item.recipient));
 			if ("content" in item && item.content) blocks.push(htmlToMarkdown(item.content));
