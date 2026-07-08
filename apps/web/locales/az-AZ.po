@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "Yeni könüllü təcrübəsi əlavə et"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "Qeyd əlavə edin və ya fəaliyyət qeyd edin…"
+msgid "Add a note…"
+msgstr "Qeyd əlavə edin…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "Tətbiq əlavə edilə bilmədi. Yenidən cəhd edin."
 msgid "Couldn't delete the application."
 msgstr "Tətbiqi silmək mümkün olmadı."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "Xronologiya qeydi silinə bilmədi."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "Tətbiqi köçürmək mümkün olmadı. Yenidən cəhd edin."
@@ -1042,6 +1046,10 @@ msgstr "Qeydi yadda saxlamaq mümkün olmadı."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "Dəyişikliklərinizi yadda saxlamaq mümkün olmadı. Yenidən cəhd edin."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "Xronologiya qeydi yenilənə bilmədi."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "CSV məlumatları"
 msgid "Current Password"
 msgstr "Cari Parol"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "Cari mərhələ"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "Fərdiləşdirilmiş"
@@ -1344,6 +1356,14 @@ msgstr "Bu agent mövzusu silinsin?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "Bu müraciət silinsin?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "Bu xronologiya qeydini silmək?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "Xronologiya qeydini sil"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "Tətbiqi redaktə edin"
 msgid "Edit content in fullscreen mode"
 msgstr "Məzmununu tam ekran rejimində redaktə edin"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "Tarixi redaktə et"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "Təfərrüatları redaktə edin"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "Açar sözü redaktə et"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "Qeydi redaktə et"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "Səhnəni hərəkət etdirin"
 msgid "Move to"
 msgstr "Keçir"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "Köçürüldü"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Çoxdilli"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "İş elanı URL-ni yapışdırın"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "Sətirləri yapışdırın və ya .csv faylı yükləyin. Şirkət, Rol, Mərhələ, Əmək haqqı, Mənbə və Etiketlər kimi sütunları xəritələşdiririk."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "Sətirləri yapışdırın və ya .csv faylı yükləyin. Şirkət, Rol, Mərhələ, Mərhələ tarixi, Əmək haqqı, Mənbə və Etiketlər kimi sütunları xəritələşdiririk."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "Əmək haqqı diapazonu"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "Yadda saxla"
@@ -4042,6 +4075,10 @@ msgstr "Kvadrat"
 msgid "Stage"
 msgstr "Səhnə"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "Mərhələ tarixi"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "GitHub‑da bizi bəyənin (yeni vərəqdə açılır)"
@@ -4327,6 +4364,10 @@ msgstr "Bu agent mövzusu açıla bilmədi."
 msgid "This assistant could not be opened."
 msgstr "Bu köməkçi açıla bilmədi."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "Bu qeyd həmişəlik silinəcək. Bunu geri qaytarmaq mümkün deyil."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Bu funksiya qoşulmuş süni intellekt provayderi tələb edir. Zəhmət olmasa, parametrlərdə birini quraşdırın."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Reactive Resume ilə özgeçmiş qurulmasının timelapse nümayişi"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "Xronologiya və fəaliyyət"
+msgid "Timeline"
+msgstr "Xronologiya"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "Liderliyi, məhdudiyyətləri, güzəştləri və ölçülə bilən nət
 msgid "Update Resume"
 msgstr "Özgeçmişi Yenilə"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "Bu xronologiya qeydi üçün təqvim tarixini yeniləyin."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "Bu tətbiqin məlumatlarını yeniləyin."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "Bu xronologiya qeydi üçün qeydi yeniləyin."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "Uzaqlaşdır"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

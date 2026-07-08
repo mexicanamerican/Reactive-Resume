@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "Добавяне на нов доброволчески опит"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "Добавяне на бележка или записване на активност в дневника…"
+msgid "Add a note…"
+msgstr "Добавяне на бележка…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "Приложението не можа да се добави. Моля,
 msgid "Couldn't delete the application."
 msgstr "Не можах да изтрия приложението."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "Записът в хронологията не можа да бъде изтрит."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "Не можах да преместя приложението. Моля, опитайте отново."
@@ -1042,6 +1046,10 @@ msgstr "Бележката не можа да бъде запазена."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "Не можах да запазя промените ви. Моля, опитайте отново."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "Записът в хронологията не можа да бъде актуализиран."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "CSV данни"
 msgid "Current Password"
 msgstr "Текуща парола"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "Текущ етап"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "Потребителски"
@@ -1344,6 +1356,14 @@ msgstr "Да се изтрие ли тази тема от агент?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "Да се изтрие ли тази кандидатура?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "Да се изтрие ли този запис в хронологията?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "Изтриване на запис в хронологията"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "Редактиране на приложението"
 msgid "Edit content in fullscreen mode"
 msgstr "Редактиране на съдържание в режим на цял екран"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "Редактиране на дата"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "Редактиране на подробности"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "Редактиране на ключова дума"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "Редактиране на бележка"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "Преместване на сцената"
 msgid "Move to"
 msgstr "Преместване в"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "Преместено в"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Многоезично"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "Поставете URL адрес на обява за работа"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "Поставете редове или качете .csv файл. Ние картографираме колони като Компания, Роля, Етап, Заплата, Източник и Етикети."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "Поставете редове или качете .csv файл. Ние картографираме колони като Компания, Роля, Етап, Дата на етапа, Заплата, Източник и Етикети."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "Диапазон на заплатите"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "Запазете"
@@ -4042,6 +4075,10 @@ msgstr "Квадрат"
 msgid "Stage"
 msgstr "Етап"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "Дата на етапа"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "Отбележете ни в GitHub (отваря се в нов раздел)"
@@ -4327,6 +4364,10 @@ msgstr "Тази нишка на агента не можа да бъде отв
 msgid "This assistant could not be opened."
 msgstr "Този асистент не можа да бъде отворен."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "Този запис ще бъде изтрит за постоянно. Това не може да бъде отменено."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Тази функция изисква свързан доставчик на изкуствен интелект. Моля, настройте такъв в настройките."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Ускорено видео демонстрация на създаване на автобиография с Reactive Resume"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "Хронология и активност"
+msgid "Timeline"
+msgstr "Хронология"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "Актуализирайте водещите точки на проек
 msgid "Update Resume"
 msgstr "Актуализиране на автобиография"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "Актуализирайте календарната дата за този запис в хронологията."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "Актуализирайте данните на това приложение."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "Актуализирайте тази бележка в хронологията."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "Намаляване"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулуски"
-

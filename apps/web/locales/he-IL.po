@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "הוספת ניסיון התנדבות חדש"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "הוסף הערה או רשום פעילות…"
+msgid "Add a note…"
+msgstr "הוסף הערה…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "לא ניתן להוסיף את המועמדות. נסה שוב."
 msgid "Couldn't delete the application."
 msgstr "לא ניתן למחוק את המועמדות."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "לא ניתן למחוק את רשומת ציר הזמן."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "לא ניתן להעביר את המועמדות. נסה שוב."
@@ -1042,6 +1046,10 @@ msgstr "לא ניתן לשמור את ההערה."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "לא ניתן לשמור את השינויים. נסה שוב."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "לא ניתן לעדכן את רשומת ציר הזמן."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "נתוני CSV"
 msgid "Current Password"
 msgstr "סיסמה נוכחית"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "השלב הנוכחי"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "מותאם אישית"
@@ -1344,6 +1356,14 @@ msgstr "למחוק את שרשור הסוכן הזה?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "למחוק את המועמדות הזו?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "למחוק את רשומת ציר הזמן הזו?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "מחיקת רשומת ציר זמן"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "ערוך מועמדות"
 msgid "Edit content in fullscreen mode"
 msgstr "ערוך תוכן במצב מסך מלא"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "עריכת תאריך"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "עריכת פרטים"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "ערוך מילת מפתח"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "עריכת הערה"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "העבר שלב"
 msgid "Move to"
 msgstr "העברה אל"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "הועבר אל"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "רב־לשוני"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "הדבק URL של מודעת דרושים"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "הדבק שורות או העלה .csv. נמפה עמודות כמו חברה, תפקיד, שלב, שכר, מקור ותגיות."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "הדבק שורות או העלה .csv. נמפה עמודות כמו חברה, תפקיד, שלב, תאריך שלב, שכר, מקור ותגיות."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "טווח שכר"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "שמור"
@@ -4042,6 +4075,10 @@ msgstr "מרובע"
 msgid "Stage"
 msgstr "שלב"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "תאריך שלב"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "סמנו אותנו בכוכב ב־GitHub (נפתח בלשונית חדשה)"
@@ -4327,6 +4364,10 @@ msgstr "לא ניתן היה לפתוח את שרשור הסוכן הזה."
 msgid "This assistant could not be opened."
 msgstr "לא ניתן היה לפתוח את העוזר הזה."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "רשומה זו תימחק לצמיתות. לא ניתן לבטל פעולה זו."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "תכונה זו דורשת ספק בינה מלאכותית מחובר. אנא הגדר ספק כזה בהגדרות."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "הדגמת צילום מהיר של בניית קורות חיים בעזרת Reactive Resume"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "ציר זמן ופעילות"
+msgid "Timeline"
+msgstr "ציר זמן"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "עדכן את תבליטי הפרויקט כדי להראות מנהיג
 msgid "Update Resume"
 msgstr "עדכון קורות חיים"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "עדכן את תאריך לוח השנה עבור רשומת ציר הזמן הזו."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "עדכן את פרטי המועמדות הזו."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "עדכן את הערת ציר הזמן הזו."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "התרחקות"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "זולו"
-

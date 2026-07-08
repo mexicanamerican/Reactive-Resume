@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "Adăugați o nouă activitate de voluntariat"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "Adăugați o notă sau înregistrarea activității..."
+msgid "Add a note…"
+msgstr "Adăugați o notă…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "Aplicația nu a putut fi adăugată. Vă rugăm să încercați din nou.
 msgid "Couldn't delete the application."
 msgstr "Nu s-a putut șterge aplicația."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "Nu s-a putut șterge intrarea din cronologie."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "Aplicația nu a putut fi mutată. Vă rugăm să încercați din nou."
@@ -1042,6 +1046,10 @@ msgstr "Nu s-a putut salva nota."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "Modificările nu au putut fi salvate. Vă rugăm să încercați din nou."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "Nu s-a putut actualiza intrarea din cronologie."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "date CSV"
 msgid "Current Password"
 msgstr "Parolă curentă"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "Etapa curentă"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "Personalizat"
@@ -1344,6 +1356,14 @@ msgstr "Ștergeți acest fir de discuție al agentului?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "Ștergi această candidatură?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "Ștergeți această intrare din cronologie?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "Ștergeți intrarea din cronologie"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "Editați aplicația"
 msgid "Edit content in fullscreen mode"
 msgstr "Editarea conținutului în modul fullscreen"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "Editați data"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "Editați detaliile"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "Editare cuvânt cheie"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "Editați nota"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "Mutați scena"
 msgid "Move to"
 msgstr "Mută în"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "Mutat în"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Multilingv"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "Inserați o adresă URL de postare de locuri de muncă"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "Lipiți rânduri sau încărcați un .csv. Hartăm coloane precum Companie, Rol, Etapă, Salariu, Sursă și Etichete."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "Lipiți rânduri sau încărcați un .csv. Hartăm coloane precum Companie, Rol, Etapă, Data etapei, Salariu, Sursă și Etichete."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "Gama de salariu"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "Salvați"
@@ -4042,6 +4075,10 @@ msgstr "Pătrat"
 msgid "Stage"
 msgstr "Etapă"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "Data etapei"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "Adăugați o steluță pentru noi pe GitHub (se deschide într-o filă nouă)"
@@ -4327,6 +4364,10 @@ msgstr "Acest fir de discuție cu agentul nu a putut fi deschis."
 msgid "This assistant could not be opened."
 msgstr "Acest asistent nu a putut fi deschis."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "Această intrare va fi ștearsă definitiv. Această acțiune nu poate fi anulată."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Această funcție necesită un furnizor de inteligență artificială conectat. Vă rugăm să configurați unul în setări."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Demonstrație timelapse de construire a unui CV cu Reactive Resume"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "Cronologie și activitate"
+msgid "Timeline"
+msgstr "Cronologie"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "Actualizați punctele cheie ale proiectului pentru a arăta conducerea, 
 msgid "Update Resume"
 msgstr "Actualizați CV-ul"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "Actualizați data calendaristică pentru această intrare din cronologie."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "Actualizați detaliile acestei aplicații."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "Actualizați această notă din cronologie."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "Micșorează"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

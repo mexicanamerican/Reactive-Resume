@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "添加新的志愿者经历"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "添加备注或记录活动…"
+msgid "Add a note…"
+msgstr "添加备注…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "无法添加申请。请重试。"
 msgid "Couldn't delete the application."
 msgstr "无法删除申请。"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "无法删除时间线条目。"
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "无法移动申请。请重试。"
@@ -1042,6 +1046,10 @@ msgstr "无法保存备注。"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "无法保存你的更改。请重试。"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "无法更新时间线条目。"
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "CSV 数据"
 msgid "Current Password"
 msgstr "当前密码"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "当前阶段"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "定制"
@@ -1344,6 +1356,14 @@ msgstr "删除此代理主题帖？"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "删除此申请？"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "删除此时间线条目？"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "删除时间线条目"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "编辑申请"
 msgid "Edit content in fullscreen mode"
 msgstr "在全屏模式下编辑内容"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "编辑日期"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "编辑详情"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "编辑关键字"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "编辑备注"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "移动阶段"
 msgid "Move to"
 msgstr "移动到"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "已移至"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "多语言"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "粘贴职位发布 URL"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "粘贴行或上传 .csv。我们会映射 Company、Role、Stage、Salary、Source 和 Tags 等列。"
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "粘贴行或上传 .csv。我们会映射 Company、Role、Stage、Stage Date、Salary、Source 和 Tags 等列。"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "薪资范围"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "节省"
@@ -4042,6 +4075,10 @@ msgstr "方形"
 msgid "Stage"
 msgstr "阶段"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "阶段日期"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "在 GitHub 上为我们加星（在新标签页中打开）"
@@ -4327,6 +4364,10 @@ msgstr "此代理线程无法打开。"
 msgid "This assistant could not be opened."
 msgstr "此助手无法打开。"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "此条目将被永久删除。此操作无法撤销。"
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "此功能需要连接人工智能服务提供商。请在设置中进行设置。"
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "使用 Reactive Resume 构建简历的延时演示"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "时间线和活动"
+msgid "Timeline"
+msgstr "时间线"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "更新项目要点，以体现领导力、限制因素、权衡取舍和
 msgid "Update Resume"
 msgstr "更新简历"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "更新此时间线条目的日历日期。"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "更新此申请的详细信息。"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "更新此时间线备注。"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "缩小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
-

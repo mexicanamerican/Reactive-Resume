@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "ボランティアを追加"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "メモを追加するかアクティビティを記録…"
+msgid "Add a note…"
+msgstr "メモを追加…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "応募を追加できませんでした。もう一度お試しくださ
 msgid "Couldn't delete the application."
 msgstr "応募を削除できませんでした。"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "タイムライン項目を削除できませんでした。"
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "応募を移動できませんでした。もう一度お試しください。"
@@ -1042,6 +1046,10 @@ msgstr "メモを保存できませんでした。"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "変更を保存できませんでした。もう一度お試しください。"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "タイムライン項目を更新できませんでした。"
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "CSV データ"
 msgid "Current Password"
 msgstr "現在のパスワード"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "現在のステージ"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "カスタム"
@@ -1344,6 +1356,14 @@ msgstr "このエージェントスレッドを削除しますか？"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "この応募を削除しますか？"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "このタイムライン項目を削除しますか？"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "タイムライン項目を削除"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "応募を編集"
 msgid "Edit content in fullscreen mode"
 msgstr "フルスクリーンモードでのコンテンツ編集"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "日付を編集"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "詳細を編集"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "編集キーワード"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "メモを編集"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "ステージを移動"
 msgid "Move to"
 msgstr "移動先"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "移動先"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "多言語対応"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "求人情報の URL を貼り付け"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "行を貼り付けるか .csv をアップロードしてください。会社、職種、ステージ、給与、ソース、タグなどの列を対応付けます。"
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "行を貼り付けるか .csv をアップロードしてください。会社、職種、ステージ、ステージ日付、給与、ソース、タグなどの列を対応付けます。"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "給与範囲"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "保存"
@@ -4042,6 +4075,10 @@ msgstr "正方形"
 msgid "Stage"
 msgstr "ステージ"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "ステージ日付"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "GitHub でスターを付ける（新しいタブで開きます）"
@@ -4327,6 +4364,10 @@ msgstr "このエージェントスレッドを開くことができませんで
 msgid "This assistant could not be opened."
 msgstr "このアシスタントを開くことができませんでした。"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "この項目は完全に削除されます。元に戻すことはできません。"
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "この機能を使用するには、AIプロバイダーとの接続が必要です。設定画面でプロバイダーを設定してください。"
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Reactive Resume で履歴書を作成する様子を早送りで示したデモ動画"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "タイムラインとアクティビティ"
+msgid "Timeline"
+msgstr "タイムライン"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "プロジェクトの箇条書きを更新して、リーダーシップ
 msgid "Update Resume"
 msgstr "レジュメを更新"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "このタイムライン項目のカレンダー日付を更新します。"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "この応募の詳細を更新します。"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "このタイムラインのメモを更新します。"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "ズームアウト"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

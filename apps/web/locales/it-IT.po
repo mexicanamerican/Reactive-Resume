@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "Aggiungi una nuova esperienza di volontariato"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "Aggiungi una nota o registra un'attività…"
+msgid "Add a note…"
+msgstr "Aggiungi una nota…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "Impossibile aggiungere la candidatura. Riprova."
 msgid "Couldn't delete the application."
 msgstr "Impossibile eliminare la candidatura."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "Impossibile eliminare la voce della cronologia."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "Impossibile spostare la candidatura. Riprova."
@@ -1042,6 +1046,10 @@ msgstr "Impossibile salvare la nota."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "Impossibile salvare le modifiche. Riprova."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "Impossibile aggiornare la voce della cronologia."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "Dati CSV"
 msgid "Current Password"
 msgstr "Password attuale"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "Fase attuale"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "Personalizzato"
@@ -1344,6 +1356,14 @@ msgstr "Eliminare questa discussione dell'agente?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "Eliminare questa candidatura?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "Eliminare questa voce della cronologia?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "Elimina voce della cronologia"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "Modifica candidatura"
 msgid "Edit content in fullscreen mode"
 msgstr "Modifica dei contenuti in modalità fullscreen"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "Modifica data"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "Modifica dettagli"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "Modifica la parola chiave"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "Modifica nota"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "Sposta fase"
 msgid "Move to"
 msgstr "Sposta in"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "Spostato in"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Multilingue"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "Incolla l'URL dell'annuncio di lavoro"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "Incolla righe o carica un .csv. Mappiamo colonne come Azienda, Ruolo, Fase, Stipendio, Fonte e Tag."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "Incolla righe o carica un .csv. Mappiamo colonne come Azienda, Ruolo, Fase, Data fase, Stipendio, Fonte e Tag."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "Fascia salariale"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "Risparmiare"
@@ -4042,6 +4075,10 @@ msgstr "Quadrato"
 msgid "Stage"
 msgstr "Fase"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "Data fase"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "Metti una stella su GitHub (apre in una nuova scheda)"
@@ -4327,6 +4364,10 @@ msgstr "Impossibile aprire questa discussione con l'agente."
 msgid "This assistant could not be opened."
 msgstr "Impossibile aprire questo assistente."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "Questa voce verrà eliminata definitivamente. L'azione non può essere annullata."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Questa funzionalità richiede un provider di intelligenza artificiale connesso. Configuralo nelle impostazioni."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Dimostrazione in timelapse della creazione di un curriculum con Reactive Resume"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "Cronologia e attività"
+msgid "Timeline"
+msgstr "Cronologia"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "Aggiorna i punti elenco del progetto per evidenziare la leadership, i vi
 msgid "Update Resume"
 msgstr "Aggiorna curriculum"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "Aggiorna la data del calendario per questa voce della cronologia."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "Aggiorna i dettagli di questa candidatura."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "Aggiorna questa nota della cronologia."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "Rimpicciolisci"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

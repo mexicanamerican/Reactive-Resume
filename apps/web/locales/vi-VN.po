@@ -247,8 +247,8 @@ msgid "Add a new volunteer experience"
 msgstr "Thêm kinh nghiệm tình nguyện mới"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Add a note or log activity…"
-msgstr "Thêm ghi chú hoặc ghi lại hoạt động…"
+msgid "Add a note…"
+msgstr "Thêm ghi chú…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1027,6 +1027,10 @@ msgstr "Không thể thêm hồ sơ ứng tuyển. Vui lòng thử lại."
 msgid "Couldn't delete the application."
 msgstr "Không thể xóa hồ sơ ứng tuyển."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't delete the timeline entry."
+msgstr "Không thể xóa mục dòng thời gian."
+
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
 msgstr "Không thể di chuyển hồ sơ ứng tuyển. Vui lòng thử lại."
@@ -1042,6 +1046,10 @@ msgstr "Không thể lưu ghi chú."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
 msgstr "Không thể lưu thay đổi của bạn. Vui lòng thử lại."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Couldn't update the timeline entry."
+msgstr "Không thể cập nhật mục dòng thời gian."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1223,6 +1231,10 @@ msgstr "Dữ liệu CSV"
 msgid "Current Password"
 msgstr "Mật khẩu hiện tại"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Current stage"
+msgstr "Giai đoạn hiện tại"
+
 #: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "Tùy chỉnh"
@@ -1344,6 +1356,14 @@ msgstr "Xóa chủ đề thảo luận về tác vụ này?"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Delete this application?"
 msgstr "Xóa đơn ứng tuyển này?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete this timeline entry?"
+msgstr "Xóa mục dòng thời gian này?"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Delete timeline entry"
+msgstr "Xóa mục dòng thời gian"
 
 #. placeholder {0}: result.deleted
 #: src/features/applications/components/table-view.tsx
@@ -1532,6 +1552,10 @@ msgstr "Chỉnh sửa hồ sơ ứng tuyển"
 msgid "Edit content in fullscreen mode"
 msgstr "Chỉnh sửa nội dung ở chế độ toàn màn hình"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit date"
+msgstr "Sửa ngày"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1543,6 +1567,10 @@ msgstr "Chỉnh sửa chi tiết"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "Chỉnh sửa từ khóa"
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Edit note"
+msgstr "Sửa ghi chú"
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Editable in Word, Google Docs, and Pages."
@@ -2740,6 +2768,10 @@ msgstr "Chuyển giai đoạn"
 msgid "Move to"
 msgstr "Chuyển đến"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Moved to"
+msgstr "Đã chuyển đến"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Multilingual"
 msgstr "Đa ngôn ngữ"
@@ -3070,8 +3102,8 @@ msgid "Paste a job posting URL"
 msgstr "Dán URL tin tuyển dụng"
 
 #: src/features/applications/components/import-applications-sheet.tsx
-msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Salary, Source and Tags."
-msgstr "Dán các hàng hoặc tải lên .csv. Chúng tôi ánh xạ các cột như Company, Role, Stage, Salary, Source và Tags."
+msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
+msgstr "Dán các hàng hoặc tải lên .csv. Chúng tôi ánh xạ các cột như Company, Role, Stage, Stage Date, Salary, Source và Tags."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the posting — powers AI match scoring and tailoring."
@@ -3594,6 +3626,7 @@ msgid "Salary range"
 msgstr "Khoảng lương"
 
 #. Passkey rename prompt confirm action in authentication settings
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Save"
 msgstr "Lưu"
@@ -4042,6 +4075,10 @@ msgstr "Vuông"
 msgid "Stage"
 msgstr "Giai đoạn"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Stage date"
+msgstr "Ngày giai đoạn"
+
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
 msgstr "Nhấn sao cho chúng tôi trên GitHub (mở ở tab mới)"
@@ -4327,6 +4364,10 @@ msgstr "Không thể mở luồng thảo luận về tác vụ này."
 msgid "This assistant could not be opened."
 msgstr "Không thể mở trình trợ lý này."
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "This entry will be permanently deleted. This can't be undone."
+msgstr "Mục này sẽ bị xóa vĩnh viễn. Không thể hoàn tác."
+
 #: src/dialogs/resume/import.tsx
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Tính năng này yêu cầu kết nối với nhà cung cấp AI. Vui lòng thiết lập nhà cung cấp này trong phần cài đặt."
@@ -4416,8 +4457,8 @@ msgid "Timelapse demonstration of building a resume with Reactive Resume"
 msgstr "Video tua nhanh quá trình tạo hồ sơ với Resume Phản Ứng"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Timeline & activity"
-msgstr "Dòng thời gian và hoạt động"
+msgid "Timeline"
+msgstr "Dòng thời gian"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -4694,9 +4735,17 @@ msgstr "Cập nhật các gạch đầu dòng của dự án để thể hiện 
 msgid "Update Resume"
 msgstr "Cập nhật resume"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update the calendar date for this timeline entry."
+msgstr "Cập nhật ngày lịch cho mục dòng thời gian này."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
 msgstr "Cập nhật chi tiết của hồ sơ ứng tuyển này."
+
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Update this timeline note."
+msgstr "Cập nhật ghi chú dòng thời gian này."
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
@@ -5023,4 +5072,3 @@ msgstr "Thu nhỏ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
