@@ -240,13 +240,7 @@ Other ways to support:
 
 ## Star History
 
-<a href="https://www.star-history.com/#amruthpillai/reactive-resume&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=amruthpillai/reactive-resume&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=amruthpillai/reactive-resume&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=amruthpillai/reactive-resume&type=date&legend=top-left" />
- </picture>
-</a>
+[![Star History Chart](https://api.star-history.com/chart?repos=amruthpillai/reactive-resume&type=date&legend=top-left&sealed_token=Ya5stmVEPZiFUuTxQcfVkCUc2X2TzhGatYm7g6Qk51_tSjHDLyy7XZJbcrfhZJmV5Y2WketL-3RqZp0LUAaQOihHnSRZ659DNFd06CPRniXusohORNDvL8w2caQM3LAUc96DtM7XnBgJtZ0W2XjuSVU8upobjBthhiPpiMskLH397zWMUPGhjKZhaiF2)](https://www.star-history.com/?repos=amruthpillai%2Freactive-resume&type=date&legend=top-left)
 
 ## Contributing
 
