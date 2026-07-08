@@ -8,7 +8,7 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-08 16:53\n"
+"PO-Revision-Date: 2026-07-08 23:18\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -248,7 +248,7 @@ msgstr "Eine neue Freiwilligenerfahrung hinzufügen"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Add a note…"
-msgstr "Notiz hinzufügen…"
+msgstr "Füge eine Notiz hinzu…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
@@ -1029,7 +1029,7 @@ msgstr "Bewerbung konnte nicht gelöscht werden."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't delete the timeline entry."
-msgstr "Zeitleisteneintrag konnte nicht gelöscht werden."
+msgstr "Der Zeitleisteneintrag konnte nicht gelöscht werden."
 
 #: src/features/applications/components/board.tsx
 msgid "Couldn't move the application. Please try again."
@@ -1049,7 +1049,7 @@ msgstr "Änderungen konnten nicht gespeichert werden. Bitte versuche es erneut."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't update the timeline entry."
-msgstr "Zeitleisteneintrag konnte nicht aktualisiert werden."
+msgstr "Der Zeitleisteneintrag konnte nicht aktualisiert werden."
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
@@ -1233,7 +1233,7 @@ msgstr "Aktuelles Passwort"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Current stage"
-msgstr "Aktuelle Phase"
+msgstr "Aktueller Stand"
 
 #: src/components/input/color-picker.tsx
 msgid "Custom"
