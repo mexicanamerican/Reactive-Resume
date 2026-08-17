@@ -1079,7 +1079,9 @@ function AgentChatComposer({
 					<Textarea
 						value={input}
 						rows={1}
-						disabled={isReadOnly || isStreaming}
+						// Not disabled while streaming: the browser blurs a disabled field, so the caret would
+						// jump out of the composer on every send. `send` already ignores calls mid-stream.
+						disabled={isReadOnly}
 						onChange={(event) => onInputChange(event.target.value)}
 						onKeyDown={(event) => {
 							if (event.nativeEvent.isComposing) return;
