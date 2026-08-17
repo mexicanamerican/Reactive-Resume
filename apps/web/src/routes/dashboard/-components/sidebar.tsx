@@ -12,7 +12,7 @@ import {
 	ReadCvLogoIcon,
 	ShieldCheckIcon,
 	UserCircleIcon,
-	WarningIcon,
+	UserGearIcon,
 } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, m } from "motion/react";
@@ -90,9 +90,9 @@ const settingsSidebarItems = [
 		href: "/dashboard/settings/integrations",
 	},
 	{
-		icon: <WarningIcon />,
-		label: msg`Danger Zone`,
-		href: "/dashboard/settings/danger-zone",
+		icon: <UserGearIcon />,
+		label: msg`Account`,
+		href: "/dashboard/settings/account",
 	},
 ] as const satisfies SidebarItem[];
 

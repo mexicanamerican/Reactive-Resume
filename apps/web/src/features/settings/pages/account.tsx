@@ -5,9 +5,9 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { m } from "motion/react";
 import { useState } from "react";
-import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Input } from "@reactive-resume/ui/components/input";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
@@ -16,7 +16,7 @@ import { orpc } from "@/libs/orpc/client";
 
 const CONFIRMATION_TEXT = "delete";
 
-export function DangerZoneSettingsPage() {
+export function AccountSettingsPage() {
 	const confirm = useConfirm();
 	const navigate = useNavigate();
 	const [confirmationText, setConfirmationText] = useState("");
@@ -29,18 +29,19 @@ export function DangerZoneSettingsPage() {
 			onSuccess: (data) => {
 				const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
 				downloadWithAnchor(blob, generateFilename("reactive-resume-export", "json"));
-				toast.success(t`Your data has been exported successfully.`);
+				toast.add({ type: "success", description: t`Your data has been exported successfully.` });
 			},
 			onError: (error) => {
-				toast.error(
-					getReadableErrorMessage(
+				toast.add({
+					type: "error",
+					description: getReadableErrorMessage(
 						error,
 						t({
 							comment: "Fallback toast when data export fails",
 							message: "Failed to export your data. Please try again.",
 						}),
 					),
-				);
+				});
 			},
 		}),
 	);
@@ -49,36 +50,37 @@ export function DangerZoneSettingsPage() {
 		const confirmed = await confirm(t`Are you sure you want to delete your account?`, {
 			description: t`This action cannot be undone. All your data will be permanently deleted.`,
 			confirmText: t({
-				comment: "Account deletion confirmation dialog confirm action in danger zone",
+				comment: "Account deletion confirmation dialog confirm action in account settings",
 				message: "Confirm",
 			}),
 			cancelText: t({
-				comment: "Account deletion confirmation dialog cancel action in danger zone",
+				comment: "Account deletion confirmation dialog cancel action in account settings",
 				message: "Cancel",
 			}),
 		});
 
 		if (!confirmed) return;
 
-		const toastId = toast.loading(t`Deleting your account...`);
+		const toastId = toast.add({ type: "loading", description: t`Deleting your account...` });
 
 		deleteAccount(undefined, {
 			onSuccess: async () => {
-				toast.success(t`Your account has been deleted successfully.`, { id: toastId });
+				toast.add({ type: "success", description: t`Your account has been deleted successfully.`, id: toastId });
 				await authClient.signOut();
 				void navigate({ to: "/" });
 			},
 			onError: (error) => {
-				toast.error(
-					getReadableErrorMessage(
+				toast.add({
+					type: "error",
+					description: getReadableErrorMessage(
 						error,
 						t({
 							comment: "Fallback toast when account deletion fails",
 							message: "Failed to delete your account. Please try again.",
 						}),
 					),
-					{ id: toastId },
-				);
+					id: toastId,
+				});
 			},
 		});
 	};
