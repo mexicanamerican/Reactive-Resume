@@ -94,16 +94,21 @@ describe("buildMcpServerCard", () => {
 
 	it("accepts only http/https application source URLs", () => {
 		const create = TOOL_META[MCP_TOOL_NAME.createApplication].inputSchema;
-		const autofill = TOOL_META[MCP_TOOL_NAME.autofillApplicationFromJob].inputSchema;
 
 		expect(create.safeParse({ company: "Acme", role: "Engineer", sourceUrl: "https://example.com/job" }).success).toBe(
 			true,
 		);
-		expect(autofill.safeParse({ sourceUrl: "http://example.com/job" }).success).toBe(true);
 		const invalidUrl = create.safeParse({ company: "Acme", role: "Engineer", sourceUrl: "ftp://example.com/job" });
 		expect(invalidUrl.success).toBe(false);
 		if (!invalidUrl.success) expect(invalidUrl.error.issues[0]?.message).toBe("URL must use http or https.");
-		expect(autofill.safeParse({ sourceUrl: "javascript:alert(1)" }).success).toBe(false);
+	});
+
+	it("requires a pasted job posting to autofill an application", () => {
+		const autofill = TOOL_META[MCP_TOOL_NAME.autofillApplicationFromJob].inputSchema;
+
+		expect(autofill.safeParse({ jobDescription: "Senior Engineer at Acme" }).success).toBe(true);
+		expect(autofill.safeParse({ sourceUrl: "https://example.com/job" }).success).toBe(false);
+		expect(autofill.safeParse({ jobDescription: "   " }).success).toBe(false);
 	});
 
 	it("rejects application document payloads above 10MB decoded", () => {

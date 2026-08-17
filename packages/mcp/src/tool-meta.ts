@@ -21,12 +21,6 @@ const READ_NON_IDEMPOTENT: ToolAnnotations = {
 	idempotentHint: false,
 	openWorldHint: false,
 };
-const READ_OPEN_WORLD_NON_IDEMPOTENT: ToolAnnotations = {
-	readOnlyHint: true,
-	destructiveHint: false,
-	idempotentHint: false,
-	openWorldHint: true,
-};
 const WRITE_NON_IDEMPOTENT: ToolAnnotations = {
 	readOnlyHint: false,
 	destructiveHint: false,
@@ -458,13 +452,9 @@ export const TOOL_META = {
 	},
 	[T.autofillApplicationFromJob]: {
 		title: "Autofill Application From Job",
-		description:
-			"Use AI to extract company, role, location, salary, and job description from a job URL or pasted posting.",
-		inputSchema: z.object({
-			sourceUrl: httpUrlSchema.optional(),
-			jobDescription: z.string().max(20_000).optional(),
-		}),
-		annotations: READ_OPEN_WORLD_NON_IDEMPOTENT,
+		description: "Use AI to extract company, role, location, and salary from a pasted job posting.",
+		inputSchema: z.object({ jobDescription: z.string().trim().min(1).max(20_000) }),
+		annotations: READ_NON_IDEMPOTENT,
 	},
 	[T.scoreApplicationMatch]: {
 		title: "Score Application Match",

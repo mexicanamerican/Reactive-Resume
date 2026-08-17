@@ -102,14 +102,9 @@ describe("tool annotations", () => {
 		}
 	});
 
-	it("marks only job-posting autofill as open-world", () => {
-		expect(TOOL_META[MCP_TOOL_NAME.autofillApplicationFromJob].annotations.openWorldHint).toBe(true);
-	});
-
-	it("declares no tools as open-world by default", () => {
+	it("declares no tools as open-world", () => {
 		for (const [name, { annotations }] of Object.entries(TOOL_META)) {
-			if (name === MCP_TOOL_NAME.autofillApplicationFromJob) continue;
-			expect(annotations.openWorldHint).toBe(false);
+			expect(annotations.openWorldHint, name).toBe(false);
 		}
 	});
 });
