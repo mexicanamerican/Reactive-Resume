@@ -22,7 +22,7 @@
 		"@reactive-resume/resume": "workspace:*",
 		"@reactive-resume/schema": "workspace:*",
 		"@reactive-resume/utils": "workspace:*",
-		"deepmerge-ts": "^7.1.5",
+		"deepmerge-ts": "^8.0.1",
 		"jsonrepair": "^3.15.0",
 		"zod": "^4.4.3"
 	},
