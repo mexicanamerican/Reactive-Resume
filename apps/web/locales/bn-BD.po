@@ -179,7 +179,7 @@ msgstr "API ব্যবহার করে প্রোগ্রামেটি
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "অ্যাকাউন্ট"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "এবং আরো অনেক..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "নিজের ভাষায় উত্তর দিন"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "প্রমাণীকরণ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "স্বয়ংক্রিয় পূরণ ব্যর্থ হয়েছে।"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "স্টাইলশিট কপি করুন"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "বিজ্ঞপ্তি থেকে সম্পূর্ণ কাজের বিবরণ কপি করে নিচে পেস্ট করুন। আমরা আপনার হয়ে ঘরগুলো পূরণ করব এবং ম্যাচ স্কোরিং ও কাস্টমাইজেশনের জন্য লেখাটি এই আবেদনের সঙ্গে সংরক্ষণ করব।"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "এক্সপোর্ট"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "ডেটা এক্সপোর্ট"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "আপনার কোড যাচাই করতে ব্যর্�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "মারাত্মক ত্রুটি"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "ফাইল"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "ঘর পূরণ করুন"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "চাকরির বিজ্ঞপ্তি"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "চাকরির বিজ্ঞপ্তির লিঙ্ক"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "একটি Reactive Resume লিংক করুন (প্রস্�
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "আপনার উপযুক্ততা যাচাই করতে ও একটি কপি সাজিয়ে নিতে একটি জীবনবৃত্তান্ত যুক্ত করুন এবং কাজের বিবরণ পেস্ট করুন (সম্পাদনা)।"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "কোনো বিজ্ঞাপন নয়, কোনো ট্র�
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "কোনো এআই সরবরাহকারী সংযুক্ত নেই"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "সারিগুলো পেস্ট করুন অথবা এ�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "সম্পূর্ণ কাজের বিবরণ এখানে পেস্ট করুন…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "পেস্ট করলে ঘরগুলো স্বয়ংক্রিয়ভাবে পূরণ হয়।"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "প্রিভিউ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "প্রিভিউ ও এক্সপোর্ট মূল স্টাইলে ফিরে যাবে।"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "প্রিভিউ ও এক্সপোর্ট বৈধ স্টাইল রাখে এবং অবৈধ স্টাইল উপেক্ষা করে।"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "কাস্টম স্টাইল প্রয়োগ করার
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "বিজ্ঞপ্তি পড়া হচ্ছে…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "সক্রিয় করার জন্য প্রস্তুত
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "ত্রুটিসহ সক্রিয় করার জন্য প্রস্তুত"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "সিমান্টিক সিএসএস স্টাইলশি�
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "উত্তর পাঠান"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "কিছু বিশ্লেষক চিত্রগুলিকে 
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "কিছু স্টাইল উপেক্ষা করা হয়েছে"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "অন্য কিছু…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "স্টাইলশিট সম্পাদক"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "স্টাইলশিটে মারাত্মক ত্রুটি রয়েছে"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "উজবেক"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "বৈধ"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "বৈধ URL অবশ্যই http:// বা https:// দিয়ে
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "বৈধ, তবে ত্রুটিসহ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "বৈধ, তবে সতর্কতাসহ"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "পূর্ববর্তী ৩০ দিনের তুলনায
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "এজেন্টের জন্য অপেক্ষা করা হচ্ছে…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

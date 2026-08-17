@@ -179,7 +179,7 @@ msgstr "Accede a tus currículums y datos de forma programática usando la API."
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "Y mucho más..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "Responde con tus propias palabras"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "Autenticación"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "El autorrelleno ha fallado."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "Copiar hoja de estilo"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "Copia la descripción completa del empleo desde la oferta y pégala aquí abajo. Rellenaremos los campos por ti y guardaremos el texto junto con esta candidatura para puntuar la coincidencia y personalizarla."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "Exportar"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "Exportar datos"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2017,7 +2017,7 @@ msgstr "Archivo"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "Rellenar campos"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "Oferta de empleo"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "Enlace de la oferta de empleo"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "Vincular un Reactive Resume (recomendado)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "Vincula un currículum y pega la descripción del empleo (Editar) para puntuar tu encaje y personalizar una copia."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "Sin publicidad, sin rastreo"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "Ningún proveedor de IA conectado"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "Pega filas o sube un .csv. Asignamos columnas como Empresa, Puesto, Etap
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "Pega aquí la descripción completa del empleo…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "Al pegar, los campos se rellenan automáticamente."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3552,7 +3552,7 @@ msgstr "Lea la guía sobre cómo aplicar estilos personalizados."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "Leyendo la oferta…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3977,7 +3977,7 @@ msgstr "Hoja de estilo CSS semántica"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "Enviar respuesta"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "Algunos analizadores manejan mal las imágenes y en algunas regiones no 
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "Se ignoraron algunos estilos"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "Otra cosa…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "Editor de hojas de estilo"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "La hoja de estilo tiene errores fatales"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "Uzbeko"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "Válido"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "Las URL válidas deben comenzar con http:// o https://."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "Válido con errores"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "Válido con advertencias"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "en comparación con los 30 días anteriores"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "Esperando al agente…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

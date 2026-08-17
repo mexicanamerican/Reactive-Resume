@@ -179,7 +179,7 @@ msgstr "Käytä ansioluetteloitasi ja tietojasi ohjelmallisesti rajapinnan (API:
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "Tili"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "Ja paljon muuta..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "Vastaa omin sanoin"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "Todennus"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "Automaattinen täyttö epäonnistui."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "Kopioi tyylitiedosto"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "Kopioi koko työnkuvaus ilmoituksesta ja liitä se alle. Täytämme kentät puolestasi ja tallennamme tekstin tämän hakemuksen yhteyteen osuvuuden pisteytystä ja räätälöintiä varten."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "Vienti"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "Vie tiedot"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "Koodiasi ei onnistuttu tarkistamaan. Yritä uudelleen."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "Vakava virhe"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "Tiedosto"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "Täytä kentät"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "Työpaikkailmoitus"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "Työpaikkailmoituksen linkki"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "Linkitä Reactive Resume (suositus)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "Yhdistä ansioluettelo ja liitä työnkuvaus (Muokkaa), niin voit pisteyttää osuvuutesi ja räätälöidä kopion."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "Ei mainoksia, ei seurantaa"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "Ei yhdistettyä tekoälypalveluntarjoajaa"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "Liitä rivejä tai lataa .csv. Yhdistämme sarakkeet kuten Yritys, Rooli
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "Liitä koko työnkuvaus tähän…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "Liittäminen täyttää kentät automaattisesti."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "Esikatselu"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "Esikatselu ja vienti palaavat perustyyleihin."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "Esikatselu ja vienti säilyttävät kelvolliset tyylit ja ohittavat virheelliset tyylit."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "Lue opas Mukautettujen tyylien käyttäminen."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "Luetaan ilmoitusta…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "Valmis aktivoitavaksi"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "Valmis aktivoitavaksi virheillä"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "Semanttinen CSS-tyylitiedosto"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "Lähetä vastaus"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "Jotkut jäsentimet käsittelevät kuvia väärin, eikä valokuvia suosit
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "Joitakin tyylejä ohitettiin"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "Jotain muuta…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "Tyylitiedostoeditori"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "Tyylitiedostossa on vakavia virheitä"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "uzbekki"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "Kelvollinen"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "Kelvollisten URL-osoitteiden on alettava http:// tai https:// ."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "Kelvollinen, sisältää virheitä"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "Kelvollinen, sisältää varoituksia"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "verrattuna edellisiin 30 päivään"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "Odotetaan agenttia…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

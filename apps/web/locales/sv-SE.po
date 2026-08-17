@@ -179,7 +179,7 @@ msgstr "Få tillgång till dina CV:n och data programmatiskt med hjälp av API:e
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "Och många fler..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "Svara med egna ord"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "Autentisering"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "Autoifyllningen misslyckades."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "Kopiera stilark"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "Kopiera hela arbetsbeskrivningen från annonsen och klistra in den nedan. Vi fyller i fälten åt dig och sparar texten tillsammans med den här ansökan för matchningspoäng och anpassning."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "Exportera"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "Exportera data"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "Det gick inte att verifiera din kod. Vänligen försök igen."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "Allvarligt fel"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "Fil"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "Fyll i fält"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "Arbetsförmedling"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "Länk till jobbannons"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "Länka ett Reactive Resume (rekommenderas)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "Koppla ett CV och klistra in arbetsbeskrivningen (Redigera) för att få matchningspoäng och anpassa en kopia."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "Ingen reklam, ingen spårning"
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "Ingen AI-leverantör ansluten"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "Klistra in rader eller ladda upp en .csv. Vi kartlägger kolumner som F�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "Klistra in hela arbetsbeskrivningen här…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "Inklistring fyller i fälten automatiskt."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "Förhandsvisning"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "Förhandsvisning och export återgår till basstilarna."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "Förhandsvisning och export behåller giltiga stilar och ignorerar ogiltiga stilar."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "Läs guiden för att tillämpa anpassade stilar."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "Läser annonsen…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "Klar att aktiveras"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "Klar att aktiveras med fel"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "Semantisk CSS-stilmall"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "Skicka svar"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "Vissa tolkar hanterar bilder felaktigt och foton avråds från vissa reg
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "Vissa stilar ignorerades"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "Något annat…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "Stilarksredigerare"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "Stilarket har allvarliga fel"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "Uzbekiska"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "Giltig"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "Giltiga URL:er måste börja med http:// eller https://."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "Giltig med fel"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "Giltig med varningar"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "jämfört med föregående 30 dagar"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "Väntar på ombudet…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

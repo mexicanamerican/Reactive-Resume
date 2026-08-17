@@ -179,7 +179,7 @@ msgstr "በ API በመጠቀም የየታሪኮችዎን እና መረጃዎን 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "መለያ"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "እና ሌሎችም ብዙ…"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "በራስዎ ቃላት ይመልሱ"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "ማረጋገጫ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "ራስ-ሙላት አልተሳካም።"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "የቅጥ ሉህን ቅዳ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "ሙሉውን የሥራ መግለጫ ከማስታወቂያው ላይ ገልብጠው ከታች ይለጥፉ። መስኮቹን ለእርስዎ እንሞላለን፣ ጽሑፉንም ለተዛማጅነት ነጥብ አሰጣጥና ለማበጃጀት ከዚህ ማመልከቻ ጋር እናስቀምጣለን።"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "ወደ ውጪ አስመጣ"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "ውሂብ ላክ"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "ኮድዎን ማረጋገጥ አልተሳካም። እባክዎ እን�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "ከባድ ስህተት"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "ፋይል"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "መስኮችን ሙላ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "የሥራ ማስታወቂያ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "የሥራ ማስታወቂያ አገናኝ"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "Reactive Resume ያገናኙ (ይመከራል)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "ብቃትዎን ለመገምገምና ቅጂ ለማበጃጀት የስራ ልምድ ማስረጃ ያገናኙ እና የሥራ መግለጫውን (አርትዕ) ይለጥፉ።"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "ምንም ማስታወቂያ የለም፣ ምንም መከታተያ የ�
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "ምንም የአይ አገልግሎት አቅራቢ አልተገናኘም"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "ረድፎችን ይለጥፉ ወይም .csv ይስቀሉ። እንደ �
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "ሙሉውን የሥራ መግለጫ እዚህ ይለጥፉ…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "መለጠፍ መስኮቹን በራስ-ሰር ይሞላል።"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "ቅድመ እይታ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "ቅድመ እይታና ወደ ውጪ መላክ ወደ መሠረታዊ ቅጦች ይመለሳሉ።"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "ቅድመ እይታና ወደ ውጪ መላክ ትክክለኛ ቅጦችን ይይዛሉ፣ ልክ ያልሆኑ ቅጦችን ደግሞ ችላ ይላሉ።"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "የአጠቃቀም ብጁ ቅጦች መመሪያን ያንብቡ።"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "ማስታወቂያውን በማንበብ ላይ…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "ለማግበር ዝግጁ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "ከስህተቶች ጋር ለማንቃት ዝግጁ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "የትርጓሜ CSS የቅጥ ሉህ"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "መልስ ላክ"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "አንዳንድ ተንታኞች ምስሎችን ያታልላሉ፣ እ�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "አንዳንድ ቅጦች ችላ ተብለዋል"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "ሌላ ነገር…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "የቅጥ ሉህ አርታኢ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "የቅጥ ሉህ ከባድ ስህተቶች አሉት"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "ኡዝቤክኛ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "ትክክለኛ"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "ትክክለኛ URL በ http:// ወይም https:// መጀመር አለ�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "ትክክለኛ፣ ከስህተቶች ጋር"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "ትክክለኛ፣ ከማስጠንቀቂያዎች ጋር"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "ከቀደሙት 30 ቀናት ጋር ሲነጻጸር"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "ወኪሉን በመጠበቅ ላይ…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

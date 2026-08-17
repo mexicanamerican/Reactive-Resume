@@ -179,7 +179,7 @@ msgstr "API ఉపయోగించి మీ రిజ్యూమ్స్ �
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "ఖాతా"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "మరియు మరెన్నో..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "మీ సొంత మాటల్లో సమాధానం ఇవ్వండి"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "ధృవీకరణ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "ఆటో-ఫిల్ విఫలమైంది."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "స్టైల్‌షీట్‌ను కాపీ చేయండ�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "పోస్టింగ్ నుండి పూర్తి ఉద్యోగ వివరణను కాపీ చేసి కింద అతికించండి. మేము మీ కోసం ఫీల్డ్‌లను నింపుతాము మరియు మ్యాచ్ స్కోరింగ్, అనుకూలీకరణ కోసం ఆ టెక్స్ట్‌ను ఈ దరఖాస్తుతో పాటు ఉంచుతాము."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "ఎగుమతి"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "డేటాను ఎగుమతి చేయండి"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "మీ కోడ్‌ను ధృవీకరించడంలో వ
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "తీవ్రమైన లోపం"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "ఫైల్"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "ఫీల్డ్‌లను నింపండి"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "ఉద్యోగ పోస్టింగ్"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "ఉద్యోగ పోస్టింగ్ లింక్"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "Reactive Resumeను లింక్ చేయండి (సిఫా�
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "మీ సరిపోలికను స్కోర్ చేయడానికి మరియు అనుకూలీకరించిన కాపీని రూపొందించడానికి ఒక రెజ్యూమెను లింక్ చేసి ఉద్యోగ వివరణను అతికించండి (సవరించు)."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "ప్రకటనలు లేవు, ట్రాకింగ్ ల�
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "ఏ AI ప్రొవైడర్ కనెక్ట్ కాలేదు"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "వరుసలను అతికించండి లేదా .csv �
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "పూర్తి ఉద్యోగ వివరణను ఇక్కడ అతికించండి…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "అతికిస్తే ఫీల్డ్‌లు ఆటోమేటిక్‌గా నిండుతాయి."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "ప్రివ్యూ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "ప్రివ్యూ మరియు ఎగుమతి బేస్ స్టైల్స్‌కు తిరిగి మారతాయి."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "ప్రివ్యూ మరియు ఎగుమతి చెల్లుబాటు అయ్యే స్టైల్స్‌ను ఉంచి, చెల్లని స్టైల్స్‌ను విస్మరిస్తాయి."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "కస్టమ్ స్టైల్స్ వర్తింపజే�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "పోస్టింగ్‌ను చదువుతోంది…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "యాక్టివేట్ చేయడానికి సిద్�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "లోపాలతో యాక్టివేట్ చేయడానికి సిద్ధంగా ఉంది"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "సెమాంటిక్ CSS స్టైల్‌షీట్"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "సమాధానం పంపండి"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "కొంతమంది పార్సర్‌లు చిత్ర�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "కొన్ని స్టైల్స్ విస్మరించబడ్డాయి"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "ఇంకేదైనా…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "స్టైల్‌షీట్ ఎడిటర్"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "స్టైల్‌షీట్‌లో తీవ్రమైన లోపాలు ఉన్నాయి"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "ఉజ్‌బెక్"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "చెల్లుబాటు అవుతుంది"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "చెల్లే URLలు తప్పనిసరిగా http:// �
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "లోపాలతో చెల్లుబాటు అవుతుంది"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "హెచ్చరికలతో చెల్లుబాటు అవుతుంది"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "గత 30 రోజులతో పోలిస్తే"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "ఏజెంట్ కోసం వేచి ఉంది…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"

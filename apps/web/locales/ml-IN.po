@@ -179,7 +179,7 @@ msgstr "API ഉപയോഗിച്ച് നിങ്ങളുടെ റിസ
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/settings/account.tsx
 msgid "Account"
-msgstr ""
+msgstr "അക്കൗണ്ട്"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -447,7 +447,7 @@ msgstr "ഇനിയും പലതുണ്ട്..."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Answer in your own words"
-msgstr ""
+msgstr "നിങ്ങളുടെ സ്വന്തം വാക്കുകളിൽ ഉത്തരം നൽകുക"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -650,7 +650,7 @@ msgstr "ഓത്‌ന്റിക്കേഷൻ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
-msgstr ""
+msgstr "ഓട്ടോ-ഫിൽ പരാജയപ്പെട്ടു."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -1070,7 +1070,7 @@ msgstr "സ്റ്റൈൽഷീറ്റ് പകർത്തുക"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
-msgstr ""
+msgstr "പോസ്റ്റിംഗിൽ നിന്ന് ജോലി വിവരണം മുഴുവനായി പകർത്തി താഴെ ഒട്ടിക്കുക. ഞങ്ങൾ നിങ്ങൾക്കായി ഫീൽഡുകൾ പൂരിപ്പിക്കും, കൂടാതെ പൊരുത്ത സ്കോറിംഗിനും ക്രമീകരണത്തിനുമായി ഈ അപേക്ഷയോടൊപ്പം ടെക്സ്റ്റ് സൂക്ഷിക്കുകയും ചെയ്യും."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1815,7 +1815,7 @@ msgstr "എക്സ്പോർട്ട്"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
-msgstr ""
+msgstr "ഡാറ്റ എക്സ്പോർട്ട് ചെയ്യുക"
 
 #: src/features/settings/pages/account.tsx
 msgid "Export my data"
@@ -2005,7 +2005,7 @@ msgstr "നിങ്ങളുടെ കോഡ് പരിശോധിക്ക�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Fatal error"
-msgstr ""
+msgstr "ഗുരുതരമായ പിശക്"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -2017,7 +2017,7 @@ msgstr "ഫയൽ"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
-msgstr ""
+msgstr "ഫീൽഡുകൾ പൂരിപ്പിക്കുക"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2527,7 +2527,7 @@ msgstr "ജോലി പോസ്റ്റിംഗ്"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job posting link"
-msgstr ""
+msgstr "ജോലി പോസ്റ്റിംഗ് ലിങ്ക്"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2725,7 +2725,7 @@ msgstr "ഒരു Reactive Resume ബന്ധിപ്പിക്കുക (�
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
-msgstr ""
+msgstr "നിങ്ങളുടെ യോജിപ്പ് സ്കോർ ചെയ്യാനും ക്രമീകരിച്ച പകർപ്പ് ഉണ്ടാക്കാനും ഒരു റിസ്യൂം ലിങ്ക് ചെയ്ത് ജോലി വിവരണം ഒട്ടിക്കുക (എഡിറ്റ്)."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2997,7 +2997,7 @@ msgstr "പരസ്യങ്ങളില്ല, ട്രാക്കിംഗ�
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "No AI provider connected"
-msgstr ""
+msgstr "AI ദാതാവ് ബന്ധിപ്പിച്ചിട്ടില്ല"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
@@ -3261,11 +3261,11 @@ msgstr "വരികൾ ഒട്ടിക്കുക അല്ലെങ്ക�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
-msgstr ""
+msgstr "പൂർണ്ണമായ ജോലി വിവരണം ഇവിടെ ഒട്ടിക്കുക…"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Pasting fills the fields automatically."
-msgstr ""
+msgstr "ഒട്ടിക്കുമ്പോൾ ഫീൽഡുകൾ സ്വയമേവ പൂരിപ്പിക്കപ്പെടും."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3433,11 +3433,11 @@ msgstr "പ്രിവ്യൂ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export fall back to base styles."
-msgstr ""
+msgstr "പ്രിവ്യൂവും എക്സ്പോർട്ടും അടിസ്ഥാന ശൈലികളിലേക്ക് മടങ്ങും."
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Preview and export keep valid styles and ignore invalid styles."
-msgstr ""
+msgstr "പ്രിവ്യൂവും എക്സ്പോർട്ടും സാധുവായ ശൈലികൾ നിലനിർത്തി അസാധുവായ ശൈലികൾ അവഗണിക്കും."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3552,7 +3552,7 @@ msgstr "ഇഷ്ടാനുസൃത ശൈലികൾ പ്രയോഗി�
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
-msgstr ""
+msgstr "പോസ്റ്റിംഗ് വായിക്കുന്നു…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3560,7 +3560,7 @@ msgstr "സജീവമാക്കാൻ തയ്യാറാണ്"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with errors"
-msgstr ""
+msgstr "പിശകുകളോടെ സജീവമാക്കാൻ തയ്യാർ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3977,7 +3977,7 @@ msgstr "സെമാന്റിക് CSS സ്റ്റൈൽഷീറ്റ�
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send answer"
-msgstr ""
+msgstr "ഉത്തരം അയയ്ക്കുക"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -4217,11 +4217,11 @@ msgstr "ചില പാഴ്‌സർമാർ ചിത്രങ്ങൾ ത
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Some styles were ignored"
-msgstr ""
+msgstr "ചില ശൈലികൾ അവഗണിക്കപ്പെട്ടു"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Something else…"
-msgstr ""
+msgstr "മറ്റെന്തെങ്കിലും…"
 
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
@@ -4362,7 +4362,7 @@ msgstr "സ്റ്റൈൽഷീറ്റ് എഡിറ്റർ"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Stylesheet has fatal errors"
-msgstr ""
+msgstr "സ്റ്റൈൽഷീറ്റിൽ ഗുരുതരമായ പിശകുകൾ ഉണ്ട്"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -5123,7 +5123,7 @@ msgstr "ഉസ്‌ബെക്ക്"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid"
-msgstr ""
+msgstr "സാധു"
 
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
@@ -5131,11 +5131,11 @@ msgstr "സാധുവായ URL‑കൾ http:// അല്ലെങ്കി�
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with errors"
-msgstr ""
+msgstr "പിശകുകളോടെ സാധു"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Valid with warnings"
-msgstr ""
+msgstr "മുന്നറിയിപ്പുകളോടെ സാധു"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -5199,7 +5199,7 @@ msgstr "കഴിഞ്ഞ 30 ദിവസങ്ങളുമായി താര�
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Waiting for the agent…"
-msgstr ""
+msgstr "ഏജന്റിനായി കാത്തിരിക്കുന്നു…"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
