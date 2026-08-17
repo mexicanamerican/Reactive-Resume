@@ -73,12 +73,13 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 				{ name: "apple-mobile-web-app-capable", content: "yes" },
 				{ name: "apple-mobile-web-app-title", content: "Reactive Resume" },
 				{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
-				// Twitter Tags
-				{ property: "twitter:image", content: `${appUrl}/opengraph/banner.jpg` },
-				{ property: "twitter:card", content: "summary_large_image" },
-				{ property: "twitter:title", content: title },
-				{ property: "twitter:description", content: description },
+				// Twitter Tags — X only reads these as `name`, not `property`
+				{ name: "twitter:image", content: `${appUrl}/opengraph/banner.jpg` },
+				{ name: "twitter:card", content: "summary_large_image" },
+				{ name: "twitter:title", content: title },
+				{ name: "twitter:description", content: description },
 				// OpenGraph Tags
+				{ property: "og:type", content: "website" },
 				{ property: "og:image", content: `${appUrl}/opengraph/banner.jpg` },
 				{ property: "og:site_name", content: appName },
 				{ property: "og:title", content: title },

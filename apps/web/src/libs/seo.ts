@@ -30,10 +30,11 @@ export const createResumeSocialMeta = ({ canonicalUrl, title, description, image
 	{ property: "og:description", content: description },
 	{ property: "og:url", content: canonicalUrl },
 	{ property: "og:image", content: imageUrl },
-	{ property: "twitter:card", content: "summary_large_image" },
-	{ property: "twitter:title", content: title },
-	{ property: "twitter:description", content: description },
-	{ property: "twitter:image", content: imageUrl },
+	// X only reads these as `name`, not `property`
+	{ name: "twitter:card", content: "summary_large_image" },
+	{ name: "twitter:title", content: title },
+	{ name: "twitter:description", content: description },
+	{ name: "twitter:image", content: imageUrl },
 ];
 
 const serializeJsonLdForScript = (data: JsonLd) =>
