@@ -175,6 +175,12 @@ msgstr "Звісно! Ви можете експортувати своє рез
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Отримуйте доступ до ваших резюме і даних за допомогою API."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Меню облікового запису"
@@ -439,6 +445,10 @@ msgstr "Аналіз…"
 msgid "And many more..."
 msgstr "Та багато іншого..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Антропік Клод"
@@ -570,7 +580,7 @@ msgstr "Ви впевнені, що хочете видалити цей еле�
 msgid "Are you sure you want to delete this resume?"
 msgstr "Ви впевнені, що бажаєте видалити це резюме?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Ви впевнені, що хочете видалити свій профіль?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Автентифікація"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Автозаповнення"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Автозаповнення не вдалося. Натомість вставте опис."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Чи можу я експортувати своє резюме у PDF?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Чи можу я експортувати своє резюме у PDF?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Порівняйте це резюме з URL-адресою цієї в
 msgid "Completely free, forever, no hidden costs."
 msgstr "Повністю безкоштовно, назавжди, без прихованих витрат."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Скопіювати секретний код"
 msgid "Copy stylesheet"
 msgstr "Копіювати таблицю стилів"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Скопіюйте цей секретний ключ та використовуйте його у своїх додатках для доступу до своїх даних."
@@ -1075,10 +1085,8 @@ msgstr "Скопіювати URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Виправте рік або використовуйте \"Поточний\" для поточної роботи."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Не вдалося зв'язатися з постачальником ШІ. Спробуйте ще раз."
 
@@ -1332,12 +1340,6 @@ msgstr "Власні стилі"
 msgid "Czech"
 msgstr "Чеська"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Небезпечна зона"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "Данська"
@@ -1407,7 +1409,8 @@ msgstr "Ступінь"
 msgid "Delete"
 msgstr "Видалити"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Видалити обліковий запис"
 
@@ -1446,7 +1449,7 @@ msgstr "Видалити запис хронології"
 msgid "Deleted {0} application(s)."
 msgstr "Видалено {0} заявок."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Видалення облікового запису..."
 
@@ -1502,7 +1505,6 @@ msgstr "Від'єднати"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Відхилити"
@@ -1537,7 +1539,7 @@ msgstr "Пожертвувати на Reactive Resume"
 msgid "Download"
 msgstr "Завантажити"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Завантажте копію всіх своїх даних, включаючи ваш профіль та кожне резюме, у форматі JSON."
 
@@ -1811,7 +1813,11 @@ msgstr "Ознайомтеся з документацією API, щоб діз�
 msgid "Export"
 msgstr "Експорт"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Експортувати мої дані"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Не вдалося видалити ланцюжок повідомлень."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Не вдалося видалити ваш обліковий запис. Спробуйте ще раз."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Не вдалося увімкнути двофакторну автентифікацію. Спробуйте ще раз."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Не вдалося експортувати ваші дані. Спробуйте ще раз."
 
@@ -2008,6 +2014,10 @@ msgstr "Функції"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Файл"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Опис вакансії"
 msgid "Job posting"
 msgstr "Оголошення про вакансію"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Воронка пошуку роботи"
@@ -2666,10 +2680,6 @@ msgstr "Вийти, щоб налаштувати постачальника AI?
 msgid "Left Align"
 msgstr "Вирівняти ліворуч"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Дозвольте AI прочитати оголошення й заповнити поля нижче."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Прив'язати Reactive Resume (рекомендовано)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Прив'яжіть резюме й додайте опис вакансії (Редагувати), щоб оцінити відповідність і адаптувати копію."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Нова тема"
 msgid "No Advertising, No Tracking"
 msgstr "Без реклами, без відстеження"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Немає заявок, що відповідають вашим фільтрам."
@@ -3241,17 +3255,17 @@ msgstr "Захист паролем вимкнено."
 msgid "Password protection has been enabled."
 msgstr "Захист паролем увімкнено."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Вставте URL оголошення про вакансію"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Вставте рядки або завантажте .csv. Ми зіставляємо стовпці на кшталт Company, Role, Stage, Stage Date, Salary, Source і Tags."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Вставте оголошення — воно живить AI-оцінку відповідності й адаптацію."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Ознайомтеся з посібником із застосування власних стилів."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Читання…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Семантична таблиця стилів CSS"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
@@ -4201,14 +4219,13 @@ msgstr "Деякі аналізатори неправильно обробля�
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Щось пішло не так"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Щось пішло не так під час аналізу вашого резюме."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Дякуємо нашим спонсорам"
 msgid "The agent needs your input."
 msgstr "Агенту потрібна ваша думка."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "ШІ повернув невірний формат аналізу. Спробуйте ще раз."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API-ключ було успішно видалено."
@@ -4568,7 +4580,7 @@ msgstr "Мислення"
 msgid "This action cannot be undone."
 msgstr "Цю дію неможливо скасувати."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Цю дію неможливо скасувати. Усі ваші дані буде остаточно видалено."
 
@@ -4747,7 +4759,7 @@ msgstr "Порада: Ви можете назвати резюме відпов
 msgid "Title"
 msgstr "Назва"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Щоб видалити акаунт, введіть підтверджувальний текст і натисніть кнопку нижче."
 
@@ -4870,7 +4882,7 @@ msgstr "QR-код з двофакторною автентифікацією"
 msgid "Type"
 msgstr "Тип"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Введіть \"{CONFIRMATION_TEXT}\" для підтвердження"
 
@@ -5185,6 +5197,10 @@ msgstr "Волонтер"
 msgid "vs previous 30 days"
 msgstr "порівняно з попередніми 30 днями"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Попередження"
@@ -5296,7 +5312,7 @@ msgstr "Ви перейдете на сторінку інтеграцій. Ви
 msgid "You've got mail!"
 msgstr "Ви отримали листа!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Ваш акаунт було успішно видалено."
 
@@ -5312,7 +5328,7 @@ msgstr "Ваш основний текст дуже малий."
 msgid "Your changes are saved automatically."
 msgstr "Ваші зміни зберігаються автоматично."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Ваші дані успішно експортовано."
 
@@ -5429,4 +5445,3 @@ msgstr "Зменшити"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
-

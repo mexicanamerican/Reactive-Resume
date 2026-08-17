@@ -175,6 +175,12 @@ msgstr "Tentu saja! Anda dapat mengekspor resume Anda ke PDF hanya dengan satu k
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Akses resume dan data Anda secara terprogram menggunakan API."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Menu Akun"
@@ -439,6 +445,10 @@ msgstr "Menganalisis…"
 msgid "And many more..."
 msgstr "Dan masih banyak lagi..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Antropik Claude"
@@ -570,7 +580,7 @@ msgstr "Apakah Anda yakin ingin menghapus item ini?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Apakah Anda yakin ingin menghapus resume ini?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Apakah Anda yakin ingin menghapus akun Anda?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Autentikasi"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Isi otomatis"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Isi otomatis gagal. Tempelkan deskripsinya saja."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Bisakah saya mengekspor resume saya ke PDF?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Bisakah saya mengekspor resume saya ke PDF?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Bandingkan resume ini dengan URL lowongan pekerjaan ini dan perbarui kat
 msgid "Completely free, forever, no hidden costs."
 msgstr "Sepenuhnya gratis, selamanya, tanpa biaya tersembunyi."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Salin rahasia"
 msgid "Copy stylesheet"
 msgstr "Salin stylesheet"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Salin kunci rahasia ini dan gunakan di aplikasi Anda untuk mengakses data Anda."
@@ -1075,10 +1085,8 @@ msgstr "Salin URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Perbaiki tahunnya, atau gunakan \"Sekarang\" untuk pekerjaan yang sedang berlangsung."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Tidak dapat menghubungi penyedia AI. Silakan coba lagi."
 
@@ -1332,12 +1340,6 @@ msgstr "Gaya Kustom"
 msgid "Czech"
 msgstr "Ceko"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Zona Berbahaya"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "Denmark"
@@ -1407,7 +1409,8 @@ msgstr "Gelar"
 msgid "Delete"
 msgstr "Hapus"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Hapus Akun"
 
@@ -1446,7 +1449,7 @@ msgstr "Hapus entri lini masa"
 msgid "Deleted {0} application(s)."
 msgstr "{0} lamaran dihapus."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Menghapus akun Anda..."
 
@@ -1502,7 +1505,6 @@ msgstr "Putuskan"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Membubarkan"
@@ -1537,7 +1539,7 @@ msgstr "Donasi ke Reactive Resume"
 msgid "Download"
 msgstr "Unduh"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Unduh salinan semua data Anda, termasuk profil dan semua resume Anda, sebagai file JSON."
 
@@ -1811,7 +1813,11 @@ msgstr "Jelajahi dokumentasi API untuk mempelajari cara mengintegrasikan Reactiv
 msgid "Export"
 msgstr "Ekspor"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Ekspor data saya"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Gagal menghapus thread."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Gagal menghapus akun Anda. Silakan coba lagi."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Gagal mengaktifkan autentikasi dua faktor. Silakan coba lagi."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Ekspor data Anda gagal. Silakan coba lagi."
 
@@ -2008,6 +2014,10 @@ msgstr "Fitur"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Mengajukan"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Deskripsi pekerjaan"
 msgid "Job posting"
 msgstr "Lowongan kerja"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Alur pencarian kerja"
@@ -2666,10 +2680,6 @@ msgstr "Tinggalkan untuk menyiapkan penyedia AI?"
 msgid "Left Align"
 msgstr "Rata Kiri"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Biarkan AI membaca lowongan dan mengisi kolom di bawah."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Tautkan Reactive Resume (disarankan)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Tautkan resume dan tambahkan deskripsi pekerjaan (Edit) untuk menilai kecocokanmu dan menyesuaikan salinan."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Utas Baru"
 msgid "No Advertising, No Tracking"
 msgstr "Tanpa Iklan, Tanpa Pelacakan"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Tidak ada lamaran yang cocok dengan filtermu."
@@ -3241,17 +3255,17 @@ msgstr "Perlindungan kata sandi telah dinonaktifkan."
 msgid "Password protection has been enabled."
 msgstr "Perlindungan kata sandi telah diaktifkan."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Tempel URL lowongan kerja"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Tempel baris atau unggah .csv. Kami memetakan kolom seperti Perusahaan, Peran, Tahap, Tanggal Tahap, Gaji, Sumber, dan Tag."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Tempel lowongan — ini mengaktifkan penilaian kecocokan AI dan penyesuaian."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Bacalah panduan Menerapkan Gaya Kustom."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Membaca…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Lembar gaya CSS semantik"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Kirim pesan"
 
@@ -4201,14 +4219,13 @@ msgstr "Beberapa parser salah menangani gambar, dan foto tidak disarankan di beb
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Terjadi kesalahan."
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Ada yang salah saat menganalisis resume Anda."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Terima kasih kepada para sponsor kami."
 msgid "The agent needs your input."
 msgstr "Agen tersebut membutuhkan masukan Anda."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "AI mengembalikan format analisis yang tidak valid. Silakan coba lagi."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API key telah berhasil dihapus."
@@ -4568,7 +4580,7 @@ msgstr "Pemikiran"
 msgid "This action cannot be undone."
 msgstr "Tindakan ini tidak dapat dibatalkan."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Tindakan ini tidak dapat dibatalkan. Semua data Anda akan dihapus secara permanen."
 
@@ -4747,7 +4759,7 @@ msgstr "Tips: Anda dapat menamai resume dengan merujuk pada posisi yang Anda lam
 msgid "Title"
 msgstr "Judul"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Untuk menghapus akun Anda, Anda perlu memasukkan teks konfirmasi dan klik tombol di bawah."
 
@@ -4870,7 +4882,7 @@ msgstr "Kode QR Otentikasi Dua Faktor"
 msgid "Type"
 msgstr "Tipe"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Ketik \"{CONFIRMATION_TEXT}\" untuk mengonfirmasi"
 
@@ -5185,6 +5197,10 @@ msgstr "Relawan"
 msgid "vs previous 30 days"
 msgstr "dibandingkan 30 hari sebelumnya"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Peringatan"
@@ -5296,7 +5312,7 @@ msgstr "Anda akan dibawa ke halaman Integrasi. "
 msgid "You've got mail!"
 msgstr "Anda mendapat email!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Akun Anda telah berhasil dihapus."
 
@@ -5312,7 +5328,7 @@ msgstr "Teks isi Anda sangat kecil."
 msgid "Your changes are saved automatically."
 msgstr "Perubahan Anda disimpan secara otomatis."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Data Anda telah berhasil diekspor."
 
@@ -5429,4 +5445,3 @@ msgstr "Perkecil"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

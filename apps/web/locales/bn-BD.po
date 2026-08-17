@@ -175,6 +175,12 @@ msgstr "অবশ্যই! আপনি এক ক্লিকেই আপন�
 msgid "Access your resumes and data programmatically using the API."
 msgstr "API ব্যবহার করে প্রোগ্রামেটিক ভাবে আপনার জীবনবৃত্তান্ত ও ডেটায় প্রবেশ করুন।"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "অ্যাকাউন্ট মেনু"
@@ -439,6 +445,10 @@ msgstr "… বিশ্লেষণ করা হচ্ছে"
 msgid "And many more..."
 msgstr "এবং আরো অনেক..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "অ্যান্থ্রপিক ক্লাড"
@@ -570,7 +580,7 @@ msgstr "আপনি কি নিশ্চিত যে আপনি এই আ
 msgid "Are you sure you want to delete this resume?"
 msgstr "আপনি কি নিশ্চিত আপনি এই জীবনবৃত্তান্ত মুছে ফেলতে চান?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "আপনি কি নিশ্চিত আপনি আপনার অ্যাকাউন্ট মুছে ফেলতে চান?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "প্রমাণীকরণ"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "স্বয়ংক্রিয়ভাবে পূরণ করুন"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "স্বয়ংক্রিয়ভাবে পূরণ করা যায়নি। এর পরিবর্তে বিবরণটি পেস্ট করুন।"
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "আমি কি আমার জীবনবৃত্তান্তকে PDF-এ এক্সপোর্ট করতে পারি?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "আমি কি আমার জীবনবৃত্তান্তক
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "এই জীবনবৃত্তান্তটিকে পদের 
 msgid "Completely free, forever, no hidden costs."
 msgstr "সম্পূর্ণ বিনামূল্যে, চিরদিনের জন্য, কোনো গোপন খরচ নেই।"
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "গোপন অনুলিপি"
 msgid "Copy stylesheet"
 msgstr "স্টাইলশিট কপি করুন"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "এই সিক্রেট কী কপি করে আপনার অ্যাপ্লিকেশনগুলোতে ব্যবহার করুন আপনার ডেটায় প্রবেশ করার জন্য।"
@@ -1075,10 +1085,8 @@ msgstr "URL কপি করুন"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Correct the year, or use \\\"Present\\\" for ongoing work."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "এআই প্রদানকারীর সাথে সংযোগ স্থাপন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
@@ -1332,12 +1340,6 @@ msgstr "কাস্টম স্টাইল"
 msgid "Czech"
 msgstr "চেক"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "ঝুঁকিপূর্ণ এলাকা"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "ডেনিশ"
@@ -1407,7 +1409,8 @@ msgstr "ডিগ্রি"
 msgid "Delete"
 msgstr "মুছে ফেলুন"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "অ্যাকাউন্ট মুছে ফেলুন"
 
@@ -1446,7 +1449,7 @@ msgstr "সময়রেখার এন্ট্রি মুছুন"
 msgid "Deleted {0} application(s)."
 msgstr "{0} টি অ্যাপ্লিকেশন মুছে ফেলা হয়েছে।"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "আপনার অ্যাকাউন্ট মুছে ফেলা হচ্ছে..."
 
@@ -1502,7 +1505,6 @@ msgstr "ডিসকনেক্ট করুন"
 msgid "Discord"
 msgstr "ডিসকর্ড"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "খারিজ করুন"
@@ -1537,7 +1539,7 @@ msgstr "Reactive Resume-এ অনুদান দিন"
 msgid "Download"
 msgstr "ডাউনলোড"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "আপনার প্রোফাইল এবং প্রতিটি জীবনবৃত্তান্ত সহ আপনার সমস্ত ডেটার একটি কপি JSON ফাইল হিসাবে ডাউনলোড করুন।"
 
@@ -1811,7 +1813,11 @@ msgstr "Reactive Resume-কে আপনার অ্যাপ্লিকেশ
 msgid "Export"
 msgstr "এক্সপোর্ট"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "আমার ডেটা রপ্তানি করুন"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "থ্রেডটি মুছে ফেলা সম্ভব হয়নি।"
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "আপনার অ্যাকাউন্ট মুছে ফেলা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "দুই-স্তরীয় যাচাইকরণ সক্ষম করতে ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "আপনার ডেটা রপ্তানি করা সম্ভব হয়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
@@ -2008,6 +2014,10 @@ msgstr "বৈশিষ্ট্যসমূহ"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "ফাইল"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "কাজের বিবরণ"
 msgid "Job posting"
 msgstr "চাকরির বিজ্ঞপ্তি"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "চাকরি খোঁজার পাইপলাইন"
@@ -2666,10 +2680,6 @@ msgstr "একটি AI প্রদানকারী সেট আপ কর�
 msgid "Left Align"
 msgstr "বাম দিকে অ্যালাইন"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "এআই-কে পোস্টটি পড়তে দিন এবং নিচের ক্ষেত্রগুলো পূরণ করুন।"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "লেটার"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "একটি Reactive Resume লিংক করুন (প্রস্তাবিত)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "আপনার যোগ্যতা যাচাই করতে এবং একটি উপযুক্ত কপি তৈরি করতে একটি জীবনবৃত্তান্ত লিঙ্ক করুন ও চাকরির বিবরণ যোগ করুন (সম্পাদনা)।"
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "নতুন থ্রেড"
 msgid "No Advertising, No Tracking"
 msgstr "কোনো বিজ্ঞাপন নয়, কোনো ট্র্যাকিং নয়"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "আপনার ফিল্টারগুলোর সাথে কোনো অ্যাপ্লিকেশন মেলে না।"
@@ -3241,17 +3255,17 @@ msgstr "পাসওয়ার্ড সুরক্ষা বন্ধ কর
 msgid "Password protection has been enabled."
 msgstr "পাসওয়ার্ড সুরক্ষা চালু করা হয়েছে।"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "চাকরির বিজ্ঞাপনের ইউআরএল পেস্ট করুন"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "সারিগুলো পেস্ট করুন অথবা একটি .csv ফাইল আপলোড করুন। আমরা কোম্পানি, পদ, পর্যায়, পর্যায়ের তারিখ, বেতন, উৎস এবং ট্যাগ-এর মতো কলামগুলো ম্যাপ করি।"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "পোস্টটি পেস্ট করুন — এটি এআই ম্যাচ স্কোরিং এবং ম্যাচ সাজানোর কাজকে শক্তিশালী করে।"
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "কাস্টম স্টাইল প্রয়োগ করার নির্দেশিকাটি পড়ুন।"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "পড়া…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "সিমান্টিক সিএসএস স্টাইলশিট"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "বার্তা পাঠান"
 
@@ -4201,14 +4219,13 @@ msgstr "কিছু বিশ্লেষক চিত্রগুলিকে 
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "কিছু একটা ভুল হয়েছে"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "আপনার জীবনবৃত্তান্ত বিশ্লেষণ করার সময় কিছু ভুল হয়েছে।"
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "আমাদের পৃষ্ঠপোষকদের ধন্যব�
 msgid "The agent needs your input."
 msgstr "এজেন্টের আপনার মতামত প্রয়োজন।"
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "এআই একটি অবৈধ বিশ্লেষণ ফর্ম্যাট ফেরত দিয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API কী সফলভাবে মুছে ফেলা হয়েছে।"
@@ -4568,7 +4580,7 @@ msgstr "চিন্তা"
 msgid "This action cannot be undone."
 msgstr "এই কাজটি ফিরিয়ে নেওয়া যাবে না।"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "এই কাজটি ফিরিয়ে নেওয়া যাবে না। আপনার সব ডেটা স্থায়ীভাবে মুছে ফেলা হবে।"
 
@@ -4747,7 +4759,7 @@ msgstr "পরামর্শ: আপনি যে চাকরির পদে�
 msgid "Title"
 msgstr "শিরোনাম"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "আপনার অ্যাকাউন্ট মুছে ফেলতে চাইলে নিশ্চয়তাসূচক টেক্সট লিখে নিচের বাটনে ক্লিক করতে হবে।"
 
@@ -4870,7 +4882,7 @@ msgstr "দুই-ফ্যাক্টর প্রমাণীকরণ কি
 msgid "Type"
 msgstr "টাইপ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "নিশ্চিত করতে \"{CONFIRMATION_TEXT}\" টাইপ করুন"
 
@@ -5185,6 +5197,10 @@ msgstr "স্বেচ্ছাসেবী"
 msgid "vs previous 30 days"
 msgstr "পূর্ববর্তী ৩০ দিনের তুলনায়"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "সতর্কতা"
@@ -5296,7 +5312,7 @@ msgstr "আপনাকে ইন্টিগ্রেশন পৃষ্ঠা�
 msgid "You've got mail!"
 msgstr "আপনার জন্য একটি ইমেইল এসেছে!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "আপনার অ্যাকাউন্ট সফলভাবে মুছে ফেলা হয়েছে।"
 
@@ -5312,7 +5328,7 @@ msgstr "আপনার বডি টেক্সট খুবই ছোট।"
 msgid "Your changes are saved automatically."
 msgstr "আপনার পরিবর্তনগুলো স্বয়ংক্রিয়ভাবে সংরক্ষণ করা হয়।"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "আপনার ডেটা সফলভাবে রপ্তানি করা হয়েছে।"
 
@@ -5429,4 +5445,3 @@ msgstr "জুম আউট"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "জুলু"
-

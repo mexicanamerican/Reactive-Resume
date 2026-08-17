@@ -175,6 +175,12 @@ msgstr "ፍጹም! የየታሪክዎን ወደ PDF በአንድ ጠቅታ መ�
 msgid "Access your resumes and data programmatically using the API."
 msgstr "በ API በመጠቀም የየታሪኮችዎን እና መረጃዎን ፕሮግራማዊ መዳረስ።"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "የመለያ ምናሌ"
@@ -439,6 +445,10 @@ msgstr "መተንተን…"
 msgid "And many more..."
 msgstr "እና ሌሎችም ብዙ…"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Anthropic Claude"
@@ -570,7 +580,7 @@ msgstr "ይህን ንጥል ለመሰረዝ እርግጠኛ ነዎት?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "ይህን የታሪክ ማቅረቢያ ለመሰረዝ እርግጠኛ ነዎት?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "መለያዎን ለመሰረዝ እርግጠኛ ነዎት?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "ማረጋገጫ"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "ራስ-ሰር ሙላ"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "ራስ-ሙላ አልተሳካም። በምትኩ መግለጫውን ይለጥፉ።"
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "የየታሪክዬን ወደ PDF ልላክ እችላለሁ?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "የየታሪክዬን ወደ PDF ልላክ እችላለሁ?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "ይህንን የስራ ልምድ መግለጫ ከዚህ ሚና ዩአር
 msgid "Completely free, forever, no hidden costs."
 msgstr "ፍጹም ነፃ፣ ለዘላለም፣ ምንም የተደበቀ ወጪ የለም።"
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "ሚስጥርን ይቅዱ"
 msgid "Copy stylesheet"
 msgstr "የቅጥ ሉህን ቅዳ"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "ይህንን ሚስጥራዊ ቁልፍ ቅጂ አድርጉ እና ውስጥ በመተግበሪያዎቻችሁ መረጃዎን ለመድረስ ይጠቀሙበት።"
@@ -1075,10 +1085,8 @@ msgstr "URL ቅጂ አድርግ"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "ዓመቱን ያስተካክሉ፣ ወይም ለቀጣይ ሥራ ‘Present’ ይጠቀሙ።"
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "ወደ AI አቅራቢው መድረስ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
 
@@ -1332,12 +1340,6 @@ msgstr "ብጁ ቅጦች"
 msgid "Czech"
 msgstr "ቼክኛ"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "አደገኛ ክልል"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "ዴኒሽ"
@@ -1407,7 +1409,8 @@ msgstr "ዲግሪ"
 msgid "Delete"
 msgstr "ሰርዝ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "መለያን ሰርዝ"
 
@@ -1446,7 +1449,7 @@ msgstr "የጊዜ መስመር ግቤትን ሰርዝ"
 msgid "Deleted {0} application(s)."
 msgstr "{0} መተግበሪያ(ዎች) ተሰርዘዋል።"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "መለያዎን በመሰረዝ ላይ…"
 
@@ -1502,7 +1505,6 @@ msgstr "ግንኙነትን ቁርጥ"
 msgid "Discord"
 msgstr "ዲስኮርድ"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "አሰናብት"
@@ -1537,7 +1539,7 @@ msgstr "ለ Reactive Resume መዋጮ አድርግ"
 msgid "Download"
 msgstr "አውርድ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "መገለጫዎን እና እያንዳንዱን የስራ ልምድዎን ጨምሮ የሁሉም ውሂብዎን ቅጂ እንደ JSON ፋይል ያውርዱ።"
 
@@ -1811,7 +1813,11 @@ msgstr "Reactive Resumeን ከመተግበሪያዎቻችሁ ጋር እንዴት
 msgid "Export"
 msgstr "ወደ ውጪ አስመጣ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "ውሂቤን ወደ ውጭ ላክ"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "ክር መሰረዝ አልተሳካም።"
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "መለያዎን መሰረዝ አልተሳካም። እባክዎ እንደገና ይሞክሩ።"
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "ሁለት-ደረጃ ማረጋገጫን ማንቃት አልተሳካም። እባክዎ እንደገና ይሞክሩ።"
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "ውሂብዎን ወደ ውጭ መላክ አልተሳካም። እባክዎ እንደገና ይሞክሩ።"
 
@@ -2008,6 +2014,10 @@ msgstr "መለያዎች"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "ፋይል"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "የሥራ መግለጫ"
 msgid "Job posting"
 msgstr "የሥራ ማስታወቂያ"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "የሥራ ፍለጋ ሂደት"
@@ -2666,10 +2680,6 @@ msgstr "AI አቅራቢን ለማቋቋም ይውጡ?"
 msgid "Left Align"
 msgstr "በግራ ማሰለፊያ"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "AI ጽሑፉን እንዲያነብ እና ከታች ያሉትን መስኮች እንዲሞላ ያድርጉ።"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "መልእክት።"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Reactive Resume ያገናኙ (ይመከራል)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "የስራ መግለጫ (ሲቪ) አገናኝ እና የስራ ዝርዝርዎን (አርትዕ) ያክሉ እና የስራዎን ብቃት ለማስመዝገብ እና ቅጂውን ለማስተካከል።"
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "አዲስ ክር"
 msgid "No Advertising, No Tracking"
 msgstr "ምንም ማስታወቂያ የለም፣ ምንም መከታተያ የለም"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "ከማጣሪያዎችዎ ጋር የሚዛመዱ ምንም መተግበሪያዎች የሉም።"
@@ -3241,17 +3255,17 @@ msgstr "የይለፍ ቃል ጥበቃ ተሰናክሏል።"
 msgid "Password protection has been enabled."
 msgstr "የይለፍ ቃል ጥበቃ ተነስቷል።"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "የስራ ልጥፍ ዩአርኤል ይለጥፉ"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "ረድፎችን ይለጥፉ ወይም .csv ይስቀሉ። እንደ ኩባንያ፣ ሚና፣ ደረጃ፣ የደረጃ ቀን፣ ደመወዝ፣ ምንጭ እና መለያዎች ያሉ አምዶችን እናስተካክላለን።"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "ልጥፉን ይለጥፉ - የ AI ግጥሚያ ውጤት ማስመዝገብ እና ማስተካከልን ያጎላል።"
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "የአጠቃቀም ብጁ ቅጦች መመሪያን ያንብቡ።"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "ንባብ…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "የትርጓሜ CSS የቅጥ ሉህ"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "መልእክት ላክ"
 
@@ -4201,14 +4219,13 @@ msgstr "አንዳንድ ተንታኞች ምስሎችን ያታልላሉ፣ እ�
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "የሆነ ችግር ተፈጥሯል"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "የሥራ ማመልከቻ ሰነድዎን በመተንተን ላይ ሳሉ ችግኝ ተፈጥሯል።"
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "ለስፖንሰሮቻችን እናመሰግናለን"
 msgid "The agent needs your input."
 msgstr "ወኪሉ የእርስዎን ግብዓት ይፈልጋል።"
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "AI ልክ ያልሆነ የትንተና ቅርጸት መልሷል። እባክዎ እንደገና ይሞክሩ።"
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API ቁልፉ በተሳካ ሁኔታ ተሰርዟል።"
@@ -4568,7 +4580,7 @@ msgstr "ማሰብ"
 msgid "This action cannot be undone."
 msgstr "ይህ ተግባር መቀለብ አይቻልም።"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "ይህ ተግባር መቀለብ አይቻልም። ሁሉም መረጃዎ በእርስዎ ዘርፍ ይሰረዛል።"
 
@@ -4747,7 +4759,7 @@ msgstr "ምክር፡ የምትወዱትን ቦታ በመመለከት የየታ�
 msgid "Title"
 msgstr "ርዕስ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "መለያዎን ለመሰረዝ የማረጋገጫ ጽሑፍን ያስገቡ እና ከታች ያለውን አዝራር ይጫኑ።"
 
@@ -4870,7 +4882,7 @@ msgstr "የሁለት-ደረጃ ማረጋገጫ QR ኮድ"
 msgid "Type"
 msgstr "ዓይነት"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "\"{CONFIRMATION_TEXT}\" በመተየብ ያረጋግጡ"
 
@@ -5185,6 +5197,10 @@ msgstr "በነፃ ፈቃድ"
 msgid "vs previous 30 days"
 msgstr "ከቀደሙት 30 ቀናት ጋር ሲነጻጸር"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "ማስጠንቀቂያ"
@@ -5296,7 +5312,7 @@ msgstr "ወደ ውህደት ገጽ ይወሰዳሉ። የመረጥከው ፋይ�
 msgid "You've got mail!"
 msgstr "ኢሜል መደብ ገባህ!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "መለያዎ በተሳካ ሁኔታ ተሰርዟል።"
 
@@ -5312,7 +5328,7 @@ msgstr "የሰውነትዎ ጽሑፍ በጣም ትንሽ ነው።"
 msgid "Your changes are saved automatically."
 msgstr "ለውጦችዎ በራስ-ሰር ይቀመጣሉ።"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "ውሂብዎ በተሳካ ሁኔታ ወደ ውጭ ተልኳል።"
 
@@ -5429,4 +5445,3 @@ msgstr "አጉር"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-

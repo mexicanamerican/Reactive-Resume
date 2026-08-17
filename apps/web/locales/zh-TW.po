@@ -175,6 +175,12 @@ msgstr "當然可以！您只要按一下即可將履歷匯出為 PDF。匯出�
 msgid "Access your resumes and data programmatically using the API."
 msgstr "使用 API 以程式化方式存取您的履歷與資料。"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "帳戶選單"
@@ -439,6 +445,10 @@ msgstr "分析…"
 msgid "And many more..."
 msgstr "還有很多……"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "克勞德人類"
@@ -570,7 +580,7 @@ msgstr "您確定要刪除此項目？"
 msgid "Are you sure you want to delete this resume?"
 msgstr "您確定要刪除這份履歷嗎？"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "您確定要刪除您的帳戶嗎？"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "驗證"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "自動填入"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "自動填入失敗。請改為貼上描述。"
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "我可以把履歷匯出成 PDF 嗎？"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "我可以把履歷匯出成 PDF 嗎？"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "將此履歷與此職位網址進行比較，更新關鍵字，同時保
 msgid "Completely free, forever, no hidden costs."
 msgstr "完全免費，永遠如此，沒有任何隱藏費用。"
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "複製秘密"
 msgid "Copy stylesheet"
 msgstr "複製樣式表"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "複製這組私密金鑰，並在您的應用程式中使用它來存取您的資料。"
@@ -1075,10 +1085,8 @@ msgstr "複製 URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "更正年份，或對正在進行的工作使用“現在”。 」"
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "無法連絡 AI 提供者。請再試一次。"
 
@@ -1332,12 +1340,6 @@ msgstr "自訂樣式"
 msgid "Czech"
 msgstr "捷克語"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "危險操作"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "丹麥語"
@@ -1407,7 +1409,8 @@ msgstr "學位"
 msgid "Delete"
 msgstr "刪除"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "刪除帳號"
 
@@ -1446,7 +1449,7 @@ msgstr "刪除時間軸項目"
 msgid "Deleted {0} application(s)."
 msgstr "已刪除 {0} 個應徵紀錄。"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "正在刪除您的帳戶…"
 
@@ -1502,7 +1505,6 @@ msgstr "中斷連結"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "解僱"
@@ -1537,7 +1539,7 @@ msgstr "捐助 Reactive Resume"
 msgid "Download"
 msgstr "下載"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "下載包含您的個人資料和所有簡歷在內的所有資料的副本，格式為 JSON 檔案。"
 
@@ -1811,7 +1813,11 @@ msgstr "瀏覽 API 文件，以瞭解如何將 Reactive Resume 與您的應用�
 msgid "Export"
 msgstr "導出"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "匯出我的數據"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "刪除線程失敗。"
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "刪除您的帳戶失敗。請再試一次。"
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "啟用雙重認證失敗。請再試一次。"
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "資料匯出失敗，請重試。"
 
@@ -2008,6 +2014,10 @@ msgstr "功能"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "文件"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "職缺描述"
 msgid "Job posting"
 msgstr "職缺公告"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "求職流程"
@@ -2666,10 +2680,6 @@ msgstr "離開去建立人工智慧提供者嗎？ 」"
 msgid "Left Align"
 msgstr "靠左對齊"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "讓 AI 讀取職缺公告並填寫下方欄位。"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "信件"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "連結 Reactive Resume（建議）"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "連結履歷並新增職缺描述（編輯），以評估適配度並調整副本。"
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "新帖"
 msgid "No Advertising, No Tracking"
 msgstr "無廣告、無追蹤"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "沒有符合篩選條件的應徵紀錄。"
@@ -3241,17 +3255,17 @@ msgstr "已停用密碼保護。"
 msgid "Password protection has been enabled."
 msgstr "已啟用密碼保護。"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "貼上職缺公告 URL"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "貼上列或上傳 .csv。我們會對應 Company、Role、Stage、Stage Date、Salary、Source 和 Tags 等欄位。"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "貼上職缺公告，用於 AI 適配評分與調整。"
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "請閱讀“套用自訂樣式”指南。"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "正在讀取…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "語意化 CSS 樣式表"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "發送訊息"
 
@@ -4201,14 +4219,13 @@ msgstr "有些解析器錯誤地處理圖像，並且在某些地區不鼓勵使
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "出問題了"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "在分析您的履歷時出了問題。"
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "感謝我們的贊助商"
 msgid "The agent needs your input."
 msgstr "經紀人需要您的意見。"
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "AI 返回無效的分析格式。請再試一次。"
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API Key 已成功刪除。"
@@ -4568,7 +4580,7 @@ msgstr "思維"
 msgid "This action cannot be undone."
 msgstr "此動作無法復原。"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "此動作無法復原。您的所有資料都將被永久刪除。"
 
@@ -4747,7 +4759,7 @@ msgstr "祕訣： 您可以參考您申請的職位為履歷命名。"
 msgid "Title"
 msgstr "標題"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "若要刪除帳戶，您必須先輸入確認文字，然後點擊下方按鈕。"
 
@@ -4870,7 +4882,7 @@ msgstr "雙因素驗證 QR 代碼"
 msgid "Type"
 msgstr "類型"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "輸入「{CONFIRMATION_TEXT}」以確認"
 
@@ -5185,6 +5197,10 @@ msgstr "志工服務"
 msgid "vs previous 30 days"
 msgstr "與前 30 天相比"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "警告”"
@@ -5296,7 +5312,7 @@ msgstr "您將被帶到“整合”頁面。您選擇的文件將不會被匯入
 msgid "You've got mail!"
 msgstr "你有新郵件"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "您的帳戶已成功刪除。"
 
@@ -5312,7 +5328,7 @@ msgstr "你的正文很小。 」"
 msgid "Your changes are saved automatically."
 msgstr "您的變更會自動儲存。"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "您的資料已成功匯出。"
 
@@ -5429,4 +5445,3 @@ msgstr "縮小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖魯語"
-

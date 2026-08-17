@@ -175,6 +175,12 @@ msgstr "Určite! Svoj životopis môžeš jedným kliknutím exportovať do PDF.
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Pristupuj k svojim životopisom a dátam programovo pomocou API."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Ponuka účtu"
@@ -439,6 +445,10 @@ msgstr "Analýza…"
 msgid "And many more..."
 msgstr "A mnoho ďalšieho..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Antropický Claude"
@@ -570,7 +580,7 @@ msgstr "Ste si istí, že chcete túto položku odstrániť?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Naozaj chceš tento životopis vymazať?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Naozaj chceš svoj účet vymazať?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Overenie"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Automatické dopĺňanie"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Automatické dopĺňanie zlyhalo. Namiesto toho prilepte popis."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Môžem svoj životopis exportovať do PDF?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Môžem svoj životopis exportovať do PDF?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Porovnajte tento životopis s URL adresou tejto pracovnej pozície a akt
 msgid "Completely free, forever, no hidden costs."
 msgstr "Úplne zadarmo, navždy, bez skrytých poplatkov."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Kopírovať tajný kód"
 msgid "Copy stylesheet"
 msgstr "Kopírovať šablónu so štýlmi"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Skopíruj tento tajný kľúč a použi ho vo svojich aplikáciách na prístup k svojim dátam."
@@ -1075,10 +1085,8 @@ msgstr "Kopírovať URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Opravte rok alebo použite \"Súčasnosť\" pre prebiehajúcu prácu."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Nepodarilo sa spojiť s poskytovateľom AI. Skúste to prosím znova."
 
@@ -1332,12 +1340,6 @@ msgstr "Vlastné štýly"
 msgid "Czech"
 msgstr "Čeština"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Nebezpečná zóna"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "Dánčina"
@@ -1407,7 +1409,8 @@ msgstr "Titul"
 msgid "Delete"
 msgstr "Vymazať"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Vymazať účet"
 
@@ -1446,7 +1449,7 @@ msgstr "Odstrániť záznam časovej osi"
 msgid "Deleted {0} application(s)."
 msgstr "Odstránené aplikácie (počet: {0})."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Vymazávam tvoj účet..."
 
@@ -1502,7 +1505,6 @@ msgstr "Odpojiť"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Zavrieť"
@@ -1537,7 +1539,7 @@ msgstr "Prispej projektu Reactive Resume"
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Stiahnite si kópiu všetkých svojich údajov vrátane profilu a každého životopisu ako súbor JSON."
 
@@ -1811,7 +1813,11 @@ msgstr "Preskúmaj API dokumentáciu a zisti, ako integrovať Reactive Resume do
 msgid "Export"
 msgstr "Export"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Exportovať moje údaje"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Vlákno sa nepodarilo odstrániť."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Nepodarilo sa odstrániť vaše konto. Skúste to prosím znova."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Nepodarilo sa povoliť dvojfaktorové overovanie. Skúste to prosím znova."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Export údajov zlyhal. Skúste to znova."
 
@@ -2008,6 +2014,10 @@ msgstr "Funkcie"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Súbor"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Popis práce"
 msgid "Job posting"
 msgstr "Pracovná ponuka"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Proces hľadania práce"
@@ -2666,10 +2680,6 @@ msgstr "Chcete nechať nastaviť poskytovateľa AI?"
 msgid "Left Align"
 msgstr "Zarovnať vľavo"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Nechajte AI prečítať príspevok a vyplňte polia nižšie."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Prepojiť Reactive Resume (odporúčané)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Prepojte životopis a pridajte popis práce (Upraviť), aby ste získali hodnotenie a prispôsobili kópiu."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Nové vlákno"
 msgid "No Advertising, No Tracking"
 msgstr "Bez reklám, bez sledovania"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Vašim filtrom nevyhovujú žiadne aplikácie."
@@ -3241,17 +3255,17 @@ msgstr "Ochrana heslom bola vypnutá."
 msgid "Password protection has been enabled."
 msgstr "Ochrana heslom bola zapnutá."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Prilepte adresu URL pracovného inzerátu"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Prilepte riadky alebo nahrajte súbor .csv. Mapujeme stĺpce ako Spoločnosť, Rola, Fáza, Dátum fázy, Plat, Zdroj a Štítky."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Prilepenie príspevku – umožňuje AI skóre zápasov a prispôsobenie."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Prečítajte si príručku Používanie vlastných štýlov."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Číta sa…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Sémantický CSS štýlový hárok"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Odoslať správu"
 
@@ -4201,14 +4219,13 @@ msgstr "Niektoré analyzátory nesprávne narábajú s obrázkami a v niektorýc
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Niečo sa pokazilo"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Pri analýze vášho životopisu sa niečo pokazilo."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Ďakujeme našim sponzorom"
 msgid "The agent needs your input."
 msgstr "Agent potrebuje váš názor."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "UI vrátil neplatný formát analýzy. Skúste to prosím znova."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API kľúč bol úspešne vymazaný."
@@ -4568,7 +4580,7 @@ msgstr "Myslenie"
 msgid "This action cannot be undone."
 msgstr "Túto akciu nemožno vrátiť späť."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Túto akciu nemožno vrátiť späť. Všetky tvoje dáta budú natrvalo vymazané."
 
@@ -4747,7 +4759,7 @@ msgstr "Tip: Životopis môžeš pomenovať podľa pracovnej pozície, na ktorú
 msgid "Title"
 msgstr "Názov"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Na vymazanie účtu musíš zadať potvrdzujúci text a kliknúť na tlačidlo nižšie."
 
@@ -4870,7 +4882,7 @@ msgstr "Dvojfaktorové overovanie QR kódom"
 msgid "Type"
 msgstr "Typ"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Napíš \"{CONFIRMATION_TEXT}\" na potvrdenie"
 
@@ -5185,6 +5197,10 @@ msgstr "Dobrovoľníctvo"
 msgid "vs previous 30 days"
 msgstr "v porovnaní s predchádzajúcimi 30 dňami"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Upozornenie"
@@ -5296,7 +5312,7 @@ msgstr "Dostanete sa na stránku Integrácie. Vybratý súbor nebude importovan�
 msgid "You've got mail!"
 msgstr "Máš poštu!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Tvoj účet bol úspešne vymazaný."
 
@@ -5312,7 +5328,7 @@ msgstr "Text vášho tela je veľmi malý."
 msgid "Your changes are saved automatically."
 msgstr "Tvoje zmeny sa ukladajú automaticky."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Vaše údaje boli úspešne exportované."
 
@@ -5429,4 +5445,3 @@ msgstr "Oddialiť"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

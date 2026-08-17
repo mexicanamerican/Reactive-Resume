@@ -175,6 +175,12 @@ msgstr "Absolutt! Du kan eksportere CV-en din til PDF med ett klikk. Den eksport
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Få tilgang til CV-er og data programmessig ved å bruke API-et."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Konto-meny"
@@ -439,6 +445,10 @@ msgstr "Analyserer…"
 msgid "And many more..."
 msgstr "Og mange flere..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Anthropic Claude"
@@ -570,7 +580,7 @@ msgstr "Er du sikker på at du vil slette dette elementet?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Er du sikker på at du vil slette denne CV-en?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Er du sikker på at du vil slette kontoen din?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Autentisering"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Autofyll"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Autofyll failed. Lim inn beskrivelsen i stedet."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Kan jeg eksportere CV-en min til PDF?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Kan jeg eksportere CV-en min til PDF?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Sammenlign denne CV-en med denne stillings-URL-en og oppdater nøkkelord
 msgid "Completely free, forever, no hidden costs."
 msgstr "Helt gratis, for alltid, uten skjulte kostnader."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Kopier hemmelighet"
 msgid "Copy stylesheet"
 msgstr "Kopier stilark"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Kopier denne hemmelige nøkkelen og bruk den i applikasjonene dine for å få tilgang til dataene dine."
@@ -1075,10 +1085,8 @@ msgstr "Kopier URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Korriger året, eller bruk \"nå\" for pågående arbeid."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Kunne ikke nå KI-leverandøren. Prøv igjen."
 
@@ -1332,12 +1340,6 @@ msgstr "Tilpassede stiler"
 msgid "Czech"
 msgstr "Tsjekkisk"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Faresonen"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "Dansk"
@@ -1407,7 +1409,8 @@ msgstr "Grad"
 msgid "Delete"
 msgstr "Slett"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Slett konto"
 
@@ -1446,7 +1449,7 @@ msgstr "Slett tidslinjeoppføring"
 msgid "Deleted {0} application(s)."
 msgstr "Slettet {0}-applikasjon(er)."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Sletter kontoen din..."
 
@@ -1502,7 +1505,6 @@ msgstr "Koble fra"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Avskjedige"
@@ -1537,7 +1539,7 @@ msgstr "Doner til Reactive Resume"
 msgid "Download"
 msgstr "Last ned"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Last ned en kopi av alle dataene dine, inkludert profilen din og alle CV-ene dine, som en JSON-fil."
 
@@ -1811,7 +1813,11 @@ msgstr "Utforsk API-dokumentasjonen for å lære hvordan du integrerer Reactive 
 msgid "Export"
 msgstr "Eksporter"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Eksporter dataene mine"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Klarte ikke å slette tråden."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Kunne ikke slette kontoen din. Prøv igjen."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Kunne ikke aktivere tofaktorautentisering. Prøv igjen."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Kunne ikke eksportere dataene dine. Prøv på nytt."
 
@@ -2008,6 +2014,10 @@ msgstr "Funksjoner"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Fil"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Stillingsbeskrivelse"
 msgid "Job posting"
 msgstr "Stillingsutlysning"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Jobbsøkpipeline"
@@ -2666,10 +2680,6 @@ msgstr "Vil du forlate siden for å konfigurere en AI-leverandør?"
 msgid "Left Align"
 msgstr "Venstrejuster"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "La AI lese innlegget og fyll ut feltene nedenfor."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Brev"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Koble til en Reactive Resume (anbefalt)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Koble til en CV og legg til en stillingsbeskrivelse (Rediger) for å oppnå passform og tailor en kopi."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Ny tråd"
 msgid "No Advertising, No Tracking"
 msgstr "Ingen annonser, ingen sporing"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Ingen apper samsvarer med filtrene dine."
@@ -3241,17 +3255,17 @@ msgstr "Passordbeskyttelse er deaktivert."
 msgid "Password protection has been enabled."
 msgstr "Passordbeskyttelse er aktivert."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Lim inn en stillingsannonse URL"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Lim inn rader eller last opp en .csv. Vi kartlegger kolonner som Firma, Rolle, Fase, Fasedato, Lønn, Kilde og Tags."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Lim inn innlegget — gir AI kampscoring og tailoring."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Les veiledningen for bruk av tilpassede stiler."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Leser …"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Semantisk CSS-stilark"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Send melding"
 
@@ -4201,14 +4219,13 @@ msgstr "Noen parsere håndterer bilder dårlig, og bilder frarådes i enkelte re
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Noe gikk galt"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Noe gikk galt under analysen av CV-en din."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Takk til våre sponsorer"
 msgid "The agent needs your input."
 msgstr "Agenten trenger din innspill."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "KI-en returnerte et ugyldig analyseformat. Prøv igjen."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API-nøkkelen er slettet."
@@ -4568,7 +4580,7 @@ msgstr "Tenkning"
 msgid "This action cannot be undone."
 msgstr "Denne handlingen kan ikke angres."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Denne handlingen kan ikke angres. Alle dataene dine vil bli slettet permanent."
 
@@ -4747,7 +4759,7 @@ msgstr "Tips: Du kan navngi CV-en med referanse til stillingen du søker på."
 msgid "Title"
 msgstr "Tittel"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "For å slette kontoen din må du skrive inn bekreftelsesteksten og klikke på knappen nedenfor."
 
@@ -4870,7 +4882,7 @@ msgstr "QR-kode for tofaktorautentisering"
 msgid "Type"
 msgstr "Type"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Skriv \"{CONFIRMATION_TEXT}\" for å bekrefte"
 
@@ -5185,6 +5197,10 @@ msgstr "Frivillig"
 msgid "vs previous 30 days"
 msgstr "mot foregående 30 dager"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Advarsel"
@@ -5296,7 +5312,7 @@ msgstr "Du sendes til Integrasjoner-siden. Den valgte filen blir ikke importert.
 msgid "You've got mail!"
 msgstr "Du har fått e-post!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Kontoen din er slettet."
 
@@ -5312,7 +5328,7 @@ msgstr "Brødteksten din er svært liten."
 msgid "Your changes are saved automatically."
 msgstr "Endringene dine lagres automatisk."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Dataene dine er eksportert."
 
@@ -5429,4 +5445,3 @@ msgstr "Zoom ut"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

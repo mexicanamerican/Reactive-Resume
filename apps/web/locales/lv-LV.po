@@ -175,6 +175,12 @@ msgstr "Protams! Jūs varat eksportēt savu CV uz PDF ar vienu klikšķi. Ekspor
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Piekļūstiet saviem CV un datiem programmatiski, izmantojot API."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Konta izvēlne"
@@ -439,6 +445,10 @@ msgstr "Analizējot…"
 msgid "And many more..."
 msgstr "Un vēl daudzi citi..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Antropiskais Klods"
@@ -570,7 +580,7 @@ msgstr "Vai esat pārliecināts, ka vēlaties dzēst šo objektu?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Vai tiešām vēlaties dzēst šo CV?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Vai tiešām vēlaties dzēst savu kontu?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Autentifikācija"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Automātiska aizpilde"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Automātiskā aizpilde neizdevās. Tā vietā ielīmējiet aprakstu."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Vai varu eksportēt savu CV uz PDF?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Vai varu eksportēt savu CV uz PDF?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Salīdziniet šo CV ar šīs vakances URL un atjauniniet atslēgvārdus,
 msgid "Completely free, forever, no hidden costs."
 msgstr "Pilnībā bez maksas, uz visiem laikiem, bez slēptām izmaksām."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Kopēt slepeno informāciju"
 msgid "Copy stylesheet"
 msgstr "Kopēt stila lapu"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Nokopējiet šo slepeno atslēgu un izmantojiet to savās lietotnēs, lai piekļūtu saviem datiem."
@@ -1075,10 +1085,8 @@ msgstr "Kopēt URL"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Labojiet gadu vai izmantojiet „tagadne” pašlaik notiekošam darbam."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Nevarēja sazināties ar AI pakalpojumu sniedzēju. Lūdzu, mēģiniet vēlreiz."
 
@@ -1332,12 +1340,6 @@ msgstr "Pielāgoti stili"
 msgid "Czech"
 msgstr "Čehu"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Bīstamā zona"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "Dāņu"
@@ -1407,7 +1409,8 @@ msgstr "Grāds"
 msgid "Delete"
 msgstr "Dzēst"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Dzēst kontu"
 
@@ -1446,7 +1449,7 @@ msgstr "Dzēst laika skalas ierakstu"
 msgid "Deleted {0} application(s)."
 msgstr "Izdzēsti pieteikumi: {0}."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Tiek dzēsts jūsu konts..."
 
@@ -1502,7 +1505,6 @@ msgstr "Atvienot"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Noraidīt"
@@ -1537,7 +1539,7 @@ msgstr "Ziedot Reactive Resume"
 msgid "Download"
 msgstr "Lejupielādēt"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Lejupielādējiet visu savu datu kopiju, tostarp savu profilu un katru CV, kā JSON failu."
 
@@ -1811,7 +1813,11 @@ msgstr "Izpētiet API dokumentāciju, lai uzzinātu, kā integrēt Reactive Resu
 msgid "Export"
 msgstr "Eksports"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Eksportēt manus datus"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Neizdevās izdzēst pavedienu."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Jūsu kontu neizdevās dzēst. Lūdzu, mēģiniet vēlreiz."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Neizdevās iespējot divu faktoru autentifikāciju. Lūdzu, mēģiniet vēlreiz."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Neizdevās eksportēt jūsu datus. Lūdzu, mēģiniet vēlreiz."
 
@@ -2008,6 +2014,10 @@ msgstr "Funkcijas"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Fails"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Darba apraksts"
 msgid "Job posting"
 msgstr "Darba sludinājums"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Darba meklēšanas process"
@@ -2666,10 +2680,6 @@ msgstr "Vai atstāt AI nodrošinātāja iestatīšanu?"
 msgid "Left Align"
 msgstr "Izlīdzināt pa kreisi"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Ļaujiet AI izlasīt sludinājumu un aizpildīt tālākos laukus."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Saistīt Reactive Resume (ieteicams)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Piesaistiet CV un pievienojiet darba aprakstu (Rediģēt), lai novērtētu atbilstību un pielāgotu kopiju."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Jauna tēma"
 msgid "No Advertising, No Tracking"
 msgstr "Bez reklāmām, bez izsekošanas"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Nav pieteikumu, kas atbilst jūsu filtriem."
@@ -3241,17 +3255,17 @@ msgstr "Paroles aizsardzība ir deaktivēta."
 msgid "Password protection has been enabled."
 msgstr "Paroles aizsardzība ir aktivēta."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Ielīmējiet darba sludinājuma URL"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Ielīmējiet rindas vai augšupielādējiet .csv. Mēs kartējam kolonnas, piemēram, Uzņēmums, Loma, Posms, Posma datums, Alga, Avots un Birkas."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Ielīmējiet sludinājumu — tas darbina AI atbilstības vērtēšanu un pielāgošanu."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Izlasiet rokasgrāmatu Pielāgotu stilu lietošana."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Lasa…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Semantiskā CSS stila lapa"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Sūtīt ziņojumu"
 
@@ -4201,14 +4219,13 @@ msgstr "Daži parsētāji nepareizi apstrādā attēlus, un dažos reģionos fot
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Kaut kas nogāja greizi"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Analizējot jūsu CV, kaut kas ir noticis nepareizi."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Paldies mūsu sponsoriem"
 msgid "The agent needs your input."
 msgstr "Aģentam ir nepieciešama jūsu ieguldījums."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "AI atgriezās nederīgs analīzes formāts. Lūdzu, mēģiniet vēlreiz."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API atslēga veiksmīgi dzēsta."
@@ -4568,7 +4580,7 @@ msgstr "Domāšana"
 msgid "This action cannot be undone."
 msgstr "Šo darbību nevar atsaukt."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Šo darbību nevar atsaukt. Visi jūsu dati tiks neatgriezeniski dzēsti."
 
@@ -4747,7 +4759,7 @@ msgstr "Padoms: CV nosaukumā varat norādīt amatu, uz kuru piesakāties."
 msgid "Title"
 msgstr "Nosaukums"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Lai dzēstu savu kontu, jums jāievada apstiprinājuma teksts un jānoklikšķina uz zemāk esošās pogas."
 
@@ -4870,7 +4882,7 @@ msgstr "Divu faktoru autentifikācija QR kods"
 msgid "Type"
 msgstr "Tips"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Ierakstiet \"{CONFIRMATION_TEXT}\", lai apstiprinātu"
 
@@ -5185,6 +5197,10 @@ msgstr "Brīvprātīgais darbs"
 msgid "vs previous 30 days"
 msgstr "salīdzinājumā ar iepriekšējām 30 dienām"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Brīdinājums"
@@ -5296,7 +5312,7 @@ msgstr "Jūs tiksiet novirzīts uz integrāciju lapu. Atlasītais fails netiks i
 msgid "You've got mail!"
 msgstr "Jums ir jauna vēstule!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Jūsu konts ir veiksmīgi dzēsts."
 
@@ -5312,7 +5328,7 @@ msgstr "Jūsu pamatteksts ir ļoti mazs."
 msgid "Your changes are saved automatically."
 msgstr "Jūsu izmaiņas tiek saglabātas automātiski."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Jūsu dati ir veiksmīgi eksportēti."
 
@@ -5429,4 +5445,3 @@ msgstr "Tālināt"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

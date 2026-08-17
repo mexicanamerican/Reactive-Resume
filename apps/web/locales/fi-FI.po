@@ -175,6 +175,12 @@ msgstr "Ehdottomasti! Voit viedä ansioluettelosi PDF-muotoon yhdellä klikkauks
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Käytä ansioluetteloitasi ja tietojasi ohjelmallisesti rajapinnan (API:n) kautta."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
 msgstr "Tilivalikko"
@@ -439,6 +445,10 @@ msgstr "Analysoidaan…"
 msgid "And many more..."
 msgstr "Ja paljon muuta..."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "Antrooppinen Claude"
@@ -570,7 +580,7 @@ msgstr "Haluatko varmasti poistaa tämän kohteen?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Haluatko varmasti poistaa tämän ansioluettelon?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Haluatko varmasti poistaa tilisi?"
 
@@ -639,12 +649,8 @@ msgid "Authentication"
 msgstr "Todennus"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Automaattinen täyttö"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Automaattinen täyttö epäonnistui. Liitä kuvaus sen sijaan."
+msgid "Auto-fill failed."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
@@ -764,7 +770,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -777,8 +783,8 @@ msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -958,10 +964,10 @@ msgstr "Vertaa tätä ansioluetteloa tämän roolin URL-osoitteeseen ja päivit�
 msgid "Completely free, forever, no hidden costs."
 msgstr "Täysin ilmainen, ikuisesti, ei piilokuluja."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -1062,6 +1068,10 @@ msgstr "Kopioi salaisuus"
 msgid "Copy stylesheet"
 msgstr "Kopioi tyylitiedosto"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr ""
+
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
 msgstr "Kopioi tämä salainen avain ja käytä sitä sovelluksissasi tietojesi käsittelyyn."
@@ -1075,10 +1085,8 @@ msgstr "Kopioi URL-osoite"
 msgid "Correct the year, or use \"Present\" for ongoing work."
 msgstr "Correct the year, or use \\\"Present\\\" for ongoing work."
 
-#. Error description when AI provider cannot be reached during resume analysis
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Tekoälypalvelun tarjoajaa ei tavoitettu. Yritä uudelleen."
 
@@ -1332,12 +1340,6 @@ msgstr "Mukautetut tyylit"
 msgid "Czech"
 msgstr "tšekki"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Vaaravyöhyke"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "tanska"
@@ -1407,7 +1409,8 @@ msgstr "Tutkinto"
 msgid "Delete"
 msgstr "Poista"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Poista tili"
 
@@ -1446,7 +1449,7 @@ msgstr "Poista aikajanamerkintä"
 msgid "Deleted {0} application(s)."
 msgstr "Poistettiin {0} hakemus(ta)."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Poistetaan tiliäsi..."
 
@@ -1502,7 +1505,6 @@ msgstr "Katkaise yhteys"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Hylkää"
@@ -1537,7 +1539,7 @@ msgstr "Lahjoita Reactive Resumelle"
 msgid "Download"
 msgstr "Lataa"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Lataa kopio kaikista tiedoistasi, mukaan lukien profiilisi ja jokainen ansioluettelosi, JSON-tiedostona."
 
@@ -1811,7 +1813,11 @@ msgstr "Tutustu API-dokumentaatioon nähdäksesi, miten yhdistät Reactive Resum
 msgid "Export"
 msgstr "Vienti"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr ""
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Vie tietoni"
 
@@ -1870,7 +1876,7 @@ msgid "Failed to delete thread."
 msgstr "Ketjun poistaminen epäonnistui."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Tilisi poistaminen epäonnistui. Yritä uudelleen."
 
@@ -1885,7 +1891,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Kahden tekijän todennuksen käyttöönotto epäonnistui. Yritä uudelleen."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Tietojesi vienti epäonnistui. Yritä uudelleen."
 
@@ -2008,6 +2014,10 @@ msgstr "Ominaisuudet"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Tiedosto"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -2515,6 +2525,10 @@ msgstr "Työnkuvaus"
 msgid "Job posting"
 msgstr "Työpaikkailmoitus"
 
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Työnhaun eteneminen"
@@ -2666,10 +2680,6 @@ msgstr "Haluatko jättää AI-palveluntarjoajan perustamisen?"
 msgid "Left Align"
 msgstr "Tasaa vasemmalle"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Anna AI:n lukea ilmoitus ja täyttää alla olevat kentät."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
 msgstr "Letter"
@@ -2714,8 +2724,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Linkitä Reactive Resume (suositus)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Linkitä ansioluettelo ja lisää työnkuvaus (Muokkaa), jotta sopivuutesi voidaan pisteyttää ja kopio mukauttaa."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2985,6 +2995,10 @@ msgstr "Uusi ketju"
 msgid "No Advertising, No Tracking"
 msgstr "Ei mainoksia, ei seurantaa"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Mikään hakemus ei vastaa suodattimiasi."
@@ -3241,17 +3255,17 @@ msgstr "Salasanasuojaus on poistettu käytöstä."
 msgid "Password protection has been enabled."
 msgstr "Salasanasuojaus on otettu käyttöön."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Liitä työpaikkailmoituksen URL"
-
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Liitä rivejä tai lataa .csv. Yhdistämme sarakkeet kuten Yritys, Rooli, Vaihe, Vaiheen päivämäärä, Palkka, Lähde ja Tunnisteet."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Liitä ilmoitus — se mahdollistaa AI-sopivuuspisteytyksen ja mukauttamisen."
+msgid "Paste the full job description here…"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr ""
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3537,8 +3551,8 @@ msgid "Read the Applying Custom Styles guide."
 msgstr "Lue opas Mukautettujen tyylien käyttäminen."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Luetaan…"
+msgid "Reading the posting…"
+msgstr ""
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
@@ -3962,6 +3976,10 @@ msgid "Semantic CSS stylesheet"
 msgstr "Semanttinen CSS-tyylitiedosto"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr ""
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
 msgstr "Lähetä viesti"
 
@@ -4201,14 +4219,13 @@ msgstr "Jotkut jäsentimet käsittelevät kuvia väärin, eikä valokuvia suosit
 msgid "Some styles were ignored"
 msgstr ""
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Jokin meni pieleen"
-
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Jokin meni pieleen ansioluetteloasi analysoitaessa."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4480,11 +4497,6 @@ msgstr "Kiitos sponsoreillemme"
 msgid "The agent needs your input."
 msgstr "Välittäjä tarvitsee panostasi."
 
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "Tekoäly palautti virheellisen analyysiformaatin. Yritä uudelleen."
-
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
 msgstr "API-avain on poistettu onnistuneesti."
@@ -4568,7 +4580,7 @@ msgstr "Ajattelu"
 msgid "This action cannot be undone."
 msgstr "Tätä toimintoa ei voi perua."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Tätä toimintoa ei voi perua. Kaikki tietosi poistetaan pysyvästi."
 
@@ -4747,7 +4759,7 @@ msgstr "Vinkki: Voit nimetä ansioluettelon haettavan tehtävän mukaan."
 msgid "Title"
 msgstr "Otsikko"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Poistaaksesi tilisi sinun täytyy syöttää vahvistusteksti ja napsauttaa alla olevaa painiketta."
 
@@ -4870,7 +4882,7 @@ msgstr "Kaksitekijätodennus QR-koodi"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Kirjoita \"{CONFIRMATION_TEXT}\" vahvistaaksesi"
 
@@ -5185,6 +5197,10 @@ msgstr "Vapaaehtoistyö"
 msgid "vs previous 30 days"
 msgstr "verrattuna edellisiin 30 päivään"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
 msgstr "Varoitus"
@@ -5296,7 +5312,7 @@ msgstr "Sinut ohjataan Integraatiot-sivulle. Valitsemaasi tiedostoa ei tuoda."
 msgid "You've got mail!"
 msgstr "Sinulle on tullut postia!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Tilisi on poistettu onnistuneesti."
 
@@ -5312,7 +5328,7 @@ msgstr "Tekstisi on hyvin pieni."
 msgid "Your changes are saved automatically."
 msgstr "Muutoksesi tallentuvat automaattisesti."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Tietosi on viety onnistuneesti."
 
@@ -5429,4 +5445,3 @@ msgstr "Loitonna"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
