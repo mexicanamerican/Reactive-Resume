@@ -28,7 +28,6 @@ import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { toast } from "sonner";
 import {
 	Attachment,
 	AttachmentContent,
@@ -45,6 +44,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
+import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from "@reactive-resume/ui/components/empty";
 import { Marker, MarkerContent, MarkerIcon } from "@reactive-resume/ui/components/marker";
 import { Message, MessageContent } from "@reactive-resume/ui/components/message";
 import {
@@ -55,7 +55,19 @@ import {
 	MessageScrollerProvider,
 	MessageScrollerViewport,
 } from "@reactive-resume/ui/components/message-scroller";
+import {
+	Questionnaire,
+	QuestionnaireActions,
+	QuestionnaireChoice,
+	QuestionnaireChoices,
+	QuestionnaireError,
+	QuestionnaireInput,
+	QuestionnaireItem,
+	QuestionnaireSubmit,
+	QuestionnaireTitle,
+} from "@reactive-resume/ui/components/questionnaire";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -86,6 +98,12 @@ type FileAttachmentProps = {
 	filename?: string | null;
 	mediaType?: string | null;
 	state?: "idle" | "uploading" | "processing" | "error" | "done";
+};
+
+type AskUserQuestionProps = {
+	part: UIMessage["parts"][number];
+	answer: string | null;
+	onAnswer: (toolCallId: string, answer: string) => void;
 };
 
 type MessagePartProps = {
@@ -161,6 +179,8 @@ type AgentChatComposerProps = {
 	onStopRun: () => void;
 	onUploadFiles: (files: FileList | null) => void;
 };
+
+const ANSWER_FIELD = "answer";
 
 function toRecord(value: unknown) {
 	return typeof value === "object" && value !== null ? (value as Record<string, unknown>) : null;
@@ -433,6 +453,60 @@ function FileAttachment({ filename, mediaType, state = "done" }: FileAttachmentP
 	);
 }
 
+// The agent asks one question at a time, so this is a single-item Questionnaire: radio choices plus a
+// freeform answer, submitted as the tool output. `Questionnaire` owns the fieldset/legend semantics,
+// keyboard shortcuts, focus management, and required-answer validation.
+export function AskUserQuestion({ part, answer, onAnswer }: AskUserQuestionProps) {
+	const input =
+		"input" in part && typeof part.input === "object" && part.input ? (part.input as Record<string, unknown>) : {};
+	const choices = Array.isArray(input.choices)
+		? input.choices.filter((choice): choice is string => typeof choice === "string")
+		: [];
+	const question = typeof input.question === "string" ? input.question : t`The agent needs your input.`;
+	const toolCallId = "toolCallId" in part && typeof part.toolCallId === "string" ? part.toolCallId : null;
+
+	if (answer !== null || !toolCallId) {
+		return (
+			<div className="flex flex-col gap-1">
+				<p className="font-medium">{question}</p>
+				<p className="text-muted-foreground text-sm">{answer ?? <Trans>Waiting for the agent…</Trans>}</p>
+			</div>
+		);
+	}
+
+	const submit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const value = String(new FormData(event.currentTarget).get(ANSWER_FIELD) ?? "").trim();
+		if (value) onAnswer(toolCallId, value);
+	};
+
+	return (
+		<Questionnaire
+			shortcuts="numbers"
+			items={[{ name: ANSWER_FIELD, required: true, choices: choices.map((choice) => ({ value: choice })) }]}
+			onSubmit={submit}
+		>
+			<QuestionnaireItem required name={ANSWER_FIELD}>
+				<QuestionnaireTitle>{question}</QuestionnaireTitle>
+				<QuestionnaireChoices>
+					{choices.map((choice) => (
+						<QuestionnaireChoice key={choice} value={choice}>
+							{choice}
+						</QuestionnaireChoice>
+					))}
+					<QuestionnaireInput aria-label={t`Answer in your own words`} placeholder={t`Something else…`} />
+				</QuestionnaireChoices>
+				<QuestionnaireError />
+			</QuestionnaireItem>
+			<QuestionnaireActions>
+				<QuestionnaireSubmit size="sm">
+					<Trans>Send answer</Trans>
+				</QuestionnaireSubmit>
+			</QuestionnaireActions>
+		</Questionnaire>
+	);
+}
+
 function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsById }: MessagePartProps) {
 	if (part.type === "text") {
 		return (
@@ -464,26 +538,12 @@ function MessagePart({ part, isUser, onAnswer, onRevert, isReverting, actionsByI
 	}
 
 	if (part.type === "tool-ask_user_question") {
-		const input =
-			"input" in part && typeof part.input === "object" && part.input ? (part.input as Record<string, unknown>) : {};
-		const choices = Array.isArray(input.choices)
-			? input.choices.filter((choice): choice is string => typeof choice === "string")
-			: [];
-		const question = typeof input.question === "string" ? input.question : t`The agent needs your input.`;
+		const answer = "output" in part && typeof part.output === "string" ? part.output : null;
 
 		return (
 			<Bubble variant="outline" className="max-w-full">
 				<BubbleContent className="w-full">
-					<div className="space-y-3">
-						<div className="font-medium">{question}</div>
-						<div className="flex flex-wrap gap-2">
-							{choices.map((choice) => (
-								<Button key={choice} size="sm" variant="outline" onClick={() => onAnswer(part.toolCallId, choice)}>
-									{choice}
-								</Button>
-							))}
-						</div>
-					</div>
+					<AskUserQuestion part={part} answer={answer} onAnswer={onAnswer} />
 				</BubbleContent>
 			</Bubble>
 		);
@@ -602,11 +662,14 @@ export function AgentChat({
 			{ id: threadId },
 			{
 				onSuccess: async () => {
-					toast.success(t`Thread archived.`);
+					toast.add({ type: "success", description: t`Thread archived.` });
 					await refreshThread();
 				},
 				onError: (error) => {
-					toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to archive thread.` }));
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Failed to archive thread.` }),
+					});
 				},
 			},
 		);
@@ -623,13 +686,16 @@ export function AgentChat({
 			{ id: threadId },
 			{
 				onSuccess: async () => {
-					toast.success(t`Thread deleted.`);
+					toast.add({ type: "success", description: t`Thread deleted.` });
 					await queryClient.invalidateQueries({ queryKey: orpc.agent.threads.list.queryKey() });
 					if (onClose) onClose();
 					else void navigate({ to: "/agent" });
 				},
 				onError: (error) => {
-					toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to delete thread.` }));
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Failed to delete thread.` }),
+					});
 				},
 			},
 		);
@@ -730,9 +796,12 @@ export function AgentChat({
 			);
 
 			setPendingAttachments((current) => [...current, ...attachments]);
-			toast.success(t`Attachment uploaded.`);
+			toast.add({ type: "success", description: t`Attachment uploaded.` });
 		} catch (error) {
-			toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to upload attachment.` }));
+			toast.add({
+				type: "error",
+				description: getOrpcErrorMessage(error, { fallback: t`Failed to upload attachment.` }),
+			});
 		} finally {
 			setIsUploading(false);
 			if (fileInputRef.current) fileInputRef.current.value = "";
@@ -763,12 +832,12 @@ export function AgentChat({
 				2,
 			),
 		);
-		toast.success(t`Conversation JSON copied.`);
+		toast.add({ type: "success", description: t`Conversation JSON copied.` });
 	};
 
 	const copyConversationText = () => {
 		void navigator.clipboard.writeText(messages.map(textFromMessage).join("\n\n"));
-		toast.success(t`Conversation copied.`);
+		toast.add({ type: "success", description: t`Conversation copied.` });
 	};
 
 	const answerToolCall = (toolCallId: string, answer: string) => {
@@ -786,13 +855,21 @@ export function AgentChat({
 			{
 				onSuccess: (action) => {
 					if (action.status === "conflicted") {
-						toast.error(action.revertMessage ?? t`Cannot restore; the resume has changed since this edit was applied.`);
+						toast.add({
+							type: "error",
+							description:
+								action.revertMessage ?? t`Cannot restore; the resume has changed since this edit was applied.`,
+						});
 					} else if (action.status === "rolled_back" || action.status === "reverted") {
-						toast.success(t`Patch rolled back.`);
+						toast.add({ type: "success", description: t`Patch rolled back.` });
 					}
 					void refreshThread();
 				},
-				onError: (error) => toast.error(getOrpcErrorMessage(error, { fallback: t`Could not restore this patch.` })),
+				onError: (error) =>
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Could not restore this patch.` }),
+					}),
 			},
 		);
 	};
@@ -880,13 +957,19 @@ function AgentChatMessages({
 				<MessageScrollerViewport>
 					<MessageScrollerContent className="mx-auto flex w-full max-w-3xl flex-col gap-4 p-4">
 						{messages.length === 0 ? (
-							<div className="grid gap-6 py-12 text-center">
-								<SparkleIcon className="mx-auto size-8 text-muted-foreground" />
-								<h2 className="font-semibold text-2xl">
-									<Trans>What do you want to do?</Trans>
-								</h2>
-								<StarterPromptMarquee onSelect={onStarterSelect} />
-							</div>
+							<Empty className="py-12">
+								<EmptyHeader>
+									<EmptyMedia variant="icon">
+										<SparkleIcon />
+									</EmptyMedia>
+									<EmptyTitle className="text-2xl">
+										<Trans>What do you want to do?</Trans>
+									</EmptyTitle>
+								</EmptyHeader>
+								<EmptyContent className="max-w-full">
+									<StarterPromptMarquee onSelect={onStarterSelect} />
+								</EmptyContent>
+							</Empty>
 						) : null}
 
 						{messages.map((message) => (
