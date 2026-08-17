@@ -33,13 +33,13 @@
 		"knip": "knip",
 		"start": "node apps/server/dist/index.mjs",
 		"typecheck": "turbo run typecheck",
-		"test": "turbo run test",
-		"test:coverage": "turbo run test:coverage",
-		"test:ci": "turbo run test:ci",
+		"test": "turbo run test --concurrency=4",
+		"test:coverage": "turbo run test:coverage --concurrency=4",
+		"test:ci": "turbo run test:ci --concurrency=4",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:e2e:ci": "playwright test",
-		"test:agent": "turbo run test:agent"
+		"test:agent": "turbo run test:agent --concurrency=4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.7",
