@@ -4,6 +4,48 @@ description: "Release notes for Reactive Resume covering new features, resume bu
 rss: true
 ---
 
+<Update label="v5.2.7" description="17th August 2026">
+## Highlights
+
+- **Custom Styles now compile in your browser.** Semantic CSS is compiled and resolved locally for the editor, preview, public resumes, and exports, so diagnostics appear as you type instead of after a save and a server round-trip. Self-hosted servers no longer run a stylesheet preflight worker on every edit, and server-side PDF generation stays available as a fallback when a browser cannot render locally. [9509b5bc2](https://github.com/amruthpillai/reactive-resume/commit/9509b5bc2)
+- **Shared resume links now unfurl with a preview card.** Posting a public resume link to X, LinkedIn, Slack, or any chat app shows the name, headline, and template preview instead of a bare URL. The homepage's own card and structured data reach crawlers again — the static file handler had been answering the root request before the code that injects them could run. [9d0dc3670](https://github.com/amruthpillai/reactive-resume/commit/9d0dc3670), [36c35c9bd](https://github.com/amruthpillai/reactive-resume/commit/36c35c9bd)
+- **The AI agent asks instead of guessing.** When a request is ambiguous, the assistant now offers a short set of choices inline in the chat rather than picking an interpretation and running with it. [eedf2faf0](https://github.com/amruthpillai/reactive-resume/commit/eedf2faf0)
+
+## Sharing & Search
+
+- Twitter card tags are declared with the attribute X actually reads, so the title, description, and banner image appear in link previews again. [1e23a453a](https://github.com/amruthpillai/reactive-resume/commit/1e23a453a)
+- Resume preview cards are built only for resumes that are public and not password-protected, and generating one no longer counts as a visit in your statistics. [9d0dc3670](https://github.com/amruthpillai/reactive-resume/commit/9d0dc3670)
+- Shortened the site description so it is no longer cut off in mobile search results. [d0fa9ae8d](https://github.com/amruthpillai/reactive-resume/commit/d0fa9ae8d)
+
+## AI Agent
+
+- Added inline questions with selectable answers, along with a clearer empty state when a thread has no messages yet. [eedf2faf0](https://github.com/amruthpillai/reactive-resume/commit/eedf2faf0)
+- The message box keeps focus after you send, so you can keep typing while a reply streams in instead of clicking back into it. [7c7dbaf21](https://github.com/amruthpillai/reactive-resume/commit/7c7dbaf21)
+- Fixed a rendering bug that could duplicate or drop parts of a long, multi-step reply as it streamed. [762b999d1](https://github.com/amruthpillai/reactive-resume/commit/762b999d1)
+
+## Job Applications
+
+- Application auto-fill now works from a pasted job posting instead of a URL. Fetching arbitrary URLs from the server meant owning redirect, size, and private-address defences plus per-site scraping quirks, so the URL field has been removed — paste the posting text and the fields below it are filled in as before. Auto-fill is offered only when an AI provider is configured and tested, and only for a paste long enough to be a real posting. [da2f1f824](https://github.com/amruthpillai/reactive-resume/commit/da2f1f824)
+
+## Settings & Interface
+
+- **Danger Zone** is now **Account**, at `/dashboard/settings/account`, since the page covers account-level actions rather than only destructive ones. [7a14b0dfb](https://github.com/amruthpillai/reactive-resume/commit/7a14b0dfb)
+- API keys created without an expiry date are listed again instead of disappearing from the key list. [8affc567e](https://github.com/amruthpillai/reactive-resume/commit/8affc567e)
+- Testing an AI provider is now time-bounded and reports why it failed, so a rejected key, a wrong model name, and an unreachable host are no longer indistinguishable from a connection that appears stuck. Thanks to [@MrTig-afk](https://github.com/MrTig-afk). [#3319](https://github.com/amruthpillai/reactive-resume/pull/3319)
+- Rebuilt the notification toasts on the same component library as the rest of the interface, for consistent styling, stacking, and screen-reader behaviour. [170550ed5](https://github.com/amruthpillai/reactive-resume/commit/170550ed5), [23ceee214](https://github.com/amruthpillai/reactive-resume/commit/23ceee214), [e2554c9be](https://github.com/amruthpillai/reactive-resume/commit/e2554c9be)
+
+## Reliability, Self-Hosting & Maintenance
+
+- The server no longer carries the stylesheet control plane — apply state, preflight, revisions, render-data versions, and mismatch negotiation are gone, along with the unused resume columns that backed them. Expect lower memory and CPU use on instances where Custom Styles are in active use. [9509b5bc2](https://github.com/amruthpillai/reactive-resume/commit/9509b5bc2)
+- The conflict-marker pre-commit check now runs correctly on Windows. Thanks to [@MrTig-afk](https://github.com/MrTig-afk). [#3320](https://github.com/amruthpillai/reactive-resume/pull/3320)
+- Test suites are isolated from one another and the OpenAPI specification is built once per suite, removing a class of order-dependent failures and timeouts that made local runs unreliable. [e8508e6d0](https://github.com/amruthpillai/reactive-resume/commit/e8508e6d0), [60d044076](https://github.com/amruthpillai/reactive-resume/commit/60d044076), [bfdd29f94](https://github.com/amruthpillai/reactive-resume/commit/bfdd29f94), [ac062bbcb](https://github.com/amruthpillai/reactive-resume/commit/ac062bbcb)
+- Organized GitHub issue triage. [#3325](https://github.com/amruthpillai/reactive-resume/pull/3325)
+- Synced the latest Crowdin translation catalogs. [#3327](https://github.com/amruthpillai/reactive-resume/pull/3327), [#3328](https://github.com/amruthpillai/reactive-resume/pull/3328), [#3330](https://github.com/amruthpillai/reactive-resume/pull/3330)
+- Refreshed workspace dependencies and development tooling. [9dc2aade4](https://github.com/amruthpillai/reactive-resume/commit/9dc2aade4)
+
+**Full Changelog**: [v5.2.6...v5.2.7](https://github.com/amruthpillai/reactive-resume/compare/v5.2.6...v5.2.7)
+</Update>
+
 <Update label="v5.2.6" description="14th August 2026">
 ## Highlights
 
