@@ -60,8 +60,9 @@ const BASE_SECURITY_HEADERS = {
 };
 
 const ROOT_TITLE = "Reactive Resume — A free and open-source resume builder";
+// Keep under ~120 characters so Google's mobile SERP snippet is not truncated at 3 lines.
 const ROOT_DESCRIPTION =
-	"Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.";
+	"Free, open-source resume builder. Create, update, and share a professional resume in minutes — no ads, no paywall.";
 const ROOT_POSTER_PATH = "/videos/timelapse-v1.webp";
 const ROOT_FAQ_ITEMS = [
 	{
