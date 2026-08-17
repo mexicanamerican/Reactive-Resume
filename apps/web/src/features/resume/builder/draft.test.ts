@@ -31,8 +31,8 @@ const routerParamsMock = vi.hoisted(() => ({
 }));
 
 const toastMocks = vi.hoisted(() => ({
-	dismiss: vi.fn(),
-	error: vi.fn(() => "sync-error-toast"),
+	add: vi.fn(() => "sync-error-toast"),
+	close: vi.fn(),
 }));
 
 vi.mock("@orpc/client", () => ({
@@ -73,7 +73,7 @@ vi.mock("@/libs/orpc/client", () => ({
 	},
 }));
 
-vi.mock("sonner", () => ({
+vi.mock("@reactive-resume/ui/components/toast", () => ({
 	toast: toastMocks,
 }));
 
@@ -125,8 +125,8 @@ describe("builder resume autosave", () => {
 		queryClientMock.setQueryData.mockClear();
 		routerParamsMock.value = {};
 		i18n.loadAndActivate({ locale: "en-US", messages: {} });
-		toastMocks.dismiss.mockClear();
-		toastMocks.error.mockClear();
+		toastMocks.add.mockClear();
+		toastMocks.close.mockClear();
 		useResumeStore.getState().reset();
 	});
 
@@ -268,9 +268,8 @@ describe("builder resume autosave", () => {
 		await flushMicrotasks();
 
 		expect(useResumeStore.getState().resume?.data.basics.name).toBe("Unsaved Name");
-		expect(toastMocks.error).toHaveBeenCalledWith(
-			"Your latest changes could not be saved.",
-			expect.objectContaining({ duration: Number.POSITIVE_INFINITY }),
+		expect(toastMocks.add).toHaveBeenCalledWith(
+			expect.objectContaining({ type: "error", description: "Your latest changes could not be saved.", timeout: 0 }),
 		);
 		expect(orpcMocks.patchResume).not.toHaveBeenCalled();
 	});

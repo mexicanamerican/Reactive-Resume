@@ -17,7 +17,7 @@ import { createRootRouteWithContext, HeadContent, Outlet, useRouterState } from 
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { domAnimation, LazyMotion, MotionConfig } from "motion/react";
 import { useEffect } from "react";
-import { Toaster } from "@reactive-resume/ui/components/sonner";
+import { Toaster } from "@reactive-resume/ui/components/toast";
 import { TooltipProvider } from "@reactive-resume/ui/components/tooltip";
 import { BreakpointIndicator } from "@/components/layout/breakpoint-indicator";
 import { DonationToast } from "@/components/ui/donation-toast";
@@ -136,7 +136,7 @@ function RootComponent() {
 														{!isBuilder && <DonationToast />}
 														<DialogManager />
 														<CommandPalette />
-														<Toaster richColors position="bottom-center" />
+														<Toaster />
 
 														{import.meta.env.DEV && <BreakpointIndicator />}
 														{import.meta.env.DEV && (

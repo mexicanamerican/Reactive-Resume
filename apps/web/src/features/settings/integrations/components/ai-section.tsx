@@ -15,7 +15,6 @@ import {
 } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
 import { AI_PROVIDER_DEFAULT_BASE_URLS } from "@reactive-resume/ai/types";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -23,6 +22,7 @@ import { Input } from "@reactive-resume/ui/components/input";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { Switch } from "@reactive-resume/ui/components/switch";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { Combobox } from "@/components/ui/combobox";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
@@ -263,7 +263,11 @@ function ProviderRow({ provider }: ProviderRowProps) {
 					setIsEditingModel(false);
 					void invalidate();
 				},
-				onError: (error) => toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to update provider.` })),
+				onError: (error) =>
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Failed to update provider.` }),
+					}),
 			},
 		);
 	};
@@ -325,7 +329,10 @@ function ProviderRow({ provider }: ProviderRowProps) {
 								{
 									onSuccess: () => void invalidate(),
 									onError: (error) =>
-										toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to update provider.` })),
+										toast.add({
+											type: "error",
+											description: getOrpcErrorMessage(error, { fallback: t`Failed to update provider.` }),
+										}),
 								},
 							)
 						}
@@ -344,15 +351,18 @@ function ProviderRow({ provider }: ProviderRowProps) {
 							{
 								onSuccess: (response) => {
 									if (response.testStatus === "success") {
-										toast.success(t`Provider connection verified.`);
+										toast.add({ type: "success", description: t`Provider connection verified.` });
 									} else {
 										// The reason persists on the card below, so the toast only reports the outcome.
-										toast.error(t`Connection failed.`);
+										toast.add({ type: "error", description: t`Connection failed.` });
 									}
 									void invalidate();
 								},
 								onError: (error) => {
-									toast.error(getOrpcErrorMessage(error, { fallback: t`Could not verify provider connection.` }));
+									toast.add({
+										type: "error",
+										description: getOrpcErrorMessage(error, { fallback: t`Could not verify provider connection.` }),
+									});
 									void invalidate();
 								},
 							},
@@ -388,7 +398,10 @@ function ProviderRow({ provider }: ProviderRowProps) {
 							{
 								onSuccess: () => void invalidate(),
 								onError: (error) =>
-									toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to delete provider.` })),
+									toast.add({
+										type: "error",
+										description: getOrpcErrorMessage(error, { fallback: t`Failed to delete provider.` }),
+									}),
 							},
 						)
 					}

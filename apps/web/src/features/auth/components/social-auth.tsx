@@ -4,9 +4,9 @@ import { Trans } from "@lingui/react/macro";
 import { FingerprintIcon, GithubLogoIcon, GoogleLogoIcon, LinkedinLogoIcon, VaultIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
-import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
@@ -50,20 +50,22 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 	const router = useRouter();
 
 	const runSignIn = async (fn: () => Promise<{ error: { message?: string } | null }>) => {
-		const toastId = toast.loading(t`Signing in...`);
+		const toastId = toast.add({ type: "loading", description: t`Signing in...` });
 		const { error } = await fn();
 		if (error) {
-			toast.error(
-				error.message ||
+			toast.add({
+				type: "error",
+				description:
+					error.message ||
 					t({
 						comment: "Fallback toast when sign-in fails without an error message",
 						message: "Failed to sign in. Please try again.",
 					}),
-				{ id: toastId },
-			);
+				id: toastId,
+			});
 			return;
 		}
-		toast.dismiss(toastId);
+		toast.close(toastId);
 		await router.invalidate();
 	};
 

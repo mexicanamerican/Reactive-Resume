@@ -3,13 +3,12 @@ import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon, InfoIcon, LightningIcon, SparkleIcon } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { toast } from "sonner";
 import { match } from "ts-pattern";
 import { Alert, AlertDescription } from "@reactive-resume/ui/components/alert";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { useResume } from "@/features/resume/builder/draft";
-import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 import { SectionBase } from "../shared/section-base";
 
@@ -62,27 +61,10 @@ export function ResumeAnalysisSectionBuilder() {
 		...orpc.ai.analyzeResume.mutationOptions(),
 		onSuccess: (analysis) => {
 			queryClient.setQueryData(orpc.resume.analysis.getById.queryKey({ input: { id: resumeId } }), analysis);
-			toast.success(t`Resume analysis complete.`);
+			toast.add({ type: "success", description: t`Resume analysis complete.` });
 		},
-		onError: (error) => {
-			toast.error(t`Failed to analyze resume.`, {
-				description: getOrpcErrorMessage(error, {
-					byCode: {
-						BAD_REQUEST: t({
-							comment: "Error description when AI returns invalid resume analysis format",
-							message: "The AI returned an invalid analysis format. Please try again.",
-						}),
-						BAD_GATEWAY: t({
-							comment: "Error description when AI provider cannot be reached during resume analysis",
-							message: "Could not reach the AI provider. Please try again.",
-						}),
-					},
-					fallback: t({
-						comment: "Fallback error description when resume analysis request fails",
-						message: "Something went wrong while analyzing your resume.",
-					}),
-				}),
-			});
+		onError: (_error) => {
+			toast.add({ type: "error", description: t`Failed to analyze resume.` });
 		},
 	});
 

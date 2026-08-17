@@ -9,7 +9,6 @@ import { useStore } from "@tanstack/react-form";
 import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { toast } from "sonner";
 import z from "zod";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -23,6 +22,7 @@ import {
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { Combobox } from "@/components/ui/combobox";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -141,7 +141,9 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 
 			setIsImporting(true);
 
-			const toastId = toast.loading(t`Importing your resume...`, {
+			const toastId = toast.add({
+				type: "loading",
+				title: t`Importing your resume...`,
 				description: t`This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page.`,
 			});
 
@@ -196,12 +198,19 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 				}
 
 				const id = await importResume({ data });
-				toast.success(t`Your resume has been imported successfully.`, { id: toastId, description: null });
+				toast.add({
+					type: "success",
+					title: null,
+					description: t`Your resume has been imported successfully.`,
+					id: toastId,
+				});
 				closeDialog();
 				void navigate({ to: "/builder/$resumeId", params: { resumeId: id } });
 			} catch (error: unknown) {
-				toast.error(
-					getOrpcErrorMessage(error, {
+				toast.add({
+					type: "error",
+					title: null,
+					description: getOrpcErrorMessage(error, {
 						byCode: {
 							BAD_REQUEST: t({
 								comment: "Error shown when AI parsing returns invalid resume structure during import",
@@ -217,8 +226,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 							message: "An unknown error occurred while importing your resume.",
 						}),
 					}),
-					{ id: toastId, description: null },
-				);
+					id: toastId,
+				});
 			} finally {
 				setIsImporting(false);
 			}

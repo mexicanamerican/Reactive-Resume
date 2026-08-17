@@ -4,10 +4,10 @@ import type { TemplateMetadata } from "./data";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { SlideshowIcon } from "@phosphor-icons/react";
-import { toast } from "sonner";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@reactive-resume/ui/components/dialog";
 import { ScrollArea } from "@reactive-resume/ui/components/scroll-area";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CometCard } from "@/components/animation/comet-card";
 import { useDialogStore } from "@/dialogs/store";
@@ -33,9 +33,10 @@ export function TemplateGalleryDialog(_: DialogProps<"resume.template.gallery">)
 
 		closeDialog();
 
-		toast(t`Switched to the ${templates[template].name} template.`, {
-			action: {
-				label: t`Undo`,
+		toast.add({
+			description: t`Switched to the ${templates[template].name} template.`,
+			actionProps: {
+				children: t`Undo`,
 				onClick: () => {
 					updateResumeData((draft) => {
 						draft.metadata.template = previousTemplate;

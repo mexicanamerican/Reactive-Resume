@@ -1,9 +1,8 @@
 import { t } from "@lingui/core/macro";
-import { FloppyDiskIcon } from "@phosphor-icons/react";
 import { useHotkey } from "@tanstack/react-hotkeys";
 import { Suspense, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import { toast } from "sonner";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { LoadingScreen } from "@/components/layout/loading-screen";
 import { ResumePreview } from "@/features/resume/preview/preview";
 import { BuilderDock } from "./dock";
@@ -14,7 +13,11 @@ export function PreviewPage() {
 	const [pageLayout, setPageLayout] = useState(DEFAULT_BUILDER_PREVIEW_PAGE_LAYOUT);
 
 	useHotkey("Mod+S", () => {
-		toast.info(t`Your changes are saved automatically.`, { id: "auto-save", icon: <FloppyDiskIcon /> });
+		toast.add({
+			type: "info",
+			description: t`Your changes are saved automatically.`,
+			id: "auto-save",
+		});
 	});
 
 	return (

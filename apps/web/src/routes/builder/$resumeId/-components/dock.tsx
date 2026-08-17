@@ -16,7 +16,6 @@ import { useHotkey } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
 import { m } from "motion/react";
 import { useControls, useTransformComponent } from "react-zoom-pan-pinch";
-import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
@@ -25,6 +24,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { cn } from "@reactive-resume/utils/style";
 import {
@@ -108,7 +108,7 @@ export function BuilderDock({ pageLayout, onTogglePageLayout }: BuilderDockProps
 					title={t`Copy URL`}
 					onClick={async () => {
 						await copyToClipboard(publicUrl);
-						toast.success(t`A link to your resume has been copied to clipboard.`);
+						toast.add({ type: "success", description: t`A link to your resume has been copied to clipboard.` });
 					}}
 				/>
 			</m.div>

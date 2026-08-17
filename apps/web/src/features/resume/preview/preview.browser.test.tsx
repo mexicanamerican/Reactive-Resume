@@ -9,7 +9,7 @@ import { ResumePreviewClient } from "./preview.browser";
 
 const previewMock = vi.hoisted(() => ({
 	builderResumeData: undefined as ResumeData | undefined,
-	toastError: vi.fn(),
+	toastAdd: vi.fn(),
 	toBlob: vi.fn(async () => new Blob(["%PDF"], { type: "application/pdf" })),
 }));
 
@@ -40,8 +40,8 @@ vi.mock("@/features/resume/export/pdf-document", () => ({
 	createResumePdfBlob: previewMock.toBlob,
 }));
 
-vi.mock("sonner", () => ({
-	toast: { error: previewMock.toastError },
+vi.mock("@reactive-resume/ui/components/toast", () => ({
+	toast: { add: previewMock.toastAdd },
 }));
 
 vi.mock("../builder/draft", () => ({
@@ -85,7 +85,7 @@ describe("ResumePreviewClient", () => {
 		previewMock.builderResumeData = undefined;
 		previewMock.toBlob.mockReset();
 		previewMock.toBlob.mockImplementation(async () => new Blob(["%PDF"], { type: "application/pdf" }));
-		previewMock.toastError.mockReset();
+		previewMock.toastAdd.mockReset();
 	});
 
 	it("renders a loading placeholder for each builder layout page while the PDF is generated", () => {
@@ -169,7 +169,7 @@ describe("ResumePreviewClient", () => {
 		view.rerender(<ResumePreviewClient pageLayout="vertical" pageScale={1.25} showPageNumbers={false} />);
 
 		await waitFor(() => expect(previewMock.toBlob).toHaveBeenCalledTimes(2));
-		await waitFor(() => expect(previewMock.toastError).toHaveBeenCalledTimes(1));
+		await waitFor(() => expect(previewMock.toastAdd).toHaveBeenCalledTimes(1));
 		expect(screen.getByRole("img", { name: "Resume page 1 of 1" })).toBeTruthy();
 	});
 });

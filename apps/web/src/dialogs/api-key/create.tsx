@@ -5,7 +5,6 @@ import { CopyIcon, PlusIcon } from "@phosphor-icons/react";
 import { useStore } from "@tanstack/react-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -24,6 +23,7 @@ import {
 	InputGroupButton,
 	InputGroupInput,
 } from "@reactive-resume/ui/components/input-group";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { Combobox } from "@/components/ui/combobox";
 import { useFormBlocker } from "@/hooks/use-form-blocker";
 import { authClient } from "@/libs/auth/client";
@@ -56,7 +56,7 @@ const CreateApiKeyForm = ({ setApiKey }: CreateApiKeyFormProps) => {
 		},
 		validators: { onSubmit: formSchema },
 		onSubmit: async ({ value }) => {
-			const toastId = toast.loading(t`Creating your API key...`);
+			const toastId = toast.add({ type: "loading", description: t`Creating your API key...` });
 
 			const { data, error } = await authClient.apiKey.create({
 				name: value.name,
@@ -64,21 +64,22 @@ const CreateApiKeyForm = ({ setApiKey }: CreateApiKeyFormProps) => {
 			});
 
 			if (error) {
-				toast.error(
-					getReadableErrorMessage(
+				toast.add({
+					type: "error",
+					description: getReadableErrorMessage(
 						error,
 						t({
 							comment: "Fallback toast when creating an API key fails",
 							message: "Failed to create API key. Please try again.",
 						}),
 					),
-					{ id: toastId },
-				);
+					id: toastId,
+				});
 				return;
 			}
 
 			setApiKey(data.key);
-			toast.dismiss(toastId);
+			toast.close(toastId);
 		},
 	});
 
@@ -199,7 +200,7 @@ const CopyApiKeyForm = ({ apiKey }: CopyApiKeyFormProps) => {
 
 	const onCopy = async () => {
 		await copyToClipboard(apiKey);
-		toast.success(t`Your API key has been copied to the clipboard.`);
+		toast.add({ type: "success", description: t`Your API key has been copied to the clipboard.` });
 	};
 
 	const onConfirm = () => {

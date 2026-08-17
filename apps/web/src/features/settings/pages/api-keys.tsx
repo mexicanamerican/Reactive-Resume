@@ -3,9 +3,9 @@ import { Trans } from "@lingui/react/macro";
 import { BookOpenIcon, KeyIcon, LinkSimpleIcon, PlusIcon, TrashSimpleIcon } from "@phosphor-icons/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { AnimatePresence, m } from "motion/react";
-import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
@@ -43,25 +43,26 @@ export function ApiKeysSettingsPage() {
 
 		if (!confirmation) return;
 
-		const toastId = toast.loading(t`Deleting your API key...`);
+		const toastId = toast.add({ type: "loading", description: t`Deleting your API key...` });
 
 		const { error } = await authClient.apiKey.delete({ keyId: id });
 
 		if (error) {
-			toast.error(
-				getReadableErrorMessage(
+			toast.add({
+				type: "error",
+				description: getReadableErrorMessage(
 					error,
 					t({
 						comment: "Fallback toast when deleting an API key fails",
 						message: "Failed to delete the API key. Please try again.",
 					}),
 				),
-				{ id: toastId },
-			);
+				id: toastId,
+			});
 			return;
 		}
 
-		toast.success(t`The API key has been deleted successfully.`, { id: toastId });
+		toast.add({ type: "success", description: t`The API key has been deleted successfully.`, id: toastId });
 		void queryClient.invalidateQueries({ queryKey: ["auth", "api-keys"] });
 	};
 

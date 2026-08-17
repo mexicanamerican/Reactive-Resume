@@ -5,12 +5,12 @@ import { ArrowRightIcon, ChatCircleDotsIcon, FilePlusIcon, GearSixIcon } from "@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { toast } from "sonner";
 import { useIsClient } from "usehooks-ts";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Label } from "@reactive-resume/ui/components/label";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { Combobox } from "@/components/ui/combobox";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -176,15 +176,16 @@ export function NewThreadSetup({ resumeId }: NewThreadSetupProps) {
 										void navigate({ to: "/agent/$threadId", params: { threadId: thread.id } });
 									},
 									onError: (error) =>
-										toast.error(
-											getOrpcErrorMessage(error, {
+										toast.add({
+											type: "error",
+											description: getOrpcErrorMessage(error, {
 												byCode: {
 													PRECONDITION_FAILED: t`AI agent setup is unavailable until REDIS_URL and ENCRYPTION_SECRET are configured.`,
 													BAD_REQUEST: t`Set up an AI provider before starting a thread.`,
 												},
 												fallback: t`Failed to start agent thread.`,
 											}),
-										),
+										}),
 								},
 							)
 						}

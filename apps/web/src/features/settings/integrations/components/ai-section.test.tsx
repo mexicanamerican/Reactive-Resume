@@ -4,7 +4,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
-import { toast } from "sonner";
+import { toast } from "@reactive-resume/ui/components/toast";
 
 type MutationName = "create" | "test" | "update" | "delete";
 
@@ -100,7 +100,7 @@ vi.mock("@/components/ui/combobox", () => ({
 	),
 }));
 
-vi.mock("sonner", () => ({ toast: { error: vi.fn(), success: vi.fn() } }));
+vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: vi.fn() } }));
 
 i18n.loadAndActivate({ locale: "en", messages: {} });
 
@@ -208,11 +208,13 @@ describe("AISettingsSection", () => {
 		renderSection();
 		fireEvent.click(screen.getByRole("button", { name: "Test" }));
 
-		await waitFor(() => expect(toast.error).toHaveBeenCalled());
+		await waitFor(() => expect(toast.add).toHaveBeenCalledWith(expect.objectContaining({ type: "error" })));
 
 		// Toast reports only the outcome; the card carries the detail.
-		expect(toast.error).toHaveBeenCalledWith("Connection failed.");
-		expect(toast.error).not.toHaveBeenCalledWith(expect.stringContaining("rejected the API key"));
+		expect(toast.add).toHaveBeenCalledWith({ type: "error", description: "Connection failed." });
+		expect(toast.add).not.toHaveBeenCalledWith(
+			expect.objectContaining({ description: expect.stringContaining("rejected the API key") }),
+		);
 
 		providers.data = [failed];
 		renderSection();

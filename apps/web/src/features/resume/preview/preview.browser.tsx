@@ -5,7 +5,7 @@ import type { PreviewPageSize } from "./preview.shared.utils";
 import { t } from "@lingui/core/macro";
 import { AnimatePresence, m } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { isRTL } from "@reactive-resume/utils/locale";
 import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
@@ -136,7 +136,9 @@ export function ResumePreviewClient({
 				}
 			} catch {
 				if (cancelled || requestId !== requestIdRef.current) return;
-				toast.error(t`The resume preview could not be updated. The last valid preview is still shown.`, {
+				toast.add({
+					type: "error",
+					description: t`The resume preview could not be updated. The last valid preview is still shown.`,
 					id: "resume-preview-render-error",
 				});
 			}

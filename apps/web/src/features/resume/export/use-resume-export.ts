@@ -3,11 +3,11 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { PublicResumePdfOptions } from "@/features/resume/public/public-pdf";
 import { t } from "@lingui/core/macro";
 import { useCallback, useState } from "react";
-import { toast } from "sonner";
 import { buildDocx } from "@reactive-resume/docx";
 import { getResumeSectionTitle } from "@reactive-resume/pdf/section-title";
 import { getResumeExportData, resumeHasCoverLetter } from "@reactive-resume/resume/export-sections";
 import { buildMarkdown } from "@reactive-resume/resume/markdown";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { resolvePublicResumePdfBlob } from "@/features/resume/public/public-pdf";
 import { createSectionTitleResolverForLocale } from "@/libs/resume/section-title-locale";
@@ -80,7 +80,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 				const blob = await buildDocx(data, resolveTitle);
 				downloadWithAnchor(blob, generateFilename(getTargetExportName(resume, target), "docx"));
 			} catch {
-				toast.error(t`There was a problem while generating the DOCX, please try again.`);
+				toast.add({ type: "error", description: t`There was a problem while generating the DOCX, please try again.` });
 			}
 		},
 		[resume],
@@ -90,7 +90,10 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 		async (target: ResumeExportTarget = "resume", downloadOptions?: DownloadPdfOptions) => {
 			if (!resume) return;
 			if (target === "cover-letter" && !resumeHasCoverLetter(resume.data)) return;
-			const toastId = toast.loading(t`Please wait while your PDF is being generated...`);
+			const toastId = toast.add({
+				type: "loading",
+				description: t`Please wait while your PDF is being generated...`,
+			});
 			setIsExporting(true);
 			try {
 				const data = exportOptions.publicResumePdf ? resume.data : getResumeExportData(resume.data, target);
@@ -105,10 +108,10 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 						);
 				downloadWithAnchor(blob, generateFilename(getTargetExportName(resume, target), "pdf"));
 			} catch {
-				toast.error(t`There was a problem while generating the PDF, please try again.`);
+				toast.add({ type: "error", description: t`There was a problem while generating the PDF, please try again.` });
 			} finally {
 				setIsExporting(false);
-				toast.dismiss(toastId);
+				toast.close(toastId);
 			}
 		},
 		[exportOptions.publicResumePdf, resume],
@@ -116,7 +119,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 
 	const onPrint = useCallback(async () => {
 		if (!resume) return;
-		const toastId = toast.loading(t`Preparing your resume for printing...`);
+		const toastId = toast.add({ type: "loading", description: t`Preparing your resume for printing...` });
 		setIsExporting(true);
 		try {
 			const blob = exportOptions.publicResumePdf
@@ -142,10 +145,13 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 			};
 			document.body.appendChild(iframe);
 		} catch {
-			toast.error(t`There was a problem while preparing your resume for printing, please try again.`);
+			toast.add({
+				type: "error",
+				description: t`There was a problem while preparing your resume for printing, please try again.`,
+			});
 		} finally {
 			setIsExporting(false);
-			toast.dismiss(toastId);
+			toast.close(toastId);
 		}
 	}, [exportOptions.publicResumePdf, resume]);
 

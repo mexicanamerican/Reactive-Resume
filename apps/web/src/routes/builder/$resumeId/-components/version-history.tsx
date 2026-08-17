@@ -5,7 +5,6 @@ import { Trans } from "@lingui/react/macro";
 import { ClockCounterClockwiseIcon } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
 	DropdownMenu,
@@ -16,6 +15,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { useResumeStore } from "@/features/resume/builder/draft";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getResumeErrorMessage } from "@/libs/error-message";
@@ -53,9 +53,9 @@ export function BuilderVersionHistory({ resumeId }: BuilderVersionHistoryProps) 
 			replaceResumeFromServer(restored as Resume);
 			queryClient.setQueryData(orpc.resume.getById.queryOptions({ input: { id: resumeId } }).queryKey, restored);
 			void queryClient.invalidateQueries({ queryKey: orpc.resume.listVersions.queryKey({ input: { resumeId } }) });
-			toast.success(t`Your resume has been restored to the selected version.`);
+			toast.add({ type: "success", description: t`Your resume has been restored to the selected version.` });
 		} catch (error) {
-			toast.error(getResumeErrorMessage(error));
+			toast.add({ type: "error", description: getResumeErrorMessage(error) });
 		}
 	};
 

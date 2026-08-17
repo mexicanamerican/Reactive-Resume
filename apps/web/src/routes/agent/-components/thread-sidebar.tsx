@@ -13,7 +13,6 @@ import {
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { toast } from "sonner";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
 	DropdownMenu,
@@ -22,6 +21,7 @@ import {
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { ScrollArea } from "@reactive-resume/ui/components/scroll-area";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -62,7 +62,11 @@ function ThreadActions({ thread, activeThreadId }: ThreadActionsProps) {
 						});
 					}
 				},
-				onError: (error) => toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to archive thread.` })),
+				onError: (error) =>
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Failed to archive thread.` }),
+					}),
 			},
 		);
 	};
@@ -81,7 +85,11 @@ function ThreadActions({ thread, activeThreadId }: ThreadActionsProps) {
 					await queryClient.invalidateQueries({ queryKey: orpc.agent.threads.list.queryKey() });
 					if (activeThreadId === thread.id) void navigate({ to: "/agent" });
 				},
-				onError: (error) => toast.error(getOrpcErrorMessage(error, { fallback: t`Failed to delete thread.` })),
+				onError: (error) =>
+					toast.add({
+						type: "error",
+						description: getOrpcErrorMessage(error, { fallback: t`Failed to delete thread.` }),
+					}),
 			},
 		);
 	};
