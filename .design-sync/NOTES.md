@@ -14,7 +14,7 @@ Syncs to Claude Design project **Reactive Resume** (`3c0f6556-050a-41e5-9886-c3f
 ## Card scope
 
 - The package exports **202 symbols** (39 primary components + 163 compound sub-parts). User chose **~40 primary cards**: `cfg.componentSrcMap` nulls the 163 sub-parts. All 202 stay importable from `window.RRUI` (the bundle exports everything regardless of the card list), so previews compose sub-parts (`RRUI.DialogContent`, etc.) freely.
-- Multi-primary files represented by one card: `combobox.tsx`→ComboboxRoot, `form.tsx`→FormItem, `resizable.tsx`→ResizableGroup, `sonner.tsx`→Toaster.
+- Multi-primary files represented by one card: `combobox.tsx`→ComboboxRoot, `form.tsx`→FormItem, `resizable.tsx`→ResizableGroup, `toast.tsx`→Toaster.
 
 ## Preview authoring conventions (calibrated on Button / Alert / Dialog)
 
