@@ -373,13 +373,9 @@ function StarterPromptMarquee({ onSelect }: StarterPromptMarqueeProps) {
 	);
 }
 
-function getMessagePartKey(messageId: string, part: UIMessage["parts"][number]) {
-	if ("toolCallId" in part && typeof part.toolCallId === "string")
-		return `${messageId}-${part.type}-${part.toolCallId}`;
-	if (part.type === "text") return `${messageId}-text-${part.text}`;
-	if (part.type === "file") return `${messageId}-file-${part.url ?? part.filename}`;
-	return `${messageId}-${part.type}-${JSON.stringify(part)}`;
-}
+// ponytail: parts are append-only and never reordered by the AI SDK, so the index is a stable
+// unique key. Content-derived keys collide — every `step-start` part serializes identically.
+const getMessagePartKey = (messageId: string, index: number) => `${messageId}-${index}`;
 
 export function AssistantMarkdown({ text }: AssistantMarkdownProps) {
 	return (
@@ -544,9 +540,9 @@ function ChatMessage({ message, onAnswer, onRevert, isReverting, actionsById }: 
 	return (
 		<Message align={isUser ? "end" : "start"}>
 			<MessageContent className={cn(isUser ? "items-end" : "items-start")}>
-				{message.parts.map((part) => (
+				{message.parts.map((part, index) => (
 					<MessagePart
-						key={getMessagePartKey(message.id, part)}
+						key={getMessagePartKey(message.id, index)}
 						part={part}
 						isUser={isUser}
 						onAnswer={onAnswer}
