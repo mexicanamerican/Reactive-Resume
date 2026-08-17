@@ -160,6 +160,51 @@ function createRootSeoMarkup(canonicalUrl: string) {
 	`;
 }
 
+// Resume names, headlines, and summaries are user-authored, so they must never reach the served
+// HTML unescaped.
+const escapeAttribute = (value: string) =>
+	value
+		.replaceAll("&", "&amp;")
+		.replaceAll("<", "&lt;")
+		.replaceAll(">", "&gt;")
+		.replaceAll('"', "&quot;")
+		.replaceAll("'", "&#39;");
+
+async function createPublicResumeSeoMarkup(pathname: string, origin: string) {
+	const [username, slug] = getPathSegments(pathname);
+	if (!username || !slug) return null;
+
+	// A card render must never take down the page: any lookup failure falls back to the plain shell.
+	const meta = await import("@reactive-resume/api/features/resume/social-meta")
+		.then((module) => module.getPublicResumeSocialMeta({ username, slug }))
+		.catch(() => null);
+	if (!meta) return null;
+
+	const canonicalUrl = `${origin}/${username}/${slug}`;
+	const imageUrl = `${origin}/templates/jpg/${meta.template}.jpg`;
+	const pageTitle = escapeAttribute(`${meta.name} - Reactive Resume`);
+	const title = escapeAttribute(meta.title);
+	const description = escapeAttribute(meta.description);
+
+	return {
+		pageTitle,
+		description,
+		markup: `
+		<link rel="canonical" href="${canonicalUrl}">
+		<meta property="og:type" content="profile">
+		<meta property="og:site_name" content="Reactive Resume">
+		<meta property="og:title" content="${title}">
+		<meta property="og:description" content="${description}">
+		<meta property="og:url" content="${canonicalUrl}">
+		<meta property="og:image" content="${imageUrl}">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="${title}">
+		<meta name="twitter:description" content="${description}">
+		<meta name="twitter:image" content="${imageUrl}">
+	`,
+	};
+}
+
 export const serveWebDistStatic = serveStatic({
 	root: staticRoot,
 	onFound: (_path, context) => {
@@ -208,7 +253,23 @@ export async function handleWebApp(request: Request) {
 
 	const html = await fs.readFile(indexHtmlPath, "utf-8");
 	const canonicalUrl = new URL("/", env.APP_URL).toString();
-	const responseHtml = pathname === "/" ? html.replace("</head>", `${createRootSeoMarkup(canonicalUrl)}</head>`) : html;
 
-	return new Response(responseHtml, { headers });
+	if (pathname === "/") {
+		return new Response(html.replace("</head>", `${createRootSeoMarkup(canonicalUrl)}</head>`), { headers });
+	}
+
+	if (isPublicResumePath(pathname)) {
+		const resumeSeo = await createPublicResumeSeoMarkup(pathname, new URL(env.APP_URL).origin);
+		if (resumeSeo) {
+			// The shell's generic title/description are replaced so shares and previews show the resume,
+			// not the marketing copy baked into index.html.
+			const withTitle = html
+				.replace(/<title>[^<]*<\/title>/, `<title>${resumeSeo.pageTitle}</title>`)
+				.replace(/<meta\s+name="description"[^>]*>/, `<meta name="description" content="${resumeSeo.description}">`);
+
+			return new Response(withTitle.replace("</head>", `${resumeSeo.markup}</head>`), { headers });
+		}
+	}
+
+	return new Response(html, { headers });
 }

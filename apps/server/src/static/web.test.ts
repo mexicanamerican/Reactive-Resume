@@ -4,6 +4,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mocks = vi.hoisted(() => ({
 	env: { APP_URL: "https://rxresu.me" },
 	serveStatic: vi.fn((_options?: unknown) => vi.fn()),
+	getPublicResumeSocialMeta: vi.fn(),
+}));
+
+vi.mock("@reactive-resume/api/features/resume/social-meta", () => ({
+	getPublicResumeSocialMeta: mocks.getPublicResumeSocialMeta,
 }));
 
 vi.mock("node:fs", () => ({
@@ -41,6 +46,7 @@ describe("web app fallback classification", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		vi.mocked(fs.readFile).mockResolvedValue("<html>app</html>");
+		mocks.getPublicResumeSocialMeta.mockResolvedValue(null);
 	});
 
 	it("serves the shell for the root app route without noindex", async () => {
@@ -81,6 +87,68 @@ describe("web app fallback classification", () => {
 
 		const dashboardResponse = await handleWebApp(new Request("https://example.com/dashboard"));
 		expect(await dashboardResponse.text()).not.toContain('rel="canonical"');
+	});
+
+	describe("public resume social cards", () => {
+		const shell = `<html><head><title>Reactive Resume — A free and open-source resume builder</title><meta name="description" content="Marketing copy."></head><body></body></html>`;
+
+		it("injects resume-specific social metadata and replaces the shell title", async () => {
+			vi.mocked(fs.readFile).mockResolvedValue(shell);
+			mocks.getPublicResumeSocialMeta.mockResolvedValue({
+				name: "Jane Doe",
+				title: "Jane Doe — Staff Engineer",
+				description: "Builds resilient distributed systems.",
+				template: "azurill",
+			});
+
+			const html = await (await handleWebApp(new Request("https://example.com/jane/resume"))).text();
+
+			expect(mocks.getPublicResumeSocialMeta).toHaveBeenCalledWith({ username: "jane", slug: "resume" });
+			expect(html).toContain("<title>Jane Doe - Reactive Resume</title>");
+			expect(html).toContain('<meta name="description" content="Builds resilient distributed systems.">');
+			expect(html).not.toContain("Marketing copy.");
+			expect(html).toContain('<link rel="canonical" href="https://rxresu.me/jane/resume">');
+			expect(html).toContain('<meta property="og:type" content="profile">');
+			expect(html).toContain('<meta property="og:title" content="Jane Doe — Staff Engineer">');
+			expect(html).toContain('<meta property="og:image" content="https://rxresu.me/templates/jpg/azurill.jpg">');
+			expect(html).toContain('<meta name="twitter:card" content="summary_large_image">');
+			expect(html).toContain('<meta name="twitter:image" content="https://rxresu.me/templates/jpg/azurill.jpg">');
+		});
+
+		it("escapes user-authored values so resume content cannot break out of the attribute", async () => {
+			vi.mocked(fs.readFile).mockResolvedValue(shell);
+			mocks.getPublicResumeSocialMeta.mockResolvedValue({
+				name: 'Jane" onload="alert(1)',
+				title: "<script>alert(1)</script>",
+				description: 'Ends with " and & ampersand',
+				template: "azurill",
+			});
+
+			const html = await (await handleWebApp(new Request("https://example.com/jane/resume"))).text();
+
+			expect(html).not.toContain("<script>alert(1)</script>");
+			expect(html).not.toContain('onload="alert(1)');
+			expect(html).toContain('<meta property="og:title" content="&lt;script&gt;alert(1)&lt;/script&gt;">');
+			expect(html).toContain('content="Ends with &quot; and &amp; ampersand"');
+		});
+
+		it("serves the plain shell when the resume is not publicly shareable", async () => {
+			vi.mocked(fs.readFile).mockResolvedValue(shell);
+
+			const html = await (await handleWebApp(new Request("https://example.com/jane/private"))).text();
+
+			expect(html).toBe(shell);
+		});
+
+		it("serves the plain shell when the lookup fails", async () => {
+			vi.mocked(fs.readFile).mockResolvedValue(shell);
+			mocks.getPublicResumeSocialMeta.mockRejectedValue(new Error("database unavailable"));
+
+			const response = await handleWebApp(new Request("https://example.com/jane/resume"));
+
+			expect(response.status).toBe(200);
+			await expect(response.text()).resolves.toBe(shell);
+		});
 	});
 
 	it("caches versioned homepage media immutably", async () => {
