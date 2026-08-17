@@ -192,4 +192,16 @@ describe("createApp", () => {
 		expect(mocks.serveWebDistStatic).not.toHaveBeenCalled();
 		expect(mocks.handleWebApp).not.toHaveBeenCalled();
 	});
+
+	it.each(["GET", "HEAD"])("routes %s / to the web app handler so SEO markup is injected", async (method) => {
+		const { createApp } = await import("./app");
+		const app = createApp();
+		const request = new Request("http://localhost:3001/", { method });
+
+		const response = await app.fetch(request);
+
+		expect(response.status).toBe(200);
+		expect(mocks.handleWebApp).toHaveBeenCalledWith(request);
+		expect(mocks.serveWebDistStatic).not.toHaveBeenCalled();
+	});
 });
