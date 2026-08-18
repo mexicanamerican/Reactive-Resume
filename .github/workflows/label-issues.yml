@@ -26,5 +26,9 @@ jobs:
             const labels = getIssueLabels(context.payload.issue.body ?? "");
 
             if (labels.length > 0) {
-              await github.rest.issues.addLabels({ ...context.issue, labels });
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: context.issue.number,
+                labels,
+              });
             }
