@@ -1,5 +1,5 @@
-import type { UIMessage } from "ai";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
+import type { UIMessage } from "ai";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { convertToModelMessages, modelMessageSchema } from "ai";
 
