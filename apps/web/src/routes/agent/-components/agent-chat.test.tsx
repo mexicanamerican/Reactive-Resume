@@ -5,7 +5,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
-import { AskUserQuestion, AssistantMarkdown } from "./agent-chat";
+import { AskUserQuestion, AssistantMarkdown, withoutResumeDataForExport } from "./agent-chat";
 
 describe("AssistantMarkdown", () => {
 	it("renders GitHub-style pipe tables as tables", () => {
@@ -24,6 +24,47 @@ describe("AssistantMarkdown", () => {
 		expect(within(table).getByRole("cell", { name: "Mentored 3+ juniors" })).toBeInTheDocument();
 		expect(screen.getByText("Before")).toBeInTheDocument();
 		expect(screen.getByText("After")).toBeInTheDocument();
+	});
+});
+
+describe("withoutResumeDataForExport", () => {
+	it("strips the resume document from tool outputs but keeps everything else", () => {
+		const messages = [
+			{
+				id: "m1",
+				role: "assistant",
+				parts: [
+					{
+						type: "tool-read_resume",
+						toolCallId: "c1",
+						state: "output-available",
+						input: {},
+						output: { id: "r1", updatedAt: "2026-08-20T00:00:00.000Z", data: { basics: { name: "John" } } },
+					},
+					{
+						type: "tool-apply_resume_patch",
+						toolCallId: "c2",
+						state: "output-available",
+						input: { title: "Edit" },
+						output: { actionId: "a1", changedPaths: ["/basics/name"], resume: { basics: { name: "John" } } },
+					},
+					{ type: "text", text: "Done." },
+				],
+			},
+		] as unknown as UIMessage[];
+
+		const exported = withoutResumeDataForExport(messages);
+
+		const exportedParts = (exported[0]?.parts ?? []) as Array<{ output?: Record<string, unknown> }>;
+		expect(exportedParts[0]?.output?.data).toBe("[resume data omitted]");
+		expect(exportedParts[0]?.output?.updatedAt).toBe("2026-08-20T00:00:00.000Z");
+		expect(exportedParts[1]?.output?.resume).toBe("[resume data omitted]");
+		expect(exportedParts[1]?.output?.changedPaths).toEqual(["/basics/name"]);
+		expect(exported[0]?.parts[2]).toEqual({ type: "text", text: "Done." });
+
+		// The live chat state is never mutated — only the copied structure is redacted.
+		const originalParts = (messages[0]?.parts ?? []) as Array<{ output?: Record<string, unknown> }>;
+		expect(originalParts[0]?.output?.data).toEqual({ basics: { name: "John" } });
 	});
 });
 

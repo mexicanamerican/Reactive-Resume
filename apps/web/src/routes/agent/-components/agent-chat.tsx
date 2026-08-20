@@ -200,6 +200,33 @@ type AgentChatComposerProps = {
 
 const ANSWER_FIELD = "answer";
 
+const OMITTED_RESUME_DATA = "[resume data omitted]";
+
+// "Copy JSON" is for sharing/debugging a conversation; the full resume document embedded in every
+// read_resume result (`output.data`) and fresh-document patch result (`output.resume`) would make
+// the export enormous and repetitive. Strip those two payloads; everything else copies verbatim.
+export function withoutResumeDataForExport(messages: UIMessage[]): UIMessage[] {
+	return messages.map((message) => ({
+		...message,
+		parts: message.parts.map((part) => {
+			if (part.type !== "tool-read_resume" && part.type !== "tool-apply_resume_patch") return part;
+
+			const output = "output" in part && typeof part.output === "object" && part.output ? part.output : null;
+			if (!output) return part;
+			const outputRecord = output as Record<string, unknown>;
+
+			if (part.type === "tool-read_resume" && "data" in outputRecord) {
+				return { ...part, output: { ...outputRecord, data: OMITTED_RESUME_DATA } } as UIMessage["parts"][number];
+			}
+			if (part.type === "tool-apply_resume_patch" && "resume" in outputRecord) {
+				return { ...part, output: { ...outputRecord, resume: OMITTED_RESUME_DATA } } as UIMessage["parts"][number];
+			}
+
+			return part;
+		}),
+	}));
+}
+
 function toRecord(value: unknown) {
 	return typeof value === "object" && value !== null ? (value as Record<string, unknown>) : null;
 }
@@ -994,7 +1021,7 @@ export function AgentChat({
 					chatStatus: status,
 					isReadOnly,
 					readOnlyReason,
-					messages,
+					messages: withoutResumeDataForExport(messages),
 					actions,
 				},
 				null,
