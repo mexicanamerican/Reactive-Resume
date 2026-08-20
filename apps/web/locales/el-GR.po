@@ -543,6 +543,14 @@ msgstr "Υποβλήθηκε"
 msgid "Applied on"
 msgstr "Ημερομηνία αίτησης"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Έγκριση"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Εγκρίθηκε — αναμονή για τον πράκτορα…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Αραβικά"
@@ -636,7 +644,7 @@ msgstr "Επισύναψη αρχείων"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Attachment"
-msgstr "Προσάρτημα"
+msgstr "Συνημμένο"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Attachment uploaded."
@@ -1462,6 +1470,14 @@ msgstr "Διαγραφή του κλειδιού API σας..."
 msgid "Deleting your resume..."
 msgstr "Διαγραφή του βιογραφικού σας σημειώματος..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Απορρίφθηκε — αναμονή για τον πράκτορα…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Απόρριψη"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Περιγράψτε τι κάνατε, ώστε η καταχώριση να συνεισφέρει λέξεις-κλειδιά για αντιστοίχιση."
@@ -1529,6 +1545,10 @@ msgstr "Προσφέρω"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Κάντε μία δωρεά στο Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Ολοκληρώθηκε"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Επεξεργασία περιεχομένου σε λειτουργί�
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Επεξεργασία ημερομηνίας"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Η επεξεργασία απορρίφθηκε"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Εξαγάγετε το βιογραφικό σας σε μορφή PDF 
 msgid "Exported pipeline-flow.png"
 msgstr "Έγινε εξαγωγή του pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Απέτυχε"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Απέτυχε να αναλύσει το βιογραφικό σημείωμα."
@@ -1966,6 +1994,10 @@ msgstr "Απέτυχε η αποσύνδεση του παρόχου. Προσπ
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Αποτυχία ενημέρωσης παρόχου."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Αποτυχία ενημέρωσης των ρυθμίσεων νήματος."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "ανοίγει σε νέα καρτέλα"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Προαιρετική σημείωση για τον πράκτορα"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Προαιρετική σημείωση για τον πράκτορα…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Προαιρετικά, ορίστε έναν κωδικό πρόσβασης ώστε μόνο τα άτομα που γνωρίζουν τον κωδικό να μπορούν να βλέπουν το βιογραφικό σας σημείωμα μέσω του συνδέσμου."
@@ -3499,6 +3539,10 @@ msgstr "Δημοσιεύσεις"
 msgid "Publisher"
 msgstr "Εκδότης"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Ακατέργαστο JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Επαναβαθμολόγηση"
@@ -3546,9 +3590,17 @@ msgstr "Αντιδραστικό βιογραφικό v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Αντιδραστικό βιογραφικό σημείωμα v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Ανάγνωση συνημμένου"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Διαβάστε τον οδηγό Εφαρμογή προσαρμοσμένων στυλ."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Ανάγνωση του βιογραφικού"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Επαναφέρω"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Επαναφορά του βιογραφικού σημειώματος πριν από αυτήν την ενημέρωση κώδικα; Αυτό θα ακυρώσει αυτήν την ενημέρωση κώδικα και τυχόν ενημερώσεις κώδικα που εφαρμόστηκαν μετά από αυτήν."
+msgid "Restore the resume to before this patch?"
+msgstr "Επαναφορά του βιογραφικού στην κατάσταση πριν από αυτήν την ενημέρωση κώδικα;"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Η ανάλυση του βιογραφικού ολοκληρώθηκε
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Περιεχόμενο βιογραφικού"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Επεξεργασία βιογραφικού"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Δοκιμάζω πάλι"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Έλεγχος επεξεργασιών"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Ελέγξτε το βιογραφικό σημείωμα με βάση την περιγραφή της θέσης εργασίας και κάντε μου ερωτήσεις πριν αλλάξετε αβέβαια σημεία."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Έλεγχος αυτής της επεξεργασίας"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Περιστροφή"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Εκτελέστε την πρώτη σας ανάλυση για να λάβετε έναν πίνακα βαθμολογίας, τα δυνατά σημεία και τις προτάσεις με προτεραιότητες."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Εκτελείται…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Πηγή"
 msgid "Source Code"
 msgstr "Πηγαίος κώδικας"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Πηγή: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Πηγές"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Κενό (οριζόντιο)"
@@ -4604,6 +4681,10 @@ msgstr "Δεν ήταν δυνατό το άνοιγμα αυτού του βο�
 msgid "This date will not be read correctly."
 msgstr "Αυτή η ημερομηνία δεν θα διαβαστεί σωστά."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Αυτό το αίτημα επεξεργασίας δεν μπορεί πλέον να απαντηθεί."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Αυτή η διεύθυνση email δεν θα αναγνωριστεί."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Αυτό θα αφαιρέσει όλα τα στοιχεία από αυτό το τμήμα."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Αυτό θα αναιρέσει αυτήν την ενημέρωση κώδικα και όλες τις ενημερώσεις που εφαρμόστηκαν μετά από αυτήν."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Ενέργειες νήματος"
@@ -4793,6 +4878,18 @@ msgstr "Εναλλαγή δεξιάς πλευρικής γραμμής"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Εναλλαγή νημάτων"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokens: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokens: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokens: {total} ({cached} στην κρυφή μνήμη)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Δεν ήταν δυνατός ο αυτόματος εντοπισμό�
 msgid "We couldn't find that page"
 msgstr "Δεν μπορέσαμε να βρούμε αυτήν τη σελίδα"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Αναζήτηση στον ιστό"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Σμίκρυνση"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Ζουλού"
-

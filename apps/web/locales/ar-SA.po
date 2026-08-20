@@ -543,6 +543,14 @@ msgstr "تم التقديم"
 msgid "Applied on"
 msgstr "تم التقديم في"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "موافقة"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "تمت الموافقة — في انتظار الوكيل…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "العربية"
@@ -1462,6 +1470,14 @@ msgstr "جاري حذف مفتاح واجهة برمجة التطبيقات (API
 msgid "Deleting your resume..."
 msgstr "جاري حذف سيرتك الذاتية..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "تم الرفض — في انتظار الوكيل…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "رفض"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "قم بوصف ما قمت به حتى يساهم الإدخال بكلمات رئيسية للمطابقة."
@@ -1529,6 +1545,10 @@ msgstr "يتبرع"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "تبرع لـReactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "تم"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "تحرير المحتوى في وضع ملء الشاشة"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "تعديل التاريخ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "تم رفض التعديل"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "قم بتصدير سيرتك الذاتية إلى ملف PDF على ا�
 msgid "Exported pipeline-flow.png"
 msgstr "تم تصدير ملف pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "فشل"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "فشل في تحليل السيرة الذاتية."
@@ -1966,6 +1994,10 @@ msgstr "فشل إلغاء ربط الموفر. يرجى المحاولة مرة 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "فشل تحديث الموفر."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "فشل تحديث إعدادات الموضوع."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "الموجه المفتوح (OpenRouter)"
 msgid "opens in new tab"
 msgstr "يفتح في علامة تبويب جديدة"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "ملاحظة اختيارية للوكيل"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "ملاحظة اختيارية للوكيل…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "اختياريًا، يمكنك تعيين كلمة مرور حتى يتمكن فقط الأشخاص الذين لديهم كلمة المرور من عرض سيرتك الذاتية عبر الرابط."
@@ -3499,6 +3539,10 @@ msgstr "المنشورات"
 msgid "Publisher"
 msgstr "الناشر"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON خام"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "إعادة التقييم"
@@ -3546,9 +3590,17 @@ msgstr "السيرة الذاتية التفاعلية v<0>{__APP_VERSION__}</0>
 msgid "Reactive Resume v4 (JSON)"
 msgstr "استئناف تفاعلي الإصدار 4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "قرأ مرفقًا"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "اقرأ دليل تطبيق الأنماط المخصصة."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "قرأ السيرة الذاتية"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "يعيد"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "هل تريد استعادة النظام إلى ما قبل هذا التحديث؟ سيؤدي هذا إلى التراجع عن هذا التحديث وأي تحديثات أخرى تم تطبيقها بعده."
+msgid "Restore the resume to before this patch?"
+msgstr "استعادة السيرة الذاتية إلى ما قبل هذه الرقعة؟"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "اكتمل تحليل السيرة الذاتية."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "محتوى السيرة الذاتية"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "تعديل السيرة الذاتية"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "إعادة المحاولة"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "مراجعة التعديلات"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "راجع السيرة الذاتية مع وصف الوظيفة واطرح عليّ أسئلة قبل تغيير الأقسام غير الواضحة."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "مراجعة هذا التعديل"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "الدوران"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "قم بإجراء تحليلك الأول للحصول على بطاقة الأداء ونقاط القوة والاقتراحات ذات الأولوية."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "قيد التشغيل…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "مصدر"
 msgid "Source Code"
 msgstr "شفرة المصدر"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "المصدر: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "المصادر"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "تباعد (أفقي)"
@@ -4604,6 +4681,10 @@ msgstr "تعذر فتح هذا المساعد."
 msgid "This date will not be read correctly."
 msgstr "لن يتم قراءة هذا التاريخ بشكل صحيح."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "لم يعد من الممكن الرد على طلب التعديل هذا."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "لن يتم التعرف على عنوان البريد الإلكتروني هذا."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "سيؤدي ذلك إلى إزالة جميع العناصر من هذا القسم."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "سيؤدي هذا إلى التراجع عن هذه الرقعة وأي رقع طُبّقت بعدها."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "إجراءات الخيوط"
@@ -4793,6 +4878,18 @@ msgstr "تبديل الشريط الجانبي الأيمن"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "تبديل الخيوط"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "الرموز: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "الرموز: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "الرموز: {total} ({cached} مخزّنة مؤقتًا)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "لم نتمكن من اكتشاف التنسيق تلقائيًا - ير
 msgid "We couldn't find that page"
 msgstr "لم نتمكن من العثور على تلك الصفحة"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "بحث الويب"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "تصغير"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "الزولو"
-

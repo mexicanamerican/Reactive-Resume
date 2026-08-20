@@ -543,6 +543,14 @@ msgstr "Prijavljeno"
 msgid "Applied on"
 msgstr "Uporabljeno na"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Odobri"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Odobreno — čakanje na agenta…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabščina"
@@ -1462,6 +1470,14 @@ msgstr "Brišem vaš API ključ ..."
 msgid "Deleting your resume..."
 msgstr "Brišem vaš življenjepis..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Zavrnjeno — čakanje na agenta…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Zavrni"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Opišite, kaj ste storili, da vnos prispeva ključne besede za ujemanje."
@@ -1529,6 +1545,10 @@ msgstr "Donirajte"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Donirajte za Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Končano"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Urejanje vsebine v celozaslonskem načinu"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Uredi datum"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Sprememba zavrnjena"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Izvozite svoj življenjepis v PDF takoj, brez čakanja ali zamud."
 msgid "Exported pipeline-flow.png"
 msgstr "Izvožen pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Ni uspelo"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Ni uspelo analizirati življenjepisa."
@@ -1966,6 +1994,10 @@ msgstr "Ni uspelo odvezati ponudnika. Poskusite znova."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Ponudnika ni bilo mogoče posodobiti."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Nastavitev niti ni bilo mogoče posodobiti."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "odpre se v novem zavihku"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Neobvezna opomba za agenta"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Neobvezna opomba za agenta…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Po želji nastavite geslo, tako da si lahko vaš življenjepis preko povezave ogledajo le tisti, ki imajo geslo."
@@ -3499,6 +3539,10 @@ msgstr "Publikacije"
 msgid "Publisher"
 msgstr "Založnik"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Neobdelan JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Ponovno rezultat"
@@ -3546,9 +3590,17 @@ msgstr "Reaktivni življenjepis v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktivni življenjepis v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Prebral prilogo"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Preberite vodnik Uporaba slogov po meri."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Prebral življenjepis"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Obnovi"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Želite obnoviti življenjepis na stanje pred tem popravkom? S tem boste povrnili ta popravek in vse popravke, ki so bili uporabljeni po njem."
+msgid "Restore the resume to before this patch?"
+msgstr "Želite obnoviti življenjepis v stanje pred tem popravkom?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Analiza življenjepisa je končana."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Vsebina življenjepisa"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Urejanje življenjepisa"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Poskusi znova"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Preglej spremembe"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Preden spremenite negotove dele, preglejte življenjepis glede na opis delovnega mesta in mi postavite vprašanja."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Preglej to spremembo"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Rotacija"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Izvedite prvo analizo in pridobite preglednico, prednosti in prednostne predloge."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Izvajanje…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Vir"
 msgid "Source Code"
 msgstr "Izvorna koda"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Vir: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Viri"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Razmik (vodoravno)"
@@ -4604,6 +4681,10 @@ msgstr "Tega pomočnika ni bilo mogoče odpreti."
 msgid "This date will not be read correctly."
 msgstr "Ta datum ne bo pravilno prebran."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Na to zahtevo za urejanje ni več mogoče odgovoriti."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Ta e-poštni naslov ne bo prepoznan."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "S tem boste odstranili vse elemente iz tega razdelka."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "To bo razveljavilo ta popravek in vse popravke, uporabljene po njem."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Dejanja niti"
@@ -4793,6 +4878,18 @@ msgstr "Preklapljanje desne stranske vrstice"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Preklopi niti"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Žetoni: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Žetoni: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Žetoni: {total} ({cached} predpomnjenih)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Oblike ni bilo mogoče samodejno zaznati – izberite jo zgoraj."
 msgid "We couldn't find that page"
 msgstr "Te strani nismo mogli najti."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Spletno iskanje"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Oddalji"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
-

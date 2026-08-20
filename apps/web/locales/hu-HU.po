@@ -543,6 +543,14 @@ msgstr "Jelentkezve"
 msgid "Applied on"
 msgstr "Jelentkezés dátuma"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Jóváhagyás"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Jóváhagyva — várakozás az ügynökre…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "arab"
@@ -1462,6 +1470,14 @@ msgstr "API kulcs törlése..."
 msgid "Deleting your resume..."
 msgstr "Önéletrajz törlése..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Elutasítva — várakozás az ügynökre…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Elutasítás"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Írja le, mit tett, hogy a bejegyzés kulcsszavakat adjon az egyezéshez."
@@ -1529,6 +1545,10 @@ msgstr "Adományoz"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Adományozzon a Reactive Resume-nak"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Kész"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Tartalom szerkesztése teljes képernyős módban"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Dátum szerkesztése"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Szerkesztés elutasítva"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Exportálja önéletrajzát PDF formátumba azonnal, várakozás vagy k�
 msgid "Exported pipeline-flow.png"
 msgstr "A pipeline-flow.png exportálva."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Sikertelen"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Nem sikerült elemezni az önéletrajzot."
@@ -1966,6 +1994,10 @@ msgstr "Sikertelen a szolgáltató függetlenítése. Kérjük, próbálja újra
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Nem sikerült frissíteni a szolgáltatót."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Nem sikerült frissíteni a szál beállításait."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "új lapon nyílik meg"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Opcionális megjegyzés az ügynöknek"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Opcionális megjegyzés az ügynöknek…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Opcionálisan beállíthatsz egy jelszót is, így csak azok tekinthetik meg a linkkel elérhető önéletrajzodat, akik ismerik a jelszót."
@@ -3499,6 +3539,10 @@ msgstr "Publikációk"
 msgid "Publisher"
 msgstr "Kiadó"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Nyers JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Újrapontozás"
@@ -3546,9 +3590,17 @@ msgstr "Reaktív önéletrajz v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktív önéletrajz v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Elolvasott egy mellékletet"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Olvasd el az Egyéni stílusok alkalmazása útmutatót."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Elolvasta az önéletrajzot"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Visszaállítás"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Visszaállítja az önéletrajzot a javítás előtti állapotra? Ez visszaállítja a jelenlegi javítást és az utána telepített javításokat."
+msgid "Restore the resume to before this patch?"
+msgstr "Visszaállítja az önéletrajzot a javítás előtti állapotra?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Az önéletrajzelemzés befejeződött."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Önéletrajz tartalma"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Önéletrajz-szerkesztés"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Újrapróbálkozás"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Szerkesztések áttekintése"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Ellenőrizd az önéletrajzot a munkaköri leírás alapján, és tegyél fel kérdéseket, mielőtt megváltoztatod a bizonytalan részeket."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Szerkesztés áttekintése"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Forgatás"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Futtassa le az első elemzést, hogy kapjon egy értékelőlapot, erősségeket és rangsorolt javaslatokat."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Folyamatban…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Forrás"
 msgid "Source Code"
 msgstr "Forráskód"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Forrás: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Források"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Térköz (vízszintes)"
@@ -4604,6 +4681,10 @@ msgstr "Ez az asszisztens nem nyitható meg."
 msgid "This date will not be read correctly."
 msgstr "Ez a dátum nem lesz helyesen olvasható."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Erre a szerkesztési kérésre már nem lehet válaszolni."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Ezt az e-mail címet a rendszer nem ismeri fel."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Ezzel az összes elemet eltávolítja ebből a szakaszból."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Ez visszavonja ezt a javítást és minden utána alkalmazott javítást."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Szálműveletek"
@@ -4793,6 +4878,18 @@ msgstr "Jobb oldalsáv bekapcsolása"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Témák ki-/bekapcsolása"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokenek: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokenek: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokenek: {total} ({cached} gyorsítótárazva)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Nem tudtuk automatikusan felismerni a formátumot – kérjük, válassz
 msgid "We couldn't find that page"
 msgstr "Nem találtuk meg az oldalt"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Webes keresés"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Kicsinyítés"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

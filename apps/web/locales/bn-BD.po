@@ -543,6 +543,14 @@ msgstr "আবেদন করা হয়েছে"
 msgid "Applied on"
 msgstr "প্রয়োগ করা হয়েছে"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "অনুমোদন করুন"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "অনুমোদিত — এজেন্টের জন্য অপেক্ষা করা হচ্ছে…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "আরবি"
@@ -1462,6 +1470,14 @@ msgstr "আপনার API কী মুছে ফেলা হচ্ছে..."
 msgid "Deleting your resume..."
 msgstr "আপনার জীবনবৃত্তান্ত মুছে ফেলা হচ্ছে..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "প্রত্যাখ্যাত — এজেন্টের জন্য অপেক্ষা করা হচ্ছে…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "প্রত্যাখ্যান করুন"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "আপনি কি করেছেন তা বর্ণনা করুন যাতে এন্ট্রিটি মিলের জন্য কীওয়ার্ডে অবদান রাখে।"
@@ -1529,6 +1545,10 @@ msgstr "দান করুন"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume-এ অনুদান দিন"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "সম্পন্ন"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "ফুলস্ক্রিন মোডে বিষয়বস্ত�
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "তারিখ সম্পাদনা করুন"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "সম্পাদনা প্রত্যাখ্যান করা হয়েছে"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "কোনো অপেক্ষা বা বিলম্ব ছাড�
 msgid "Exported pipeline-flow.png"
 msgstr "রপ্তানিকৃত পাইপলাইন-প্রবাহ.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "ব্যর্থ হয়েছে"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "রিজিউম বিশ্লেষণ করতে ব্যর্থ।"
@@ -1966,6 +1994,10 @@ msgstr "প্রোভাইডার আনলিঙ্ক করতে ব্
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "প্রোভাইডার আপডেট করতে ব্যর্থ হয়েছে।"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "থ্রেড সেটিংস আপডেট করা সম্ভব হয়নি।"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "ওপেনরাউটার"
 msgid "opens in new tab"
 msgstr "নতুন ট্যাবে খুলবে"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "এজেন্টের জন্য ঐচ্ছিক নোট"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "এজেন্টের জন্য ঐচ্ছিক নোট…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "প্রয়োজনে একটি পাসওয়ার্ড সেট করুন, যাতে শুধু পাসওয়ার্ড জানা ব্যক্তিরাই লিঙ্কের মাধ্যমে আপনার জীবনবৃত্তান্ত দেখতে পারে।"
@@ -3499,6 +3539,10 @@ msgstr "প্রকাশনাসমূহ"
 msgid "Publisher"
 msgstr "প্রকাশক"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "কাঁচা JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "পুনরায় স্কোর করুন"
@@ -3546,9 +3590,17 @@ msgstr "প্রতিক্রিয়াশীল জীবনবৃত্�
 msgid "Reactive Resume v4 (JSON)"
 msgstr "প্রতিক্রিয়াশীল রিজ্যুম v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "একটি সংযুক্তি পড়া হয়েছে"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "কাস্টম স্টাইল প্রয়োগ করার নির্দেশিকাটি পড়ুন।"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "জীবনবৃত্তান্ত পড়া হয়েছে"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "পুনরুদ্ধার করুন"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "এই প্যাচের আগের অবস্থায় রেজিউমটি পুনরুদ্ধার করবেন? এটি এই প্যাচ এবং এর পরে প্রয়োগ করা যেকোনো প্যাচকে রোল ব্যাক করবে।"
+msgid "Restore the resume to before this patch?"
+msgstr "এই প্যাচের আগের অবস্থায় জীবনবৃত্তান্ত পুনরুদ্ধার করবেন?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "রিজিউমে বিশ্লেষণ সম্পন্ন।"
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "জীবনবৃত্তান্তের বিষয়বস্তু"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "জীবনবৃত্তান্ত সম্পাদনা"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "পুনরায় চেষ্টা করুন"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "সম্পাদনাগুলি পর্যালোচনা করুন"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "চাকরির বিবরণের সাথে জীবনবৃত্তান্তটি মিলিয়ে পর্যালোচনা করুন এবং কোনো অস্পষ্ট অংশ পরিবর্তন করার আগে আমাকে প্রশ্ন করুন।"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "এই সম্পাদনাটি পর্যালোচনা করুন"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "রোটেশন"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "আপনার প্রথম বিশ্লেষণ চালান একটি স্কোরকার্ড, শক্তি এবং অগ্রাধিকারপ্রাপ্ত পরামর্শ পেতে।"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "চলছে…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "উৎস"
 msgid "Source Code"
 msgstr "সোর্স কোড"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "উৎস: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "উৎসসমূহ"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "স্পেসিং (অনুভূমিক)"
@@ -4604,6 +4681,10 @@ msgstr "এই সহকারীকে খোলা যায়নি।"
 msgid "This date will not be read correctly."
 msgstr "এই তারিখ সঠিকভাবে পড়া হবে না."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "এই সম্পাদনার অনুরোধের আর উত্তর দেওয়া যাবে না।"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "এই ইমেল ঠিকানা স্বীকৃত হবে না."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "এটি এই বিভাগের সমস্ত আইটেম মুছে ফেলবে।"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "এটি এই প্যাচ এবং এর পরে প্রয়োগ করা সমস্ত প্যাচ ফিরিয়ে নেবে।"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "থ্রেড অ্যাকশন"
@@ -4793,6 +4878,18 @@ msgstr "ডান সাইডবার টগল করুন"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "থ্রেড টগল করুন"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "টোকেন: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "টোকেন: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "টোকেন: {total} ({cached} ক্যাশ করা)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "আমরা স্বয়ংক্রিয়ভাবে ফরম�
 msgid "We couldn't find that page"
 msgstr "আমরা সেই পৃষ্ঠাটি খুঁজে পাইনি।"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "ওয়েব অনুসন্ধান"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "জুম আউট"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "জুলু"
-

@@ -543,6 +543,14 @@ msgstr "បានដាក់ពាក្យ"
 msgid "Applied on"
 msgstr "បានដាក់ពាក្យនៅ"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "អនុម័ត"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "បានអនុម័ត — កំពុងរង់ចាំភ្នាក់ងារ…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabic"
@@ -1462,6 +1470,14 @@ msgstr "កំពុង​លុប​កូនសោ API របស់​អ្�
 msgid "Deleting your resume..."
 msgstr "កំពុង​លុប​ប្រវត្តិរូប​របស់​អ្នក..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "បានបដិសេធ — កំពុងរង់ចាំភ្នាក់ងារ…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "បដិសេធ"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "ពណ៌នាអំពីអ្វីដែលអ្នកបានធ្វើ ដូច្នេះធាតុចូលរួមចំណែកពាក្យគន្លឹះសម្រាប់ការផ្គូផ្គង។"
@@ -1529,6 +1545,10 @@ msgstr "បរិច្ចាគ"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "បរិច្ចាគ​ឲ្យ Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "រួចរាល់"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "កែសម្រួលមាតិកាក្នុងរបៀបព
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "កែសម្រួលកាលបរិច្ឆេទ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "ការកែសម្រួលត្រូវបានបដិសេធ"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "នាំចេញប្រវត្តិរូបសង្ខេបរ
 msgid "Exported pipeline-flow.png"
 msgstr "បាននាំចេញ pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "បរាជ័យ"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "ការវិភាគប្រវត្តិរូបបានបរាជ័យ។"
@@ -1966,6 +1994,10 @@ msgstr "បរាជ័យក្នុងការផ្តាច់អ្នក
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "មិនអាចធ្វើបច្ចុប្បន្នភាពអ្នកផ្តល់សេវាបានទេ។"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "បរាជ័យក្នុងការធ្វើបច្ចុប្បន្នភាពការកំណត់ខ្សែស្រឡាយ។"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "បើក​ក្នុង​ផ្ទាំង​ថ្មី"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "ចំណាំស្រេចចិត្តសម្រាប់ភ្នាក់ងារ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "ចំណាំស្រេចចិត្តសម្រាប់ភ្នាក់ងារ…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "ជា​ជម្រើស អ្នក​អាច​កំណត់​ពាក្យសម្ងាត់​មួយ ដូច្នេះ​តែ​មនុស្ស​ដែល​មាន​ពាក្យសម្ងាត់​ប៉ុណ្ណោះ អាច​មើល​ប្រវត្តិរូប​របស់​អ្នក​តាម​តំណ​បាន។"
@@ -3499,6 +3539,10 @@ msgstr "អត្ថបទផ្សព្វផ្សាយ"
 msgid "Publisher"
 msgstr "អ្នកបោះពុម្ពផ្សាយ"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON ដើម"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "ដាក់ពិន្ទុម្តងទៀត"
@@ -3546,9 +3590,17 @@ msgstr "ប្រវត្តិរូបសង្ខេបដែលមានប
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "បានអានឯកសារភ្ជាប់"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "សូមអានការណែនាំអំពីការអនុវត្តរចនាប័ទ្មផ្ទាល់ខ្លួន។"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "បានអានប្រវត្តិរូបសង្ខេប"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "ស្ដារឡើងវិញ"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "ស្ដារប្រវត្តិរូបសង្ខេបទៅមុនបំណះនេះ? វានឹងរំកិលបំណះនេះ និងបំណះណាមួយដែលបានអនុវត្តបន្ទាប់ពីវា។"
+msgid "Restore the resume to before this patch?"
+msgstr "ស្ដារប្រវត្តិរូបសង្ខេបទៅស្ថានភាពមុនបំណះនេះ?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "ការវិភាគប្រវត្តិរូបបានបញ
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "ខ្លឹមសារនៃប្រវត្តិរូបសង្ខេប"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "ការកែសម្រួលប្រវត្តិរូបសង្ខេប"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "សាកល្បងម្តងទៀត"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "ពិនិត្យការកែសម្រួល"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "សូមពិនិត្យមើលប្រវត្តិរូបសង្ខេបជាមួយនឹងការពិពណ៌នាការងារ ហើយសួរខ្ញុំនូវសំណួរមុនពេលផ្លាស់ប្តូរផ្នែកដែលមិនច្បាស់លាស់។"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "ពិនិត្យការកែសម្រួលនេះ"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "មុំ​បង្វែរ"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "ដំណើរការវិភាគលើកដំបូងរបស់អ្នកដើម្បីទទួលបានតារាងពិន្ទុ ចំណុចខ្លាំង និងសំណើដែលបានកំណត់អាទិភាព។"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "កំពុងដំណើរការ…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "ប្រភព"
 msgid "Source Code"
 msgstr "កូដ​ប្រភព"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "ប្រភព៖ {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "ប្រភព"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "គម្លាត (ផ្ដេក)"
@@ -4604,6 +4681,10 @@ msgstr "មិនអាចបើកជំនួយការនេះបានទ
 msgid "This date will not be read correctly."
 msgstr "កាលបរិច្ឆេទនេះនឹងមិនត្រូវបានអានត្រឹមត្រូវទេ។"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "សំណើកែសម្រួលនេះមិនអាចឆ្លើយតបបានទៀតទេ។"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "អាសយដ្ឋានអ៊ីមែលនេះនឹងមិនត្រូវបានទទួលស្គាល់ទេ។"
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "វានឹងលុបធាតុទាំងអស់ចេញពីផ្នែកនេះ។"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "វានឹងត្រឡប់បំណះនេះ និងបំណះទាំងអស់ដែលបានអនុវត្តបន្ទាប់ពីវាមកវិញ។"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "សកម្មភាព​ខ្សែស្រឡាយ"
@@ -4793,6 +4878,18 @@ msgstr "បិទបើករបារចំហៀងខាងស្តាំ"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "បិទ/បើកខ្សែស្រឡាយ"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "ថូខឹន៖ {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "ថូខឹន៖ {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "ថូខឹន៖ {total} ({cached} ក្នុងឃ្លាំងសម្ងាត់)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "យើងមិនអាចរកឃើញទម្រង់ដោយស
 msgid "We couldn't find that page"
 msgstr "យើងរកមិនឃើញទំព័រនោះទេ"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "ការស្វែងរកតាមអ៊ីនធឺណិត"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "បង្រួម"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

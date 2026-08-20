@@ -543,6 +543,14 @@ msgstr "지원함"
 msgid "Applied on"
 msgstr "지원일"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "승인"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "승인됨 — 에이전트를 기다리는 중…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "아랍어"
@@ -1462,6 +1470,14 @@ msgstr "API 키를 삭제하는 중입니다..."
 msgid "Deleting your resume..."
 msgstr "이력서를 삭제하는 중입니다..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "거부됨 — 에이전트를 기다리는 중…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "거부"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "항목이 일치하는 키워드에 기여하도록 수행한 작업을 설명하십시오."
@@ -1529,6 +1545,10 @@ msgstr "기부하세요"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume에 기부하기"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "완료"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "전체 화면 모드에서 콘텐츠 편집"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "날짜 수정"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "편집 거부됨"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "기다림이나 지연 없이 이력서를 즉시 PDF로 내보내세요
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png를 내보냈습니다"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "실패"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "이력서를 분석하지 못했습니다."
@@ -1966,6 +1994,10 @@ msgstr "공급자 연결을 해제하지 못했습니다. 다시 시도하세요
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "공급자 업데이트에 실패했습니다."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "스레드 설정을 업데이트하지 못했습니다."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "새 탭에서 열림"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "에이전트를 위한 메모(선택 사항)"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "에이전트를 위한 메모(선택 사항)…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "원한다면 링크에 비밀번호를 설정해, 비밀번호를 아는 사람만 이력서를 볼 수 있도록 할 수 있습니다."
@@ -3499,6 +3539,10 @@ msgstr "출판물"
 msgid "Publisher"
 msgstr "발행인"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "원시 JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "다시 점수화"
@@ -3546,9 +3590,17 @@ msgstr "반응형 재개 v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "리액티브 이력서 v4(JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "첨부 파일을 읽음"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "사용자 지정 스타일 적용 가이드를 읽어보세요."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "이력서를 읽음"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "복원하다"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "이 패치 이전 상태로 복원하시겠습니까? 이렇게 하면 이 패치와 그 이후에 적용된 모든 패치가 롤백됩니다."
+msgid "Restore the resume to before this patch?"
+msgstr "이 패치 적용 이전 상태로 이력서를 복원하시겠습니까?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "이력서 분석 완료."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "이력서 내용"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "이력서 편집"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "다시 해 보다"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "편집 검토"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "이력서를 직무 설명과 대조해 보고, 불확실한 부분을 수정하기 전에 저에게 질문해 주세요."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "이 편집 검토"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "회전"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "첫 번째 분석을 실행하여 스코어카드, 강점, 우선순위가 지정된 제안을 확인하세요."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "실행 중…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "출처"
 msgid "Source Code"
 msgstr "소스 코드"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "소스: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "출처"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "간격(가로)"
@@ -4604,6 +4681,10 @@ msgstr "이 도우미를 열 수 없습니다."
 msgid "This date will not be read correctly."
 msgstr "이 날짜는 올바르게 읽혀지지 않습니다."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "이 편집 요청에는 더 이상 응답할 수 없습니다."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "이 이메일 주소는 인식되지 않습니다."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "이렇게 하면 이 섹션에서 모든 항목이 제거됩니다."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "이 패치와 그 이후에 적용된 모든 패치가 롤백됩니다."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "스레드 작업"
@@ -4793,6 +4878,18 @@ msgstr "오른쪽 사이드바 토글"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "스레드 토글"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "토큰: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "토큰: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "토큰: {total} ({cached} 캐시됨)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "형식을 자동으로 감지할 수 없습니다. 위에서 직접 선�
 msgid "We couldn't find that page"
 msgstr "해당 페이지를 찾을 수 없습니다."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "웹 검색"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "축소"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
-

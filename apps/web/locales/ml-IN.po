@@ -543,6 +543,14 @@ msgstr "അപേക്ഷിച്ചു"
 msgid "Applied on"
 msgstr "പ്രയോഗിച്ചു"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "അംഗീകരിക്കുക"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "അംഗീകരിച്ചു — ഏജന്റിനായി കാത്തിരിക്കുന്നു…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "അറബിക്"
@@ -1462,6 +1470,14 @@ msgstr "നിങ്ങളുടെ API കീ ഡിലീറ്റ് ചെ�
 msgid "Deleting your resume..."
 msgstr "നിങ്ങളുടെ റിസ്യൂം ഡിലീറ്റ് ചെയ്യുന്നു..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "നിരസിച്ചു — ഏജന്റിനായി കാത്തിരിക്കുന്നു…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "നിരസിക്കുക"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "നിങ്ങൾ എന്താണ് ചെയ്തതെന്ന് വിവരിക്കുക, അതിനാൽ എൻട്രി പൊരുത്തപ്പെടുത്തുന്നതിന് കീവേഡുകൾ സംഭാവന ചെയ്യുന്നു."
@@ -1529,6 +1545,10 @@ msgstr "സംഭാവന ചെയ്യുക"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume‑ന് സംഭാവന ചെയ്യുക"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "പൂർത്തിയായി"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "ഉള്ളടക്കം ഫുൾസ്ക്രീൻ മോഡി�
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "തീയതി തിരുത്തുക"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "എഡിറ്റ് നിരസിച്ചു"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "കാത്തിരിപ്പോ കാലതാമസമോ ഇല�
 msgid "Exported pipeline-flow.png"
 msgstr "കയറ്റുമതി ചെയ്ത പൈപ്പ്ലൈൻ-ഫ്ലോ.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "പരാജയപ്പെട്ടു"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "റെസ്യൂമെ വിശകലനം ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു."
@@ -1966,6 +1994,10 @@ msgstr "പ്രൊവൈഡർ അൺലിങ്ക് ചെയ്യുന�
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "ദാതാവിനെ അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "ത്രെഡ് ക്രമീകരണങ്ങൾ അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "ഓപ്പൺ റൂട്ടർ"
 msgid "opens in new tab"
 msgstr "പുതിയ ടാബിൽ തുറക്കും"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "ഏജന്റിനുള്ള ഓപ്ഷണൽ കുറിപ്പ്"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "ഏജന്റിനുള്ള ഓപ്ഷണൽ കുറിപ്പ്…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "ഓപ്ഷണലായി, ലിങ്ക് വഴി നിങ്ങളുടെ റിസ്യൂം കാണാൻ പാസ്‌വേഡ് ഉള്ളവർക്കു മാത്രമാകുന്നതിനായി ഒരു പാസ്‌വേഡ് സജ്ജമാക്കാം."
@@ -3499,6 +3539,10 @@ msgstr "പ്രസിദ്ധീകരണങ്ങൾ"
 msgid "Publisher"
 msgstr "പ്രസാധകൻ"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "റോ JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "വീണ്ടും സ്കോർ ചെയ്യുക"
@@ -3546,9 +3590,17 @@ msgstr "റിയാക്ടീവ് റെസ്യൂമെ v<0>{__APP_VERSI
 msgid "Reactive Resume v4 (JSON)"
 msgstr "റിയാക്ടീവ് റെസ്യൂമെ v4 (ജെസൺ)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "ഒരു അറ്റാച്ച്മെന്റ് വായിച്ചു"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "ഇഷ്ടാനുസൃത ശൈലികൾ പ്രയോഗിക്കുന്നതിനുള്ള ഗൈഡ് വായിക്കുക."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "റിസ്യൂം വായിച്ചു"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "പുനഃസ്ഥാപിക്കുക"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "ഈ പാച്ചിന് മുമ്പുള്ളതിലേക്ക് റെസ്യൂമെ പുനഃസ്ഥാപിക്കണോ? ഇത് ഈ പാച്ചും അതിനു ശേഷം പ്രയോഗിക്കുന്ന ഏതെങ്കിലും പാച്ചുകളും പഴയപടിയാക്കും."
+msgid "Restore the resume to before this patch?"
+msgstr "ഈ പാച്ചിന് മുമ്പുള്ള നിലയിലേക്ക് റിസ്യൂം പുനഃസ്ഥാപിക്കണോ?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "റെസ്യൂമെ വിശകലനം പൂർത്തിയ�
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "ഉള്ളടക്കം പുനരാരംഭിക്കുക"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "റിസ്യൂം എഡിറ്റ്"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "വീണ്ടും ശ്രമിക്കുക"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "എഡിറ്റുകൾ അവലോകനം ചെയ്യുക"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "ജോലി വിവരണവുമായി പൊരുത്തപ്പെടുന്ന വിധത്തിൽ റെസ്യൂമെ പരിശോധിച്ച്, അനിശ്ചിതമായ വിഭാഗങ്ങൾ മാറ്റുന്നതിനുമുമ്പ് എന്നോട് ചോദ്യങ്ങൾ ചോദിക്കുക."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "ഈ എഡിറ്റ് അവലോകനം ചെയ്യുക"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "ററോട്ടേഷൻ"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "നിങ്ങളുടെ ആദ്യ വിശകലനം നടത്തി ഒരു സ്കോർകാർഡ്, ശക്തികൾ, മുൻഗണനാ നിർദ്ദേശങ്ങൾ എന്നിവ നേടുക."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "പ്രവർത്തിക്കുന്നു…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "ഉറവിടം"
 msgid "Source Code"
 msgstr "സോഴ്‌സ് কোഡ്"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "ഉറവിടം: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "ഉറവിടങ്ങൾ"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "സ്പേസിംഗ് (തിരശ്ചീനം)"
@@ -4604,6 +4681,10 @@ msgstr "ഈ അസിസ്റ്റന്റ് തുറക്കാൻ കഴ
 msgid "This date will not be read correctly."
 msgstr "ഈ തീയതി ശരിയായി വായിക്കില്ല."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "ഈ എഡിറ്റ് അഭ്യർത്ഥനയ്ക്ക് ഇനി ഉത്തരം നൽകാൻ കഴിയില്ല."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "ഈ ഇമെയിൽ വിലാസം തിരിച്ചറിയപ്പെടില്ല."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "ഇത് ഈ വിഭാഗത്തിലെ എല്ലാ ഇനങ്ങളും നീക്കം ചെയ്യും."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "ഇത് ഈ പാച്ചും അതിനുശേഷം പ്രയോഗിച്ച എല്ലാ പാച്ചുകളും തിരികെ റോൾ ചെയ്യും."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "ത്രെഡ് പ്രവർത്തനങ്ങൾ"
@@ -4793,6 +4878,18 @@ msgstr "വലത് സൈഡ്ബാർ ഓൺ/ഓഫ് ചെയ്യു�
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "ത്രെഡുകൾ ടോഗിൾ ചെയ്യുക"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "ടോക്കണുകൾ: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "ടോക്കണുകൾ: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "ടോക്കണുകൾ: {total} ({cached} കാഷെ ചെയ്‌തത്)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "ഞങ്ങൾക്ക് ഫോർമാറ്റ് സ്വയമ�
 msgid "We couldn't find that page"
 msgstr "ഞങ്ങൾക്ക് ആ പേജ് കണ്ടെത്താൻ കഴിഞ്ഞില്ല."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "വെബ് തിരയൽ"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "സൂം ഔട്ട് ചെയ്യുക"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "സൂളു"
-

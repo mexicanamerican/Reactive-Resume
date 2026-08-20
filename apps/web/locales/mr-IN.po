@@ -543,6 +543,14 @@ msgstr "अर्ज केला"
 msgid "Applied on"
 msgstr "वर अर्ज केला"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "मंजूर करा"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "मंजूर केले — एजंटची वाट पाहत आहे…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "अरबी"
@@ -1462,6 +1470,14 @@ msgstr "तुमची API key हटवली जात आहे..."
 msgid "Deleting your resume..."
 msgstr "तुमचा रेझ्युमे हटवला जात आहे..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "नाकारले — एजंटची वाट पाहत आहे…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "नाकारा"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "तुम्ही काय केले याचे वर्णन करा जेणेकरून एंट्री जुळण्यासाठी कीवर्डचे योगदान देते."
@@ -1529,6 +1545,10 @@ msgstr "दान करा"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "रिअ‍ॅक्टिव्ह रेझ्युमेला दान करा"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "पूर्ण झाले"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "पूर्णस्क्रीन मोडमध्ये साम�
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "तारीख संपादित करा"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "संपादन नाकारले"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "कोणताही विलंब न होता, तुमचा 
 msgid "Exported pipeline-flow.png"
 msgstr "निर्यात केलेली पाइपलाइन-प्रवाह.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "अयशस्वी"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "बायोडाटाचे विश्लेषण करण्यात अयशस्वी."
@@ -1966,6 +1994,10 @@ msgstr "प्रदात्याचे अनलिंक करण्या�
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "प्रोव्हायडर अद्ययावत करण्यात अयशस्वी."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "थ्रेड सेटिंग्ज अपडेट करता आल्या नाहीत."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "ओपनराऊटर"
 msgid "opens in new tab"
 msgstr "नवीन टॅबमध्ये उघडतो"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "एजंटसाठी ऐच्छिक टीप"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "एजंटसाठी ऐच्छिक टीप…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "पर्यायी पद्धतीने, पासवर्ड सेट करा जेणेकरून लिंकद्वारे फक्त पासवर्ड माहित असलेले लोकच तुमचा रेझ्युमे पाहू शकतील."
@@ -3499,6 +3539,10 @@ msgstr "प्रकाशने"
 msgid "Publisher"
 msgstr "प्रकाशक"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "रॉ JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "री-स्कोअर"
@@ -3546,9 +3590,17 @@ msgstr "रिॲक्टिव्ह रिझ्युमे v<0>{__APP_VERSI
 msgid "Reactive Resume v4 (JSON)"
 msgstr "प्रतिक्रियाशील बायोडाटा v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "संलग्नक वाचले"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "कस्टम स्टाईल लागू करण्याविषयीची मार्गदर्शिका वाचा."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "रेझ्युमे वाचला"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "पुनर्संचयित करा"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "या पॅचच्या आधीची स्थिती पुन्हा सुरू करायची आहे का? असे केल्यास हा पॅच आणि त्यानंतर लागू केलेले कोणतेही पॅचेस पूर्ववत होतील."
+msgid "Restore the resume to before this patch?"
+msgstr "या पॅचपूर्वीच्या स्थितीत रेझ्युमे पुनर्संचयित करायचा?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "रेझ्युमे विश्लेषण पूर्ण झा
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "रिझ्युमेमधील मजकूर"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "रेझ्युमे संपादन"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "पुन्हा प्रयत्न करा"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "संपादनांचे पुनरावलोकन करा"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "नोकरीच्या वर्णनानुसार रेझ्युमे तपासा आणि शंकास्पद भाग बदलण्यापूर्वी मला प्रश्न विचारा."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "या संपादनाचे पुनरावलोकन करा"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "रोटेशन"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "तुमचे पहिले विश्लेषण चालवा आणि स्कोरकार्ड, सामर्थ्ये आणि प्राधान्यक्रमाने सुचवलेल्या सूचना मिळवा."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "चालू आहे…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "स्त्रोत"
 msgid "Source Code"
 msgstr "स्रोत कोड"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "स्त्रोत: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "स्त्रोत"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "स्पेसिंग (आडवे)"
@@ -4604,6 +4681,10 @@ msgstr "हा असिस्टंट उघडता आला नाही."
 msgid "This date will not be read correctly."
 msgstr "ही तारीख बरोबर वाचली जाणार नाही."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "या संपादन विनंतीला आता उत्तर देता येणार नाही."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "हा ईमेल पत्ता ओळखला जाणार नाही."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "यामुळे या विभागातील सर्व आयटम हटवले जातील."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "यामुळे हा पॅच आणि त्यानंतर लावलेले सर्व पॅच मागे घेतले जातील."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "थ्रेड क्रिया"
@@ -4793,6 +4878,18 @@ msgstr "उजव्या साइडबारची टॉगल"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "थ्रेड्स टॉगल करा"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "टोकन: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "टोकन: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "टोकन: {total} ({cached} कॅश केलेले)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "आम्ही फॉरमॅट आपोआप ओळखू शक�
 msgid "We couldn't find that page"
 msgstr "आम्हाला ते पान सापडले नाही."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "वेब शोध"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "बाहेर झूम करा"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "झुलू"
-

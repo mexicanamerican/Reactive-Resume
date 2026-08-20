@@ -543,6 +543,14 @@ msgstr "応募済み"
 msgid "Applied on"
 msgstr "応募日"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "承認"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "承認済み — エージェントを待っています…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "アラビア語"
@@ -1462,6 +1470,14 @@ msgstr "API キーを削除しています..."
 msgid "Deleting your resume..."
 msgstr "レジュメを削除しています…"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "拒否済み — エージェントを待っています…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "拒否"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "エントリが一致するキーワードに貢献するために行ったことを説明してください。"
@@ -1529,6 +1545,10 @@ msgstr "寄付する"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume に寄付"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "完了"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "フルスクリーンモードでのコンテンツ編集"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "日付を編集"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "編集は拒否されました"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "待ち時間や遅延なく、即座にPDF形式でエクスポートで
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png をエクスポートしました"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "失敗"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "レジュメの解析に失敗しました。"
@@ -1966,6 +1994,10 @@ msgstr "プロバイダのリンク解除に失敗しました。もう一度お
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "プロバイダーの更新に失敗しました。"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "スレッド設定の更新に失敗しました。"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "新しいタブで開きます"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "エージェントへのメモ（任意）"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "エージェントへのメモ（任意）…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "必要に応じてパスワードを設定し、パスワードを知っている人だけがリンクを閲覧できるようにすることもできます。"
@@ -3499,6 +3539,10 @@ msgstr "著作物"
 msgid "Publisher"
 msgstr "出版社"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "生のJSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "再採点"
@@ -3546,9 +3590,17 @@ msgstr "リアクティブレジューム v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "添付ファイルを読み取りました"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "カスタムスタイルの適用ガイドをお読みください。"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "レジュメを読み取りました"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "復元する"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "このパッチ適用前の状態に復元しますか？これにより、このパッチと、その後に適用されたすべてのパッチがロールバックされます。"
+msgid "Restore the resume to before this patch?"
+msgstr "このパッチ適用前の状態にレジュメを復元しますか？"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "レジュメの分析が完了しました。"
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "履歴書の内容"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "レジュメの編集"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "リトライ"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "編集内容を確認"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "レジュメを求人内容と照らし合わせて確認し、不明な点があれば変更する前に私に質問してください。"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "この編集を確認"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "回転"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "分析を実行すると、スコアカード・強み・改善提案が表示されます。"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "実行中…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "ソース"
 msgid "Source Code"
 msgstr "ソースコード"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "ソース: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "ソース"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "間隔（左右）"
@@ -4604,6 +4681,10 @@ msgstr "このアシスタントを開くことができませんでした。"
 msgid "This date will not be read correctly."
 msgstr "この日付は正しく読み取れません。"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "この編集リクエストには回答できなくなりました。"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "このメールアドレスは認識されません。"
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "これでこのセクションからすべての項目が削除される。"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "このパッチと、その後に適用されたすべてのパッチがロールバックされます。"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "スレッドアクション"
@@ -4793,6 +4878,18 @@ msgstr "右サイドバーの切り替え"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "スレッドの切り替え"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "トークン: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "トークン: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "トークン: {total}（{cached} キャッシュ済み）"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "フォーマットを自動的に検出できませんでした。上記
 msgid "We couldn't find that page"
 msgstr "そのページは見つかりませんでした"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "ウェブ検索"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "ズームアウト"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
-

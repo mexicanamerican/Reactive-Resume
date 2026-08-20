@@ -543,6 +543,14 @@ msgstr "Haettu"
 msgid "Applied on"
 msgstr "Haettu"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Hyväksy"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Hyväksytty — odotetaan agenttia…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "arabia"
@@ -1462,6 +1470,14 @@ msgstr "Poistetaan API-avaintasi..."
 msgid "Deleting your resume..."
 msgstr "Poistetaan ansioluetteloasi..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Hylätty — odotetaan agenttia…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Hylkää"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Kuvaile mitä teit, jotta merkintä antaa avainsanat hakua varten."
@@ -1529,6 +1545,10 @@ msgstr "Lahjoittaa"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Lahjoita Reactive Resumelle"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Valmis"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Muokkaa sisältöä koko näytön tilassa"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Muokkaa päivämäärää"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Muokkaus hylätty"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Vie ansioluettelosi PDF-muotoon välittömästi, ilman odottelua tai vii
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png viety"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Epäonnistui"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Epäonnistuin analysoimaan ansioluetteloa."
@@ -1966,6 +1994,10 @@ msgstr "Palveluntarjoajan linkityksen poistaminen epäonnistui. Yritä uudelleen
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Palveluntarjoajan päivittäminen epäonnistui."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Ketjun asetusten päivitys epäonnistui."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "avautuu uuteen välilehteen"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Valinnainen huomautus agentille"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Valinnainen huomautus agentille…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Halutessasi voit asettaa salasanan, jotta vain salasanan tietävät voivat nähdä ansioluettelosi linkin kautta."
@@ -3499,6 +3539,10 @@ msgstr "Julkaisut"
 msgid "Publisher"
 msgstr "Julkaisija"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Raaka JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Pisteytä uudelleen"
@@ -3546,9 +3590,17 @@ msgstr "Reaktiivinen ansioluettelo v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktiivinen ansioluettelo v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Luki liitteen"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Lue opas Mukautettujen tyylien käyttäminen."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Luki ansioluettelon"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Palauttaa"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Palautetaanko ansioluettelo tätä korjausta edeltävään tilaan? Tämä palauttaa tämän korjauksen ja kaikki sen jälkeen asennetut korjaukset vanhaan tilaan."
+msgid "Restore the resume to before this patch?"
+msgstr "Palautetaanko ansioluettelo tilaan ennen tätä korjausta?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Ansioluettelon analyysi valmis."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Ansioluettelon sisältö"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Ansioluettelon muokkaus"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Yritä uudelleen"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Tarkista muokkaukset"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Tarkista ansioluettelo työpaikkailmoitusta vasten ja kysy minulta kysymyksiä ennen kuin muutat epävarmoja kohtia."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Tarkista tämä muokkaus"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Kierrätys"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Suorita ensimmäinen analyysi, jotta saat tuloskortin, vahvuudet ja priorisoidut ehdotukset."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Suoritetaan…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Lähde"
 msgid "Source Code"
 msgstr "Lähdekoodi"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Lähde: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Lähteet"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Väli (vaaka)"
@@ -4604,6 +4681,10 @@ msgstr "Tätä avustajaa ei voitu avata."
 msgid "This date will not be read correctly."
 msgstr "Tätä päivämäärää ei lueta oikein."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Tähän muokkauspyyntöön ei voi enää vastata."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Tätä sähköpostiosoitetta ei tunnisteta."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Tämä poistaa kaikki kohteet tästä osiosta."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Tämä peruu tämän korjauksen ja kaikki sen jälkeen tehdyt korjaukset."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Ketjun toiminnot"
@@ -4793,6 +4878,18 @@ msgstr "Oikean sivupalkin vaihtaminen"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Näytä/piilota ketjut"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokenit: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokenit: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokenit: {total} ({cached} välimuistista)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Emme havainneet muotoa automaattisesti – valitse se yllä."
 msgid "We couldn't find that page"
 msgstr "Emme löytäneet kyseistä sivua"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Verkkohaku"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Loitonna"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

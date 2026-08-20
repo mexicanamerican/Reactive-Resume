@@ -543,6 +543,14 @@ msgstr "สมัครแล้ว"
 msgid "Applied on"
 msgstr "สมัครเมื่อ"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "อนุมัติ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "อนุมัติแล้ว — กำลังรอตัวแทน…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "อารบิก"
@@ -1462,6 +1470,14 @@ msgstr "กำลังลบคีย์ API ของคุณ..."
 msgid "Deleting your resume..."
 msgstr "กำลังลบเรซูเม่ของคุณ..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "ปฏิเสธแล้ว — กำลังรอตัวแทน…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "ปฏิเสธ"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "อธิบายสิ่งที่คุณทำเพื่อให้รายการมีส่วนช่วยในการจับคู่คำหลัก"
@@ -1529,6 +1545,10 @@ msgstr "บริจาค"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "บริจาคให้กับ Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "เสร็จสิ้น"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "แก้ไขเนื้อหาในโหมดเต็มหน
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "แก้ไขวันที่"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "การแก้ไขถูกปฏิเสธ"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "ส่งออกเรซูเม่ของคุณเป็นไ
 msgid "Exported pipeline-flow.png"
 msgstr "ส่งออก pipeline-flow.png แล้ว"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "ล้มเหลว"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "ไม่สามารถวิเคราะห์ประวัติการทำงานได้"
@@ -1966,6 +1994,10 @@ msgstr "ไม่สามารถยกเลิกการเชื่อม
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "ไม่สามารถอัปเดตผู้ให้บริการได้"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "ไม่สามารถอัปเดตการตั้งค่ากระทู้ได้"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "โอเพ่นรูเตอร์"
 msgid "opens in new tab"
 msgstr "เปิดในแท็บใหม่"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "หมายเหตุถึงตัวแทน (ไม่บังคับ)"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "หมายเหตุถึงตัวแทน (ไม่บังคับ)…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "คุณสามารถตั้งรหัสผ่านเพิ่มเติมได้ เพื่อให้เฉพาะผู้ที่มีรหัสผ่านจึงจะดูเรซูเม่ของคุณผ่านลิงก์ได้"
@@ -3499,6 +3539,10 @@ msgstr "สิ่งตีพิมพ์"
 msgid "Publisher"
 msgstr "สำนักพิมพ์"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON ดิบ"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "ให้คะแนนใหม่"
@@ -3546,9 +3590,17 @@ msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "เรแอคทีฟ เรซูเม่ v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "อ่านไฟล์แนบแล้ว"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "โปรดอ่านคู่มือการใช้สไตล์ที่กำหนดเอง"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "อ่านเรซูเม่แล้ว"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "คืนค่า"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "กู้คืนสถานะก่อนการติดตั้งแพทช์นี้หรือไม่? การดำเนินการนี้จะย้อนกลับแพทช์นี้และแพทช์ใดๆ ที่ติดตั้งหลังจากนั้น"
+msgid "Restore the resume to before this patch?"
+msgstr "กู้คืนเรซูเม่กลับไปเป็นสถานะก่อนแพทช์นี้หรือไม่?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "การวิเคราะห์ประวัติย่อเส
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "เนื้อหาประวัติย่อ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "การแก้ไขเรซูเม่"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "ลองใหม่อีกครั้ง"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "ตรวจสอบการแก้ไข"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "โปรดตรวจสอบประวัติการทำงานของคุณเทียบกับรายละเอียดงาน และสอบถามฉันได้ก่อนที่จะแก้ไขส่วนใดส่วนหนึ่งที่ไม่แน่ใจ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "ตรวจสอบการแก้ไขนี้"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "การหมุน"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "ดำเนินการวิเคราะห์ครั้งแรกของคุณเพื่อรับสกอร์การ์ด จุดแข็ง และข้อเสนอแนะที่จัดลำดับความสำคัญ"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "กำลังทำงาน…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "แหล่งที่มา"
 msgid "Source Code"
 msgstr "ซอร์สโค้ด"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "แหล่งที่มา: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "แหล่งที่มา"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "ระยะห่าง (แนวนอน)"
@@ -4604,6 +4681,10 @@ msgstr "ไม่สามารถเปิดผู้ช่วยนี้ไ
 msgid "This date will not be read correctly."
 msgstr "วันที่นี้จะอ่านไม่ถูกต้อง"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "คำขอแก้ไขนี้ไม่สามารถตอบกลับได้อีกต่อไป"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "ที่อยู่อีเมลนี้จะไม่ถูกจดจำ"
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "นี่จะลบรายการทั้งหมดออกจากส่วนนี้"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "การดำเนินการนี้จะยกเลิกแพทช์นี้และแพทช์ทั้งหมดที่ใช้หลังจากนั้น"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "การดำเนินการเธรด"
@@ -4793,6 +4878,18 @@ msgstr "สลับแถบด้านขวา"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "สลับเธรด"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "โทเค็น: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "โทเค็น: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "โทเค็น: {total} ({cached} จากแคช)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "เราไม่สามารถตรวจจับรูปแบ
 msgid "We couldn't find that page"
 msgstr "เราไม่พบหน้านั้น"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "ค้นหาเว็บ"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "ซูมออก"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ซูลู"
-

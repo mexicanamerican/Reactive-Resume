@@ -543,6 +543,14 @@ msgstr "ተመልክቷል"
 msgid "Applied on"
 msgstr "የተተገበረው በ"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "አጽድቅ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "ጸድቋል — ወኪሉን በመጠበቅ ላይ…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "ዓረብኛ"
@@ -1462,6 +1470,14 @@ msgstr "API ቁልፎትን በመሰረዝ ላይ…"
 msgid "Deleting your resume..."
 msgstr "የየታሪክዎን በመሰረዝ ላይ…"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "ተከልክሏል — ወኪሉን በመጠበቅ ላይ…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "ከልክል"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "ግቤቱ ለማዛመድ ቁልፍ ቃላትን እንዲያበረክት ያደረጉትን ይግለጹ።"
@@ -1529,6 +1545,10 @@ msgstr "ይለግሱ"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "ለ Reactive Resume መዋጮ አድርግ"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "ተጠናቅቋል"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "ይዘትን በሙሉ ማያ ገጽ ሁነታ አርትዕ"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "ቀን አርትዕ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "አርትዖቱ ውድቅ ተደርጓል"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "ያለምንም መዘግየት ወይም መጠበቅ፣ የስራ ል�
 msgid "Exported pipeline-flow.png"
 msgstr "ወደ ውጭ የተላከ የ pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "አልተሳካም"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "የሥራ ማመልከቻ ሰነድን መተንተን አልተሳካም።"
@@ -1966,6 +1994,10 @@ msgstr "ከአቅራቢው ጋር ያለውን ግንኙነት ማቋረጥ አ�
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "አቅራቢውን ማዘመን አልተሳካም።"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "የክሩን ቅንብሮች ማዘመን አልተሳካም።"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "በአዲስ ታብ ይከፈታል"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "ለወኪሉ አማራጭ ማስታወሻ"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "ለወኪሉ አማራጭ ማስታወሻ…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "በፈቃድ የይለፍ ቃል በመቀበል ብቻ እንዲመለከቱት ለምታስችላቸው ሰዎች የይለፍ ቃል ያቀናብሩ።"
@@ -3499,6 +3539,10 @@ msgstr "ህትመቶች"
 msgid "Publisher"
 msgstr "አታሚ"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "ጥሬ JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "እንደገና ውጤት አስመዝግቧል"
@@ -3546,9 +3590,17 @@ msgstr "ምላሽ ሰጪ የስራ ልምድ v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "አባሪ አንብቧል"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "የአጠቃቀም ብጁ ቅጦች መመሪያን ያንብቡ።"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "የስራ ልምድ ማስረጃውን አንብቧል"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "ወደነበረበት መልስ"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "ከዚህ ፓች በፊት የነበረውን የስራ ልምድ (ሲቪ) ወደነበረበት ይመልሱ? ይህ ይህንን ፓች እና ከእሱ በኋላ የተተገበሩትን ፓችዎች ይመልሳል።"
+msgid "Restore the resume to before this patch?"
+msgstr "የስራ ልምድ ማስረጃው ከዚህ ፓች በፊት ወደነበረበት ይመለስ?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "የሥራ ማመልከቻ ሰነድ ትንተና ተጠናቋል።"
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "የሪቪው ይዘት"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "የስራ ልምድ ማስረጃ አርትዖት"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "እንደገና ሞክር"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "አርትዖቶችን ገምግም"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "የሥራ መግለጫውን ከስራ መግለጫ ጋር በማነፃፀር ይገምግሙ እና እርግጠኛ ያልሆኑ ክፍሎችን ከመቀየርዎ በፊት ጥያቄዎችን ይጠይቁኝ።"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "ይህን አርትዖት ገምግም"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "ማሽከርከር"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "የውጤት ካርድ፣ ጥንካሬዎች እና ቅድሚያ የተሰጣቸው አስተያየቶችን ለማግኘት የመጀመሪያ ትንተናዎን ያከናውኑ።"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "በሂደት ላይ…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "ምንጭ"
 msgid "Source Code"
 msgstr "የምንጭ ኮድ"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "ምንጭ: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "ምንጮች"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "ክፍተት (አግድም)"
@@ -4604,6 +4681,10 @@ msgstr "ይህ ረዳት ሊከፈት አልቻለም።"
 msgid "This date will not be read correctly."
 msgstr "ይህ ቀን በትክክል አይነበብም።"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "ይህ የአርትዖት ጥያቄ ከእንግዲህ ምላሽ ሊሰጠው አይችልም።"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "ይህ ኢሜይል አድራሻ አይታወቅም።"
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "ይህ ከዚህ ክፍል ውስጥ ያሉ ሁሉንም ንጥሎች ያስወግዳል።"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "ይህ ይህን ፓች እና ከእሱ በኋላ የተተገበሩ ማናቸውንም ፓቾች ወደ ኋላ ይመልሳል።"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "የክር እርምጃዎች"
@@ -4793,6 +4878,18 @@ msgstr "የቀኝ የጎን አሞሌን ቀያይር"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "ክሮችን ቀያይር"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "ቶከኖች: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "ቶከኖች: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "ቶከኖች: {total} ({cached} የተሸጎጠ)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "ቅርጸቱን በራስ-ሰር ማግኘት አልቻልንም፤ እ�
 msgid "We couldn't find that page"
 msgstr "ያንን ገጽ ማግኘት አልቻልንም"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "የድር ፍለጋ"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "አጉር"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ዙሉ"
-

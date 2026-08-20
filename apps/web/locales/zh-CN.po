@@ -543,6 +543,14 @@ msgstr "已申请"
 msgid "Applied on"
 msgstr "申请日期"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "批准"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "已批准 — 正在等待代理…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "阿拉伯语"
@@ -1462,6 +1470,14 @@ msgstr "正在删除你的 API key…"
 msgid "Deleting your resume..."
 msgstr "正在删除你的简历…"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "已拒绝 — 正在等待代理…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "拒绝"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "描述您做了什么，以便该条目提供用于匹配的关键字。”"
@@ -1529,6 +1545,10 @@ msgstr "捐赠"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "为 Reactive Resume 捐款"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "完成"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "在全屏模式下编辑内容"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "编辑日期"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "编辑已被拒绝"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "立即将简历导出为PDF格式，无需等待或延迟。"
 msgid "Exported pipeline-flow.png"
 msgstr "已导出 pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "失败"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "简历分析失败。"
@@ -1966,6 +1994,10 @@ msgstr "取消链接提供商失败。请重试。"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "更新提供商失败。"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "更新线程设置失败。"
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "开放路由器"
 msgid "opens in new tab"
 msgstr "在新标签页中打开"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "给代理的备注（可选）"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "给代理的备注（可选）…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "你也可以选择设置密码，这样只有拥有密码的人才能通过链接查看你的简历。"
@@ -3499,6 +3539,10 @@ msgstr "出版物"
 msgid "Publisher"
 msgstr "发布者"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "原始 JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "重新评分"
@@ -3546,9 +3590,17 @@ msgstr "响应式恢复 v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "反应式简历 v4（JSON）"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "已读取附件"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "请阅读“应用自定义样式”指南。"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "已读取简历"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "恢复"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "恢复到此补丁之前的状态？这将回滚此补丁以及其后应用的所有补丁。"
+msgid "Restore the resume to before this patch?"
+msgstr "将简历恢复到此补丁之前的状态？"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "简历分析完毕。"
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "简历内容"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "简历编辑"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "重试"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "审核编辑"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "请对照职位描述仔细检查简历，如有疑问请随时向我咨询，然后再修改不确定的部分。"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "审核此编辑"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "旋转"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "进行首次分析，以获得记分卡、优势和优先建议。"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "运行中…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "来源"
 msgid "Source Code"
 msgstr "源代码"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "来源：{0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "来源"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "间距（水平）"
@@ -4604,6 +4681,10 @@ msgstr "此助手无法打开。"
 msgid "This date will not be read correctly."
 msgstr "该日期将无法正确读取。”"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "此编辑请求已无法回应。"
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "该电子邮件地址将不会被识别。”"
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "这将删除该部分的所有项目。"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "这将回滚此补丁以及之后应用的所有补丁。"
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "线程操作"
@@ -4793,6 +4878,18 @@ msgstr "切换右侧边栏"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "切换线程"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Token：{threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Token：{total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Token：{total}（{cached} 已缓存）"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "我们无法自动检测格式——请在上方选择格式。"
 msgid "We couldn't find that page"
 msgstr "我们找不到那一页"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "网络搜索"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "缩小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
-

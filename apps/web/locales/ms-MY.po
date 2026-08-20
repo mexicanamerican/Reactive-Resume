@@ -543,6 +543,14 @@ msgstr "Dimohon"
 msgid "Applied on"
 msgstr "Digunakan pada"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Luluskan"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Diluluskan — menunggu ejen…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Bahasa Arab"
@@ -1462,6 +1470,14 @@ msgstr "Memadam kunci API anda..."
 msgid "Deleting your resume..."
 msgstr "Memadam resume anda..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Ditolak — menunggu ejen…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Tolak"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Terangkan perkara yang anda lakukan supaya entri menyumbang kata kunci untuk pemadanan."
@@ -1529,6 +1545,10 @@ msgstr "Derma"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Derma kepada Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Selesai"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Sunting kandungan dalam mod skrin penuh"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Edit tarikh"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Suntingan ditolak"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Eksport resume anda ke PDF serta-merta, tanpa sebarang menunggu atau ber
 msgid "Exported pipeline-flow.png"
 msgstr "Aliran saluran paip yang dieksport.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Gagal"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Gagal menganalisis resume."
@@ -1966,6 +1994,10 @@ msgstr "Gagal menyahpaut penyedia. Sila cuba lagi."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Gagal mengemas kini pembekal."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Gagal mengemas kini tetapan bebenang."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "dibuka dalam tab baharu"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Nota pilihan untuk ejen"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Nota pilihan untuk ejen…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Secara pilihan, tetapkan kata laluan supaya hanya orang yang mempunyai kata laluan boleh melihat resume anda melalui pautan tersebut."
@@ -3499,6 +3539,10 @@ msgstr "Penerbitan"
 msgid "Publisher"
 msgstr "Penerbit"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON mentah"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Skor semula"
@@ -3546,9 +3590,17 @@ msgstr "Resume Reaktif v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktif Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Membaca lampiran"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Baca panduan Menggunakan Gaya Tersuai."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Membaca resume"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Pulihkan"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Pulihkan resume ke tahap sebelum tampalan ini? Ini akan mengembalikan tampalan ini dan sebarang tampalan yang digunakan selepasnya."
+msgid "Restore the resume to before this patch?"
+msgstr "Pulihkan resume ke keadaan sebelum tampalan ini?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Analisis resume selesai."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Kandungan resume"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Suntingan resume"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Cuba semula"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Semak suntingan"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Semak resume berdasarkan huraian kerja dan ajukan soalan kepada saya sebelum menukar bahagian yang tidak pasti."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Semak suntingan ini"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Putaran"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Jalankan analisis pertama anda untuk mendapatkan kad skor, kekuatan, dan cadangan yang diutamakan."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Sedang berjalan…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Sumber"
 msgid "Source Code"
 msgstr "Kod Sumber"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Sumber: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Sumber"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Jarak (Mengufuk)"
@@ -4604,6 +4681,10 @@ msgstr "Pembantu ini tidak dapat dibuka."
 msgid "This date will not be read correctly."
 msgstr "Tarikh ini tidak akan dibaca dengan betul."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Permintaan suntingan ini tidak lagi boleh dijawab."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Alamat e-mel ini tidak akan dikenali."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Ini akan membuang semua item daripada bahagian ini."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Ini akan menggulung ke belakang tampalan ini dan semua tampalan yang digunakan selepasnya."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Tindakan thread"
@@ -4793,6 +4878,18 @@ msgstr "Togol bar sisi kanan"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Togol thread"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Token: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Token: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Token: {total} ({cached} dalam cache)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Kami tidak dapat mengesan format secara automatik — sila pilihnya di a
 msgid "We couldn't find that page"
 msgstr "Kami tidak dapat menemui halaman itu"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Carian web"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Zum keluar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

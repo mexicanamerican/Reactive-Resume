@@ -538,6 +538,14 @@ msgstr "Applied"
 msgid "Applied on"
 msgstr "Applied on"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Approve"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Approved — waiting for the agent…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabic"
@@ -1457,6 +1465,14 @@ msgstr "Deleting your API key..."
 msgid "Deleting your resume..."
 msgstr "Deleting your resume..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Denied — waiting for the agent…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Deny"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Describe what you did so the entry contributes keywords for matching."
@@ -1524,6 +1540,10 @@ msgstr "Donate"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Donate to Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Done"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1636,6 +1656,10 @@ msgstr "Edit content in fullscreen mode"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Edit date"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Edit declined"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1832,6 +1856,10 @@ msgstr "Export your resume to PDF instantly, without any waiting or delays."
 msgid "Exported pipeline-flow.png"
 msgstr "Exported pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Failed"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Failed to analyze resume."
@@ -1961,6 +1989,10 @@ msgstr "Failed to unlink provider. Please try again."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Failed to update provider."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Failed to update thread settings."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3148,6 +3180,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "opens in new tab"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Optional note for the agent"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Optional note for the agent…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Optionally, set a password so that only people with the password can view your resume through the link."
@@ -3494,6 +3534,10 @@ msgstr "Publications"
 msgid "Publisher"
 msgstr "Publisher"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Raw JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Re-score"
@@ -3541,9 +3585,17 @@ msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Read an attachment"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Read the Applying Custom Styles guide."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Read the resume"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3695,8 +3747,8 @@ msgid "Restore"
 msgstr "Restore"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
+msgid "Restore the resume to before this patch?"
+msgstr "Restore the resume to before this patch?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3720,6 +3772,10 @@ msgstr "Resume analysis complete."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Resume content"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Resume edit"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3750,8 +3806,16 @@ msgid "Retry"
 msgstr "Retry"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Review edits"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Review the resume against a job description and ask me questions before changing uncertain sections."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Review this edit"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3792,6 +3856,10 @@ msgstr "Rotation"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Running…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4248,6 +4316,15 @@ msgstr "Source"
 msgid "Source Code"
 msgstr "Source Code"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Source: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Sources"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Spacing (Horizontal)"
@@ -4599,6 +4676,10 @@ msgstr "This assistant could not be opened."
 msgid "This date will not be read correctly."
 msgstr "This date will not be read correctly."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "This edit request can no longer be answered."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "This email address will not be recognized."
@@ -4708,6 +4789,10 @@ msgid "This will remove all items from this section."
 msgstr "This will remove all items from this section."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "This will roll back this patch and any patches applied after it."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Thread actions"
@@ -4788,6 +4873,18 @@ msgstr "Toggle right sidebar"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Toggle threads"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokens: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokens: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokens: {total} ({cached} cached)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5207,6 +5304,10 @@ msgstr "We couldn't detect the format automatically — please choose it above."
 #: src/components/layout/not-found-screen.tsx
 msgid "We couldn't find that page"
 msgstr "We couldn't find that page"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Web search"
 
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx

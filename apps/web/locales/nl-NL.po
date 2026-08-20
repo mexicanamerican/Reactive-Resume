@@ -543,6 +543,14 @@ msgstr "Gesolliciteerd"
 msgid "Applied on"
 msgstr "Toegepast op"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Goedkeuren"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Goedgekeurd — wachten op de agent…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabisch"
@@ -1462,6 +1470,14 @@ msgstr "Uw API-sleutel wordt verwijderd..."
 msgid "Deleting your resume..."
 msgstr "Uw cv wordt verwijderd..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Geweigerd — wachten op de agent…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Weigeren"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Alle controles zijn geslaagd. Niets hier zou een parser moeten verhinderen je cv te lezen."
@@ -1529,6 +1545,10 @@ msgstr "Doneer"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Doneer aan Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Klaar"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Inhoud bewerken in volledig scherm"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Datum bewerken"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Bewerking afgewezen"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Exporteer je cv direct naar PDF, zonder wachttijden of vertragingen."
 msgid "Exported pipeline-flow.png"
 msgstr "Geëxporteerde pijplijnstroom.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Mislukt"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Kan cv niet analyseren."
@@ -1966,6 +1994,10 @@ msgstr "Het ontkoppelen van de provider is mislukt. Probeer het opnieuw."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Provider kon niet worden bijgewerkt."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Kan de threadinstellingen niet bijwerken."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "opent in nieuw tabblad"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Optionele notitie voor de agent"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Optionele notitie voor de agent…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "U kunt optioneel een wachtwoord instellen zodat alleen mensen met het wachtwoord uw cv via de link kunnen bekijken."
@@ -3499,6 +3539,10 @@ msgstr "Publicaties"
 msgid "Publisher"
 msgstr "Uitgever"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Ruwe JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Opnieuw scoren"
@@ -3546,9 +3590,17 @@ msgstr "Reactief hervatten v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactieve cv v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Bijlage gelezen"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Lees de handleiding 'Aangepaste stijlen toepassen'."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Cv gelezen"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Herstellen"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Wil je het systeem terugzetten naar de situatie van vóór deze patch? Hiermee worden deze patch en alle patches die erna zijn toegepast, teruggedraaid."
+msgid "Restore the resume to before this patch?"
+msgstr "Het cv herstellen naar de staat van vóór deze patch?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "CV-analyse voltooid."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Inhoud van het cv"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Cv-bewerking"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Opnieuw proberen"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Bewerkingen beoordelen"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Vergelijk je cv met de functieomschrijving en stel me vragen voordat je onderdelen wijzigt waar je nog niet zeker van bent."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Deze bewerking beoordelen"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Rotatie"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Voer uw eerste analyse uit om een scorekaart, sterke punten en geprioriteerde suggesties te krijgen."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Bezig…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Bron"
 msgid "Source Code"
 msgstr "Broncode"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Bron: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Bronnen"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Afstand (horizontaal)"
@@ -4604,6 +4681,10 @@ msgstr "Deze assistent kon niet worden geopend."
 msgid "This date will not be read correctly."
 msgstr "Dit e-mailadres wordt niet herkend."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Dit bewerkingsverzoek kan niet meer worden beantwoord."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Dit item bevat geen datums."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Hiermee worden alle items uit deze sectie verwijderd."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Hiermee worden deze patch en alle daarna toegepaste patches teruggedraaid."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Draadacties"
@@ -4793,6 +4878,18 @@ msgstr "Schakel rechter zijbalk in"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Schakel threads in/uit"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokens: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokens: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokens: {total} ({cached} in cache)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "We konden het formaat niet automatisch detecteren — selecteer het hier
 msgid "We couldn't find that page"
 msgstr "We konden die pagina niet vinden."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Zoeken op het web"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Uitzoomen"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -543,6 +543,14 @@ msgstr "Müraciət edildi"
 msgid "Applied on"
 msgstr "Tətbiq edildiyi tarix"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Təsdiqlə"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Təsdiqləndi — agent gözlənilir…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Ərəb"
@@ -1462,6 +1470,14 @@ msgstr "API açarınız silinir..."
 msgid "Deleting your resume..."
 msgstr "Özgeçmişiniz silinir..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Rədd edildi — agent gözlənilir…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Rədd et"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Nə etdiyinizi təsvir edin ki, giriş uyğunluq üçün açar sözlərə kömək etsin."
@@ -1529,6 +1545,10 @@ msgstr "Bağışlayın"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume‑yə ianə et"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Tamamlandı"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Məzmununu tam ekran rejimində redaktə edin"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Tarixi redaktə et"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Redaktə rədd edildi"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "CV-nizi heç bir gözləmə və ya gecikmə olmadan dərhal PDF formatı
 msgid "Exported pipeline-flow.png"
 msgstr "İxrac edilmiş boru kəməri axını.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Uğursuz oldu"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Rezüməni təhlil etmək mümkün olmadı."
@@ -1966,6 +1994,10 @@ msgstr "Təchizatçını ayırmaq mümkün olmadı. Zəhmət olmasa yenidən cə
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Provayderi yeniləmək alınmadı."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Mövzu parametrlərini yeniləmək mümkün olmadı."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "AçıqRouter"
 msgid "opens in new tab"
 msgstr "yeni vərəqdə açılır"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Agent üçün istəyə bağlı qeyd"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Agent üçün istəyə bağlı qeyd…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "İstəyə görə parol təyin edin ki, link vasitəsilə yalnız parolu bilənlər özgeçmişinizə baxa bilsin."
@@ -3499,6 +3539,10 @@ msgstr "Nəşrlər"
 msgid "Publisher"
 msgstr "Nəşriyyatçı"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Xam JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Yenidən hesablayın"
@@ -3546,9 +3590,17 @@ msgstr "Reaktiv CV v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktiv Rezume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Əlavəni oxudu"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Xüsusi Stillərin Tətbiqi təlimatını oxuyun."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "CV-ni oxudu"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Bərpa et"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "CV-ni bu yamadan əvvəlki vəziyyətinə bərpa etsinlər? Bu, bu yamanı və ondan sonra tətbiq olunan bütün yamaları geri qaytaracaq."
+msgid "Restore the resume to before this patch?"
+msgstr "CV bu yamaqdan əvvəlki vəziyyətinə qaytarılsın?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Təcrübə təhlili tamamlandı."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "CV məzmunu"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "CV redaktəsi"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Təkrar cəhd edin"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Redaktələri nəzərdən keçir"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "CV-ni iş təsviri ilə müqayisə edin və qeyri-müəyyən bölmələri dəyişdirməzdən əvvəl mənə suallar verin."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Bu redaktəni nəzərdən keçir"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Döndürmə"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "İlk təhlilinizi işə salın, skor kartı, güclü tərəflər və prioritetləşdirilmiş təkliflər əldə edin."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "İcra olunur…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Mənbə"
 msgid "Source Code"
 msgstr "Mənbə Kodu"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Mənbə: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Mənbələr"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Aralıq (Üfüqi)"
@@ -4604,6 +4681,10 @@ msgstr "Bu köməkçi açıla bilmədi."
 msgid "This date will not be read correctly."
 msgstr "Bu tarix düzgün oxunmayacaq."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Bu redaktə sorğusuna artıq cavab vermək mümkün deyil."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Bu e-poçt ünvanı tanınmayacaq."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Bu, bu bölmədən bütün elementləri siləcək."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Bu, həmin yamağı və ondan sonra tətbiq edilən bütün yamaqları geri qaytaracaq."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Mövzu hərəkətləri"
@@ -4793,6 +4878,18 @@ msgstr "Sağ yan menyunu aç/bağla"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Mövzuları aç/bağla"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokenlər: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokenlər: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokenlər: {total} ({cached} keşlənmiş)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Formatı avtomatik olaraq aşkarlaya bilmədik — zəhmət olmasa, yuxa
 msgid "We couldn't find that page"
 msgstr "Həmin səhifəni tapa bilmədik"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Veb axtarışı"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Uzaqlaşdır"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

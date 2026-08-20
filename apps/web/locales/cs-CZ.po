@@ -543,6 +543,14 @@ msgstr "Podáno"
 msgid "Applied on"
 msgstr "Aplikováno na"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Schválit"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Schváleno — čeká se na agenta…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabština"
@@ -1462,6 +1470,14 @@ msgstr "Mazání API klíče…"
 msgid "Deleting your resume..."
 msgstr "Mazání životopisu…"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Zamítnuto — čeká se na agenta…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Zamítnout"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Popište, co jste udělali, aby záznam přispěl ke shodě klíčových slov."
@@ -1529,6 +1545,10 @@ msgstr "Darovat"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Přispět na Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Hotovo"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Úprava obsahu v celoobrazovkovém režimu"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Upravit datum"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Úprava zamítnuta"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Exportujte svůj životopis do PDF okamžitě, bez čekání nebo zpožd
 msgid "Exported pipeline-flow.png"
 msgstr "Exportovaný soubor pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Selhalo"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Nepodařilo se analyzovat životopis."
@@ -1966,6 +1994,10 @@ msgstr "Nepodařilo se zrušit propojení poskytovatele. Zkuste to prosím znovu
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Aktualizace poskytovatele se nezdařilo."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Nepodařilo se aktualizovat nastavení vlákna."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "otevře se na nové kartě"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Volitelná poznámka pro agenta"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Volitelná poznámka pro agenta…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Volitelně můžete nastavit heslo, aby si váš životopis mohli přes odkaz prohlédnout jen lidé, kteří heslo znají."
@@ -3499,6 +3539,10 @@ msgstr "Publikace"
 msgid "Publisher"
 msgstr "Vydavatel"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Surový JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Přehodnotit"
@@ -3546,9 +3590,17 @@ msgstr "Reaktivní životopis v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktivní životopis v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Přečetl přílohu"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Přečtěte si průvodce Použití vlastních stylů."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Přečetl životopis"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Obnovit"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Obnovit životopis do stavu před touto opravou? Tato akce vrátí zpět tuto opravu a všechny opravy použité po ní."
+msgid "Restore the resume to before this patch?"
+msgstr "Obnovit životopis do stavu před touto záplatou?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Analýza životopisu dokončena."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Obsah životopisu"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Úprava životopisu"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Zkusit znovu"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Zkontrolovat úpravy"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Projděte si životopis s ohledem na popis práce a před změnou nejasných částí se mě zeptejte na otázky."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Zkontrolovat tuto úpravu"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Otočení"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Proveďte první analýzu a získejte hodnotící tabulku, silné stránky a návrhy priorit."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Probíhá…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Zdroj"
 msgid "Source Code"
 msgstr "Zdrojový kód"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Zdroj: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Zdroje"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Rozestupy (vodorovné)"
@@ -4604,6 +4681,10 @@ msgstr "Tohoto asistenta se nepodařilo otevřít."
 msgid "This date will not be read correctly."
 msgstr "Toto datum nebude správně přečteno."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Na tuto žádost o úpravu již nelze odpovědět."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Tato e-mailová adresa nebude rozpoznána."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Tím se z této sekce odstraní všechny položky."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Tím se vrátí zpět tato záplata a všechny záplaty použité po ní."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Akce vlákna"
@@ -4793,6 +4878,18 @@ msgstr "Přepnutí pravého postranního panelu"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Přepnout vlákna"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokeny: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokeny: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokeny: {total} ({cached} v mezipaměti)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Formát se nám nepodařilo automaticky rozpoznat – vyberte jej prosí
 msgid "We couldn't find that page"
 msgstr "Tuto stránku jsme nenašli"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Vyhledávání na webu"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Oddálit"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

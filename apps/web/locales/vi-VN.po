@@ -543,6 +543,14 @@ msgstr "Đã ứng tuyển"
 msgid "Applied on"
 msgstr "Đã ứng tuyển vào"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Phê duyệt"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Đã phê duyệt — đang chờ tác nhân…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Tiếng Ả Rập"
@@ -1462,6 +1470,14 @@ msgstr "Đang xoá khoá API của bạn..."
 msgid "Deleting your resume..."
 msgstr "Đang xóa bản lý lịch của bạn..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Đã từ chối — đang chờ tác nhân…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Từ chối"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Mô tả những gì bạn đã làm để mục nhập đóng góp từ khóa cho việc đối sánh."
@@ -1529,6 +1545,10 @@ msgstr "Quyên tặng"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Đóng góp cho Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Hoàn tất"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Chỉnh sửa nội dung ở chế độ toàn màn hình"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Sửa ngày"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Chỉnh sửa bị từ chối"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Xuất CV của bạn sang PDF ngay lập tức, không cần chờ đ�
 msgid "Exported pipeline-flow.png"
 msgstr "Đã xuất pipeline-flow.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Thất bại"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Không thể phân tích sơ yếu lý lịch."
@@ -1966,6 +1994,10 @@ msgstr "Không thể hủy liên kết nhà cung cấp. Vui lòng thử lại."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Không thể cập nhật nhà cung cấp."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Không thể cập nhật cài đặt chủ đề."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "mở ở tab mới"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Ghi chú tùy chọn cho tác nhân"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Ghi chú tùy chọn cho tác nhân…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Tùy chọn, đặt mật khẩu để chỉ những ai có mật khẩu mới có thể xem sơ yếu lý lịch của bạn qua liên kết này."
@@ -3499,6 +3539,10 @@ msgstr "Ấn phẩm"
 msgid "Publisher"
 msgstr "Nhà xuất bản"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON thô"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Chấm điểm lại"
@@ -3546,9 +3590,17 @@ msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Sơ yếu lý lịch phản hồi phiên bản 4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Đã đọc tệp đính kèm"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Hãy đọc hướng dẫn Áp dụng kiểu tùy chỉnh."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Đã đọc sơ yếu lý lịch"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Khôi phục"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Khôi phục trạng thái trước khi cập nhật bản vá này? Thao tác này sẽ hoàn tác bản vá này và bất kỳ bản vá nào được áp dụng sau đó."
+msgid "Restore the resume to before this patch?"
+msgstr "Khôi phục sơ yếu lý lịch về trạng thái trước bản vá này?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Việc phân tích sơ yếu lý lịch đã hoàn tất."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Nội dung sơ yếu lý lịch"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Chỉnh sửa sơ yếu lý lịch"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Thử lại"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Xem lại các chỉnh sửa"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Hãy xem lại sơ yếu lý lịch so với mô tả công việc và đặt câu hỏi cho tôi trước khi thay đổi những phần không chắc chắn."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Xem lại chỉnh sửa này"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Xoay"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Hãy thực hiện phân tích đầu tiên để nhận được bảng điểm, điểm mạnh và các đề xuất được sắp xếp theo mức độ ưu tiên."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Đang chạy…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Nguồn"
 msgid "Source Code"
 msgstr "Mã nguồn"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Nguồn: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Nguồn"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Khoảng cách (Ngang)"
@@ -4604,6 +4681,10 @@ msgstr "Không thể mở trình trợ lý này."
 msgid "This date will not be read correctly."
 msgstr "Ngày này sẽ không được đọc chính xác."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Không thể trả lời yêu cầu chỉnh sửa này được nữa."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Địa chỉ email này sẽ không được công nhận."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Thao tác này sẽ xóa tất cả các mục trong phần này."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Thao tác này sẽ hoàn tác bản vá này và mọi bản vá được áp dụng sau nó."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Hành động luồng"
@@ -4793,6 +4878,18 @@ msgstr "Bật/tắt thanh bên phải"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Luồng chuyển đổi"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Token: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Token: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Token: {total} ({cached} từ bộ nhớ đệm)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Chúng tôi không thể tự động nhận diện định dạng — v
 msgid "We couldn't find that page"
 msgstr "Chúng tôi không tìm thấy trang đó."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Tìm kiếm trên web"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Thu nhỏ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

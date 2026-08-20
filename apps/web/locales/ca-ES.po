@@ -543,6 +543,14 @@ msgstr "Sol·licitada"
 msgid "Applied on"
 msgstr "Aplicat a"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Aprova"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Aprovat — esperant l'agent…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Àrab"
@@ -1462,6 +1470,14 @@ msgstr "S’està suprimint la clau API..."
 msgid "Deleting your resume..."
 msgstr "S’està suprimint el currículum..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Denegat — esperant l'agent…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Denega"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Descriu què has fet perquè l'entrada aporti paraules clau per a la coincidència."
@@ -1529,6 +1545,10 @@ msgstr "Donar"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Fes una donació a Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Fet"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Edita el contingut en mode de pantalla completa"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Edita la data"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Edició rebutjada"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Exporta el teu currículum a PDF a l'instant, sense esperes ni demores."
 msgid "Exported pipeline-flow.png"
 msgstr "S'ha exportat el flux de la canonada.png"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Ha fallat"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "S'ha fallat l'anàlisi del currículum."
@@ -1966,6 +1994,10 @@ msgstr "S'ha fallat la desactivació del proveïdor. Torni a provar."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "No s'ha pogut actualitzar el proveïdor."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "No s'ha pogut actualitzar la configuració del fil."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "Routador obert"
 msgid "opens in new tab"
 msgstr "s’obre en una pestanya nova"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Nota opcional per a l'agent"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Nota opcional per a l'agent…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Opcionalment, estableix una contrasenya perquè només les persones que la tinguin puguin veure el currículum mitjançant l’enllaç."
@@ -3499,6 +3539,10 @@ msgstr "Publicacions"
 msgid "Publisher"
 msgstr "Editor"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "JSON en brut"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Torna a puntuar"
@@ -3546,9 +3590,17 @@ msgstr "Currículum reactiu v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Ha llegit un adjunt"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Llegiu la guia Aplicació d'estils personalitzats."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Ha llegit el currículum"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Restaurar"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Voleu restaurar el currículum anterior a aquest pegat? Això reverteix aquest pegat i qualsevol pegat aplicat després."
+msgid "Restore the resume to before this patch?"
+msgstr "Vols restaurar el currículum a l'estat anterior a aquest pegat?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Anàlisi del currículum completada."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Reprendre el contingut"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Edició del currículum"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Torna-ho a intentar"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Revisa les edicions"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Revisa el currículum en relació amb la descripció del lloc de treball i fes-me preguntes abans de canviar les seccions incertes."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Revisa aquesta edició"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Rotació"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Executa la teva primera anàlisi per obtenir un quadre de comandament, els punts forts i suggeriments prioritzats."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "S'està executant…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Font"
 msgid "Source Code"
 msgstr "Codi font"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Font: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Fonts"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Espaiat (horitzontal)"
@@ -4604,6 +4681,10 @@ msgstr "No s'ha pogut obrir aquest assistent."
 msgid "This date will not be read correctly."
 msgstr "Aquesta data no es llegirà correctament."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Aquesta sol·licitud d'edició ja no es pot respondre."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Aquesta adreça de correu electrònic no serà reconeguda."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Això eliminarà tots els elements d'aquesta secció."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Això desfarà aquest pegat i tots els pegats aplicats després."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Accions de fil"
@@ -4793,6 +4878,18 @@ msgstr "Canvia la barra lateral dreta"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Activa/desactiva els fils"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokens: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokens: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokens: {total} ({cached} en memòria cau)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "No hem pogut detectar el format automàticament. Trieu-lo a dalt."
 msgid "We couldn't find that page"
 msgstr "No hem pogut trobar aquesta pàgina"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Cerca web"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Allunya"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulú"
-

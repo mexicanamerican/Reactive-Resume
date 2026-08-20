@@ -543,6 +543,14 @@ msgstr "Pateikta"
 msgid "Applied on"
 msgstr "Pateikta"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Patvirtinti"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Patvirtinta — laukiama agento…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabų"
@@ -1462,6 +1470,14 @@ msgstr "Ištrinamas jūsų API raktas..."
 msgid "Deleting your resume..."
 msgstr "Jūsų gyvenimo aprašymas ištrinamas..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Atmesta — laukiama agento…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Atmesti"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Aprašykite, ką padarėte, kad įraše būtų pateikti atitikimo raktiniai žodžiai."
@@ -1529,6 +1545,10 @@ msgstr "Paaukoti"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Paaukoti „Reactive Resume“"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Atlikta"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Turinio redagavimas viso ekrano režimu"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Redaguoti datą"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Redagavimas atmestas"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Eksportuokite savo gyvenimo aprašymą į PDF formatą akimirksniu, be j
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png eksportuota"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Nepavyko"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Nepavyko išanalizuoti atnaujinimo."
@@ -1966,6 +1994,10 @@ msgstr "Nepavyko atjungti paslaugų teikėjo. Bandykite dar kartą."
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Nepavyko atnaujinti teikėjo."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Nepavyko atnaujinti temos nustatymų."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "\"OpenRouter\""
 msgid "opens in new tab"
 msgstr "atidaro naujame skirtuke"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Neprivaloma pastaba agentui"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Neprivaloma pastaba agentui…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Papildomai galite nustatyti slaptažodį, kad per nuorodą gyvenimo aprašymą matytų tik slaptažodį žinantys žmonės."
@@ -3499,6 +3539,10 @@ msgstr "Publikacijos"
 msgid "Publisher"
 msgstr "Leidėjas"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Neapdorotas JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Vertinti iš naujo"
@@ -3546,9 +3590,17 @@ msgstr "Reaktyvus gyvenimo aprašymas v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktyvusis CV v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Perskaitė priedą"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Perskaitykite vadovą „Pasirinktinių stilių taikymas“."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Perskaitė gyvenimo aprašymą"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Atkurti"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Atkurti gyvenimo aprašymą į ankstesnę būseną? Tai anuliuos šį ir visus po jo pritaikytus pataisymus."
+msgid "Restore the resume to before this patch?"
+msgstr "Atkurti gyvenimo aprašymą į būseną prieš šį pataisymą?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "Baigta gyvenimo aprašymo analizė."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Gyvenimo aprašymo turinys"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Gyvenimo aprašymo redagavimas"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Bandyti dar kartą"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Peržiūrėti redagavimus"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Peržiūrėkite gyvenimo aprašymą pagal pareigybės aprašymą ir užduokite man klausimus prieš keisdami neaiškias dalis."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Peržiūrėti šį redagavimą"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Sukimas"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Atlikite pirmąją analizę, kad gautumėte rezultatų lentelę, stipriąsias puses ir prioritetinius pasiūlymus."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Vykdoma…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Šaltinis"
 msgid "Source Code"
 msgstr "Programos kodas"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Šaltinis: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Šaltiniai"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Tarpai (horizontalūs)"
@@ -4604,6 +4681,10 @@ msgstr "Šio asistento atidaryti nepavyko."
 msgid "This date will not be read correctly."
 msgstr "Ši data nebus perskaityta teisingai."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Į šią redagavimo užklausą nebegalima atsakyti."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Šis el. pašto adresas nebus atpažintas."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Taip iš šio skyriaus bus pašalinti visi elementai."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Tai atšauks šį pataisymą ir visus po jo pritaikytus pataisymus."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Gijos veiksmai"
@@ -4793,6 +4878,18 @@ msgstr "Dešiniosios šoninės juostos perjungimas"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Perjungti gijas"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Žetonai: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Žetonai: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Žetonai: {total} ({cached} talpykloje)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Nepavyko automatiškai aptikti formato – pasirinkite jį aukščiau."
 msgid "We couldn't find that page"
 msgstr "Nepavyko rasti to puslapio"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Žiniatinklio paieška"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Tolinti"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulų"
-

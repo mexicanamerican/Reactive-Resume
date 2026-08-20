@@ -543,6 +543,14 @@ msgstr "Pieteikts"
 msgid "Applied on"
 msgstr "Pieteikts"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Apstiprināt"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Apstiprināts — gaida aģentu…"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arābu"
@@ -1462,6 +1470,14 @@ msgstr "Tiek dzēsta jūsu API atslēga..."
 msgid "Deleting your resume..."
 msgstr "Tiek dzēsts jūsu CV..."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Noraidīts — gaida aģentu…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Noraidīt"
+
 #: src/libs/resume/ats.ts
 msgid "Describe what you did so the entry contributes keywords for matching."
 msgstr "Aprakstiet, ko darījāt, lai ierakstā tiktu izmantoti atbilstības atslēgvārdi."
@@ -1529,6 +1545,10 @@ msgstr "Ziedot"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
 msgstr "Ziedot Reactive Resume"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Pabeigts"
 
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
@@ -1641,6 +1661,10 @@ msgstr "Satura rediģēšana pilnekrāna režīmā"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit date"
 msgstr "Rediģēt datumu"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Labojums noraidīts"
 
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
@@ -1837,6 +1861,10 @@ msgstr "Eksportējiet savu CV PDF formātā acumirklī, bez gaidīšanas vai kav
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png eksportēts"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Neizdevās"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Failed to analyze resume."
 msgstr "Neizdevās analizēt atsākšanu."
@@ -1966,6 +1994,10 @@ msgstr "Neizdevās atvienot pakalpojumu sniedzēju. Lūdzu, mēģiniet vēlreiz.
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to update provider."
 msgstr "Neizdevās atjaunināt pakalpojumu sniedzēju."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Neizdevās atjaunināt pavediena iestatījumus."
 
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
@@ -3153,6 +3185,14 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "atveras jaunā cilnē"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Neobligāta piezīme aģentam"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Neobligāta piezīme aģentam…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Pēc izvēles varat iestatīt paroli, lai tikai cilvēki ar paroli varētu skatīt jūsu CV, izmantojot saiti."
@@ -3499,6 +3539,10 @@ msgstr "Publikācijas"
 msgid "Publisher"
 msgstr "Izdevējs"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Neapstrādāts JSON"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Vērtēt atkārtoti"
@@ -3546,9 +3590,17 @@ msgstr "Reaktīvs CV v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reactive Resume v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Izlasīja pielikumu"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Izlasiet rokasgrāmatu Pielāgotu stilu lietošana."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Izlasīja CV"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Reading the posting…"
@@ -3700,8 +3752,8 @@ msgid "Restore"
 msgstr "Atjaunot"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Vai atjaunot CV versiju pirms šī ielāpa? Tādējādi tiks atiestatīts gan šis ielāps, gan visi pēc tā lietotie ielāpi."
+msgid "Restore the resume to before this patch?"
+msgstr "Vai atjaunot CV stāvoklī pirms šī ielāpa?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3725,6 +3777,10 @@ msgstr "CV analīze pabeigta."
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "CV saturs"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "CV labojums"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3755,8 +3811,16 @@ msgid "Retry"
 msgstr "Mēģināt vēlreiz"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Pārskatīt labojumus"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Salīdzini CV ar amata aprakstu un uzdod man jautājumus, pirms maināt neskaidrās sadaļas."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Pārskatīt šo labojumu"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3797,6 +3861,10 @@ msgstr "Rotācija"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
 msgstr "Veiciet pirmo analīzi, lai iegūtu rezultātu tabulu, stiprās puses un prioritizētus ieteikumus."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Darbojas…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -4253,6 +4321,15 @@ msgstr "Avots"
 msgid "Source Code"
 msgstr "Pirmkods"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Avots: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Avoti"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Atstatums (horizontāli)"
@@ -4604,6 +4681,10 @@ msgstr "Šo palīgu nevarēja atvērt."
 msgid "This date will not be read correctly."
 msgstr "Šis datums netiks nolasīts pareizi."
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Uz šo rediģēšanas pieprasījumu vairs nevar atbildēt."
+
 #: src/libs/resume/ats.ts
 msgid "This email address will not be recognized."
 msgstr "Šī e-pasta adrese netiks atpazīta."
@@ -4713,6 +4794,10 @@ msgid "This will remove all items from this section."
 msgstr "Tādējādi no šīs sadaļas tiks noņemti visi elementi."
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Tas atsauks šo ielāpu un visus pēc tā lietotos ielāpus."
+
+#: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Thread actions"
 msgstr "Pavedienu darbības"
@@ -4793,6 +4878,18 @@ msgstr "Pārslēgt labo sānjjoslu"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Toggle threads"
 msgstr "Pārslēgt pavedienus"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokeni: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokeni: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokeni: {total} ({cached} kešatmiņā)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -5213,6 +5310,10 @@ msgstr "Mēs nevarējām automātiski noteikt formātu — lūdzu, izvēlieties 
 msgid "We couldn't find that page"
 msgstr "Mēs nevarējām atrast šo lapu."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Meklēšana tīmeklī"
+
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
@@ -5445,4 +5546,3 @@ msgstr "Tālināt"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-

@@ -5,6 +5,7 @@
 	"private": true,
 	"exports": {
 		"./context": "./src/context.ts",
+		"./features/agent/runs": "./src/features/agent/runs.ts",
 		"./features/flags": "./src/features/flags/index.ts",
 		"./features/resume/export": "./src/features/resume/export.ts",
 		"./features/resume/public-pdf": "./src/features/resume/public-pdf.ts",
@@ -52,10 +53,12 @@
 		"drizzle-zod": "1.0.0-beta.14-a36c63d",
 		"es-toolkit": "^1.51.0",
 		"ioredis": "^6.0.0",
+		"jsonrepair": "^3.15.0",
 		"ollama-ai-provider-v2": "^4.0.1",
 		"react": "^19.2.8",
 		"resumable-stream": "^2.2.12",
 		"sharp": "^0.35.3",
+		"tokenx": "^2.1.0",
 		"ts-pattern": "^5.9.0",
 		"zod": "^4.4.3"
 	},
