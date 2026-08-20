@@ -160,16 +160,15 @@ async function applyResumePatchTx(
 	}
 
 	patchedData = parseWritableResumeData(patchedData);
+	// The version guard is the ms-precision JS check above, under the SELECT ... FOR UPDATE lock.
+	// Never compare expectedUpdatedAt in SQL: rows stamped by Postgres now() (defaultNow() on
+	// insert) carry microseconds, while JS Dates are ms-truncated — SQL equality then matches
+	// zero rows and every guarded patch on a fresh resume reports a version conflict forever.
 	const [resume] = await client
 		.update(schema.resume)
 		.set({ data: patchedData })
 		.where(
-			and(
-				eq(schema.resume.id, input.id),
-				eq(schema.resume.isLocked, false),
-				eq(schema.resume.userId, input.userId),
-				...(input.expectedUpdatedAt ? [eq(schema.resume.updatedAt, input.expectedUpdatedAt)] : []),
-			),
+			and(eq(schema.resume.id, input.id), eq(schema.resume.isLocked, false), eq(schema.resume.userId, input.userId)),
 		)
 		.returning({
 			id: schema.resume.id,
