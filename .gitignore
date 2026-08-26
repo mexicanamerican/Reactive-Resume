@@ -49,10 +49,11 @@ temp
 .agents
 .claude
 .cursor
-.codegraph
+.opencode
 .superpowers
 .worktrees
 .migration
+graphify-out
 
 # Local Storage Data
 /data
