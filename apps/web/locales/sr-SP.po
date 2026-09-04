@@ -8,7 +8,7 @@ msgstr ""
 "Language: sr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Serbian (Cyrillic)\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -123,7 +123,7 @@ msgstr "Прошло је {passedRules} од {totalRules} провера"
 
 #: src/libs/resume/ats.ts
 msgid "{sectionTitle} · Item {itemNumber}"
-msgstr "{sectionTitle} · Ставка {itemNumber}"
+msgstr "# · Ставка # "
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -749,7 +749,7 @@ msgstr "ATS провера"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Attach a cover letter (PDF)"
-msgstr "Приложите пропратно писмо (PDF)"
+msgstr "Приложите пропратно писмо (ПДФ)"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Attach a resume file (PDF)"
@@ -1391,7 +1391,7 @@ msgstr "Креирај"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Create a copy tuned to this job"
-msgstr "Направите копију прилагођену овом послу"
+msgstr "Направите копију прилагођену овом задатку"
 
 #: src/features/auth/pages/register.tsx
 msgid "Create a new account"
@@ -1518,7 +1518,7 @@ msgstr "Обрезивање слике"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "CSV data"
-msgstr "CSV подаци"
+msgstr "ЦСВ подаци"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
@@ -2090,7 +2090,7 @@ msgstr "Извези моје податке"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Export PNG"
-msgstr "Извези PNG"
+msgstr "Извези ПНГ"
 
 #: src/features/ats-checker/messages.ts
 msgid "Export the resume as a text PDF rather than as an image or a scan."
@@ -2748,7 +2748,7 @@ msgstr "Унутрашњи кôд"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
-msgstr "Увиди"
+msgstr "Инсигхтс"
 
 #. placeholder {0}: progress.page
 #. placeholder {1}: progress.pageCount
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "ЈСОН резиме"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -3817,7 +3817,7 @@ msgstr "Закрпа је враћена уназад."
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
 msgid "PDF"
-msgstr "PDF"
+msgstr "ПДФ"
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
@@ -5149,7 +5149,7 @@ msgstr "Синхронизоване измене направљене на др
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Table"
-msgstr "Табела"
+msgstr "Табле"
 
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/application-form-sheet.tsx
@@ -5832,7 +5832,7 @@ msgstr "Украјински"
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Unarchive"
-msgstr "Врати из архиве"
+msgstr "Унарцхиве"
 
 #: src/components/input/rich-input.tsx
 msgid "Underline"
@@ -6569,3 +6569,4 @@ msgstr "Умањи"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
+

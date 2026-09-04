@@ -8,7 +8,7 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1565,7 +1565,7 @@ msgstr "Dunkles Design"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Armaturenbrett"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Data Security"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON Lebenslauf"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -3721,7 +3721,7 @@ msgstr "Absatz- und Überschriftenstil"
 #: src/features/auth/components/social-auth.tsx
 #: src/features/settings/authentication/components/hooks.tsx
 msgid "Passkey"
-msgstr "Passkey"
+msgstr "Hauptschlüssel"
 
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Passkey deleted."
@@ -3733,7 +3733,7 @@ msgstr "Passkey registriert."
 
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Passkeys"
-msgstr "Passkeys"
+msgstr "Passwörter"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -6569,3 +6569,4 @@ msgstr "Herauszoomen"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

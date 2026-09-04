@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -738,7 +738,7 @@ msgstr "Atlas Cloud 以项目赞助商的身份支持 Reactive Resume 项目。�
 
 #: src/libs/resume/section.tsx
 msgid "ATS Check"
-msgstr "ATS 检查"
+msgstr "ATS检查”"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/routes/_home/ats-checker.tsx
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON 简历"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resume之所以能保持免费、开源和独立，是因为有
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "响应式恢复 v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -5124,7 +5124,7 @@ msgstr "尽你所能支持这个应用！"
 #: src/features/ats-checker/messages.ts
 #: src/libs/resume/ats.ts
 msgid "Swap the start and end dates."
-msgstr "交换开始日期和结束日期。"
+msgstr "交换开始日期和结束日期。”"
 
 #: src/libs/locale.ts
 msgid "Swedish"
@@ -5390,7 +5390,7 @@ msgstr "这些检查在你输入时运行，且从不离开你的浏览器。它
 
 #: src/libs/resume/ats.ts
 msgid "These dates will not be read correctly."
-msgstr "这些日期将无法正确读取。"
+msgstr "这些日期将无法正确读取。”"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Thinking"
@@ -6181,7 +6181,7 @@ msgstr "想为你的文案获取第二意见吗？"
 #: src/features/ats-checker/messages.ts
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Warning"
-msgstr "警告"
+msgstr "警告”"
 
 #: src/dialogs/resume/import.tsx
 msgid "We couldn't detect the format automatically. Choose it above."
@@ -6569,3 +6569,4 @@ msgstr "缩小"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "祖鲁语"
+

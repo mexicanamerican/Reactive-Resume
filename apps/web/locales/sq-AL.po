@@ -8,7 +8,7 @@ msgstr ""
 "Language: sq\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Albanian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "CV në JSON"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - Shko në faqen kryesore"
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "Rezervë Reaktive (JSON)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resume mbetet falas, me burim të hapur dhe i pavarur sepse kom
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "Rezyme Reaktive v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -5006,7 +5006,7 @@ msgstr "Katrori"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/table-view.tsx
 msgid "Stage"
-msgstr "Faza"
+msgstr "Skena"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Stage date"
@@ -5725,7 +5725,7 @@ msgstr "Ndiqni një punë për të cilën po aplikoni dhe lidhni CV-në që keni
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first application"
-msgstr "Ndiqni aplikimin tuaj të parë"
+msgstr "Ndiqni aplikacionin tuaj të parë"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Track your resume's views and downloads"
@@ -6569,3 +6569,4 @@ msgstr "Zvogëlo"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

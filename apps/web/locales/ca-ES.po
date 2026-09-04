@@ -8,7 +8,7 @@ msgstr ""
 "Language: ca\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - Ves a la pàgina inicial"
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "Currículum reactiu (JSON)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resume continua sent gratuït, de codi obert i independent perq
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "Currículum reactiu v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -6569,3 +6569,4 @@ msgstr "Allunya"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulú"
+

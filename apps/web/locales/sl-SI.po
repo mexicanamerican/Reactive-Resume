@@ -8,7 +8,7 @@ msgstr ""
 "Language: sl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -4880,7 +4880,7 @@ msgstr "Slovenščina"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
-msgstr "Slug"
+msgstr "Polž"
 
 #: src/libs/resume/ats.ts
 msgid "Some application systems require one before you can submit."
@@ -6267,7 +6267,7 @@ msgstr "Ko je zaklenjen, življenjepisa ni mogoče posodobiti ali izbrisati."
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
-msgstr "Od kod prihajajo prijave"
+msgstr "Od kod prihajajo aplikacije"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where your applications went"
@@ -6569,3 +6569,4 @@ msgstr "Oddalji"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
+

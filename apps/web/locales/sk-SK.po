@@ -8,7 +8,7 @@ msgstr ""
 "Language: sk\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -5725,7 +5725,7 @@ msgstr "Sledujte prácu, o ktorú sa uchádzate, a prepojte životopis, ktorý s
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first application"
-msgstr "Sledujte svoju prvú žiadosť"
+msgstr "Sledujte svoju prvú aplikáciu"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Track your resume's views and downloads"
@@ -6267,7 +6267,7 @@ msgstr "Keď je životopis uzamknutý, nemožno ho aktualizovať ani vymazať."
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
-msgstr "Odkiaľ pochádzajú žiadosti"
+msgstr "Odkiaľ pochádzajú aplikácie"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where your applications went"
@@ -6569,3 +6569,4 @@ msgstr "Oddialiť"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

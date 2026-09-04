@@ -61,7 +61,7 @@ describe("createCustomSectionItemJsonSchemas", () => {
 		expect(schemas.experience).toMatchObject({
 			schemaName: "experienceItemSchema",
 			schema: {
-				required: ["id", "hidden", "company", "position", "location", "period", "description"],
+				required: ["id", "hidden", "company", "position", "location", "period", "website", "description", "roles"],
 			},
 		});
 		expect(schemas["cover-letter"]).toMatchObject({

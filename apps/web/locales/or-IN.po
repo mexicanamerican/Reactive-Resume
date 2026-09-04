@@ -8,7 +8,7 @@ msgstr ""
 "Language: or\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Odia\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2102,7 +2102,7 @@ msgstr "ଗୋଟିଏ କ୍ଲିକ୍‌ରେ, କୌଣସି ଅପେ�
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Exported pipeline-flow.png"
-msgstr "ରପ୍ତାନି ହୋଇଥିବା pipeline-flow.png"
+msgstr "ରପ୍ତାନି ହୋଇଥିବା ପାଇପଲାଇନ-ପ୍ରବାହ। png |"
 
 #: src/routes/agent/-components/tool-part-card.tsx
 msgid "Failed"
@@ -6569,3 +6569,4 @@ msgstr "ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ଜୁଲୁ"
+

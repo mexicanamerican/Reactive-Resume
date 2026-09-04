@@ -8,7 +8,7 @@ msgstr ""
 "Language: pl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -850,7 +850,7 @@ msgstr "Blokada"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Board"
-msgstr "Tablica"
+msgstr "Deska"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgctxt "Body Text (paragraphs, lists, etc.)"
@@ -2102,7 +2102,7 @@ msgstr "Wyeksportuj swoje CV do PDF jednym kliknięciem, bez czekania."
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Exported pipeline-flow.png"
-msgstr "Wyeksportowano pipeline-flow.png"
+msgstr "Wyeksportowany przepływ potoku.png"
 
 #: src/routes/agent/-components/tool-part-card.tsx
 msgid "Failed"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "Wznowienie JSON"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -5149,7 +5149,7 @@ msgstr "Zsynchronizowano zmiany wprowadzone w innej karcie."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Table"
-msgstr "Tabela"
+msgstr "Stół"
 
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/application-form-sheet.tsx
@@ -6569,3 +6569,4 @@ msgstr "Pomniejsz"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

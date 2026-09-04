@@ -8,7 +8,7 @@ msgstr ""
 "Language: ko\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON 이력서"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resume는 기업들의 후원 덕분에 무료 오픈소스 독
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "반응형 재개 v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -6569,3 +6569,4 @@ msgstr "축소"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "줄루어"
+

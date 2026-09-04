@@ -8,7 +8,7 @@ msgstr ""
 "Language: el\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON Βιογραφικό σημείωμα"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - Μετάβαση στην αρχική σελίδα"
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "Αντιδραστικό βιογραφικό σημείωμα (JSON)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -4090,12 +4090,12 @@ msgstr "Το Reactive Resume παραμένει δωρεάν, ανοιχτού �
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "Αντιδραστικό βιογραφικό v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume v4 (JSON)"
-msgstr "Reactive Resume v4 (JSON)"
+msgstr "Αντιδραστικό βιογραφικό σημείωμα v4 (JSON)"
 
 #: src/routes/agent/-components/tool-part-card.tsx
 msgid "Read an attachment"
@@ -6569,3 +6569,4 @@ msgstr "Σμίκρυνση"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Ζουλού"
+

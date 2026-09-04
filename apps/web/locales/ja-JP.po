@@ -8,7 +8,7 @@ msgstr ""
 "Language: ja\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -236,7 +236,7 @@ msgstr "A4"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Access your resumes and data programmatically using the API."
-msgstr "API を使用して、プログラムから履歴書とデータにアクセスできます。"
+msgstr "API を使用して、プログラムからレジュメとデータにアクセスできます。"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -444,7 +444,7 @@ msgstr "[基本] の下にフルネームを追加します。"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Adjust the resume for a remote-first role that values async communication and ownership."
-msgstr "非同期コミュニケーションと主体性を重視する、リモートワーク中心の職種に合わせて履歴書を調整しましょう。"
+msgstr "非同期コミュニケーションと主体性を重視する、リモートワーク中心の職種に合わせてレジュメを調整しましょう。"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Advanced"
@@ -550,7 +550,7 @@ msgstr "予期せぬエラーが発生したため、このページを読み込
 #. Fallback toast when importing a resume fails for an unknown reason
 #: src/dialogs/resume/import.tsx
 msgid "An unknown error occurred while importing your resume."
-msgstr "履歴書のインポート中に不明なエラーが発生しました。"
+msgstr "レジュメのインポート中に不明なエラーが発生しました。"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
@@ -574,7 +574,7 @@ msgstr "公開 URL を開く人には、このパスワードが必要になり�
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone with the link can view and download the resume."
-msgstr "リンクを知っている人は誰でも履歴書を表示してダウンロードできます。"
+msgstr "リンクを知っている人は誰でもレジュメを表示してダウンロードできます。"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone with the public URL will be able to view and download your resume without a password."
@@ -697,7 +697,7 @@ msgstr "本当にこの項目を削除しますか？"
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
-msgstr "この履歴書を削除しますか？"
+msgstr "このレジュメを削除しますか？"
 
 #: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
@@ -706,7 +706,7 @@ msgstr "このアカウントを削除しますか？"
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
-msgstr "この履歴書をロックしますか？"
+msgstr "このレジュメをロックしますか？"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Are you sure you want to remove password protection?"
@@ -726,7 +726,7 @@ msgstr "人工知能"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Ask anything about this resume"
-msgstr "この履歴書について何でも質問してください"
+msgstr "このレジュメについて何でも質問してください"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
@@ -807,7 +807,7 @@ msgstr "認証設定に戻る"
 
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Back to resumes"
-msgstr "履歴書に戻る"
+msgstr "レジュメに戻る"
 
 #. Action returning the visitor to the sign-in page after a failed sign-in
 #. Secondary navigation button on 2FA verification screen
@@ -975,7 +975,7 @@ msgstr "テーマを…に変更します"
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
-msgstr "やっぱり変更しますか？履歴書に、よりわかりやすい名前を付け直しましょう。"
+msgstr "やっぱり変更しますか？レジュメに、よりわかりやすい名前を付け直しましょう。"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Changelog"
@@ -1032,7 +1032,7 @@ msgstr "中国語（繁体字）"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Choose a model and resume draft."
-msgstr "モデルを選び、履歴書の下書きを作成してください。"
+msgstr "モデルを選び、レジュメの下書きを作成してください。"
 
 #: src/features/ats-checker/uploader.tsx
 msgid "Choose a PDF"
@@ -1046,7 +1046,7 @@ msgstr "プリセットまたはカスタムシェードを選択します。"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Choose a resume"
-msgstr "履歴書を選択してください"
+msgstr "レジュメを選択してください"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
@@ -1455,7 +1455,7 @@ msgstr "リファレンスを追加"
 #: src/routes/dashboard/resumes/-components/cards/create-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "Create a new resume"
-msgstr "新しい履歴書を作成"
+msgstr "新しいレジュメを作成"
 
 #: src/dialogs/resume/sections/skill.tsx
 msgid "Create a new skill"
@@ -1849,7 +1849,7 @@ msgstr "AI 下書きとして複製"
 
 #: src/dialogs/resume/index.tsx
 msgid "Duplicate Resume"
-msgstr "履歴書を複製"
+msgstr "レジュメを複製"
 
 #: src/dialogs/resume/index.tsx
 msgid "Duplicate your resume to create a new one, just like the original."
@@ -2632,7 +2632,7 @@ msgstr "ホーム"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "How do I share my resume?"
-msgstr "履歴書はどのように共有できますか？"
+msgstr "レジュメはどのように共有できますか？"
 
 #: src/features/settings/pages/api-keys.tsx
 msgid "How do I use the API?"
@@ -2677,7 +2677,7 @@ msgstr "{0} をインポート"
 #: src/routes/dashboard/resumes/-components/cards/import-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "Import an existing resume"
-msgstr "既存の履歴書をインポート"
+msgstr "既存のレジュメをインポート"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import CSV"
@@ -3223,7 +3223,7 @@ msgstr "Microsoft Word"
 
 #: src/routes/agent/-components/resume-pane.tsx
 msgid "Missing working resume"
-msgstr "履歴書が選択されていません"
+msgstr "レジュメが選択されていません"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Mistral AI"
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resumeが無料、オープンソース、そして独立した
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "リアクティブレジューム v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -4302,7 +4302,7 @@ msgstr "このバージョンを復元しますか？"
 #: src/routes/agent/-components/resume-pane.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Resume"
-msgstr "履歴書"
+msgstr "レジュメ"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -4331,7 +4331,7 @@ msgstr "履歴書の選択肢"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Resume patch"
-msgstr "履歴書パッチ"
+msgstr "レジュメパッチ"
 
 #: src/dialogs/resume/template/gallery.tsx
 msgid "Resume templates for different professions and tastes. Pick the one that suits you."
@@ -4343,7 +4343,7 @@ msgstr "さまざまな職種や好みに合わせた履歴書テンプレート
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Resumes"
-msgstr "履歴書"
+msgstr "レジュメ"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Retry"
@@ -4577,7 +4577,7 @@ msgstr "{0} を選択"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Select a resume"
-msgstr "履歴書を選択してください"
+msgstr "レジュメを選択してください"
 
 #: src/routes/agent/index.tsx
 msgid "Select a thread"
@@ -5031,12 +5031,12 @@ msgstr "スレッドを開始する"
 
 #: src/dialogs/resume/index.tsx
 msgid "Start building your resume by giving it a name."
-msgstr "まず履歴書に名前を付けてください。"
+msgstr "まずレジュメに名前を付けてください。"
 
 #: src/routes/dashboard/resumes/-components/cards/create-card.tsx
 #: src/routes/dashboard/resumes/-components/list-view.tsx
 msgid "Start building your resume from scratch"
-msgstr "ゼロから履歴書の作成を始める"
+msgstr "ゼロからレジュメの作成を始める"
 
 #: src/features/ats-checker/messages.ts
 msgid "Start each one with a concrete verb: built, led, reduced, migrated."
@@ -5159,7 +5159,7 @@ msgstr "タグ"
 
 #: src/dialogs/resume/index.tsx
 msgid "Tags can be used to categorize your resume by keywords."
-msgstr "タグを使って、履歴書をキーワードで分類できます。"
+msgstr "タグを使って、レジュメをキーワードで分類できます。"
 
 #: src/features/ats-checker/messages.ts
 msgid "Tags give software an explicit reading order. Enable them when exporting, if your tool offers it."
@@ -5563,7 +5563,7 @@ msgstr "この履歴書はロックされています"
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
-msgstr "この履歴書はロックされているため、更新できません。"
+msgstr "このレジュメはロックされているため、更新できません。"
 
 #: src/features/ats-checker/messages.ts
 msgid "This resume is long."
@@ -5946,7 +5946,7 @@ msgstr "パスワードを更新"
 
 #: src/dialogs/resume/index.tsx
 msgid "Update Resume"
-msgstr "履歴書を更新"
+msgstr "レジュメを更新"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Update the calendar date for this timeline entry."
@@ -6569,3 +6569,4 @@ msgstr "ズームアウト"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ズールー語"
+

@@ -8,7 +8,7 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -738,7 +738,7 @@ msgstr "Компания Atlas Cloud поддерживает проект React
 
 #: src/libs/resume/section.tsx
 msgid "ATS Check"
-msgstr "Проверка ATS"
+msgstr "Проверка АТС"
 
 #: src/routes/_home/-sections/features.tsx
 #: src/routes/_home/ats-checker.tsx
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON Резюме"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -6569,3 +6569,4 @@ msgstr "Уменьшить"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Зулу"
+

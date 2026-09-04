@@ -8,7 +8,7 @@ msgstr ""
 "Language: th\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "ประวัติย่อในรูปแบบ JSON"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -3219,7 +3219,7 @@ msgstr "ผลกระทบปานกลาง"
 #. File format label in import source selector
 #: src/dialogs/resume/import.tsx
 msgid "Microsoft Word"
-msgstr "Microsoft Word"
+msgstr "ไมโครซอฟต์ เวิร์ด"
 
 #: src/routes/agent/-components/resume-pane.tsx
 msgid "Missing working resume"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - ไปที่หน้าแรก"
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "เรกติก รีซูเม (JSON)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -4095,7 +4095,7 @@ msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume v4 (JSON)"
-msgstr "Reactive Resume v4 (JSON)"
+msgstr "เรแอคทีฟ เรซูเม่ v4 (JSON)"
 
 #: src/routes/agent/-components/tool-part-card.tsx
 msgid "Read an attachment"
@@ -4880,7 +4880,7 @@ msgstr "ภาษาสโลวีเนีย"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
-msgstr "Slug"
+msgstr "ชื่อ"
 
 #: src/libs/resume/ats.ts
 msgid "Some application systems require one before you can submit."
@@ -6569,3 +6569,4 @@ msgstr "ซูมออก"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ซูลู"
+

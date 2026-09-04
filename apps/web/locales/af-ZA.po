@@ -8,7 +8,7 @@ msgstr ""
 "Language: af\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Afrikaans\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON-lewe loopbaanopsomming"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -4880,7 +4880,7 @@ msgstr "Sloweens"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
-msgstr "Slug"
+msgstr "Slak"
 
 #: src/libs/resume/ats.ts
 msgid "Some application systems require one before you can submit."
@@ -6569,3 +6569,4 @@ msgstr "Zoem uit"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zoeloe"
+

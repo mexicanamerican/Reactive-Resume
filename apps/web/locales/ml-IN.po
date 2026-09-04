@@ -8,7 +8,7 @@ msgstr ""
 "Language: ml\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Malayalam\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - ഹോംപേജിലേക്കു പോകു�
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "പ്രതികരിക്കുന്ന റെസ്യൂമെ (ജെസൺ)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -6569,3 +6569,4 @@ msgstr "സൂം ഔട്ട് ചെയ്യുക"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "സൂളു"
+

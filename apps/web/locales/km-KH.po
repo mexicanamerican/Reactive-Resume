@@ -8,7 +8,7 @@ msgstr ""
 "Language: km\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Khmer\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -4090,7 +4090,7 @@ msgstr "Reactive Resume នៅតែឥតគិតថ្លៃ ជាប្រ�
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "ប្រវត្តិរូបសង្ខេបដែលមានប្រតិកម្ម v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
@@ -6569,3 +6569,4 @@ msgstr "បង្រួម"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

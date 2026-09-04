@@ -8,7 +8,7 @@ msgstr ""
 "Language: nl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2857,7 +2857,7 @@ msgstr "john.doe@example.com"
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
 msgid "JSON Resume"
-msgstr "JSON Resume"
+msgstr "JSON hervatten"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -3733,7 +3733,7 @@ msgstr "Passkey geregistreerd."
 
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "Passkeys"
-msgstr "Passkeys"
+msgstr "Passleutels"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -5647,7 +5647,7 @@ msgstr "Onderwerp verwijderd."
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"
-msgstr "Threads"
+msgstr "Draden"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Tighten the skills section so it supports the target role instead of reading like a keyword dump."
@@ -6569,3 +6569,4 @@ msgstr "Uitzoomen"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

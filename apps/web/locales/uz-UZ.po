@@ -8,7 +8,7 @@ msgstr ""
 "Language: uz\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Uzbek\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -477,7 +477,7 @@ msgstr "Agentlar"
 
 #: src/dialogs/resume/import.tsx
 msgid "AI"
-msgstr "AI"
+msgstr "SO"
 
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "AI agent setup is unavailable right now. Please try again in a moment."
@@ -6569,3 +6569,4 @@ msgstr "Kichraytirish"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

@@ -8,7 +8,7 @@ msgstr ""
 "Language: ne\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Nepali\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -888,11 +888,11 @@ msgstr "बुल्गेरियन"
 
 #: src/features/applications/components/table-view.tsx
 msgid "Bulk delete failed. Please try again."
-msgstr "बल्क मेटाउन असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।"
+msgstr "बल्क मेटाउनुहोस् failed। कृपया again प्रयास गर्नुहोस्।"
 
 #: src/features/applications/components/table-view.tsx
 msgid "Bulk update failed. Please try again."
-msgstr "बल्क अपडेट असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।"
+msgstr "बल्क अपडेट failed। कृपया again प्रयास गर्नुहोस्।"
 
 #: src/components/input/rich-input.tsx
 msgid "Bullet List"
@@ -1330,7 +1330,7 @@ msgstr "नोट सुरक्षित गर्न सकिएन।"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
-msgstr "तपाईंका परिवर्तनहरू सुरक्षित गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।"
+msgstr "तपाईंका परिवर्तनहरू सुरक्षित गर्न सकिएन। कृपया again प्रयास गर्नुहोस्।"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't update the timeline entry."
@@ -1338,7 +1338,7 @@ msgstr "समयरेखा प्रविष्टि अद्यावध�
 
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Couldn't upload the file. Please try again."
-msgstr "फाइल अपलोड गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।"
+msgstr "फाइल अपलोड गर्न सकिएन। कृपया again प्रयास गर्नुहोस्।"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Count by source"
@@ -1818,7 +1818,7 @@ msgstr "अनुगमन ड्राफ्ट गर्नुहोस्"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Drafting failed."
-msgstr "ड्राफ्टिङ असफल भयो।"
+msgstr "ड्राफ्टिङ failed।"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Drag and drop sections here to move them between columns"
@@ -2685,7 +2685,7 @@ msgstr "CSV आयात गर्नुहोस्"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
-msgstr "आयात असफल भयो। CSV जाँच गर्नुहोस् र फेरि प्रयास गर्नुहोस्।"
+msgstr "failed आयात गर्नुहोस्। CSV जाँच गर्नुहोस् र again प्रयास गर्नुहोस्।"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -5678,7 +5678,7 @@ msgstr "आफ्नो खाता मेटाउन, तल पुष्ट�
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Together.ai"
-msgstr "Together.ai"
+msgstr "Together.ai का थप वस्तुहरू"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-base.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/shared/section-base.tsx
@@ -6569,3 +6569,4 @@ msgstr "जूम आउट"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "जुलु"
+

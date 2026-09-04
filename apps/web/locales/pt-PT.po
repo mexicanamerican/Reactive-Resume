@@ -8,7 +8,7 @@ msgstr ""
 "Language: pt\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -4061,7 +4061,7 @@ msgstr "Reactive Resume - Ir para a página inicial"
 #. Import source option for current Reactive Resume JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume (JSON)"
-msgstr "Reactive Resume (JSON)"
+msgstr "Currículo reativo (JSON)"
 
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "Reactive Resume gets better because people give it their time. Contributors on GitHub build the features and fix the bugs, translators on Crowdin make it readable in other languages, and donors help keep development going. This project owes its progress to all of them."
@@ -4090,12 +4090,12 @@ msgstr "O Reactive Resume continua a ser gratuito, de código aberto e independe
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v<0>{__APP_VERSION__}</0>"
-msgstr "Reactive Resume v<0>{__APP_VERSION__}</0>"
+msgstr "Reativo reativo v<0>{__APP_VERSION__}</0>"
 
 #. Import source option for legacy Reactive Resume v4 JSON format
 #: src/dialogs/resume/import.tsx
 msgid "Reactive Resume v4 (JSON)"
-msgstr "Reactive Resume v4 (JSON)"
+msgstr "Currículo reativo v4 (JSON)"
 
 #: src/routes/agent/-components/tool-part-card.tsx
 msgid "Read an attachment"
@@ -6267,7 +6267,7 @@ msgstr "Quando bloqueado, o currículo não pode ser atualizado nem eliminado."
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
-msgstr "De onde vêm as candidaturas"
+msgstr "De onde vêm as aplicações"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where your applications went"
@@ -6569,3 +6569,4 @@ msgstr "Afastar"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

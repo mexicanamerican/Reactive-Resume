@@ -8,7 +8,7 @@ msgstr ""
 "Language: mr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-08-27 07:41\n"
+"PO-Revision-Date: 2026-08-29 04:29\n"
 "Last-Translator: \n"
 "Language-Team: Marathi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2685,7 +2685,7 @@ msgstr "CSV आयात करा"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
-msgstr "आयात अयशस्वी झाले. CSV तपासा आणि पुन्हा प्रयत्न करा."
+msgstr "failed आयात करा. CSV तपासा आणि again वापरून पहा."
 
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -6569,3 +6569,4 @@ msgstr "बाहेर झूम करा"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "झुलू"
+
