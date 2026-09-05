@@ -1164,6 +1164,28 @@ const ProjectsSection = ({ sectionId = "projects", sectionData }: ItemSectionPro
 	);
 };
 
+const inlineSkillsItemStyle = {
+	flexDirection: "row",
+	alignItems: "flex-start",
+	columnGap: 4,
+} satisfies Style;
+
+export const getSkillsItemStyle = (
+	isInline: boolean,
+	item: SkillItem,
+	metrics: ReturnType<typeof getTemplateMetrics>,
+) => {
+	if (isInline) {
+		return composeStyles(
+			inlineSkillsItemStyle,
+			[hasSplitRowText(item.proficiency), Boolean(item.level), item.keywords.length > 0].filter(Boolean).length === 1
+				? { alignItems: "center" }
+				: undefined,
+		);
+	}
+	return { rowGap: metrics.gapY(0.25) };
+};
+
 const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<SkillItem> = {}) => {
 	const data = useRender();
 	const skills = sectionData ?? data.sections.skills;
@@ -1173,15 +1195,17 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 
 	if (items.length === 0) return null;
 
+	const isInlineSkillsItem = "layout" in skills && skills.layout === "inline";
+
 	return (
 		<SectionShell sectionId={sectionId} title={skills.title}>
 			<SectionItems columns={skills.columns}>
 				{items.map((item) => (
-					<SectionItem key={item.id} itemId={item.id} style={{ rowGap: metrics.gapY(0.25) }}>
+					<SectionItem key={item.id} itemId={item.id} style={getSkillsItemStyle(isInlineSkillsItem, item, metrics)}>
 						<SectionItemHeader>
 							<View style={composeStyles(inlineStyle)}>
 								<Icon name={item.icon as IconName} />
-								<Bold semanticField="name" style={{ flex: 1 }}>
+								<Bold semanticField="name" style={composeStyles(isInlineSkillsItem ? undefined : { flex: 1 })}>
 									{item.name}
 								</Bold>
 							</View>
@@ -1190,9 +1214,9 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 						<View style={{ flexGrow: skills.columns > 1 ? 1 : 0 }}>
 							{hasSplitRowText(item.proficiency) && <Text semanticField="proficiency">{item.proficiency}</Text>}
 							<Small semanticField="keywords">{item.keywords.join(", ")}</Small>
+							{isInlineSkillsItem && <LevelDisplay level={item.level} />}
 						</View>
-
-						<LevelDisplay level={item.level} />
+						{!isInlineSkillsItem && <LevelDisplay level={item.level} />}
 					</SectionItem>
 				))}
 			</SectionItems>
