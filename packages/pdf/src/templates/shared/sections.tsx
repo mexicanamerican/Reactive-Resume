@@ -613,6 +613,14 @@ const useSectionSplitRowStyle = () => {
 	);
 };
 
+// A single child in a space-between row otherwise falls back to the leading edge.
+// Only adjust horizontal split rows; sidebar templates may intentionally stack the cells.
+const getTrailingOnlySplitRowStyle = (style: StyleInput) => {
+	const { flexDirection, justifyContent } = mergeStyles(style);
+	const isSplitRow = (flexDirection === "row" || flexDirection === "row-reverse") && justifyContent === "space-between";
+	return composeStyles(style, isSplitRow ? { justifyContent: "flex-end" } : undefined);
+};
+
 type ItemHeaderRowProps = {
 	children: ReactNode;
 	style: StyleInput;
@@ -904,7 +912,7 @@ const ExperienceSection = ({ sectionId = "experience", sectionData }: ItemSectio
 							</View>
 
 							{(hasPosition || hasSplitRowText(headerPeriod)) && (
-								<View style={composeStyles(splitRowStyle)}>
+								<View style={hasPosition ? splitRowStyle : getTrailingOnlySplitRowStyle(splitRowStyle)}>
 									{hasPosition && <Text semanticField="position">{item.position}</Text>}
 									{hasSplitRowText(headerPeriod) && (
 										<SemanticTextRuns
@@ -1080,7 +1088,7 @@ const EducationSection = ({ sectionId = "education", sectionData }: ItemSectionP
 							</View>
 
 							{(hasArea || (hasDegreeOrGrade && hasLocationOrPeriod)) && (
-								<View style={composeStyles(splitRowStyle)}>
+								<View style={hasArea ? splitRowStyle : getTrailingOnlySplitRowStyle(splitRowStyle)}>
 									{hasArea && <Text semanticField="area">{item.area}</Text>}
 									{hasDegreeOrGrade && hasLocationOrPeriod && (
 										<SemanticTextRuns
