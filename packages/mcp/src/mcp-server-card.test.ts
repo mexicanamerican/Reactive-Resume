@@ -53,6 +53,24 @@ describe("buildMcpServerCard", () => {
 		expect(names).toContain("tailor_resume_for_application");
 	});
 
+	it("advertises independent cover-letter library tools", () => {
+		const names = card.tools.map((tool) => tool.name);
+		expect(names).toEqual(
+			expect.arrayContaining([
+				"list_cover_letters",
+				"read_cover_letter",
+				"create_cover_letter",
+				"update_cover_letter",
+				"refresh_cover_letter_style",
+				"duplicate_cover_letter",
+				"delete_cover_letter",
+				"copy_embedded_cover_letter",
+				"export_cover_letter",
+				"import_cover_letter",
+			]),
+		);
+	});
+
 	it("declares a JSON Schema input for every tool", () => {
 		for (const tool of card.tools) {
 			expect(tool.inputSchema, tool.name).toBeDefined();
@@ -91,6 +109,14 @@ describe("buildMcpServerCard", () => {
 		expect(create.safeParse({ company: "Acme", role: "Engineer", archived: true }).success).toBe(false);
 		expect(update.safeParse({ id: "app-1", archived: true }).success).toBe(true);
 	});
+
+	it.each([{ content: "Updated" }, { recipient: "Dear Hiring Manager" }, { template: "onyx" }])(
+		"accepts a partial cover-letter update without a name: %j",
+		(fields) => {
+			const input = { id: "letter-1", expectedRevision: 1, ...fields };
+			expect(TOOL_META[MCP_TOOL_NAME.updateCoverLetter].inputSchema.parse(input)).toEqual(input);
+		},
+	);
 
 	it("accepts only http/https application source URLs", () => {
 		const create = TOOL_META[MCP_TOOL_NAME.createApplication].inputSchema;
