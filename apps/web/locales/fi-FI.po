@@ -6131,10 +6131,6 @@ msgstr "Linkkiä profiiliin, portfolioon tai koodivarastoon ei ole."
 msgid "There is no summary paragraph."
 msgstr "Yhteenvetokappaletta ei ole."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Tietoa ei ollut riittävästi tämän tarkistuksen suorittamiseen."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Nämä tarkistukset suoritetaan kirjoittaessasi eivätkä ne poistu selaimestasi. Ne testaavat, pystyykö ohjelmisto lukemaan ansioluettelosi, eivät sitä, miten hyvin se on kirjoitettu."
@@ -6167,14 +6163,6 @@ msgstr "Tätä toimintoa ei voi perua. Se poistaa viestiketjun viestit ja ladatu
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Tätä avustajaa ei voitu avata."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Tämä tarkistus ei koske tätä tiedostoa."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Tämä tarkistus suoritetaan vain englanniksi kirjoitetuille ansioluetteloille."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Tämä tiedosto käyttää paljon eri fontteja."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Tämä tiedosto käyttää Type 3 -fontteja, jotka sisältävät piirroksia merkkien sijaan."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Tämän tiedoston sivujen sisältöä ei voitu tarkastaa ajoissa."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

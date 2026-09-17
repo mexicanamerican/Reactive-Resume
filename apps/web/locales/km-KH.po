@@ -6131,10 +6131,6 @@ msgstr "គ្មានតំណភ្ជាប់ទៅកាន់ប្រវ
 msgid "There is no summary paragraph."
 msgstr "គ្មានកថាខណ្ឌសង្ខេបទេ។"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "គ្មានព័ត៌មានគ្រប់គ្រាន់ដើម្បីដំណើរការការត្រួតពិនិត្យនេះទេ។"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "ការត្រួតពិនិត្យទាំងនេះដំណើរការនៅពេលអ្នកវាយបញ្ចូល ហើយមិនដែលចេញពីកម្មវិធីរុករករបស់អ្នកឡើយ។ វាសាកល្បងថាតើកម្មវិធីអាចអានប្រវត្តិរូបសង្ខេបរបស់អ្នកបានឬអត់ មិនមែនថាវាត្រូវបានសរសេរល្អប៉ុណ្ណានោះទេ។"
@@ -6167,14 +6163,6 @@ msgstr "សកម្មភាពនេះមិនអាចត្រឡប់វ
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "មិនអាចបើកជំនួយការនេះបានទេ។"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "ការត្រួតពិនិត្យនេះមិនអនុវត្តចំពោះឯកសារនេះទេ។"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "ការត្រួតពិនិត្យនេះដំណើរការតែលើប្រវត្តិរូបសង្ខេបដែលសរសេរជាភាសាអង់គ្លេសប៉ុណ្ណោះ។"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "ឯកសារនេះប្រើពុម្ពអក្សរផ្
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ឯកសារនេះប្រើពុម្ពអក្សរ Type 3 ដែលផ្ទុករូបគូរជំនួសឱ្យតួអក្សរ។"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "មាតិកាទំព័ររបស់ឯកសារនេះមិនអាចត្រូវបានពិនិត្យទាន់ពេលទេ។"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

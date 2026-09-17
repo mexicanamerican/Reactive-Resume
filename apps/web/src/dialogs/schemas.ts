@@ -56,7 +56,7 @@ export type DialogSchema =
 
 export type DialogType = DialogSchema["type"];
 
-export type DialogRendererEntry<T extends DialogType = DialogType> = {
+type DialogRendererEntry<T extends DialogType = DialogType> = {
 	type: T;
 	render: (dialog: Extract<DialogSchema, { type: T }>) => ReactNode;
 };

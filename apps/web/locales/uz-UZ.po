@@ -6131,10 +6131,6 @@ msgstr "Profil, portfolio yoki repozitoriyga havola yoʻq."
 msgid "There is no summary paragraph."
 msgstr "Qisqacha ma'lumot abzatsi yoʻq."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Bu tekshiruvni ishga tushirish uchun ma'lumot yetarli emas edi."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Bu tekshiruvlar siz yozayotganda ishlaydi va hech qachon brauzeringizdan chiqmaydi. Ular rezyumengiz qanchalik yaxshi yozilganini emas, balki dastur uni o'qiy oladimi-yo'qmi shuni sinaydi."
@@ -6167,14 +6163,6 @@ msgstr "Bu amalni ortga qaytarib bo'lmaydi. U mavzu xabarlarini va yuklangan bir
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Bu yordamchini ochib bo'lmadi."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Bu tekshiruv ushbu faylga taalluqli emas."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Bu tekshiruv faqat ingliz tilida yozilgan rezyumelarda ishlaydi."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Bu faylda juda koʻp turli shriftlar ishlatilgan."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Bu faylda belgilar oʻrniga chizmalarni tashuvchi Type 3 shriftlari ishlatilgan."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Bu faylning sahifa mazmunini vaqtida tekshirib boʻlmadi."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

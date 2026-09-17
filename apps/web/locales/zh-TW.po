@@ -6131,10 +6131,6 @@ msgstr "沒有指向個人檔案、作品集或程式碼庫的連結。"
 msgid "There is no summary paragraph."
 msgstr "沒有個人簡介段落。"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "資訊不足，無法執行此項檢查。"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "這些檢查會在您輸入時執行，而且不會離開您的瀏覽器。它們檢測的是軟體能否讀懂您的履歷，而不是它寫得好不好。"
@@ -6167,14 +6163,6 @@ msgstr "此操作無法復原。它會刪除該對話串的訊息與已上傳的
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "此助手無法打開。"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "此項檢查不適用於該檔案。"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "此項檢查僅適用於以英文撰寫的履歷。"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "該檔案使用了許多不同的字體。"
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "該檔案使用了 Type 3 字體，這種字體攜帶的是圖形而非字元。"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "未能及時檢查完該檔案的頁面內容。"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

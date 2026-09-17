@@ -6131,10 +6131,6 @@ msgstr "ప్రొఫైల్, పోర్ట్‌ఫోలియో లే
 msgid "There is no summary paragraph."
 msgstr "సారాంశ పేరాగ్రాఫ్ లేదు."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "ఈ చెక్‌ను నడపడానికి తగినంత సమాచారం లేదు."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "మీరు టైప్ చేస్తుండగానే ఈ తనిఖీలు నడుస్తాయి, అవి మీ బ్రౌజర్‌ను ఎప్పుడూ దాటి వెళ్లవు. మీ రెజ్యూమ్‌ను సాఫ్ట్‌వేర్ చదవగలదా అన్నదే అవి పరీక్షిస్తాయి, అది ఎంత బాగా రాశారన్నది కాదు."
@@ -6167,14 +6163,6 @@ msgstr "ఈ చర్యను వెనక్కి తీసుకోలేర
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "ఈ సహాయకుడిని తెరవలేకపోయింది."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "ఈ చెక్ ఈ ఫైల్‌కు వర్తించదు."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "ఈ చెక్ ఇంగ్లీష్‌లో రాసిన రెజ్యూమ్‌లపై మాత్రమే నడుస్తుంది."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "ఈ ఫైల్ చాలా వేర్వేరు ఫాంట్�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ఈ ఫైల్ Type 3 ఫాంట్‌లను ఉపయోగిస్తుంది, ఇవి అక్షరాలకు బదులు చిత్రాలను కలిగి ఉంటాయి."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "ఈ ఫైల్ పేజీ కంటెంట్‌లను సకాలంలో పరిశీలించలేకపోయాం."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

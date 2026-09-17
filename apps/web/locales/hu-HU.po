@@ -6131,10 +6131,6 @@ msgstr "Nincs link egy profilra, portfólióra vagy tárolóra (repository)."
 msgid "There is no summary paragraph."
 msgstr "Nincs összefoglaló bekezdés."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Nem volt elég információ ennek az ellenőrzésnek a lefuttatásához."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Ezek az ellenőrzések gépelés közben futnak, és soha nem hagyják el a böngészőjét. Azt vizsgálják, hogy a szoftver el tudja-e olvasni az önéletrajzát, nem azt, hogy mennyire jól van megírva."
@@ -6167,14 +6163,6 @@ msgstr "Ez a művelet nem vonható vissza. Törli a szál üzeneteit és a felt�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Ez az asszisztens nem nyitható meg."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Ez az ellenőrzés nem vonatkozik erre a fájlra."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Ez az ellenőrzés csak angol nyelvű önéletrajzokon fut."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Ez a fájl sok különböző betűtípust használ."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ez a fájl Type 3 betűtípusokat használ, amelyek karakterek helyett rajzokat hordoznak."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Ennek a fájlnak az oldaltartalmát nem sikerült időben megvizsgálni."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

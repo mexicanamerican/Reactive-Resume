@@ -6131,10 +6131,6 @@ msgstr "Daar is geen skakel na 'n profiel, portefeulje of bewaarplek nie."
 msgid "There is no summary paragraph."
 msgstr "Daar is geen opsommingsparagraaf nie."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Daar was nie genoeg inligting om hierdie toets uit te voer nie."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Hierdie toetse loop terwyl jy tik en verlaat nooit jou blaaier nie. Hulle toets of sagteware jou CV kan lees, nie hoe goed dit geskryf is nie."
@@ -6167,14 +6163,6 @@ msgstr "Hierdie handeling kan nie ongedaan gemaak word nie. Dit vee die draad se
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Hierdie assistent kon nie oopgemaak word nie."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Hierdie toets is nie van toepassing op hierdie lêer nie."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Hierdie toets word slegs op CV's in Engels uitgevoer."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Hierdie lêer gebruik baie verskillende lettertipes."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Hierdie lêer gebruik Tipe 3-lettertipes, wat tekeninge eerder as karakters dra."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Hierdie lêer se bladsyinhoud kon nie betyds ondersoek word nie."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

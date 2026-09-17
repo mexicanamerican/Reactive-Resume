@@ -6131,10 +6131,6 @@ msgstr "Chýba odkaz na profil, portfólio alebo repozitár."
 msgid "There is no summary paragraph."
 msgstr "Chýba súhrnný odsek."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Nebolo dostatok informácií na spustenie tejto kontroly."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Tieto kontroly bežia počas písania a nikdy neopustia váš prehliadač. Testujú, či softvér dokáže váš životopis prečítať, nie ako dobre je napísaný."
@@ -6167,14 +6163,6 @@ msgstr "Túto akciu nemožno vrátiť späť. Odstráni správy vlákna a nahran
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Tohto asistenta sa nepodarilo otvoriť."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Táto kontrola sa na tento súbor nevzťahuje."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Táto kontrola sa spúšťa iba pri životopisoch napísaných v angličtine."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Tento súbor používa veľa rôznych písiem."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Tento súbor používa písma Type 3, ktoré nesú kresby namiesto znakov."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Obsah strán tohto súboru sa nepodarilo včas preskúmať."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

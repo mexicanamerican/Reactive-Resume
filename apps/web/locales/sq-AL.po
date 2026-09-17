@@ -6131,10 +6131,6 @@ msgstr "Nuk ka lidhje me një profil, portofol apo depo kodi."
 msgid "There is no summary paragraph."
 msgstr "Nuk ka paragraf përmbledhës."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Nuk kishte informacion të mjaftueshëm për të kryer këtë kontroll."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Këto kontrolle ekzekutohen ndërsa shkruani dhe nuk dalin kurrë nga shfletuesi juaj. Ato testojnë nëse programet mund ta lexojnë CV-në tuaj, jo sa mirë është shkruar."
@@ -6167,14 +6163,6 @@ msgstr "Ky veprim nuk mund të zhbëhet. Ai fshin mesazhet e fijes dhe bashkëng
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Ky asistent nuk mund të hapej."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Ky kontroll nuk zbatohet për këtë skedar."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Ky kontroll ekzekutohet vetëm në CV të shkruara në anglisht."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Ky skedar përdor shumë fonte të ndryshme."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ky skedar përdor fonte Type 3, të cilat mbajnë vizatime në vend të shkronjave."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Përmbajtja e faqeve të këtij skedari nuk mundi të inspektohej në kohë."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

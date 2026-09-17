@@ -6131,10 +6131,6 @@ msgstr "Tiada pautan ke profil, portfolio atau repositori."
 msgid "There is no summary paragraph."
 msgstr "Tiada perenggan ringkasan."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Tidak cukup maklumat untuk menjalankan semakan ini."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Pemeriksaan ini berjalan semasa anda menaip dan tidak pernah keluar daripada pelayar anda. Ia menguji sama ada perisian boleh membaca resume anda, bukan sebaik mana ia ditulis."
@@ -6167,14 +6163,6 @@ msgstr "Tindakan ini tidak boleh dibatalkan. Ia memadam mesej thread dan lampira
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Pembantu ini tidak dapat dibuka."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Semakan ini tidak terpakai kepada fail ini."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Semakan ini hanya berjalan pada resume yang ditulis dalam Bahasa Inggeris."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Fail ini menggunakan banyak fon yang berbeza."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Fail ini menggunakan fon Type 3, yang membawa lukisan dan bukannya aksara."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Kandungan halaman fail ini tidak dapat diperiksa dalam masa yang ditetapkan."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

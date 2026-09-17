@@ -6131,10 +6131,6 @@ msgstr "Es gibt keinen Link zu einem Profil, Portfolio oder Repository."
 msgid "There is no summary paragraph."
 msgstr "Es gibt keinen zusammenfassenden Absatz."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Es gab nicht genug Informationen, um diese Prüfung durchzuführen."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Diese Prüfungen laufen während der Eingabe und verlassen Ihren Browser nie. Sie testen, ob Software Ihren Lebenslauf lesen kann, nicht wie gut er geschrieben ist."
@@ -6167,14 +6163,6 @@ msgstr "Diese Aktion kann nicht rückgängig gemacht werden. Sie löscht die Nac
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Dieser Assistent konnte nicht geöffnet werden."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Diese Prüfung gilt nicht für diese Datei."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Diese Prüfung läuft nur bei Lebensläufen, die auf Englisch verfasst sind."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Diese Datei verwendet viele verschiedene Schriftarten."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Diese Datei verwendet Type-3-Schriftarten, die Zeichnungen statt Zeichen enthalten."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Die Seiteninhalte dieser Datei konnten nicht rechtzeitig untersucht werden."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

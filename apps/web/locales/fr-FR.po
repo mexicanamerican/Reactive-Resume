@@ -6131,10 +6131,6 @@ msgstr "Il n'y a aucun lien vers un profil, un portfolio ou un dépôt."
 msgid "There is no summary paragraph."
 msgstr "Il n'y a pas de paragraphe de résumé."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Il n'y avait pas assez d'informations pour exécuter cette vérification."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Ces vérifications s'exécutent au fur et à mesure que vous écrivez et ne quittent jamais votre navigateur. Elles testent si un logiciel peut lire votre CV, pas la qualité de sa rédaction."
@@ -6167,14 +6163,6 @@ msgstr "Cette action est irréversible. Elle supprime les messages de la discuss
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Impossible d'ouvrir cet assistant."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Cette vérification ne s'applique pas à ce fichier."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Cette vérification ne s'exécute que sur les CV rédigés en anglais."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Ce fichier utilise beaucoup de polices différentes."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ce fichier utilise des polices Type 3, qui contiennent des dessins au lieu de caractères."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Le contenu des pages de ce fichier n'a pas pu être inspecté à temps."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

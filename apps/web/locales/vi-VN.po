@@ -6131,10 +6131,6 @@ msgstr "Không có liên kết đến hồ sơ, portfolio hoặc kho lưu trữ.
 msgid "There is no summary paragraph."
 msgstr "Không có đoạn tóm tắt nào."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Không đủ thông tin để chạy kiểm tra này."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Các kiểm tra này chạy khi bạn gõ và không bao giờ rời khỏi trình duyệt của bạn. Chúng kiểm tra xem phần mềm có đọc được sơ yếu lý lịch của bạn hay không, chứ không phải nó được viết hay đến mức nào."
@@ -6167,14 +6163,6 @@ msgstr "Không thể hoàn tác hành động này. Nó xóa các tin nhắn c�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Không thể mở trình trợ lý này."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Kiểm tra này không áp dụng cho tệp này."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Kiểm tra này chỉ chạy trên sơ yếu lý lịch được viết bằng tiếng Anh."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Tệp này sử dụng rất nhiều font khác nhau."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Tệp này sử dụng font Type 3, loại font chứa hình vẽ thay vì ký tự."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Nội dung trang của tệp này không thể được kiểm tra kịp thời."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

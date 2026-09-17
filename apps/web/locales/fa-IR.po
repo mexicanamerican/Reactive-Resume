@@ -6131,10 +6131,6 @@ msgstr "هیچ لینکی به پروفایل، پورتفولیو یا مخزن
 msgid "There is no summary paragraph."
 msgstr "هیچ پاراگراف خلاصه‌ای وجود ندارد."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "اطلاعات کافی برای اجرای این بررسی وجود نداشت."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "این بررسی‌ها همزمان با تایپ اجرا می‌شوند و هرگز از مرورگر شما خارج نمی‌شوند. آن‌ها می‌سنجند که آیا نرم‌افزار می‌تواند رزومهٔ شما را بخواند، نه اینکه چقدر خوب نوشته شده است."
@@ -6167,14 +6163,6 @@ msgstr "این کار قابل بازگشت نیست. پیام‌های تاپی
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "این دستیار قابل باز شدن نیست."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "این بررسی برای این فایل قابل اجرا نیست."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "این بررسی فقط روی رزومه‌های نوشته‌شده به زبان انگلیسی اجرا می‌شود."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "این فایل از فونت‌های متفاوت زیادی استف�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "این فایل از فونت‌های Type 3 استفاده می‌کند که به‌جای نویسه، تصویر حمل می‌کنند."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "محتوای صفحات این فایل به‌موقع قابل بازرسی نبود."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

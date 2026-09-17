@@ -6131,10 +6131,6 @@ msgstr "Nu există niciun link către un profil, portofoliu sau repozitoriu."
 msgid "There is no summary paragraph."
 msgstr "Nu există niciun paragraf de rezumat."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Nu au existat suficiente informații pentru a rula această verificare."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Aceste verificări rulează pe măsură ce scrieți și nu părăsesc niciodată browserul dumneavoastră. Ele testează dacă programele pot citi CV-ul, nu cât de bine este scris."
@@ -6167,14 +6163,6 @@ msgstr "Această acțiune nu poate fi anulată. Șterge mesajele firului și ata
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Acest asistent nu a putut fi deschis."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Această verificare nu se aplică acestui fișier."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Această verificare rulează doar pe CV-uri scrise în engleză."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Acest fișier folosește foarte multe fonturi diferite."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Acest fișier folosește fonturi Type 3, care conțin desene în loc de caractere."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Conținutul paginilor acestui fișier nu a putut fi inspectat la timp."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

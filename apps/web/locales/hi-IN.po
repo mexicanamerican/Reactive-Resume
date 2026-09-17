@@ -6131,10 +6131,6 @@ msgstr "किसी प्रोफ़ाइल, पोर्टफ़ोलि
 msgid "There is no summary paragraph."
 msgstr "कोई सारांश पैराग्राफ नहीं है।"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "यह जांच चलाने के लिए पर्याप्त जानकारी नहीं थी।"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "ये जाँचें आपके टाइप करते ही चलती हैं और कभी आपके ब्राउज़र से बाहर नहीं जातीं। ये यह परखती हैं कि सॉफ़्टवेयर आपका रेज़्यूमे पढ़ पाता है या नहीं, यह नहीं कि वह कितना अच्छा लिखा गया है।"
@@ -6167,14 +6163,6 @@ msgstr "इस कार्रवाई को पूर्ववत नही�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "इस सहायक को खोला नहीं जा सका।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "यह जांच इस फ़ाइल पर लागू नहीं होती।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "यह जांच केवल अंग्रेज़ी में लिखे बायोडाटा पर चलती है।"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "इस फ़ाइल में कई अलग-अलग फ़ॉन
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "यह फ़ाइल Type 3 फ़ॉन्ट का उपयोग करती है, जो अक्षरों के बजाय चित्र रखते हैं।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "इस फ़ाइल की पेज सामग्री समय पर जांची नहीं जा सकी।"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

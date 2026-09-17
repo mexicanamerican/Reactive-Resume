@@ -6126,10 +6126,6 @@ msgstr ""
 msgid "There is no summary paragraph."
 msgstr ""
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr ""
@@ -6161,14 +6157,6 @@ msgstr ""
 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
-msgstr ""
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr ""
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -6253,10 +6241,6 @@ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
-msgstr ""
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
 msgstr ""
 
 #: src/libs/resume/ats.ts

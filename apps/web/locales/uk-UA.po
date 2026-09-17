@@ -6131,10 +6131,6 @@ msgstr "Немає посилання на профіль, портфоліо ч
 msgid "There is no summary paragraph."
 msgstr "Немає абзацу з підсумком."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Було недостатньо інформації, щоб запустити цю перевірку."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Ці перевірки виконуються під час введення тексту й не залишають ваш браузер. Вони перевіряють, чи зможе програма прочитати ваше резюме, а не те, наскільки добре воно написане."
@@ -6167,14 +6163,6 @@ msgstr "Цю дію неможливо скасувати. Вона видаля
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Цей помічник не вдалося відкрити."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Ця перевірка не стосується цього файлу."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Ця перевірка виконується лише для резюме, написаних англійською мовою."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Цей файл використовує багато різних шр�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Цей файл використовує шрифти Type 3, які містять малюнки замість символів."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Вміст сторінок цього файлу не вдалося перевірити вчасно."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

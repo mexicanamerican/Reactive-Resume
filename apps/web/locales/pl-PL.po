@@ -6131,10 +6131,6 @@ msgstr "Brak odnośnika do profilu, portfolio lub repozytorium."
 msgid "There is no summary paragraph."
 msgstr "Brak akapitu podsumowania."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Za mało informacji, aby przeprowadzić tę kontrolę."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Te kontrole działają w trakcie pisania i nigdy nie opuszczają Twojej przeglądarki. Sprawdzają, czy oprogramowanie potrafi odczytać Twoje CV, a nie jak dobrze jest napisane."
@@ -6167,14 +6163,6 @@ msgstr "Tej akcji nie można cofnąć. Usuwa wiadomości wątku i przesłane za�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Nie udało się otworzyć tego asystenta."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Ta kontrola nie dotyczy tego pliku."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Ta kontrola działa tylko dla CV napisanych w języku angielskim."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Ten plik używa wielu różnych czcionek."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ten plik używa czcionek Type 3, które zawierają rysunki zamiast znaków."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Nie udało się zbadać treści stron tego pliku w wyznaczonym czasie."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

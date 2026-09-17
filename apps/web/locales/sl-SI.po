@@ -6131,10 +6131,6 @@ msgstr "Ni povezave do profila, portfelja ali repozitorija."
 msgid "There is no summary paragraph."
 msgstr "Ni povzetka."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Za izvedbo tega preverjanja ni bilo dovolj podatkov."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Ta preverjanja tečejo, medtem ko tipkate, in nikoli ne zapustijo vašega brskalnika. Preizkušajo, ali programska oprema lahko prebere vaš življenjepis, ne pa, kako dobro je napisan."
@@ -6167,14 +6163,6 @@ msgstr "Tega dejanja ni mogoče razveljaviti. Izbriše sporočila niti in nalož
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Tega pomočnika ni bilo mogoče odpreti."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "To preverjanje ne velja za to datoteko."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "To preverjanje se izvaja le za življenjepise, napisane v angleščini."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Ta datoteka uporablja veliko različnih pisav."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ta datoteka uporablja pisave Type 3, ki namesto znakov vsebujejo risbe."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Vsebine strani te datoteke ni bilo mogoče pravočasno pregledati."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

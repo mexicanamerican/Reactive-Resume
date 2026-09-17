@@ -6131,10 +6131,6 @@ msgstr "ไม่มีลิงก์ไปยังโปรไฟล์ พ�
 msgid "There is no summary paragraph."
 msgstr "ไม่มีย่อหน้าสรุป"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "มีข้อมูลไม่เพียงพอที่จะรันการตรวจสอบนี้"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "การตรวจสอบเหล่านี้ทำงานขณะที่คุณพิมพ์ และไม่ออกไปนอกเบราว์เซอร์ของคุณ โดยทดสอบว่าซอฟต์แวร์อ่านเรซูเม่ของคุณได้หรือไม่ ไม่ใช่ว่าเขียนได้ดีแค่ไหน"
@@ -6167,14 +6163,6 @@ msgstr "การกระทำนี้ย้อนกลับไม่ได
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "ไม่สามารถเปิดผู้ช่วยนี้ได้"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "การตรวจสอบนี้ไม่เกี่ยวข้องกับไฟล์นี้"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "การตรวจสอบนี้ทำงานเฉพาะกับเรซูเม่ที่เขียนเป็นภาษาอังกฤษ"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "ไฟล์นี้ใช้ฟอนต์ที่แตกต่า
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ไฟล์นี้ใช้ฟอนต์ Type 3 ซึ่งบรรจุภาพวาดแทนตัวอักษร"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "ไม่สามารถตรวจสอบเนื้อหาหน้าของไฟล์นี้ได้ทันเวลา"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

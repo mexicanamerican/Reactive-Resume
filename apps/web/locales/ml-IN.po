@@ -6131,10 +6131,6 @@ msgstr "പ്രൊഫൈൽ, പോർട്ട്‌ഫോളിയോ അല
 msgid "There is no summary paragraph."
 msgstr "സംഗ്രഹ ഖണ്ഡിക ഇല്ല."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "ഈ പരിശോധന നടത്താൻ ആവശ്യമായ വിവരങ്ങൾ ഇല്ലായിരുന്നു."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "നിങ്ങൾ ടൈപ്പ് ചെയ്യുന്നതിനൊപ്പം ഈ പരിശോധനകൾ നടക്കുന്നു, അവ ഒരിക്കലും നിങ്ങളുടെ ബ്രൗസർ വിട്ടുപോകുന്നില്ല. നിങ്ങളുടെ റിസ്യൂം സോഫ്റ്റ്‌വെയറിന് വായിക്കാനാകുമോ എന്നാണ് അവ പരിശോധിക്കുന്നത്, അത് എത്ര നന്നായി എഴുതിയിരിക്കുന്നു എന്നല്ല."
@@ -6167,14 +6163,6 @@ msgstr "ഈ പ്രവൃത്തി പഴയപടിയാക്കാൻ 
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "ഈ അസിസ്റ്റന്റ് തുറക്കാൻ കഴിഞ്ഞില്ല."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "ഈ പരിശോധന ഈ ഫയലിന് ബാധകമല്ല."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "ഇംഗ്ലീഷിൽ എഴുതിയ റിസ്യൂമുകളിൽ മാത്രമേ ഈ പരിശോധന പ്രവർത്തിക്കൂ."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "ഈ ഫയൽ ധാരാളം വ്യത്യസ്ത ഫോണ�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ഈ ഫയൽ Type 3 ഫോണ്ടുകൾ ഉപയോഗിക്കുന്നു, അവ അക്ഷരങ്ങൾക്ക് പകരം ഡ്രോയിംഗുകൾ വഹിക്കുന്നു."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "ഈ ഫയലിന്റെ പേജ് ഉള്ളടക്കം സമയബന്ധിതമായി പരിശോധിക്കാൻ കഴിഞ്ഞില്ല."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

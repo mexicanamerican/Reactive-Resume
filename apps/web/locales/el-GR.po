@@ -6131,10 +6131,6 @@ msgstr "Δεν υπάρχει σύνδεσμος προς προφίλ, portfoli
 msgid "There is no summary paragraph."
 msgstr "Δεν υπάρχει παράγραφος περίληψης."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Δεν υπήρχαν αρκετές πληροφορίες για την εκτέλεση αυτού του ελέγχου."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Αυτοί οι έλεγχοι εκτελούνται καθώς πληκτρολογείτε και δεν φεύγουν ποτέ από το πρόγραμμα περιήγησής σας. Ελέγχουν αν το λογισμικό μπορεί να διαβάσει το βιογραφικό σας, όχι πόσο καλά είναι γραμμένο."
@@ -6167,14 +6163,6 @@ msgstr "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Δεν ήταν δυνατό το άνοιγμα αυτού του βοηθού."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Αυτός ο έλεγχος δεν ισχύει για αυτό το αρχείο."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Αυτός ο έλεγχος εκτελείται μόνο σε βιογραφικά γραμμένα στα αγγλικά."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Αυτό το αρχείο χρησιμοποιεί πολλές δια�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Αυτό το αρχείο χρησιμοποιεί γραμματοσειρές Type 3, οι οποίες περιέχουν σχέδια αντί για χαρακτήρες."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Το περιεχόμενο των σελίδων αυτού του αρχείου δεν μπόρεσε να επιθεωρηθεί εγκαίρως."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

@@ -2,12 +2,8 @@
 	"$schema": "https://unpkg.com/knip@6/schema.json",
 	"tags": ["-lintignore"],
 	"workspaces": {
-		".": {
-			"ignoreFiles": [".design-sync/**"]
-		},
 		"apps/web": {
 			"entry": ["lingui.config.ts", "vite.config.ts", "vitest.config.ts"],
-			"ignoreDependencies": ["buffer"],
 			"vite": {
 				"config": []
 			},

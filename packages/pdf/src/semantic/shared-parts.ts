@@ -5,7 +5,7 @@ import type {
 	TemplateSemanticPrimitivePart,
 } from "./template-manifest";
 
-export const standardRegions = [
+const standardRegions = [
 	{ name: "header", placement: "main", origins: [] },
 	{ name: "main", placement: "main", origins: ["main"] },
 	{ name: "sidebar", placement: "sidebar", origins: ["sidebar"] },

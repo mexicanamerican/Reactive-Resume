@@ -6131,10 +6131,6 @@ msgstr "ወደ መገለጫ፣ ፖርትፎሊዮ ወይም ማከማቻ የሚ�
 msgid "There is no summary paragraph."
 msgstr "ምንም የማጠቃለያ አንቀጽ የለም።"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "ይህን ቼክ ለማካሄድ በቂ መረጃ አልነበረም።"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "እነዚህ ምርመራዎች እርስዎ በሚተይቡበት ጊዜ ይሠራሉ፤ ከአሳሽዎም ፈጽሞ አይወጡም። የሚፈትኑት ሶፍትዌር የስራ ልምድ ማስረጃዎን ማንበብ ይችል እንደሆነ እንጂ ምን ያህል በጥሩ ሁኔታ እንደተጻፈ አይደለም።"
@@ -6167,14 +6163,6 @@ msgstr "ይህ እርምጃ ሊቀለበስ አይችልም። የውይይቱ�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "ይህ ረዳት ሊከፈት አልቻለም።"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "ይህ ቼክ በዚህ ፋይል ላይ አይተገበርም።"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "ይህ ቼክ የሚሰራው በእንግሊዝኛ በተጻፉ የስራ ልምድ ማስረጃዎች ላይ ብቻ ነው።"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "ይህ ፋይል ብዙ የተለያዩ ፊደላትን ይጠቀማል�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ይህ ፋይል ከፊደላት ይልቅ ስዕሎችን የሚያሸክሙ Type 3 ፊደላትን ይጠቀማል።"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "የዚህ ፋይል የገጽ ይዘቶች በጊዜው ሊመረመሩ አልቻሉም።"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

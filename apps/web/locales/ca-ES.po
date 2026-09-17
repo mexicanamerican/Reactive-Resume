@@ -6131,10 +6131,6 @@ msgstr "No hi ha cap enllaç a un perfil, portafoli o repositori."
 msgid "There is no summary paragraph."
 msgstr "No hi ha cap paràgraf de resum."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "No hi havia prou informació per executar aquesta comprovació."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Aquestes comprovacions s'executen mentre escrius i no surten mai del teu navegador. Comproven si un programa pot llegir el teu currículum, no com de ben escrit està."
@@ -6167,14 +6163,6 @@ msgstr "Aquesta acció no es pot desfer. Suprimeix els missatges del fil i els f
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "No s'ha pogut obrir aquest assistent."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Aquesta comprovació no s'aplica a aquest fitxer."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Aquesta comprovació només s'executa en currículums escrits en anglès."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Aquest fitxer utilitza molts tipus de lletra diferents."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Aquest fitxer utilitza tipus de lletra Type 3, que porten dibuixos en lloc de caràcters."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "El contingut de les pàgines d'aquest fitxer no s'ha pogut inspeccionar a temps."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

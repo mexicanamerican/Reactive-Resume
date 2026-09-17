@@ -6131,10 +6131,6 @@ msgstr "Nav saites uz profilu, portfolio vai repozitoriju."
 msgid "There is no summary paragraph."
 msgstr "Nav kopsavilkuma rindkopas."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Nebija pietiekami daudz informācijas, lai veiktu šo pārbaudi."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Šīs pārbaudes notiek jums rakstot un nekad nepamet jūsu pārlūkprogrammu. Tās pārbauda, vai programmatūra spēj izlasīt jūsu CV, nevis to, cik labi tas ir uzrakstīts."
@@ -6167,14 +6163,6 @@ msgstr "Šo darbību nevar atsaukt. Tā izdzēš tēmas ziņas un augšupielād�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Šo palīgu nevarēja atvērt."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Šī pārbaude neattiecas uz šo failu."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Šī pārbaude tiek veikta tikai angļu valodā rakstītiem CV."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Šis fails izmanto daudzus dažādus fontus."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Šis fails izmanto Type 3 fontus, kas satur zīmējumus, nevis rakstzīmes."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Šī faila lapu saturu neizdevās pārbaudīt laikā."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

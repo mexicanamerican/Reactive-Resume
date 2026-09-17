@@ -6131,10 +6131,6 @@ msgstr "Bir profile, portföye veya depoya bağlantı yok."
 msgid "There is no summary paragraph."
 msgstr "Bir özet paragrafı yok."
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "Bu kontrolü çalıştırmak için yeterli bilgi yoktu."
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "Bu kontroller siz yazarken çalışır ve tarayıcınızdan asla dışarı çıkmaz. Özgeçmişinizin ne kadar iyi yazıldığını değil, yazılımın onu okuyup okuyamadığını test ederler."
@@ -6167,14 +6163,6 @@ msgstr "Bu işlem geri alınamaz. Konudaki mesajları ve yüklenen ekleri siler.
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "Bu asistan açılamadı."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "Bu kontrol bu dosya için geçerli değil."
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "Bu kontrol yalnızca İngilizce yazılmış özgeçmişlerde çalışır."
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "Bu dosya çok sayıda farklı yazı tipi kullanıyor."
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Bu dosya, karakter yerine çizim taşıyan Type 3 yazı tiplerini kullanıyor."
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "Bu dosyanın sayfa içerikleri zamanında incelenemedi."
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."

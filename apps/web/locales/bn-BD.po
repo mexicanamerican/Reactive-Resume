@@ -6131,10 +6131,6 @@ msgstr "কোনো প্রোফাইল, পোর্টফোলিও �
 msgid "There is no summary paragraph."
 msgstr "কোনো সারাংশ অনুচ্ছেদ নেই।"
 
-#: src/features/ats-checker/messages.ts
-msgid "There was not enough information to run this check."
-msgstr "এই চেক চালানোর জন্য পর্যাপ্ত তথ্য ছিল না।"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "These checks run as you type and never leave your browser. They test whether software can read your resume, not how well it is written."
 msgstr "এই পরীক্ষাগুলো আপনি টাইপ করার সঙ্গে সঙ্গেই চলে এবং কখনও আপনার ব্রাউজারের বাইরে যায় না। এগুলো যাচাই করে সফটওয়্যার আপনার জীবনবৃত্তান্ত পড়তে পারে কি না, সেটি কতটা ভালো লেখা তা নয়।"
@@ -6167,14 +6163,6 @@ msgstr "এই কাজটি ফিরিয়ে নেওয়া যা�
 #: src/routes/builder/$resumeId/-components/ai-assistant.tsx
 msgid "This assistant could not be opened."
 msgstr "এই সহকারীকে খোলা যায়নি।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check does not apply to this file."
-msgstr "এই চেকটি এই ফাইলের ক্ষেত্রে প্রযোজ্য নয়।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This check only runs on resumes written in English."
-msgstr "এই চেকটি শুধুমাত্র ইংরেজিতে লেখা জীবনবৃত্তান্তে চলে।"
 
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired."
@@ -6259,10 +6247,6 @@ msgstr "এই ফাইলে অনেকগুলো ভিন্ন ফন�
 #: src/features/ats-checker/messages.ts
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "এই ফাইলে Type 3 ফন্ট ব্যবহার করা হয়েছে, যা অক্ষরের বদলে অঙ্কন বহন করে।"
-
-#: src/features/ats-checker/messages.ts
-msgid "This file's page contents could not be inspected in time."
-msgstr "এই ফাইলের পৃষ্ঠার বিষয়বস্তু সময়মতো পরীক্ষা করা যায়নি।"
 
 #: src/libs/resume/ats.ts
 msgid "This heading is not one parsers look for."
