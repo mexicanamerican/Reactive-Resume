@@ -10,7 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@r
 import { Button } from "@reactive-resume/ui/components/button";
 import { Separator } from "@reactive-resume/ui/components/separator";
 import { useCurrentBuilderResumeSelector, useUpdateResumeData } from "@/features/resume/builder/draft";
-import { getSectionTitle, leftSidebarSections } from "@/libs/resume/section";
+import { leftSidebarSections } from "@/libs/resume/section";
+import { resolveLayoutSectionTitle } from "@/routes/builder/$resumeId/-sidebar/right/sections/layout/title";
 
 export function getVisibleLeftSidebarSections(data: ResumeData): LeftSidebarSection[] {
 	const hiddenSectionIds = new Set(
@@ -80,18 +81,6 @@ export function SectionEditorList({ renderSection }: SectionEditorListProps) {
 	);
 }
 
-function getRecoverySectionTitle(data: ResumeData, sectionId: string): string {
-	if (sectionId === "summary") return data.summary.title || getSectionTitle("summary");
-
-	if (Object.hasOwn(data.sections, sectionId)) {
-		const type = sectionId as SectionType;
-		return data.sections[type].title || getSectionTitle(type);
-	}
-
-	const customSection = data.customSections.find((section) => section.id === sectionId);
-	return customSection?.title || (customSection ? getSectionTitle(customSection.type) : sectionId);
-}
-
 export function SectionRecovery() {
 	const data = useCurrentBuilderResumeSelector((resume) => resume.data);
 	const updateResumeData = useUpdateResumeData();
@@ -132,7 +121,7 @@ export function SectionRecovery() {
 					<AccordionContent className="pb-3">
 						<ul className="space-y-2">
 							{hiddenSections.map(({ sectionId }) => {
-								const title = getRecoverySectionTitle(data, sectionId);
+								const title = resolveLayoutSectionTitle(data, sectionId);
 
 								return (
 									<li

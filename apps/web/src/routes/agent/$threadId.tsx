@@ -3,7 +3,8 @@ import { Trans } from "@lingui/react/macro";
 import { ChatCircleDotsIcon, SidebarSimpleIcon, SquaresFourIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useCallback, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useRef, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 import { Button } from "@reactive-resume/ui/components/button";
 import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@reactive-resume/ui/components/resizable";
 import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
@@ -20,24 +21,10 @@ export const Route = createFileRoute("/agent/$threadId")({
 });
 
 // Matches Tailwind's `lg` breakpoint, which this route's two layouts switch on.
-const DESKTOP_QUERY = "(min-width: 1024px)";
-
 // Exactly one layout may mount: each AgentChat owns its own useChat state and stream
 // reconnection, so CSS-hiding a second instance would double-connect streams and expose
 // stale pending approval controls after a resize.
-function useIsDesktopLayout() {
-	const [mediaQueryList] = useState(() => (typeof window === "undefined" ? null : window.matchMedia(DESKTOP_QUERY)));
-
-	return useSyncExternalStore(
-		(onStoreChange) => {
-			if (!mediaQueryList) return () => {};
-			mediaQueryList.addEventListener("change", onStoreChange);
-			return () => mediaQueryList.removeEventListener("change", onStoreChange);
-		},
-		() => mediaQueryList?.matches ?? false,
-		() => false,
-	);
-}
+const DESKTOP_QUERY = "(min-width: 1024px)";
 
 function RouteComponent() {
 	const { threadId } = Route.useParams();
@@ -47,7 +34,7 @@ function RouteComponent() {
 	const resumePanelRef = useRef<PanelImperativeHandle | null>(null);
 	const [isThreadsCollapsed, setIsThreadsCollapsed] = useState(false);
 	const [isResumeCollapsed, setIsResumeCollapsed] = useState(false);
-	const isDesktopLayout = useIsDesktopLayout();
+	const isDesktopLayout = useMediaQuery(DESKTOP_QUERY, { initializeWithValue: false });
 	const { data, isLoading, error } = useQuery(orpc.agent.threads.get.queryOptions({ input: { id: threadId } }));
 	useAgentResumeUpdateSubscription({ resumeId: data?.resume?.id, threadId });
 

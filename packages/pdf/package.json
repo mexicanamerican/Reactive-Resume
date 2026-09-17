@@ -8,7 +8,6 @@
 		"./document": "./src/document.tsx",
 		"./semantic": "./src/semantic/index.ts",
 		"./semantic-legacy": "./src/semantic/legacy-converter.ts",
-		"./semantic-manifest": "./src/semantic/template-manifest.ts",
 		"./semantic-tree": "./src/semantic/tree.ts",
 		"./section-title": "./src/section-title.ts",
 		"./server": "./src/server.tsx"

@@ -26,7 +26,7 @@ function getTrustedIp(headers?: Headers): string | null {
 	return null;
 }
 
-function getClientKey(headers?: Headers): string {
+export function getClientKey(headers?: Headers): string {
 	const trustedIp = getTrustedIp(headers);
 	if (trustedIp) return `ip:${trustedIp}`;
 

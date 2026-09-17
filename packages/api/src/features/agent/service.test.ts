@@ -16,6 +16,8 @@ const messagesPersistenceMock = {
 	insertDraftAssistantMessage: vi.fn(),
 	upsertAssistantUiMessage: vi.fn(),
 	deleteDraftIfEmpty: vi.fn(),
+	nextMessageSequence: vi.fn(async () => 1),
+	touchThread: vi.fn(),
 	withAccumulatedUsageMetadata: vi.fn((_previous: unknown, next: unknown) => next),
 };
 const storageServiceMock = {
@@ -167,6 +169,7 @@ beforeEach(() => {
 	messagesPersistenceMock.upsertAssistantUiMessage.mockResolvedValue({ rowId: "draft-row-1" });
 	messagesPersistenceMock.deleteDraftIfEmpty.mockResolvedValue(undefined);
 	messagesPersistenceMock.withAccumulatedUsageMetadata.mockImplementation((_previous: unknown, next: unknown) => next);
+	messagesPersistenceMock.nextMessageSequence.mockResolvedValue(1);
 	for (const mock of Object.values(storageServiceMock)) mock.mockReset();
 	for (const mock of Object.values(resumeServiceMock)) mock.mockReset();
 	for (const mock of Object.values(aiProvidersServiceMock)) mock.mockReset();
@@ -367,7 +370,6 @@ describe("agentService.messages.send", () => {
 
 		dbMock.select
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: -1 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 1 }]))
 			.mockImplementationOnce(() => selectOrderByResult([persistedMessage]));
 
@@ -449,7 +451,6 @@ describe("agentService.messages.send", () => {
 
 		dbMock.select
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: -1 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 1 }]))
 			.mockImplementationOnce(() => selectOrderByResult([persistedMessage]));
 
@@ -573,7 +574,6 @@ describe("agentService.messages.send", () => {
 
 		dbMock.select
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: -1 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 1 }]))
 			.mockImplementationOnce(() => selectOrderByResult([persistedMessage]));
 		dbMock.insert.mockReturnValue({
@@ -662,7 +662,6 @@ describe("agentService.messages.send", () => {
 		dbMock.select
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
 			.mockImplementationOnce(() => selectWhereResult([attachment]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: -1 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 1 }]))
 			.mockImplementationOnce(() => selectOrderByResult([persistedMessage]));
 
@@ -1112,7 +1111,6 @@ describe("agentService.messages.send", () => {
 
 		dbMock.select
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: 2 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 4 }]))
 			.mockImplementationOnce(() =>
 				selectOrderByResult([firstUserMessage, unresolvedAssistantMessage, legacyAnswerMessage, retryMessage]),
@@ -1320,7 +1318,6 @@ describe("agentService.messages.stop", () => {
 		dbMock.select
 			// send(): getThread, next sequence, message count, thread messages
 			.mockImplementationOnce(() => selectLimitResult([activeThread]))
-			.mockImplementationOnce(() => selectWhereResult([{ maxSequence: -1 }]))
 			.mockImplementationOnce(() => selectWhereResult([{ total: 1 }]))
 			.mockImplementationOnce(() => selectOrderByResult([persistedMessage]))
 			// stop(): getThread now reports the active run registered by send() (generateId() -> "test-id")

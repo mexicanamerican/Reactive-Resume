@@ -14,7 +14,7 @@ import {
 	ToolLoopAgent,
 	wrapLanguageModel,
 } from "ai";
-import { and, asc, count, desc, eq, gte, inArray, isNull, max, sql } from "drizzle-orm";
+import { and, asc, count, desc, eq, gte, inArray, isNull, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
@@ -30,6 +30,8 @@ import {
 	applyStepToUiMessage,
 	deleteDraftIfEmpty,
 	insertDraftAssistantMessage,
+	nextMessageSequence,
+	touchThread,
 	upsertAssistantUiMessage,
 	withAccumulatedUsageMetadata,
 } from "./messages-persistence";
@@ -101,10 +103,6 @@ type AttachmentModelInput = {
 	attachment: AgentAttachmentRecord;
 	data: Uint8Array;
 };
-
-function cloneResumeData<T>(data: T): T {
-	return structuredClone(data);
-}
 
 function toThreadSummary(row: AgentThreadRecord & { resumeName?: string | null; providerLabel?: string | null }) {
 	return {
@@ -421,7 +419,7 @@ async function createWorkingResume(input: CreateThreadInput) {
 			slug,
 			tags: [...source.tags],
 			locale: input.locale,
-			data: cloneResumeData(source.data),
+			data: structuredClone(source.data),
 		});
 
 		return { id, source, title: name };
@@ -435,7 +433,7 @@ async function createWorkingResume(input: CreateThreadInput) {
 		slug: buildUniqueAgentDraftSlug(name, existingSlugs),
 		tags: [],
 		locale: input.locale,
-		data: cloneResumeData(defaultResumeData),
+		data: structuredClone(defaultResumeData),
 	});
 
 	return { id, source: null, title: name };
@@ -459,15 +457,6 @@ async function getThread(input: { id: string; userId: string }) {
 	return thread;
 }
 
-async function getNextMessageSequence(threadId: string) {
-	const [row] = await db
-		.select({ maxSequence: max(schema.agentMessage.sequence) })
-		.from(schema.agentMessage)
-		.where(eq(schema.agentMessage.threadId, threadId));
-
-	return (row?.maxSequence ?? -1) + 1;
-}
-
 async function persistMessage(input: {
 	userId: string;
 	threadId: string;
@@ -475,7 +464,7 @@ async function persistMessage(input: {
 	status?: string;
 	sequence?: number;
 }) {
-	const sequence = input.sequence ?? (await getNextMessageSequence(input.threadId));
+	const sequence = input.sequence ?? (await nextMessageSequence(input.threadId, db));
 	const [message] = await db
 		.insert(schema.agentMessage)
 		.values({
@@ -488,10 +477,7 @@ async function persistMessage(input: {
 		})
 		.returning();
 
-	await db
-		.update(schema.agentThread)
-		.set({ lastMessageAt: new Date() })
-		.where(and(eq(schema.agentThread.id, input.threadId), eq(schema.agentThread.userId, input.userId)));
+	await touchThread({ threadId: input.threadId, userId: input.userId }, db);
 
 	return message;
 }
@@ -709,7 +695,7 @@ async function applyResumePatch(input: {
 		}
 	}
 
-	const snapshotData = cloneResumeData(before.data);
+	const snapshotData = structuredClone(before.data);
 	const operations = normalizeAgentResumePatchOperations(before.data, input.operations);
 
 	const { action, patched } = await db
@@ -1230,7 +1216,7 @@ export const agentService = {
 					draftUiMessage = continuation.message;
 				} else {
 					attachmentsForModel = attachments;
-					const sequence = await getNextMessageSequence(input.threadId);
+					const sequence = await nextMessageSequence(input.threadId, db);
 					const userMessage = withAttachmentUiParts(input.message, attachments);
 					const persistedUserMessage = await persistMessage({
 						userId: input.userId,
@@ -1535,7 +1521,7 @@ export const agentService = {
 					const restored = await resumeService.patchInTransaction(tx, {
 						id: resumeId,
 						userId: input.userId,
-						operations: [{ op: "replace", path: "", value: cloneResumeData(snapshotData) }],
+						operations: [{ op: "replace", path: "", value: structuredClone(snapshotData) }],
 						expectedUpdatedAt: latestAction.appliedUpdatedAt,
 					});
 

@@ -371,200 +371,140 @@ export function registerTools(server: McpServer, client: RouterClient<typeof rou
 		}),
 	);
 
-	// ── Independent Cover Letters ───────────────────────────────────
-	server.registerTool(
-		T.listCoverLetters,
-		TOOL_META[T.listCoverLetters],
-		withErrorHandling("listing cover letters", async (params) => json(await client.coverLetters.list(params as never))),
-	);
+	// ── Independent Cover Letters + Applications ────────────────────
+	type CoverLetterOrApplicationTool = readonly [
+		name: (typeof T)[keyof typeof T],
+		label: string,
+		handler: (params: never) => Promise<CallToolResult>,
+	];
 
-	server.registerTool(
-		T.readCoverLetter,
-		TOOL_META[T.readCoverLetter],
-		withErrorHandling("reading cover letter", async ({ id }: { id: string }) =>
-			json(await client.coverLetters.getById({ id })),
-		),
-	);
-
-	server.registerTool(
-		T.createCoverLetter,
-		TOOL_META[T.createCoverLetter],
-		withErrorHandling("creating cover letter", async (params) =>
-			json(await client.coverLetters.create(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.updateCoverLetter,
-		TOOL_META[T.updateCoverLetter],
-		withErrorHandling("updating cover letter", async (params) =>
-			json(await client.coverLetters.update(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.refreshCoverLetterStyle,
-		TOOL_META[T.refreshCoverLetterStyle],
-		withErrorHandling("refreshing cover letter style", async (params) =>
-			json(await client.coverLetters.refreshStyle(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.duplicateCoverLetter,
-		TOOL_META[T.duplicateCoverLetter],
-		withErrorHandling("duplicating cover letter", async (params) =>
-			json(await client.coverLetters.duplicate(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.deleteCoverLetter,
-		TOOL_META[T.deleteCoverLetter],
-		withErrorHandling("deleting cover letter", async (params) => {
-			await client.coverLetters.delete(params as never);
-			return text(`Deleted cover letter (${(params as { id: string }).id}).`);
-		}),
-	);
-
-	server.registerTool(
-		T.copyEmbeddedCoverLetter,
-		TOOL_META[T.copyEmbeddedCoverLetter],
-		withErrorHandling("copying embedded cover letter", async (params) =>
-			json(await client.coverLetters.copyEmbedded(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.exportCoverLetter,
-		TOOL_META[T.exportCoverLetter],
-		withErrorHandling("exporting cover letter", async ({ id }: { id: string }) =>
-			json(await client.coverLetters.export({ id })),
-		),
-	);
-
-	server.registerTool(
-		T.importCoverLetter,
-		TOOL_META[T.importCoverLetter],
-		withErrorHandling("importing cover letter", async ({ document }: { document: unknown }) =>
-			json(await client.coverLetters.import({ document } as never)),
-		),
-	);
-
-	// ── Applications ──────────────────────────────────────────────
-	server.registerTool(
-		T.listApplications,
-		TOOL_META[T.listApplications],
-		withErrorHandling("listing applications", async (params) => json(await client.applications.list(params as never))),
-	);
-
-	server.registerTool(
-		T.readApplication,
-		TOOL_META[T.readApplication],
-		withErrorHandling("reading application", async ({ id }: { id: string }) =>
-			json(await client.applications.getById({ id })),
-		),
-	);
-
-	server.registerTool(
-		T.listApplicationTags,
-		TOOL_META[T.listApplicationTags],
-		withErrorHandling("listing application tags", async () => json(await client.applications.tags())),
-	);
-
-	server.registerTool(
-		T.getApplicationStats,
-		TOOL_META[T.getApplicationStats],
-		withErrorHandling("getting application stats", async () => json(await client.applications.stats())),
-	);
-
-	server.registerTool(
-		T.createApplication,
-		TOOL_META[T.createApplication],
-		withErrorHandling("creating application", async (params) => {
-			const id = await client.applications.create(coerceFollowUpAt(params as Record<string, unknown>) as never);
-			return json({ id });
-		}),
-	);
-
-	server.registerTool(
-		T.updateApplication,
-		TOOL_META[T.updateApplication],
-		withErrorHandling("updating application", async (params) => {
-			return json(await client.applications.update(coerceFollowUpAt(params as Record<string, unknown>) as never));
-		}),
-	);
-
-	server.registerTool(
-		T.addApplicationNote,
-		TOOL_META[T.addApplicationNote],
-		withErrorHandling(
+	const coverLetterAndApplicationTools: CoverLetterOrApplicationTool[] = [
+		[
+			T.listCoverLetters,
+			"listing cover letters",
+			async (params) => json(await client.coverLetters.list(params as never)),
+		],
+		[
+			T.readCoverLetter,
+			"reading cover letter",
+			async ({ id }: { id: string }) => json(await client.coverLetters.getById({ id })),
+		],
+		[
+			T.createCoverLetter,
+			"creating cover letter",
+			async (params) => json(await client.coverLetters.create(params as never)),
+		],
+		[
+			T.updateCoverLetter,
+			"updating cover letter",
+			async (params) => json(await client.coverLetters.update(params as never)),
+		],
+		[
+			T.refreshCoverLetterStyle,
+			"refreshing cover letter style",
+			async (params) => json(await client.coverLetters.refreshStyle(params as never)),
+		],
+		[
+			T.duplicateCoverLetter,
+			"duplicating cover letter",
+			async (params) => json(await client.coverLetters.duplicate(params as never)),
+		],
+		[
+			T.deleteCoverLetter,
+			"deleting cover letter",
+			async (params) => {
+				await client.coverLetters.delete(params as never);
+				return text(`Deleted cover letter (${(params as { id: string }).id}).`);
+			},
+		],
+		[
+			T.copyEmbeddedCoverLetter,
+			"copying embedded cover letter",
+			async (params) => json(await client.coverLetters.copyEmbedded(params as never)),
+		],
+		[
+			T.exportCoverLetter,
+			"exporting cover letter",
+			async ({ id }: { id: string }) => json(await client.coverLetters.export({ id })),
+		],
+		[
+			T.importCoverLetter,
+			"importing cover letter",
+			async ({ document }: { document: unknown }) => json(await client.coverLetters.import({ document } as never)),
+		],
+		[
+			T.listApplications,
+			"listing applications",
+			async (params) => json(await client.applications.list(params as never)),
+		],
+		[
+			T.readApplication,
+			"reading application",
+			async ({ id }: { id: string }) => json(await client.applications.getById({ id })),
+		],
+		[T.listApplicationTags, "listing application tags", async () => json(await client.applications.tags())],
+		[T.getApplicationStats, "getting application stats", async () => json(await client.applications.stats())],
+		[
+			T.createApplication,
+			"creating application",
+			async (params) => {
+				const id = await client.applications.create(coerceFollowUpAt(params as Record<string, unknown>) as never);
+				return json({ id });
+			},
+		],
+		[
+			T.updateApplication,
+			"updating application",
+			async (params) =>
+				json(await client.applications.update(coerceFollowUpAt(params as Record<string, unknown>) as never)),
+		],
+		[
+			T.addApplicationNote,
 			"adding application note",
-			async ({ id, text: noteText, date }: { id: string; text: string; date?: string | undefined }) => {
-				return json(await client.applications.addNote({ id, text: noteText, date }));
-			},
-		),
-	);
-
-	server.registerTool(
-		T.updateApplicationTimelineEntry,
-		TOOL_META[T.updateApplicationTimelineEntry],
-		withErrorHandling("updating application timeline entry", async (params) => {
-			return json(await client.applications.updateTimelineEntry(params as never));
-		}),
-	);
-
-	server.registerTool(
-		T.deleteApplicationTimelineEntry,
-		TOOL_META[T.deleteApplicationTimelineEntry],
-		withErrorHandling(
+			async ({ id, text: noteText, date }: { id: string; text: string; date?: string | undefined }) =>
+				json(await client.applications.addNote({ id, text: noteText, date })),
+		],
+		[
+			T.updateApplicationTimelineEntry,
+			"updating application timeline entry",
+			async (params) => json(await client.applications.updateTimelineEntry(params as never)),
+		],
+		[
+			T.deleteApplicationTimelineEntry,
 			"deleting application timeline entry",
-			async ({ id, entryId }: { id: string; entryId: string }) => {
-				return json(await client.applications.deleteTimelineEntry({ id, entryId }));
+			async ({ id, entryId }: { id: string; entryId: string }) =>
+				json(await client.applications.deleteTimelineEntry({ id, entryId })),
+		],
+		[
+			T.deleteApplication,
+			"deleting application",
+			async ({ id }: { id: string }) => {
+				await client.applications.delete({ id });
+				return text(`Deleted application (${id}).`);
 			},
-		),
-	);
-
-	server.registerTool(
-		T.deleteApplication,
-		TOOL_META[T.deleteApplication],
-		withErrorHandling("deleting application", async ({ id }: { id: string }) => {
-			await client.applications.delete({ id });
-			return text(`Deleted application (${id}).`);
-		}),
-	);
-
-	server.registerTool(
-		T.bulkUpdateApplications,
-		TOOL_META[T.bulkUpdateApplications],
-		withErrorHandling("bulk updating applications", async (params) =>
-			json(await client.applications.bulkUpdate(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.bulkDeleteApplications,
-		TOOL_META[T.bulkDeleteApplications],
-		withErrorHandling("bulk deleting applications", async ({ ids }: { ids: string[] }) => {
-			return json(await client.applications.bulkDelete({ ids }));
-		}),
-	);
-
-	server.registerTool(
-		T.importApplications,
-		TOOL_META[T.importApplications],
-		withErrorHandling("importing applications", async (params) => {
-			const input = params as { items: Array<Record<string, unknown>> };
-			return json(
-				await client.applications.import({ items: input.items.map((item) => coerceFollowUpAt(item)) } as never),
-			);
-		}),
-	);
-
-	server.registerTool(
-		T.attachApplicationDocument,
-		TOOL_META[T.attachApplicationDocument],
-		withErrorHandling(
+		],
+		[
+			T.bulkUpdateApplications,
+			"bulk updating applications",
+			async (params) => json(await client.applications.bulkUpdate(params as never)),
+		],
+		[
+			T.bulkDeleteApplications,
+			"bulk deleting applications",
+			async ({ ids }: { ids: string[] }) => json(await client.applications.bulkDelete({ ids })),
+		],
+		[
+			T.importApplications,
+			"importing applications",
+			async (params) => {
+				const input = params as { items: Array<Record<string, unknown>> };
+				return json(
+					await client.applications.import({ items: input.items.map((item) => coerceFollowUpAt(item)) } as never),
+				);
+			},
+		],
+		[
+			T.attachApplicationDocument,
 			"attaching application document",
 			async ({
 				id,
@@ -582,51 +522,37 @@ export function registerTools(server: McpServer, client: RouterClient<typeof rou
 				const file = fileFromBase64({ fileName, contentType, dataBase64 });
 				return json(await client.applications.attachDocument({ id, kind, file }));
 			},
-		),
-	);
-
-	server.registerTool(
-		T.removeApplicationDocument,
-		TOOL_META[T.removeApplicationDocument],
-		withErrorHandling(
+		],
+		[
+			T.removeApplicationDocument,
 			"removing application document",
-			async ({ id, kind }: { id: string; kind: "resume" | "cover-letter" }) => {
-				return json(await client.applications.removeDocument({ id, kind }));
-			},
-		),
-	);
-
-	server.registerTool(
-		T.autofillApplicationFromJob,
-		TOOL_META[T.autofillApplicationFromJob],
-		withErrorHandling("autofilling application from job", async (params) =>
-			json(await client.applications.ai.autofill(params as never)),
-		),
-	);
-
-	server.registerTool(
-		T.scoreApplicationMatch,
-		TOOL_META[T.scoreApplicationMatch],
-		withErrorHandling("scoring application match", async ({ id }: { id: string }) => {
-			return json(await client.applications.ai.matchScore({ id }));
-		}),
-	);
-
-	server.registerTool(
-		T.tailorResumeForApplication,
-		TOOL_META[T.tailorResumeForApplication],
-		withErrorHandling("tailoring resume for application", async ({ id }: { id: string }) => {
-			return json(await client.applications.ai.tailorResume({ id }));
-		}),
-	);
-
-	server.registerTool(
-		T.draftApplicationMessage,
-		TOOL_META[T.draftApplicationMessage],
-		withErrorHandling(
+			async ({ id, kind }: { id: string; kind: "resume" | "cover-letter" }) =>
+				json(await client.applications.removeDocument({ id, kind })),
+		],
+		[
+			T.autofillApplicationFromJob,
+			"autofilling application from job",
+			async (params) => json(await client.applications.ai.autofill(params as never)),
+		],
+		[
+			T.scoreApplicationMatch,
+			"scoring application match",
+			async ({ id }: { id: string }) => json(await client.applications.ai.matchScore({ id })),
+		],
+		[
+			T.tailorResumeForApplication,
+			"tailoring resume for application",
+			async ({ id }: { id: string }) => json(await client.applications.ai.tailorResume({ id })),
+		],
+		[
+			T.draftApplicationMessage,
 			"drafting application message",
 			async ({ id, kind }: { id: string; kind: "cover-letter" | "follow-up" }) =>
 				json(await client.applications.ai.draftMessage({ id, kind })),
-		),
-	);
+		],
+	];
+
+	for (const [name, label, handler] of coverLetterAndApplicationTools) {
+		server.registerTool(name, TOOL_META[name], withErrorHandling(label, handler) as never);
+	}
 }

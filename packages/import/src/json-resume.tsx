@@ -4,11 +4,15 @@ import { getNetworkIcon } from "@reactive-resume/resume/icons";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { generateId } from "@reactive-resume/utils/string";
-import { createUrl } from "@reactive-resume/utils/url";
 import { formatPeriod, formatSingleDate } from "./date";
 import { rethrowAsImportError } from "./error";
 import { arrayToHtmlList, toHtmlDescription } from "./html";
 import { parseLevel } from "./level";
+
+const createUrl = (url?: string, label?: string): { url: string; label: string } => {
+	if (!url) return { url: "", label: "" };
+	return { url, label: label || url };
+};
 
 const createItemWebsite = (url?: string, label?: string) => ({
 	...createUrl(url, label),

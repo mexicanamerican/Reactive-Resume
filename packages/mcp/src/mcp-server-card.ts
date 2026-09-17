@@ -1,6 +1,25 @@
 import { toJsonSchemaCompat } from "@modelcontextprotocol/sdk/server/zod-json-schema-compat.js";
 import { MCP_TOOL_NAME as T } from "./mcp-tool-names";
+import { PROMPT_META } from "./prompts";
 import { TOOL_META } from "./tool-meta";
+
+const RESUME_ID_ARGUMENT = [{ name: "id", description: "Resume ID.", required: true }] as const;
+
+/** Shared server identity for both the live MCP server and the static server card. */
+export function buildMcpServerInfo(version: string) {
+	return {
+		name: "reactive-resume",
+		version,
+		title: "Reactive Resume",
+		websiteUrl: "https://rxresu.me",
+		description:
+			"Reactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
+		icons: [
+			{ src: "https://rxresu.me/icon/light.svg", mimeType: "image/svg+xml", theme: "light" as const },
+			{ src: "https://rxresu.me/icon/dark.svg", mimeType: "image/svg+xml", theme: "dark" as const },
+		],
+	};
+}
 
 /**
  * Static MCP server card (SEP-1649 / well-known `mcp/server-card.json`).
@@ -19,27 +38,11 @@ export function buildMcpServerCard(appVersion: string) {
 		annotations,
 	}));
 
-	const prompts = [
-		{
-			name: "build_resume",
-			title: "Build Resume",
-			description: "Guide the user step-by-step through building a resume from scratch, section by section.",
-			arguments: [{ name: "id", description: "Resume ID.", required: true }],
-		},
-		{
-			name: "improve_resume",
-			title: "Improve Resume",
-			description: "Review resume content and suggest concrete improvements to wording, impact, and structure.",
-			arguments: [{ name: "id", description: "Resume ID.", required: true }],
-		},
-		{
-			name: "review_resume",
-			title: "Review Resume",
-			description:
-				"Get a structured, professional critique with a scorecard and prioritized recommendations. Read-only: no changes are made.",
-			arguments: [{ name: "id", description: "Resume ID.", required: true }],
-		},
-	];
+	const prompts = Object.entries(PROMPT_META).map(([name, meta]) => ({
+		name,
+		...meta,
+		arguments: [...RESUME_ID_ARGUMENT],
+	}));
 
 	const resources = [
 		{
@@ -91,18 +94,7 @@ export function buildMcpServerCard(appVersion: string) {
 				},
 			},
 		},
-		serverInfo: {
-			name: "reactive-resume",
-			version: appVersion,
-			title: "Reactive Resume",
-			websiteUrl: "https://rxresu.me",
-			description:
-				"Reactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
-			icons: [
-				{ src: "https://rxresu.me/icon/light.svg", mimeType: "image/svg+xml", theme: "light" as const },
-				{ src: "https://rxresu.me/icon/dark.svg", mimeType: "image/svg+xml", theme: "dark" as const },
-			],
-		},
+		serverInfo: buildMcpServerInfo(appVersion),
 		tools,
 		prompts,
 		resources,

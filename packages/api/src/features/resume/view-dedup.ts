@@ -1,4 +1,4 @@
-import { TRUSTED_IP_HEADERS } from "@reactive-resume/utils/rate-limit";
+export { getClientKey as clientKeyFromHeaders } from "../../middleware/rate-limit";
 
 // ponytail: in-memory per-process dedup window. Single-instance is the default deploy; for
 // multi-instance, swap the Map for a Redis SETNX+EXPIRE keyed the same way (REDIS_URL already
@@ -24,22 +24,4 @@ export function shouldCountView(key: string, now: number): boolean {
 
 	seen.set(key, now + WINDOW_MS);
 	return true;
-}
-
-// Mirrors the rate-limit middleware's client-key derivation so dedup and rate limiting agree on
-// "who is this viewer": trusted proxy IP first, then a user-agent + language fingerprint fallback.
-export function clientKeyFromHeaders(headers: Headers): string {
-	for (const headerName of TRUSTED_IP_HEADERS) {
-		const raw = headers.get(headerName)?.trim();
-		if (!raw) continue;
-
-		// Some proxies provide a comma-delimited chain; the first item is the original client.
-		const ip = raw.split(",")[0]?.trim();
-		if (ip) return `ip:${ip}`;
-	}
-
-	const userAgent = headers.get("user-agent")?.trim() ?? "unknown";
-	const language = headers.get("accept-language")?.split(",")[0]?.trim() ?? "none";
-
-	return `fp:${userAgent.slice(0, 64)}:${language.slice(0, 16)}`;
 }
