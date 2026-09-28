@@ -14,7 +14,7 @@ env:
 
 jobs:
   artifact:
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-32vcpu-ubuntu-2404' || 'ubuntu-latest' }}
     timeout-minutes: 20
     services:
       postgres:
@@ -36,7 +36,12 @@ jobs:
       VERCEL: "1"
       VERCEL_ENV: production
     steps:
-      - uses: actions/checkout@v6
+      - if: ${{ vars.USE_BLACKSMITH != 'true' }}
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
         with:
           persist-credentials: false
       - uses: pnpm/action-setup@v6
@@ -81,11 +86,16 @@ jobs:
 
   live-smoke:
     if: github.event_name == 'workflow_dispatch'
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
     environment: vercel-smoke
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v6
+      - if: ${{ vars.USE_BLACKSMITH != 'true' }}
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6

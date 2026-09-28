@@ -24,7 +24,7 @@ env:
 
 jobs:
   mode:
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
 
     outputs:
       nightly: ${{ steps.mode.outputs.nightly }}
@@ -61,10 +61,10 @@ jobs:
       matrix:
         include:
           - platform: linux/amd64
-            runner: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+            runner: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-32vcpu-ubuntu-2404' || 'ubuntu-latest' }}
             arch: amd64
           - platform: linux/arm64
-            runner: ${{ vars.CI_RUNNER_ARM64 || 'ubuntu-24.04-arm' }}
+            runner: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-32vcpu-ubuntu-2404-arm' || 'ubuntu-24.04-arm' }}
             arch: arm64
 
     runs-on: ${{ matrix.runner }}
@@ -78,10 +78,23 @@ jobs:
 
     steps:
       - name: Checkout Repository
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: actions/checkout@v6
 
+      - name: Checkout Repository (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
+
       - name: Setup Docker Buildx
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: docker/setup-buildx-action@v4
+
+      # Persists BuildKit layers and the Dockerfile's pnpm cache mounts between runs, one cache per architecture.
+      - name: Setup Docker Builder (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/setup-docker-builder@v2
+        with:
+          cache-key: Dockerfile-${{ matrix.arch }}
 
       - &registries
         name: Determine registries
@@ -133,17 +146,23 @@ jobs:
             type=sha,prefix=sha-,suffix=-${{ matrix.arch }}
 
       - name: Cache-only smoke build
-        if: ${{ needs.mode.outputs.canary == 'true' }}
+        if: ${{ needs.mode.outputs.canary == 'true' && vars.USE_BLACKSMITH != 'true' }}
         uses: docker/build-push-action@v7
-        with:
+        with: &cache-only-build
           context: .
           platforms: ${{ matrix.platform }}
           outputs: type=cacheonly
 
+      - name: Cache-only smoke build (Blacksmith)
+        if: ${{ needs.mode.outputs.canary == 'true' && vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/build-push-action@v2
+        with: *cache-only-build
+
       - name: Build and Push by Digest
         id: build
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: docker/build-push-action@v7
-        with:
+        with: &build-push
           context: .
           sbom: true
           push: true
@@ -153,10 +172,16 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
 
+      - name: Build and Push by Digest (Blacksmith)
+        id: build-blacksmith
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/build-push-action@v2
+        with: *build-push
+
       - name: Export digest
         run: |
           mkdir -p /tmp/digests
-          digest="${{ steps.build.outputs.digest }}"
+          digest="${{ steps.build.outputs.digest || steps.build-blacksmith.outputs.digest }}"
           touch "/tmp/digests/${digest#sha256:}"
 
       - name: Upload digest
@@ -172,7 +197,7 @@ jobs:
       - mode
       - build
     timeout-minutes: 30
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
 
     env:
       DEPLOY: ${{ secrets.SSH_KEY != '' && secrets.SSH_HOST != '' && secrets.SSH_USER != '' }}
@@ -186,10 +211,16 @@ jobs:
 
     steps:
       - name: Checkout Repository
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: actions/checkout@v6
-        with:
+        with: &checkout-package-json
           sparse-checkout: package.json
           sparse-checkout-cone-mode: false
+
+      - name: Checkout Repository (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
+        with: *checkout-package-json
 
       - name: Get version from package.json
         id: version

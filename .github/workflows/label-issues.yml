@@ -10,11 +10,18 @@ permissions:
 
 jobs:
   label:
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
 
     steps:
       - name: Checkout Repository
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Checkout Repository (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
         with:
           persist-credentials: false
 

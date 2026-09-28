@@ -13,11 +13,16 @@ env:
 
 jobs:
   autofix:
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-32vcpu-ubuntu-2404' || 'ubuntu-latest' }}
 
     steps:
       - name: Checkout Repository
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: actions/checkout@v6
+
+      - name: Checkout Repository (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
 
       - name: Check for merge conflict markers
         run: |

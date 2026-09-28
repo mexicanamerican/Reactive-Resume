@@ -7,10 +7,17 @@ The repository is `reactive-resume/reactive-resume`. Docker Hub remains
 ## Builds and release safety
 
 `.github/workflows/docker-build.yml` builds AMD64 and ARM64 on matching native runners.
-Repository variables `CI_RUNNER_X64` and `CI_RUNNER_ARM64` select the runner labels;
-they default to `ubuntu-latest` and `ubuntu-24.04-arm`, respectively. Other CI workflows
-also use `CI_RUNNER_X64`. Docker Buildx shares its local cache between steps within a job;
-no cache is persisted between workflow runs.
+All workflows run on GitHub-hosted runners (`ubuntu-latest`, `ubuntu-24.04-arm`) by default,
+so forks work without setup. Setting the repository variable `USE_BLACKSMITH=true` switches
+every job to Blacksmith runners (32 vCPU for build/test jobs, 2 vCPU for lightweight jobs) and
+swaps in `useblacksmith/checkout`, `useblacksmith/setup-docker-builder`, and
+`useblacksmith/build-push-action`. Because `uses:` cannot be an expression, each swapped
+action is a pair of steps gated on the variable; keep both halves in sync when editing.
+
+On GitHub-hosted runners, Docker Buildx shares its local cache between steps within a job and
+no cache is persisted between workflow runs. On Blacksmith, the builder persists layers and the
+Dockerfile's pnpm cache mounts between runs, keyed per architecture (`Dockerfile-amd64`,
+`Dockerfile-arm64`).
 
 | Trigger | Published aliases | Production deployment |
 | --- | --- | --- |

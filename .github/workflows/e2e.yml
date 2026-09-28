@@ -20,7 +20,7 @@ env:
 
 jobs:
   e2e:
-    runs-on: ${{ vars.CI_RUNNER_X64 || 'ubuntu-latest' }}
+    runs-on: ${{ vars.USE_BLACKSMITH == 'true' && 'blacksmith-32vcpu-ubuntu-2404' || 'ubuntu-latest' }}
     timeout-minutes: 30
 
     services:
@@ -40,7 +40,14 @@ jobs:
 
     steps:
       - name: Checkout Repository
+        if: ${{ vars.USE_BLACKSMITH != 'true' }}
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Checkout Repository (Blacksmith)
+        if: ${{ vars.USE_BLACKSMITH == 'true' }}
+        uses: useblacksmith/checkout@v1
         with:
           persist-credentials: false
 
