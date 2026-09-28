@@ -1,5 +1,6 @@
 // biome-ignore-all lint/style/noNonNullAssertion: These tests assert imported section lengths before inspecting the first item.
 import { describe, expect, it } from "vitest";
+import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { parseJSONResume } from "./json-resume";
 
 describe("parseJSONResume", () => {
@@ -186,5 +187,13 @@ describe("parseJSONResume", () => {
 		const project = result.sections.projects.items[0]!;
 		expect(project.name).toBe("Open source CLI");
 		expect(project.description).toContain("10k stars");
+	});
+
+	it("does not leak section data from one import into the next", () => {
+		parseJSONResume(JSON.stringify({ work: [{ name: "Acme", position: "Engineer" }] }));
+		const next = parseJSONResume("{}");
+
+		expect(next.sections.experience.items).toHaveLength(0);
+		expect(defaultResumeData.sections.experience.items).toHaveLength(0);
 	});
 });
