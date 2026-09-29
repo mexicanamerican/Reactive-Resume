@@ -29,6 +29,11 @@
     <a href="https://github.com/sponsors/AmruthPillai"><img src="https://img.shields.io/github/sponsors/AmruthPillai?style=flat-square&label=sponsors" alt="Sponsors" /></a>
     <a href="https://opencollective.com/reactive-resume/donate"><img src="https://img.shields.io/opencollective/backers/reactive-resume?style=flat-square&label=donations" alt="Donations" /></a>
   </p>
+
+  <br />
+  <a href="https://vercel.com/open-source-program">
+    <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge-2026.svg" />
+  </a>
 </div>
 
 ---
