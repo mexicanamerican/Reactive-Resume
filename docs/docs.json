@@ -197,7 +197,8 @@
 	},
 	"logo": {
 		"light": "/logo/light.svg",
-		"dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "https://rxresu.me"
 	},
 	"navbar": {
 		"links": [
@@ -220,5 +221,11 @@
 			"website": "https://rxresu.me",
 			"github": "https://github.com/reactive-resume/reactive-resume"
 		}
-	}
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "background": {
+    "decoration": "grid"
+  }
 }
